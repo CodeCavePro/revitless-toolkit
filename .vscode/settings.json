@@ -1,0 +1,27 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+    // Configure glob patterns for excluding files and folders.
+    "files.exclude": {
+        // Output directry and auxiliary obj directory
+        "**/bin": true,
+        "**/obj": true,
+
+        // Backup files
+        "**/*.bak": true,
+
+        // Visual Studio / MonoDevelop projects and solutions files
+        "**/.vs": true,
+        "**/*.sln*": true,
+        "**/*.suo": true,
+        "**/*.userprefs": true,
+        "**/*.csproj*": true,
+        "**/*.xproj*": true,
+        "**/*.projitems": true,
+        "**/*.shproj": true,
+        "**/Properties": true,
+
+        "**/packaging": true,
+        "**/packages": true,
+        "**nuget.config": true
+    }
+}

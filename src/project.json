@@ -1,5 +1,19 @@
 ﻿{
-  "supports": {},
+  "version": "1.0.0-*",
+
+  "tooling": {
+    "defaultNamespace": "CodeCave.Revit.Toolkit"
+  },
+
+  // Control various aspects of compilation
+  "buildOptions": {
+    "outputName": "Revit.Toolkit",
+    "debugType": "portable",
+    "preserveCompilationContext": true
+  },
+
+  // Defines the package dependencies of the project,
+  // each key of this object is the name of a package and each value contains versioning information
   "dependencies": {
     "CodeCave.CAD.Toolkit": "1.0.3-beta003",
     "Microsoft.NETCore.Portable.Compatibility": "1.0.1",
@@ -8,7 +22,30 @@
     "System.Xml.XmlDocument": "4.0.1",
     "System.Xml.XmlSerializer": "4.0.11"
   },
+
+  // Specifies which frameworks this project supports,
+  // such as the .NET Framework or Universal Windows Platform (UWP)
   "frameworks": {
     "netstandard1.3": {}
+  },
+
+  "supports": {},
+  
+  // List of runtime identifiers (RIDs) supported by the project
+  "runtimes": {
+    "win10-x64": {},
+    "ubuntu.16.04-x64": {}
+  },
+
+  // Specifies parameters to be provided to the runtime during initialization
+  "runtimeOptions": {
+    "configProperties": {
+      "System.GC.Server": true
+    }
+  },
+
+  // Scripts run during the build process (precompile, postcompile, prepublish, postpublish)
+  "scripts": {
+    "prebuild": [ "dotnet restore" ]
   }
 }

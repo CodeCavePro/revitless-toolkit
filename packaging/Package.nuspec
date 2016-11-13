@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>CodeCave.Revit.Toolkit</id>
+    <version>1.0.1-beta006</version>
+    <title>Revit.Toolkit</title>
+    <authors>Zhmayev Yaroslav</authors>
+    <owners>salaros, CodeCave</owners>
+    <copyright>Copyright 2016 (c) CodeCave, PUE</copyright>
+    <summary>
+      A toolkit for processing .rfa, .rvt etc without Revit
+    </summary>
+    <description>
+      A toolkit for processing .rfa, .rvt etc without Revit
+    </description>
+    <releaseNotes></releaseNotes>
+    <projectUrl>https://nuget.org/packages/CAD.Toolkit</projectUrl>
+    <licenseUrl>https://www.gnu.org/licenses/lgpl-3.0.en.html</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <dependencies>
+      <dependency id="CodeCave.CAD.Toolkit" version="1.0.3-beta003" />
+      <dependency id="OpenMcdf-2" version="2.0.0-beta-3" />
+      <dependency id="System.IO.FileSystem" version="4.0.1" />
+      <dependency id="System.Xml.XmlDocument" version="4.0.1" />
+      <dependency id="System.Xml.XmlSerializer" version="4.0.11" />
+    </dependencies>
+    <references></references>
+    <tags>Revit, Metadata, Thumbnail, Parameters, PartAtom, OLE</tags>
+  </metadata>
+  <files>
+    <file src="..\bin\Release\netstandard1.3\*" target="lib\netstandard1.3" />
+    <file src="tools\" target="tools" />
+    <file src="content\" target="content" />
+  </files>
+</package>

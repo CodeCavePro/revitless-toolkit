@@ -64,7 +64,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="content\" />
-    <Folder Include="src\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\src\Toolkit.csproj">

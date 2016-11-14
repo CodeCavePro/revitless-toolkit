@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>CodeCave.Revit.Toolkit</id>
-    <version>1.0.1-beta006</version>
+    <version>1.0.2-beta002</version>
     <title>Revit.Toolkit</title>
     <authors>Zhmayev Yaroslav</authors>
     <owners>salaros, CodeCave</owners>

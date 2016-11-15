@@ -39,10 +39,19 @@
     <!-- A reference to the entire .NET Framework is automatically included -->
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Decompiled\BuiltInParameter.cs" />
+    <Compile Include="Decompiled\BuiltInParameterGroup.cs" />
+    <Compile Include="Decompiled\DisplayUnitType.cs" />
+    <Compile Include="Decompiled\FlowDirectionType.cs" />
+    <Compile Include="Decompiled\MEPSystemClassification.cs" />
+    <Compile Include="Decompiled\ParameterType.cs" />
+    <Compile Include="Decompiled\PipeFlowConfigurationType.cs" />
+    <Compile Include="Decompiled\UnitGroup.cs" />
+    <Compile Include="Decompiled\UnitSymbolType.cs" />
+    <Compile Include="Decompiled\UnitType.cs" />
     <Compile Include="Enum.cs" />
     <Compile Include="OLE\BasicFileInfo.cs" />
     <Compile Include="OLE\OleDataReader.cs" />
-    <Compile Include="OLE\PartAtom.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="OLE\RFATumbnailExtractor.cs" />
   </ItemGroup>

@@ -5,9 +5,9 @@ using System.Xml;
 using System.Xml.Serialization;
 using OpenMcdf;
 
-namespace CodeCave.Revit.Toolkit
+namespace CodeCave.Revit.Toolkit.OLE
 {
-    public class OleInfo
+    public class OleDataReader
     {
         /// <summary>
         /// Gets the raw XML data.
@@ -87,9 +87,6 @@ namespace CodeCave.Revit.Toolkit
                 }
 
                 bytes = basicInfoStream.GetData();
-
-                compoundFile.Close();
-                compoundFile = null;
             }
             catch (Exception ex)
             {

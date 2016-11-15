@@ -3,7 +3,7 @@ using System.Drawing;
 using System.IO;
 using CodeCave.CAD.Toolkit;
 
-namespace CodeCave.Revit.Toolkit
+namespace CodeCave.Revit.Toolkit.OLE
 {
     /// <summary>
     /// Utility class for Revit (.rfa, .rvt etc) thumbnail creation
@@ -25,7 +25,7 @@ namespace CodeCave.Revit.Toolkit
         {
             try
             {
-                var thumbnailBytes = OleInfo.GetRawBytes(pathToFile, RevitFile.OleStorage.IMAGE_STREAM);
+                var thumbnailBytes = OleDataReader.GetRawBytes(pathToFile, RevitFile.OleStorage.IMAGE_STREAM);
                 // Validate preview data or go out
                 if ((thumbnailBytes == null) || (thumbnailBytes.Length <= 0))
                 {

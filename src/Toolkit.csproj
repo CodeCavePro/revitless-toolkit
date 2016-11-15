@@ -44,6 +44,7 @@
     <Compile Include="Decompiled\DisplayUnitType.cs" />
     <Compile Include="Decompiled\FlowDirectionType.cs" />
     <Compile Include="Decompiled\MEPSystemClassification.cs" />
+    <Compile Include="Decompiled\OmniClassTaxonomy.cs" />
     <Compile Include="Decompiled\ParameterType.cs" />
     <Compile Include="Decompiled\PipeFlowConfigurationType.cs" />
     <Compile Include="Decompiled\UnitGroup.cs" />

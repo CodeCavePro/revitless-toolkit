@@ -11,10 +11,10 @@
   "dependencies": {
     "CodeCave.CAD.Toolkit": "1.0.3-beta004",
     "Microsoft.NETCore.Portable.Compatibility": "1.0.1",
-    "NETStandard.Library": "1.6.0",
-    "OpenMcdf-2": "2.0.1",
-    "System.Xml.XmlDocument": "4.0.1",
-    "System.Xml.XmlSerializer": "4.0.11"
+    "NETStandard.Library": "2.0.0-preview1-25301-01",
+    "OpenMcdf-2": "2.0.2",
+    "System.Xml.XmlDocument": "4.3.0",
+    "System.Xml.XmlSerializer": "4.3.0"
   },
   "frameworks": {
     "netstandard1.3": {}

@@ -241,3 +241,6 @@ ModelManifest.xml
 # FAKE - F# Make
 .fake/
 /packaging
+
+# Exclude backups
+*.bak*

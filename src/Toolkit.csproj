@@ -1,67 +1,30 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{84C2E7A9-0149-4F12-86BD-3C10B720C4D8}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Description>A toolkit for processing .rfa, .rvt etc without Revit</Description>
+    <Product>CodeCave.Revit.Toolkit</Product>
+    <Company>CodeCave, PUE</Company>
+    <Authors>Zhmayev Yaroslav aka Salaros</Authors>
+    <Copyright>Copyright 2016 (c) CodeCave, PUE</Copyright>
+    <AssemblyVersion>1.0.3.0</AssemblyVersion>
+    <NeutralLanguage>en</NeutralLanguage>
+    <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Version>1.0.3.0</Version>
+    <PackageTags>revit, api</PackageTags>
+    <PackageId>CodeCave.Revit.Toolkit</PackageId>
     <RootNamespace>CodeCave.Revit.Toolkit</RootNamespace>
-    <AssemblyName>Revit.Toolkit</AssemblyName>
-    <DefaultLanguage>en-US</DefaultLanguage>
-    <FileAlignment>512</FileAlignment>
-    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <TargetFrameworkProfile>
-    </TargetFrameworkProfile>
-    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>..\bin\Debug\netstandard1.3\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>..\bin\Release\netstandard1.3\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
+
   <ItemGroup>
-    <None Include="project.json" />
-    <!-- A reference to the entire .NET Framework is automatically included -->
+    <PackageReference Include="CodeCave.CAD.Toolkit" Version="1.0.3-beta004" />
+    <PackageReference Include="CsvHelper" Version="3.0.0-chi02" />
+    <PackageReference Include="OpenMcdf-2" Version="2.0.2" />
   </ItemGroup>
+
   <ItemGroup>
-    <Compile Include="Decompiled\BuiltInParameter.cs" />
-    <Compile Include="Decompiled\BuiltInParameterGroup.cs" />
-    <Compile Include="Decompiled\DisplayUnitType.cs" />
-    <Compile Include="Decompiled\FlowDirectionType.cs" />
-    <Compile Include="Decompiled\MEPSystemClassification.cs" />
-    <Compile Include="Decompiled\OmniClassTaxonomy.cs" />
-    <Compile Include="Decompiled\ParameterType.cs" />
-    <Compile Include="Decompiled\PipeFlowConfigurationType.cs" />
-    <Compile Include="Decompiled\UnitGroup.cs" />
-    <Compile Include="Decompiled\UnitSymbolType.cs" />
-    <Compile Include="Decompiled\UnitType.cs" />
-    <Compile Include="Enum.cs" />
-    <Compile Include="OLE\BasicFileInfo.cs" />
-    <Compile Include="OLE\OleDataReader.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="OLE\RFATumbnailExtractor.cs" />
+    <Folder Include="Properties\" />
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+
 </Project>

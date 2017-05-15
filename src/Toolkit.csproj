@@ -18,6 +18,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="OLE\PartAtom.bak\**" />
+    <EmbeddedResource Remove="OLE\PartAtom.bak\**" />
+    <None Remove="OLE\PartAtom.bak\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="OmniClass\OmniClassTaxonomy_FoodService.txt" />
+    <None Remove="OmniClass\OmniClassTaxonomy_Vanilla.txt" />
+    <None Remove="Toolkit.csproj.DotSettings" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="OmniClass\OmniClassTaxonomy_FoodService.txt" />
+    <EmbeddedResource Include="OmniClass\OmniClassTaxonomy_Vanilla.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="CodeCave.CAD.Toolkit" Version="1.0.3-beta004" />
     <PackageReference Include="CsvHelper" Version="3.0.0-chi02" />
     <PackageReference Include="OpenMcdf-2" Version="2.0.2" />

@@ -1,0 +1,2645 @@
+23.10.00.00	Site Products	1	
+23.10.05.00	Ground Anchorages	2	
+23.10.05.10	Retaining/Stabilizing Ground Anchors	3	
+23.10.05.10.11	Components	4	
+23.10.05.10.11.11	Anchor Heads	5	
+23.10.05.10.11.12	Tendons	5	
+23.10.05.10.14	Grouted Anchors	4	
+23.10.05.10.17	Plate Anchors	4	
+23.10.05.10.21	Rock Bolts, Rock Anchors	4	
+23.10.05.10.24	Anchor Tiebacks	4	
+23.10.05.20	Earth Reinforcement Anchors	3	
+23.10.05.20.11	Soil Nails	4	
+23.10.05.99	Other Ground Anchorages	3	
+23.10.10.00	Ground Improvement Products	2	
+23.10.10.12	Land/Field Drainage	3	
+23.10.10.12.10	Piped Drainage	4	
+23.10.10.12.10.11	Land Drainage Pipes	5	
+23.10.10.12.20	Drainage Blocks	4	
+23.10.20.00	Retention Structures	2	
+23.10.20.11	Sheet Piles	3	-2000151
+23.10.20.14	Retaining Walls	3	-2000011
+23.10.20.14.10	Diaphragm Walls	4	-2000011
+23.10.20.14.10.11	Slurry Wall Membranes	5	-2000011
+23.10.20.14.20	Continuous Retaining Walls	4	-2000011
+23.10.20.14.30	Crib Walls	4	-2000011
+23.15.10.00	Pavements	2	-2001220
+23.15.10.11	Roadways and Runways	3	-2001220
+23.15.10.11.11	Complete Roadway and Runways	4	-2001220
+23.15.10.11.11.11	Portable Roadways	5	-2001220
+23.15.10.11.11.14	Helicopter Landing Pads	5	-2001220
+23.15.10.11.14	Roadway and Runway Surfacing	4	
+23.15.10.11.14.11	Antiskid Texturing	5	
+23.15.10.11.14.14	Paving Blocks, Slabs	5	
+23.15.10.11.14.14.11	Unit Pavers	6	
+23.15.10.11.14.14.11.11	Asphalt Block Pavers	7	
+23.15.10.11.14.14.11.14	Brick Pavers	7	
+23.15.10.11.14.14.11.17	Interlocking Precast Concrete Pavers	7	
+23.15.10.11.14.14.11.21	Precast Concrete Pavers	7	
+23.15.10.11.14.14.11.24	Pressed Pavers	7	
+23.15.10.11.14.14.11.27	Stone Pavers	7	
+23.15.10.11.14.17	Continuous Surface Paving's	5	
+23.15.10.11.17	Roadway and Runway Drainage	4	-2001260
+23.15.10.11.17.11	Culverts	5	-2001260
+23.15.10.11.17.11.11	Pipe Culverts	6	-2001260
+23.15.10.11.17.11.11.11	Metal Pipe – Arch Culverts	7	-2001260
+23.15.10.11.17.11.14	Concrete Culverts	6	-2001260
+23.15.10.11.17.11.14.11	Concrete Arch Buried Bridge	7	-2001260
+23.15.10.11.17.11.14.14	Concrete Arch Culverts	7	-2001260
+23.15.10.11.17.11.14.17	Concrete Box Culverts	7	-2001260
+23.15.10.11.17.11.14.21	Concrete Rigid Frame Culverts	7	-2001260
+23.15.10.11.17.14	Catch Basins	5	-2001260
+23.15.10.11.17.17	Channels	5	-2001260
+23.15.10.11.17.21	Cleanouts	5	-2001260
+23.15.10.11.21	Traffic Safety Barriers and Protections	4	-2001260
+23.15.10.11.21.11	Safety Barriers	5	-2001260
+23.15.10.11.21.11.11	Crash Barriers ( including Impact Attenuating Devices)	6	-2001260
+23.15.10.11.21.11.14	Median Barriers	6	-2001260
+23.15.10.11.21.11.17	Guardrails	6	-2001260
+23.15.10.11.21.14	Noise Barriers	5	-2001260
+23.15.10.11.21.17	Traffic Barriers	5	-2001260
+23.15.10.11.21.17.11	Delineators	6	-2001260
+23.15.10.11.21.21	Traffic Control	5	-2001260
+23.15.10.11.21.21.11	Speed Bumps	6	-2001260
+23.15.10.11.21.24	Curbs and Gutters	5	-2001260
+23.15.10.11.21.27	Cattle Guards	5	-2001260
+23.15.10.14	Roadway Monitoring and Control	3	-2001260
+23.15.10.14.11	Roadway Signage,	4	-2001260
+23.15.10.14.14	Roadway Markers	4	-2001260
+23.15.10.14.14.11	Roadway Surface Markings	5	-2001260
+23.15.10.14.14.14	Roadway Reflectors	5	-2001260
+23.15.10.14.14.17	Traffic Cones	5	-2001260
+23.15.10.14.17	Traffic Signals	4	-2001260
+23.15.10.14.21	Traffic Monitoring	4	-2001260
+23.15.10.14.21.11	Roadway Mirrors	5	-2001260
+23.15.10.14.21.14	Cameras	5	-2001260
+23.15.10.14.21.17	Detectors and Sensors	5	-2001260
+23.15.10.14.24	Parking Controls	4	-2001260
+23.15.10.14.24.11	Parking Meters	5	-2001260
+23.15.10.14.24.14	Ticket Dispensers	5	-2001260
+23.15.10.14.24.17	Coin Machine Units	5	-2001260
+23.15.10.14.24.21	Key and Card Control Units	5	-2001260
+23.15.10.14.24.24	Parking Gates	5	-2001260
+23.15.30.21	Solid Waste Disposal Plant Products	3	-2001350
+23.15.30.21.11	Bins	4	-2001350
+23.15.30.21.14	Chutes and Collectors	4	-2001350
+23.15.30.21.17	Pneumatic Waste Equipment	4	-2001350
+23.15.30.21.24	Crusher Plant	4	-2001350
+23.15.30.21.24.11	Waste Compactors and Destructors	5	-2001350
+23.15.30.24	Pollution Monitoring and Control	3	-2001350
+23.15.30.24.11	Air Pollution Monitoring Systems	4	-2001350
+23.15.30.24.14	Water Pollution Monitoring Systems	4	-2001350
+23.15.30.27	Storage Constructions	3	-2001350
+23.15.30.27.11	Tanks, Reservoirs	4	-2001140
+23.15.30.27.11.11	Elevated Storage Tanks	5	-2001140
+23.15.30.27.11.14	Ground Storage Tanks	5	-2001140
+23.15.30.27.11.17	Underground Storage Tanks	5	-2001140
+23.15.30.27.11.21	Portable Storage Tanks	5	-2001140
+23.15.30.27.11.24	Tank Lining	5	-2001350
+23.15.30.27.21	Gas Tanks and Gasholders	4	-2001140
+23.15.99.00	Other Utility and Transportation Construction Products	2	
+23.20.00.00	General Purpose Construction Accessories and Surfacing Products	1	
+23.20.15.00	Mixtures	2	
+23.20.15.11	Concrete	3	
+23.20.15.11.11	Cementitious Concrete	4	
+23.20.15.11.14	Resinous Concrete	4	
+23.20.15.11.17	Hydrocarbon Concrete	4	
+23.20.15.11.21	Low Density Concrete	4	
+23.20.15.14	Mortars	3	
+23.20.15.14.11	Portland Cement-Lime Mortars	4	
+23.20.15.14.14	Masonry Cement Mortars	4	
+23.20.15.14.17	Mortar Cements	4	
+23.20.15.14.21	Gypsum Based Mortars	4	
+23.20.15.14.24	Resinous Mortar	4	
+23.20.15.14.27	Chemical-Resistant Mortar	4	
+23.20.15.14.31	Refractory Mortar	4	
+23.20.15.14.34	Premixed Mortar	4	
+23.20.15.14.37	Surface Bonding Mortar	4	
+23.20.15.14.41	Mortar Pigments	4	
+23.20.15.17	Grouts	3	
+23.20.15.17.11	Concrete Grout	4	
+23.20.15.17.11.11	Shrink-Resistant Concrete Grout	5	
+23.20.15.17.11.14	Catalyzed Metallic Concrete Grout	5	
+23.20.15.17.11.17	Epoxy Concrete Grout	5	
+23.20.15.17.11.21	Nonmetallic Concrete Grout	5	
+23.20.15.17.14	Masonry Grout	4	
+23.20.15.17.14.11	Chemical-Resistant Masonry Grout	5	
+23.20.20.00	Profiles	2	
+23.20.20.11	Rigid Profiles	3	
+23.20.20.11.11	Ferrous Metal Rigid Profiles	4	
+23.20.20.11.14	Non-Ferrous Metal Rigid Profiles	4	
+23.20.20.11.17	Wood Rigid Profiles	4	
+23.20.20.11.17.11	Lumber Rigid Profiles	5	
+23.20.20.11.17.11.11	Hardwood Rigid Profiles	6	
+23.20.20.11.17.11.14	Softwood Rigid Profiles	6	
+23.20.20.11.17.11.17	Laminated Rigid Profiles	6	
+23.20.20.11.17.14	Heavy Timber Rigid Profiles	5	
+23.20.20.11.21	Plastic Rigid Profiles	4	
+23.20.20.11.24	Composite Rigid Profiles	4	
+23.20.20.14	Flexible Profiles	3	
+23.20.20.14.11	Plastic Flexible Profiles	4	
+23.20.20.14.14	Rubber Flexible Profiles	4	
+23.20.20.14.14.11	Natural Rubber Flexible Profiles	5	
+23.20.20.14.14.14	Butyl Flexible Profiles	5	
+23.20.20.14.14.17	Neoprene Flexible Profiles	5	
+23.20.20.14.14.21	Silicone Flexible Profiles	5	
+23.20.20.14.14.24	Polysulfide Flexible Profiles	5	
+23.20.20.17	Lath	3	
+23.20.20.17.11	Gypsum Lath	4	
+23.20.20.17.14	Lead-Lined Lath	4	
+23.20.20.17.17	Metal Lath	4	
+23.20.20.17.21	Veneer Plaster Base Lath	4	
+23.20.20.17.24	Wood Lath	4	
+23.20.25.00	Sheets, Boards, and Slabs	2	
+23.20.25.11	Thin Flexible Sheets 	3	
+23.20.25.11.11	Thin Sheets	4	
+23.20.25.11.11.11	Thin Metal Sheets	5	
+23.20.25.11.11.14	Thin Wood Sheets	5	
+23.20.25.11.11.17	Building Papers	5	
+23.20.25.11.11.21	Thin Plastic Sheets	5	
+23.20.25.11.11.24	Thin Rubber Sheets	5	
+23.20.25.11.14	Textiles	4	
+23.20.25.11.17	Mesh for General Use	4	
+23.20.25.14	Rigid Sheets, Slabs, Plates	3	
+23.20.25.14.11	Solid Sheets	4	
+23.20.25.14.11.11	Solid Stone Sheets	5	
+23.20.25.14.11.14	Solid Cementitious Sheets	5	
+23.20.25.14.11.17	Solid Mineral Sheets	5	
+23.20.25.14.11.21	Solid Glass Sheets	5	
+23.20.25.14.11.24	Solid Metal Sheets	5	
+23.20.25.14.11.27	Solid Wood-Based Sheets	5	
+23.20.25.14.11.31	Solid Plastic Sheets	5	
+23.20.25.14.14	Hollow Core Sheets	4	
+23.20.25.14.14.11	Wood-Based Hollow Core Sheets	5	
+23.20.25.14.14.14	Mineral Hollow Core Sheets	5	
+23.20.25.14.14.17	Metal Hollow Core Sheets	5	
+23.20.25.14.14.21	Plastic Hollow Core Sheets	5	
+23.20.25.17	Gratings	3	
+23.20.25.21	Blankets, Quilts	3	
+23.20.30.00	Blocks and Bricks	2	
+23.20.30.11	Blocks	3	
+23.20.30.11.11	Concrete Masonry Units	4	
+23.20.30.11.11.11	Concrete Block	5	
+23.20.30.11.11.14	Exposed Aggregate Concrete Masonry Units	5	
+23.20.30.11.11.17	Fluted Concrete Masonry Units	5	
+23.20.30.11.11.21	Interlocking Concrete Masonry Units	5	
+23.20.30.11.11.24	Molded-Face Concrete Masonry Units	5	
+23.20.30.11.11.27	Prefaced Concrete Masonry Units	5	
+23.20.30.11.11.31	Preinsulated Concrete Masonry Units	5	
+23.20.30.11.11.34	Sound-Absorbing Concrete Masonry Units	5	
+23.20.30.11.11.37	Split-Face Concrete Masonry Units	5	
+23.20.30.11.14	Calcium Silicate Masonry Units	4	
+23.20.30.11.17	Glass Masonry Units	4	
+23.20.30.11.21	Adobe Masonry Units	4	
+23.20.30.11.24	Clay Masonry Units	4	
+23.20.30.11.24.11	Common Brick	5	
+23.20.30.11.24.14	Face Brick	5	
+23.20.30.11.24.17	Fire Brick	5	
+23.20.30.11.24.21	Glazed Brick	5	
+23.20.30.11.24.24	Ceramic Glazed Clay Masonry Units	5	
+23.20.30.11.24.27	Clay Tile	5	
+23.20.30.11.24.31	Structural Clay Tile	5	
+23.20.30.11.24.34	Clay Flue Lining	5	
+23.20.30.11.24.37	Terra Cotta	5	
+23.20.30.14	Masonry Anchorage and Reinforcement	3	
+23.20.30.14.11	Masonry Reinforcing	4	
+23.20.30.14.11.11	Continuous Joint Reinforcing	5	
+23.20.30.14.11.14	Reinforcing Bars	5	
+23.20.30.14.14	Masonry Ties	4	
+23.20.30.14.14.11	Flexible Masonry Ties	5	
+23.20.30.14.14.14	Masonry Veneer Ties	5	
+23.20.30.14.14.17	Rigid Masonry Ties	5	
+23.20.30.14.17	Masonry Anchors	4	
+23.20.30.14.17.11	Masonry Veneer Anchors	5	
+23.20.30.14.17.14	Stone Masonry Anchors	5	
+23.20.30.17	Special Profiles for Masonry 	3	
+23.20.30.17.11	Special Masonry Shapes	4	
+23.20.30.17.14	Masonry Sills and Thresholds	4	
+23.20.30.17.17	Masonry Moldings	4	
+23.20.30.17.21	Masonry Copings	4	
+23.20.30.17.24	Masonry Quoins	4	
+23.20.30.17.27	Masonry Cornices	4	
+23.20.30.21	Structural Support for Masonry	3	
+23.20.30.21.11	Lintels	4	
+23.20.30.21.11.11	Lintel Former Units	5	
+23.20.30.21.14	Wall Connectors and Starters	4	
+23.20.30.21.17	Supports for Masonry	4	
+23.20.30.21.17.11	Masonry Angles	5	
+23.20.30.21.17.11.11	Masonry Shelf Angles	6	
+23.20.30.21.17.14	Gussets	5	
+23.20.30.24	Ancillary Products for Masonry	3	
+23.20.30.24.11	Embedded Flashing	4	
+23.20.30.24.14	Cavity Closers	4	
+23.20.30.24.17	Cavity Weep and Ventilation Units	4	
+23.20.30.24.17.11	Weeps	5	
+23.20.30.24.17.14	Cavity Vents	5	
+23.20.30.24.17.17	Drainage Material	5	
+23.20.30.24.21	Joint Materials	4	
+23.20.30.24.21.11	Control Joints	5	
+23.20.30.24.21.14	Expansion Joints	5	
+23.20.30.24.24	Airbricks	4	
+23.20.40.00	Mechanical Fasteners, Adhesives, and Sealants	2	
+23.20.40.11	Mechanical Fasteners	3	
+23.20.40.11.11	Cast-In Anchorages	4	
+23.20.40.11.11.11	Rail Anchors	5	
+23.20.40.11.11.14	Screw Cases	5	
+23.20.40.11.11.17	Anchor Blocks	5	
+23.20.40.11.11.21	Inserts	5	
+23.20.40.11.11.21.11	Adjustable Wedge	6	
+23.20.40.11.11.21.14	Adjustable Box	6	
+23.20.40.11.11.21.17	Threaded	6	
+23.20.40.11.11.24	Dovetail Slots	5	
+23.20.40.11.14	Multi-Purpose Mechanical Fasteners	4	
+23.20.40.11.14.11	Plugs	5	
+23.20.40.11.14.14	Staples	5	
+23.20.40.11.14.17	Nails	5	
+23.20.40.11.14.21	Rivets	5	
+23.20.40.11.14.24	Screws	5	
+23.20.40.11.14.27	Bolts and Nuts	5	
+23.20.40.11.14.31	Threaded Rods and Nuts	5	
+23.20.40.11.14.34	Bandings	5	
+23.20.40.11.17	Structural Mechanical Fasteners in Hardened Concrete and Masonry	4	
+23.20.40.11.17.11	Expansion Anchors	5	
+23.20.40.11.17.14	Undercut Anchors	5	
+23.20.40.11.17.17	Bonded Anchors	5	
+23.20.40.11.21	Mechanical Fasteners for Metal Structures	4	
+23.20.40.11.24	Mechanical Fasteners for Wood Structures	4	
+23.20.40.11.24.11	Nail Plates	5	
+23.20.40.11.24.14	Wood Connectors	5	
+23.20.40.11.24.17	Framing Anchors	5	
+23.20.14.24	Joint Fillers, Sealants, and Mastics	3	
+23.20.14.24.11	Joint Fillers	4	
+23.20.14.24.11.11	Backer Rods	5	
+23.20.14.24.14	Putties	4	
+23.20.14.24.17	Construction Sealants	4	
+23.20.14.24.17.11	Elastomeric Construction Sealants	5	
+23.20.14.24.17.14	Rigid Construction Sealants	5	
+23.20.14.24.17.17	Sanitary Construction Sealants	5	
+23.20.14.24.17.21	Chemical-Resistant Construction Sealants	5	
+23.20.14.24.17.24	Water-Immersed Construction Sealants	5	
+23.20.14.24.21	Preformed Joint Seals	4	
+23.20.14.24.21.11	Compression Seals	5	
+23.20.14.24.21.14	Joint Gaskets	5	
+23.20.14.27	Ropes, Wires, and Cables	3	
+23.20.14.27.11	Ropes	4	
+23.20.14.27.14	Wires	4	
+23.20.14.27.17	Cables	4	
+23.20.50.00	Thermal and Moisture Protective Products 	2	
+23.20.50.11	Fireproofing	3	
+23.20.50.11.11	Board Fireproofing	4	
+23.20.50.11.11.11	Calcium Silicate Board Fireproofing	5	
+23.20.50.11.11.14	Slag FiberBoard Fireproofing	5	
+23.20.50.11.14	Blanket Fireproofing	4	
+23.20.50.11.14.11	Smoke Containment Barriers	5	
+23.20.50.11.17	Fireproofing Coatings	4	
+23.20.50.11.17.11	Cement Aggregate Fireproofing	5	
+23.20.50.11.17.14	Cementitious Fireproofing	5	
+23.20.50.11.17.17	Foamed Magnesium Oxychloride Fireproofing	5	
+23.20.50.11.17.21	Intumescent Mastic Fireproofing	5	
+23.20.50.11.17.24	Magnesium Cement Fireproofing	5	
+23.20.50.11.17.27	Mineral Fiber Cementitious Fireproofing	5	
+23.20.50.11.17.31	Miner Fiber Fireproofing	5	
+23.20.50.14	Firestopping	3	
+23.20.50.14.11	Penetrations Firestopping	4	
+23.20.50.14.11.11	Annular Space Protection	5	
+23.20.50.14.11.14	Fire Resistant Joint Sealants	5	
+23.20.50.14.11.17	Firestopping Foams	5	
+23.20.50.14.11.17.11	Intumescent Firestopping Foams	6	
+23.20.50.14.11.17.14	Silicone Firestopping Foams	6	
+23.20.50.14.11.21	Firestopping Mortars	5	
+23.20.50.14.11.24	Firestopping Pillows	5	
+23.20.50.14.11.27	Thermal Barriers for Plastics	5	
+23.20.50.14.14	Fire-Safing	4	
+23.20.50.14.14.11	Fibrous Blankets	5	
+23.20.50.14.14.14	Fire-Safing Sealants	5	
+23.20.50.14.14.17	Fire-Safing Clip Anchors	5	
+23.20.50.17	Dampproofings	3	
+23.20.50.17.11	Dampproofing Membranes	4	
+23.20.50.17.14	Dampproofing Coatings	4	
+23.20.50.17.14.11	Bituminous Dampproofing Coatings	5	
+23.20.50.17.14.14	Cementitious Dampproofing Coatings	5	
+23.20.50.21	Waterproofing	3	
+23.20.50.21.11	Built-Up Bituminous Waterproofing	4	
+23.20.50.21.14	Sheet Waterproofing	4	
+23.20.50.21.14.11	Bituminous Sheet Waterproofing	5	
+23.20.50.21.14.14	Elastomeric Sheet Waterproofing	5	
+23.20.50.21.14.17	Modified Bituminous Sheet Waterproofing	5	
+23.20.50.21.14.21	Thermoplastic Sheet Waterproofing	5	
+23.20.50.21.17	Fluid-Applied Waterproofing	4	
+23.20.50.21.17.11	Hot-Applied Rubberized Asphalt	5	
+23.20.50.21.21	Sheet Metal Waterproofing	4	
+23.20.50.21.24	Cementitious and Reactive Waterproofing	4	
+23.20.50.21.24.11	Acrylic Modified Cement Waterproofing	5	
+23.20.50.21.24.14	Crystalline Waterproofing	5	
+23.20.50.21.24.17	Metal Oxide Waterproofing	5	
+23.20.50.21.27	Bentonite Waterproofing	4	
+23.20.50.21.27.11	Bentonite Panel Waterproofing	5	
+23.20.50.21.27.14	Bentonite Sheet Waterproofing	5	
+23.20.50.21.31	Waterproof Traffic Coatings	4	
+23.20.50.21.31.11	Pedestrian Waterproof Traffic Coatings	5	
+23.20.50.21.31.14	Vehicular Waterproof Traffic Coatings	5	
+23.20.50.24	Thermal Insulation 	3	
+23.20.50.24.11	Slab and Board Thermal Insulation	4	
+23.20.50.24.11.11	Polystyrene Slab and Board Thermal Insulation	5	
+23.20.50.24.11.11.11	Expanded Polystyrene Slab and Board Thermal Insulation	6	
+23.20.50.24.11.11.14	Extruded Polystyrene Slab and Board Thermal Insulation	6	
+23.20.50.24.11.14	Urethane Slab and Board Thermal Insulation	5	
+23.20.50.24.11.17	Perlite Slab and Board Thermal Insulation	5	
+23.20.50.24.11.21	Fiberglass Slab and Board Thermal Insulation	5	
+23.20.50.24.14	Blanket Thermal Insulation	4	
+23.20.50.24.14.11	Fiberglass Blanket Thermal Insulation	5	
+23.20.50.24.14.14	Rock Wool Blanket Thermal Insulation	5	
+23.20.50.24.17	Thermal Insulation Coatings	4	
+23.20.50.24.17.11	Sprayed Thermal Insulation Coatings	5	
+23.20.50.24.17.11.11	Sprayed Cellulose Thermal Insulation Coatings	6	
+23.20.50.24.21	Loose Fill Thermal Insulation	4	
+23.20.50.24.21.11	Granular Fill Thermal Insulation	5	
+23.20.50.27	Sound Isolation Insulation	3	
+23.20.50.27.11	Slab and Board Sound Isolation Insulation	4	
+23.20.50.27.14	Fiberglass Slab and Board Sound Isolation Insulation	4	
+23.20.50.27.17	Blanket Sound Isolation Insulation	4	
+23.20.50.27.17.11	Fiberglass Blanket Sound Isolation Insulation	5	
+23.20.50.27.17.14	Rock Wool Blanket Sound Isolation Insulation	5	
+23.20.50.27.21	Sound Isolation Coatings	4	
+23.20.50.27.24	Sound Isolation Loose Fills	4	
+23.20.50.27.24.11	Granular Sound Isolation Loose Fills	5	
+23.25.00.00	Structural and Space Division Products	1	
+23.25.05.00	Foundations	2	-2001300
+23.25.05.11	Foundation Piles	3	-2001300
+23.25.05.11.11	Foundation Pile Components 	4	-2001300
+23.25.05.11.11.11	Pile Casings (Linings)	5	-2001300
+23.25.05.11.11.14	Cores and Mandrels	5	-2001300
+23.25.05.11.11.17	Pile Extension Pieces	5	-2001300
+23.25.05.11.11.21	Pile Shoes	5	-2001300
+23.25.05.11.11.24	Pile Splices	5	-2001300
+23.25.05.11.11.27	Pile Caps	5	-2001300
+23.25.05.11.14	Driven Piles	4	-2001300
+23.25.05.11.14.11	Composite Driven Piles	5	-2001300
+23.25.05.11.14.14	Concrete-Filled Steel Driven Piles	5	-2001300
+23.25.05.11.14.17	Precast Concrete Driven Piles	5	-2001300
+23.25.05.11.14.21	Rolled Steel Section Driven Piles	5	-2001300
+23.25.05.11.14.24	Unfilled Tubular Steel Driven Piles	5	-2001300
+23.25.05.11.14.27	Wood Driven Piles	5	-2001300
+23.25.05.11.14.31	Sheet Driven Piles	5	-2001300
+23.25.05.11.17	Screw Piles	4	-2001300
+23.25.05.14	Caissons, Foundation Casings	3	-2001300
+23.25.05.14.11	Well Foundation Casings	4	-2001300
+23.25.05.14.14	Caissons	4	-2001300
+23.25.05.17	Shallow Foundations	3	-2001300
+23.25.05.17.11	Column Bases	4	-2009030
+23.25.05.17.14	Grade Beams	4	-2001300
+23.25.05.17.17	Strip Foundation Blocks	4	-2001300
+23.25.05.21	Special Foundations	3	-2001300
+23.25.05.21.11	Controlled Modulus Columns	4	-2001300
+23.25.05.21.14	Other Special Foundations	4	-2001300
+23.25.10.00	Structural Concrete Products	2	
+23.25.10.11	Structural Concrete	3	
+23.25.10.14	Ready Mixed Concrete 	3	
+23.25.10.17	Permanent Formwork	3	
+23.25.10.17.11	Structural Permanent Formwork	4	
+23.25.10.17.11.11	Permanent Steel Forms	5	
+23.25.10.17.11.14	Prefabricated Stair Forms	5	
+23.25.10.21	Non-Structural Permanent Formwork	3	
+23.25.10.24	Concrete Forms	3	
+23.25.10.27	Reinforcement and Prestressing Components	3	
+23.25.10.27.11	Reinforcement Components	4	
+23.25.10.27.11.11	Reinforcing Steel	5	-2009013
+23.25.10.27.11.14	Reinforcement Steel Mesh	5	
+23.25.10.27.11.14.11	Welded Wire Fabric	6	
+23.25.10.27.11.17	Fibrous Reinforcing	5	
+23.25.10.27.11.17.11	Steel Fibrous Reinforcing	6	
+23.25.10.27.11.17.14	Synthetic Fibrous Reinforcing	6	
+23.25.10.27.11.21	Reinforcement Couplers	5	
+23.25.10.27.11.24	Reinforcement Spacers	5	
+23.25.10.27.11.27	Reinforcement Accessories	5	
+23.25.10.27.14	Prestressing Components	4	
+23.25.10.27.14.11	Stressing Tendons	5	
+23.25.10.27.14.11.11	Steel Stressing Tendons	6	
+23.25.10.27.14.11.11.11	Steel Strand Stressing Tendons	7	
+23.25.10.27.14.11.11.14	Steel Wire Stressing Tendons	7	
+23.25.10.27.14.11.11.17	Steel Bar Stressing Tendons	7	
+23.25.10.27.14.11.14	Glass Fiber	6	
+23.25.10.27.14.14	Steel Bars	5	
+23.25.10.27.14.17	Glass Fiber Tendons	5	
+23.25.10.27.14.21	Prestressing Couplers	5	
+23.25.10.27.14.24	Tendon Sheathing	5	
+23.25.10.27.14.24.11	Tendon Sheathing Ducts	6	
+23.25.10.27.14.27	Prestressing Anchorages	5	
+23.25.10.27.17	Post-Tensioning Products	4	
+23.25.10.27.21	Complete Reinforcement Cages	4	-2009013
+23.25.10.27.24	Cast-In Jointing	4	
+23.25.10.27.24.11	Expansion and Contraction Joints	5	
+23.25.10.27.24.14	Waterstops	5	
+23.25.20.00	Envelope Enclosure Products	2	
+23.25.20.11	Infill Façades	3	-2000011
+23.25.20.11.11	Exterior Wall Assemblies	4	-2000011
+23.25.20.14	Glazed Façade and Roof Structures	3	-2000340
+23.25.20.14.11	Curtain Walls	4	-2000340
+23.25.20.14.11.11	Curtain Wall Components 	5	-2000340
+23.25.20.14.11.11.11	Curtain Wall Frames	6	-2000171
+23.25.20.14.11.11.14	Curtain Wall Sections	6	-2000171
+23.25.20.14.11.11.17	Infill Panels	6	-2000170
+23.25.20.14.11.14	Metal-Framed Curtain Wall	5	-2000340
+23.25.20.14.11.17	Translucent Wall Assemblies	5	-2000340
+23.25.20.14.14	Structural Glazing	4	-2000340
+23.25.20.14.14.11	Structural Glass Curtain Walls	5	-2000340
+23.25.20.14.17	Suspended Glazing	4	-2000170
+23.25.20.14.21	Patent Glazing  	4	-2000170
+23.25.20.14.24	Screen and Storm Doors	4	-2000023
+23.25.20.14.24.11	Metal Screen and Storm Doors	5	-2000023
+23.25.20.14.24.14	Wood and Plastic Screen and Storm Doors	5	-2000023
+23.25.20.14.27	Glazed Roof Structures	4	-2000340
+23.25.20.14.27.11	Sections for Glazed Roofs	5	-2000340
+23.25.20.14.27.14	Sloped Glazing Assemblies	5	-2000340
+23.25.20.14.27.17	Translucent Roof Assemblies	5	-2000340
+23.25.30.00	Structural Framing Products	2	
+23.25.30.11	Structural Frames	3	
+23.25.30.11.11	Beam-Column Frames	4	
+23.25.30.11.14	Column-Slab Frames	4	
+23.25.30.11.14.11	Columns	5	-2001330
+23.25.30.11.14.14	Beams	5	-2001320
+23.25.30.11.17	Portal Frames	4	
+23.25.30.11.21	Structural Racking	4	
+23.25.30.11.24	Structural Bearings	4	-2005301
+23.25.30.11.24.11	Roller Bearings	5	-2005301
+23.25.30.11.24.14	Slide Bearings	5	-2005301
+23.25.30.11.24.17	Rocker Bearings	5	-2005301
+23.25.30.11.24.21	Fixed Bearings	5	-2005301
+23.25.30.11.27	Vibration and Earthquake Controls	4	-2001354
+23.25.30.14	Space Frames	3	-2001336
+23.25.30.14.11	Booms, Braces	4	-2001336
+23.25.30.14.14	Couplers	4	-2001336
+23.25.30.14.17	Complete Space Frames	4	-2001336
+23.25.30.17	Geodesic Structures	3	
+23.25.30.21	Rafters, Beams, and Joists	3	
+23.25.30.21.11	Rafters, Trussed	4	
+23.25.30.21.14	Trussed Beams and Joists	4	-2001336
+23.25.30.21.14.11	Metal Joists	5	-2001336
+23.25.30.21.14.14	Composite Joist Assemblies	5	-2001336
+23.25.30.21.14.17	Metal-Web Wood Joists	5	-2001336
+23.25.30.21.14.21	Wood Trusses	5	-2001336
+23.25.30.21.14.24	Metal Trusses	5	-2001336
+23.25.30.21.17	Web Beams and Joists	4	-2001320
+23.25.30.21.17.11	Wood I Joists	5	-2001320
+23.25.30.24	Structural Walls	3	-2000011
+23.25.30.24.11	Concrete Structural Walls	4	-2000011
+23.25.30.24.14	Masonry Structural Walls	4	-2000011
+23.25.30.24.17	Wood Framed Structural Walls	4	-2000011
+23.25.30.24.21	Metal Framed Structural Walls	4	-2000011
+23.25.30.24.24	Structural Panels	4	-2000011
+23.25.30.24.24.11	Cementitious Reinforced Structural Panels	5	-2000011
+23.25.30.24.24.14	Stressed Skin Structural Panels	5	-2000011
+23.25.30.24.24.17	Structural Insulated Panels 	5	-2000011
+23.25.30.24.99	Other Structural Walls	4	-2000011
+23.25.30.27	Structural Floors and Flat Roofs	3	
+23.25.30.27.11	Structural Floor Decks	4	-2000032
+23.25.30.27.11.11	Concrete Structural Floor Decks	5	-2000032
+23.25.30.27.11.14	Metal Structural Floor Decks	5	-2000032
+23.25.30.27.11.14.11	Raceway Deck Systems	6	-2000032
+23.25.30.27.11.14.14	Acoustical Metal Floor Deck	6	-2000032
+23.25.30.27.11.17	Wood Floor Decking	5	-2000032
+23.25.30.27.14	Structural Roof Decks	4	-2000035
+23.25.30.27.14.11	Concrete Structural Roof Decks	5	-2000035
+23.25.30.27.14.14	Metal Structural Roof Decks	5	-2000035
+23.25.30.27.14.14.11	Acoustical Metal Roof Deck	6	-2000035
+23.25.30.27.14.17	Wood Roof Decking	5	-2000035
+23.25.30.27.17	Structural Grating Floors	4	-2000032
+23.25.30.27.21	Balconies and Overhang Units	4	
+23.25.30.27.21.11	Balcony Components 	5	
+23.25.30.27.21.11.11	Balcony Holders and Mechanical Fasteners	6	
+23.25.30.27.21.14	Concrete Balconies and Overhang Units	5	-2000032
+23.25.30.27.21.17	Metal Balconies and Overhang Units	5	-2000032
+23.25.30.27.21.21	Wood Balconies and Overhang Units	5	-2000032
+23.25.30.31	Structural Profiled Roofs	3	-2000035
+23.25.30.31.11	Prefabricated Shell Roofs	4	-2000035
+23.25.40.00	Space Division Products	2	
+23.25.40.11	Fixed Partitions	3	-2000011
+23.25.40.11.11	Gypsum Board Fixed Partitions	4	-2000011
+23.25.40.11.11.11	Metal-Framed Gypsum Board Fixed Partitions	5	-2000011
+23.25.40.11.11.14	Wood-Framed Gypsum Board Fixed Partitions	5	-2000011
+23.25.40.11.14	Plaster Fixed Partitions	4	-2000011
+23.25.40.11.14.11	Gypsum Plaster Fixed Partitions	5	-2000011
+23.25.40.11.14.14	Portland Cement Plaster Fixed Partitions	5	-2000011
+23.25.40.11.14.17	Metal-Framed Plaster Fixed Partitions	5	-2000011
+23.25.40.11.14.21	Wood-Framed Plaster Fixed Partitions	5	-2000011
+23.25.40.11.17	Masonry Fixed Partitions	4	-2000011
+23.25.40.14	Demountable Partitions	3	-2001100
+23.25.40.14.11	General Demountable Partitions	4	-2001100
+23.25.40.14.11.11	Demountable Partitions Component	5	-2001100
+23.25.40.14.11.11.11	Partition Frames	6	-2001100
+23.25.40.14.11.11.14	Partition Infill Panels	6	-2001100
+23.25.40.14.11.11.17	Mechanical Fasteners for Partitions	6	
+23.25.40.14.11.14	Gypsum Board Demountable Partitions	5	-2001100
+23.25.40.14.11.17	Metal Demountable Partitions	5	-2001100
+23.25.40.14.11.21	Wood Demountable Partitions	5	-2001100
+23.25.40.14.14	Sanitary Partitions and Cubicles	4	-2001350
+23.25.40.14.14.11	Toilet Compartments and Urinal Screens	5	-2001350
+23.25.40.14.14.11.11	Metal Toilet Compartments and Urinal Screens	6	-2001350
+23.25.40.14.14.11.14	Plastic Laminate Toilet Compartments and Urinal Screens	6	-2001350
+23.25.40.14.14.11.17	Plastic Toilet Compartments and Urinal Screens	6	-2001350
+23.25.40.14.14.11.21	Particleboard Toilet Compartments and Urinal Screens	6	-2001350
+23.25.40.14.14.11.24	Stone Toilet Compartments and Urinal Screens	6	-2001350
+23.25.40.14.14.14	Shower and Dressing Compartments	5	-2001350
+23.25.40.14.14.14.11	Metal Shower and Dressing Compartments	6	-2001350
+23.25.40.14.14.14.14	Plastic Laminate Shower and Dressing Compartments	6	-2001350
+23.25.40.14.14.14.17	Plastic Shower and Dressing Compartments	6	-2001350
+23.25.40.14.14.14.21	Particleboard Shower and Dressing Compartments	6	-2001350
+23.25.40.14.14.14.24	Stone Shower and Dressing Compartments	6	-2001350
+23.25.40.14.14.17	Cubicles	5	-2001350
+23.25.40.14.14.17.11	Cubicle Curtains	6	-2001350
+23.25.40.14.14.17.14	Cubicle Track and Hardware	6	-2001350
+23.25.40.14.17	Storage Wall Partitions and Compartments	4	-2001350
+23.25.40.14.17.11	Wire Mesh Partitions	5	-2001350
+23.25.40.17	Operable Partitions	3	-2001350
+23.25.40.17.11	Horizontally Sliding Partitions	4	-2001350
+23.25.40.17.14	Folding Panel Partitions	4	-2001350
+23.25.40.17.17	Accordion Folding Partitions	4	-2001350
+23.25.40.17.21	Coiling Partitions	4	-2001350
+23.25.40.17.24	Vertically Sliding Room Dividers	4	-2001350
+23.25.40.21	Fences	3	-2001260
+23.25.40.21.11	Fence Components 	4	-2001260
+23.25.40.21.11.11	Fence Posts	5	-2001260
+23.25.40.21.11.14	Fencing Fabric	5	-2001260
+23.25.40.21.11.17	Fence Accessories	5	-2001260
+23.25.40.21.14	Fences by Material	4	-2001260
+23.25.40.21.14.11	Wood Fences	5	-2001260
+23.25.40.21.14.14	Metal Fences	5	-2001260
+23.25.40.21.14.17	Plastic Fences	5	-2001260
+23.25.40.21.14.21	Composite Fences	5	-2001260
+23.25.40.21.17	Fences by Type	4	-2001260
+23.25.40.21.17.11	Chain Link Fences	5	-2001260
+23.25.40.21.17.14	Wire Fences	5	-2001260
+23.25.40.21.17.17	Ornamental Fences	5	-2001260
+23.25.40.21.17.21	Post and Rail Fences	5	-2001260
+23.25.40.21.17.24	Panel Fences	5	-2001260
+23.25.40.21.21	Gates	4	-2001260
+23.25.40.21.21.11	Swinging Gates	5	-2001260
+23.25.40.21.21.14	Sliding Gates	5	-2001260
+23.25.40.21.24	Turnstiles	4	-2001350
+23.25.40.21.27	Portable Post and Railing Barriers	4	-2001350
+23.30.00.00	Openings, Passages, Protection	1	-2001350
+23.30.10.00	Doors	2	-2000023
+23.30.10.11	Door Components 	3	-2000023
+23.30.10.11.11	Door Frames	4	-2000023
+23.30.10.11.14	Door	4	-2000023
+23.30.10.11.17	Preassembled Door and Frame Units	4	-2000023
+23.30.10.11.21	Fanlights	4	-2000023
+23.30.10.11.24	Door Sections	4	-2000023
+23.30.10.11.24.11	Structural Door Sections	5	-2000023
+23.30.10.11.24.14	Door Cladding Sections	5	-2000023
+23.30.10.11.27	Door Linings and Boards	4	-2000023
+23.30.10.11.31	Door Renovation Sets	4	-2000023
+23.30.10.11.34	Door Accessories	4	-2000023
+23.30.10.11.34.11	Peep Holes	5	-2000023
+23.30.10.11.34.14	Buffers and Stops	5	-2000023
+23.30.10.11.34.17	Mail Openings and Slots	5	-2000023
+23.30.10.11.34.21	Door Louvers and Lights	5	-2000023
+23.30.10.14	Passage Doors by Material	3	-2000023
+23.30.10.14.11	Metal Passage Doors	4	-2000023
+23.30.10.14.14	Wood Passage Doors	4	-2000023
+23.30.10.14.17	Plastic Passage Doors	4	-2000023
+23.30.10.14.21	Composite Passage Doors	4	-2000023
+23.30.10.14.24	Glazed Passage Doors	4	-2000023
+23.30.10.14.27	All-Glass Passage Doors	4	-2000023
+23.30.10.17	Doors and Grills by Method of Operation	3	-2000023
+23.30.10.17.11	Sliding Doors	4	-2000023
+23.30.10.17.14	Sliding Grills	4	-2000023
+23.30.10.17.17	Folding Doors and Grilles	4	-2000023
+23.30.10.17.17.11	Accordion Folding Doors	5	-2000023
+23.30.10.17.17.14	Accordion Folding Grilles	5	-2000023
+23.30.10.17.17.17	Folding Fire Doors	5	-2000023
+23.30.10.17.17.21	Panel Folding Doors	5	-2000023
+23.30.10.17.17.24	Bifold Doors	5	-2000023
+23.30.10.17.21	Revolving Doors	4	-2000023
+23.30.10.17.24	Balanced Doors	4	-2000023
+23.30.10.17.27	Coiling Doors	4	-2000023
+23.30.10.17.27.11	Overhead Coiling	5	-2000023
+23.30.10.17.27.14	Side Coiling	5	-2000023
+23.30.10.17.31	Vertical Lift Doors	4	-2000023
+23.30.10.17.31.11	Multi-Leaf Vertical Lift Doors	5	-2000023
+23.30.10.17.31.14	Telescoping Vertical Lift Doors	5	-2000023
+23.30.10.17.34	Telescopic Stacking Doors	4	-2000023
+23.30.10.17.37	Overhead Doors	4	-2000023
+23.30.10.17.37.11	Single-Panel Overhead Doors	5	-2000023
+23.30.10.17.37.14	Sectional Overhead Doors	5	-2000023
+23.30.10.21	Special Function Doors	3	-2000023
+23.30.10.21.11	Fire Doors	4	-2000023
+23.30.10.21.11.11	Rolling Fire Doors	5	-2000023
+23.30.10.21.11.14	Fire Shutters	5	-2000023
+23.30.10.21.11.17	Swinging Fire Doors	5	-2000023
+23.30.10.21.11.21	Temperature Rate of Rise Fire Doors	5	-2000023
+23.30.10.21.14	Security Doors	4	-2000023
+23.30.10.21.17	Controlled Environment Doors	4	-2000023
+23.30.10.21.17.11	Cold Storage Doors	5	-2000023
+23.30.10.21.17.14	Sound Control Doors	5	-2000023
+23.30.10.21.17.17	Radiation Protection Doors	5	-2000023
+23.30.10.21.17.17.11	Electromagnetic Shielding Doors	6	-2000023
+23.30.10.21.17.17.14	RF Shielding Doors	6	-2000023
+23.30.10.21.17.17.17	BO Shielding Doors	6	-2000023
+23.30.10.21.17.17.21	Radio Frequency Protection Doors	6	-2000023
+23.30.10.21.17.17.24	X-Ray Protection Doors	6	-2000023
+23.30.10.21.17.17.27	Nuclear Radiation Protection Doors	6	-2000023
+23.30.10.21.17.17.31	High Energy Magnetic Pulse Protection Doors	6	-2000023
+23.30.10.21.21	Detention Doors	4	-2000023
+23.30.10.21.24	Hanger Doors	4	-2000023
+23.30.10.21.27	Lightproof Doors	4	-2000023
+23.30.10.21.27.11	Revolving Darkroom Door	5	-2000023
+23.30.10.21.31	Traffic Doors	4	-2000023
+23.30.10.21.31.11	Flexible Traffic Doors	5	-2000023
+23.30.10.21.31.14	Flexible Strip Doors	5	-2000023
+23.30.10.21.31.17	Rigid Panel Traffic Doors	5	-2000023
+23.30.10.21.31.21	Rapid Opening Doors	5	-2000023
+23.30.10.21.34	Industrial Doors	4	-2000023
+23.30.10.21.37	Pressure-Resistant Doors	4	-2000023
+23.30.10.21.37.11	Airtight Doors	5	-2000023
+23.30.10.21.37.14	Blast-Resistant Doors	5	-2000023
+23.30.10.21.37.17	Watertight Doors	5	-2000023
+23.30.10.24	Other Doors	3	-2000023
+23.30.10.24.11	Storm Doors	4	-2000023
+23.30.10.24.14	Screen Doors	4	-2000023
+23.30.10.24.17	Other Special Purpose Doors	4	-2000023
+23.30.10.27	Access Doors and Panels	3	-2000023
+23.30.10.27.11	Trap Doors	4	-2000023
+23.30.10.27.14	Access Panels	4	-2000023
+23.30.10.27.17	Access Doors	4	-2000023
+23.30.10.27.21	Floor Hatches	4	-2000023
+23.30.10.27.24	Roof Hatches	4	-2000023
+23.30.10.27.27	Security Hatches	4	-2000023
+23.30.20.00	Windows	2	-2000014
+23.30.20.11	Window Components 	3	-2000014
+23.30.20.11.11	Window Sections	4	-2000014
+23.30.20.11.14	Window Linings and Boards	4	-2000014
+23.30.20.11.17	Window Vents	4	-2000014
+23.30.20.14	Windows by Material	3	-2000014
+23.30.20.14.11	Metal Windows	4	-2000014
+23.30.20.14.14	Wood Windows	4	-2000014
+23.30.20.14.17	Plastic Windows	4	-2000014
+23.30.20.14.21	Composite Windows	4	-2000014
+23.30.20.17	Windows by Method of Opening	3	-2000014
+23.30.20.17.11	Fixed Windows	4	-2000014
+23.30.20.17.14	Sliding Windows	4	-2000014
+23.30.20.17.14.11	Vertical Sliding Windows	5	-2000014
+23.30.20.17.14.14	Horizontal Sliding Windows	5	-2000014
+23.30.20.17.17	Hung Windows	4	-2000014
+23.30.20.17.17.11	Single-Hung Windows	5	-2000014
+23.30.20.17.17.14	Double-Hung Windows	5	-2000014
+23.30.20.17.17.17	Triple-Hung Windows	5	-2000014
+23.30.20.17.21	Swinging Windows	4	-2000014
+23.30.20.17.21.11	Awning Windows	5	-2000014
+23.30.20.17.21.14	Casement Windows	5	-2000014
+23.30.20.17.21.17	Projected Windows	5	-2000014
+23.30.20.17.21.21	Vertical Pivoted Windows	5	-2000014
+23.30.20.17.21.24	Jalousie Windows	5	-2000014
+23.30.20.17.21.27	Jal-Awning Windows	5	-2000014
+23.30.20.21	Other Windows	3	-2000014
+23.30.20.21.11	Projecting Windows	4	-2000014
+23.30.20.21.11.11	Bay Windows	5	-2000014
+23.30.20.21.11.11.11	Angled Bay Windows	6	-2000014
+23.30.20.21.11.11.14	Box Bay Windows	6	-2000014
+23.30.20.21.11.14	Bow Windows	5	-2000014
+23.30.20.21.11.17	Garden Windows	5	-2000014
+23.30.20.21.14	Roof Windows	4	-2000014
+23.30.20.21.17	Pavement Lights	4	-2000014
+23.30.20.21.17.11	Glass Masonry Units	5	-2000014
+23.30.20.24	Special Purpose Windows	3	-2000014
+23.30.20.24.11	Detention Windows	4	-2000014
+23.30.20.24.14	Pass Windows	4	-2000014
+23.30.20.24.17	Controlled Environment Windows	4	-2000014
+23.30.20.24.17.11	Sound Control Windows	5	-2000014
+23.30.20.24.17.14	Radiation Protection Windows	5	-2000014
+23.30.20.24.17.14.11	Electromagnetic Shielding Windows	6	-2000014
+23.30.20.24.17.14.14	RF Shielding Windows	6	-2000014
+23.30.20.24.17.14.17	BO Shielding Windows	6	-2000014
+23.30.20.24.17.14.21	Radio Frequency Protection Windows	6	-2000014
+23.30.20.24.17.14.24	X-Ray Protection Windows	6	-2000014
+23.30.20.24.17.14.27	Nuclear Radiation Protection Windows	6	-2000014
+23.30.20.24.17.14.31	High Energy Magnetic Pulse Protection Windows	6	-2000014
+23.30.20.24.21	Security Windows	4	-2000014
+23.30.30.00	Skylights 	2	-2000014
+23.30.30.11	Skylight Components 	3	-2000014
+23.30.30.11.11	Skylight Hardware	4	-2000014
+23.30.30.14	Unit Skylights	3	-2000014
+23.30.30.14.11	Domed Unit Skylights	4	-2000014
+23.30.30.14.14	Pyramidal Unit Skylights	4	-2000014
+23.30.30.14.17	Vaulted Unit Skylights	4	-2000014
+23.30.30.17	Metal-Framed Skylights	3	-2000014
+23.30.30.17.11	Domed Metal-Framed Skylights	4	-2000014
+23.30.30.17.14	Motorized Metal-Framed Skylights	4	-2000014
+23.30.30.17.17	Pyramidal Metal-Framed Skylights	4	-2000014
+23.30.30.17.21	Ridge Metal-Framed Skylights	4	-2000014
+23.30.30.17.24	Vaulted Metal-Framed Skylights	4	-2000014
+23.30.30.21	Lantern Lights	3	-2000014
+23.30.30.24	Tubular Skylights	3	-2000014
+23.30.40.00	Hardware for Openings	2	-2000151
+23.30.40.11	Hardware for Doors	3	-2000151
+23.30.40.11.11	Rotation, Pivoting Door Gear	4	-2000151
+23.30.40.11.14	Sliding Door Gear	4	-2000151
+23.30.40.11.17	Combined Movement Door Gear	4	-2000151
+23.30.40.11.21	Door Guiding Hardware	4	-2000151
+23.30.40.11.24	Door Holding Hardware	4	-2000151
+23.30.40.11.24.11	Door Hold Open Hardware	5	-2000151
+23.30.40.11.27	Door Closing Hardware	4	-2000151
+23.30.40.11.27.11	Door Closers	5	-2000151
+23.30.40.11.27.11.11	Floor Door Closers	6	-2000151
+23.30.40.11.27.11.14	Surface Door Closers	6	-2000151
+23.30.40.11.27.11.17	Concealed Overhead Door Closers	6	-2000151
+23.30.40.11.31	Door Locking Hardware	4	-2000151
+23.30.40.11.34	Automatic Door Controls and Operators	4	-2000151
+23.30.40.11.34.11	Card Key Door Locking Hardware	5	-2000151
+23.30.40.11.34.14	Electrical Door Locking Control	5	-2000151
+23.30.40.11.34.17	Electromagnetic Door Holders	5	-2000151
+23.30.40.14	Hardware for Windows	3	-2000151
+23.30.40.14.11	Sliding Window Gear	4	-2000151
+23.30.40.14.11.11	Horizontal Sliding Window Gear	5	-2000151
+23.30.40.14.11.14	Vertical Sliding Window Gear	5	-2000151
+23.30.40.14.11.17	Sliding Projecting Window Gear	5	-2000151
+23.30.40.14.14	Horizontal Pivoting Window Gear	4	-2000151
+23.30.40.14.17	Window Tilt and Turn Gear	4	-2000151
+23.30.40.14.21	Louver Gear	4	-2000151
+23.30.40.14.24	Automatic Window Equipment	4	-2000151
+23.30.40.14.27	Window Locks	4	-2000151
+23.30.40.14.31	Window Lifts	4	-2000151
+23.30.40.14.34	Window Operators	4	-2000151
+23.30.40.17	Specialties for Openings	3	-2000151
+23.30.40.17.11	Door Specialties	4	-2000151
+23.30.40.17.14	Window Specialties	4	-2000151
+23.30.40.21	Mechanical Fasteners for Openings 	3	-2000151
+23.30.40.24	Hinges and Pivots	3	-2000151
+23.30.40.24.11	Hinges	4	-2000151
+23.30.40.24.14	Pivots	4	-2000151
+23.30.40.27	Locks and Latches	3	-2000151
+23.30.40.27.11	Mortise	4	-2000151
+23.30.40.27.14	Cylindrical Latch	4	-2000151
+23.30.40.27.17	Lock Cylinders	4	-2000151
+23.30.40.27.21	Deadbolts	4	-2000151
+23.30.40.31	Handles, Knobs, Levers, and Security Bars	3	-2000151
+23.30.40.31.11	Security Devices	4	-2000151
+23.30.40.34	Weatherstripping and Seals	3	-2000151
+23.30.40.34.11	Door Weatherstripping and Seals	4	-2000151
+23.30.40.34.14	Thresholds	4	-2000151
+23.30.40.34.17	Window Weatherstripping and Seals	4	-2000151
+23.30.40.99	Other Openings Hardware	3	-2000151
+23.30.40.99.11	Door Stops	4	-2000151
+23.30.50.00	Glazing	2	
+23.30.50.11	Glass Glazing   	3	
+23.30.50.11.11	Bent Glass	4	
+23.30.50.11.14	Chemically-Strengthened Glass	4	
+23.30.50.11.17	Coated Glass	4	
+23.30.50.11.21	Composite Glass	4	
+23.30.50.11.24	Decorative Glass	4	
+23.30.50.11.27	Fire-Rated Glass	4	
+23.30.50.11.31	Float Glass	4	
+23.30.50.11.34	Heat-Strengthened Glass	4	
+23.30.50.11.37	Impact Resistant Glass	4	
+23.30.50.11.41	Insulating Glass	4	
+23.30.50.11.44	Laminated Glass	4	
+23.30.50.11.47	Low-Emissivity Glass	4	
+23.30.50.11.51	Mirrored Glass	4	
+23.30.50.11.54	Rolled Glass	4	
+23.30.50.11.57	Spandrel Glass	4	
+23.30.50.11.61	Tempered Glass	4	
+23.30.50.11.64	Wired Glass	4	
+23.30.50.14	Plastic Glazing	3	
+23.30.50.14.11	Ballistics-Resistant Plastic Glazing	4	
+23.30.50.14.14	Decorative Plastic Glazing	4	
+23.30.50.14.17	Insulating Plastic Glazing	4	
+23.30.50.14.21	Translucent Plastic Glazing	4	
+23.30.50.14.24	Transparent Plastic Glazing	4	
+23.30.50.14.27	Mirrored Plastic Glazing	4	
+23.30.50.17	Glazing by Special Function	3	
+23.30.50.17.11	Security Glazing	4	
+23.30.50.17.14	Ballistics-Resistant Glass Glazing	4	
+23.30.50.17.17	Pressure-Resistant Glazing	4	
+23.30.50.17.21	Hurricane-Resistant Glazing	4	
+23.30.50.17.24	Radiation-Resistant Glazing	4	
+23.30.50.17.27	Transparent Mirrored Glazing	4	
+23.30.50.17.31	Cable Suspended Glazing	4	
+23.30.50.21	Glazing Components 	3	
+23.30.50.21.11	Glazing Frames	4	
+23.30.50.21.14	Glazing Sections	4	
+23.30.50.21.17	Mechanical Glazing Fasteners	4	
+23.30.50.24	Glazing Accessories	3	
+23.30.50.24.11	Glazing Beads	4	
+23.30.50.24.14	Condensation Channels	4	
+23.30.50.24.17	Glazing Sealants and Tapes	4	
+23.30.50.24.21	Glazing Gaskets	4	
+23.30.50.24.24	Glazing Leading Material	4	
+23.30.50.27	Protective Films by Performance	3	
+23.30.50.27.11	Solar Control Films	4	
+23.30.50.27.14	Safety Films	4	
+23.30.50.27.17	Security Films	4	
+23.30.50.31	Glazing Sections, Blocks	3	
+23.30.50.31.11	U Sections	4	
+23.30.50.31.14	Glass Masonry Units	4	
+23.30.60.00	Protection of Openings	2	-2001350
+23.30.60.11	Exterior Protection of Openings	3	-2001350
+23.30.60.11.11	Projecting Screens	4	-2001350
+23.30.60.11.11.11	Canopies	5	-2001350
+23.30.60.11.11.11.11	Solid Canopies	6	-2001350
+23.30.60.11.11.11.14	Louvered Canopies	6	-2001350
+23.30.60.11.11.14	Vertical Fins	5	-2001350
+23.30.60.11.11.14.11	Solid Vertical Fins	6	-2001350
+23.30.60.11.11.14.14	Louvered Vertical Fins	6	-2001350
+23.30.60.11.11.17	Awnings	5	-2001350
+23.30.60.11.11.17.11	Manual Awnings	6	-2001350
+23.30.60.11.11.17.14	Powered Awnings	6	-2001350
+23.30.60.11.14	Exterior Shutters	4	-2001350
+23.30.60.11.14.11	Shutter Components 	5	-2001350
+23.30.60.11.14.11.11	Roller Shutter Gear	6	-2001350
+23.30.60.11.14.11.14	Roller Shutter Sections	6	-2001350
+23.30.60.11.14.11.17	Roller Shutter Casings	6	-2001350
+23.30.60.11.14.14	Sliding Exterior Shutters	5	-2001350
+23.30.60.11.14.17	Swinging Exterior Shutters	5	-2001350
+23.30.60.11.14.21	Coiling Exterior Shutters	5	-2001350
+23.30.60.11.17	Exterior Louvers and Grilles	4	-2008013
+23.30.60.11.17.11	Fixed Exterior Louvers and Grilles	5	-2008013
+23.30.60.11.17.14	Roller Exterior Louvers and Grilles	5	-2008013
+23.30.60.11.17.17	Sliding Exterior Louvers and Grilles	5	-2008013
+23.30.60.11.21	Storm Panels	4	-2001350
+23.30.60.11.21.11	Demountable Storm Panels	5	-2001350
+23.30.60.11.21.14	Movable Storm Panels	5	-2001350
+23.30.60.14	Interior Window Treatment	3	-2001350
+23.30.60.14.11	Blinds	4	-2001350
+23.30.60.14.11.11	Horizontal Blinds	5	-2001350
+23.30.60.14.11.14	Vertical Blinds	5	-2001350
+23.30.60.14.11.17	Blinds Components	5	-2001350
+23.30.60.14.11.17.11	Slats	6	-2001350
+23.30.60.14.11.17.14	Vanes	6	-2001350
+23.30.60.14.11.17.17	Blinds Hardware	6	-2001350
+23.30.60.14.14	Curtains and Drapes	4	-2001350
+23.30.60.14.17	Interior Shutters	4	-2001350
+23.30.60.14.21	Shades	4	-2001350
+23.30.60.17	Fire and Smoke Shutters and Curtains	3	-2001350
+23.30.60.17.11	Fire Shutters	4	-2001350
+23.30.60.17.11.11	Vertical Fire Shutters	5	-2001350
+23.30.60.17.11.14	Horizontal Fire Shutters	5	-2001350
+23.30.60.17.14	Smoke Curtains and Shutters	4	-2001350
+23.30.60.17.17	Water Spray Smoke Curtains	4	-2001350
+23.30.60.21	Insect Screens	3	
+23.30.60.21.11	Complete Insect Screens	4	
+23.30.60.21.14	Components 	4	
+23.30.60.21.14.11	Frames for Insect Screens	5	
+23.30.60.21.14.14	Mesh for Insect Screens	5	
+23.30.70.00	Circulation and Escape	2	-2001350
+23.30.70.11	Ramps	3	-2000180
+23.30.70.14	Walkways	3	-2001350
+23.30.70.17	Ladders	3	-2001350
+23.30.70.17.11	Ladder Components 	4	-2001350
+23.30.70.17.11.11	Ladder Hardware	5	-2001350
+23.30.70.17.11.14	Rungs	5	-2001350
+23.30.70.17.14	Vertical Ladders	4	-2001350
+23.30.70.17.17	Ship’s Ladders	4	-2001350
+23.30.70.21	Stairs	3	-2000120
+23.30.70.21.11	Stair Components 	4	
+23.30.70.21.11.11	Stair Treads	5	-2003000
+23.30.70.21.11.11.11	Stair Nosings	6	-2003000
+23.30.70.21.11.11.14	Tread Coverings	6	
+23.30.70.21.11.14	Stair Railings	5	-2000126
+23.30.70.21.11.17	Stair Handrails	5	-2003000
+23.30.70.21.11.21	Stair Barrier Gates	5	
+23.30.70.21.14	Spiral Stairs	4	-2000120
+23.30.70.21.14.11	Metal Spiral Stairs	5	-2000120
+23.30.70.21.14.14	Wood Spiral Stairs	5	-2000120
+23.30.70.21.17	Retractable Stairs	4	-2000120
+23.30.70.24	Fire Escapes	3	-2001350
+23.30.70.24.11	Escape Ladders, Stairs	4	-2001350
+23.30.70.24.11.11	Fire Escapes	5	-2001350
+23.30.70.24.14	Escape Slides	4	-2001350
+23.30.70.24.17	Slings	4	-2001350
+23.30.80.00	Circulation Guiding and Protection	2	
+23.30.80.11	Guardrails	3	-2000126
+23.30.80.11.11	Guardrail Components 	4	-2000126
+23.30.80.11.11.11	Infill Panels	5	-2000126
+23.30.80.11.11.14	Posts, Newel Posts, Pickets	5	-2000126
+23.30.80.11.11.17	Railing	5	-2000126
+23.30.80.14	Handrails	3	-2000126
+23.30.82.11	Rope Handrails	3	-2000126
+23.30.82.12	Cappings	3	-2000126
+23.30.82.13	Chain Handrails	3	-2000126
+23.30.80.17	Impact Protection	3	-2001350
+23.30.80.17.11	Impact Guard Rails	4	-2001350
+23.30.80.17.11.11	Bumper Guards	5	-2001350
+23.30.80.17.14	Corner Guards	4	-2001350
+23.30.80.17.17	Column Protectors	4	-2001350
+23.30.80.17.21	Door and Wall Protectors	4	-2001350
+23.30.80.17.21.11	Impact-Resistant Wall Protection	5	-2001350
+23.35.00.00	Covering, Cladding, and Finishes	1	
+23.35.05.00	Multi-Function Coverings, Claddings, Linings 	2	
+23.35.05.11	Multi-Function Claddings	3	
+23.35.05.14	Preformed Casings	3	-2000151
+23.35.05.17	Ancillary Products for Coverings and Claddings	3	
+23.35.05.17.11	Supports for Coverings and Claddings	4	
+23.35.05.17.14	Mechanical Fasteners for Coverings and Claddings	4	
+23.35.05.17.17	Movement and Dividing Joints for Coverings and Claddings	4	
+23.35.05.17.21	Joint Coverings, Flashings, Tapes	4	
+23.35.05.17.24	Reinforcements for Coverings and Claddings	4	
+23.35.05.17.27	Trims, Edgings, Cappings	4	
+23.35.05.17.31	Spacers	4	
+23.35.05.17.34	Profile Fillers	4	
+23.35.05.17.37	Underlays, Linings, Separations	4	
+23.35.05.17.41	Beddings, Adhesives for Coverings and Claddings	4	
+23.35.05.17.44	Sealants for Coverings and Claddings	4	
+23.35.06.10	Roof and Wall Cladding	3	
+23.35.06.11	Siding	3	
+23.35.06.11.10	Metal Siding	4	
+23.35.06.11.20	Composition Siding	4	
+23.35.06.11.30	Mineral Fiber Cement Siding	4	
+23.35.06.11.40	Plastic Siding	4	
+23.35.06.11.50	Wood Siding	4	
+23.35.06.20	Multi-Function Linings	3	
+23.35.06.21	Roof and Wall Panels	3	-2000170
+23.35.06.21.10	Metal Roof and Wall Panels	4	-2000170
+23.35.06.21.20	Plastic Roof and Wall Panels	4	-2000170
+23.35.06.21.30	Wood Roof and Wall Panels	4	-2000170
+23.35.06.21.40	Composite Roof and Wall Panels	4	-2000170
+23.35.06.21.50	Faced Roof and Wall Panels	4	-2000170
+23.35.06.21.51	Aggregate Coated Panels	4	-2000170
+23.35.06.21.52	Porcelain Enameled Faced Panels	4	-2000170
+23.35.06.21.53	Tile Faced Panels	4	-2000170
+23.35.06.21.60	Fiber-Reinforced Cementitious Panels	4	-2000170
+23.35.06.21.61	Glass-Fiber-Reinforced Cementitious Panels	4	-2000170
+23.35.06.21.62	Miner-Fiber-Reinforced Cementitious Panels	4	-2000170
+23.35.06.22	Ceiling and Wall Panels	3	
+23.35.06.22.10	Flexible Wood Sheets	4	
+23.35.06.22.20	Acoustical Wall Treatment	4	
+23.35.06.23	Plasters	3	
+23.35.10.00	Wall Coverings, Claddings, Linings	2	
+23.35.10.11	Wall Cladding Sections	3	
+23.35.10.11.11	Metal Wall Cladding Sections	4	
+23.35.10.11.14	Wood Wall Cladding Sections	4	
+23.35.10.11.17	Plastics Wall Cladding Sections	4	
+23.35.10.11.99	Other Wall Cladding Sections	4	
+23.35.10.14	Wall Tiles	3	
+23.35.10.14.11	Stone, Natural and Reconstituted Wall Tiles	4	
+23.35.10.14.14	Cementitious Wall Tiles	4	
+23.35.10.14.17	Clay-Based Wall Tiles	4	
+23.35.10.14.21	Metal Wall Tiles	4	
+23.35.10.14.24	Vegetable-Based Wall Tiles	4	
+23.35.10.14.27	Plastics Wall Tiles	4	
+23.35.10.14.31	Other Wall Tiles	4	
+23.35.10.17	Wall Cladding Panels	3	
+23.35.10.17.11	Stone Facing	4	
+23.35.10.17.14	Cementitious Wall Cladding Panels	4	
+23.35.10.17.14.11	Precast Concrete Wall Cladding Panels	5	
+23.35.10.17.17	Metal Wall Cladding Panels	4	
+23.35.10.17.21	Wood-Based Wall Cladding Panels	4	
+23.35.10.17.24	Plastic Wall Cladding Panels	4	
+23.35.10.17.24.11	Plastic Blocks	5	
+23.35.10.17.99	Other Wall Cladding Panels	4	
+23.35.10.21	Wall Cladding Sheets	3	
+23.35.10.21.11	Fiber-Based Wall Cladding Sheets	4	
+23.35.10.21.14	Metal Wall Cladding Sheets	4	
+23.35.10.21.17	Plastic Wall Cladding Sheets	4	
+23.35.10.24	Wall Coverings	3	
+23.35.10.24.11	Wallpaper	4	
+23.35.10.24.14	Wall Fabrics	4	
+23.35.10.24.17	Plastic Wall Coverings	4	
+23.35.10.24.21	Cork Wall Covering	4	
+23.35.10.24.24	Vinyl-Coated Fabric Wall Covering	4	
+23.35.10.24.27	Vinyl Wall Covering	4	
+23.35.10.24.31	Wall Carpet	4	
+23.35.10.24.34	Wall Veneers	4	
+23.35.10.27	Wall Linings	3	
+23.35.10.31	Wall Finish Coatings	3	
+23.35.10.34	Wall Specialties and Trim	3	
+23.35.10.34.11	Pilasters	4	-2000151
+23.35.10.34.14	Niches	4	-2000151
+23.35.10.34.17	Moldings	4	-2000151
+23.35.10.34.21	Renovating Wall Coverings, Claddings	4	
+23.35.10.37	Wall Finish Restoration Products	3	
+23.35.17.10	Renders	3	
+23.35.17.20	Acoustical Wall Finishes	3	
+23.35.20.00	Roof Coverings, Claddings, Linings	2	
+23.35.20.11	Roof Shingles and Tiles	3	
+23.35.20.11.11	Roof Shingle and Tile Components 	4	
+23.35.20.11.11.11	Shingles, Shakes	5	
+23.35.20.11.11.14	Slate, Tile Vents	5	
+23.35.20.11.11.17	Tile and Slate Mechanical Fasteners	5	
+23.35.20.11.11.21	Ridges, Rake Edges (Verges  ), Edges	5	
+23.35.20.11.11.24	Underlayment	5	
+23.35.20.11.14	Roof Tiles	4	
+23.35.20.11.14.11	Clay	5	
+23.35.20.11.14.14	Concrete	5	
+23.35.20.11.14.17	Metal	5	
+23.35.20.11.14.21	Mineral Fiber Cement	5	
+23.35.20.11.14.24	Plastic	5	
+23.35.20.11.17	Slates	4	
+23.35.20.11.21	Natural Stone Roofing	4	
+23.35.20.11.24	Roof Shingles	4	
+23.35.20.11.24.11	Asphalt Roof Shingles	5	
+23.35.20.11.24.14	Fiberglass Reinforced Roof Shingles	5	
+23.35.20.11.24.17	Metal Roof Shingles	5	
+23.35.20.11.24.21	Mineral Fiber Cement Roof Shingles	5	
+23.35.20.11.24.24	Plastic Roof Shingles	5	
+23.35.20.11.24.27	Porcelain Enamel Roof Shingles	5	
+23.35.20.11.24.31	Wood Shingles	5	
+23.35.20.11.27	Shakes	4	
+23.35.20.11.27.11	Wood Shakes	5	
+23.35.20.14	Roof Cladding	3	
+23.35.20.14.11	Roof Cladding Sheets	4	
+23.35.20.14.11.11	Metal Roof Panels	5	
+23.35.20.14.11.14	Sheet Metal Roofing	5	
+23.35.20.14.14	Roof Battens	4	
+23.35.20.17	Roof Coverings	3	
+23.35.20.17.11	Thatched Roofing	4	
+23.35.20.17.14	Sod Roofing	4	
+23.35.20.17.17	Vegetated Covering	4	
+23.35.20.21	Roof Membranes	3	
+23.35.20.21.11	Single-Layer Roof Membranes	4	
+23.35.20.21.11.11	Elastomeric Single-Layer Roof Membranes	5	
+23.35.20.21.11.11.11	Chlorinated Polyethylene (CPE) Single-Layer Roof Membranes	6	
+23.35.20.21.11.11.14	Chlorosulfonated Polyethylene (CSPE) Single-Layer Roof Membranes	6	
+23.35.20.21.11.11.17	Copolymer Alloy (CPA) Single-Layer Roof Membranes	6	
+23.35.20.21.11.11.21	Ethylene Propylene Diene Monomer (EPDM) Single-Layer Roof Membranes	6	
+23.35.20.21.11.11.24	Nitrile Butadiene Polymer (NBP) Single-Layer Roof Membranes	6	
+23.35.20.21.11.11.27	Polyisobutylene (PIB) Single-Layer Roof Membranes	6	
+23.35.20.21.11.14	Thermoplastic Single-Layer Roof Membranes	5	
+23.35.20.21.11.14.11	Ethylene Interpolymer (EIP) Single-Layer Roof Membranes	6	
+23.35.20.21.11.14.14	Polyvinyl chloride (PVC) Single-Layer Roof Membranes	6	
+23.35.20.21.11.14.17	Thermoplastic Alloy (TPA) Single-Layer Roof Membranes	6	
+23.35.20.21.14	Multi-Layer Roof Membranes	4	
+23.35.20.21.14.11	Built-Up Bituminous Roofing	5	
+23.35.20.21.14.11.11	Asphalt Roofing	6	
+23.35.20.21.14.11.14	Coal-Tar Roofing	6	
+23.35.20.21.14.14	Cold-Applied Bituminous Roofing	5	
+23.35.20.21.14.14.11	Cold-Applied Mastic Roof Membrane	6	
+23.35.20.21.14.14.14	Glass-Fiber-Reinforced Asphalt Emulsion Roofing	6	
+23.35.20.21.14.17	Modified Bituminous Roof Membranes (APP, SBS, etc )	5	
+23.35.20.21.17	Fluid Applied Roofing	4	
+23.35.20.21.21	Coated Foam Roofing	4	
+23.35.20.21.24	Roll Roofing	4	
+23.35.20.24	Roof Decking	3	
+23.35.20.24.11	Cementitious Roof Deck	4	
+23.35.20.24.14	Lightweight Concrete Roof Insulation	4	
+23.35.20.24.14.11	Composite Concrete and Insulation Roof Deck	5	
+23.35.20.24.14.14	Lightweight Cellular Concrete Roof Deck	5	
+23.35.20.24.14.17	Lightweight Insulating Concrete Roof Deck	5	
+23.35.20.24.17	Concrete Roof Topping	4	
+23.35.20.27	Roof Finishing Coatings	3	
+23.35.20.31	Roof Specialties and Accessories	3	
+23.35.20.31.11	Roof Edgings and Trims	4	
+23.35.20.31.11.11	Copings	5	
+23.35.20.31.11.14	Counterflashing Systems	5	
+23.35.20.31.11.21	Gravel Stops and Facias	5	
+23.35.20.31.11.24	Roof Penetration Flashing	5	
+23.35.20.31.11.27	Reglets	5	
+23.35.20.31.11.31	Scuppers	5	
+23.35.20.31.14	Flexible Flashing	4	
+23.35.20.31.14.11	Laminated Sheet Flexible Flashing	5	
+23.35.20.31.14.14	Modified Bituminous Sheet Flexible Flashing	5	
+23.35.20.31.14.17	Plastic Sheet Flexible Flashing	5	
+23.35.20.31.14.21	Rubber Sheet Flexible Flashing	5	
+23.35.20.31.14.24	Self-Adhering Sheet Flexible Flashing	5	
+23.35.20.31.17	Roof Expansion Joints	4	
+23.35.20.31.21	Roof Vents	4	
+23.35.20.31.21.11	Relief Vents	5	
+23.35.20.31.21.14	Ridge Vents	5	
+23.35.20.31.21.17	Smoke Vents	5	
+23.35.20.31.24	Roof Walkways	4	
+23.35.20.31.24.11	Roof Pavers	5	
+23.35.20.31.24.11.11	Precast Concrete Roof Pavers	6	
+23.35.20.31.24.11.14	Pedestals Roof Pavers	6	
+23.35.20.31.24.14	Roof Treads	5	
+23.35.20.31.24.14.11	Rubber Roof Treads	6	
+23.35.20.31.27	Roof Accessories	4	
+23.35.20.31.27.11	Manufactured Roof Curbs	5	
+23.35.20.31.27.14	Snow Guards	5	
+23.35.20.31.27.17	Piping Portals	5	
+23.35.20.31.27.21	Roof Domes, Turrets, Lanterns	5	
+23.35.20.31.31	Vegetated Roof Planting Modules	4	
+23.35.20.31.34	Renovation Products for Roof Coverings and Claddings	4	
+23.35.50.00	Floor Coverings	2	
+23.35.50.11	Flooring Specialties and Accessories	3	
+23.35.50.11.11	Floor Toppings	4	
+23.35.50.11.11.11	Concrete Floor Topping	5	
+23.35.50.11.14	Floor Underlayments	4	
+23.35.50.11.14.11	Cementitious Floor Underlayment	5	
+23.35.50.11.14.11.11	Gypsum Floor Underlayment	6	
+23.35.50.11.14.11.14	Portland Cement Floor Underlayment	6	
+23.35.50.11.14.14	Other Floor Underlayments	5	
+23.35.50.11.21	Floor Base and Accessories	4	
+23.35.50.11.21.11	Base and Accessories for Floor Coverings	5	
+23.35.50.11.21.14	Acoustic Floor Mountings	5	
+23.35.50.11.21.17	Underlays, Linings, Separations	5	
+23.35.50.11.24	Floor Mats and Grilles	4	-2001350
+23.35.50.11.24.11	Floor Mats	5	-2001350
+23.35.50.11.24.14	Floor Grilles	5	-2001350
+23.35.50.11.24.17	Floor Gratings	5	-2001350
+23.35.50.14	Floor Covering Strips, Tiles, Blocks, and Slabs	3	
+23.35.50.14.11	Wood Flooring	4	
+23.35.50.14.11.11	Cushioned Wood Flooring Assemblies	5	
+23.35.50.14.11.14	Mastic Set Wood Flooring Assemblies	5	
+23.35.50.14.11.17	Resilient Wood Flooring Assemblies	5	
+23.35.50.14.11.21	Wood Athletic Flooring	5	
+23.35.50.14.11.24	Wood Block Flooring	5	
+23.35.50.14.11.27	Wood Composition Flooring	5	
+23.35.50.14.11.31	Wood Parquet Flooring	5	
+23.35.50.14.11.34	Wood Strip Flooring	5	
+23.35.50.14.14	Tile Flooring	4	
+23.35.50.14.14.11	Ceramic Tile Flooring	5	
+23.35.50.14.14.11.11	Ceramic Mosaic Tile Flooring	6	
+23.35.50.14.14.11.14	Conductive Tile Flooring	6	
+23.35.50.14.14.14	Quarry Tile Flooring	5	
+23.35.52.22.10	Chemical-Resistant Quarry Tile Flooring	4	
+23.35.50.14.14.17	Porcelain Tile Flooring	5	
+23.35.50.14.14.21	Glass Mosaic Tile Flooring	5	
+23.35.50.14.14.24	Plastic Tile Flooring	5	
+23.35.50.14.14.27	Metal Tile Flooring	5	
+23.35.50.14.14.31	Natural Cut Stone Tile Flooring	5	
+23.35.50.14.14.34	Tile Flooring Restoration Products	5	
+23.35.50.14.17	Terrazzo Flooring	4	
+23.35.50.14.17.11	Portland Cement Terrazzo Flooring	5	
+23.35.50.14.17.14	Precast Terrazzo Flooring	5	
+23.35.50.14.17.17	Conductive Terrazzo Flooring	5	
+23.35.50.14.17.21	Plastic matrix Terrazzo Flooring	5	
+23.35.50.14.17.24	Terrazzo Flooring Restoration Products	5	
+23.35.50.14.21	Masonry Flooring	4	
+23.35.50.14.21.11	Brick Flooring	5	
+23.35.50.14.21.11.11	Chemical-Resistant Brick Flooring	6	
+23.35.50.14.21.14	Stone Flooring	5	
+23.35.50.14.24	Precast Tile and Slab Flooring	4	
+23.35.50.14.27	Metal Flooring	4	
+23.35.50.17	Resilient Flooring	3	
+23.35.50.17.11	Cork Flooring	4	
+23.35.50.17.14	Plastic Flooring	4	
+23.35.50.17.17	Rubber Flooring	4	
+23.35.50.17.21	Linoleum Flooring	4	
+23.35.50.17.24	Mechanical Fasteners for Resilient Floor Coverings	4	
+23.35.50.17.24.11	Floor Clips	5	
+23.35.50.17.24.14	Carpet Grippers	5	
+23.35.50.17.24.17	Stair Rods	5	
+23.35.50.17.27	Other Resilient Flooring	4	
+23.35.50.21	Carpet Flooring	3	
+23.35.50.21.11	Carpet Cushion	4	
+23.35.50.21.14	Carpet Tile	4	
+23.35.50.21.17	Indoor and Outdoor Carpet	4	
+23.35.50.21.21	Sheet Carpet	4	
+23.35.50.24	Preformed Flooring Systems	3	
+23.35.50.24.11	Floating Floors	4	
+23.35.50.24.14	Portable Floors	4	
+23.35.50.24.17	Convertible Floors	4	
+23.35.50.24.21	Gymnasium or Dance Flooring	4	
+23.35.50.27	Access Flooring	3	
+23.35.50.27.11	Access Flooring Components 	4	
+23.35.50.27.11.11	Access Floors, Frames	5	
+23.35.50.27.11.14	Access Floors, Infill Panels	5	
+23.35.50.27.14	Rigid Grid Access Flooring	4	
+23.35.50.27.17	Snap-On Stringer Access Flooring	4	
+23.35.50.27.21	Stringerless Access Flooring	4	
+23.35.70.00	Ceiling Coverings, Claddings, and Linings	2	
+23.35.70.11	Ceiling Tiles, Panels, Strips, and Sections	3	
+23.35.70.11.11	Ceiling Tiles	4	
+23.35.70.11.11.11	Acoustical Ceiling Tile	5	
+23.35.70.11.14	Ceiling Panels	4	
+23.35.70.11.14.11	Acoustical Ceiling Panels	5	
+23.35.70.11.14.14	Mirror Ceiling Panel	5	
+23.35.70.11.17	Ceiling Covering Strips	4	
+23.35.70.11.17.11	Linear Metal Ceiling Covering Strips	5	
+23.35.70.11.17.14	Linear Wood Ceiling Covering Strips	5	
+23.35.70.11.21	Ceiling Covering Sections	4	
+23.35.70.11.21.11	Suspended Decorative Ceiling Grids	5	
+23.35.70.14	Ceiling Finishing Coatings	3	-2000038
+23.35.70.14.11	Textured Ceilings	4	-2000038
+23.35.70.14.11.11	Gypsum Panel Textured Ceilings	5	-2000038
+23.35.70.14.11.14	Metal Panel Textured Ceilings	5	-2000038
+23.35.70.17	Ceiling Specialties and Accessories	3	
+23.35.70.17.11	Roses, Ceiling Centerpieces	4	
+23.35.70.17.14	Ceiling Coving	4	
+23.35.70.17.17	Cornices, Friezes	4	
+23.35.70.21	Ceiling Assembly Restoration Products	3	
+23.35.70.24	Ceilings	3	-2000038
+23.35.70.24.11	Suspended Ceilings	4	-2000038
+23.35.70.24.11.11	Suspended Ceiling Components 	5	-2000038
+23.35.70.24.11.11.11	Suspended Ceilings, Suspension Assembly	6	
+23.35.70.24.11.11.14	Suspended Ceilings, Panels and Tiles	6	
+23.35.70.24.11.11.17	Suspended Ceilings, Grids	6	
+23.35.70.24.11.11.21	Mechanical Fasteners for Suspended Ceilings	6	
+23.35.70.24.11.14	Acoustical Ceilings	5	-2000038
+23.35.70.24.11.14.11	Metal Pan Acoustical Ceilings	6	-2000038
+23.35.70.24.11.14.14	Acoustical Panel Ceilings	6	-2000038
+23.35.70.24.11.14.17	Acoustical Tile Ceilings	6	-2000038
+23.35.70.24.11.17	Specialty Ceilings	5	-2000038
+23.35.70.24.11.17.11	Integrated Ceilings	6	-2000038
+23.35.70.24.11.17.14	Linear Ceilings	6	-2000038
+23.35.70.24.11.17.14.11	Metal Linear Ceilings	7	-2000038
+23.35.70.24.11.17.14.14	Wood Linear Ceilings	7	-2000038
+23.35.70.24.11.17.17	Luminous Ceilings	6	-2000038
+23.35.70.24.11.17.21	Mirror Panel Ceilings	6	-2000038
+23.35.70.24.11.17.24	Textured Ceilings	6	-2000038
+23.35.70.24.11.17.27	Suspended Decorative Grids	6	
+23.35.70.24.14	Stretched Fabric Ceilings	4	-2000038
+23.40.00.00	Equipment and Furnishings	1	-2001350
+23.40.05.00	Plants and Planting Products	2	-2001360
+23.40.05.11	Planting Products	3	-2001350
+23.40.05.11.14	Plant Maintenance Products	4	
+23.40.05.11.14.17	Mowing Equipment	5	-2001350
+23.40.05.11.14.21	Pruning Equipment	5	-2001350
+23.40.05.11.14.24	Watering Equipment	5	-2001350
+23.40.05.11.14.27	Irrigation System	5	-2001260
+23.40.05.17	Exterior Plants	3	-2001360
+23.40.05.17.11	Ground Covers	4	-2001360
+23.40.05.17.14	Plants and Bulbs	4	-2001360
+23.40.05.17.17	Shrubs	4	-2001360
+23.40.05.17.21	Coniferous Trees	4	-2001360
+23.40.05.17.24	Deciduous Trees	4	-2001360
+23.40.05.21	Planting Accessories	3	-2001260
+23.40.05.21.11	Landscaping Edging	4	-2001260
+23.40.05.21.14	Landscape Timbers	4	-2001260
+23.40.05.21.17	Planters	4	-2001260
+23.40.05.21.21	Tree Grates	4	-2001260
+23.40.05.21.24	Tree Grids	4	-2001260
+23.40.10.00	Exterior Equipment and Furnishings	2	-2001350
+23.40.10.11	Site Furnishings	3	-2000080
+23.40.10.11.11	Bicycle Racks	4	-2001350
+23.40.10.11.14	Exterior Seating	4	-2000080
+23.40.10.11.17	Exterior Tables	4	-2000080
+23.40.10.11.21	Trash Receptors	4	-2001350
+23.40.10.11.24	Storage Specialties for Services and Maintenance	4	-2001350
+23.40.10.14	Exterior Specialties	3	-2001350
+23.40.10.14.11	Flagpoles	4	-2001350
+23.40.10.14.11.11	Automatic Flagpoles	5	-2001350
+23.40.10.14.11.14	Ground-Set Flagpoles	5	-2001350
+23.40.10.14.11.17	Nautical Flagpoles	5	-2001350
+23.40.10.14.11.21	Wall-Mounted Flagpoles	5	-2001350
+23.40.10.14.14	Manufactured Exterior Specialties	4	-2001350
+23.40.10.14.14.11	Weathervanes	5	-2001350
+23.40.10.14.14.14	Clocks	5	-2000080
+23.40.10.14.14.17	Cupolas	5	-2001350
+23.40.10.14.14.21	Spires	5	-2001350
+23.40.10.14.14.24	Steeples	5	-2001350
+23.40.10.14.14.99	Other Manufactured Exterior Specialties	5	-2001350
+23.40.10.14.17	Memorials and Statuary	4	-2001350
+23.40.10.14.21	Markers and Monuments	4	-2001350
+23.40.10.14.24	Exterior Signs	4	-2001350
+23.40.10.14.24.11 	Signs, Finger Posts	4	-2001350
+23.40.10.14.24.14	Street Nameplates	5	-2001350
+23.40.10.14.24.17	Illuminated Signs	5	-2001350
+23.40.10.14.27	Bollards 	4	-2001350
+23.40.10.14.31	Public Lighting Columns	4	-2001350
+23.40.10.17	Garden and Park Furniture	3	-2000080
+23.40.10.17.11	Garden/Patio Seating and Tables	4	-2000080
+23.40.10.17.14	Garden Umbrellas	4	-2000080
+23.40.10.17.17	Exterior Ornamental Fountains	4	-2001350
+23.40.10.17.21	Bird Houses and Feeders	4	-2001350
+23.40.10.17.24	Bird Baths	4	-2001350
+23.40.10.17.27	Tubs for Plants	4	-2001350
+23.40.10.17.31	Sundials	4	-2001350
+23.40.10.17.34	Garden Ornaments	4	-2001350
+23.40.10.21	Playfield Equipment, Structures, and Surfacing	3	-2001350
+23.40.10.21.11	Playground Equipment	4	-2001350
+23.40.10.21.14	Play Structures	4	-2001350
+23.40.10.21.17	Athletic or Recreation Screening	4	-2001350
+23.40.10.21.17.11	Tennis Court Windbreakers	5	-2001350
+23.40.10.21.21	External Pools and Ponds	4	-2001350
+23.40.10.21.24	Athletic and Recreational Surfaces	4	-2001260
+23.40.10.21.24.11	Sports Field Surfacings	5	-2001260
+23.40.10.21.24.11.11	Baseball Field Surfacing	6	-2001260
+23.40.10.21.24.11.14	Multi-Purpose Court Surfacing	6	-2001260
+23.40.10.21.24.11.17	Resilient Matting	6	-2001260
+23.40.10.21.24.11.21	Synthetic Grass Surfacing	6	-2001260
+23.40.10.21.24.11.24	Synthetic Running Track Surfacing	6	-2001260
+23.40.10.21.24.11.27	Tennis Court Surfacing	6	-2001260
+23.40.10.21.24.14	Artificial Ski Slopes	5	-2001260
+23.40.10.21.24.17	Artificial Ice Rinks	5	-2001260
+23.40.10.21.27	Exterior Athletic Equipment	4	-2001350
+23.40.10.21.27.11	Goalposts	5	-2001350
+23.40.10.21.27.11.11	Soccer Goalposts	6	-2001350
+23.40.10.21.27.11.14	Football Goalposts	6	-2001350
+23.40.10.21.27.14	Tennis Court Nets	5	-2001350
+23.40.10.21.27.17	Volley Ball Nets	5	-2001350
+23.40.10.21.27.21	Basketball Net and Backstop	5	-2001350
+23.40.10.24	Screening Devices	3	-2001350
+23.40.10.24.11	Jet Blast Barriers	4	-2001350
+23.40.10.24.14	Screens and Louvers	4	-2001350
+23.40.10.24.21	Sound Barriers	4	-2001350
+23.40.20.00	General Furniture and Specialties	2	-2000080
+23.40.20.11	Wardrobe and Closet Specialties	3	-2000080
+23.40.20.11.11	Wardrobes	4	-2000080
+23.40.20.11.14	Chests of Drawers	4	-2000080
+23.40.20.11.17	Lockers	4	-2000080
+23.40.20.11.21	Racks and Hangers	4	-2000080
+23.40.20.11.21.11	Coat Racks	5	-2000080
+23.40.20.11.21.14	Hat Racks	5	-2000080
+23.40.20.11.21.17	Shoe Trees	5	-2000080
+23.40.20.11.21.21	Coat Hooks	5	-2000080
+23.40.20.11.21.24	Coat Hangers and Rails	5	-2000080
+23.40.20.11.24	Cloakroom Units	4	-2000080
+23.40.20.11.27	Umbrella Stands	4	-2000080
+23.40.20.11.31	Checkroom Equipment	4	-2000080
+23.40.20.11.31.11	Manual Checkroom Equipment	5	-2000080
+23.40.20.11.31.14	Automated Checkroom Equipment	5	-2000080
+23.40.20.14	Residential Furniture	3	-2000080
+23.40.20.14.14	Residential Seating	4	-2000080
+23.40.20.14.14.11	Chairs	5	-2000080
+23.40.20.14.14.14	Settees, Sofas	5	-2000080
+23.40.20.14.14.17	Stools	5	-2000080
+23.40.20.14.14.21	Benches	5	-2000080
+23.40.20.14.14.24	Chaises Lounges	5	-2000080
+23.40.20.14.14.27	Sofa Beds, Chair Beds	5	-2000080
+23.40.20.14.17	Residential Tables and Cabinets	4	-2000080
+23.40.20.14.17.11	Dining Room Tables	5	-2000080
+23.40.20.14.17.14	China Cabinets	5	-2000080
+23.40.20.14.17.17	Sideboards	5	-2000080
+23.40.20.14.17.21	End Tables	5	-2000080
+23.40.20.14.17.24	Coffee Tables	5	-2000080
+23.40.20.17	Bedroom Furniture	3	-2000080
+23.40.20.17.14	Bedroom Furniture, Single Units	4	-2000080
+23.40.20.17.14.11	Beds	5	-2000080
+23.40.20.17.14.14	Headboards, Footboards	5	-2000080
+23.40.20.17.14.17	Cots, Cradles	5	-2000080
+23.40.20.17.14.21	Bedside Units	5	-2000080
+23.40.20.17.14.24	Dressing Tables	5	-2000080
+23.40.20.17.14.27	Nursery/Children's Furniture	5	-2000080
+23.40.20.17.14.31	Mattresses	5	-2000080
+23.40.20.21	Toilet and Bath Specialties	3	-2000080
+23.40.20.21.11	Bathroom Cabinets	4	-2001000
+23.40.20.21.14	Hand and Hair Dryers	4	-2001350
+23.40.20.21.17	Paper Towel Dispensers, Disposal Units	4	-2001350
+23.40.20.21.21	Toilet Paper Dispensers	4	-2001350
+23.40.20.21.24	Sanitary Napkin and Tampon Dispensers, Disposal Units	4	-2001350
+23.40.20.21.27	Towel Bars	4	-2001350
+23.40.20.21.31	Robe Hooks	4	-2001350
+23.40.20.21.34	Soap Holders, Dispensers	4	-2001350
+23.40.20.21.37	Diaper Changing Units	4	-2001350
+23.40.20.21.41	Bathroom Deodorizers	4	-2001350
+23.40.20.21.44	Shower Rods, Curtains	4	-2001350
+23.40.20.21.47	Bath Grab Bars	4	-2001350
+23.40.20.24	Non-Clothes Storage Furniture	3	-2000080
+23.40.20.24.11	Cupboards	4	-2001000
+23.40.20.24.14	Chests	4	-2000080
+23.40.20.24.17	Sideboards	4	-2000080
+23.40.20.24.21	Dressers	4	-2000080
+23.40.20.24.24	Filing Cabinets	4	-2000080
+23.40.20.24.27	Plan/Map Chests	4	-2000080
+23.40.20.24.31	Desk	4	-2000080
+23.40.20.24.34	Bookcases	4	-2000080
+23.40.20.24.41	Key Hangers	4	-2000080
+23.40.20.27	Storage Shelving	3	-2000080
+23.40.20.27.11	Shelves	4	-2000080
+23.40.20.27.14	Supports	4	-2000080
+23.40.20.27.17	Racking	4	-2000080
+23.40.20.27.21	Mobile Storage Units	4	-2000080
+23.40.20.31	Refuse Disposal Furniture	3	-2000080
+23.40.20.31.11	Bins	4	-2001350
+23.40.20.31.14	Ash Trays	4	-2001350
+23.40.20.31.17	Refuse Holders	4	-2001350
+23.40.20.34	Fireplaces and Stoves 	3	-2001350
+23.40.20.34.11	Fireplace and Stove Components 	4	-2001350
+23.40.20.34.11.11	Fire Surrounds	5	-2001350
+23.40.20.34.11.14	Firebacks	5	-2001350
+23.40.20.34.11.17	Fireplace and Stove Fenders	5	-2001350
+23.40.20.34.11.21	Fireplace and Stove Hoods	5	-2001350
+23.40.20.34.14	Fireplaces	4	-2001350
+23.40.20.34.14.11	Fireplace Inserts	5	-2001350
+23.40.20.34.14.14	Fireplace Screens and Doors	5	-2001350
+23.40.20.34.14.17	Fireplace Water Heaters	5	-2001350
+23.40.20.34.17	Stoves	4	-2001350
+23.40.20.34.17.11	Stove Pipe	5	-2001350
+23.40.20.34.21	Hearths	4	-2001350
+23.40.35.00	Casework	2	-2001000
+23.40.35.11	Casework Components	3	-2001000
+23.40.35.11.11	Cabinets	4	-2001000
+23.40.35.11.14	Hardware	4	-2001000
+23.40.35.11.17	Work Surfaces	4	-2001000
+23.40.35.14	Casework by Type	3	-2001000
+23.40.35.14.11	Modular Casework	4	-2001000
+23.40.35.14.14	Custom-Fabricated Casework	4	-2001000
+23.40.35.17	Casework by Purpose	3	-2001000
+23.40.35.17.11	Bank Casework	4	-2001000
+23.40.35.17.14	Hospitality Casework	4	-2001000
+23.40.35.17.17	Display Casework	4	-2001000
+23.40.35.17.21	Religious Casework	4	-2001000
+23.40.35.17.24	Library Casework	4	-2001000
+23.40.35.17.24.11	Study Carrels	5	-2001000
+23.40.35.17.24.14	Book Stacks	5	-2001000
+23.40.35.17.24.17	Periodical Racks	5	-2001000
+23.40.35.17.27	Educational Casework	4	-2001000
+23.40.35.17.31	Laboratory Casework	4	-2001000
+23.40.35.17.34	Medical Casework	4	-2001000
+23.40.35.17.34.11	Dental Casework	5	-2001000
+23.40.35.17.34.14	Pharmacy Casework	5	-2001000
+23.40.35.17.37	Mortuary Casework	4	-2001000
+23.40.35.17.41	Commercial Kitchen Casework	4	-2001000
+23.40.35.17.44	Darkroom Casework	4	-2001000
+23.40.35.17.44.11	Photo Transfer Cabinets	5	-2001000
+23.40.35.17.47	Residential Casework	4	-2001000
+23.40.35.17.47.11	Kitchen Casework	5	-2001000
+23.40.35.17.47.11.11	Complete Kitchen Casework Suites	6	-2001000
+23.40.35.17.47.11.14	Single Kitchen Casework Units	6	-2001000
+23.40.35.17.47.14	Bathroom Casework	5	-2001000
+23.40.40.00	Food Service Equipment and Furnishings	2	-2001350
+23.40.40.11	Specialized Food Storage and Display Furnishings	3	-2001350
+23.40.40.11.11	Refrigerators and Freezers	4	-2001350
+23.40.40.11.11.11	Refrigerators	5	-2001350
+23.40.40.11.11.14	Freezers	5	-2001350
+23.40.40.11.11.17	Refrigerator-Freezer 	5	-2001350
+23.40.40.11.14	Food Storage Coolers	4	-2001350
+23.40.40.11.14.11	Walk-In Coolers	5	-2001350
+23.40.40.11.14.14	Display Coolers	5	-2001350
+23.40.40.11.17	Refrigerated Cases	4	-2001350
+23.40.40.11.21	Hot Cabinets	4	-2001350
+23.40.40.11.24	Cold Cabinets	4	-2001350
+23.40.40.11.27	Bottle Racks	4	-2001350
+23.40.40.11.31	Steam Tables	4	-2001350
+23.40.40.11.34	Snack Cabinets	4	-2001350
+23.40.40.14	Food Service Equipment	3	-2001350
+23.40.40.14.11	Food Delivery Carts and Conveyors	4	-2001350
+23.40.40.14.11.11	Food Delivery Carts	5	-2001350
+23.40.40.14.11.14	Food Delivery Conveyors	5	-2001350
+23.40.40.14.14	Food Preparation Equipment	4	-2001350
+23.40.40.14.14.11	Food Mixers	5	-2001350
+23.40.40.14.14.14	Drink Making Equipment	5	-2001350
+23.40.40.14.17	Food Cooking Equipment	4	-2001350
+23.40.40.14.17.11	Cookers, Ovens, Stoves	5	-2001350
+23.40.40.14.17.14	Hot Plates	5	-2001350
+23.40.40.14.17.17	Ranges	5	-2001350
+23.40.40.14.17.21	Grills	5	-2001350
+23.40.40.14.17.24	Fryers	5	-2001350
+23.40.40.14.17.27	Barbecues	5	-2001350
+23.40.40.14.17.31	Small Specialized Cooking Equipment	5	-2001350
+23.40.40.14.21	Hood and Ventilation Equipment	4	-2001140
+23.40.40.14.21.11	Food Service Hoods	5	-2008013
+23.40.40.14.21.14	Ventilation Equipment	5	-2001140
+23.40.40.14.21.17	Fire Suppression Systems	5	-2001140
+23.40.40.14.21.21	Catering Ventilation	5	-2001140
+23.40.40.14.24	Food Dispensing Equipment	4	-2001350
+23.40.40.14.24.11	Bar Equipment	5	-2001350
+23.40.40.14.24.14	Service Line Equipment	5	-2001350
+23.40.40.14.24.17	Soda Fountain Equipment	5	-2001350
+23.40.40.14.27	Ice Machines	4	-2001350
+23.40.40.14.31	Cleaning and Disposal Equipment	4	-2001350
+23.40.40.17	Restaurant Furniture	3	-2000080
+23.40.40.17.11	Bars and Serving Counters	4	-2000080
+23.40.40.17.14	Restaurant Chairs	4	-2000080
+23.40.40.17.17	Restaurant Tables	4	-2000080
+23.40.40.17.21	Restaurant Booths	4	-2000080
+23.40.40.17.24	Restaurant Seating Units	4	-2000080
+23.40.40.17.27	Bar Stools	4	-2000080
+23.40.50.00	Educational, Cultural Equipment and Furnishings	2	-2000080
+23.40.50.11	Educational, Entertainment Equipment and Furnishings	3	-2000080
+23.40.50.11.11	Auditorium Seating	4	-2000080
+23.40.50.11.11.11	Fixed Audience Seating	5	-2000080
+23.40.50.11.11.14	Portable Audience Seating	5	-2000080
+23.40.50.11.11.14.11	Folding Audience Chairs	6	-2000080
+23.40.50.11.11.14.14	Interlocking Audience Chairs	6	-2000080
+23.40.50.11.11.14.17	Stacking Audience Chairs	6	-2000080
+23.40.50.11.14	Classroom Furniture	4	-2000080
+23.40.50.11.14.11	Seat and Table Assemblies	5	-2000080
+23.40.50.11.14.14	Modular Desks	5	-2000080
+23.40.50.11.17	Multiple-Use Fixed Seating	4	-2000080
+23.40.50.11.21	Platforms	4	-2001350
+23.40.50.11.21.11	Folding and Portable Stages	5	-2001350
+23.40.50.11.24	Educational Play Equipment	4	-2001350
+23.40.50.11.27	Language Laboratory Equipment	4	-2001350
+23.40.50.14	Theater and Stage Equipment	3	-2001350
+23.40.50.14.11	Acoustical Shells	4	-2001350
+23.40.50.14.14	Rigging Systems and Controls	4	-2001350
+23.40.50.14.17	Scenery Docks	4	-2001350
+23.40.50.14.21	Suspension Systems	4	-2001350
+23.40.50.14.24	Stage Curtains	4	-2001350
+23.40.50.17	Planetarium Equipment and Furnishings	3	-2001350
+23.40.50.17.11	Planetarium Projectors	4	-2001350
+23.40.50.17.14	Planetarium Seating	4	-2000080
+23.40.50.21	Observatory Equipment and Furnishings	3	-2001350
+23.40.50.21.11	Telescopes	4	-2001350
+23.40.50.24	Ecclesiastical Equipment and Furnishings	3	-2001350
+23.40.50.24.11	Religious Seating, Pews, and Benches	4	-2001350
+23.40.50.24.14	Chancel Furnishings	4	-2001350
+23.40.50.24.14.11	Lecterns	5	-2001350
+23.40.50.24.14.14	Pulpits	5	-2001350
+23.40.50.24.14.17	Choir Screens	5	-2001350
+23.40.50.24.14.21	Altars	5	-2001350
+23.40.50.24.17	Baptisteries	4	-2001350
+23.40.50.24.21	Baptismal Fonts	4	-2001350
+23.40.50.24.24	Instrumental Equipment	4	-2001350
+23.40.50.24.24.11	Organs, Organ Cases and Screens	5	-2001350
+23.40.50.24.24.14	Bells	5	-2001350
+23.40.50.24.24.17	Carillons	5	-2001350
+23.40.50.24.27	Synagogue Furniture	4	-2001350
+23.40.50.24.31	Mosque Furniture	4	-2001350
+23.40.50.24.34	Temple Furniture	4	-2001350
+23.40.50.27	Library and Archive Equipment and Furnishings	3	-2001350
+23.40.50.27.11	Library Stack Systems	4	-2001350
+23.40.50.27.11.11	Library Shelving	5	-2000080
+23.40.50.27.14	Book Depositories	4	-2001350
+23.40.50.27.17	Book Theft Protection Equipment	4	-2001350
+23.40.50.27.21	Library Furniture	4	-2000080
+23.40.50.27.21.11	Library Filing Furniture	5	-2000080
+23.40.50.27.21.14	Library Display Furniture	5	-2000080
+23.40.50.27.21.17	Study Carrels	5	-2000080
+23.40.50.31	Exhibition Equipment and Furnishings	3	-2001350
+23.40.50.31.11	Display Furniture	4	-2001350
+23.40.50.31.11.11	Display Cabinets	5	-2001350
+23.40.50.31.11.14	Display Racks	5	-2001350
+23.40.50.31.11.17	Display Carousels	5	-2001350
+23.40.50.31.14	Gallery Hanging Systems	4	-2001350
+23.40.50.31.17	Stands, Pedestals	4	-2001350
+23.40.50.31.21	Retail Cabinets	4	-2001000
+23.40.50.31.24	Exhibition Stands, Shell Schemes	4	-2001350
+23.40.50.31.27	Exhibit Equipment	4	-2001350
+23.40.50.34	Athletic, Recreational, and Therapeutic Equipment	3	-2001350
+23.40.50.34.11	Arcade Machines	4	-2001350
+23.40.50.34.14	Gymnasium Equipment	4	-2001350
+23.40.50.34.14.11	Backstops	5	-2001350
+23.40.50.34.14.14	Scoreboards and Time Clocks	5	-2001350
+23.40.50.34.14.17	Net Posts	5	-2001350
+23.40.50.34.14.21	Floor Sockets	5	-2001350
+23.40.50.34.14.24	Climbing Walls	5	-2001350
+23.40.50.34.14.27	Climbing Ropes	5	-2001350
+23.40.50.34.17	Gymnasium Dividers	4	-2001350
+23.40.50.34.21	Fitness and Exercise Equipment	4	-2001350
+23.40.50.34.24	Nets	4	-2001350
+23.40.50.34.27	Bowling Alley Equipment	4	-2001350
+23.40.50.34.31	Shooting Range Equipment	4	-2001350
+23.40.50.34.34	Equipment Storage Racks	4	-2001350
+23.40.50.34.37	Sauna and Steam Room Specialties 	4	-2001350
+23.40.50.34.41	Solarium Specialties	4	-2001350
+23.40.50.34.44	Therapeutic Equipment	4	-2001350
+23.40.50.34.47	Spectator Stands, Seating	4	-2000080
+23.40.50.34.47.11	Fixed Stadium and Arena Seating	5	-2000080
+23.40.50.34.47.14	Telescoping Stands	5	-2000080
+23.40.50.34.47.14.11	Telescoping Bleachers	6	-2000080
+23.40.50.34.47.14.14	Telescoping Chair Platforms	6	-2000080
+23.40.70.00	Work Environment Equipment and Furnishings	2	-2001350
+23.40.70.11	Scientific and Medical Equipment and Furnishings	3	-2001350
+23.40.70.11.11	Laboratory Equipment and Furnishings	4	-2001350
+23.40.70.11.11.11	Laboratory Equipment	5	-2001350
+23.40.70.11.11.11.11	Laboratory Service Fixtures	6	-2001350
+23.40.70.11.11.11.14	Laboratory Fume Hoods	6	-2001140
+23.40.70.11.11.11.17	Laboratory Incubators	6	-2001350
+23.40.70.11.11.11.21	Laboratory Sterilizers	6	-2001350
+23.40.70.11.11.11.24	Laboratory Refrigerators	6	-2001350
+23.40.70.11.11.11.27	Laboratory Emergency Safety Appliances	6	-2001350
+23.40.70.11.11.11.31	Laboratory Service Columns	6	-2001350
+23.40.70.11.11.11.34	Laboratory Flammables Storage Cabinets	6	-2001000
+23.40.70.11.11.14	Laboratory Furniture	5	-2000080
+23.40.70.11.14	Health Care Equipment and Furnishings	4	-2001350
+23.40.70.11.14.11	Medical Equipment	5	-2001350
+23.40.70.11.14.11.11	Medical Sterilizing Equipment	6	-2001350
+23.40.70.11.14.11.14	Examination and Treatment Equipment	6	-2001350
+23.40.70.11.14.11.17	Patient Care Equipment	6	-2001350
+23.40.70.11.14.11.17.11	Patient Hoists	7	-2001350
+23.40.70.11.14.11.17.14	Hospital Head Boards	7	-2001350
+23.40.70.11.14.11.17.17	Patient Beds	7	-2001350
+23.40.70.11.14.11.21	Post-Mortem and Dissection Equipment	6	-2001350
+23.40.70.11.14.11.24	Operating Room Equipment	6	-2001350
+23.40.70.11.14.11.27	Radiology Equipment	6	-2001350
+23.40.70.11.14.14	Dental Equipment	5	-2001350
+23.40.70.11.14.17	Optical Equipment	5	-2001350
+23.40.70.11.14.21	Health Care Furniture	5	-2000080
+23.40.70.11.17	Mortuary Equipment	4	-2001350
+23.40.70.11.17.11	Mortuary Refrigerators	5	-2001350
+23.40.70.11.17.14	Crematorium Equipment	5	-2001350
+23.40.70.11.17.17	Mortuary Lifts	5	-2001350
+23.40.70.14	Retail and Commercial Equipment and Furnishings	3	-2000080
+23.40.70.14.11	Hospitality Equipment and Furnishings	4	-2000080
+23.40.70.14.14	Registration Equipment	4	-2000080
+23.40.70.14.17	Checkroom Equipment	4	-2000080
+23.40.70.14.21	Hospitality Furniture	4	-2000080
+23.40.70.14.24	Hospitality Furnishings	4	-2000080
+23.40.70.14.24.11	Hospitality Bath Furnishings	5	-2000080
+23.40.70.14.24.11.11	Hospitality Bath Linens and Towels	6	-2000080
+23.40.70.14.24.11.14	Hospitality Bath Mats	6	-2000080
+23.40.70.14.24.11.17	Hospitality Shower Curtains	6	-2000080
+23.40.70.14.24.14	Hospitality Bedroom Furnishings	5	-2000080
+23.40.72.14.21	Hospitality Bed Linens	4	-2000080
+23.40.72.14.22	Hospitality Pillows	4	-2000080
+23.40.70.14.27	Mercantile Equipment and Furnishings	4	-2000080
+23.40.70.14.31	Barber Shop Equipment	4	-2000080
+23.40.70.14.34	Beauty Shop Equipment	4	-2000080
+23.40.70.14.37	Cash Registers and Checkout Equipment	4	-2000080
+23.40.70.14.41	Display Cases	4	-2000080
+23.40.70.14.41.11	Refrigerated Display Cases	5	-2001350
+23.40.70.14.44	Food Processing Equipment	4	-2001350
+23.40.70.14.47	Food Weighing and Wrapping Equipment	4	-2001350
+23.40.70.14.51	Display Casework	4	-2001000
+23.40.70.14.54	Wall Display Systems	4	-2001350
+23.40.70.14.57	Office Equipment and Furnishings	4	-2001350
+23.40.70.14.57.11	Computers	5	-2001350
+23.40.70.14.57.14	Printers	5	-2001350
+23.40.70.14.57.17	Drafting Equipment	5	-2001350
+23.40.70.14.57.21	Plotters	5	-2001350
+23.40.70.14.57.24	Drawing Equipment	5	-2001350
+23.40.70.14.61	Mailroom Case Goods	4	-2001350
+23.40.70.14.64	Retail and Commercial Furnishings	4	-2000080
+23.40.70.14.64.11	Office Furniture	5	-2000080
+23.40.70.14.64.14	Retail and Commercial Seating Furniture	5	-2000080
+23.40.70.14.64.17	Office Storage and Filing Furniture	5	-2000080
+23.40.70.14.64.17.11	Lateral Filing Cabinets	6	-2000080
+23.40.70.14.64.17.14	Vertical Filing Cabinets	6	-2000080
+23.40.70.14.64.21	Systems Furniture	5	-2001100
+23.40.70.14.64.21.11	Panel-Hung Component	6	-2001100
+23.40.70.14.64.21.14	Free-Standing Component	6	-2001100
+23.40.70.14.64.21.17	Beam System	6	-2001100
+23.40.70.14.64.21.21	Desk System	6	-2001100
+23.40.70.14.64.24	Office Accessories	5	-2001350
+23.40.70.17	Industrial and Manufacturing Equipment and Furnishings	3	-2001350
+23.40.70.17.11	Manufacturing Equipment 	4	-2001350
+23.40.70.17.14	Manufacturing Furniture	4	-2001100
+23.40.70.17.14.11	Flat Work Surface Furniture	5	-2001100
+23.40.70.17.14.14	Work Stations 	5	-2001100
+23.40.70.17.17	Shop Equipment	4	-2001350
+23.40.70.17.21	Shop Furniture	4	-2001350
+23.40.70.17.21.11	Counters and Work Surfaces	5	-2001350
+23.40.70.17.21.14	Shop Display Specialties	5	-2001350
+23.40.70.17.21.17	Shop Storage Fittings	5	-2001350
+23.40.70.21	Other Work-Related Equipment and Furnishings	3	-2001350
+23.40.70.21.11	Darkroom Equipment and Furnishings	4	-2001350
+23.40.70.21.14	Darkroom Equipment	4	-2001350
+23.40.70.21.14.11	Darkroom Processing Equipment	5	-2001350
+23.40.70.21.17	Darkroom Specialties	4	-2001350
+23.40.70.21.21	Vending Equipment	4	-2001350
+23.40.70.21.24	Vending Machines	4	-2001350
+23.40.70.21.27	Ticket Machines	4	-2001350
+23.40.70.21.31	Change Machines	4	-2001350
+23.40.70.24	Vehicle Service Equipment	3	-2001350
+23.40.70.24.11	Compressed Air Vehicle Service Equipment	4	-2001350
+23.40.70.24.14	Fuel Dispensing Equipment	4	-2001350
+23.40.70.24.17	Vehicle Lubrication Equipment	4	-2001350
+23.40.70.24.21	Tire Changing Equipment	4	-2001350
+23.40.70.24.24	Vehicle Washing Equipment	4	-2001350
+23.40.70.24.27	Vehicle Hoists	4	-2001350
+23.40.70.27	Security and Vault Equipment and Furnishings	3	-2001350
+23.40.70.27.11	Safes	4	-2001350
+23.40.70.27.14	Safe Deposit Boxes	4	-2001350
+23.40.70.27.17	Vault Doors and Day Gates	4	-2001350
+23.40.70.27.21	Anti-Bandit Screens	4	-2001350
+23.40.70.27.21.11	Gun Ports	5	-2001350
+23.40.70.27.24	Teller and Service Equipment	4	-2001350
+23.40.70.27.24.11	Automated Banking Systems	5	-2001350
+23.40.70.27.24.14	Money Cart Pass-Through	5	-2001350
+23.40.70.27.24.17	Package Transfer Units	5	-2001350
+23.40.70.27.24.21	Service and Teller Window Units	5	-2001350
+23.40.70.27.24.24	Teller Equipment Systems	5	-2001350
+23.40.70.27.27	Secure Point of Sale Units/Tills	4	-2001350
+23.40.70.27.27.11	Deal Drawers	5	-2001350
+23.40.70.27.31	Key Security Cabinets	4	-2001350
+23.40.70.27.34	Money Counting and Handling Equipment	4	-2001350
+23.40.70.31	Detention Equipment and Furnishings	3	-2001350
+23.40.70.31.11	Detention Enclosures	4	-2001350
+23.40.70.31.14	Detention Furnishings and Specialties	4	-2001350
+23.40.70.31.17	Detention Furniture	4	-2001350
+23.40.70.34	Agricultural Equipment	3	-2001350
+23.40.70.34.11	Milkers	4	-2001350
+23.40.70.34.14	Stock Feeders	4	-2001350
+23.40.70.34.17	Stock Waterers	4	-2001350
+23.40.70.34.21	Waste Clean-Up Equipment	4	-2001350
+23.40.90.00	Information and Communication Specialties	2	-2001350
+23.40.90.11	Information Display Specialties	3	-2001350
+23.40.90.11.11	Information Signs	4	-2001350
+23.40.90.11.14	Lettering and Numerals	4	-2001350
+23.40.90.11.17	Pin Boards	4	-2001350
+23.40.90.11.21	Writing Boards	4	-2001350
+23.40.90.11.24	Plaques	4	-2001350
+23.40.90.11.27	Poster Display Units	4	-2001350
+23.40.90.11.31	Notice Boards	4	-2001350
+23.40.90.11.34	Display Screens	4	-2001350
+23.40.90.11.37	Pictograms	4	-2001350
+23.40.90.14	Communication Specialties	3	-2001350
+23.40.90.14.11	Mail Boxes	4	-2001350
+23.40.90.14.14	Mail Racks	4	-2001350
+23.40.90.14.17	Pigeonholes	4	-2001350
+23.40.90.14.21	Mail Trolleys	4	-2001350
+23.40.90.14.24	Mail Handling Equipment	4	-2001350
+23.40.90.14.27	Telephone Booths	4	-2001350
+23.40.90.14.31	Acoustic Hoods	4	-2001350
+23.40.90.14.34	Directory Boards	4	-2001350
+23.40.95.00	Furnishings, Ornaments, and Decoration	2	-2001350
+23.40.95.11	Soft Furnishings	3	-2001350
+23.40.95.11.31	Movable or Retractable Screens	4	-2001350
+23.40.95.14	Plant Display Furniture	3	-2000151
+23.40.95.14.11	Decorative Planters	4	-2000151
+23.40.95.14.14	Decorative Vases	4	-2000151
+23.40.95.17	Ornaments and Decoration	3	-2000151
+23.40.95.17.11	Interior Ornamental Fountains	4	-2000151
+23.40.95.17.14	Ornaments	4	-2000151
+23.40.95.17.17	Mirrors	4	-2000151
+23.40.95.17.21	Ornamental Screens	4	-2000151
+23.40.95.17.24	Artwork	4	-2000151
+23.40.95.17.27	Clocks	4	-2000151
+23.40.95.17.31	Wall Hangings	4	-2000151
+23.45.00.00	Sanitary, Laundry, and Cleaning Equipment	1	-2001350
+23.45.05.00	Sanitary Equipment	2	-2001350
+23.45.05.14	Plumbing Fixtures - Sanitary Washing Units 	3	-2001160
+23.45.05.14.11	Sanitary Washing Unit Components	4	-2001350
+23.45.05.14.11.11	Splashbacks	5	-2001350
+23.45.05.14.11.14	Bath Panels	5	-2001350
+23.45.05.14.11.17	Shower/Bath Seats	5	-2001350
+23.45.05.14.11.21	Shower Receptors	5	-2001350
+23.45.05.14.11.24	Shower/Bath Screens, Curtains	5	-2001350
+23.45.05.14.14	Sinks/Lavatories	4	-2001160
+23.45.05.14.14.11	Sacristy	5	-2001160
+23.45.05.14.14.14	Clinic Sinks	5	-2001160
+23.45.05.14.14.17	Plaster Sinks	5	-2001160
+23.45.05.14.14.21	Surgeon’s Scrub-Up Sinks	5	-2001160
+23.45.05.14.14.24	Surgeon’s Instrument Sinks	5	-2001160
+23.45.05.14.14.27	Service Sinks	5	-2001160
+23.45.05.14.14.31	Darkroom Sinks	5	-2001160
+23.45.05.14.14.34	Hairdressing Sinks	5	-2001160
+23.45.05.14.17	Showers	4	-2001160
+23.45.05.14.17.11	Shower Compartments	5	-2001160
+23.45.05.14.17.14	Shower Receptors	5	-2001160
+23.45.05.14.17.17	Group Showers	5	-2001160
+23.45.05.14.21	Bathtubs	4	-2001160
+23.45.05.14.21.11	Bath/Shower Units	5	-2001160
+23.45.05.14.21.14	Sitz Baths	5	-2001160
+23.45.05.14.21.17	Therapeutic Whirlpool Baths	5	-2001160
+23.45.05.14.24	Eye Wash Fountains	4	-2001160
+23.45.05.14.27	Bidets	4	-2001160
+23.45.05.14.31	Combination Toilets	4	-2001160
+23.45.05.14.31.11	Patient’s Combination Toilets	5	-2001160
+23.45.05.14.31.14	Detention Combination Toilets	5	-2001160
+23.45.05.14.34	Security Plumbing Fixtures	4	-2001160
+23.45.05.14.37	Bedpan Washers/Sanitizers	4	-2001160
+23.45.05.14.99	Other Sanitary Washing Plumbing Fixtures	4	-2001160
+23.45.05.17	Sanitary Leisure Units	3	-2001160
+23.45.05.17.11	Sauna Equipment	4	-2001160
+23.45.05.17.14	Steam Room Equipment	4	-2001160
+23.45.05.17.17	Leisure Whirlpools	4	-2001160
+23.45.05.17.21	Hot Tubs	4	-2001160
+23.45.05.21	Plumbing Fixtures - Sanitary Disposal Units 	3	-2001160
+23.45.05.21.11	Water Closets 	4	-2001160
+23.45.05.21.11.11	Water Operated Water Closets	5	-2001160
+23.45.05.21.11.14	Chemical/Biological Sanitary Disposal Units	5	-2001160
+23.45.05.21.11.21	Urinals	5	-2001160
+23.45.05.21.11.24	Sanitary Macerators	5	-2001160
+23.45.05.21.14	Sanitary Disposal Components	4	-2001350
+23.45.05.21.14.11	Water Closet Seats	5	-2001350
+23.45.05.21.14.14	Water Closet Tanks	5	-2001350
+23.45.05.21.14.17	Sanitary Disposal Connectors	5	-2001350
+23.45.30.00	Washing and Waste Disposal Equipment	2	-2001350
+23.45.30.11	Residential Washing Equipment	3	-2001350
+23.45.30.11.11	Residential Dishwashers	4	-2001160
+23.45.30.11.14	Residential Waste Disposal Units	4	-2001350
+23.45.30.14	Commercial Washing Equipment	3	-2001350
+23.45.30.14.11	Commercial Dishwashers	4	-2001160
+23.45.30.14.14	Commercial Waste Disposal Units	4	-2001350
+23.45.30.14.21	High Pressure Washing Equipment	4	-2001160
+23.45.30.17	Drain Boards	3	-2001350
+23.45.55.00	Sanitary Faucets, Wastes	2	-2001160
+23.45.55.11	Sanitary Components	3	-2001160
+23.45.55.11.11	Plugs	4	-2001350
+23.45.55.11.14	Chains	4	-2001350
+23.45.55.11.17	Overflow Specialties	4	-2001350
+23.45.55.14	Single Faucets	3	-2001160
+23.45.55.17	Mixing Faucets	3	-2001160
+23.45.55.21	Drains (Wastes)	3	-2001160
+23.45.70.00	Laundry and Cleaning Equipment	2	-2001350
+23.45.70.11	Laundry Equipment	3	-2001350
+23.45.70.11.11	Residential Laundry Equipment	4	-2001350
+23.45.70.11.11.11	Washing Machines	5	-2001160
+23.45.70.11.11.14	Clothes Dryers	5	-2001350
+23.45.70.11.14	Commercial Laundry Equipment	4	-2001350
+23.45.70.11.14.11	Washing Machines	5	-2001160
+23.45.70.11.14.14	Extractors	5	-2001350
+23.45.70.11.14.17	Clothes Dryers	5	-2001350
+23.45.70.11.14.21	Clothes Airers	5	-2001350
+23.45.70.11.14.24	Ironing and Pressing Machines	5	-2001350
+23.45.70.11.14.27	Laundry Folding Machines	5	-2001350
+23.45.70.11.14.31	Commercial Clothes Lines	5	-2001350
+23.45.70.11.14.34	Dry Cleaning Equipment	5	-2001350
+23.45.70.14	Room Cleaning Equipment	3	-2001350
+23.45.70.14.11	Vacuum Cleaning Systems	4	-2001350
+23.45.70.14.14	Floor and Wall Cleaning	4	-2001350
+23.45.70.14.17	Housekeeping Carts	4	-2001350
+23.50.00.00	Conveying Systems & Material Handling	1	-2001350
+23.50.05.00	Vertical Transportation	2	-2001350
+23.50.05.11	Elevators	3	-2001350
+23.50.05.11.11	Electric Traction Elevators	4	-2001350
+23.50.05.11.11.11	Freight Electric Traction Elevators	5	-2001350
+23.50.05.11.11.14	Passenger Electric Traction Elevators	5	-2001350
+23.50.05.11.11.17	Residential Electric Traction Elevators	5	-2001350
+23.50.05.11.11.21	Service Electric Traction Elevators	5	-2001350
+23.50.05.11.14	Hydraulic Elevators	4	-2001350
+23.50.05.11.14.11	Freight Hydraulic Elevators	5	-2001350
+23.50.05.11.14.14	Passenger Hydraulic Elevators	5	-2001350
+23.50.05.11.14.17	Residential Hydraulic Elevators	5	-2001350
+23.50.05.11.14.21	Service Hydraulic Elevators	5	-2001350
+23.50.05.11.17	Rack and Pinion Elevators	4	-2001350
+23.50.05.11.21	Elevator Cabs	4	-2001350
+23.50.05.11.24	Elevator Equipment and Controls	4	-2001350
+23.50.05.11.24.11	Elevator Doors	5	-2001350
+23.50.05.11.24.14	Elevator Controls	5	-2001350
+23.50.05.11.27	Elevator Restoration Products	4	-2001350
+23.50.05.14	Lifts	3	-2001350
+23.50.05.14.11	Scissors Lifts	4	-2001350
+23.50.05.14.14	Stair Elevators	4	-2001350
+23.50.05.14.14.11	Inclined Platform Lifts	5	-2001350
+23.50.05.14.17	Elevating Platforms	4	-2001350
+23.50.05.14.17.11	Platform Lifts	5	-2001350
+23.50.05.14.17.14	Sidewalk Lifts	5	-2001350
+23.50.05.17	Escalators	3	-2001350
+23.50.20.00	Horizontal Transportation	2	-2001350
+23.50.20.11	Moving Walks	3	-2001350
+23.50.20.14	People Movers	3	-2001350
+23.50.20.17	Aircraft Passenger Loading	3	-2001350
+23.50.20.17.11	Jetways	4	-2001350
+23.50.20.17.14	Gangways	4	-2001350
+23.50.20.21	Monorails	3	-2001350
+23.50.30.00	Materials Handling	2	-2001350
+23.50.30.11	Dumbwaiters	3	-2001350
+23.50.30.11.11	Manual Dumbwaiters	4	-2001350
+23.50.30.11.14	Electric Dumbwaiters	4	-2001350
+23.50.30.11.17	Hydraulic Dumbwaiters	4	-2001350
+23.50.30.14	Material Transport	3	-2001350
+23.50.30.14.11	Automated Document Filing and Retrieval	4	-2001350
+23.50.30.14.14	Automated Guided Vehicles	4	-2001350
+23.50.30.14.14.11	Guided Vehicle Material Handling	5	-2001350
+23.50.30.14.14.14	Track Vehicle Material Handling	5	-2001350
+23.50.30.17	Postal Conveying	3	-2001350
+23.50.30.21	Baggage Conveying and Dispensing	3	-2001350
+23.50.30.24	Conveyors	3	-2001350
+23.50.30.24.11	Conveyor Components 	4	-2001350
+23.50.30.24.11.11	Conveyor Belts	5	-2001350
+23.50.30.24.14	Belt Conveyors	4	-2001350
+23.50.30.24.17	Bucket Conveyors	4	-2001350
+23.50.30.24.21	Container Conveyors	4	-2001350
+23.50.30.24.24	Hopper and Track Conveyors	4	-2001350
+23.50.30.24.27	Monorail Conveyors	4	-2001350
+23.50.30.24.31	Oscillating Conveyors	4	-2001350
+23.50.30.24.34	Pneumatic Conveyors	4	-2001350
+23.50.30.24.37	Roller Conveyors	4	-2001350
+23.50.30.24.41	Scoop Conveyors	4	-2001350
+23.50.30.24.44	Screw Conveyors	4	-2001350
+23.50.30.24.47	Selective Vertical Conveyors	4	-2001350
+23.50.30.34	Pneumatic Tubes	3	-2001350
+23.50.30.34.11	Document Conveying Systems	4	-2001350
+23.50.30.37	Hoists and Cranes	3	-2001350
+23.50.30.37.11	Cranes	4	-2001350
+23.50.30.37.11.11	Crane Rails	5	-2001350
+23.50.30.37.11.14	Bridge Cranes	5	-2001350
+23.50.30.37.11.14.11	Top-Running Overhead Cranes	6	-2001350
+23.50.30.37.11.14.14	Underslung Overhead Cranes	6	-2001350
+23.50.30.37.11.17	Gantry Cranes	5	-2001350
+23.50.30.37.11.21	Jib Cranes	5	-2001350
+23.50.30.37.11.24	Tower Cranes	5	-2001350
+23.50.30.37.11.27	Mobile Cranes	5	-2001350
+23.50.30.37.11.31	Derricks	5	-2001350
+23.50.30.37.14	Fixed Hoists	4	-2001350
+23.50.30.37.14.11	Air Powered Fixed Hoists	5	-2001350
+23.50.30.37.14.14	Electric Fixed Hoists	5	-2001350
+23.50.30.37.14.17	Manual Fixed Hoists	5	-2001350
+23.50.30.37.17	Trolley Hoists	4	-2001350
+23.50.30.37.17.11	Air Powered Trolley Hoists	5	-2001350
+23.50.30.37.17.14	Electric Trolley Hoists	5	-2001350
+23.50.30.37.17.17	Manual Trolley Hoists	5	-2001350
+23.50.50.00	Turntables	2	-2001350
+23.50.50.11	Restaurant Turntables	3	-2001350
+23.50.50.14	Stage Turntables	3	-2001350
+23.50.50.17	Exhibit and Display Turntables	3	-2001350
+23.50.50.21	Vehicular Turntable	3	-2001350
+23.50.55.00	Parking Systems	2	-2001350
+23.50.55.11	Car Parking Systems	3	-2001350
+23.50.70.00	Loading Dock Equipment	2	-2001350
+23.50.70.11	Dock Bumpers/Seals	3	-2001350
+23.50.70.14	Dock Levelers	3	-2001350
+23.50.70.14.11	Powered Dock Levelers	4	-2001350
+23.50.70.14.14	Manual Dock Levelers	4	-2001350
+23.50.70.17	Dock Lifts	3	-2001350
+23.50.70.17.11	Powered Dock Lifts	4	-2001350
+23.50.70.17.14	Manual Dock Lifts	4	-2001350
+23.50.70.21	Portable Ramps, Bridges, and Platforms	3	-2001350
+23.50.70.24	Seals and Shelters	3	-2001350
+23.50.70.27	Truck Restraints	3	-2001350
+23.50.85.00	Scaffolding	2	-2001260
+23.50.85.11	Suspended Scaffolding	3	-2001260
+23.50.85.11.11	Beam Suspended Scaffolding	4	-2001260
+23.50.85.11.14	Carriage Suspended Scaffolding	4	-2001260
+23.50.85.11.17	Hook Suspended Scaffolding	4	-2001260
+23.50.85.14	Rope Climbers	3	-2001260
+23.50.85.14.11	Manual Rope Climbers	4	-2001260
+23.50.85.14.14	Powered Rope Climbers	4	-2001260
+23.50.85.17	Telescoping Platforms	3	-2001260
+23.50.85.17.11	Electric and Battery Telescoping Platforms	4	-2001260
+23.50.85.17.14	Pneumatic Telescoping Platforms	4	-2001260
+23.50.85.21	Powered Scaffolding	3	-2001260
+23.50.90.00	Building Maintenance Systems 	2	-2001350
+23.50.90.11	Window Washing Systems	3	-2001350
+23.50.90.14	Building Maintenance Cradles and Platforms	3	-2001350
+23.50.90.17	Roof Trolley Systems	3	-2001350
+23.50.90.21	Traveling Ladder Systems	3	-2001350
+23.50.90.24	Ancillary Building Maintenance Items	3	-2001350
+23.50.90.24.11	Safety Tracks	4	-2001350
+23.50.90.24.14	Anchors for Building Maintenance	4	-2001350
+23.50.90.27	Fall Arrest Systems	3	-2001350
+23.55.00.00	Manufactured Structures	1	-2001350
+23.55.10.00	Towers and Superstructures	2	-2001350
+23.55.10.11	Industrial Breechings, Chimneys, and Stacks	3	
+23.55.10.11.11	Breechings	4	
+23.55.10.11.11.11	Fabricated Breechings and Accessories	5	
+23.55.10.11.14	Chimney Shafts	4	
+23.55.10.11.17	Chimney Linings	4	
+23.55.10.11.21	Draft Control Devices	4	
+23.55.10.11.24	Insulated Sectional Chimneys	4	
+23.55.10.14	Towers	3	-2001350
+23.55.10.14.11	Cooling Towers 	4	-2001140
+23.55.10.14.14	Water Towers	4	-2001350
+23.60.00.00	General Purpose: Services 	1	-2001350
+23.60.10.00	General Measuring Instruments	2	-2001350
+23.60.10.11	Temperature Measuring Instruments	3	-2008055
+23.60.10.14	Pressure Measuring Instruments	3	-2008055
+23.60.10.17	Flow Meters	3	-2008055
+23.60.10.21	Concentration Measuring Instruments	3	-2001350
+23.60.10.21.11	Humidity Concentration Measuring Instruments	4	-2001350
+23.60.10.21.14	Carbon Dioxide (CO²) Concentration Measuring Instruments	4	-2001350
+23.60.10.21.17	Ozone Concentration Measuring Instruments	4	-2001350
+23.60.10.21.21	Other Gas Concentration Measuring Instruments	4	-2001350
+23.60.10.24	Heat Measuring Instruments	3	-2001350
+23.60.10.27	Level Measuring Instruments	3	-2001350
+23.60.10.31	Weighing Instruments	3	-2001350
+23.60.30.00	General Pipework and Ductwork Products	2	-2000151
+23.60.30.11	Pipework Products for General Use	3	-2008049
+23.60.30.11.14	Pipework Fittings	4	-2008049
+23.60.30.11.14.11	Water Hammer Arrestors	5	-2008055
+23.60.30.11.14.14	Pipe Expansion Compensators	5	-2008055
+23.60.30.11.17	Pipework/Ductwork Mechanical Fasteners/Supports	4	-2008055
+23.60.30.14	Ducting and Wireways for General Use	3	-2000151
+23.60.30.14.11	Underfloor Wireways	4	-2000151
+23.60.30.14.14	Service Penetrations	4	-2000151
+23.60.30.17	Manholes	3	-2001350
+23.60.30.21	Pumps	3	-2001140
+23.60.30.21.11	Pump Components 	4	-2001140
+23.60.30.21.14	Manual Pumps	4	-2001140
+23.60.30.21.17	Motor Pumps	4	-2001140
+23.60.30.21.21	Pump Sets	4	-2001140
+23.60.30.21.24	Booster Pumps	4	-2001140
+23.60.30.24	Poles for Aerial Networks	3	-2001040
+23.60.30.24.11	Utility Poles	4	-2001040
+23.60.30.24.14	Lighting Poles and Standards	4	-2001040
+23.60.30.24.17	Antenna Towers	4	-2001040
+23.60.30.24.21	Transmission Towers	4	-2001040
+23.60.50.00	General Purpose Controls	2	-2001350
+23.60.50.11	Photoelectric Cells	3	-2001350
+23.60.50.14	Infra Red and Other Remote Controls	3	-2001350
+23.60.50.17	Hydraulic Controls	3	-2001350
+23.60.50.21	Pneumatic Controls	3	-2001350
+23.60.50.24	Electric Controls	3	-2001350
+23.60.50.27	Digital Controls	3	-2001350
+23.60.70.00	General Protection for Services	2	-2001350
+23.60.70.11	Fireproofing for Services	3	-2008016
+23.60.70.11.11	Fire Dampers	4	-2008016
+23.60.70.14	Smoke Seals for Ductwork	3	-2001350
+23.60.70.14.11	Smoke Dampers	4	-2008016
+23.65.00.00	Supply and Distribution of Liquids and Gases	1	-2001350
+23.65.05.00	Complete Supply, Storage and Distribution Systems	2	-2001350
+23.65.05.11	Complete Systems for Supply, Storage and Distribution of Liquids	3	-2001350
+23.65.05.11.11	Water Supply Systems	4	-2001350
+23.65.05.11.14	Consumable Liquids Supply Systems	4	-2001350
+23.65.05.11.17	Liquid Fuel Supply Systems	4	-2001350
+23.65.05.11.21	Liquid Fire Suppression Systems	4	-2001350
+23.65.05.11.99	Other Liquid Supply Systems	4	-2001350
+23.65.05.14	Complete Systems for Supply, Storage and Distribution of Gases	3	-2001350
+23.65.05.14.11	Steam Supply Systems	4	-2001350
+23.65.05.14.14	Fuel Gas Supply Systems	4	-2001350
+23.65.05.14.17	Medical Gases Supply Systems	4	-2001350
+23.65.05.14.21	Gaseous Fire Suppression Systems	4	-2001350
+23.65.05.14.99	Other Gas Supply Systems	4	-2001350
+23.65.20.00	Storage Vessels for Supplied Liquids and Gases	2	-2001350
+23.65.20.11	Storage Vessels for Liquids	3	-2001350
+23.65.20.11.11	Liquid Storage Components 	4	-2001350
+23.65.20.11.11.11	Overflow Regulators	5	-2001350
+23.65.20.11.11.14	Fill and Valve Caps	5	-2001350
+23.65.20.11.11.17	Vents for Liquid Storage Tanks	5	-2001350
+23.65.20.11.14	Rainwater Tanks	4	-2001350
+23.65.20.11.17	Supply Water Tanks	4	-2001350
+23.65.20.11.21	Consumable Liquid Storage Vessels	4	-2001350
+23.65.20.11.24	Liquid Fuel Storage Vessels	4	-2001350
+23.65.20.11.24.11	Fuel Oil Pre-Heaters	5	-2001350
+23.65.20.11.27	Other Liquid Storage Vessels	4	-2001350
+23.65.20.14	Storage Vessels for Gases	3	-2001350
+23.65.20.14.11	Vacuum/Pressurized Air Storage Vessels	4	-2001350
+23.65.20.14.14	Steam Storage Vessels	4	-2001350
+23.65.20.14.17	Medical Gases Storage Vessels	4	-2001350
+23.65.20.14.21	Fuel Gas and LPG Storage Vessels	4	-2001350
+23.65.20.14.24	Other Gas Storage Vessels	4	-2001350
+23.65.35.00	Heaters for Supplied Liquids 	2	-2001140
+23.65.35.11	Supply Water Heaters 	3	-2001140
+23.65.35.11.11	Storage Water Heaters 	4	-2001140
+23.65.35.11.14	Instantaneous Water Heaters	4	-2001140
+23.65.35.11.17	Thermodynamic Water Heaters	4	-2001140
+23.65.35.99	Heaters for Other Supplied Liquids	3	-2001140
+23.65.50.00	Treatment of Supplied Liquids/Gases	2	-2001350
+23.65.50.11	Water Treatment	3	-2001350
+23.65.50.11.11	Water Treatment Components	4	-2001350
+23.65.50.11.11.11	Water Filters	5	-2001140
+23.65.50.11.11.14	Water Softeners	5	-2001140
+23.65.50.11.11.17	Magnetic/Electronic Water Treatment	5	-2001350
+23.65.50.11.11.21	Sterilizers	5	-2001350
+23.65.50.11.11.24	Salinators	5	-2001350
+23.65.50.11.11.27	Chlorinators	5	-2001350
+23.65.50.11.11.31	Ionizers, Ozone Treatment	5	-2001350
+23.65.50.11.11.34	Additives for Water Treatment	5	-2001350
+23.65.50.11.14	Packaged Water Treatment Systems	4	-2001350
+23.65.55.00	Distribution of Supplied Liquids/Gases	2	-2001350
+23.65.55.11	Supply Pumps and Compressors	3	-2001140
+23.65.55.11.11	Gas Compressors/Vacuum Pumps	4	-2001140
+23.65.55.14	Valves for Liquid Services	3	-2008055
+23.65.55.14.11	Inlet/Outlet Valves for Liquid Services	4	-2008055
+23.65.55.14.11.11	Fill Valves for Liquid Services	5	-2008055
+23.65.55.14.11.14	Bleeding Valves for Liquid Services	5	-2008055
+23.65.55.14.11.17	Overflow Valves for Liquid Services	5	-2008055
+23.65.55.14.14	Isolation Valves for Liquid Services	4	-2008055
+23.65.55.14.17	Adjusting/Controlling Valves for Liquid Services	4	-2008055
+23.65.55.14.21	Non-Return Valves for Liquid Services	4	-2008055
+23.65.55.14.24	Mixing Valves for Liquid Services	4	-2008055
+23.65.55.17	Valves for Gas Supply Services	3	-2008055
+23.65.55.17.11	Inlet/Outlet Valves for Gas Supplies	4	-2008055
+23.65.55.17.11.11	Steam Outlet Valves	5	-2008055
+23.65.55.17.14	Isolation Valves for Gas Supplies	4	-2008055
+23.65.55.17.17	Adjusting/Controlling Valves for Gas Supplies	4	-2008055
+23.65.55.17.21	Non-Return Valves for Gas Supplies	4	-2008055
+23.65.70.00	Terminals for Supplied Liquids and Gases	2	-2001350
+23.65.70.11	Fixtures for Supplied Liquids and Gases	3	-2001350
+23.65.70.11.11	Fixtures for Liquids	4	-2001350
+23.65.70.11.14	Gas Service Fixtures	4	-2001350
+23.65.70.14	Fountains	3	-2001160
+23.65.70.14.11	Drinking Fountains/Coolers	4	-2001160
+23.65.70.14.11.11	Security Drinking Fountains/Coolers	5	-2001160
+23.65.70.17	Fire Fighting Terminals	3	-2001350
+23.65.70.17.11	Fire Fighting Terminal Components	4	-2001350
+23.65.70.17.11.11	Fire Hydrants	5	-2001140
+23.65.70.17.11.14	Fire Hose Reels	5	-2001140
+23.65.70.17.11.17	Fire Hoses	5	-2001140
+23.65.70.17.11.21	Fire Fighting Gas Terminals	5	-2001140
+23.65.70.17.11.24	Fire Fighting Sprinkler Heads	5	-2001140
+23.65.70.17.11.27	Cabinets for Fire Hoses	5	-2001140
+23.65.70.17.11.31	Fire Fighting Media 	5	-2001350
+23.65.70.17.14	Water Fire Fighting Terminals	4	-2001350
+23.65.70.17.17	Gaseous Fire Fighting Terminals	4	-2001350
+23.65.70.17.21	Foam Fire Fighting Terminals	4	-2001350
+23.65.70.17.24	Powder Fire Fighting Terminals	4	-2001350
+23.65.70.17.27	Fire Extinguishers	4	-2001350
+23.70.00.00	Waste Management	1	-2001350
+23.70.30.00	Solid Waste Handling Products  	2	-2001350
+23.70.30.11	Solid Waste Impelling Equipment	3	-2001350
+23.70.30.14	Solid Waste Treatment Equipment	3	-2001350
+23.70.30.14.11	Solid Waste Compactors, Destructors, and Balers	4	-2001350
+23.70.30.14.14	Solid Waste Crushers	4	-2001350
+23.70.30.14.17	Solid Waste Pulping Machines	4	-2001350
+23.70.30.14.21	Solid Waste Shredding Machines	4	-2001350
+23.70.30.14.24	Pneumatic Waste Equipment	4	-2001350
+23.70.30.14.27	Incinerators	4	-2001350
+23.70.30.14.27.11	Solid Waste Incinerators	5	-2001350
+23.70.30.14.27.14	Packaged Incinerators	5	-2001350
+23.70.30.14.31	Recycling Equipment	4	-2001350
+23.70.30.17	Solid Waste Monitoring and Control Equipment	3	-2001350
+23.70.30.17.11	Solid Waste Metal Detectors	4	-2001350
+23.70.30.17.14	Solid Waste Detectors for Other Solids	4	-2001350
+23.70.30.21	Solid Waste Collection and Removal Products	3	-2001350
+23.70.30.21.11	Complete Solid Waste Removal Systems	4	-2001350
+23.70.30.21.14	Solid Waste Bins	4	-2001350
+23.70.30.21.17	Gravity Chute Solid Waste Systems	4	-2001350
+23.70.30.21.21	Refuse Disposal Chutes	4	-2001350
+23.70.30.21.21.11	Refuse Hoppers	5	-2001350
+23.70.30.21.21.14	Refuse Chute Doors	5	-2001350
+23.70.30.21.21.17	Refuse Chute Decontamination Units	5	-2001350
+23.70.30.24	Solid Waste Handling Systems	3	-2001350
+23.70.30.24.11	Refuse Compactors	4	-2001350
+23.70.30.24.14	Refuse Containers	4	-2001350
+23.70.30.24.17	Dust Collectors	4	-2001140
+23.70.50.00	Liquid Waste Handling Services	2	-2001350
+23.70.50.11	Pumps for Liquid Waste	3	-2001140
+23.70.50.11.11	Surface Waste Water Pumps	4	-2001140
+23.70.50.11.14	Sewage and Sludge Pumps	4	-2001140
+23.70.50.11.14.11	Oil-Water Separators	5	-2001140
+23.70.50.11.14.14	Packaged Sewage and Sludge Pump Stations	5	-2001140
+23.70.50.11.14.17	Sewage Ejectors	5	-2001140
+23.70.50.11.17	Combined Macerator-Pumps	4	-2001140
+23.70.50.14	Liquid Waste Treatment	3	-2001350
+23.70.50.14.11	Packaged Sewage Treatment Plants	4	-2001350
+23.70.50.14.14	General Waste Water Treatment Equipment	4	-2001350
+23.70.50.14.14.11	Grit Collecting Equipment	5	-2001350
+23.70.50.14.14.14	Screening and grinding Equipment	5	-2001350
+23.70.50.14.14.17	Sedimentation Tank Equipment	5	-2001350
+23.70.50.14.14.21	Scum Removal Equipment	5	-2001350
+23.70.50.14.14.24	Chemical Equipment	5	-2001350
+23.70.50.14.14.27	Sludge Handling and Treatment Equipment	5	-2001350
+23.70.50.14.14.31	Filter Underdrains and Media	5	-2001350
+23.70.50.14.14.31.11	Filter Bottoms	6	-2001350
+23.70.50.14.14.31.14	Filter Media	6	-2001350
+23.70.50.14.14.31.17	Package Filters	6	-2001350
+23.70.50.14.14.34	Filter Press Equipment	5	-2001350
+23.70.50.14.14.37	Trickling Filter Equipment	5	-2001350
+23.70.50.14.17	Other Waste Water Treatment Equipment	4	-2001350
+23.70.50.14.17.11	Waste Water Compressors	5	-2001350
+23.70.50.14.17.14	Waste Water Aeration Equipment	5	-2001350
+23.70.50.14.17.17	Waste Water Oxygenation Systems	5	-2001350
+23.70.50.14.17.17.11	Waste Water Oxygen Dissolution System	6	-2001350
+23.70.50.14.17.17.14	Waste Water Oxygen Generators	6	-2001350
+23.70.50.14.17.17.17	Waste Water Oxygen Storage Facility	6	-2001350
+23.70.50.14.17.21	Sludge Digestion Equipment	5	-2001350
+23.70.50.14.17.21.11	Sludge Conditioning Systems	6	-2001350
+23.70.50.14.17.21.14	Sludge Incinerators	6	-2001350
+23.70.50.14.17.24	Digester Mixing Equipment	5	-2001350
+23.70.50.14.17.24.11	Digester Covers and Appurtenances	6	-2001350
+23.70.50.14.17.24.11.11	Fixed Digester Covers	7	-2001350
+23.70.50.14.17.24.11.14	Floating Digester Covers	7	-2001350
+23.70.50.14.17.24.11.17	Gasholder Covers	7	-2001350
+23.70.50.14.21	Septic Tank Systems	4	-2001350
+23.70.50.14.21.11	Drainage Field	5	-2001350
+23.70.50.14.21.14	Grease Interceptor	5	-2001350
+23.70.50.14.21.17	Sand Filter	5	-2001350
+23.70.50.14.21.21	Septic Tank	5	-2001350
+23.70.50.14.21.24	Siphon Tank	5	-2001350
+23.70.50.14.24	Bacterial Filter Tanks	4	-2001350
+23.70.50.14.27	Liquid Waste Decanters	4	-2001350
+23.70.50.14.31	Liquid Waste Separators	4	-2001350
+23.70.50.17	Liquid Waste Monitoring and Control	3	-2001350
+23.70.50.17.11	Detectors of Water Pollution	4	-2001350
+23.70.50.21	Liquid Waste Collection and Removal	3	-2001350
+23.70.50.21.24	Waste Water Drains	4	-2001160
+23.70.50.21.24.11	Roof Waste Water Drains	5	-2001160
+23.70.50.21.24.14	Deck Waste Water Drains	5	-2001160
+23.70.50.21.27	Drainage Pipes, Couplings, Collectors	4	
+23.70.50.21.31	Pipework Access Fittings	4	
+23.70.50.21.34	French Drain	4	
+23.70.50.21.37	Valves for Removal Systems	4	
+23.70.50.21.37.11	Air Inlet Valves for Removal Systems	5	
+23.70.50.21.37.14	Non-Return Valves for Removal Systems	5	
+23.70.50.24	Rainwater Removal	3	-2000151
+23.70.50.24.11	Roof Gutters/Eavestroughs	4	-2000151
+23.70.50.24.14	Downspouts	4	-2000151
+23.70.50.24.14.11	Mechanical Fasteners for Downspouts	5	-2000151
+23.70.50.24.14.14	Downspout Strainers	5	-2000151
+23.70.50.24.17	Siphonic Drains	4	-2000151
+23.70.70.00	Gaseous Waste Handling Services	2	-2001350
+23.70.70.11	Gaseous Waste Impelling Equipment	3	-2001350
+23.70.70.11.11	Flue Booster Fans	4	-2001350
+23.70.70.11.14	Flue Dilution Fans	4	-2001350
+23.70.70.11.17	Fume Extractor Fans	4	-2001350
+23.70.70.14	Gaseous Waste Treatment	3	-2001350
+23.70.70.14.11	Flue Gas Purifiers	4	-2001350
+23.70.70.17	Gaseous Waste Monitoring and Control	3	-2001350
+23.70.70.17.11	Air Pollution Detectors	4	-2001350
+23.70.70.17.14	Flue Gas Analyzers	4	-2001350
+23.70.70.21	Gaseous Waste Removal	3	-2001350
+23.70.70.21.11	Complete Gaseous Waste Handling Systems	4	-2001350
+23.70.70.21.14	Complete Flue and Chimney Systems	4	-2001350
+23.70.70.21.14.11	Gas Vents	5	-2001350
+23.70.70.21.14.14	Fabricated Stacks	5	-2001350
+23.70.70.21.14.17	Fabricated Breechings and Accessories	5	-2001350
+23.70.70.21.14.21	Insulated Sectional Chimneys	5	-2001350
+23.70.70.21.17	Flue and Chimney Systems Components	4	-2001350
+23.70.70.21.17.11	Draft Control Devices	5	-2001350
+23.70.70.21.17.14	Fireplace Lintels	5	-2001350
+23.70.70.21.17.17	Flue Linings	5	-2001350
+23.70.70.21.17.21	Flue Caps, Cowls	5	-2001350
+23.70.70.21.17.24	Access Panels for Chimneys	5	-2001350
+23.70.70.21.17.27	Dampers for Chimneys	5	-2001350
+23.70.70.21.17.31	Fire Shutter Extinguishers	5	-2001350
+23.75.00.00	Climate Control (HVAC)	1	-2001140
+23.75.10.00	Transformation and Conversion of Energy	2	-2001140
+23.75.10.11	Central Heat Generators	3	-2001140
+23.75.10.11.14	Hot Water Heat Generators	4	-2001140
+23.75.10.11.14.11	Cast-Iron Boilers	5	-2001140
+23.75.10.11.14.14	Condensing Boilers	5	-2001140
+23.75.10.11.14.17	Finned Water-Tube Boilers	5	-2001140
+23.75.10.11.14.21	Firebox Heating Boilers	5	-2001140
+23.75.10.11.14.24	Flexible Water-Tube Boilers	5	-2001140
+23.75.10.11.14.27	Pulse Combustion Boilers	5	-2001140
+23.75.10.11.14.31	Scotch Marine Boilers	5	-2001140
+23.75.10.11.14.34	Steel Water-Tube Boilers	5	-2001140
+23.75.10.11.17	Warm Air Heat Generators	4	-2001140
+23.75.10.11.17.11	Furnaces	5	-2001140
+23.75.10.11.17.11.11	Electric-Resistance Furnaces	6	-2001140
+23.75.10.11.17.11.14	Fuel-Fired Furnaces	6	-2001140
+23.75.10.11.21	Steam Heat Generators	4	-2001140
+23.75.10.11.24	Heat Generators, Thermal Liquid	4	-2001140
+23.75.10.11.27	Fuel Burners	4	-2001140
+23.75.10.11.27.11	Fuel Oil Filters	5	-2001140
+23.75.10.11.27.14	Nozzles	5	-2001140
+23.75.10.11.27.17	Burner Controls	5	-2001140
+23.75.10.11.31	Solid Fuel Transport and Handling Equipment	4	-2001140
+23.75.10.11.34	Fuel Gas Heat Recovery Devices	4	-2001140
+23.75.10.14	Independent Electric Heating Units	3	-2001140
+23.75.10.14.11	Electric Convectors	4	-2001140
+23.75.10.14.11.11	Static Convectors	5	-2001140
+23.75.10.14.11.14	Fan Convectors	5	-2001140
+23.75.10.14.14	Electric Radiators	4	-2001140
+23.75.10.14.14.11	Storage Heaters	5	-2001140
+23.75.10.14.14.14	Infrared Radiators/Plates	5	-2001140
+23.75.10.14.14.17	Ultraviolet Radiators	5	-2001140
+23.75.10.14.14.21	Electric Heated Towel Bars	5	-2001350
+23.75.10.14.14.24	Electric Heated Ceiling Panels	5	-2001350
+23.75.10.14.14.27	Portable Radiators	5	-2001350
+23.75.10.14.17	Electric Surface Heating Products	4	-2001140
+23.75.10.14.17.11	Heating Sheets for Walls and Ceilings	5	-2001140
+23.75.10.14.17.14	Heating Sheets for Glazing	5	-2001140
+23.75.10.14.17.17	Pipe Heating Tapes/Cable Heating Trace	5	-2001140
+23.75.10.14.21	Embedded Electric Heating Appliances	4	-2001140
+23.75.10.14.21.11	Heating Sheets	5	-2001140
+23.75.10.14.21.14	Heating Cables	5	-2001140
+23.75.10.17	Non-Electric Local Heating Units 	3	-2001140
+23.75.10.17.11	Non-Electric Stoves	4	-2001140
+23.75.10.17.14	Fuel-Fired Heaters	4	-2001140
+23.75.10.17.14.11	Fuel-Fired Duct Heaters	5	-2001140
+23.75.10.17.14.14	Fuel-Fired Radiant Heaters	5	-2001140
+23.75.10.17.14.17	Fuel-Fired Unit Heaters	5	-2001140
+23.75.10.17.14.21	Fuel-Fired Air Heaters	5	-2001140
+23.75.10.17.14.24	Fuel-Fired Domestic Heaters	5	-2001140
+23.75.10.17.17	Combined Heating/Cooking Units	4	-2001140
+23.75.10.17.17.11	Heat Pumps, Heating Function	5	-2001140
+23.75.10.17.17.14	Heat Pumps, Cooling Function	5	-2001140
+23.75.10.17.17.17	Heat Pumps, Heating-Cooling Function	5	-2001140
+23.75.10.21	Heat Pumps	3	-2001140
+23.75.10.21.11	Air-Source Heat Pumps	4	-2001140
+23.75.10.21.14	Rooftop Heat Pumps	4	-2001140
+23.75.10.21.17	Water-Source Heat Pumps	4	-2001140
+23.75.10.24	Cooling and Freeze Plant	3	-2001140
+23.75.10.24.11	Chilled Water Plant	4	-2001140
+23.75.10.24.14	Refrigeration Plant	4	-2001140
+23.75.10.24.17	Cold Room Plant	4	-2001140
+23.75.10.24.21	Cooling and Freeze Components	4	-2001140
+23.75.10.24.21.11	Refrigerant Condensing Units	5	-2001140
+23.75.10.24.21.11.11	Packaged Refrigerant Condensing Coils and Fan Units	6	-2001140
+23.75.10.24.21.11.14	Refrigerant Condensing Coils	6	-2001140
+23.75.10.24.21.14	Refrigerant Evaporators	5	-2001140
+23.75.10.24.21.17	Refrigerant Compressors	5	-2001140
+23.75.10.24.21.17.11	Centrifugal Refrigerant Compressors	6	-2001140
+23.75.10.24.21.17.14	Reciprocating Refrigerant Compressors	6	-2001140
+23.75.10.24.21.17.17	Rotary-Screw Refrigerant Compressors	6	-2001140
+23.75.10.24.21.21	Packaged Water Chillers	5	-2001140
+23.75.10.24.21.21.11	Absorption Water Chillers	6	-2001140
+23.75.10.24.21.21.14	Centrifugal Water Chillers	6	-2001140
+23.75.10.24.21.21.17	Reciprocating Water Chillers	6	-2001140
+23.75.10.24.21.21.21	Rotary-Screw Water Chillers	6	-2001140
+23.75.10.24.21.24	Liquid Coolers and Evaporative Condensers	5	-2001140
+23.75.10.24.21.27	Unitary Air Conditioning Equipment	5	-2001140
+23.75.10.24.21.27.11	Packaged Air Conditioners	6	-2001140
+23.75.10.24.21.27.14	Packaged Rooftop Air Conditioning Units	6	-2001140
+23.75.10.24.21.27.17	Packaged Rooftop Make-Up Air Conditioning Units	6	-2001140
+23.75.10.24.21.27.21	Packaged Terminal Air Conditioning Units	6	-2001140
+23.75.10.24.21.27.24	Room Air Conditioners	6	-2001140
+23.75.10.24.21.27.27	Split System Air Conditioning Units	6	-2001140
+23.75.10.24.21.31	Cooling/Freeze Plant Accessories	5	-2001140
+23.75.10.24.21.31.11	Refrigerant Liquid	6	-2001140
+23.75.10.27	Solar Collectors	3	-2001350
+23.75.10.27.11	Solar Collectors, Complete Systems	4	-2001350
+23.75.10.27.11.11	Packaged Solar Equipment	5	-2001350
+23.75.10.27.14	Solar Collector Components 	4	-2001350
+23.75.10.27.14.11	Solar Absorber Plates or Tubing	5	-2001350
+23.75.10.27.14.14	Solar Coatings and Surface Treatment	5	-2001350
+23.75.10.27.14.17	Solar Collector Insulation	5	-2001350
+23.75.10.27.14.21	Solar Glazing	5	-2001350
+23.75.10.27.14.24	Solar Housing and Framing	5	-2001350
+23.75.10.27.14.27	Solar Reflectors	5	-2001350
+23.75.10.27.17	Solar Collector Units	4	-2001350
+23.75.10.27.17.11	Solar Flat Plate Collectors	5	-2001350
+23.75.10.27.17.14	Solar Concentrating Collectors	5	-2001350
+23.75.10.27.17.17	Solar Vacuum Tube Collectors	5	-2001350
+23.75.10.27.17.21	Heat Exchangers, Tubular	5	-2001140
+23.75.10.27.17.24	Heat Exchangers, Plate	5	-2001140
+23.75.10.27.17.27	Heat Exchangers, Rotary	5	-2001140
+23.75.10.27.21	Photovoltaic Collectors	4	-2001350
+23.75.10.31	Wind Energy Equipment	3	-2001350
+23.75.10.34	Energy Recovery Equipment	3	-2001350
+23.75.10.34.11	Energy Storage Tanks	4	-2001350
+23.75.10.34.14	Heat Pipe	4	-2001350
+23.75.10.34.17	Heat Wheels	4	-2001350
+23.75.10.34.21	Heat Exchangers for Ventilation Air	4	-2001140
+23.75.10.37	Cooling Towers	3	-2001140
+23.75.10.37.11	Mechanical-Draft Cooling Towers	4	-2001140
+23.75.10.37.14	Natural-Draft Cooling Towers	4	-2001140
+23.75.35.00	Impelling Equipment	2	-2001140
+23.75.35.14	Air Handling Units	3	-2001140
+23.75.35.14.11	Built-Up Indoor Air Handling Units	4	-2001140
+23.75.35.14.14	Customized Rooftop Air Handling Units	4	-2001140
+23.75.35.14.17	Modular Indoor Air Handling Units	4	-2001140
+23.75.35.14.21	Modular Rooftop Air Handling Units	4	-2001140
+23.75.35.17	Fans	3	-2001140
+23.75.35.17.11	Fans for Air Ductwork	4	-2001140
+23.75.35.17.14	Fans, Single Units	4	-2001140
+23.75.35.17.17	Room Air Circulation Fans	4	-2001140
+23.75.35.17.17.11	Ceiling Fans	5	-2001140
+23.75.35.17.21	Air Curtains	4	-2001140
+23.75.35.17.24	Axial Fans	4	-2001140
+23.75.35.17.27	Centrifugal Fans	4	-2001140
+23.75.35.21	Extractors	3	-2001140
+23.75.35.21.11	Emergency Smoke Extractors	4	-2001140
+23.75.35.21.14	Extractors for Process Air	4	-2001140
+23.75.35.21.17	Industrial Ventilating Equipment	4	-2001140
+23.75.35.21.21	Power Ventilators	4	-2001140
+23.75.50.00	Energy Treatment 	2	-2001350
+23.75.50.11	Treatment of Circulation Liquids	3	-2001140
+23.75.50.11.14	Feedwater Equipment	4	-2001140
+23.75.50.11.14.11	Boiler Feedwater Pumps	5	-2001140
+23.75.50.11.14.14	Deaerators	5	-2001140
+23.75.50.11.14.17	Packaged Deaerator and Feedwater Equipment	5	-2001140
+23.75.50.14	Steam Treatment	3	-2001140
+23.75.50.14.11	Steam Dryers	4	-2001140
+23.75.50.17	Supply Air Treatment	3	-2001350
+23.75.50.17.11	Air Filters	4	-2008016
+23.75.50.17.11.11	Air Filter Components 	5	-2008016
+23.75.50.17.11.11.11	Air Filter Media	6	-2008016
+23.75.50.17.11.14	High-Efficiency Air Filters	5	-2008016
+23.75.50.17.11.17	ULPA Filters	5	-2008016
+23.75.50.17.11.21	HEPA Filters	5	-2008016
+23.75.50.17.14	Dust Collectors	4	-2001140
+23.75.50.17.17	Electronic Air Cleaners	4	-2001140
+23.75.50.17.21	Air Humidifiers	4	-2001140
+23.75.50.17.24	Dehumidifiers	4	-2001140
+23.75.50.17.24.11	Swimming Pool Dehumidification Units	5	-2001140
+23.75.50.17.27	Air Fresheners	4	-2001350
+23.75.50.17.31	Clean Room Air Treatment	4	-2001350
+23.75.65.00	Monitoring and Control Equipment	2	-2001140
+23.75.65.11	Monitoring and Control of Internal Climate 	3	-2001140
+23.75.65.11.11	Heating Controllers	4	-2001140
+23.75.65.11.14	Heating Programmers	4	-2001140
+23.75.65.11.17	Heating Optimizers/Economizers	4	-2001140
+23.75.65.14	Industrial Plant Performance Controls	3	-2001140
+23.75.65.14.14	Centralized Plant Controls	4	-2001140
+23.75.65.14.14.11	Temperature Controls	5	-2001140
+23.75.65.14.14.14	Pressure Controls	5	-2001140
+23.75.65.14.14.17	Flow Controls	5	-2008055
+23.75.65.14.14.21	Concentration Controls	5	-2001140
+23.75.65.14.17	Control and Monitoring Boards/Panels	4	-2001140
+23.75.70.00	HVAC Distribution Devices	2	-2001140
+23.75.70.11	Circulation Pipe Fittings	3	-2001140
+23.75.70.11.11	Distribution Collectors	4	-2001140
+23.75.70.11.14	Expansion Vessels	4	-2001140
+23.75.70.11.14.11	Air Ducts	5	-2008016
+23.75.70.11.14.14	Dampers for Air Ductwork	5	-2008016
+23.75.70.11.14.17	Fire Shutters for Air Ductwork	5	-2008016
+23.75.70.11.14.21	Guide Vanes	5	-2008016
+23.75.70.11.14.24	Air Mixers	5	-2001140
+23.75.70.11.14.27	Sound Attenuators	5	-2008016
+23.75.70.14	Air Ductwork	3	-2008016
+23.75.70.14.11	Access Fittings for Air Ductwork	4	-2008016
+23.75.70.14.14	Couplings for Air Ductwork	4	-2008016
+23.75.70.14.17	Hangers and Supports, Mechanical Fasteners for Air Ductwork	4	-2008016
+23.75.70.14.21	Fibrous Glass Ducts	4	-2008016
+23.75.70.14.24	Flexible Ducts	4	-2008016
+23.75.70.14.27	Glass-Fiber-Reinforced Plastic Ducts	4	-2008016
+23.75.70.14.31	Metal Ducts	4	-2008016
+23.75.70.14.34	Air Duct Accessories	4	-2008016
+23.75.70.17	Water Heated and Cooled Terminal Heating and Cooling Units	3	-2001140
+23.75.70.17.11	Radiators	4	-2001140
+23.75.70.17.14	Convectors	4	-2001140
+23.75.70.17.17	Radiation Panels	4	-2001140
+23.75.70.17.21	Embedded Water Heating Terminals	4	-2001140
+23.75.70.17.24	Finned-Tube Radiation	4	-2001140
+23.75.70.17.27	Fan Coil Units	4	-2001140
+23.75.70.17.31	Induction Units	4	-2001140
+23.75.70.17.34	Unit Heaters	4	-2001140
+23.75.70.17.37	Unit Ventilators	4	-2001140
+23.75.70.17.41	Water Heated Towel Bars	4	-2001350
+23.75.70.21	Terminals for Air	3	-2001140
+23.75.70.21.11	Supports, Mechanical Fasteners	4	-2001140
+23.75.70.21.14	Coil Units	4	-2001140
+23.75.70.21.17	Air Curtains	4	-2001140
+23.75.70.21.21	Local Air-Conditioning Units	4	-2001140
+23.75.70.21.24	Air Terminal Units	4	-2001140
+23.75.70.21.24.11	Constant Volume Air Terminal Units	5	-2001140
+23.75.70.21.24.14	Variable Volume Air Terminal Units	5	-2001140
+23.75.70.21.27	Air Outlets and Inlets	4	-2008013
+23.75.70.21.27.11	Diffusers, Registers, and Grilles	5	-2008013
+23.75.70.21.27.14	Gravity Ventilators	5	-2008013
+23.75.70.21.27.17	Intake and Relief Ventilators	5	-2008013
+23.75.70.21.27.21	Penthouse Ventilators	5	-2008013
+23.75.70.21.31	Exhaust Terminals	4	-2008013
+23.80.00.00	Electric Power and Lighting	1	-2001040
+23.80.10.00	Generation and Transformation Equipment	2	-2001040
+23.80.10.11	Electrical Generators	3	-2001040
+23.80.10.11.11	Electrical Generators, Single Units	4	-2001040
+23.80.10.11.11.11	Engine Generators	5	-2001040
+23.80.10.11.11.14	Motor Generators	5	-2001040
+23.80.10.11.14	Driven Electrical Generator Sets	4	-2001040
+23.80.10.11.14.11	Driving Units	5	-2001040
+23.80.10.11.14.14	Electricity Generation Units	5	-2001040
+23.80.10.11.17	Frequency Changers	4	-2001040
+23.80.10.11.21	Rotary Converters	4	-2001040
+23.80.10.11.24	Rotary Uninterruptible Power Units	4	-2001040
+23.80.10.14	Transformers	3	-2001040
+23.80.10.14.11	Power Transformers	4	-2001040
+23.80.10.14.14	Current Transformers	4	-2001040
+23.80.10.14.17	Safety Transformers	4	-2001040
+23.80.10.14.21	Transformer Accessories	4	-2001040
+23.80.10.14.21.11	Transformer Commutators	5	-2001040
+23.80.10.14.21.14	Transformer Ballasts	5	-2001040
+23.80.10.17	Static Power Converters	3	-2001040
+23.80.10.17.11	Static Rectifiers	4	-2001040
+23.80.10.17.14	Ondulators	4	-2001040
+23.80.10.17.17	Combined Converter Sets	4	-2001040
+23.80.10.17.21	Battery Chargers	4	-2001040
+23.80.10.17.24	Direct Current (DC) Drive Controllers	4	-2001040
+23.80.10.17.27	Slip Controllers	4	-2001040
+23.80.10.17.31	Static Frequency Converters	4	-2001040
+23.80.10.17.34	Static Uninterruptible Power Supplies	4	-2001040
+23.80.10.17.37	Variable Frequency Controllers	4	-2001040
+23.80.10.21	Electric Motors	3	-2001040
+23.80.10.21.11	Direct Current (DC) Motors	4	-2001040
+23.80.10.21.14	Alternating Current (AC) Motors	4	-2001040
+23.80.10.24	Power Storage	3	-2001040
+23.80.10.24.11	Batteries	4	-2001040
+23.80.10.24.11.11	Battery Racks	5	-2001040
+23.80.10.24.11.14	Central Battery Equipment	5	-2001040
+23.80.10.24.14	Battery Chargers	4	-2001040
+23.80.10.24.17	Uninterrupted Power Supply (UPS) Units	4	-2001040
+23.80.25.00	Measuring and Recording Devices	2	-2001350
+23.80.25.11	Electrical Meters	3	-2001350
+23.80.25.11.11	Power Meters	4	-2001350
+23.80.25.11.14	Voltage Meters	4	-2001350
+23.80.25.11.17	Resistance Meters	4	-2001350
+23.80.25.11.21	Frequency Meters	4	-2001350
+23.80.25.11.24	Multi-Meters	4	-2001350
+23.80.25.14	Electrical Energy Recording Devices	3	-2001350
+23.80.25.14.11	Watt-Hour Recorders (Electricity Usage Meters)	4	-2001350
+23.80.30.00	Distribution Devices	2	-2001040
+23.80.30.11	Power Supply Devices	3	-2001040
+23.80.30.11.11	Main Switches	4	-2001040
+23.80.30.11.14	Inverters	4	-2001040
+23.80.30.11.17	Distribution Boards and Control Panels	4	-2001040
+23.80.30.11.21	Photoelectric Cells	4	-2001040
+23.80.30.14	Power Distribution	3	-2001060
+23.80.30.14.24	Junction Boxes	4	-2001060
+23.80.30.17	Conduit, Wireways, and Ducts	3	-2001350
+23.80.30.17.11	Conduits	4	-2001350
+23.80.30.17.14	Wireways 	4	-2001350
+23.80.30.17.17	Cable Trays and Horizontal Racks	4	-2001350
+23.80.30.17.21	Cable Reels	4	-2001350
+23.80.30.17.24	Mechanical Fasteners for Conduits and Trunking	4	-2001350
+23.80.30.24	Switchgear	3	-2001040
+23.80.30.24.11	Mechanical Switchgear	4	-2001040
+23.80.30.24.14	Electronic Switchgear	4	-2001040
+23.80.30.24.17	Remote Control Switchgear	4	-2001040
+23.80.30.24.21	Time Switchgear	4	-2001040
+23.80.30.27	Variable Power or Resistance Appliances	3	-2001040
+23.80.30.27.11	Commutators	4	-2001040
+23.80.30.27.14	Rheostats	4	-2001040
+23.80.30.27.17	Dimmers	4	-2001040
+23.80.30.27.21	Speed Controllers	4	-2001040
+23.80.40.00	Electric Power Protection Devices	2	-2001040
+23.80.40.11	Earth Connection Electrodes	3	-2001350
+23.80.40.14	Circuit Breakers	3	-2001040
+23.80.40.14.11	Automatic Overload Circuit Breakers	4	-2001040
+23.80.40.14.14	Ground Fault Intercept (GFI) Circuit Breakers	4	-2001040
+23.80.40.14.17	Earth Leakage Circuit Breakers	4	-2001040
+23.80.40.21	Lightning Protection	3	-2001350
+23.80.45.00	Electric Power Treatment Devices	2	-2001040
+23.80.45.14	Harmonic Control Devices	3	-2001040
+23.80.45.14.11	Electric Interference Suppressor Filters	4	-2001040
+23.80.50.00	Terminals for Power Supply	2	-2001060
+23.80.50.11	Switches and Receptacles	3	-2001060
+23.80.50.11.11	Receptacle Terminal Units	4	-2001060
+23.80.50.11.14	Switches	4	-2001060
+23.80.50.11.17	Ground Fault Receptacles	4	-2001060
+23.80.50.14	Plug Connectors	3	-2001060
+23.80.70.00	Lighting	2	-2001120
+23.80.70.11	Luminaries for Internal Lighting	3	-2001120
+23.80.70.11.11	General Luminaries, Non Directional	4	-2001120
+23.80.70.11.14	General Luminaries, Directional	4	-2001120
+23.80.70.11.14.11	Downlights	5	-2001120
+23.80.70.11.14.14	Uplights	5	-2001120
+23.80.70.11.14.17	Direct/Indirect	5	-2001120
+23.80.70.11.14.21	Spots and Tracklight Specialties	5	-2001120
+23.80.70.11.17	Specialized Lighting by Location or Use	4	-2001120
+23.80.70.11.21	Emergency Lighting	4	-2001120
+23.80.70.11.24	Fiber Optic Lighting	4	-2001120
+23.80.70.14	Luminaries for External Lighting	3	-2001120
+23.80.70.14.11	Amenity Lighting	4	-2001120
+23.80.70.14.11.11	Lighting Bollards	5	-2008087
+23.80.70.14.11.14	Post-Top Lighting	5	-2001120
+23.80.70.14.11.17	Wall or Ceiling Mounted External Lighting	5	-2001120
+23.80.70.14.11.21	Buried Uplights	5	-2001120
+23.80.70.14.14	Exterior Floodlights	4	-2001120
+23.80.70.14.17	Exterior Spotlights	4	-2001120
+23.80.70.14.21	Street and Roadway Lighting	4	-2001120
+23.80.70.14.24	Aircraft Paving Lighting	4	-2001120
+23.80.70.14.27	Security Lighting	4	-2001120
+23.80.70.17	Communication Lighting Specialties	3	-2001120
+23.80.70.17.11	Emergency Signs	4	-2001120
+23.80.70.17.14	Illuminated Signs/Boards	4	-2001120
+23.80.70.17.17	Publicity Lighting	4	-2001120
+23.80.70.17.21	Lasers	4	-2001120
+23.85.00.00	Information and Communication	1	-2001350
+23.85.05.00	Complete Information Systems	2	
+23.85.05.14	Complete Visual Information Systems	3	
+23.85.05.14.21	Complete Visual Signaling	4	-2001350
+23.85.05.14.21.11	Mechanical Signals	5	-2001350
+23.85.05.17	Complete Audio-Visual Systems	3	-2001350
+23.85.05.17.11	Broadcasting Equipment	4	-2001350
+23.85.05.17.11.11	Television Broadcasting Equipment	5	-2001350
+23.85.05.17.11.14	Multimedia Broadcasting Equipment	5	-2001350
+23.85.05.17.11.17	Broadcasting Light Signals	5	-2001350
+23.85.10.00	General Information Systems	2	
+23.85.10.11	Audio Information, Sound Signals	3	-2008081
+23.85.10.11.11	Sound and Signal Devices	4	-2008081
+23.85.10.11.11.11	Bells, Carillons, Single Units	5	-2008081
+23.85.10.11.11.14	Sirens	5	-2008081
+23.85.10.11.11.17	Aerials	5	-2008081
+23.85.10.11.11.21	Speakers	5	-2008081
+23.85.10.11.14	Audio Equipment	4	-2008081
+23.85.10.11.14.11	Audio Recorders	5	-2008081
+23.85.10.11.14.14	Sound Reinforcement	5	-2008081
+23.85.10.11.14.14.11	Microphones	6	-2008081
+23.85.10.11.14.14.14	Loudspeakers	6	-2008081
+23.85.10.11.14.14.17	Sound Amplifiers	6	-2008081
+23.85.10.11.14.14.21	Audio Equalizers	6	-2008081
+23.85.10.11.14.17	Headphones	5	-2008081
+23.85.10.11.14.21	Audio Reproducing Units	5	-2008081
+23.85.10.11.14.24	Audio Information Accessories	5	-2008081
+23.85.10.14	Visual Information Systems	3	-2008081
+23.85.10.14.11	Cameras	4	-2008081
+23.85.10.14.11.11	Analog Cameras	5	-2008081
+23.85.10.14.11.14	Digital Cameras	5	-2008081
+23.85.10.14.14	Slide Projectors	4	-2008081
+23.85.10.14.17	Overhead Projectors	4	-2008081
+23.85.10.14.21	Presentation Systems	4	-2008081
+23.85.10.14.24	Video Monitors	4	-2008081
+23.85.10.14.24.11	Cathode Ray Tube (CRT) Video Monitors	5	-2008081
+23.85.10.14.24.14	Liquid Crystal Display (LCD) Video Monitors	5	-2008081
+23.85.10.14.24.17	Plasma Video Monitors	5	-2008081
+23.85.10.14.27	Video Walls	4	-2008081
+23.85.10.14.31	Projection Screens	4	-2008081
+23.85.10.17	Audio-Visual Systems	3	-2008081
+23.85.10.17.11	Audio-Visual System Components 	4	-2008081
+23.85.10.17.11.11	Broadcasting Receiving Equipment	5	-2008081
+23.85.10.17.11.14	Audio-Visual Recorders (Cam-Corders)	5	-2008081
+23.85.10.17.11.17	Film Projectors	5	-2008081
+23.85.10.17.11.21	Data/Multi/Media Projectors	5	-2008081
+23.85.10.17.11.24	Video Reproduction	5	-2008081
+23.85.30.00	Safety and Security Information Systems	2	-2008079
+23.85.30.11	Access Controls	3	-2008079
+23.85.30.11.11	Access Control and Counting Systems	4	-2008079
+23.85.30.11.14	Centralized Code Reading Systems	4	-2008079
+23.85.30.11.17	Electronic Key Systems	4	-2008079
+23.85.30.11.21	Pressure Mats	4	-2008079
+23.85.30.11.24	Micro-Switch Contacts for Doors and Windows	4	-2008079
+23.85.30.11.27	Door Answering	4	-2008079
+23.85.30.11.31	Security Access	4	-2008079
+23.85.30.14	Presence Detection/Registration	3	-2008079
+23.85.30.14.11	Clocking-In and Recording	4	-2008079
+23.85.30.14.14	Movement/Vibration Detection	4	-2008079
+23.85.30.14.17	Break-Glass Detection	4	-2008079
+23.85.30.14.21	Surveillance Mirrors	4	-2008079
+23.85.30.14.24	Manual Alert Control	4	-2008079
+23.85.30.14.27	Microwave Detectors	4	-2008079
+23.85.30.14.31	Infra-Red Radiation Detectors	4	-2008079
+23.85.30.14.34	Door Bells, Buzzers	4	-2008079
+23.85.30.17	Closed Circuit Guarding Systems	3	-2008079
+23.85.30.17.11	Closed Circuit TV Systems	4	-2008079
+23.85.30.17.14	Video Surveillance	4	-2008079
+23.85.30.17.17	Closed Circuit Television Recorders	4	-2008079
+23.85.30.17.17.11	Analog Closed Circuit Television Recorders	5	-2008079
+23.85.30.17.17.14	Digital Closed Circuit Television Recorders	5	-2008079
+23.85.30.21	Environmental Detection/Registration	3	-2001350
+23.85.30.21.11	Fire Detection, Monitoring and Alarm	4	-2008085
+23.85.30.21.11.11	Fire/Smoke Detectors	5	-2008085
+23.85.30.21.11.11.11	Smoke Detectors	6	-2008085
+23.85.30.21.11.11.14	Inonization Detectors	6	-2008085
+23.85.30.21.11.11.17	Temperature Monitors	6	-2008085
+23.85.30.21.11.14	Alarm Panels	5	-2001040
+23.85.30.21.11.17	Other Components	5	-2008085
+23.85.30.21.14	Concentration Detection Components	4	-2008085
+23.85.30.21.14.11	Concentration Detection Bells and Sounders	5	-2008085
+23.85.30.21.14.14	Concentration Detection Alarm Glasses	5	-2008085
+23.85.30.21.14.99	Other Concentration Detection Components	5	-2008085
+23.85.30.24	Emergency Call Systems	3	-2008077
+23.85.30.24.11	Call Systems for the Disabled	4	-2008077
+23.85.30.24.14	Nurse Call Systems	4	-2008077
+23.85.30.27	Built-In Failure Detection	3	-2001350
+23.85.30.27.11	Infiltration Detection	4	-2001350
+23.85.30.27.14	Service Leak Detection	4	-2001350
+23.85.30.27.14.11	Gas Leak Detection Agents	5	-2001350
+23.85.30.27.14.14	Water Leak Detection	5	-2001350
+23.85.50.00	Communication Systems	2	
+23.85.50.11	Communication Circuits	3	
+23.85.50.14	Telephone and Intercommunication Equipment	3	-2008075
+23.85.50.14.11	Single Line Telephone Systems	4	-2008075
+23.85.50.14.14	Multiple Line Telephone Systems	4	-2008075
+23.85.50.14.17	Telephone Equipment	4	-2008075
+23.85.50.14.21	Intercommunication Equipment	4	-2008075
+23.85.50.17	Communication and Data Processing Equipment	3	-2008083
+23.85.50.17.11	Computer Network Equipment	4	-2008083
+23.85.50.17.11.11	Computer Servers	5	-2008083
+23.85.50.17.11.14	Network Switchers	5	-2008083
+23.85.50.17.11.17	Network Routers	5	-2008083
+23.85.50.21	Cable Transmission and Reception Equipment	3	-2001350
+23.85.50.21.11	Cable Transmission and Reception Amplifiers	4	-2001350
+23.85.50.21.14	Cable Transmission and Reception Modulators	4	-2001350
+23.85.50.21.17	Cable Transmission and Reception Control Equipment	4	-2001350
+23.85.50.24	Broadcast Transmission and Reception Equipment	3	-2001350
+23.85.50.24.11	Broadcast Transmitters	4	-2001350
+23.85.50.24.14	Broadcast Antennas	4	-2001350
+23.85.50.24.17	Broadcast Amplifiers	4	-2001350
+23.85.50.24.21	Broadcast Control Equipment	4	-2001350
+23.85.50.27	Microwave Transmission and Reception Equipment	3	-2001350
+23.85.50.27.11	Microwave Transmitters	4	-2001350
+23.85.50.27.14	Microwave Antennas	4	-2001350
+23.85.50.27.17	Satellite Dishes	4	-2001350
+23.85.50.27.21	Microwave Amplifiers	4	-2001350
+23.85.50.27.24	Microwave Receivers	4	-2001350
+23.85.50.31	Intercom Systems	3	-2001350
+23.85.50.31.11	Door Entry Telephones	4	-2001350
+23.85.50.99	Other Communications Systems	3	-2001350
+23.85.50.99.11	Videophone Systems	4	-2001350
+23.85.50.99.14	Conference Systems	4	-2001350
+23.85.50.99.17	Breakdown Call Systems	4	-2001350
+23.85.80.00	Building Automation and Control	2	
+23.85.80.11	Building Controls	3	-2001350
+23.85.80.11.11	Clock Controls	4	-2001350
+23.85.80.11.14	Door Controls	4	-2001350
+23.85.80.11.17	Elevator Monitoring and Controls	4	-2001350
+23.85.80.11.21	Energy Monitoring and Controls	4	-2001140
+23.85.80.11.24	Environmental Controls	4	-2001140
+23.85.80.11.27	Lighting Controls	4	-2008087

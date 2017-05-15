@@ -4,6 +4,7 @@
 // ReSharper disable InconsistentNaming
 
 using System.Collections.Generic;
+using System.Linq;
 
 namespace CodeCave.Revit.Toolkit
 {
@@ -459,6 +460,12 @@ namespace CodeCave.Revit.Toolkit
         public static bool TryGetGroup(this UnitType unitType, out UnitGroup group)
         {
             return _utGroups.TryGetValue(unitType, out group);
+        }
+
+        public static bool TryGetUnitType(this string unitString, out UnitType unitType)
+        {
+            unitType = _utToCatalog?.Where(u => u.Value.Equals(unitString))?.Select(x => x.Key)?.FirstOrDefault() ?? UnitType.UT_Undefined;
+            return !unitType.Equals(UnitType.UT_Undefined);
         }
     }
 }

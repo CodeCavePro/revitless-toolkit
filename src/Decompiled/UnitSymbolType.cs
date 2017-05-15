@@ -9,7 +9,6 @@ using System.Linq;
 
 namespace CodeCave.Revit.Toolkit
 {
-    /// <since>2014</since>
     /// <summary>
     ///    The unit symbol displayed in the formatted string representation of a number to indicate the units of the value.
     /// </summary>

@@ -5,7 +5,6 @@
 
 namespace CodeCave.Revit.Toolkit
 {
-    /// <since>2012</since>
     /// <summary>
     ///    This enumeration is used to classify MEP connectors and systems
     ///    and drives certain behavior for a particular system type

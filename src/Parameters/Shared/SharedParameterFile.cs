@@ -70,6 +70,11 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                 throw new ArgumentException($"The following parameter file doesn't exist: '{sharedParameterFile}'");
             }
 
+            if (!Path.GetExtension(sharedParameterFile).ToLowerInvariant().Contains("txt"))
+            {
+                throw new ArgumentException($"Shared parameter file must be a .txt file, please check the path you have supplied: '{sharedParameterFile}'");
+            }
+
             var sharedParamsText = File.ReadAllText(sharedParameterFile);
             return FromText(sharedParamsText);
         }
@@ -78,7 +83,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         /// Extracts <see cref="SharedParameterFile"/> object from a string.
         /// </summary>
         /// <param name="sharedParameterText">Text content of shared parameter file.</param>
-        /// <returns></returns>
+        /// <returns>The shared parameter file</returns>
         /// <exception cref="System.ArgumentException">sharedParameterText</exception>
         public static SharedParameterFile FromText(string sharedParameterText)
         {
@@ -89,15 +94,24 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
 
             var sharedParamsFileLines = SectionRegex
                 .Split(sharedParameterText)
-                ?.Where(line => !line.StartsWith("#")) // Exclude comment lines
-                ?.ToArray();
+                .Where(line => !line.StartsWith("#")) // Exclude comment lines
+                .ToArray();
 
             var sharedParamsFileSections = sharedParamsFileLines
                 ?.Where((e, i) => i % 2 == 0)
-                ?.Select((e, i) => new { Key = e, Value = sharedParamsFileLines[i * 2 + 1] })
-                ?.ToDictionary(kp => kp.Key, kp => kp.Value.Replace($"{kp.Key}\t", string.Empty));
+                .Select((e, i) => new { Key = e, Value = sharedParamsFileLines[i * 2 + 1] })
+                .ToDictionary(kp => kp.Key, kp => kp.Value.Replace($"{kp.Key}\t", string.Empty));
 
             var sharedParamsFile = new SharedParameterFile();
+            if (sharedParamsFileSections == null || sharedParamsFileSections.Count < 3 ||
+                !(sharedParamsFileSections.ContainsKey(Sections.Meta) &&
+                  sharedParamsFileSections.ContainsKey(Sections.Groups) &&
+                  sharedParamsFileSections.ContainsKey(Sections.Params)))
+            {
+                throw new InvalidDataException("Failed to parse shared parameter file content," +
+                    "because it doesn't contain enough data for being qualified as a valid shared parameter file.");
+            }
+
             foreach (var section in sharedParamsFileSections)
             {
                 using (var stringReader = new StringReader(section.Value))
@@ -131,7 +145,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                 .Parameters
                 .Select(p =>
                 {
-                    p.GroupName = sharedParamsFile?.Groups?.FirstOrDefault(g => g.ID == p.Group)?.Name;
+                    p.GroupName = sharedParamsFile.Groups?.FirstOrDefault(g => g.ID == p.Group)?.Name;
                     p.UnitType = p.ParameterType.GetUnitType();
                     return p;
                 })

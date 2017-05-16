@@ -96,6 +96,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                 .Select(p => 
                 {
                     p.GroupName = sharedParamsFile?.Groups?.FirstOrDefault(g => g.ID == p.Group)?.Name;
+                    p.UnitType = p.ParameterType.GetUnitType();
                     return p;
                 })
                 .ToList();

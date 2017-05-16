@@ -8,11 +8,17 @@ using System.Text.RegularExpressions;
 
 namespace CodeCave.Revit.Toolkit.Parameters.Shared
 {
+    /// <summary>
+    /// This class represents Revit shared parameter file
+    /// </summary>
     public sealed partial class SharedParameterFile
     {
         private static readonly Regex SectionRegex;
         private static readonly CsvConfiguration CsvConfiguration;
 
+        /// <summary>
+        /// Initializes the <see cref="SharedParameterFile"/> class.
+        /// </summary>
         static SharedParameterFile()
         {
             SectionRegex = new Regex(@"\*(?<section>[A-Z]+)\t", RegexOptions.IgnoreCase | RegexOptions.Compiled);
@@ -27,12 +33,36 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             };
         }
 
+        /// <summary>
+        /// Gets or sets the meta-data section of the shared parameter file.
+        /// </summary>
+        /// <value>
+        /// The meta-data section of the shared parameter file.
+        /// </value>
         public Meta Metadata { get; set; } = new Meta { Version = 2, MinVersion = 1 };
 
+        /// <summary>
+        /// Gets or sets the groups section of the shared parameter file.
+        /// </summary>
+        /// <value>
+        /// The groups section of the shared parameter file.
+        /// </value>
         public List<Group> Groups { get; set; } = new List<Group>();
 
+        /// <summary>
+        /// Gets or sets the parameters section of the shared parameter file.
+        /// </summary>
+        /// <value>
+        /// The parameters section of the shared parameter file.
+        /// </value>
         public List<Parameter> Parameters { get; set; } = new List<Parameter>();
 
+        /// <summary>
+        /// Extracts <see cref="SharedParameterFile"/> object from a .txt file.
+        /// </summary>
+        /// <param name="sharedParameterFile">The shared parameter file path.</param>
+        /// <returns>The shared parameter file</returns>
+        /// <exception cref="ArgumentException"></exception>
         public static SharedParameterFile FromFile(string sharedParameterFile)
         {
             if (!File.Exists(sharedParameterFile))
@@ -44,6 +74,12 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             return FromText(sharedParamsText);
         }
 
+        /// <summary>
+        /// Extracts <see cref="SharedParameterFile"/> object from a string.
+        /// </summary>
+        /// <param name="sharedParameterText">Text content of shared parameter file.</param>
+        /// <returns></returns>
+        /// <exception cref="System.ArgumentException">sharedParameterText</exception>
         public static SharedParameterFile FromText(string sharedParameterText)
         {
             if (string.IsNullOrWhiteSpace(sharedParameterText))
@@ -93,7 +129,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             // and recover UnitType from ParameterType
             sharedParamsFile.Parameters = sharedParamsFile
                 .Parameters
-                .Select(p => 
+                .Select(p =>
                 {
                     p.GroupName = sharedParamsFile?.Groups?.FirstOrDefault(g => g.ID == p.Group)?.Name;
                     p.UnitType = p.ParameterType.GetUnitType();

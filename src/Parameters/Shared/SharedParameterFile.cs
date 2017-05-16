@@ -11,10 +11,20 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
     public sealed partial class SharedParameterFile
     {
         private static readonly Regex SectionRegex;
+        private static readonly CsvConfiguration CsvConfiguration;
 
         static SharedParameterFile()
         {
             SectionRegex = new Regex(@"\*(?<section>[A-Z]+)\t", RegexOptions.IgnoreCase | RegexOptions.Compiled);
+            CsvConfiguration = new CsvConfiguration
+            {
+                HasHeaderRecord = true,
+                AllowComments = true,
+                IgnoreBlankLines = true,
+                Delimiter = "\t",
+                WillThrowOnMissingField = false,
+                DetectColumnCountChanges = false,
+            };
         }
 
         public Meta Metadata { get; set; } = new Meta { Version = 2, MinVersion = 1 };
@@ -41,33 +51,22 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                 throw new ArgumentException($"{nameof(sharedParameterText)} must be a non empty string");
             }
 
-            var sharedParamsFile = new SharedParameterFile();
-
-            var blocks = SectionRegex
+            var sharedParamsFileLines = SectionRegex
                 .Split(sharedParameterText)
-                ?.Where(line => !line.StartsWith("#"))
+                ?.Where(line => !line.StartsWith("#")) // Exclude comment lines
                 ?.ToArray();
 
-            var sections = blocks
+            var sharedParamsFileSections = sharedParamsFileLines
                 ?.Where((e, i) => i % 2 == 0)
-                ?.Select((e, i) => new { Key = e, Value = blocks[i * 2 + 1] })
+                ?.Select((e, i) => new { Key = e, Value = sharedParamsFileLines[i * 2 + 1] })
                 ?.ToDictionary(kp => kp.Key, kp => kp.Value.Replace($"{kp.Key}\t", string.Empty));
 
-            var csvCofig = new CsvConfiguration
-            {
-                HasHeaderRecord = true,
-                AllowComments = true,
-                IgnoreBlankLines = true,
-                Delimiter = "\t",
-                WillThrowOnMissingField = false,
-                DetectColumnCountChanges = false,
-            };
-
-            foreach (var section in sections)
+            var sharedParamsFile = new SharedParameterFile();
+            foreach (var section in sharedParamsFileSections)
             {
                 using (var stringReader = new StringReader(section.Value))
                 {
-                    using (var csvReader = new CsvReader(stringReader, csvCofig))
+                    using (var csvReader = new CsvReader(stringReader, CsvConfiguration))
                     {
                         switch (section.Key)
                         {
@@ -90,6 +89,8 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                 }
             }
 
+            // Post-process parameters by assigning group names using group IDs
+            // and recover UnitType from ParameterType
             sharedParamsFile.Parameters = sharedParamsFile
                 .Parameters
                 .Select(p => 

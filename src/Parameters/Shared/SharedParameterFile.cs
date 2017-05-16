@@ -2,6 +2,7 @@
 using CsvHelper.Configuration;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -139,7 +140,8 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                                 break;
 
                             default:
-                                throw new NotImplementedException($"Unknown section type: {section.Key}");
+                                Debug.WriteLine($"Unknown section type: {section.Key}");
+                                continue;
                         }
                     }
                 }

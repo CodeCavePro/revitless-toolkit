@@ -3,6 +3,11 @@
 // Assembly: RevitAPI, Version=17.0.0.0, Culture=neutral, PublicKeyToken=null
 // ReSharper disable InconsistentNaming
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
+
 namespace CodeCave.Revit.Toolkit
 {
     /// <summary>
@@ -144,5 +149,68 @@ namespace CodeCave.Revit.Toolkit
         HVACTemperatureDifference = 227,
         PipingTemperatureDifference = 228,
         ElectricalTemperatureDifference = 229,
+    }
+
+    public static class ParameterTypeExtensions
+    {
+        private static readonly Regex HvacUrlOrCapitalLetter;
+        private static readonly Dictionary<ParameterType, string> _parameterTypes;
+
+        static ParameterTypeExtensions()
+        {
+            HvacUrlOrCapitalLetter = new Regex(@"(HVAC|URL|[A-Z])", RegexOptions.Compiled);
+
+            _parameterTypes = Enum.GetValues(typeof(ParameterType))
+                .OfType<ParameterType>()
+                .ToDictionary(p => p, p => ConvertToDataType(p));
+        }
+
+        public static ParameterType FromSharedDataType(this string dataType)
+        {
+            var values = _parameterTypes?.Where(u => u.Value.Equals(dataType))?.Select(x => x.Key)?.ToArray();
+            return (values.Any())
+                ? values.FirstOrDefault()
+                : ParameterType.Invalid;
+        }
+
+        private static string ConvertToDataType(ParameterType parameter)
+        {
+            if (ParameterType.Invalid == parameter)
+            {
+                return string.Empty;
+            }
+
+            var parameterAsString = parameter.ToString();
+            var parts = HvacUrlOrCapitalLetter
+                .Split(parameterAsString)
+                .Where(p => !string.IsNullOrWhiteSpace(p))
+                .ToArray();
+
+            if (parts.Length <= 2)
+            {
+                return parameterAsString.ToUpperInvariant();
+            }
+
+            parameterAsString = string.Empty;
+            for (var i = 0; i < parts.Length; i++)
+            {
+                if (i != 0 && HvacUrlOrCapitalLetter.IsMatch(parts[i]))
+                {
+                    parameterAsString += "_";
+                }
+                parameterAsString += parts[i].ToUpperInvariant();
+            }
+
+            return parameterAsString
+                .Replace("YES_NO", "YESNO")
+                .Replace("LOAD_CLASSIFICATION", "LOADCLASSIFICATION")
+                .Replace("NUMBER_OF_POLES", "NOOFPOLES");
+        }
+
+        public static string ToSharedDataType(this ParameterType parameter)
+        {
+            _parameterTypes.TryGetValue(parameter, out string dataType);
+            return dataType;
+        }
     }
 }

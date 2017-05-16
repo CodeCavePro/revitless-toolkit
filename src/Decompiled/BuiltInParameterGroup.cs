@@ -7,8 +7,7 @@ using System.Collections.Generic;
 
 namespace CodeCave.Revit.Toolkit
 {
-    /// <summary>An enumerated type listing all of the built-in parameter groups supported by Autodesk
-    /// Revit.</summary>
+    /// <summary>An enumerated type listing all of the built-in parameter groups supported by Autodesk Revit.</summary>
     /// <remarks>Parameter groups are used to sort parameters within the Element Properties dialog.</remarks>
     public enum BuiltInParameterGroup
     {

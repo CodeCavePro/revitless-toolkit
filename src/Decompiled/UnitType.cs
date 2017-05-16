@@ -1,19 +1,14 @@
-﻿// Decompiled with JetBrains decompiler
-// Type: Autodesk.Revit.DB.UnitType
-// Assembly: RevitAPI, Version=17.0.0.0, Culture=neutral, PublicKeyToken=null
-// ReSharper disable InconsistentNaming
-
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace CodeCave.Revit.Toolkit
 {
     /// <summary>The type of physical quantity to be measured, for example length or force.</summary>
     /// <remarks>
-    ///      <para>Some unit types represent fundamental physical quantities to
+    /// <para>Some unit types represent fundamental physical quantities to
     /// be measured, for example UT_Length, UT_Area, UT_Mass, or
     /// UT_Force.</para>
-    ///      <para>Other unit types exist to provide an alternate set of unit
+    /// <para>Other unit types exist to provide an alternate set of unit
     /// settings for a physical quantity.  For example, UT_HVAC_DuctSize is
     /// used for measuring sizes of ducts, UT_PipeSize is used for
     /// measuring sizes of pipes, and UT_SheetLength is used for measuring
@@ -23,7 +18,11 @@ namespace CodeCave.Revit.Toolkit
     /// lengths in a building.  By using different unit types, the Units
     /// class can have different default settings for measuring values of
     /// the same physical quantity.</para>
-    ///    </remarks>
+    /// </remarks>
+    // Decompiled with JetBrains decompiler
+    // Type: Autodesk.Revit.DB.UnitType
+    // Assembly: RevitAPI, Version=17.0.0.0, Culture=neutral, PublicKeyToken=null
+    // ReSharper disable InconsistentNaming
     public enum UnitType
     {
         UT_Undefined = -2,
@@ -160,10 +159,14 @@ namespace CodeCave.Revit.Toolkit
         UT_Electrical_TemperatureDifference = 129,
     }
 
+    /// <summary>
+    /// UnitType extension class featuring extension methods for UnitType enumeration
+    /// </summary>
     public static class UnitTypeExtensions
     {
         private static readonly Dictionary<UnitType, string> _utToCatalog;
         private static readonly Dictionary<UnitType, UnitGroup> _utGroups;
+        private static readonly Dictionary<UnitType, ParameterType> _parameterTypes;
 
         /// <summary>
         /// Initializes the <see cref="UnitTypeExtensions"/> class.
@@ -438,13 +441,146 @@ namespace CodeCave.Revit.Toolkit
                 { UnitType.UT_Piping_TemperatureDifference, UnitGroup.Piping },
                 { UnitType.UT_Electrical_TemperatureDifference, UnitGroup.Electrical },
             };
+
+            _parameterTypes = new Dictionary<UnitType, ParameterType>
+            {
+                // TODO: figure out mappings for these types.
+                { UnitType.UT_ForceScale, ParameterType.Number },
+                { UnitType.UT_LinearForceScale, ParameterType.Number },
+                { UnitType.UT_AreaForceScale, ParameterType.Number },
+                { UnitType.UT_MomentScale, ParameterType.Number },
+                { UnitType.UT_LinearMomentScale, ParameterType.Number },
+
+                { UnitType.UT_Length, ParameterType.Length },
+                { UnitType.UT_SheetLength, ParameterType.Length },
+                { UnitType.UT_Area, ParameterType.Area },
+                { UnitType.UT_Volume, ParameterType.Volume },
+                { UnitType.UT_Angle, ParameterType.Angle },
+                { UnitType.UT_SiteAngle, ParameterType.Angle },
+                { UnitType.UT_Number, ParameterType.Number },
+                { UnitType.UT_HVAC_Density, ParameterType.HVACDensity },
+                { UnitType.UT_HVAC_Energy, ParameterType.HVACEnergy },
+                { UnitType.UT_HVAC_Friction, ParameterType.HVACFriction },
+                { UnitType.UT_HVAC_Power, ParameterType.HVACPower },
+                { UnitType.UT_HVAC_Power_Density, ParameterType.HVACPower },
+                { UnitType.UT_HVAC_Pressure, ParameterType.HVACPressure },
+                { UnitType.UT_HVAC_Temperature, ParameterType.HVACTemperature },
+                { UnitType.UT_HVAC_Velocity, ParameterType.HVACVelocity },
+                { UnitType.UT_HVAC_Airflow, ParameterType.HVACAirflow },
+                { UnitType.UT_HVAC_DuctSize, ParameterType.HVACDuctSize },
+                { UnitType.UT_HVAC_CrossSection, ParameterType.HVACCrossSection },
+                { UnitType.UT_HVAC_HeatGain, ParameterType.HVACHeatGain },
+                { UnitType.UT_Electrical_Current, ParameterType.ElectricalCurrent },
+                { UnitType.UT_Electrical_Potential, ParameterType.ElectricalPotential },
+                { UnitType.UT_Electrical_Frequency, ParameterType.ElectricalFrequency },
+                { UnitType.UT_Electrical_Illuminance, ParameterType.ElectricalIlluminance },
+                { UnitType.UT_Electrical_Luminous_Flux, ParameterType.ElectricalLuminousFlux },
+                { UnitType.UT_Electrical_Power, ParameterType.ElectricalPower },
+                { UnitType.UT_HVAC_Roughness, ParameterType.HVACRoughness },
+                { UnitType.UT_Force, ParameterType.Force },
+                { UnitType.UT_LinearForce, ParameterType.LinearForce },
+                { UnitType.UT_AreaForce, ParameterType.AreaForce },
+                { UnitType.UT_Moment, ParameterType.Moment },
+                { UnitType.UT_Electrical_Apparent_Power, ParameterType.ElectricalApparentPower },
+                { UnitType.UT_Electrical_Power_Density, ParameterType.ElectricalPowerDensity },
+                { UnitType.UT_Piping_Density, ParameterType.PipingDensity },
+                { UnitType.UT_Piping_Flow, ParameterType.PipingFlow },
+                { UnitType.UT_Piping_Friction, ParameterType.PipingFriction },
+                { UnitType.UT_Piping_Pressure, ParameterType.PipingPressure },
+                { UnitType.UT_Piping_Temperature, ParameterType.PipingTemperature },
+                { UnitType.UT_Piping_Velocity, ParameterType.PipingVelocity },
+                { UnitType.UT_Piping_Viscosity, ParameterType.PipingViscosity },
+                { UnitType.UT_PipeSize, ParameterType.PipeSize },
+                { UnitType.UT_Piping_Roughness, ParameterType.PipingRoughness },
+                { UnitType.UT_Stress, ParameterType.Stress },
+                { UnitType.UT_UnitWeight, ParameterType.UnitWeight },
+                { UnitType.UT_ThermalExpansion, ParameterType.ThermalExpansion },
+                { UnitType.UT_LinearMoment, ParameterType.LinearMoment },
+                { UnitType.UT_ForcePerLength, ParameterType.ForcePerLength },
+                { UnitType.UT_ForceLengthPerAngle, ParameterType.ForceLengthPerAngle },
+                { UnitType.UT_LinearForcePerLength, ParameterType.LinearForcePerLength },
+                { UnitType.UT_LinearForceLengthPerAngle, ParameterType.LinearForceLengthPerAngle },
+                { UnitType.UT_AreaForcePerLength, ParameterType.AreaForcePerLength },
+                { UnitType.UT_Piping_Volume, ParameterType.PipingVolume },
+                { UnitType.UT_HVAC_Viscosity, ParameterType.HVACViscosity },
+                { UnitType.UT_HVAC_CoefficientOfHeatTransfer, ParameterType.HVACCoefficientOfHeatTransfer },
+                { UnitType.UT_HVAC_Airflow_Density, ParameterType.HVACAirflowDensity },
+                { UnitType.UT_Slope, ParameterType.Slope },
+                { UnitType.UT_HVAC_Cooling_Load, ParameterType.HVACCoolingLoad },
+                { UnitType.UT_HVAC_Cooling_Load_Divided_By_Area, ParameterType.HVACCoolingLoadDividedByArea },
+                { UnitType.UT_HVAC_Cooling_Load_Divided_By_Volume, ParameterType.HVACCoolingLoadDividedByVolume },
+                { UnitType.UT_HVAC_Heating_Load, ParameterType.HVACHeatingLoad },
+                { UnitType.UT_HVAC_Heating_Load_Divided_By_Area, ParameterType.HVACHeatingLoadDividedByArea },
+                { UnitType.UT_HVAC_Heating_Load_Divided_By_Volume, ParameterType.HVACHeatingLoadDividedByVolume },
+                { UnitType.UT_HVAC_Airflow_Divided_By_Volume, ParameterType.HVACAirflowDividedByVolume },
+                { UnitType.UT_HVAC_Airflow_Divided_By_Cooling_Load, ParameterType.HVACAirflowDividedByCoolingLoad },
+                { UnitType.UT_HVAC_Area_Divided_By_Cooling_Load, ParameterType.HVACAreaDividedByCoolingLoad },
+                { UnitType.UT_WireSize, ParameterType.WireSize },
+                { UnitType.UT_HVAC_Slope, ParameterType.HVACSlope },
+                { UnitType.UT_Piping_Slope, ParameterType.PipingSlope },
+                { UnitType.UT_Currency, ParameterType.Currency },
+                { UnitType.UT_Electrical_Efficacy, ParameterType.ElectricalEfficacy },
+                { UnitType.UT_Electrical_Wattage, ParameterType.ElectricalWattage },
+                { UnitType.UT_Color_Temperature, ParameterType.ColorTemperature },
+                { UnitType.UT_DecSheetLength, ParameterType.Length },
+                { UnitType.UT_Electrical_Luminous_Intensity, ParameterType.ElectricalLuminousIntensity },
+                { UnitType.UT_Electrical_Luminance, ParameterType.ElectricalLuminance },
+                { UnitType.UT_HVAC_Area_Divided_By_Heating_Load, ParameterType.HVACAreaDividedByHeatingLoad },
+                { UnitType.UT_HVAC_Factor, ParameterType.HVACFactor },
+                { UnitType.UT_Electrical_Temperature, ParameterType.ElectricalTemperature },
+                { UnitType.UT_Electrical_CableTraySize, ParameterType.ElectricalCableTraySize },
+                { UnitType.UT_Electrical_ConduitSize, ParameterType.ElectricalConduitSize },
+                { UnitType.UT_Reinforcement_Volume, ParameterType.ReinforcementVolume },
+                { UnitType.UT_Reinforcement_Length, ParameterType.ReinforcementLength },
+                { UnitType.UT_Electrical_Demand_Factor, ParameterType.ElectricalDemandFactor },
+                { UnitType.UT_HVAC_DuctInsulationThickness, ParameterType.HVACDuctInsulationThickness },
+                { UnitType.UT_HVAC_DuctLiningThickness, ParameterType.HVACDuctLiningThickness },
+                { UnitType.UT_PipeInsulationThickness, ParameterType.PipeInsulationThickness },
+                { UnitType.UT_HVAC_ThermalResistance, ParameterType.HVACThermalResistance },
+                { UnitType.UT_HVAC_ThermalMass, ParameterType.HVACThermalMass },
+                { UnitType.UT_Acceleration, ParameterType.Acceleration },
+                { UnitType.UT_Bar_Diameter, ParameterType.BarDiameter },
+                { UnitType.UT_Crack_Width, ParameterType.CrackWidth },
+                { UnitType.UT_Displacement_Deflection, ParameterType.DisplacementDeflection },
+                { UnitType.UT_Energy, ParameterType.Energy },
+                { UnitType.UT_Structural_Frequency, ParameterType.StructuralFrequency },
+                { UnitType.UT_Mass, ParameterType.Mass },
+                { UnitType.UT_Mass_per_Unit_Length, ParameterType.MassPerUnitLength },
+                { UnitType.UT_Moment_of_Inertia, ParameterType.MomentOfInertia },
+                { UnitType.UT_Surface_Area, ParameterType.SurfaceArea },
+                { UnitType.UT_Period, ParameterType.Period },
+                { UnitType.UT_Pulsation, ParameterType.Pulsation },
+                { UnitType.UT_Reinforcement_Area, ParameterType.ReinforcementArea },
+                { UnitType.UT_Reinforcement_Area_per_Unit_Length, ParameterType.ReinforcementAreaPerUnitLength },
+                { UnitType.UT_Reinforcement_Cover, ParameterType.ReinforcementCover },
+                { UnitType.UT_Reinforcement_Spacing, ParameterType.ReinforcementSpacing },
+                { UnitType.UT_Rotation, ParameterType.Rotation },
+                { UnitType.UT_Section_Area, ParameterType.SectionArea },
+                { UnitType.UT_Section_Dimension, ParameterType.SectionDimension },
+                { UnitType.UT_Section_Modulus, ParameterType.SectionModulus },
+                { UnitType.UT_Section_Property, ParameterType.SectionProperty },
+                { UnitType.UT_Structural_Velocity, ParameterType.StructuralVelocity },
+                { UnitType.UT_Warping_Constant, ParameterType.WarpingConstant },
+                { UnitType.UT_Weight, ParameterType.Weight },
+                { UnitType.UT_Weight_per_Unit_Length, ParameterType.WeightPerUnitLength },
+                { UnitType.UT_HVAC_ThermalConductivity, ParameterType.HVACThermalConductivity },
+                { UnitType.UT_HVAC_SpecificHeat, ParameterType.HVACSpecificHeat },
+                { UnitType.UT_HVAC_SpecificHeatOfVaporization, ParameterType.HVACSpecificHeatOfVaporization },
+                { UnitType.UT_HVAC_Permeability, ParameterType.HVACPermeability },
+                { UnitType.UT_Electrical_Resistivity, ParameterType.ElectricalResistivity },
+                { UnitType.UT_MassDensity, ParameterType.MassDensity },
+                { UnitType.UT_MassPerUnitArea, ParameterType.MassPerUnitArea },
+                { UnitType.UT_Pipe_Dimension, ParameterType.Length },
+                { UnitType.UT_PipeMass, ParameterType.Mass },
+                { UnitType.UT_PipeMassPerUnitLength, ParameterType.MassPerUnitLength },
+            };
         }
 
         /// <summary>
-        /// Tries the get catalog string.
+        /// Tries the get the catalog string for the given UnitType value.
         /// </summary>
         /// <param name="unitType">Type of the unit.</param>
-        /// <param name="catalogString">The catalog string.</param>
+        /// <param name="catalogString">The resulting catalog string.</param>
         /// <returns></returns>
         public static bool TryGetCatalogString(this UnitType unitType, out string catalogString)
         {
@@ -452,23 +588,40 @@ namespace CodeCave.Revit.Toolkit
         }
 
         /// <summary>
-        /// Tries the get group.
+        /// Tries the get the UnitGroup for the given UnitType value.
         /// </summary>
-        /// <param name="unitType">Type of the unit.</param>
-        /// <param name="group">The group.</param>
+        /// <param name="unitType">The unit type to convert.</param>
+        /// <param name="group">The resulting unit group.</param>
         /// <returns></returns>
         public static bool TryGetGroup(this UnitType unitType, out UnitGroup group)
         {
             return _utGroups.TryGetValue(unitType, out group);
         }
 
-        public static bool TryGetUnitType(this string unitString, out UnitType unitType)
+        /// <summary>
+        /// Tries the get the UnitType value for the given catalog string.
+        /// </summary>
+        /// <param name="unitString">The catalog string to convert.</param>
+        /// <param name="unitType">The resulting unit type.</param>
+        /// <returns></returns>
+        public static bool TryGetUnitTypeFromCatalogString(this string catalogString, out UnitType unitType)
         {
-            var values = _utToCatalog?.Where(u => u.Value.Equals(unitString))?.Select(x => x.Key);
+            var values = _utToCatalog?.Where(u => u.Value.Equals(catalogString))?.Select(x => x.Key);
             unitType = (values.Any())
                 ? values.FirstOrDefault()
                 : UnitType.UT_Undefined;
-            return !unitType.Equals(UnitType.UT_Undefined);
+            return values.Any();
+        }
+
+        /// <summary>
+        /// Tries the get the ParameterType value for the given UnitType value.
+        /// </summary>
+        /// <param name="unitType">The unit type.</param>
+        /// <param name="parameterType">The resulting ParameterType value.</param>
+        /// <returns></returns>
+        public static bool TryGetParameterType(this UnitType unitType, out ParameterType parameterType)
+        {
+            return _parameterTypes.TryGetValue(unitType, out parameterType);
         }
     }
 }

@@ -464,7 +464,10 @@ namespace CodeCave.Revit.Toolkit
 
         public static bool TryGetUnitType(this string unitString, out UnitType unitType)
         {
-            unitType = _utToCatalog?.Where(u => u.Value.Equals(unitString))?.Select(x => x.Key)?.FirstOrDefault() ?? UnitType.UT_Undefined;
+            var values = _utToCatalog?.Where(u => u.Value.Equals(unitString))?.Select(x => x.Key);
+            unitType = (values.Any())
+                ? values.FirstOrDefault()
+                : UnitType.UT_Undefined;
             return !unitType.Equals(UnitType.UT_Undefined);
         }
     }

@@ -1059,15 +1059,16 @@ namespace CodeCave.Revit.Toolkit
         public static bool TryGetFromUnitSymbol(this string unitSymbol, out DisplayUnitType displayUnitType)
         {
             displayUnitType = DisplayUnitType.DUT_UNDEFINED;
-
-            UnitSymbolType unitSymbolType;
-            return unitSymbol.TryGetFromSymbol(out unitSymbolType) && unitSymbolType.TryGetFromUnitSymbol(out displayUnitType);
+            return unitSymbol.TryGetFromSymbol(out UnitSymbolType unitSymbolType) && unitSymbolType.TryGetFromUnitSymbol(out displayUnitType);
         }
 
         public static bool TryGetFromUnitSymbol(this UnitSymbolType unitSymbolType, out DisplayUnitType displayUnitType)
         {
-            displayUnitType = _dutToUnitSymType.FirstOrDefault(x => x.Value.Contains(unitSymbolType)).Key;
-            return true;
+            var values = _dutToUnitSymType.Where(x => x.Value.Contains(unitSymbolType)).ToArray();
+            displayUnitType = (values.Any())
+                ? values.First().Key
+                : DisplayUnitType.DUT_UNDEFINED;
+            return values.Any();
         }
     }
 }

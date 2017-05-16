@@ -120,20 +120,26 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                     {
                         switch (section.Key)
                         {
+                            // Parse *META section
                             case Sections.Meta:
                                 csvReader.Configuration.RegisterClassMap<MetaClassMap>();
                                 sharedParamsFile.Metadata = csvReader.GetRecords<Meta>().FirstOrDefault();
                                 break;
 
+                            // Parse *GROUP section
                             case Sections.Groups:
                                 csvReader.Configuration.RegisterClassMap<GroupClassMap>();
                                 sharedParamsFile.Groups = csvReader.GetRecords<Group>().ToList();
                                 break;
 
+                            // Parse *PARAM section
                             case Sections.Params:
                                 csvReader.Configuration.RegisterClassMap<ParameterClassMap>();
                                 sharedParamsFile.Parameters = csvReader.GetRecords<Parameter>().ToList();
                                 break;
+
+                            default:
+                                throw new NotImplementedException($"Unknown section type: {section.Key}");
                         }
                     }
                 }

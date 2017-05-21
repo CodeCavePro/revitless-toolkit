@@ -25,8 +25,8 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         {
             public MetaClassMap()
             {
-                Map(m => m.Version).Index(0);
-                Map(m => m.MinVersion).Index(1);
+                Map(m => m.Version).Name("VERSION");
+                Map(m => m.MinVersion).Name("MINVERSION");
             }
         }
 
@@ -41,8 +41,8 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         {
             public GroupClassMap()
             {
-                Map(m => m.ID).Index(0);
-                Map(m => m.Name).Index(1);
+                Map(m => m.ID).Name("ID");
+                Map(m => m.Name).Name("NAME");
             }
         }
 

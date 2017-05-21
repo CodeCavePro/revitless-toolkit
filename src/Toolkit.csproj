@@ -11,8 +11,8 @@
     <NeutralLanguage>en</NeutralLanguage>
     <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>1.0.3.0</Version>
-    <PackageTags>revit, api</PackageTags>
+    <Version>1.1.0-beta</Version>
+    <PackageTags>revit, rfa, rvt, thumbnails, parameters</PackageTags>
     <PackageId>CodeCave.Revit.Toolkit</PackageId>
     <RootNamespace>CodeCave.Revit.Toolkit</RootNamespace>
   </PropertyGroup>

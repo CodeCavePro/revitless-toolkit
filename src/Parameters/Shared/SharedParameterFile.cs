@@ -193,8 +193,15 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             return output.ToString();
         }
 
-        private static string SectionToCsv<T>(string sectionName, IEnumerable sectionEntries)
-            where T : CsvClassMap
+        /// <summary>
+        /// Serializes shared parameter file's sections to CSV.
+        /// </summary>
+        /// <typeparam name="TCsvMap">CSV class mappings</typeparam>
+        /// <param name="sectionName">Name of the section.</param>
+        /// <param name="sectionEntries">Section entries.</param>
+        /// <returns></returns>
+        private static string SectionToCsv<TCsvMap>(string sectionName, IEnumerable sectionEntries)
+            where TCsvMap : CsvClassMap
         {
             // Serialize entries to CSV
             var sectionBuilder = new StringBuilder();
@@ -202,7 +209,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             {
                 using (var csvWriter = new CsvWriter(textWriter, CsvConfiguration))
                 {
-                    csvWriter.Configuration.RegisterClassMap<T>();
+                    csvWriter.Configuration.RegisterClassMap<TCsvMap>();
                     csvWriter.WriteRecords(sectionEntries);
                 }
             }

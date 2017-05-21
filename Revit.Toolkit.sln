@@ -1,17 +1,18 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26403.7
+VisualStudioVersion = 15.0.26510.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toolkit.NuGet", "packaging\Toolkit.NuGet.csproj", "{0451BAEF-DF2E-4B98-8644-94EE9415E389}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toolkit", "src\Toolkit.csproj", "{84C2E7A9-0149-4F12-86BD-3C10B720C4D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Toolkit", "src\Toolkit.csproj", "{84C2E7A9-0149-4F12-86BD-3C10B720C4D8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{302D2B68-769E-4352-82F5-2F9A861F782A}"
 	ProjectSection(SolutionItems) = preProject
 		.gitattributes = .gitattributes
 		.gitignore = .gitignore
 		global.json = global.json
+		LICENSE.txt = LICENSE.txt
 	EndProjectSection
 EndProject
 Global

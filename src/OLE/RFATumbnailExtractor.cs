@@ -11,8 +11,10 @@ namespace CodeCave.Revit.Toolkit.OLE
     /// http://thebuildingcoder.typepad.com/blog/2008/10/rvt-file-version.html
     /// </summary>
     /// <seealso cref="ThumbnailExtractor" />
-    public class RFATumbnailExtractor : ThumbnailExtractor
+    public class RfaTumbnailExtractor : ThumbnailExtractor
     {
+        #region Methods
+
         /// <summary>
         /// Extracts the image.
         /// </summary>
@@ -25,14 +27,14 @@ namespace CodeCave.Revit.Toolkit.OLE
         {
             try
             {
-                var thumbnailBytes = OleDataReader.GetRawBytes(pathToFile, RevitFile.OleStorage.IMAGE_STREAM);
+                var thumbnailBytes = OleDataReader.GetRawBytes(pathToFile, RevitFileMap.OleStorage.IMAGE_STREAM);
                 // Validate preview data or go out
                 if ((thumbnailBytes == null) || (thumbnailBytes.Length <= 0))
                 {
                     return null;
                 }
 
-                // read past the Revit metadata to the start of the PNG image
+                // read past the Revit meta-data to the start of the PNG image
                 var startingOffset = GetPngOffset(thumbnailBytes);
                 if (startingOffset == 0)
                 {
@@ -63,8 +65,9 @@ namespace CodeCave.Revit.Toolkit.OLE
             }
         }
 
-        #region Helpers
+        #endregion Methods
 
+        #region Helpers
 
         /// <summary>
         /// Gets the PNG data offset in array of bytes.
@@ -83,7 +86,7 @@ namespace CodeCave.Revit.Toolkit.OLE
                 {
                     var pointer = memoryStream.ReadByte();
                     // possible start of PNG file data
-                    if (pointer == RevitFile.PngImageMarker.MARKER_137) // 0x89
+                    if (pointer == RevitFileMap.PngImageMarker.MARKER_137) // 0x89
                     {
                         markerFound = true;
                         startingOffset = i;
@@ -93,12 +96,12 @@ namespace CodeCave.Revit.Toolkit.OLE
 
                     switch (pointer)
                     {
-                        case RevitFile.PngImageMarker.MARKER_10: // 0x0A
-                            if (markerFound && (previousValue == RevitFile.PngImageMarker.MARKER_26))
+                        case RevitFileMap.PngImageMarker.MARKER_10: // 0x0A
+                            if (markerFound && (previousValue == RevitFileMap.PngImageMarker.MARKER_26))
                             {
                                 return startingOffset;
                             }
-                            if (markerFound && (previousValue == RevitFile.PngImageMarker.MARKER_13))
+                            if (markerFound && (previousValue == RevitFileMap.PngImageMarker.MARKER_13))
                             {
                                 previousValue = pointer;
                                 continue;
@@ -106,8 +109,8 @@ namespace CodeCave.Revit.Toolkit.OLE
                             markerFound = false;
                             break;
 
-                        case RevitFile.PngImageMarker.MARKER_13: // 0x0D
-                            if (markerFound && (previousValue == RevitFile.PngImageMarker.MARKER_71))
+                        case RevitFileMap.PngImageMarker.MARKER_13: // 0x0D
+                            if (markerFound && (previousValue == RevitFileMap.PngImageMarker.MARKER_71))
                             {
                                 previousValue = pointer;
                                 continue;
@@ -115,8 +118,8 @@ namespace CodeCave.Revit.Toolkit.OLE
                             markerFound = false;
                             break;
 
-                        case RevitFile.PngImageMarker.MARKER_26: // 0x1A
-                            if (markerFound && (previousValue == RevitFile.PngImageMarker.MARKER_10))
+                        case RevitFileMap.PngImageMarker.MARKER_26: // 0x1A
+                            if (markerFound && (previousValue == RevitFileMap.PngImageMarker.MARKER_10))
                             {
                                 previousValue = pointer;
                                 continue;
@@ -124,8 +127,8 @@ namespace CodeCave.Revit.Toolkit.OLE
                             markerFound = false;
                             break;
 
-                        case RevitFile.PngImageMarker.MARKER_71: // 0x47
-                            if (markerFound && (previousValue == RevitFile.PngImageMarker.MARKER_78))
+                        case RevitFileMap.PngImageMarker.MARKER_71: // 0x47
+                            if (markerFound && (previousValue == RevitFileMap.PngImageMarker.MARKER_78))
                             {
                                 previousValue = pointer;
                                 continue;
@@ -133,8 +136,8 @@ namespace CodeCave.Revit.Toolkit.OLE
                             markerFound = false;
                             break;
 
-                        case RevitFile.PngImageMarker.MARKER_78: // 0x4E
-                            if (markerFound && (previousValue == RevitFile.PngImageMarker.MARKER_80))
+                        case RevitFileMap.PngImageMarker.MARKER_78: // 0x4E
+                            if (markerFound && (previousValue == RevitFileMap.PngImageMarker.MARKER_80))
                             {
                                 previousValue = pointer;
                                 continue;
@@ -142,8 +145,8 @@ namespace CodeCave.Revit.Toolkit.OLE
                             markerFound = false;
                             break;
 
-                        case RevitFile.PngImageMarker.MARKER_80: // 0x50
-                            if (markerFound && (previousValue == RevitFile.PngImageMarker.MARKER_137))
+                        case RevitFileMap.PngImageMarker.MARKER_80: // 0x50
+                            if (markerFound && (previousValue == RevitFileMap.PngImageMarker.MARKER_137))
                             {
                                 previousValue = pointer;
                                 continue;
@@ -156,9 +159,11 @@ namespace CodeCave.Revit.Toolkit.OLE
             return 0;
         }
 
-        #endregion
+        #endregion Helpers
 
-        internal struct RevitFile
+        #region Revit file map
+
+        internal struct RevitFileMap
         {
             internal struct OleStorage
             {
@@ -176,5 +181,7 @@ namespace CodeCave.Revit.Toolkit.OLE
                 public const int MARKER_137 = 137; // 0x89
             }
         }
+
+        #endregion
     }
 }

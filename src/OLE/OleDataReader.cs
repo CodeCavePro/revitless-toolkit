@@ -19,7 +19,7 @@ namespace CodeCave.Revit.Toolkit.OLE
         /// <exception cref="InvalidDataException">Failed to get XML data from OLE metadata of the following file {pathToFile}</exception>
         public static XmlDocument GetRawXml(string pathToFile, string oleStream, Encoding enc = null)
         {
-            XmlDocument xmlDocument = null;
+            XmlDocument xmlDocument;
 
             try
             {
@@ -45,7 +45,7 @@ namespace CodeCave.Revit.Toolkit.OLE
         /// <exception cref="InvalidDataException">Failed to decode OLE byte data to {enc.EncodingName}-</exception>
         public static string GetRawString(string pathToFile, string oleStream, Encoding enc = null)
         {
-            string stringData = null;
+            string stringData;
             enc = (enc ?? Encoding.UTF8);
 
             try
@@ -74,7 +74,7 @@ namespace CodeCave.Revit.Toolkit.OLE
         /// </exception>
         public static byte[] GetRawBytes(string pathToFile, string oleStream)
         {
-            byte[] bytes = null;
+            byte[] bytes;
             CompoundFile compoundFile = null;
             try
             {

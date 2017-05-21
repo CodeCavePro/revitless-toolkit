@@ -1,9 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
-// Type: Autodesk.Revit.DB.DisplayUnitType
-// Assembly: RevitAPI, Version=17.0.0.0, Culture=neutral, PublicKeyToken=null
-// ReSharper disable InconsistentNaming
-
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace CodeCave.Revit.Toolkit
@@ -27,6 +22,10 @@ namespace CodeCave.Revit.Toolkit
     /// display units still correspond to an underlying simple unit when
     /// used with the conversion utilities.</para>
     ///    </remarks>
+    // Decompiled with JetBrains decompiler
+    // Type: Autodesk.Revit.DB.DisplayUnitType
+    // Assembly: RevitAPI, Version=17.0.0.0, Culture=neutral, PublicKeyToken=null
+    // ReSharper disable InconsistentNaming
     public enum DisplayUnitType
     {
         DUT_UNDEFINED = -2,
@@ -280,12 +279,18 @@ namespace CodeCave.Revit.Toolkit
         DUT_RANKINE_DIFFERENCE = 246,
     }
 
+    /// <summary>
+    /// Contains extension methods for <see cref="DisplayUnitType"/>
+    /// </summary>
     public static class DisplayUnitTypeExtensions
     {
         private static readonly Dictionary<DisplayUnitType, string> _dutToCatalog;
         private static readonly Dictionary<DisplayUnitType, List<UnitType>> _dutToUnitType;
         private static readonly Dictionary<DisplayUnitType, List<UnitSymbolType>> _dutToUnitSymType;
 
+        /// <summary>
+        /// Initializes the <see cref="DisplayUnitTypeExtensions"/> class.
+        /// </summary>
         static DisplayUnitTypeExtensions()
         {
             #region DisplayUnitType to catalog string
@@ -1041,27 +1046,57 @@ namespace CodeCave.Revit.Toolkit
             #endregion DisplayUnitType to UnitType
         }
 
+        /// <summary>
+        /// Tries the get catalog string.
+        /// </summary>
+        /// <param name="displayUnitType">Display type of the unit.</param>
+        /// <param name="catalogString">The catalog string.</param>
+        /// <returns></returns>
         public static bool TryGetCatalogString(this DisplayUnitType displayUnitType, out string catalogString)
         {
             return _dutToCatalog.TryGetValue(displayUnitType, out catalogString);
         }
 
+        /// <summary>
+        /// Tries the type of the get unit.
+        /// </summary>
+        /// <param name="displayUnitType">Display type of the unit.</param>
+        /// <param name="unitType">Type of the unit.</param>
+        /// <returns></returns>
         public static bool TryGetUnitType(this DisplayUnitType displayUnitType, out List<UnitType> unitType)
         {
             return _dutToUnitType.TryGetValue(displayUnitType, out unitType);
         }
 
+        /// <summary>
+        /// Tries the type of the get unit symbol.
+        /// </summary>
+        /// <param name="displayUnitType">Display type of the unit.</param>
+        /// <param name="unitSymbolType">Type of the unit symbol.</param>
+        /// <returns></returns>
         public static bool TryGetUnitSymbolType(this DisplayUnitType displayUnitType, out List<UnitSymbolType> unitSymbolType)
         {
             return _dutToUnitSymType.TryGetValue(displayUnitType, out unitSymbolType);
         }
 
+        /// <summary>
+        /// Tries the get from unit symbol.
+        /// </summary>
+        /// <param name="unitSymbol">The unit symbol.</param>
+        /// <param name="displayUnitType">Display type of the unit.</param>
+        /// <returns></returns>
         public static bool TryGetFromUnitSymbol(this string unitSymbol, out DisplayUnitType displayUnitType)
         {
             displayUnitType = DisplayUnitType.DUT_UNDEFINED;
             return unitSymbol.TryGetFromSymbol(out UnitSymbolType unitSymbolType) && unitSymbolType.TryGetFromUnitSymbol(out displayUnitType);
         }
 
+        /// <summary>
+        /// Tries the get from unit symbol.
+        /// </summary>
+        /// <param name="unitSymbolType">Type of the unit symbol.</param>
+        /// <param name="displayUnitType">Display type of the unit.</param>
+        /// <returns></returns>
         public static bool TryGetFromUnitSymbol(this UnitSymbolType unitSymbolType, out DisplayUnitType displayUnitType)
         {
             var values = _dutToUnitSymType.Where(x => x.Value.Contains(unitSymbolType)).ToArray();

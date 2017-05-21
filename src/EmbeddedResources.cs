@@ -5,77 +5,68 @@ using System.Reflection;
 
 namespace CodeCave.Revit.Toolkit
 {
-    public class EmbeddedResources
+    /// <summary>
+    /// Embedded resource manager helper class, used in order to access resources embedded into this and other assemblies
+    /// </summary>
+    public class EmbeddedResourceManager
     {
-        private Assembly assembly;
+        private readonly Assembly _assembly;
 
-        private string[] resources;
+        private readonly string[] _resources;
 
-        public EmbeddedResources(Assembly assembly)
+        private static EmbeddedResourceManager _callingResources, _entryResources, _executingResources;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EmbeddedResourceManager"/> class.
+        /// </summary>
+        /// <param name="assembly">The assembly.</param>
+        public EmbeddedResourceManager(Assembly assembly)
         {
-            this.assembly = assembly;
-            resources = assembly.GetManifestResourceNames();
+            _assembly = assembly;
+            _resources = assembly.GetManifestResourceNames();
         }
 
-        public static EmbeddedResources callingResources;
+        /// <summary>
+        /// Gets the calling resources.
+        /// </summary>
+        /// <value>
+        /// The calling resources.
+        /// </value>
+        public static EmbeddedResourceManager CallingResources => _callingResources ?? (_callingResources = new EmbeddedResourceManager(Assembly.GetCallingAssembly()));
 
-        public static EmbeddedResources entryResources;
+        /// <summary>
+        /// Gets the entry resources.
+        /// </summary>
+        /// <value>
+        /// The entry resources.
+        /// </value>
+        public static EmbeddedResourceManager EntryResources => _entryResources ?? (_entryResources = new EmbeddedResourceManager(Assembly.GetEntryAssembly()));
 
-        public static EmbeddedResources executingResources;
+        /// <summary>
+        /// Gets the executing resources.
+        /// </summary>
+        /// <value>
+        /// The executing resources.
+        /// </value>
+        public static EmbeddedResourceManager ExecutingResources => _executingResources ?? (_executingResources = new EmbeddedResourceManager(Assembly.GetExecutingAssembly()));
 
-        public static EmbeddedResources CallingResources
+        /// <summary>
+        /// Gets the resource stream.
+        /// </summary>
+        /// <param name="resourceName">Name of the resource to get stream for.</param>
+        /// <returns>Steam representing the given resource</returns>
+        /// <exception cref="ArgumentException">Ambiguous name, cannot identify resource - resName</exception>
+        public Stream GetStream(string resourceName)
         {
-            get
+            var possibleCandidates = _resources.Where(s => s.Contains(resourceName)).ToArray();
+            switch (possibleCandidates.Length)
             {
-                if (callingResources == null)
-                {
-                    callingResources = new EmbeddedResources(Assembly.GetCallingAssembly());
-                }
-
-                return callingResources;
-            }
-        }
-
-        public static EmbeddedResources EntryResources
-        {
-            get
-            {
-                if (entryResources == null)
-                {
-                    entryResources = new EmbeddedResources(Assembly.GetEntryAssembly());
-                }
-
-                return entryResources;
-            }
-        }
-
-        public static EmbeddedResources ExecutingResources
-        {
-            get
-            {
-                if (executingResources == null)
-                {
-                    executingResources = new EmbeddedResources(Assembly.GetExecutingAssembly());
-                }
-
-                return executingResources;
-            }
-        }
-
-        public Stream GetStream(string resName)
-        {
-            string[] possibleCandidates = resources.Where(s => s.Contains(resName)).ToArray();
-            if (possibleCandidates.Length == 0)
-            {
-                return null;
-            }
-            else if (possibleCandidates.Length == 1)
-            {
-                return assembly.GetManifestResourceStream(possibleCandidates[0]);
-            }
-            else
-            {
-                throw new ArgumentException("Ambiguous name, cannot identify resource", "resName");
+                case 0:
+                    return null;
+                case 1:
+                    return _assembly.GetManifestResourceStream(possibleCandidates[0]);
+                default:
+                    throw new ArgumentException("Ambiguous name, cannot identify resource", "resName");
             }
         }
     }

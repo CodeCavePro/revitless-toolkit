@@ -109,9 +109,9 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
 
             var sharedParamsFile = new SharedParameterFile();
             if (sharedParamsFileSections == null || sharedParamsFileSections.Count < 3 ||
-                !(sharedParamsFileSections.ContainsKey(Sections.Meta) &&
-                  sharedParamsFileSections.ContainsKey(Sections.Groups) &&
-                  sharedParamsFileSections.ContainsKey(Sections.Params)))
+                !(sharedParamsFileSections.ContainsKey(Sections.META) &&
+                  sharedParamsFileSections.ContainsKey(Sections.GROUPS) &&
+                  sharedParamsFileSections.ContainsKey(Sections.PARAMS)))
             {
                 throw new InvalidDataException("Failed to parse shared parameter file content," +
                                                "because it doesn't contain enough data for being qualified as a valid shared parameter file.");
@@ -126,19 +126,19 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                         switch (section.Key)
                         {
                             // Parse *META section
-                            case Sections.Meta:
+                            case Sections.META:
                                 csvReader.Configuration.RegisterClassMap<MetaClassMap>();
                                 sharedParamsFile.Metadata = csvReader.GetRecords<Meta>().FirstOrDefault();
                                 break;
 
                             // Parse *GROUP section
-                            case Sections.Groups:
+                            case Sections.GROUPS:
                                 csvReader.Configuration.RegisterClassMap<GroupClassMap>();
                                 sharedParamsFile.Groups = csvReader.GetRecords<Group>().ToList();
                                 break;
 
                             // Parse *PARAM section
-                            case Sections.Params:
+                            case Sections.PARAMS:
                                 csvReader.Configuration.RegisterClassMap<ParameterClassMap>();
                                 sharedParamsFile.Parameters = csvReader.GetRecords<Parameter>().ToList();
                                 break;
@@ -179,15 +179,15 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             output.AppendLine("# Do not edit manually.");
 
             // Serialize META to CSV
-            var metaAsString = SectionToCsv<MetaClassMap>(Sections.Meta, new[] { Metadata });
+            var metaAsString = SectionToCsv<MetaClassMap>(Sections.META, new[] { Metadata });
             output.AppendLine(metaAsString);
 
             // Serialize GROUP entries to CSV
-            var groupsAsString = SectionToCsv<GroupClassMap>(Sections.Groups, Groups);
+            var groupsAsString = SectionToCsv<GroupClassMap>(Sections.GROUPS, Groups);
             output.AppendLine(groupsAsString);
 
             // Serialize PARAM entries to CSV
-            var paramsAsString = SectionToCsv<ParameterClassMap>(Sections.Params, Parameters);
+            var paramsAsString = SectionToCsv<ParameterClassMap>(Sections.PARAMS, Parameters);
             output.AppendLine(paramsAsString);
 
             return output.ToString();

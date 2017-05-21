@@ -25,7 +25,7 @@ namespace CodeCave.Revit.Toolkit
         public static readonly List<OmniClassTaxonomyItem> Merged;
 
         /// <summary>
-        /// Static constructor, initializes static readonly fields of OmniClassTaxonomy class
+        /// Static constructor, initializes static read-only fields of OmniClassTaxonomy class
         /// </summary>
         static OmniClassTaxonomy()
         {

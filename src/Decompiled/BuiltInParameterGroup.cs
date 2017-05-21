@@ -1,14 +1,13 @@
-﻿// Decompiled with JetBrains decompiler
-// Type: Autodesk.Revit.DB.BuiltInParameterGroup
-// Assembly: RevitAPI, Version=17.0.0.0, Culture=neutral, PublicKeyToken=null
-// ReSharper disable InconsistentNaming
-
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace CodeCave.Revit.Toolkit
 {
     /// <summary>An enumerated type listing all of the built-in parameter groups supported by Autodesk Revit.</summary>
     /// <remarks>Parameter groups are used to sort parameters within the Element Properties dialog.</remarks>
+    // Decompiled with JetBrains decompiler
+    // Type: Autodesk.Revit.DB.BuiltInParameterGroup
+    // Assembly: RevitAPI, Version=17.0.0.0, Culture=neutral, PublicKeyToken=null
+    // ReSharper disable InconsistentNaming
     public enum BuiltInParameterGroup
     {
         PG_ENERGY_ANALYSIS_BLDG_CONS_MTL_THERMAL_PROPS = -5000221,
@@ -127,10 +126,16 @@ namespace CodeCave.Revit.Toolkit
         INVALID = -1,
     }
 
+    /// <summary>
+    /// Contains extension methods for <see cref="BuiltInParameterGroup"/>
+    /// </summary>
     public static class BuiltInParameterGroupExtensions
     {
         private static readonly Dictionary<BuiltInParameterGroup, string> _builtInParameterGroup;
 
+        /// <summary>
+        /// Initializes the <see cref="BuiltInParameterGroupExtensions"/> class.
+        /// </summary>
         static BuiltInParameterGroupExtensions()
         {
             _builtInParameterGroup = new Dictionary<BuiltInParameterGroup, string>
@@ -252,7 +257,13 @@ namespace CodeCave.Revit.Toolkit
             };
         }
 
-        public static bool TryGetFromString(this BuiltInParameterGroup builtInParameterGroup, out string builtInParameterGroupString)
+        /// <summary>
+        /// Tries to convert <see cref="BuiltInParameterGroup"/> value to a human-readable English label.
+        /// </summary>
+        /// <param name="builtInParameterGroup">Built in parameter group value.</param>
+        /// <param name="builtInParameterGroupString">Human-readable English label for the given <see cref="BuiltInParameterGroup"/> value.</param>
+        /// <returns></returns>
+        public static bool ToEnglishLabel(this BuiltInParameterGroup builtInParameterGroup, out string builtInParameterGroupString)
         {
             return _builtInParameterGroup.TryGetValue(builtInParameterGroup, out builtInParameterGroupString);
         }

@@ -1,9 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
-// Type: Autodesk.Revit.DB.UnitSymbolType
-// Assembly: RevitAPI, Version=17.0.0.0, Culture=neutral, PublicKeyToken=null
-// ReSharper disable InconsistentNaming
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -18,6 +13,10 @@ namespace CodeCave.Revit.Toolkit
     ///    prefixes, for example "$" for dollars.
     /// </remarks>
     /// <since>2014</since>
+    // Decompiled with JetBrains decompiler
+    // Type: Autodesk.Revit.DB.UnitSymbolType
+    // Assembly: RevitAPI, Version=17.0.0.0, Culture=neutral, PublicKeyToken=null
+    // ReSharper disable InconsistentNaming
     public enum UnitSymbolType
     {
         UST_NONE = 0,
@@ -338,10 +337,16 @@ namespace CodeCave.Revit.Toolkit
         UST_DELTA_DEGREE_R = 24602,
     }
 
+    /// <summary>
+    /// Contains extension methods for <see cref="UnitSymbolType"/>
+    /// </summary>
     public static class UnitSymbolTypeExtensions
     {
         private static readonly Dictionary<UnitSymbolType, string> _unitSymbolTypes;
 
+        /// <summary>
+        /// Initializes the <see cref="UnitSymbolTypeExtensions"/> class.
+        /// </summary>
         static UnitSymbolTypeExtensions()
         {
             _unitSymbolTypes = new Dictionary<UnitSymbolType, string>
@@ -665,11 +670,23 @@ namespace CodeCave.Revit.Toolkit
             };
         }
 
+        /// <summary>
+        /// Tries to get the symbol for the given <see cref="UnitSymbolType"/> value.
+        /// </summary>
+        /// <param name="unitSymbol">The unit symbol.</param>
+        /// <param name="unitSymbolString">The unit symbol string representation.</param>
+        /// <returns></returns>
         public static bool TryGetSymbol(this UnitSymbolType unitSymbol, out string unitSymbolString)
         {
             return _unitSymbolTypes.TryGetValue(unitSymbol, out unitSymbolString);
         }
 
+        /// <summary>
+        /// Tries to get from symbol.
+        /// </summary>
+        /// <param name="unitSymbolString">The unit symbol string.</param>
+        /// <param name="unitSymbol">The unit symbol.</param>
+        /// <returns></returns>
         public static bool TryGetFromSymbol(this string unitSymbolString, out UnitSymbolType unitSymbol)
         {
             var valueExists = _unitSymbolTypes.ContainsValue(unitSymbolString);

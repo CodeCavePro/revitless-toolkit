@@ -441,20 +441,20 @@ namespace CodeCave.Revit.Toolkit
         }
 
         /// <summary>
-        /// Converts DATATYPE of a shared parameter to ParameterType
+        /// Converts DATATYPE of a shared parameter to <see cref="ParameterType"/>
         /// </summary>
         /// <param name="dataType">DATATYPE string to convert</param>
         /// <returns></returns>
         public static ParameterType FromSharedDataType(this string dataType)
         {
-            var values = _parameterTypes2Shared?.Where(u => u.Value.Equals(dataType))?.Select(x => x.Key)?.ToArray();
+            var values = _parameterTypes2Shared?.Where(u => u.Value.Equals(dataType)).Select(x => x.Key).ToArray();
             return (values.Any())
                 ? values.FirstOrDefault()
                 : ParameterType.Invalid;
         }
 
         /// <summary>
-        /// Converts ParameterType value to DATATYPE (shared parameter file)
+        /// Converts <see cref="ParameterType"/> value to DATATYPE (shared parameter file)
         /// </summary>
         /// <param name="parameter">ParameterType value to convert</param>
         /// <returns></returns>

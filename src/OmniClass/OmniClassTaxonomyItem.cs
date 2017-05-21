@@ -7,19 +7,52 @@ using System.Linq;
 
 namespace CodeCave.Revit.Toolkit
 {
+    /// <summary>
+    /// Represents a row of an OmniClass file
+    /// </summary>
     public class OmniClassTaxonomyItem
     {
+        /// <summary>
+        /// Gets or sets the identifier.
+        /// </summary>
+        /// <value>
+        /// The identifier.
+        /// </value>
         public string ID { get; set; }
 
+        /// <summary>
+        /// Gets or sets taxonomy's name.
+        /// </summary>
+        /// <value>
+        /// Taxonomy's name.
+        /// </value>
         public string Name { get; set; }
 
+        /// <summary>
+        /// Gets or sets taxonomy's category.
+        /// </summary>
+        /// <value>
+        /// Taxonomy's category.
+        /// </value>
         public int Category { get; set; }
 
+        /// <summary>
+        /// Returns a <see cref="String" /> that represents this instance.
+        /// </summary>
+        /// <returns>
+        /// A <see cref="String" /> that represents this instance.
+        /// </returns>
         public override string ToString()
         {
             return $"{ID}\t{Name}\t{Category}\t";
         }
 
+        /// <summary>
+        /// Returns a hash code for this instance.
+        /// </summary>
+        /// <returns>
+        /// A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table.
+        /// </returns>
         public override int GetHashCode()
         {
             unchecked
@@ -32,25 +65,38 @@ namespace CodeCave.Revit.Toolkit
             }
         }
 
+        /// <summary>
+        /// Determines whether the specified <see cref="Object" />, is equal to this instance.
+        /// </summary>
+        /// <param name="obj">The <see cref="Object" /> to compare with this instance.</param>
+        /// <returns>
+        ///   <c>true</c> if the specified <see cref="Object" /> is equal to this instance; otherwise, <c>false</c>.
+        /// </returns>
         public override bool Equals(object obj)
         {
-            if (obj == null || GetType() != obj.GetType())
+            if (!(obj is OmniClassTaxonomyItem))
                 return false;
 
-            var item = obj as OmniClassTaxonomyItem;
+            var item = (OmniClassTaxonomyItem) obj;
             return ID.Equals(item.ID) &&
                 Name.Equals(item.Name) &&
                 Category.Equals(item.Category);
         }
 
-        public static List<OmniClassTaxonomyItem> ReadFromResource(string omniclassFile)
+        /// <summary>
+        /// Reads a list of <see cref="OmniClassTaxonomyItem"/> items from the embedded resources.
+        /// </summary>
+        /// <param name="omniclassResName">Name of the embedded resource representing OmniClass text file.</param>
+        /// <returns>The list of <see cref="OmniClassTaxonomyItem"/></returns>
+        /// <exception cref="System.ArgumentException">omniclassResName</exception>
+        public static List<OmniClassTaxonomyItem> ReadFromResource(string omniclassResName)
         {
-            if (string.IsNullOrWhiteSpace(omniclassFile))
+            if (string.IsNullOrWhiteSpace(omniclassResName))
             {
-                throw new ArgumentException($"{nameof(omniclassFile)} must be a non empty string");
+                throw new ArgumentException($"{nameof(omniclassResName)} must be a non empty string");
             }
 
-            using (Stream stream = EmbeddedResources.ExecutingResources.GetStream(omniclassFile))
+            using (var stream = EmbeddedResourceManager.ExecutingResources.GetStream(omniclassResName))
             {
                 using (var reader = new StreamReader(stream))
                 {
@@ -60,6 +106,13 @@ namespace CodeCave.Revit.Toolkit
             }
         }
 
+        /// <summary>
+        /// Reads a list of <see cref="OmniClassTaxonomyItem"/> items from string.
+        /// </summary>
+        /// <param name="text">String containing <see cref="OmniClassTaxonomyItem"/> items.</param>
+        /// <returns>The list of <see cref="OmniClassTaxonomyItem"/></returns>
+        /// <exception cref="ArgumentException">text is an empty string</exception>
+        /// <exception cref="InvalidDataException"></exception>
         public static List<OmniClassTaxonomyItem> ReadFromText(string text)
         {
             if (string.IsNullOrWhiteSpace(text))
@@ -89,13 +142,21 @@ namespace CodeCave.Revit.Toolkit
                     }
                 }
             }
-                
+
             return omniClassItems;
         }
     }
 
+    /// <summary>
+    /// Contains <see cref="OmniClassTaxonomyItem"/> extension methods
+    /// </summary>
     public static class OmniClassTaxonomyItemExtensions
     {
+        /// <summary>
+        /// Converts a list of <see cref="OmniClassTaxonomyItem"/> items to string (OmniClass text file)
+        /// </summary>
+        /// <param name="items">The list of <see cref="OmniClassTaxonomyItem"/></param>
+        /// <returns></returns>
         public static string ToText(this List<OmniClassTaxonomyItem> items)
         {
             return string.Join(Environment.NewLine, items.Select(i => i.ToString()));

@@ -84,9 +84,9 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                 Map(m => m.ParameterType).Name("DATATYPE").TypeConverter<ParameterTypeConverter>();
                 Map(m => m.DataCategory).Name("DATACATEGORY");
                 Map(m => m.Group).Name("GROUP");
-                Map(m => m.IsVisible).Name("VISIBLE").TypeConverter<BooleanConverter>();
+                Map(m => m.IsVisible).Name("VISIBLE").TypeConverter<AdvancedBooleanConverter>();
                 Map(m => m.Description).Name("DESCRIPTION");
-                Map(m => m.UserModifiable).Name("USERMODIFIABLE").TypeConverter<BooleanConverter>();
+                Map(m => m.UserModifiable).Name("USERMODIFIABLE").TypeConverter<AdvancedBooleanConverter>();
 
                 Map(m => m.UnitType).Ignore();
                 Map(m => m.DisplayUnitType).Ignore();
@@ -105,6 +105,17 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                 {
                     var parameterType = (ParameterType)value;
                     return parameterType.ToSharedDataType();
+                }
+            }
+
+            internal class AdvancedBooleanConverter : BooleanConverter
+            {
+                public override string ConvertToString(object value, ICsvWriterRow row, CsvPropertyMapData propertyMapData)
+                {
+                    if (string.IsNullOrWhiteSpace(value?.ToString()))
+                        return "0";
+
+                    return (bool.TryParse(value?.ToString(), out bool boolValue) && boolValue) ? "1" : "0";
                 }
             }
         }

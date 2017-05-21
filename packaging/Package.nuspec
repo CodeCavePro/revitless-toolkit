@@ -28,7 +28,7 @@
     <tags>Revit, Metadata, Thumbnail, Parameters, PartAtom, OLE</tags>
   </metadata>
   <files>
-    <file src="..\bin\Release\netstandard1.3\*" target="lib\netstandard1.3" />
+    <file src="..\bin\Release\netstandard2.0\*" target="lib\netstandard2.0" />
     <file src="tools\" target="tools" />
     <file src="content\" target="content" />
   </files>

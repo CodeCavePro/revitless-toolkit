@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Description>A toolkit for processing .rfa, .rvt etc without Revit</Description>
-    <Product>CodeCave.Revit.Toolkit</Product>
+    <Product>Revit.Toolkit</Product>
     <Company>CodeCave, PUE</Company>
     <Authors>Zhmayev Yaroslav aka Salaros</Authors>
     <Copyright>Copyright 2016 (c) CodeCave, PUE</Copyright>
@@ -13,7 +13,7 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Version>1.1.0-beta</Version>
     <PackageTags>revit, rfa, rvt, thumbnails, parameters</PackageTags>
-    <PackageId>Revit.Toolkit</PackageId>
+    <PackageId>CodeCave.Revit.Toolkit</PackageId>
     <RootNamespace>CodeCave.Revit.Toolkit</RootNamespace>
     <PackageLicenseUrl>https://github.com/CodeCavePro/revit-toolkit/master/LICENSE.txt</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/CodeCavePro/revit-toolkit</PackageProjectUrl>

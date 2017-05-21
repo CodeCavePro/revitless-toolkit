@@ -5,8 +5,10 @@
 
 namespace CodeCave.Revit.Toolkit
 {
-    /// <summary>An enumerated type listing all of the built-in parameter IDs supported by Autodesk
-    /// Revit.</summary>
+    /// <summary>
+    /// An enumerated type listing all of the built-in parameter IDs supported by Autodesk
+    /// Revit.
+    /// </summary>
     /// <remarks>
     /// The ID of the parameter can be used to retrieve property values from an Element
     /// by using the Element.Parameter property.
@@ -14,7 +16,8 @@ namespace CodeCave.Revit.Toolkit
     /// Element Properties dialog in the English version of Autodesk Revit.  Note that
     /// multiple distinct parameter ids may map to the same English name; in those case you must
     /// examine the parameters associated with a specific element to determine
-    /// which parameter id to use.</remarks>
+    /// which parameter id to use.
+    /// </remarks>
     public enum BuiltInParameter
     {
         REBAR_SHAPE_ENDTREATMENT_END_TYPE = -1154658,

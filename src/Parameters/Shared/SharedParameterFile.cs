@@ -1,10 +1,12 @@
 ﻿using CsvHelper;
 using CsvHelper.Configuration;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
 
 namespace CodeCave.Revit.Toolkit.Parameters.Shared
@@ -41,7 +43,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         /// <value>
         /// The meta-data section of the shared parameter file.
         /// </value>
-        public Meta Metadata { get; set; } = new Meta { Version = 2, MinVersion = 1 };
+        public Meta Metadata { get; set; } = new Meta {Version = 2, MinVersion = 1};
 
         /// <summary>
         /// Gets or sets the groups section of the shared parameter file.
@@ -74,7 +76,8 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
 
             if (!Path.GetExtension(sharedParameterFile).ToLowerInvariant().Contains("txt"))
             {
-                throw new ArgumentException($"Shared parameter file must be a .txt file, please check the path you have supplied: '{sharedParameterFile}'");
+                throw new ArgumentException(
+                    $"Shared parameter file must be a .txt file, please check the path you have supplied: '{sharedParameterFile}'");
             }
 
             var sharedParamsText = File.ReadAllText(sharedParameterFile);
@@ -101,7 +104,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
 
             var sharedParamsFileSections = sharedParamsFileLines
                 ?.Where((e, i) => i % 2 == 0)
-                .Select((e, i) => new { Key = e, Value = sharedParamsFileLines[i * 2 + 1] })
+                .Select((e, i) => new {Key = e, Value = sharedParamsFileLines[i * 2 + 1]})
                 .ToDictionary(kp => kp.Key, kp => kp.Value.Replace($"{kp.Key}\t", string.Empty));
 
             var sharedParamsFile = new SharedParameterFile();
@@ -111,7 +114,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                   sharedParamsFileSections.ContainsKey(Sections.Params)))
             {
                 throw new InvalidDataException("Failed to parse shared parameter file content," +
-                    "because it doesn't contain enough data for being qualified as a valid shared parameter file.");
+                                               "because it doesn't contain enough data for being qualified as a valid shared parameter file.");
             }
 
             foreach (var section in sharedParamsFileSections)
@@ -161,6 +164,58 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                 .ToList();
 
             return sharedParamsFile;
+        }
+
+        /// <summary>
+        /// Returns a <see cref="String" /> that represents this instance.
+        /// </summary>
+        /// <returns>
+        /// A <see cref="String" /> that represents this instance.
+        /// </returns>
+        public override string ToString()
+        {
+            var output = new StringBuilder();
+            output.AppendLine("# This is a Revit shared parameter file.");
+            output.AppendLine("# Do not edit manually.");
+
+            // Serialize META to CSV
+            var metaAsString = SectionToCsv<MetaClassMap>(Sections.Meta, new[] { Metadata });
+            output.AppendLine(metaAsString);
+
+            // Serialize GROUP entries to CSV
+            var groupsAsString = SectionToCsv<GroupClassMap>(Sections.Groups, Groups);
+            output.AppendLine(groupsAsString);
+
+            // Serialize PARAM entries to CSV
+            var paramsAsString = SectionToCsv<ParameterClassMap>(Sections.Params, Parameters);
+            output.AppendLine(paramsAsString);
+
+            return output.ToString();
+        }
+
+        private static string SectionToCsv<T>(string sectionName, IEnumerable sectionEntries)
+            where T : CsvClassMap
+        {
+            // Serialize entries to CSV
+            var sectionBuilder = new StringBuilder();
+            using (var textWriter = new StringWriter(sectionBuilder))
+            {
+                using (var csvWriter = new CsvWriter(textWriter, CsvConfiguration))
+                {
+                    csvWriter.Configuration.RegisterClassMap<T>();
+                    csvWriter.WriteRecords(sectionEntries);
+                }
+            }
+
+            // Prepend section lines with section name
+            var sectionAsString = string.Join(Environment.NewLine,
+                sectionBuilder.ToString()
+                    .Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries)
+                    .Select(line => $"{sectionName}\t{line}")
+            );
+
+            // Prepend asterisk as section marker
+            return $"*{sectionAsString}";
         }
     }
 }

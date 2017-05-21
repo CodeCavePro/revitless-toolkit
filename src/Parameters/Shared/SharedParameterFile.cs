@@ -31,6 +31,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                 Delimiter = "\t",
                 WillThrowOnMissingField = false,
                 DetectColumnCountChanges = false,
+                QuoteNoFields = true
             };
         }
 

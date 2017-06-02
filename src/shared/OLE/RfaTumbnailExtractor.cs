@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using System.IO;
 using CodeCave.CAD.Toolkit;
 
@@ -16,14 +15,12 @@ namespace CodeCave.Revit.Toolkit.OLE
         #region Methods
 
         /// <summary>
-        /// Extracts the image.
+        /// Extracts the stream.
         /// </summary>
         /// <param name="pathToFile">The path to file.</param>
-        /// <returns>
-        /// Image object
-        /// </returns>
-        /// <exception cref="InvalidDataException">Failed to extract the thumbnail of the following Revit file: {pathToFile}</exception>
-        public override Image ExtractImage(string pathToFile)
+        /// <returns></returns>
+        /// <exception cref="InvalidDataException"></exception>
+        public override MemoryStream ExtractStream(string pathToFile)
         {
             try
             {
@@ -50,13 +47,8 @@ namespace CodeCave.Revit.Toolkit.OLE
                     ms.Read(pngDataBuffer, 0, pngDataBuffer.Length);
 
                     // read the PNG image data into a byte array
-                    using (var msi = new MemoryStream(pngDataBuffer))
-                    {
-                        using (var img = Image.FromStream(msi))
-                        {
-                            return img.Clone() as Image;
-                        }
-                    }
+                    var outms = new MemoryStream(pngDataBuffer);
+                    return outms;
                 }
             }
             catch (Exception ex)

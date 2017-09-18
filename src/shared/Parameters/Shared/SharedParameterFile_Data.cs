@@ -171,6 +171,30 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             ///   <c>true</c> if [user modifiable]; otherwise, <c>false</c>.
             /// </value>
             public bool UserModifiable { get; set; } = true;
+
+            /// <summary>
+            /// Determines whether the specified <see cref="Object" />, is equal to this instance.
+            /// </summary>
+            /// <param name="obj">The <see cref="Object" /> to compare with this instance.</param>
+            /// <returns>
+            ///   <c>true</c> if the specified <see cref="Object" /> is equal to this instance; otherwise, <c>false</c>.
+            /// </returns>
+            public override bool Equals(object obj)
+            {
+                if (!(obj is Parameter))
+                {
+                    // ReSharper disable once BaseObjectEqualsIsObjectEquals
+                    return base.Equals(obj);
+                }
+
+                var other = (Parameter) obj;
+                return Guid.Equals(other.Guid) &&
+                       Name.Equals(other.Name) &&
+                       IsShared.Equals(other.IsShared) &&
+                       Description.Equals(other.Description) &&
+                       (GroupId.Equals(other.GroupId) || GroupName.Equals(other.GroupName));
+            }
+
             /// <summary>
             /// Returns a hash code for this instance.
             /// </summary>

@@ -74,7 +74,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             /// <value>
             /// The unique identifier.
             /// </value>
-            public Guid Guid { get; set; } = Guid.Empty;
+            public Guid Guid { get; } = Guid.Empty;
 
             /// <summary>
             /// Gets a value indicating whether parameter is shared.
@@ -171,6 +171,16 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             ///   <c>true</c> if [user modifiable]; otherwise, <c>false</c>.
             /// </value>
             public bool UserModifiable { get; set; } = true;
+            /// <summary>
+            /// Returns a hash code for this instance.
+            /// </summary>
+            /// <returns>
+            /// A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
+            /// </returns>
+            public override int GetHashCode()
+            {
+                return -737073652 + EqualityComparer<Guid>.Default.GetHashCode(Guid);
+            }
         }
 
         /// <summary>

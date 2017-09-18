@@ -7,11 +7,11 @@
     <Company>CodeCave, PUE</Company>
     <Authors>Zhmayev Yaroslav aka Salaros</Authors>
     <Copyright>Copyright 2016 (c) CodeCave, PUE</Copyright>
-    <AssemblyVersion>1.1.4.0</AssemblyVersion>
+    <AssemblyVersion>1.1.5.0</AssemblyVersion>
     <NeutralLanguage>en</NeutralLanguage>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>1.1.4-beta</Version>
+    <Version>1.1.5-beta</Version>
     <PackageTags>revit, rfa, rvt, thumbnails, parameters</PackageTags>
     <PackageId>CodeCave.Revit.Toolkit</PackageId>
     <RootNamespace>CodeCave.Revit.Toolkit</RootNamespace>
@@ -20,6 +20,7 @@
     <RepositoryUrl>https://github.com/CodeCavePro/revit-toolkit</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
     <AssemblyName>Revit.Toolkit</AssemblyName>
+    <FileVersion>1.1.5.0</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">

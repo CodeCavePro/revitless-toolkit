@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace CodeCave.Revit.Toolkit
@@ -601,16 +601,17 @@ namespace CodeCave.Revit.Toolkit
         /// <summary>
         /// Tries the get the UnitType value for the given catalog string.
         /// </summary>
-        /// <param name="unitString">The catalog string to convert.</param>
+        /// <param name="catalogString">The catalog string to convert.</param>
         /// <param name="unitType">The resulting unit type.</param>
         /// <returns></returns>
         public static bool TryGetUnitTypeFromCatalogString(this string catalogString, out UnitType unitType)
         {
-            var values = _utToCatalog?.Where(u => u.Value.Equals(catalogString))?.Select(x => x.Key);
-            unitType = (values.Any())
+            var values = _utToCatalog?.Where(u => u.Value.Equals(catalogString)).Select(x => x.Key).ToList();
+            var valueExists = values != null && values.Any();
+            unitType = valueExists
                 ? values.FirstOrDefault()
                 : UnitType.UT_Undefined;
-            return values.Any();
+            return valueExists;
         }
 
         /// <summary>

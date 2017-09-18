@@ -1,7 +1,10 @@
-﻿using System;
+using System;
 
 namespace CodeCave.Revit.Toolkit.Parameters
 {
+    /// <summary>
+    /// Interface provides some basic parameter properties
+    /// </summary>
     public interface IParameter
     {
         /// <summary>

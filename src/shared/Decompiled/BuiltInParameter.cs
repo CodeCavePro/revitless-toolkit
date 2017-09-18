@@ -1,4 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
+// Decompiled with JetBrains decompiler
 // Type: Autodesk.Revit.DB.BuiltInParameter
 // Assembly: RevitAPI, Version=17.0.0.0, Culture=neutral, PublicKeyToken=null
 // ReSharper disable InconsistentNaming

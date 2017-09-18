@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace CodeCave.Revit.Toolkit
@@ -31,7 +31,7 @@ namespace CodeCave.Revit.Toolkit
         {
             Vanilla = OmniClassTaxonomyItem.ReadFromResource("OmniClassTaxonomy_Vanilla.txt");
             FoodService = OmniClassTaxonomyItem.ReadFromResource("OmniClassTaxonomy_FoodService.txt");
-            Merged = Vanilla.Union(FoodService).Distinct().OrderBy(i => i.ID).ToList();
+            Merged = Vanilla.Union(FoodService).Distinct().OrderBy(i => i.Id).ToList();
         }
     }
 }

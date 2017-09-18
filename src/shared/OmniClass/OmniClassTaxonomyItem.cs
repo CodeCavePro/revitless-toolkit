@@ -1,4 +1,4 @@
-﻿using CsvHelper;
+using CsvHelper;
 using CsvHelper.Configuration;
 using System;
 using System.Collections.Generic;
@@ -13,12 +13,25 @@ namespace CodeCave.Revit.Toolkit
     public class OmniClassTaxonomyItem
     {
         /// <summary>
+        /// Initializes a new instance of the <see cref="OmniClassTaxonomyItem"/> class.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <param name="name">The name.</param>
+        /// <param name="category">The category.</param>
+        internal OmniClassTaxonomyItem(string id, string name, int category)
+        {
+            Id = id;
+            Name = name;
+            Category = category;
+        }
+
+        /// <summary>
         /// Gets or sets the identifier.
         /// </summary>
         /// <value>
         /// The identifier.
         /// </value>
-        public string ID { get; set; }
+        public string Id { get; }
 
         /// <summary>
         /// Gets or sets taxonomy's name.
@@ -26,7 +39,7 @@ namespace CodeCave.Revit.Toolkit
         /// <value>
         /// Taxonomy's name.
         /// </value>
-        public string Name { get; set; }
+        public string Name { get; }
 
         /// <summary>
         /// Gets or sets taxonomy's category.
@@ -34,7 +47,7 @@ namespace CodeCave.Revit.Toolkit
         /// <value>
         /// Taxonomy's category.
         /// </value>
-        public int Category { get; set; }
+        public int Category { get; }
 
         /// <summary>
         /// Returns a <see cref="String" /> that represents this instance.
@@ -44,7 +57,7 @@ namespace CodeCave.Revit.Toolkit
         /// </returns>
         public override string ToString()
         {
-            return $"{ID}\t{Name}\t{Category}\t";
+            return $"{Id}\t{Name}\t{Category}\t";
         }
 
         /// <summary>
@@ -58,7 +71,7 @@ namespace CodeCave.Revit.Toolkit
             unchecked
             {
                 var result = 0;
-                result = (result * 397) ^ ID.GetHashCode();
+                result = (result * 397) ^ Id.GetHashCode();
                 result = (result * 397) ^ Name.GetHashCode();
                 result = (result * 397) ^ Category;
                 return result;
@@ -78,7 +91,7 @@ namespace CodeCave.Revit.Toolkit
                 return false;
 
             var item = (OmniClassTaxonomyItem) obj;
-            return ID.Equals(item.ID) &&
+            return Id.Equals(item.Id) &&
                 Name.Equals(item.Name) &&
                 Category.Equals(item.Category);
         }

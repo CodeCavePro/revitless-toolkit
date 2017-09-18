@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -10,10 +10,19 @@ namespace CodeCave.Revit.Toolkit
     /// </summary>
     public class EmbeddedResourceManager
     {
+        /// <summary>
+        /// The assembly
+        /// </summary>
         private readonly Assembly _assembly;
 
+        /// <summary>
+        /// The resources object
+        /// </summary>
         private readonly string[] _resources;
 
+        /// <summary>
+        /// The calling, entry and executing resources
+        /// </summary>
         private static EmbeddedResourceManager _callingResources, _entryResources, _executingResources;
 
         /// <summary>

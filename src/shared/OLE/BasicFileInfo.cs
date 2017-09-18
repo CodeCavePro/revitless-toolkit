@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -68,7 +68,7 @@ namespace CodeCave.Revit.Toolkit.OLE
         {
             var content = OleDataReader.GetRawString(pathToFile, "BasicFileInfo", Encoding.Unicode);
             var match = RevitBuildRegex.Match(content);
-            return new BasicFileInfo(match?.Groups["version"]?.ToString());
+            return new BasicFileInfo(match.Groups["version"]?.ToString());
         }
     }
 }

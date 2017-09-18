@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace CodeCave.Revit.Toolkit
@@ -448,7 +448,7 @@ namespace CodeCave.Revit.Toolkit
         public static ParameterType FromSharedDataType(this string dataType)
         {
             var values = _parameterTypes2Shared?.Where(u => u.Value.Equals(dataType)).Select(x => x.Key).ToArray();
-            return (values.Any())
+            return (values != null && values.Any())
                 ? values.FirstOrDefault()
                 : ParameterType.Invalid;
         }

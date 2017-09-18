@@ -1,7 +1,8 @@
-﻿using CsvHelper;
+using System;
+using CsvHelper;
 using CsvHelper.Configuration;
 using CsvHelper.TypeConversion;
-using System;
+using System.Collections.Generic;
 
 namespace CodeCave.Revit.Toolkit.Parameters.Shared
 {
@@ -50,7 +51,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             /// <value>
             /// The identifier of the group.
             /// </value>
-            public int ID { get; set; }
+            public int Id { get; set; }
 
             /// <summary>
             /// Gets or sets the name of the group.
@@ -64,10 +65,11 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         /// <summary>
         /// Represents the entries of the *PARAM section of a shared parameter file
         /// </summary>
-        /// <seealso cref="IDefinition" />
-        /// <seealso cref="IParameter" />
+        /// <seealso cref="T:CodeCave.Revit.Toolkit.Parameters.IDefinition" />
+        /// <seealso cref="T:CodeCave.Revit.Toolkit.Parameters.IParameter" />
         public class Parameter : IDefinition, IParameter
         {
+            /// <inheritdoc />
             /// <summary>
             /// Gets the unique identifier.
             /// </summary>
@@ -76,6 +78,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             /// </value>
             public Guid Guid { get; } = Guid.Empty;
 
+            /// <inheritdoc />
             /// <summary>
             /// Gets a value indicating whether parameter is shared.
             /// </summary>
@@ -84,6 +87,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             /// </value>
             public bool IsShared => true;
 
+            /// <inheritdoc />
             /// <summary>
             /// Gets the name.
             /// </summary>
@@ -92,6 +96,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             /// </value>
             public string Name { get; set; }
 
+            /// <inheritdoc />
             /// <summary>
             /// Gets the type of the unit.
             /// </summary>
@@ -100,6 +105,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             /// </value>
             public UnitType UnitType { get; set; } = UnitType.UT_Undefined;
 
+            /// <inheritdoc />
             /// <summary>
             /// Gets the parameter group.
             /// </summary>
@@ -108,6 +114,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             /// </value>
             public BuiltInParameterGroup ParameterGroup { get; set; } = BuiltInParameterGroup.INVALID;
 
+            /// <inheritdoc />
             /// <summary>
             /// Gets the type of the parameter.
             /// </summary>
@@ -116,6 +123,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             /// </value>
             public ParameterType ParameterType { get; set; } = ParameterType.Invalid;
 
+            /// <inheritdoc />
             /// <summary>
             /// Gets the display type of the unit.
             /// </summary>
@@ -130,7 +138,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             /// <value>
             /// The group ID.
             /// </value>
-            public int Group { get; set; } = -1;
+            public int GroupId { get; set; } = -1;
 
             /// <summary>
             /// Gets the name of the group.
@@ -207,10 +215,10 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             }
         }
 
-        /// <summary>
-        ///
-        /// </summary>
-        /// <seealso cref="CsvHelper.Configuration.CsvClassMap{CodeCave.Revit.Toolkit.Parameters.Shared.SharedParameterFile.Meta}" />
+        /// <inheritdoc />
+        ///  <summary>
+        ///  </summary>
+        ///  <seealso cref="T:CsvHelper.Configuration.CsvClassMap`1" />
         internal sealed class MetaClassMap : CsvClassMap<Meta>
         {
             /// <summary>
@@ -223,10 +231,10 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             }
         }
 
-        /// <summary>
-        ///
-        /// </summary>
-        /// <seealso cref="CsvClassMap{CodeCave.Revit.Toolkit.Parameters.Shared.SharedParameterFile.Group}" />
+        /// <inheritdoc />
+        ///  <summary>
+        ///  </summary>
+        ///  <seealso cref="T:CsvHelper.Configuration.CsvClassMap`1" />
         internal sealed class GroupClassMap : CsvClassMap<Group>
         {
             /// <summary>
@@ -234,7 +242,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             /// </summary>
             public GroupClassMap()
             {
-                Map(m => m.ID).Name("ID");
+                Map(m => m.Id).Name("ID");
                 Map(m => m.Name).Name("NAME");
             }
         }
@@ -251,7 +259,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                 Map(m => m.Name).Name("NAME");
                 Map(m => m.ParameterType).Name("DATATYPE").TypeConverter<ParameterTypeConverter>();
                 Map(m => m.DataCategory).Name("DATACATEGORY");
-                Map(m => m.Group).Name("GROUP");
+                Map(m => m.GroupId).Name("GROUP");
                 Map(m => m.IsVisible).Name("VISIBLE").TypeConverter<AdvancedBooleanConverter>();
                 Map(m => m.Description).Name("DESCRIPTION");
                 Map(m => m.UserModifiable).Name("USERMODIFIABLE").TypeConverter<AdvancedBooleanConverter>();
@@ -263,12 +271,14 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                 Map(m => m.GroupName).Ignore();
             }
 
+            /// <inheritdoc />
             /// <summary>
             /// Ensures a correct conversion of <see cref="ParameterType"/> values to/from their relative string representations
             /// </summary>
             /// <seealso cref="ITypeConverter" />
             internal class ParameterTypeConverter : ITypeConverter
             {
+                /// <inheritdoc />
                 /// <summary>
                 /// Converts the string to an object.
                 /// </summary>
@@ -283,6 +293,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                     return text.FromSharedDataType();
                 }
 
+                /// <inheritdoc />
                 /// <summary>
                 /// Converts the object to a string.
                 /// </summary>
@@ -299,6 +310,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                 }
             }
 
+            /// <inheritdoc />
             /// <summary>
             /// A specialized CSV field value converter.
             /// Helps to serialize <see cref="bool"/> properties of <see cref="Parameter"/> object correctly.
@@ -306,6 +318,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             /// <seealso cref="CsvHelper.TypeConversion.BooleanConverter" />
             internal class AdvancedBooleanConverter : BooleanConverter
             {
+                /// <inheritdoc />
                 /// <summary>
                 /// Converts the object to a string.
                 /// </summary>
@@ -320,7 +333,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                     if (string.IsNullOrWhiteSpace(value?.ToString()))
                         return "0";
 
-                    return (bool.TryParse(value?.ToString(), out bool boolValue) && boolValue) ? "1" : "0";
+                    return (bool.TryParse(value.ToString(), out var boolValue) && boolValue) ? "1" : "0";
                 }
             }
         }

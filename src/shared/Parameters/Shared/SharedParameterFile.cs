@@ -1,4 +1,4 @@
-﻿using CsvHelper;
+using CsvHelper;
 using CsvHelper.Configuration;
 using System;
 using System.Collections;
@@ -11,6 +11,7 @@ using System.Text.RegularExpressions;
 
 namespace CodeCave.Revit.Toolkit.Parameters.Shared
 {
+    /// <inheritdoc />
     /// <summary>
     /// This class represents Revit shared parameter file
     /// </summary>
@@ -74,10 +75,9 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                 throw new ArgumentException($"The following parameter file doesn't exist: '{sharedParameterFile}'");
             }
 
-            if (!Path.GetExtension(sharedParameterFile).ToLowerInvariant().Contains("txt"))
+            if (string.IsNullOrWhiteSpace(sharedParameterFile) || !Path.GetExtension(sharedParameterFile).ToLowerInvariant().Contains("txt"))
             {
-                throw new ArgumentException(
-                    $"Shared parameter file must be a .txt file, please check the path you have supplied: '{sharedParameterFile}'");
+                throw new ArgumentException($"Shared parameter file must be a .txt file, please check the path you have supplied: '{sharedParameterFile}'");
             }
 
             var sharedParamsText = File.ReadAllText(sharedParameterFile);
@@ -103,7 +103,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                 .ToArray();
 
             var sharedParamsFileSections = sharedParamsFileLines
-                ?.Where((e, i) => i % 2 == 0)
+                .Where((e, i) => i % 2 == 0)
                 .Select((e, i) => new {Key = e, Value = sharedParamsFileLines[i * 2 + 1]})
                 .ToDictionary(kp => kp.Key, kp => kp.Value.Replace($"{kp.Key}\t", string.Empty));
 
@@ -162,7 +162,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                 .Parameters
                 .Select(p =>
                 {
-                    p.GroupName = sharedParamsFile.Groups?.FirstOrDefault(g => g.ID == p.Group)?.Name;
+                    p.GroupName = sharedParamsFile.Groups?.FirstOrDefault(g => g.Id == p.GroupId)?.Name;
                     p.UnitType = p.ParameterType.GetUnitType();
                     return p;
                 })
@@ -219,14 +219,14 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                 }
             }
 
-            // Prepend section lines with section name
+            // Prepends section lines with section name
             var sectionAsString = string.Join(Environment.NewLine,
                 sectionBuilder.ToString()
                     .Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries)
                     .Select(line => $"{sectionName}\t{line}")
             );
 
-            // Prepend asterisk as section marker
+            // Prepends asterisk as section marker
             return $"*{sectionAsString}";
         }
 

@@ -124,6 +124,10 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                     using (var csvReader = new CsvReader(stringReader, CsvConfiguration))
                     {
                         csvReader.Configuration.TrimFields = true;
+                        // TODO implement
+                        // csvReader.Configuration.AllowComments = true;
+                        // csvReader.Configuration.Comment = '#';
+
                         switch (section.Key)
                         {
                             // Parse *META section

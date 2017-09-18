@@ -14,7 +14,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
     /// <summary>
     /// This class represents Revit shared parameter file
     /// </summary>
-    public sealed partial class SharedParameterFile
+    public sealed partial class SharedParameterFile : ICloneable
     {
         private static readonly Regex SectionRegex;
         private static readonly CsvConfiguration CsvConfiguration;
@@ -228,6 +228,18 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
 
             // Prepend asterisk as section marker
             return $"*{sectionAsString}";
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Clones this instance.
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="T:System.NotImplementedException"></exception>
+        public object Clone()
+        {
+            // TODO Implement ICloneable
+            throw new NotImplementedException();
         }
     }
 }

@@ -64,7 +64,7 @@
     <ItemGroup>
       <NuGetFiles Include="$(MSBuildProjectDirectory)\**\*.nupkg" />
     </ItemGroup>
-    <Exec Command="nuget pack $(MSBuildProjectFullPath)" />
+    <Exec Command="nuget pack $(MSBuildProjectFullPath) -Prop Configuration=$(ConfigurationName)" />
     <Copy SourceFiles="@(NuGetFiles)" DestinationFolder="$(OutputPath)\..\" />
   </Target>
 </Project>

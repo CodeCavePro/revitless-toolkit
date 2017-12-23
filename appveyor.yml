@@ -20,21 +20,25 @@ cache:
   - '%LocalAppData%\NuGet\Cache'    # NuGet < v3
   - '%LocalAppData%\NuGet\v3-cache' # NuGet v3
 
+# Version format
+version: 1.1.{build}
+
 init:
 - ps: |
     if ($env:APPVEYOR_REPO_TAG -eq "true" -and $env:APPVEYOR_REPO_TAG_NAME)
     {
         $tag_name = $env:APPVEYOR_REPO_TAG_NAME
+        Write-Host "Building a tag: $tag_name";
         if ($tag_name -match '([0-9]+[\.-][0-9]+[\.-][0-9]+[\.-]?[0-9]?+)')
         {
-            Update-AppveyorBuild -Version "$tag_name"
+            Update-AppveyorBuild -Version $env:APPVEYOR_REPO_TAG_NAME
+        } else {
+            Write-Host "Git tag is not a valid version: $tag_name";
         }
     } else {
         Update-AppveyorBuild -Version $env:APPVEYOR_BUILD_VERSION
+        Write-Host "Using build version: $env:APPVEYOR_BUILD_VERSION";
     }
-
-# Version format
-version: 1.1.{build}
 
 dotnet_csproj:
   patch: true
@@ -81,6 +85,9 @@ deploy:
   on:
     # branch: master
     appveyor_repo_tag: true
+
+# Start builds on tags only (GitHub and BitBucket)
+skip_non_tags: true
 
 # Turn off tests
 test: off

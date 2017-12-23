@@ -20,6 +20,17 @@ install:
 # Cache files until appveyor.yml is modified.
 cache:
 
+init:
+- ps: |
+    if ($env:APPVEYOR_REPO_TAG -eq "true" -and $env:APPVEYOR_REPO_TAG_NAME)
+    {
+        $tag_name = $env:APPVEYOR_REPO_TAG_NAME
+        if ($tag_name -match '([0-9]+[\.-][0-9]+[\.-][0-9]+[\.-][0-9]+)')
+        {
+            Update-AppveyorBuild -Version "$tag_name"
+        }
+    }
+
 dotnet_csproj:
   patch: true
   file: '**\*.csproj'
@@ -35,7 +46,6 @@ assembly_info:
   assembly_version: '{version}'
   assembly_file_version: '{version}'
   assembly_informational_version: '{version}-beta'
-
 
 # Run scripts below before
 before_build:
@@ -63,8 +73,8 @@ deploy:
   draft: false
   prerelease: false
   on:
-    branch: master
-    # appveyor_repo_tag: true
+    # branch: master
+    appveyor_repo_tag: true
 
 # Turn off tests
 test: off

@@ -53,12 +53,10 @@ assembly_info:
 # Run scripts below before
 before_build:
   - where msbuild
-  - cmd: rmdir "%APPVEYOR_BUILD_FOLDER%\bin" /S /Q
 
 # To run your custom scripts instead of automatic MSBuild
 build_script:
-  - cmd: msbuild /t:Clean
-  - cmd: msbuild /t:Build /p:Configuration=Debug
+  - cmd: msbuild /t:Clean /t:Rebuild /p:Configuration=Debug
 
 # NuGet files qualified as artifacts
 artifacts:

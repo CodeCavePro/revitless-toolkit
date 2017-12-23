@@ -60,20 +60,22 @@
   </ItemGroup>
   <Import Project="..\shared\Revit.Toolkit.Shared.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Target Name="AfterBuild">
+  <Target Name="PackNuget" AfterTargets="AfterBuild">
     <ItemGroup>
       <NuGetFiles Include="$(MSBuildProjectDirectory)\**\*.nupkg" />
     </ItemGroup>
     <Exec Command="nuget pack $(MSBuildProjectFullPath) -Prop Configuration=$(ConfigurationName)" />
+    <Exec Command="nuget pack $(MSBuildProjectFullPath) -Prop Configuration=$(ConfigurationName)" />
+    <Copy SourceFiles="@(NuGetFiles)" DestinationFolder="$(OutputPath)\..\" />
     <Copy SourceFiles="@(NuGetFiles)" DestinationFolder="$(OutputPath)\..\" />
   </Target>
-	<Target Name = "CleanNuGetFiles" AfterTargets="Clean">
-		<ItemGroup>
-		  <NuGetFilesBin Include="$(MSBuildProjectDirectory)\..\..\**\*.NetFramework*.nupkg" />
-		  <NuGetFilesProject Include="$(MSBuildProjectDirectory)\*.NetFramework*.nupkg" />
-		</ItemGroup>
-		<Message Text="Deleting NuGet files" Importance="high"/>
-		<Delete Files="@(NuGetFilesBin)" />
-		<Delete Files="@(NuGetFilesProject)" />
-	</Target>
+  <Target Name = "CleanNuGetFiles" AfterTargets="Clean">
+	<ItemGroup>
+	  <NuGetFilesBin Include="$(MSBuildProjectDirectory)\..\..\**\*.NetFramework*.nupkg" />
+	  <NuGetFilesProject Include="$(MSBuildProjectDirectory)\*.NetFramework*.nupkg" />
+	</ItemGroup>
+	<Message Text="Deleting NuGet files" Importance="high"/>
+	<Delete Files="@(NuGetFilesBin)" />
+	<Delete Files="@(NuGetFilesProject)" />
+  </Target>
 </Project>

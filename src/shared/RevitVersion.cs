@@ -52,5 +52,10 @@ namespace CodeCave.Revit.Toolkit
         /// Revit 2017
         /// </summary>
         Revit_2017 = 2017,
+
+        /// <summary>
+        /// Revit 2018
+        /// </summary>
+        Revit_2018 = 2018,
     }
 }

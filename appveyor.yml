@@ -54,6 +54,7 @@ before_build:
 
 # To run your custom scripts instead of automatic MSBuild
 build_script:
+  - cmd: msbuild /t:Clean Revit.Toolkit.sln
   - cmd: msbuild /p:Configuration=Debug /t:Build Revit.Toolkit.sln
 
 # NuGet files qualified as artifacts

@@ -29,7 +29,7 @@ init:
     {
         $tag_name = $env:APPVEYOR_REPO_TAG_NAME
         Write-Host "Building a tag: $tag_name";
-        if ($tag_name -match '([0-9]+[\.-][0-9]+[\.-][0-9]+[\.-]?[0-9]?+)')
+        if ($tag_name -match '([0-9]+[\.-][0-9]+[\.-][0-9]+)')
         {
             Update-AppveyorBuild -Version $env:APPVEYOR_REPO_TAG_NAME
         } else {

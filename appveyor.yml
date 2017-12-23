@@ -75,7 +75,7 @@ deploy:
   provider: GitHub
   tag: $(APPVEYOR_REPO_TAG_NAME)
   release: "Revit Toolkit v$(APPVEYOR_REPO_TAG_NAME)"
-  description: "* for .NET Standard 2.0 (.NET Core 2.0, .NET Framework >= 4.6.1 etc) use CodeCave.Revit.Toolkit.{x.y.z}.nupkg file\n* for .NET Framework 4.5.x use CodeCave.Revit.Toolkit.NetFramework.{x.y.z}.nupkg file"
+  description: "* for .NET Standard 2.0 (.NET Core 2.0, .NET Framework >= 4.6.1 etc) use CodeCave.Revit.Toolkit.$(APPVEYOR_BUILD_VERSION).nupkg file\n* for .NET Framework 4.5.x use CodeCave.Revit.Toolkit.NetFramework.$(APPVEYOR_BUILD_VERSION).nupkg file"
   force_update: true
   auth_token:
     secure: 2+d0KgCbWQpUR8TZfzvUEzbi4NQP6F/Tt0PUwLn6jXZCyO8FnrFVFJPsFa0QBQFl

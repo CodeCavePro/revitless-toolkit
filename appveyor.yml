@@ -15,6 +15,7 @@ branches:
 
 # Scripts that run after cloning repository
 install:
+  - nuget restore
 
 # Cache files until appveyor.yml is modified.
 cache:
@@ -39,11 +40,10 @@ assembly_info:
 # Run scripts below before
 before_build:
   - where msbuild
-  - nuget restore
 
 # To run your custom scripts instead of automatic MSBuild
 build_script:
-  - cmd: msbuild /p:Configuration=Release /t:Build Revit.Toolkit.sln
+  - cmd: msbuild /p:Configuration=Debug /t:Build Revit.Toolkit.sln
 
 # NuGet files qualified as artifacts
 artifacts:

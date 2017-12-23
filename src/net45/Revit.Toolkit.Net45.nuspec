@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>CodeCave.Revit.Toolkit.NetFramework</id>
-    <version>1.1.5-beta</version>
+    <version>$version$</version>
     <title>Revit.Toolkit.NetFramework</title>
     <authors>Zhmayev Yaroslav</authors>
     <owners>salaros, CodeCave</owners>

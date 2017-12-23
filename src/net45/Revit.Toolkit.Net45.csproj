@@ -62,12 +62,9 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="PackNuget" AfterTargets="AfterBuild">
     <ItemGroup>
-      <NuGetFiles Include="$(MSBuildProjectDirectory)\**\*.nupkg" />
+      <NuGetFilesProject Include="$(MSBuildProjectDirectory)\*.nupkg" />
     </ItemGroup>
-    <Exec Command="nuget pack $(MSBuildProjectFullPath) -Prop Configuration=$(ConfigurationName)" />
-    <Exec Command="nuget pack $(MSBuildProjectFullPath) -Prop Configuration=$(ConfigurationName)" />
-    <Copy SourceFiles="@(NuGetFiles)" DestinationFolder="$(OutputPath)\..\" />
-    <Copy SourceFiles="@(NuGetFiles)" DestinationFolder="$(OutputPath)\..\" />
+    <Exec Command="nuget pack $(MSBuildProjectFullPath) -Prop Configuration=$(ConfigurationName)" WorkingDirectory="$(OutputPath)\..\" />
   </Target>
   <Target Name = "CleanNuGetFiles" AfterTargets="Clean">
 	<ItemGroup>

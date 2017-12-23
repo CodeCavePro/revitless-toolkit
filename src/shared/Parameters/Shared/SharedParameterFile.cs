@@ -18,7 +18,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
     public sealed partial class SharedParameterFile : ICloneable
     {
         private static readonly Regex SectionRegex;
-        private static readonly CsvConfiguration CsvConfiguration;
+        private static readonly Configuration CsvConfiguration;
 
         /// <summary>
         /// Initializes the <see cref="SharedParameterFile"/> class.
@@ -26,13 +26,12 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         static SharedParameterFile()
         {
             SectionRegex = new Regex(@"\*(?<section>[A-Z]+)\t", RegexOptions.IgnoreCase | RegexOptions.Compiled);
-            CsvConfiguration = new CsvConfiguration
+            CsvConfiguration = new Configuration
             {
                 HasHeaderRecord = true,
                 AllowComments = true,
                 IgnoreBlankLines = true,
                 Delimiter = "\t",
-                WillThrowOnMissingField = false,
                 DetectColumnCountChanges = false,
                 QuoteNoFields = true
             };
@@ -206,7 +205,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         /// <param name="sectionEntries">Section entries.</param>
         /// <returns></returns>
         private static string SectionToCsv<TCsvMap>(string sectionName, IEnumerable sectionEntries)
-            where TCsvMap : CsvClassMap
+            where TCsvMap : ClassMap
         {
             // Serialize entries to CSV
             var sectionBuilder = new StringBuilder();

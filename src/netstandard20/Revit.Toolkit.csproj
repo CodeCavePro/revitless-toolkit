@@ -46,7 +46,7 @@
 
   <ItemGroup>
     <PackageReference Include="CodeCave.CAD.Toolkit" Version="1.1.1-beta" />
-    <PackageReference Include="CsvHelper" Version="3.0.0-chi03" />
+    <PackageReference Include="CsvHelper" Version="6.1.0" />
     <PackageReference Include="OpenMcdf-2.NetStandard" Version="2.0.6" />
   </ItemGroup>
 

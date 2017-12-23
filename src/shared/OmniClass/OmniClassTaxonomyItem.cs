@@ -136,7 +136,7 @@ namespace CodeCave.Revit.Toolkit
             var omniClassItems = new List<OmniClassTaxonomyItem>();
             using (var csvReader = new StringReader(text))
             {
-                var csvCofig = new CsvConfiguration
+                var csvCofig = new Configuration
                 {
                     HasHeaderRecord = false,
                     Delimiter = "\t",
@@ -149,7 +149,7 @@ namespace CodeCave.Revit.Toolkit
                         var omniItem = csv.GetRecord<OmniClassTaxonomyItem>();
                         if (omniItem == null)
                         {
-                            throw new InvalidDataException($"Failed to parse the following row of OmniClassTaxonomy file: {csv.Row}");
+                            throw new InvalidDataException($"Failed to parse the following row of OmniClassTaxonomy file: {csv.Context.Row}");
                         }
                         omniClassItems.Add(omniItem);
                     }

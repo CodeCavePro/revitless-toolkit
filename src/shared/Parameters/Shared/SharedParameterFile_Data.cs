@@ -218,8 +218,8 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         /// <inheritdoc />
         ///  <summary>
         ///  </summary>
-        ///  <seealso cref="T:CsvHelper.Configuration.CsvClassMap`1" />
-        internal sealed class MetaClassMap : CsvClassMap<Meta>
+        ///  <seealso cref="T:CsvHelper.Configuration.ClassMap`1" />
+        internal sealed class MetaClassMap : ClassMap<Meta>
         {
             /// <summary>
             /// Initializes a new instance of the <see cref="MetaClassMap"/> class.
@@ -234,8 +234,8 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         /// <inheritdoc />
         ///  <summary>
         ///  </summary>
-        ///  <seealso cref="T:CsvHelper.Configuration.CsvClassMap`1" />
-        internal sealed class GroupClassMap : CsvClassMap<Group>
+        ///  <seealso cref="T:CsvHelper.Configuration.ClassMap`1" />
+        internal sealed class GroupClassMap : ClassMap<Group>
         {
             /// <summary>
             /// Initializes a new instance of the <see cref="GroupClassMap"/> class.
@@ -247,7 +247,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             }
         }
 
-        internal sealed class ParameterClassMap : CsvClassMap<Parameter>
+        internal sealed class ParameterClassMap : ClassMap<Parameter>
         {
             /// <summary>
             /// Initializes a new instance of the <see cref="ParameterClassMap"/> class.
@@ -288,7 +288,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                 /// <returns>
                 /// The object created from the string.
                 /// </returns>
-                public object ConvertFromString(string text, ICsvReaderRow row, CsvPropertyMapData propertyMapData)
+                public object ConvertFromString(string text, IReaderRow row, MemberMapData propertyMapData)
                 {
                     return text.FromSharedDataType();
                 }
@@ -303,7 +303,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                 /// <returns>
                 /// The string representation of the object.
                 /// </returns>
-                public string ConvertToString(object value, ICsvWriterRow row, CsvPropertyMapData propertyMapData)
+                public string ConvertToString(object value, IWriterRow row, MemberMapData propertyMapData)
                 {
                     var parameterType = (ParameterType)value;
                     return parameterType.ToSharedDataType();
@@ -328,7 +328,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                 /// <returns>
                 /// The string representation of the object.
                 /// </returns>
-                public override string ConvertToString(object value, ICsvWriterRow row, CsvPropertyMapData propertyMapData)
+                public override string ConvertToString(object value, IWriterRow row, MemberMapData propertyMapData)
                 {
                     if (string.IsNullOrWhiteSpace(value?.ToString()))
                         return "0";

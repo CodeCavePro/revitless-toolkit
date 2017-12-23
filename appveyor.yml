@@ -34,18 +34,18 @@ init:
 dotnet_csproj:
   patch: true
   file: '**\*.csproj'
-  version: '{version}'
-  package_version: '{version}'
-  assembly_version: '{version}'
-  file_version: '{version}'
-  informational_version: '{version}-beta'
+  version: $(appveyor_build_version)
+  package_version: $(appveyor_build_version)
+  assembly_version: $(appveyor_build_version)
+  file_version: $(appveyor_build_version)
+  informational_version: '$(appveyor_build_version)-beta'
 
 assembly_info:
   patch: true
   file: AssemblyInfo.cs
-  assembly_version: '{version}'
-  assembly_file_version: '{version}'
-  assembly_informational_version: '{version}-beta'
+  assembly_version: $(appveyor_build_version)
+  assembly_file_version: $(appveyor_build_version)
+  assembly_informational_version: '$(appveyor_build_version)-beta'
 
 # Run scripts below before
 before_build:

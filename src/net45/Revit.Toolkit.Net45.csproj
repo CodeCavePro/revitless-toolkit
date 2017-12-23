@@ -69,9 +69,11 @@
   </Target>
 	<Target Name = "CleanNuGetFiles" AfterTargets="Clean">
 		<ItemGroup>
-		  <NuGetFiles Include="$(SolutionDir)\**\*.nupkg" />
+		  <NuGetFilesBin Include="$(MSBuildProjectDirectory)\..\..\**\*.NetFramework*.nupkg" />
+		  <NuGetFilesProject Include="$(MSBuildProjectDirectory)\*.NetFramework*.nupkg" />
 		</ItemGroup>
 		<Message Text="Deleting NuGet files" Importance="high"/>
-		<Delete Files="@(NuGetFiles)" />  
+		<Delete Files="@(NuGetFilesBin)" />
+		<Delete Files="@(NuGetFilesProject)" />
 	</Target>
 </Project>

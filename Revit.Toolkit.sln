@@ -8,6 +8,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Revit.Toolkit.Net45", "src\net45\Revit.Toolkit.Net45.csproj", "{F1D0B2DE-A839-4AD2-986E-E86F5E59E370}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Revit.Toolkit", "src\netstandard20\Revit.Toolkit.csproj", "{A6FB1B02-639B-4110-A525-899D7E2E36ED}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F1D0B2DE-A839-4AD2-986E-E86F5E59E370} = {F1D0B2DE-A839-4AD2-986E-E86F5E59E370}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7386BB7C-2319-4E84-B2CA-4E737F27B44D}"
 	ProjectSection(SolutionItems) = preProject

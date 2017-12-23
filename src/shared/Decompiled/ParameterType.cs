@@ -301,7 +301,7 @@ namespace CodeCave.Revit.Toolkit
 
             _parameterTypes2UnitTypes = new Dictionary<ParameterType, UnitType>
             {
-                // TODO Check these matches, not really sure about them
+                //! TODO Check these matches, not really sure about them
                 { ParameterType.Text, UnitType.UT_Number },
                 { ParameterType.MultilineText, UnitType.UT_Number },
                 { ParameterType.FixtureUnit, UnitType.UT_Number },

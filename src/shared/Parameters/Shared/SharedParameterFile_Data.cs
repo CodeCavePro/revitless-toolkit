@@ -76,7 +76,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             /// <value>
             /// The unique identifier.
             /// </value>
-            public Guid Guid { get; } = Guid.Empty;
+            public Guid Guid { get; set; } = Guid.Empty;
 
             /// <inheritdoc />
             /// <summary>
@@ -255,7 +255,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             public ParameterClassMap()
             {
                 // "Visible" fields
-                Map(m => m.Guid).Name("GUID");
+                Map(m => m.Guid).Name("GUID").TypeConverter<GuidConverter>();
                 Map(m => m.Name).Name("NAME");
                 Map(m => m.ParameterType).Name("DATATYPE").TypeConverter<ParameterTypeConverter>();
                 Map(m => m.DataCategory).Name("DATACATEGORY");

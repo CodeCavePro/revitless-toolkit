@@ -1,0 +1,70 @@
+# Version format
+version: "{build}"
+
+# Operating system (build VM template)
+os: Windows Server 2016
+
+# If the build configuration does not specify build worker image
+# then Visual Studio 2015 image is used.
+image: Visual Studio 2017
+
+# Restrict to Git branches below
+branches:
+  only:
+    - master
+
+# Scripts that run after cloning repository
+install:
+
+# Cache files until appveyor.yml is modified.
+cache:
+
+dotnet_csproj:
+  patch: true
+  file: '**\*.csproj'
+  version: '{version}'
+  package_version: '{version}'
+  assembly_version: '{version}'
+  file_version: '{version}'
+  informational_version: '{version}-beta'
+
+assembly_info:
+  patch: true
+  file: AssemblyInfo.cs
+  assembly_version: '{version}'
+  assembly_file_version: '{version}'
+  assembly_informational_version: '{version}-beta'
+
+
+# Run scripts below before
+before_build:
+  - where msbuild
+  - nuget restore
+
+# To run your custom scripts instead of automatic MSBuild
+build_script:
+  - cmd: msbuild /p:Configuration=Release /t:Build Revit.Toolkit.sln
+
+# NuGet files qualified as artifacts
+artifacts:
+  - path: '**\*.nupkg' # find the NuGet files
+    name: Revit_Toolkit
+
+# Deploy to GitHub releases
+deploy:
+  provider: GitHub
+  tag: $(APPVEYOR_REPO_TAG_NAME)
+  release: "Revit Toolkit v$(APPVEYOR_REPO_TAG_NAME)"
+  description: "* for .NET Standard 2.0 (.NET Core 2.0, .NET Framework >= 4.6.1 etc) use CodeCave.Revit.Toolkit.{x.y.z}.nupkg file\n* for .NET Framework 4.5.x use CodeCave.Revit.Toolkit.NetFramework.{x.y.z}.nupkg file"
+  force_update: true
+  auth_token:
+    secure: 2+d0KgCbWQpUR8TZfzvUEzbi4NQP6F/Tt0PUwLn6jXZCyO8FnrFVFJPsFa0QBQFl
+  artifact: Revit_Toolkit
+  draft: false
+  prerelease: false
+  on:
+    branch: master
+    # appveyor_repo_tag: true
+
+# Turn off tests
+test: off

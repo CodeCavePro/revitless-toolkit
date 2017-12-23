@@ -122,7 +122,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                 {
                     using (var csvReader = new CsvReader(stringReader, CsvConfiguration))
                     {
-                        csvReader.Configuration.TrimFields = true;
+                        csvReader.Configuration.TrimOptions = TrimOptions.Trim;
                         // TODO implement
                         // csvReader.Configuration.AllowComments = true;
                         // csvReader.Configuration.Comment = '#';

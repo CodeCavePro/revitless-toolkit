@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <RuntimeFrameworkVersion>2.0.3</RuntimeFrameworkVersion>
     <Description>A toolkit for processing .rfa, .rvt etc without Revit</Description>
     <Product>Revit.Toolkit</Product>
     <Company>CodeCave, PUE</Company>

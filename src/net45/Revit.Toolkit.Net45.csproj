@@ -67,4 +67,11 @@
     <Exec Command="nuget pack $(MSBuildProjectFullPath) -Prop Configuration=$(ConfigurationName)" />
     <Copy SourceFiles="@(NuGetFiles)" DestinationFolder="$(OutputPath)\..\" />
   </Target>
+	<Target Name = "CleanNuGetFiles" AfterTargets="Clean">
+		<ItemGroup>
+		  <NuGetFiles Include="$(SolutionDir)\**\*.nupkg" />
+		</ItemGroup>
+		<Message Text="Deleting NuGet files" Importance="high"/>
+		<Delete Files="@(NuGetFiles)" />  
+	</Target>
 </Project>

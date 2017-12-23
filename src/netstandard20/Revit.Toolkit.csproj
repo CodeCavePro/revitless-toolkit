@@ -56,5 +56,12 @@
   </ItemGroup>
 
   <Import Project="..\shared\Revit.Toolkit.Shared.projitems" Label="Shared" />
-
+  
+  <Target Name="CleanNuGetFiles" AfterTargets="Clean">
+    <ItemGroup>
+      <NuGetFiles Include="$(SolutionDir)\**\*.nupkg" />
+    </ItemGroup>
+    <Message Text="Deleting NuGet files" Importance="high" />
+    <Delete Files="@(NuGetFiles)" />
+  </Target>
 </Project>

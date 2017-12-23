@@ -1,4 +1,6 @@
-﻿namespace CodeCave.Revit.Toolkit
+#pragma warning disable 1591
+
+namespace CodeCave.Revit.Toolkit
 {
     /// <summary>A group of related unit types, primarily classified by discipline.</summary>
     /// <since>2014</since>

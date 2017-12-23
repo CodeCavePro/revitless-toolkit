@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
+
+#pragma warning disable 1591
 
 namespace CodeCave.Revit.Toolkit
 {

@@ -1,4 +1,6 @@
-﻿namespace CodeCave.Revit.Toolkit
+#pragma warning disable 1591
+
+namespace CodeCave.Revit.Toolkit
 {
     /// <summary>
     /// An enumerated type listing all connector flow configuration

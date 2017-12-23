@@ -1,4 +1,4 @@
-﻿// ReSharper disable InconsistentNaming
+// ReSharper disable InconsistentNaming
 
 using System.Collections.Generic;
 
@@ -989,6 +989,9 @@ namespace CodeCave.Revit.Toolkit
     }
 #pragma warning restore CS1591
 
+    /// <summary>
+    /// Extensions for Revit API BuiltInCategory enum
+    /// </summary>
     public static class BuiltInCategoryExtensions
     {
         private static readonly Dictionary<BuiltInCategory, string> _knownCategories;

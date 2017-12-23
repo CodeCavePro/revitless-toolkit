@@ -3,6 +3,9 @@ using System.Linq;
 
 namespace CodeCave.Revit.Toolkit
 {
+    /// <summary>
+    /// Class containing various OmniClass definitions
+    /// </summary>
     public class OmniClassTaxonomy
     {
         /// <summary>

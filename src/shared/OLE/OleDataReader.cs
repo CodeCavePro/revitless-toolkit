@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Text;
 using System.Xml;
@@ -7,6 +7,9 @@ using OpenMcdf;
 
 namespace CodeCave.Revit.Toolkit.OLE
 {
+    /// <summary>
+    /// A reader for OLE metadata information stored in Revit files
+    /// </summary>
     public class OleDataReader
     {
         /// <summary>

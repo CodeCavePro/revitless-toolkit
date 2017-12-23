@@ -3,6 +3,8 @@
 // Assembly: RevitAPI, Version=17.0.0.0, Culture=neutral, PublicKeyToken=null
 // ReSharper disable InconsistentNaming
 
+#pragma warning disable 1591
+
 namespace CodeCave.Revit.Toolkit
 {
     /// <summary>

@@ -1,3 +1,6 @@
+# Version format
+version: 1.1.{build}
+
 # Operating system (build VM template)
 os: Windows Server 2016
 
@@ -19,9 +22,6 @@ cache:
   - packages -> **\packages.config  # preserve "packages" directory in the root of build folder but will reset it if packages.config is modified
   - '%LocalAppData%\NuGet\Cache'    # NuGet < v3
   - '%LocalAppData%\NuGet\v3-cache' # NuGet v3
-
-# Version format
-version: 1.1.{build}
 
 init:
 - ps: |
@@ -87,7 +87,7 @@ deploy:
     appveyor_repo_tag: true
 
 # Start builds on tags only (GitHub and BitBucket)
-skip_non_tags: true
+skip_non_tags: false
 
 # Turn off tests
 test: off

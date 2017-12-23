@@ -127,6 +127,38 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                         // csvReader.Configuration.AllowComments = true;
                         // csvReader.Configuration.Comment = '#';
 
+                        var originalHeaderValidated = csvReader.Configuration.HeaderValidated;
+                        csvReader.Configuration.HeaderValidated = (isValid, headerNames, headerIndex, context) =>
+                        {
+                            // Everything is OK, just go out
+                            if (isValid)
+                                return;
+
+                            // Allow DESCRIPTION header to be missing (it's actually missing in older shared parameter files)
+                            if (nameof(Parameter.Description).Equals(headerNames?.FirstOrDefault(), StringComparison.OrdinalIgnoreCase))
+                                return;
+
+                            // Allow USERMODIFIABLE header to be missing (it's actually missing in older shared parameter files)
+                            if (nameof(Parameter.UserModifiable).Equals(headerNames?.FirstOrDefault(), StringComparison.OrdinalIgnoreCase))
+                                return;
+
+                            originalHeaderValidated(false, headerNames, headerIndex, context);
+                        };
+
+                        var originalMissingFieldFound = csvReader.Configuration.MissingFieldFound;
+                        csvReader.Configuration.MissingFieldFound = (headerNames, index, context) =>
+                        {
+                            // Allow DESCRIPTION header to be missing (it's actually missing in older shared parameter files)
+                            if (nameof(Parameter.Description).Equals(headerNames?.FirstOrDefault(), StringComparison.OrdinalIgnoreCase))
+                                return;
+
+                            // Allow USERMODIFIABLE header to be missing (it's actually missing in older shared parameter files)
+                            if (nameof(Parameter.UserModifiable).Equals(headerNames?.FirstOrDefault(), StringComparison.OrdinalIgnoreCase))
+                                return;
+
+                            originalMissingFieldFound(headerNames, index, context);
+                        }; 
+
                         switch (section.Key)
                         {
                             // Parse *META section

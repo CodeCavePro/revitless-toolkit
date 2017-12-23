@@ -54,12 +54,12 @@ before_build:
 
 # To run your custom scripts instead of automatic MSBuild
 build_script:
-  - cmd: msbuild /t:Clean Revit.Toolkit.sln
-  - cmd: msbuild /p:Configuration=Debug /t:Build Revit.Toolkit.sln
+  - cmd: msbuild /t:Clean
+  - cmd: msbuild /t:Build /p:Configuration=Debug
 
 # NuGet files qualified as artifacts
 artifacts:
-  - path: '**\*.nupkg' # find the NuGet files
+  - path: 'bin\**\*.nupkg' # find the NuGet files
     name: Revit_Toolkit
 
 # Deploy to GitHub releases

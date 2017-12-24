@@ -8,9 +8,9 @@
     <AssemblyName>Revit.Toolkit</AssemblyName>
     <PackageId>CodeCave.Revit.Toolkit</PackageId>
     <RootNamespace>CodeCave.Revit.Toolkit</RootNamespace>
-    <Version>1.1.5-beta</Version>
-    <AssemblyVersion>1.1.5.0</AssemblyVersion>
-    <FileVersion>1.1.5.0</FileVersion>
+    <Version>1.2.0-beta</Version>
+    <AssemblyVersion>1.2.0</AssemblyVersion>
+    <FileVersion>1.2.0</FileVersion>
     <Company>CodeCave, PUE</Company>
     <Authors>Zhmayev Yaroslav aka Salaros</Authors>
     <Copyright>Copyright 2016 (c) CodeCave, PUE</Copyright>

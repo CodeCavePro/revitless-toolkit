@@ -21,40 +21,48 @@ cache:
   - '%LocalAppData%\NuGet\v3-cache' # NuGet v3
 
 # Version format
-version: 1.1.{build}
+version: 1.2.0.{build}
+
+environment:
+  VERSION_SUFFIX: preview
+  VERSION_SUFFIX_TAG: beta
 
 init:
 - ps: |
     if ($env:APPVEYOR_REPO_TAG -eq "true" -and $env:APPVEYOR_REPO_TAG_NAME)
     {
-        $tag_name = $env:APPVEYOR_REPO_TAG_NAME
-        Write-Host "Building a tag: $tag_name";
-        if ($tag_name -match '([0-9]+[\.-][0-9]+[\.-][0-9]+)')
+        $env:VERSION_SUFFIX = $env:VERSION_SUFFIX_TAG
+        $tag_version = $env:APPVEYOR_REPO_TAG_NAME.TrimStart("v")
+        Write-Host "Building a tag: $tag_version";
+
+        if ($tag_version -match '^([0-9]+[\.-][0-9]+[\.-][0-9]+[\.-][0-9]+([-A-Za-z0-9]+)?)$')
         {
-            Update-AppveyorBuild -Version $env:APPVEYOR_REPO_TAG_NAME
-        } else {
-            Write-Host "Git tag is not a valid version: $tag_name";
+            Update-AppveyorBuild -Version $tag_version
         }
-    } else {
-        Update-AppveyorBuild -Version $env:APPVEYOR_BUILD_VERSION
-        Write-Host "Using build version: $env:APPVEYOR_BUILD_VERSION";
+        elseif ($tag_version -match '^([0-9]+[\.-][0-9]+[\.-][0-9]+)$')
+        {
+            $tag_version = "$tag_version-$env:VERSION_SUFFIX.$env:APPVEYOR_BUILD_NUMBER"
+            Update-AppveyorBuild -Version $tag_version
+        }
     }
+
+    Write-Host "Using build version: $env:APPVEYOR_BUILD_VERSION";
 
 dotnet_csproj:
   patch: true
   file: '**\*.csproj'
-  version: $(APPVEYOR_BUILD_VERSION)
-  assembly_version: $(APPVEYOR_BUILD_VERSION)
-  file_version: $(APPVEYOR_BUILD_VERSION)
-  package_version: $(APPVEYOR_BUILD_VERSION)-beta'
-  informational_version: '$(APPVEYOR_BUILD_VERSION)-beta'
+  assembly_version: '{version}'
+  file_version: '{version}'
+  version: '{version}-$(VERSION_SUFFIX)'
+  package_version: '{version}-$(VERSION_SUFFIX)'
+  informational_version: '{version}-$(VERSION_SUFFIX)'
 
 assembly_info:
   patch: true
   file: '**\AssemblyInfo.*'
-  assembly_version: $(APPVEYOR_BUILD_VERSION)
-  assembly_file_version: $(APPVEYOR_BUILD_VERSION)
-  assembly_informational_version: '$(APPVEYOR_BUILD_VERSION)-beta'
+  assembly_version: '{version}'
+  assembly_file_version: '{version}'
+  assembly_informational_version: '{version}-$(VERSION_SUFFIX)'
 
 # Run scripts below before
 before_build:

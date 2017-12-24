@@ -6,7 +6,7 @@
     <SharedGUID>757ebcf0-4d04-436a-8fdc-f07bfd063937</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <Import_RootNamespace>Revit.Toolkit.Shared</Import_RootNamespace>
+    <Import_RootNamespace>Revit.Toolkit</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Decompiled\BuiltInCategory.cs" />

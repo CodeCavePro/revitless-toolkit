@@ -24,45 +24,54 @@ cache:
 version: 1.2.0.{build}
 
 environment:
-  VERSION_SUFFIX: preview
-  VERSION_SUFFIX_TAG: beta
+  VERSION_SIMPLE: '{version}'
+  VERSION_INFORMATIONAL: '{version}'
+  VERSION_SUFFIX: 'preview+$(APPVEYOR_BUILD_NUMBER)'
+  VERSION_SUFFIX_TAG: 'beta+$(APPVEYOR_BUILD_NUMBER)'
 
 init:
 - ps: |
+    $env:VERSION_SIMPLE = $env:APPVEYOR_BUILD_VERSION
+    $env:VERSION_INFORMATIONAL = $env:APPVEYOR_BUILD_VERSION.TrimEnd(".$env:APPVEYOR_BUILD_NUMBER")
+
     if ($env:APPVEYOR_REPO_TAG -eq "true" -and $env:APPVEYOR_REPO_TAG_NAME)
     {
         $env:VERSION_SUFFIX = $env:VERSION_SUFFIX_TAG
         $tag_version = $env:APPVEYOR_REPO_TAG_NAME.TrimStart("v")
         Write-Host "Building a tag: $tag_version";
 
-        if ($tag_version -match '^([0-9]+[\.-][0-9]+[\.-][0-9]+[\.-][0-9]+([-A-Za-z0-9]+)?)$')
+        if ($tag_version -match '^([0-9]+[\.-][0-9]+[\.-][0-9]+([-A-Za-z0-9]+)?)$')
         {
-            Update-AppveyorBuild -Version $tag_version
+            $env:VERSION_INFORMATIONAL = $tag_version
         }
         elseif ($tag_version -match '^([0-9]+[\.-][0-9]+[\.-][0-9]+)$')
         {
-            $tag_version = "$tag_version-$env:VERSION_SUFFIX.$env:APPVEYOR_BUILD_NUMBER"
-            Update-AppveyorBuild -Version $tag_version
+            $env:VERSION_INFORMATIONAL = "$tag_versionL.$env:VERSION_SUFFIX"
         }
+    } 
+    else
+    {
+        $env:VERSION_INFORMATIONAL = "$env:VERSION_INFORMATIONAL.$env:VERSION_SUFFIX"
     }
 
+    Update-AppveyorBuild -Version $env:VERSION_INFORMATIONAL
     Write-Host "Using build version: $env:APPVEYOR_BUILD_VERSION";
 
 dotnet_csproj:
   patch: true
   file: '**\*.csproj'
-  assembly_version: '{version}'
-  file_version: '{version}'
-  version: '{version}-$(VERSION_SUFFIX)'
-  package_version: '{version}-$(VERSION_SUFFIX)'
-  informational_version: '{version}-$(VERSION_SUFFIX)'
+  assembly_version: '$(VERSION_SIMPLE)'
+  file_version: '$(VERSION_SIMPLE)'
+  version: '$(VERSION_INFORMATIONAL)'
+  package_version: '$(VERSION_INFORMATIONAL)'
+  informational_version: '$(VERSION_INFORMATIONAL)'
 
 assembly_info:
   patch: true
   file: '**\AssemblyInfo.*'
-  assembly_version: '{version}'
-  assembly_file_version: '{version}'
-  assembly_informational_version: '{version}-$(VERSION_SUFFIX)'
+  assembly_version: '$(VERSION_SIMPLE)'
+  assembly_file_version: '$(VERSION_SIMPLE)'
+  assembly_informational_version: '{VERSION_INFORMATIONAL}'
 
 # Run scripts below before
 before_build:

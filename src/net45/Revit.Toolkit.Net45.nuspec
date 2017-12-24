@@ -9,6 +9,8 @@
     <references></references>
     <dependencies>
       <dependency id="CodeCave.CAD.Toolkit.Primitives.NetFramework" version="[1.0.0,2.0.0)" exclude="Build,Analyzers" />
+      <dependency id="CsvHelper" version="[6.1.0,6.2.0)" exclude="Build,Analyzers" />
+      <dependency id="OpenMcdf-2" version="[2.0.0,2.1.0)" exclude="Build,Analyzers" />
     </dependencies>
     <projectUrl>https://github.com/CodeCavePro/revit-toolkit</projectUrl>
     <licenseUrl>https://github.com/CodeCavePro/revit-toolkit/blob/master/LICENSE.txt</licenseUrl>

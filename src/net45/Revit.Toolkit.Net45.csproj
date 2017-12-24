@@ -67,7 +67,7 @@
     <ItemGroup>
       <NuGetFilesProject Include="$(MSBuildProjectDirectory)\*.nupkg" />
     </ItemGroup>
-    <Exec Command="nuget pack $(MSBuildProjectFullPath) -Prop Configuration=$(ConfigurationName)" WorkingDirectory="$(OutputPath)\..\" />
+    <Exec Command="nuget pack $(MSBuildProjectFullPath) -NonInteractive -Prop Configuration=$(ConfigurationName)" WorkingDirectory="$(OutputPath)\..\" />
   </Target>
   <Target Name="CleanNuGetFiles" AfterTargets="Clean">
     <ItemGroup>

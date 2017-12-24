@@ -7,12 +7,9 @@ using System.Runtime.InteropServices;
 // associated with an assembly.
 [assembly: AssemblyTitle("CodeCave.Revit.Toolkit")]
 [assembly: AssemblyDescription("A toolkit for processing .rfa, .rvt etc without Revit")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Zhmayev Yaroslav")]
+[assembly: AssemblyCompany("Zhmayev Yaroslav aka Salaros")]
 [assembly: AssemblyProduct("Revit.Toolkit")]
 [assembly: AssemblyCopyright("Copyright 2016 (c) CodeCave, PUE")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible
 // to COM components.  If you need to access a type in this assembly from

@@ -17,7 +17,7 @@
     <NeutralLanguage>en</NeutralLanguage>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <PackageTags>revit, rfa, rvt, thumbnails, parameters</PackageTags>
+    <PackageTags>Revit, Metadata, Thumbnail, Parameters, PartAtom, OLE</PackageTags>
     <PackageLicenseUrl>https://github.com/CodeCavePro/revit-toolkit/master/LICENSE.txt</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/CodeCavePro/revit-toolkit</PackageProjectUrl>
     <RepositoryUrl>https://github.com/CodeCavePro/revit-toolkit</RepositoryUrl>

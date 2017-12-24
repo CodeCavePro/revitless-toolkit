@@ -1,24 +1,20 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>CodeCave.Revit.Toolkit.NetFramework</id>
-    <version>$version$</version>
-    <title>Revit.Toolkit.NetFramework</title>
-    <authors>Zhmayev Yaroslav</authors>
+    <id>CodeCave.$id$.NetFramework</id>
+    <title>$id$.NetFramework</title>
     <owners>salaros, CodeCave</owners>
-    <copyright>Copyright 2016 (c) CodeCave, PUE</copyright>
-    <summary>
-      A toolkit for processing .rfa, .rvt etc without Revit
-    </summary>
-    <description>
-      A toolkit for processing .rfa, .rvt etc without Revit
-    </description>
+    <tags>Revit, Metadata, Thumbnail, Parameters, PartAtom, OLE</tags>
     <releaseNotes></releaseNotes>
+    <dependencies></dependencies>
+    <references></references>
     <projectUrl>https://github.com/CodeCavePro/revit-toolkit</projectUrl>
     <licenseUrl>https://github.com/CodeCavePro/revit-toolkit/blob/master/LICENSE.txt</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <dependencies></dependencies>
-    <references></references>
-    <tags>Revit, Metadata, Thumbnail, Parameters, PartAtom, OLE</tags>
+    <version>$version$</version>
+    <authors>$author$</authors>
+    <copyright>$copyright$</copyright>
+    <summary>$description$</summary>
+    <description>$description$</description>
   </metadata>
 </package>

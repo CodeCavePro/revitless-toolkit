@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("CodeCave.Revit.Toolkit")]
 [assembly: AssemblyDescription("A toolkit for processing .rfa, .rvt etc without Revit")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("CodeCave, PUE")]
+[assembly: AssemblyCompany("Zhmayev Yaroslav")]
 [assembly: AssemblyProduct("Revit.Toolkit")]
-[assembly: AssemblyCopyright("Copyright ©  2017")]
+[assembly: AssemblyCopyright("Copyright 2016 (c) CodeCave, PUE")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -29,9 +29,6 @@ using System.Runtime.InteropServices;
 //      Build Number
 //      Revision
 //
-// You can specify all the values or you can default the Build and Revision Numbers
-// by using the '*' as shown below:
-// [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.1.5.*")]
 [assembly: AssemblyInformationalVersion("1.1.5-beta")]
 [assembly: NeutralResourcesLanguage("en")]

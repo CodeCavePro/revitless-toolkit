@@ -71,20 +71,33 @@ artifacts:
     name: Revit_Toolkit
 
 # Deploy to GitHub releases
-deploy:
-  provider: GitHub
-  tag: $(APPVEYOR_REPO_TAG_NAME)
-  release: "Revit Toolkit v$(APPVEYOR_REPO_TAG_NAME)"
-  description: "* for .NET Standard 2.0 (.NET Core 2.0, .NET Framework >= 4.6.1 etc) use CodeCave.Revit.Toolkit.$(APPVEYOR_BUILD_VERSION).nupkg file\n* for .NET Framework 4.5.x use CodeCave.Revit.Toolkit.NetFramework.$(APPVEYOR_BUILD_VERSION).nupkg file"
-  force_update: true
-  auth_token:
-    secure: 2+d0KgCbWQpUR8TZfzvUEzbi4NQP6F/Tt0PUwLn6jXZCyO8FnrFVFJPsFa0QBQFl
-  artifact: Revit_Toolkit
-  draft: false
-  prerelease: false
-  on:
-    # branch: master
-    appveyor_repo_tag: true
+deploy: 
+  - 
+    provider: GitHub
+    auth_token: 
+      secure: 2+d0KgCbWQpUR8TZfzvUEzbi4NQP6F/Tt0PUwLn6jXZCyO8FnrFVFJPsFa0QBQFl
+    artifact: Revit_Toolkit
+    description: |-
+        * for .NET Standard 2.0 (.NET Core 2.0, .NET Framework >= 4.6.1 etc) use CodeCave.Revit.Toolkit.$(APPVEYOR_BUILD_VERSION).nupkg file
+        * for .NET Framework 4.5.x use CodeCave.Revit.Toolkit.NetFramework.$(APPVEYOR_BUILD_VERSION).nupkg file
+    draft: false
+    force_update: true
+    prerelease: false
+    release: "Revit Toolkit v$(APPVEYOR_REPO_TAG_NAME)"
+    tag: $(APPVEYOR_REPO_TAG_NAME)
+    on: 
+      appveyor_repo_tag: true
+  - 
+    provider: NuGet
+    api_key: 
+      secure: TrtChQUTQ9rD8pffK1A9bjMYyN/8eQUjV+7IKVjS/C37TgXMae46Bzd527bZUVSb
+    artifact: Revit_Toolkit
+    server:             # remove to push to NuGet.org
+    skip_symbols: false
+    symbol_server:      # remove to push symbols to SymbolSource.org
+    on: 
+      branch: master
+
 
 # Start builds on tags only (GitHub and BitBucket)
 skip_non_tags: false

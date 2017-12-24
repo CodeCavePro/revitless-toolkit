@@ -6,8 +6,10 @@
     <owners>salaros, CodeCave</owners>
     <tags>Revit, Metadata, Thumbnail, Parameters, PartAtom, OLE</tags>
     <releaseNotes></releaseNotes>
-    <dependencies></dependencies>
     <references></references>
+    <dependencies>
+      <dependency id="CodeCave.CAD.Toolkit.Primitives.NetFramework" version="[1.0.0,2.0.0)" exclude="Build,Analyzers" />
+    </dependencies>
     <projectUrl>https://github.com/CodeCavePro/revit-toolkit</projectUrl>
     <licenseUrl>https://github.com/CodeCavePro/revit-toolkit/blob/master/LICENSE.txt</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>

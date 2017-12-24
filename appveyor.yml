@@ -87,6 +87,7 @@ deploy:
     tag: $(APPVEYOR_REPO_TAG_NAME)
     on: 
       appveyor_repo_tag: true
+
   - 
     provider: NuGet
     api_key: 
@@ -96,8 +97,15 @@ deploy:
     skip_symbols: false
     symbol_server:      # remove to push symbols to SymbolSource.org
     on: 
-      branch: master
+      appveyor_repo_tag: true
 
+  -
+    provider: NuGet
+    server: https://ci.appveyor.com/nuget/salaros-ciukn7jkgeaf/api/v2/package
+    symbol_server: https://ci.appveyor.com/nuget/salaros-ciukn7jkgeaf/api/v2/package
+    api_key:
+      secure: 3zmnmVBweTgdk4SBM/rWHdC9JOM9s0pxm1bw1d+WHDo=
+    artifact: Revit_Toolkit
 
 # Start builds on tags only (GitHub and BitBucket)
 skip_non_tags: false

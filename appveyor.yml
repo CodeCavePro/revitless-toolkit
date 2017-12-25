@@ -46,12 +46,12 @@ init:
         }
         elseif ($tag_version -match '^([0-9]+[\.-][0-9]+[\.-][0-9]+)$')
         {
-            $env:VERSION_INFORMATIONAL = "$tag_versionL.$env:VERSION_SUFFIX"
+            $env:VERSION_INFORMATIONAL = "$tag_version-$env:VERSION_SUFFIX"
         }
     } 
     else
     {
-        $env:VERSION_INFORMATIONAL = "$env:VERSION_INFORMATIONAL.$env:VERSION_SUFFIX"
+        $env:VERSION_INFORMATIONAL = "$env:VERSION_INFORMATIONAL-$env:VERSION_SUFFIX"
     }
 
     Update-AppveyorBuild -Version $env:VERSION_INFORMATIONAL

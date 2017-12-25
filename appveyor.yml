@@ -26,8 +26,8 @@ version: 1.2.0.{build}
 environment:
   VERSION_SIMPLE: '{version}'
   VERSION_INFORMATIONAL: '{version}'
-  VERSION_SUFFIX: 'preview+$(APPVEYOR_BUILD_NUMBER)'
-  VERSION_SUFFIX_TAG: 'beta+$(APPVEYOR_BUILD_NUMBER)'
+  VERSION_SUFFIX: 'preview-$(APPVEYOR_BUILD_NUMBER)'
+  VERSION_SUFFIX_TAG: 'beta-$(APPVEYOR_BUILD_NUMBER)'
 
 init:
 - ps: |

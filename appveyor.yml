@@ -60,18 +60,18 @@ init:
 dotnet_csproj:
   patch: true
   file: '**\*.csproj'
-  assembly_version: '$(VERSION_SIMPLE)'
-  file_version: '$(VERSION_SIMPLE)'
-  version: '$(VERSION_INFORMATIONAL)'
-  package_version: '$(VERSION_INFORMATIONAL)'
-  informational_version: '$(VERSION_INFORMATIONAL)'
+  assembly_version: $(VERSION_SIMPLE)
+  file_version: $(VERSION_SIMPLE)
+  version: $(VERSION_INFORMATIONAL)
+  package_version: $(VERSION_INFORMATIONAL)
+  informational_version: $(VERSION_INFORMATIONAL)
 
 assembly_info:
   patch: true
   file: '**\AssemblyInfo.*'
-  assembly_version: '$(VERSION_SIMPLE)'
-  assembly_file_version: '$(VERSION_SIMPLE)'
-  assembly_informational_version: '{VERSION_INFORMATIONAL}'
+  assembly_version: $(VERSION_SIMPLE)
+  assembly_file_version: $(VERSION_SIMPLE)
+  assembly_informational_version: $(VERSION_INFORMATIONAL)
 
 # Run scripts below before
 before_build:

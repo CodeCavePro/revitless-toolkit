@@ -44,7 +44,7 @@ init:
         {
             $env:VERSION_INFORMATIONAL = $tag_version
         }
-        elseif ($tag_version -match '([0-9]+[\.-][0-9]+[\.-][0-9]+)')
+        if ($tag_version -match '^([0-9]+\.[0-9]+\.[0-9]+)$')
         {
             $env:VERSION_INFORMATIONAL = "$tag_version-$env:VERSION_SUFFIX"
         }

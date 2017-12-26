@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0;net452;net47</TargetFrameworks>
     <RuntimeFrameworkVersion>2.0.3</RuntimeFrameworkVersion>
     <Description>A toolkit for processing .rfa, .rvt etc without Revit</Description>
     <Product>Revit.Toolkit</Product>
@@ -25,13 +25,13 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <OutputPath>..\..\bin\Release\</OutputPath>
-    <DocumentationFile>..\..\bin\Release\netstandard2.0\Toolkit.xml</DocumentationFile>
+    <OutputPath>..\bin\Release\</OutputPath>
+    <DocumentationFile>..\bin\Release\netstandard2.0\Toolkit.xml</DocumentationFile>
     <DefineConstants>TRACE;RELEASE;NETSTANDARD2_0</DefineConstants>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <OutputPath>..\..\bin\Debug\</OutputPath>
+    <OutputPath>..\bin\Debug\</OutputPath>
     <DocumentationFile></DocumentationFile>
     <NoWarn>1701;1702;1705</NoWarn>
   </PropertyGroup>
@@ -41,20 +41,34 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="OmniClass\OmniClassTaxonomy_FoodService.txt" />
+    <None Remove="OmniClass\OmniClassTaxonomy_Vanilla.txt" />
     <None Remove="Revit.Toolkit.csproj.DotSettings" />
     <None Remove="Toolkit.csproj.DotSettings" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="CodeCave.CAD.Toolkit.Primitives" Version="1.0.4.8" />
+    <EmbeddedResource Include="OmniClass\OmniClassTaxonomy_FoodService.txt" />
+    <EmbeddedResource Include="OmniClass\OmniClassTaxonomy_Vanilla.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CodeCave.CAD.Toolkit.Primitives" Version="1.0.5.14" />
     <PackageReference Include="CsvHelper" Version="6.1.0" />
-    <PackageReference Include="OpenMcdf-2.NetStandard" Version="2.0.6" />
-    <PackageReference Include="System.Drawing.Common" Version="4.5.0-preview1-25914-04" />
+    <PackageReference Include="OpenMcdf-2" Version="2.1.1.5" />
+    <PackageReference Include="System.Drawing.Common" Version="4.5.0-preview1-25914-04" Condition="'$(TargetFramework)' == 'netstandard2.0'" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Properties\" />
   </ItemGroup>
 
-  <Import Project="..\shared\Revit.Toolkit.Shared.projitems" Label="Shared" />
+  <Target Name="CleanNuGetFiles" AfterTargets="Clean">
+    <ItemGroup>
+      <NuGetFilesBin Include="$(OutputPath)\..\*.nupkg" />
+    </ItemGroup>
+    <Message Text="Deleting NuGet files from $(OutputPath)\..\*.nupkg" Importance="high" />
+    <Delete Files="@(NuGetFilesBin)" />
+    <Delete Files="@(NuGetFilesProject)" />
+  </Target>
 </Project>

@@ -21,7 +21,7 @@ cache:
   - '%LocalAppData%\NuGet\v3-cache' # NuGet v3
 
 # Version format
-version: 1.2.1.{build}
+version: 2017.2.3.{build}
 
 environment:
   VERSION_SIMPLE: '{version}'

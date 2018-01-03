@@ -12,4 +12,4 @@ A cross-platform toolkit for processing .rfa, .rvt etc without Revit
 [![AppVeyor build status](https://img.shields.io/appveyor/ci/salaros/revit-toolkit/master.svg?logo=appveyor)](https://ci.appveyor.com/project/salaros/revit-toolkit/history)
 [![AppVeyor tests](https://img.shields.io/appveyor/tests/salaros/revit-toolkit.svg)]()
 [![.Net Status (GitHub)](https://img.shields.io/dotnetstatus/gh/codecavepro/revit-toolkit/API.svg)]()
-[![Read the Docs (version)](https://img.shields.io/readthedocs/revit-toolkit/stable.svg)](http://revit-toolkit.readthedocs.io/en/latest/)
+[![Read the Docs (version)](https://img.shields.io/readthedocs/revit-toolkit/latest.svg)](http://revit-toolkit.readthedocs.io/en/latest/)

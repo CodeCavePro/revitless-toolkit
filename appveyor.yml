@@ -123,5 +123,9 @@ deploy:
 # Start builds on tags only (GitHub and BitBucket)
 skip_non_tags: false
 
-# Turn off tests
-test: off
+# Tests
+test:
+  assemblies:
+    only:
+      - Revit.Toolkit.Tests.dll
+

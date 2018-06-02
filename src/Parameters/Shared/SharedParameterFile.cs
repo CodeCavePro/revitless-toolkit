@@ -261,6 +261,20 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             return $"*{sectionAsString}";
         }
 
+        /// <summary>
+        /// Returns true if shared parameter file is valid.
+        /// </summary>
+        /// <returns>
+        ///   <c>true</c> if this instance is valid; otherwise, <c>false</c>.
+        /// </returns>
+        public bool IsValid()
+        {
+            return Metadata.Version > 0 && Metadata.MinVersion > 0 && 
+                   Groups.Any() &&
+                   Parameters.Any();
+            }
+
+
         /// <inheritdoc />
         /// <summary>
         /// Clones this instance.

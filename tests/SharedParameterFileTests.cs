@@ -24,7 +24,7 @@ namespace CodeCave.Revit.Toolkit.Tests
         /// Checks if shared parameter files pass validation.
         /// </summary>
         [Fact]
-        public void SharedParameterFilesPassValidation()
+        public void ValidFilesPassValidation()
         {
             Assert.All(SharedParameterFiles,
                 sharedParamFilePath =>
@@ -39,7 +39,7 @@ namespace CodeCave.Revit.Toolkit.Tests
         /// Checks if shared parameter file's meta section is parsed correctly.
         /// </summary>
         [Fact]
-        public void SharedParameterFileMetaIsParsedCorrectly()
+        public void MetaIsParsedCorrectly()
         {
             Assert.All(SharedParameterFiles,
                 sharedParamFilePath =>
@@ -57,7 +57,7 @@ namespace CodeCave.Revit.Toolkit.Tests
         /// Checks if the number of parsed shared parameter's file groups is correct.
         /// </summary>
         [Fact]
-        public void SharedParameterFileGroupsCountIsCorrect()
+        public void GroupsCountIsCorrect()
         {
             var groupLineRegex = new Regex(@"^GROUP(.+?)$", RegexOptions.Compiled | RegexOptions.Multiline | RegexOptions.IgnoreCase);
 
@@ -76,7 +76,7 @@ namespace CodeCave.Revit.Toolkit.Tests
         /// Checks if the number of parsed shared parameter's file parameters is correct.
         /// </summary>
         [Fact]
-        public void SharedParameterFileParametersCountIsCorrect()
+        public void ParametersCountIsCorrect()
         {
             var paramLineRegex = new Regex(@"^PARAM(.*)$", RegexOptions.Compiled | RegexOptions.Multiline | RegexOptions.IgnoreCase);
 
@@ -95,7 +95,7 @@ namespace CodeCave.Revit.Toolkit.Tests
         /// Checks if shared parameter file's parameters are parsed correctly.
         /// </summary>
         [Fact]
-        public void SharedParameterFileParametersAreParsedCorrectly()
+        public void ParametersAreParsedCorrectly()
         {
             var paramLineRegex = new Regex(
                 @"^PARAM\t(?<guid>[({]?[a-zA-Z0-9]{8}[-]?([a-zA-Z0-9]{4}[-]?){3}[a-zA-Z0-9]{12}[})]?)\t(?<name>.*?)\t.*$",
@@ -126,7 +126,7 @@ namespace CodeCave.Revit.Toolkit.Tests
         /// Checks if shared parameter's file groups are parsed correctly.
         /// </summary>
         [Fact]
-        public void SharedParameterFileGroupsAreParsedCorrectly()
+        public void GroupsAreParsedCorrectly()
         {
             var groupLineRegex = new Regex(
                 @"^GROUP\t(?<id>\d+)\t(?<name>.*?)$",

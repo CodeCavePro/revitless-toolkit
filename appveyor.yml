@@ -124,8 +124,5 @@ deploy:
 skip_non_tags: false
 
 # Tests
-test:
-  assemblies:
-    only:
-      - Revit.Toolkit.Tests.dll
-
+test_script:
+  - ps: dotnet test tests

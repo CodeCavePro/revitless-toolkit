@@ -123,6 +123,8 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                     using (var csvReader = new CsvReader(stringReader, CsvConfiguration))
                     {
                         csvReader.Configuration.TrimOptions = TrimOptions.Trim;
+                        csvReader.Configuration.BadDataFound = BadDataFound;
+
                         // TODO implement
                         // csvReader.Configuration.AllowComments = true;
                         // csvReader.Configuration.Comment = '#';
@@ -200,6 +202,16 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                 .ToList();
 
             return sharedParamsFile;
+        }
+
+        private static void BadDataFound(ReadingContext readingContext)
+        {
+            if (readingContext.Field.Contains('\"'))
+            {
+                return;
+            }
+
+            throw new BadDataException(readingContext, $"File contains bad / invalid data: {readingContext.Field}");
         }
 
         /// <summary>

@@ -43,7 +43,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         /// <value>
         /// The meta-data section of the shared parameter file.
         /// </value>
-        public Meta Metadata { get; set; } = new Meta {Version = 2, MinVersion = 1};
+        public Meta Metadata { get; private set; } = new Meta {Version = 2, MinVersion = 1};
 
         /// <summary>
         /// Gets or sets the groups section of the shared parameter file.
@@ -51,7 +51,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         /// <value>
         /// The groups section of the shared parameter file.
         /// </value>
-        public List<Group> Groups { get; set; } = new List<Group>();
+        public List<Group> Groups { get; private set; } = new List<Group>();
 
         /// <summary>
         /// Gets or sets the parameters section of the shared parameter file.
@@ -59,7 +59,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         /// <value>
         /// The parameters section of the shared parameter file.
         /// </value>
-        public List<Parameter> Parameters { get; set; } = new List<Parameter>();
+        public List<Parameter> Parameters { get; private set; } = new List<Parameter>();
 
         /// <summary>
         /// Extracts <see cref="SharedParameterFile"/> object from a .txt file.
@@ -282,10 +282,33 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         public bool IsValid()
         {
             return Metadata.Version > 0 && Metadata.MinVersion > 0 && 
-                   Groups.Any() &&
+                Groups.Any() &&
                 Parameters.Any();
         }
 
+        /// <summary>
+        /// Determines whether the specified <see cref="System.Object" />, is equal to this instance.
+        /// </summary>
+        /// <param name="obj">The <see cref="System.Object" /> to compare with this instance.</param>
+        /// <returns>
+        /// </returns>
+        public override bool Equals(object obj)
+        {
+            if (!(obj is SharedParameterFile))
+            {
+                // ReSharper disable once BaseObjectEqualsIsObjectEquals
+                return base.Equals(obj);
+            }
+
+            var other = (SharedParameterFile) obj;
+            if (Metadata.Version != other.Metadata.Version || Metadata.MinVersion != other.Metadata.MinVersion)
+                return false;
+
+            if (Groups.Count != other.Groups.Count || Groups.Intersect(other.Groups).Count() != Groups.Count)
+                return false;
+
+            return Parameters.Count == other.Parameters.Count && Parameters.Intersect(other.Parameters).Count() == Parameters.Count;
+        }
 
         /// <inheritdoc />
         /// <summary>

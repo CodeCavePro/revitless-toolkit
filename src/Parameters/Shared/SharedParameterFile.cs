@@ -283,8 +283,8 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         {
             return Metadata.Version > 0 && Metadata.MinVersion > 0 && 
                    Groups.Any() &&
-                   Parameters.Any();
-            }
+                Parameters.Any();
+        }
 
 
         /// <inheritdoc />
@@ -292,11 +292,35 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         /// Clones this instance.
         /// </summary>
         /// <returns></returns>
-        /// <exception cref="T:System.NotImplementedException"></exception>
-        public object Clone()
+        object ICloneable.Clone()
         {
-            // TODO Implement ICloneable
-            throw new NotImplementedException();
+            return CloneFile();
+        }
+
+        /// <summary>
+        /// Clones this instance.
+        /// </summary>
+        /// <returns></returns>
+        public SharedParameterFile Clone()
+        {
+            return CloneFile();
+        }
+
+        /// <summary>
+        /// Clones the file.
+        /// </summary>
+        /// <param name="randomize">if set to <c>true</c> [randomize].</param>
+        /// <returns></returns>
+        internal SharedParameterFile CloneFile(bool randomize = false)
+        {
+            var clone = new SharedParameterFile
+            {
+                Metadata = new Meta { Version = Metadata.Version, MinVersion = Metadata.MinVersion },
+                Groups = randomize ? new List<Group>(Groups.OrderBy(x => Guid.NewGuid())) : new List<Group>(Groups),
+                Parameters = randomize ? new List<Parameter>(Parameters.OrderBy(x => Guid.NewGuid())) : new List<Parameter>(Parameters),
+            };
+
+            return clone;
         }
     }
 }

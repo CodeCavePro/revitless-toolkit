@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -149,6 +150,22 @@ namespace CodeCave.Revit.Toolkit.Tests
                             Assert.Contains(param.Name, groupNames);
                         }
                     );
+                }
+            );
+        }
+
+        /// <summary>
+        /// Checks if a shared parameter file and it's randomized clone are equal.
+        /// </summary>
+        [Fact]
+        public void FilesAreEqual()
+        {
+            Assert.All(SharedParameterFiles,
+                sharedParamFilePath =>
+                {
+                    var sharedParamFile1 = SharedParameterFile.FromFile(sharedParamFilePath);
+                    var sharedParamFile2 = sharedParamFile1.CloneFile(true);
+                    Assert.True(sharedParamFile1.Equals(sharedParamFile2));
                 }
             );
         }

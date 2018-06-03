@@ -11,11 +11,11 @@ using System.Text.RegularExpressions;
 
 namespace CodeCave.Revit.Toolkit.Parameters.Shared
 {
-    /// <inheritdoc />
+    /// <inheritdoc cref="ICloneable" />
     /// <summary>
     /// This class represents Revit shared parameter file
     /// </summary>
-    public sealed partial class SharedParameterFile : ICloneable
+    public sealed partial class SharedParameterFile : ICloneable, IEquatable<SharedParameterFile>
     {
         private static readonly Regex SectionRegex;
         private static readonly Configuration CsvConfiguration;
@@ -287,20 +287,31 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         }
 
         /// <summary>
-        /// Determines whether the specified <see cref="System.Object" />, is equal to this instance.
+        /// Determines whether the specified <see cref="Object" />, is equal to this instance.
         /// </summary>
-        /// <param name="obj">The <see cref="System.Object" /> to compare with this instance.</param>
+        /// <param name="obj">The <see cref="Object" /> to compare with this instance.</param>
         /// <returns>
         /// </returns>
         public override bool Equals(object obj)
         {
-            if (!(obj is SharedParameterFile))
-            {
-                // ReSharper disable once BaseObjectEqualsIsObjectEquals
-                return base.Equals(obj);
-            }
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            return obj.GetType() == GetType() && Equals(obj as SharedParameterFile);
+        }
 
-            var other = (SharedParameterFile) obj;
+        /// <inheritdoc />
+        /// <summary>
+        /// Indicates whether the current object is equal to another object of the same type.
+        /// </summary>
+        /// <param name="other">An object to compare with this object.</param>
+        /// <returns>
+        /// true if the current object is equal to the <paramref name="other">other</paramref> parameter; otherwise, false.
+        /// </returns>
+        public bool Equals(SharedParameterFile other)
+        {
+            // ReSharper disable once UseNullPropagation
+            if (other == null) return false;
+
             if (Metadata.Version != other.Metadata.Version || Metadata.MinVersion != other.Metadata.MinVersion)
                 return false;
 
@@ -344,6 +355,24 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             };
 
             return clone;
+        }
+
+        /// <summary>
+        /// Returns a hash code for this instance.
+        /// </summary>
+        /// <returns>
+        /// A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
+        /// </returns>
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                var hashCode = -409059346;
+                hashCode = hashCode * -1521134295 + EqualityComparer<Meta>.Default.GetHashCode(Metadata);
+                hashCode = hashCode * -1521134295 + EqualityComparer<List<Group>>.Default.GetHashCode(Groups);
+                hashCode = hashCode * -1521134295 + EqualityComparer<List<Parameter>>.Default.GetHashCode(Parameters);
+                return hashCode;
+            }
         }
     }
 }

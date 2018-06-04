@@ -32,7 +32,7 @@ namespace CodeCave.Revit.Toolkit.Tests
             Assert.All(SharedParameterFiles.Where(f => f.StartsWith(PathToValidFiles)),
                 sharedParamFilePath =>
                 {
-                    var sharedParamFile = SharedParameterFile.FromFile(sharedParamFilePath);
+                    var sharedParamFile = new SharedParameterFile(sharedParamFilePath);
                     Assert.True(sharedParamFile.IsValid());
                 }
             );
@@ -44,7 +44,7 @@ namespace CodeCave.Revit.Toolkit.Tests
             Assert.All(SharedParameterFiles.Where(f => f.StartsWith(PathToInvalidFiles)),
                 sharedParamFilePath =>
                 {
-                    var sharedParamFile = SharedParameterFile.FromFile(sharedParamFilePath);
+                    var sharedParamFile = new SharedParameterFile(sharedParamFilePath);
                     Assert.False(sharedParamFile.IsValid());
                 }
             );
@@ -59,7 +59,7 @@ namespace CodeCave.Revit.Toolkit.Tests
             Assert.All(SharedParameterFiles,
                 sharedParamFilePath =>
                 {
-                    var sharedParamFile = SharedParameterFile.FromFile(sharedParamFilePath);
+                    var sharedParamFile = new SharedParameterFile(sharedParamFilePath);
                     var sharedParamFileText = File.ReadAllLines(sharedParamFilePath);
                     var metaRow = $"META\t{sharedParamFile.Metadata.Version}\t{sharedParamFile.Metadata.MinVersion}";
                     var containsMeta = sharedParamFileText.Any(line => line.Contains(metaRow));
@@ -79,7 +79,7 @@ namespace CodeCave.Revit.Toolkit.Tests
             Assert.All(SharedParameterFiles,
                 sharedParamFilePath =>
                 {
-                    var sharedParamFile = SharedParameterFile.FromFile(sharedParamFilePath);
+                    var sharedParamFile = new SharedParameterFile(sharedParamFilePath);
                     var sharedParamFileText = File.ReadAllText(sharedParamFilePath);
                     var paramLineMatches = groupLineRegex.Matches(sharedParamFileText);
                     Assert.Equal(paramLineMatches.Count, sharedParamFile.Groups?.Count);
@@ -98,7 +98,7 @@ namespace CodeCave.Revit.Toolkit.Tests
             Assert.All(SharedParameterFiles,
                 sharedParamFilePath =>
                 {
-                    var sharedParamFile = SharedParameterFile.FromFile(sharedParamFilePath);
+                    var sharedParamFile = new SharedParameterFile(sharedParamFilePath);
                     var sharedParamFileText = File.ReadAllText(sharedParamFilePath);
                     var paramLineMatches = paramLineRegex.Matches(sharedParamFileText);
                     Assert.Equal(paramLineMatches.Count, sharedParamFile.Parameters?.Count);
@@ -120,7 +120,7 @@ namespace CodeCave.Revit.Toolkit.Tests
             Assert.All(SharedParameterFiles,
                 sharedParamFilePath =>
                 {
-                    var sharedParamFile = SharedParameterFile.FromFile(sharedParamFilePath);
+                    var sharedParamFile = new SharedParameterFile(sharedParamFilePath);
                     var sharedParamFileText = File.ReadAllText(sharedParamFilePath);
                     var paramLineMatches = paramLineRegex.Matches(sharedParamFileText);
                     var paramNames = paramLineMatches.Select(m => m.Groups["name"]?.Value.Trim()).ToArray();
@@ -151,7 +151,7 @@ namespace CodeCave.Revit.Toolkit.Tests
             Assert.All(SharedParameterFiles,
                 sharedParamFilePath =>
                 {
-                    var sharedParamFile = SharedParameterFile.FromFile(sharedParamFilePath);
+                    var sharedParamFile = new SharedParameterFile(sharedParamFilePath);
                     var sharedParamFileText = File.ReadAllText(sharedParamFilePath);
                     var groupLineMatches = groupLineRegex.Matches(sharedParamFileText);
                     var groupIds = groupLineMatches.Select(m => m.Groups["id"].Value).Select(int.Parse).ToArray();
@@ -177,7 +177,7 @@ namespace CodeCave.Revit.Toolkit.Tests
             Assert.All(SharedParameterFiles,
                 sharedParamFilePath =>
                 {
-                    var sharedParamFile1 = SharedParameterFile.FromFile(sharedParamFilePath);
+                    var sharedParamFile1 = new SharedParameterFile(sharedParamFilePath);
                     var sharedParamFile2 = sharedParamFile1.CloneFile(true);
                     Assert.True(sharedParamFile1.Equals(sharedParamFile2));
                 }

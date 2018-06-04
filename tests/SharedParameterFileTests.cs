@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -11,6 +10,7 @@ namespace CodeCave.Revit.Toolkit.Tests
     public class SharedParameterFileTests
     {
         private static readonly string[] SharedParameterFiles;
+        private static readonly string PathToValidFiles, PathToInvalidFiles;
 
         /// <summary>
         /// Initializes the <see cref="SharedParameterFileTests"/> class.
@@ -18,7 +18,9 @@ namespace CodeCave.Revit.Toolkit.Tests
         static SharedParameterFileTests()
         {
             var sharedParamFilesDir = Path.Combine(Environment.CurrentDirectory, "Resources", "SharedParameterFiles");
-            SharedParameterFiles = Directory.GetFiles(sharedParamFilesDir, "*.txt", SearchOption.TopDirectoryOnly);
+            PathToValidFiles = Path.Combine(sharedParamFilesDir, "Valid");
+            PathToInvalidFiles = Path.Combine(sharedParamFilesDir, "Invalid");
+            SharedParameterFiles = Directory.GetFiles(sharedParamFilesDir, "*.txt", SearchOption.AllDirectories);
         }
 
         /// <summary>
@@ -27,11 +29,23 @@ namespace CodeCave.Revit.Toolkit.Tests
         [Fact]
         public void ValidFilesPassValidation()
         {
-            Assert.All(SharedParameterFiles,
+            Assert.All(SharedParameterFiles.Where(f => f.StartsWith(PathToValidFiles)),
                 sharedParamFilePath =>
                 {
                     var sharedParamFile = SharedParameterFile.FromFile(sharedParamFilePath);
                     Assert.True(sharedParamFile.IsValid());
+                }
+            );
+        }
+
+        [Fact]
+        public void InvalidFilesFailValidation()
+        {
+            Assert.All(SharedParameterFiles.Where(f => f.StartsWith(PathToInvalidFiles)),
+                sharedParamFilePath =>
+                {
+                    var sharedParamFile = SharedParameterFile.FromFile(sharedParamFilePath);
+                    Assert.False(sharedParamFile.IsValid());
                 }
             );
         }

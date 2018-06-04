@@ -3,6 +3,7 @@ using CsvHelper.Configuration;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
     /// <inheritdoc cref="IEquatable{SharedParameterFile}" />
     /// <seealso cref="System.ICloneable" />
     /// <seealso cref="System.IEquatable{SharedParameterFile}" />
-    public sealed partial class SharedParameterFile : ICloneable, IEquatable<SharedParameterFile>
+    public sealed partial class SharedParameterFile : ICloneable, IEquatable<SharedParameterFile>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SharedParameterFile"/> class.
@@ -258,9 +259,62 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         /// </returns>
         public bool IsValid()
         {
-            return Metadata.Version > 0 && Metadata.MinVersion > 0 && 
-                Groups.Any() &&
-                Parameters.Any();
+            var validationResults = Validate(new ValidationContext(this));
+            return !validationResults.Any();
+        }
+
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            var results = new List<ValidationResult>();
+
+            // General health check
+            if (Metadata.Version <= 0 || Metadata.MinVersion <= 0)
+                results.Add(new ValidationResult($"Data in {nameof(Sections.META)} section is invalid",
+                    new[] {nameof(Metadata)}));
+
+            if (!Groups.Any())
+                results.Add(new ValidationResult("The list of groups is empty", new[] {nameof(Groups)}));
+
+            if (!Parameters.Any())
+                results.Add(new ValidationResult("The list of parameters is empty", new[] {nameof(Parameters)}));
+
+            // Check for group duplicates by ID
+            var groupIds = Groups.GroupBy(p => p.Id).Where(g => g.Count() > 1).Select(p => p.Key);
+            results.AddRange(groupIds.Select(groupId =>
+                new ValidationResult($"The following group {nameof(Group.Id)} has duplicates: {groupId}",
+                    new[] {nameof(Groups)})));
+
+            // Check for group duplicates by name
+            var groupNames = Groups.GroupBy(p => p.Name).Where(g => g.Count() > 1).Select(p => p.Key);
+            results.AddRange(groupNames.Select(group =>
+                new ValidationResult($"The following group {nameof(Group.Name)} has duplicates: {group}",
+                    new[] {nameof(Groups)})));
+
+            // Check for unused
+            var unusedGroups = Groups.Where(g => !Parameters.Any(p => p.GroupId.Equals(g.Id)));
+            results.AddRange(unusedGroups.Select(g =>
+                new ValidationResult($"The following group is unused (not assigned to any parameter): {g.Id}={g.Name}",
+                    new[] {nameof(Groups)})));
+
+            // Check for parameter duplicates by Guid
+            var paramGuidDuplicates = Parameters.GroupBy(p => p.Guid).Where(g => g.Count() > 1).Select(p => p.Key);
+            results.AddRange(paramGuidDuplicates.Select(guid =>
+                new ValidationResult($"The following parameter {nameof(Parameter.Guid)} has duplicates: {guid}",
+                    new[] {nameof(Parameters)})));
+
+            // Check for parameter duplicates by name
+            var paramNameDuplicates = Parameters.GroupBy(p => p.Name).Where(g => g.Count() > 1).Select(p => p.Key);
+            results.AddRange(paramNameDuplicates.Select(name =>
+                new ValidationResult($"The following parameter {nameof(Parameter.Name)} has duplicates: {name}",
+                    new[] {nameof(Parameters)})));
+
+            // Check for orphan parameters by groups
+            var paramGroupOrphans = Parameters.Where(p => !Groups.Any(g => g.Id.Equals(p.GroupId)));
+            results.AddRange(paramGroupOrphans.Select(p =>
+                new ValidationResult($"The following parameter is assigned to an unknown group ({p.GroupId}): {p.Name}",
+                    new[] {nameof(Parameters)})));
+
+            return results;
         }
 
         /// <summary>

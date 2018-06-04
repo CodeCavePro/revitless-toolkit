@@ -20,25 +20,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Resources\SharedParameterFiles\FCSI_SharedParametersList_2011.txt">
+    <None Update="Resources\SharedParameterFiles\Valid\*.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Resources\SharedParameterFiles\FCSI_SharedParametersList_2015.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Resources\SharedParameterFiles\FSSharedParam2011_UK.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Resources\SharedParameterFiles\NBS_BIMObjectStandardParameters.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Resources\SharedParameterFiles\NBS_BIMObjectStandardParameters_BOS2.0.0.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Resources\SharedParameterFiles\OpenRFA Shared Parameters.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Resources\SharedParameterFiles\ФОП2017.txt">
+    <None Update="Resources\SharedParameterFiles\Invalid\*.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

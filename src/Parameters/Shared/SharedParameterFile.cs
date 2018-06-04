@@ -3,6 +3,7 @@ using CsvHelper.Configuration;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -21,14 +22,149 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         /// <summary>
         /// Initializes a new instance of the <see cref="SharedParameterFile"/> class.
         /// </summary>
-        /// <param name="meta">The metadata section.</param>
+        /// <param name="metadata">The metadata section.</param>
         /// <param name="groups">The list of groups.</param>
         /// <param name="parameters">The list of parameters.</param>
-        public SharedParameterFile(Meta meta = null, IEnumerable<Group> groups = null, IEnumerable<Parameter> parameters = null)
+        public SharedParameterFile(Meta metadata = null, IEnumerable<Group> groups = null, IEnumerable<Parameter> parameters = null)
         {
-            Metadata = meta ?? new Meta {Version = 2, MinVersion = 1};
+            Metadata = metadata ?? new Meta {Version = 2, MinVersion = 1};
             Groups = groups != null ? new List<Group>(groups) : new List<Group>();
             Parameters = parameters != null ? new List<Parameter>(parameters) : new List<Parameter>();
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:CodeCave.Revit.Toolkit.Parameters.Shared.SharedParameterFile" /> class.
+        /// </summary>
+        /// <param name="sharedParameterFile">The shared parameter file.</param>
+        /// ReSharper disable once SuggestBaseTypeForParameter
+        /// <inheritdoc />
+        public SharedParameterFile(FileInfo sharedParameterFile)
+            : this(File.ReadAllText(sharedParameterFile?.FullName ?? throw new InvalidOperationException()))
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SharedParameterFile"/> class.
+        /// </summary>
+        /// <param name="sharedParameterFile">The shared parameter file.</param>
+        /// <exception cref="ArgumentException">sharedParameterFile</exception>
+        /// <exception cref="InvalidDataException">Failed to parse shared parameter file content," +
+        ///                                                "because it doesn't contain enough data for being qualified as a valid shared parameter file.</exception>
+        public SharedParameterFile(string sharedParameterFile)
+        {
+            if (string.IsNullOrWhiteSpace(sharedParameterFile))
+            {
+                throw new ArgumentException($"{nameof(sharedParameterFile)} must be a non empty string");
+            }
+
+            if (!SectionRegex.IsMatch(sharedParameterFile) && File.Exists(sharedParameterFile))
+            {
+                sharedParameterFile = File.ReadAllText(sharedParameterFile);
+            }
+            
+            var sharedParamsFileLines = SectionRegex
+                .Split(sharedParameterFile)
+                .Where(line => !line.StartsWith("#")) // Exclude comment lines
+                .ToArray();
+
+            var sharedParamsFileSections = sharedParamsFileLines
+                .Where((e, i) => i % 2 == 0)
+                .Select((e, i) => new { Key = e, Value = sharedParamsFileLines[i * 2 + 1] })
+                .ToDictionary(kp => kp.Key, kp => kp.Value.Replace($"{kp.Key}\t", string.Empty));
+
+            if (sharedParamsFileSections == null || sharedParamsFileSections.Count < 3 ||
+                !(sharedParamsFileSections.ContainsKey(Sections.META) &&
+                  sharedParamsFileSections.ContainsKey(Sections.GROUPS) &&
+                  sharedParamsFileSections.ContainsKey(Sections.PARAMS)))
+            {
+                throw new InvalidDataException("Failed to parse shared parameter file content," +
+                                               "because it doesn't contain enough data for being qualified as a valid shared parameter file.");
+            }
+
+            foreach (var section in sharedParamsFileSections)
+            {
+                using (var stringReader = new StringReader(section.Value))
+                {
+                    using (var csvReader = new CsvReader(stringReader, CsvConfiguration))
+                    {
+                        csvReader.Configuration.TrimOptions = TrimOptions.Trim;
+                        csvReader.Configuration.BadDataFound = BadDataFound;
+
+                        // TODO implement
+                        // csvReader.Configuration.AllowComments = true;
+                        // csvReader.Configuration.Comment = '#';
+
+                        var originalHeaderValidated = csvReader.Configuration.HeaderValidated;
+                        csvReader.Configuration.HeaderValidated = (isValid, headerNames, headerIndex, context) =>
+                        {
+                            // Everything is OK, just go out
+                            if (isValid)
+                                return;
+
+                            // Allow DESCRIPTION header to be missing (it's actually missing in older shared parameter files)
+                            if (nameof(Parameter.Description).Equals(headerNames?.FirstOrDefault(), StringComparison.OrdinalIgnoreCase))
+                                return;
+
+                            // Allow USERMODIFIABLE header to be missing (it's actually missing in older shared parameter files)
+                            if (nameof(Parameter.UserModifiable).Equals(headerNames?.FirstOrDefault(), StringComparison.OrdinalIgnoreCase))
+                                return;
+
+                            originalHeaderValidated(false, headerNames, headerIndex, context);
+                        };
+
+                        var originalMissingFieldFound = csvReader.Configuration.MissingFieldFound;
+                        csvReader.Configuration.MissingFieldFound = (headerNames, index, context) =>
+                        {
+                            // Allow DESCRIPTION header to be missing (it's actually missing in older shared parameter files)
+                            if (nameof(Parameter.Description).Equals(headerNames?.FirstOrDefault(), StringComparison.OrdinalIgnoreCase))
+                                return;
+
+                            // Allow USERMODIFIABLE header to be missing (it's actually missing in older shared parameter files)
+                            if (nameof(Parameter.UserModifiable).Equals(headerNames?.FirstOrDefault(), StringComparison.OrdinalIgnoreCase))
+                                return;
+
+                            originalMissingFieldFound(headerNames, index, context);
+                        };
+
+                        switch (section.Key)
+                        {
+                            // Parse *META section
+                            case Sections.META:
+                                csvReader.Configuration.RegisterClassMap<MetaClassMap>();
+                                Metadata = csvReader.GetRecords<Meta>().FirstOrDefault();
+                                break;
+
+                            // Parse *GROUP section
+                            case Sections.GROUPS:
+                                csvReader.Configuration.RegisterClassMap<GroupClassMap>();
+                                Groups = csvReader.GetRecords<Group>().ToList();
+                                break;
+
+                            // Parse *PARAM section
+                            case Sections.PARAMS:
+                                csvReader.Configuration.RegisterClassMap<ParameterClassMap>();
+                                Parameters = csvReader.GetRecords<Parameter>().ToList();
+                                break;
+
+                            default:
+                                Debug.WriteLine($"Unknown section type: {section.Key}");
+                                continue;
+                        }
+                    }
+                }
+            }
+
+            // Post-process parameters by assigning group names using group IDs
+            // and recover UnitType from ParameterType
+            Parameters = Parameters
+                .AsParallel()
+                .Select(p =>
+                {
+                    p.GroupName = Groups?.FirstOrDefault(g => g.Id == p.GroupId)?.Name;
+                    p.UnitType = p.ParameterType.GetUnitType();
+                    return p;
+                })
+                .ToList();
         }
 
         /// <summary>

@@ -19,6 +19,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
     /// <seealso cref="System.IEquatable{SharedParameterFile}" />
     public sealed partial class SharedParameterFile
     {
+        // ReSharper disable once PrivateFieldCanBeConvertedToLocalVariable
         private static readonly Regex SectionRegex;
         private static readonly Configuration CsvConfiguration;
 
@@ -45,20 +46,10 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         /// <param name="sharedParameterFile">The shared parameter file path.</param>
         /// <returns>The shared parameter file</returns>
         /// <exception cref="ArgumentException"></exception>
+        [Obsolete("Please use constructor instead")]
         public static SharedParameterFile FromFile(string sharedParameterFile)
         {
-            if (!File.Exists(sharedParameterFile))
-            {
-                throw new ArgumentException($"The following parameter file doesn't exist: '{sharedParameterFile}'");
-            }
-
-            if (string.IsNullOrWhiteSpace(sharedParameterFile) || !Path.GetExtension(sharedParameterFile).ToLowerInvariant().Contains("txt"))
-            {
-                throw new ArgumentException($"Shared parameter file must be a .txt file, please check the path you have supplied: '{sharedParameterFile}'");
-            }
-
-            var sharedParamsText = File.ReadAllText(sharedParameterFile);
-            return FromText(sharedParamsText);
+            return new SharedParameterFile(new FileInfo(sharedParameterFile));
         }
 
         /// <summary>
@@ -67,122 +58,10 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         /// <param name="sharedParameterText">Text content of shared parameter file.</param>
         /// <returns>The shared parameter file</returns>
         /// <exception cref="System.ArgumentException">sharedParameterText</exception>
+        [Obsolete("Please use constructor instead")]
         public static SharedParameterFile FromText(string sharedParameterText)
         {
-            if (string.IsNullOrWhiteSpace(sharedParameterText))
-            {
-                throw new ArgumentException($"{nameof(sharedParameterText)} must be a non empty string");
-            }
-
-            var sharedParamsFileLines = SectionRegex
-                .Split(sharedParameterText)
-                .Where(line => !line.StartsWith("#")) // Exclude comment lines
-                .ToArray();
-
-            var sharedParamsFileSections = sharedParamsFileLines
-                .Where((e, i) => i % 2 == 0)
-                .Select((e, i) => new { Key = e, Value = sharedParamsFileLines[i * 2 + 1] })
-                .ToDictionary(kp => kp.Key, kp => kp.Value.Replace($"{kp.Key}\t", string.Empty));
-
-            if (sharedParamsFileSections == null || sharedParamsFileSections.Count < 3 ||
-                !(sharedParamsFileSections.ContainsKey(Sections.META) &&
-                  sharedParamsFileSections.ContainsKey(Sections.GROUPS) &&
-                  sharedParamsFileSections.ContainsKey(Sections.PARAMS)))
-            {
-                throw new InvalidDataException("Failed to parse shared parameter file content," +
-                                               "because it doesn't contain enough data for being qualified as a valid shared parameter file.");
-            }
-
-            var meta = default(Meta);
-            var groups = new List<Group>();
-            var parameters = new List<Parameter>();
-
-            foreach (var section in sharedParamsFileSections)
-            {
-                using (var stringReader = new StringReader(section.Value))
-                {
-                    using (var csvReader = new CsvReader(stringReader, CsvConfiguration))
-                    {
-                        csvReader.Configuration.TrimOptions = TrimOptions.Trim;
-                        csvReader.Configuration.BadDataFound = BadDataFound;
-
-                        // TODO implement
-                        // csvReader.Configuration.AllowComments = true;
-                        // csvReader.Configuration.Comment = '#';
-
-                        var originalHeaderValidated = csvReader.Configuration.HeaderValidated;
-                        csvReader.Configuration.HeaderValidated = (isValid, headerNames, headerIndex, context) =>
-                        {
-                            // Everything is OK, just go out
-                            if (isValid)
-                                return;
-
-                            // Allow DESCRIPTION header to be missing (it's actually missing in older shared parameter files)
-                            if (nameof(Parameter.Description).Equals(headerNames?.FirstOrDefault(), StringComparison.OrdinalIgnoreCase))
-                                return;
-
-                            // Allow USERMODIFIABLE header to be missing (it's actually missing in older shared parameter files)
-                            if (nameof(Parameter.UserModifiable).Equals(headerNames?.FirstOrDefault(), StringComparison.OrdinalIgnoreCase))
-                                return;
-
-                            originalHeaderValidated(false, headerNames, headerIndex, context);
-                        };
-
-                        var originalMissingFieldFound = csvReader.Configuration.MissingFieldFound;
-                        csvReader.Configuration.MissingFieldFound = (headerNames, index, context) =>
-                        {
-                            // Allow DESCRIPTION header to be missing (it's actually missing in older shared parameter files)
-                            if (nameof(Parameter.Description).Equals(headerNames?.FirstOrDefault(), StringComparison.OrdinalIgnoreCase))
-                                return;
-
-                            // Allow USERMODIFIABLE header to be missing (it's actually missing in older shared parameter files)
-                            if (nameof(Parameter.UserModifiable).Equals(headerNames?.FirstOrDefault(), StringComparison.OrdinalIgnoreCase))
-                                return;
-
-                            originalMissingFieldFound(headerNames, index, context);
-                        };
-
-                        switch (section.Key)
-                        {
-                            // Parse *META section
-                            case Sections.META:
-                                csvReader.Configuration.RegisterClassMap<MetaClassMap>();
-                                meta = csvReader.GetRecords<Meta>().FirstOrDefault();
-                                break;
-
-                            // Parse *GROUP section
-                            case Sections.GROUPS:
-                                csvReader.Configuration.RegisterClassMap<GroupClassMap>();
-                                groups = csvReader.GetRecords<Group>().ToList();
-                                break;
-
-                            // Parse *PARAM section
-                            case Sections.PARAMS:
-                                csvReader.Configuration.RegisterClassMap<ParameterClassMap>();
-                                parameters = csvReader.GetRecords<Parameter>().ToList();
-                                break;
-
-                            default:
-                                Debug.WriteLine($"Unknown section type: {section.Key}");
-                                continue;
-                        }
-                    }
-                }
-            }
-
-            // Post-process parameters by assigning group names using group IDs
-            // and recover UnitType from ParameterType
-            parameters = parameters
-                .AsParallel()
-                .Select(p =>
-                {
-                    p.GroupName = groups?.FirstOrDefault(g => g.Id == p.GroupId)?.Name;
-                    p.UnitType = p.ParameterType.GetUnitType();
-                    return p;
-                })
-                .ToList();
-
-            return new SharedParameterFile(meta, groups, parameters);
+            return new SharedParameterFile(sharedParameterText);
         }
 
         /// <summary>

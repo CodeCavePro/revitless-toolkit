@@ -1,13 +1,15 @@
-using CsvHelper;
+﻿using CsvHelper;
 using CsvHelper.Configuration;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace CodeCave.Revit.Toolkit.Parameters.Shared
 {
@@ -37,21 +39,22 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         /// Initializes a new instance of the <see cref="T:CodeCave.Revit.Toolkit.Parameters.Shared.SharedParameterFile" /> class.
         /// </summary>
         /// <param name="sharedParameterFile">The shared parameter file.</param>
+        /// <param name="encoding">The encoding to use, fallbacks to UTF-8.</param>
         /// ReSharper disable once SuggestBaseTypeForParameter
         /// <inheritdoc />
-        public SharedParameterFile(FileInfo sharedParameterFile)
-            : this(File.ReadAllText(sharedParameterFile?.FullName ?? throw new InvalidOperationException()))
-        {
-        }
+        public SharedParameterFile(FileInfo sharedParameterFile, Encoding encoding = null)
+            : this(sharedParameterFile?.FullName, encoding)
+        {}
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SharedParameterFile"/> class.
+        /// Initializes a new instance of the <see cref="SharedParameterFile" /> class.
         /// </summary>
         /// <param name="sharedParameterFile">The shared parameter file.</param>
+        /// <param name="encoding">The encoding to use, fallbacks to UTF-8.</param>
         /// <exception cref="ArgumentException">sharedParameterFile</exception>
         /// <exception cref="InvalidDataException">Failed to parse shared parameter file content," +
-        ///                                                "because it doesn't contain enough data for being qualified as a valid shared parameter file.</exception>
-        public SharedParameterFile(string sharedParameterFile)
+        /// "because it doesn't contain enough data for being qualified as a valid shared parameter file.</exception>
+        public SharedParameterFile(string sharedParameterFile, Encoding encoding = null)
         {
             if (string.IsNullOrWhiteSpace(sharedParameterFile))
             {
@@ -60,7 +63,8 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
 
             if (!SectionRegex.IsMatch(sharedParameterFile) && File.Exists(sharedParameterFile))
             {
-                sharedParameterFile = File.ReadAllText(sharedParameterFile);
+                Encoding = encoding ?? new FileInfo(sharedParameterFile).GetEncoding();
+                sharedParameterFile = File.ReadAllText(sharedParameterFile, Encoding);
             }
             
             var sharedParamsFileLines = SectionRegex
@@ -169,6 +173,14 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         }
 
         /// <summary>
+        /// Gets the encoding.
+        /// </summary>
+        /// <value>
+        /// The encoding.
+        /// </value>
+        public Encoding Encoding { get; }
+
+        /// <summary>
         /// Gets or sets the meta-data section of the shared parameter file.
         /// </summary>
         /// <value>
@@ -182,7 +194,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         /// <value>
         /// The groups section of the shared parameter file.
         /// </value>
-        public List<Group> Groups { get; } = new List<Group>();
+        public List<Group> Groups { get; }
 
         /// <summary>
         /// Gets or sets the parameters section of the shared parameter file.
@@ -190,7 +202,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         /// <value>
         /// The parameters section of the shared parameter file.
         /// </value>
-        public List<Parameter> Parameters { get; } = new List<Parameter>();
+        public List<Parameter> Parameters { get; }
 
         /// <summary>
         /// Returns a <see cref="String" /> that represents this instance.

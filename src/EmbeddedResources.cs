@@ -75,7 +75,7 @@ namespace CodeCave.Revit.Toolkit
                 case 1:
                     return _assembly.GetManifestResourceStream(possibleCandidates[0]);
                 default:
-                    throw new ArgumentException("Ambiguous name, cannot identify resource", "resName");
+                    throw new ArgumentException("Ambiguous name, cannot identify resource", nameof(resourceName));
             }
         }
     }

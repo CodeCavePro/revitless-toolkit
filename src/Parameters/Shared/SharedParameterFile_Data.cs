@@ -3,9 +3,9 @@ using CsvHelper;
 using CsvHelper.Configuration;
 using CsvHelper.TypeConversion;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
 
 namespace CodeCave.Revit.Toolkit.Parameters.Shared
@@ -38,6 +38,11 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                 DetectColumnCountChanges = false,
                 QuoteNoFields = true
             };
+
+#if !NET452
+            // Allow the usage of ANSI encoding other than the default one 
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+#endif
         }
 
         /// <summary>
@@ -174,7 +179,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             /// <value>
             /// The type of the unit.
             /// </value>
-            public UnitType UnitType { get; set; } = UnitType.UT_Undefined;
+            public UnitType UnitType { get; internal set; } = UnitType.UT_Undefined;
 
             /// <inheritdoc />
             /// <summary>

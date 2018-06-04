@@ -1,0 +1,211 @@
+# This is a Revit shared parameter file.
+# Do not edit manually.
+*META	VERSION	MINVERSION
+META	2	1
+*GROUP	ID	NAME
+GROUP	1	Dados de identidade
+GROUP	2	Geral
+GROUP	3	Engenharia elétrica
+GROUP	4	Mecânico
+GROUP	5	Hidráulico
+GROUP	6	Mecânica - Fluxo
+*PARAM	GUID	NAME	DATATYPE	DATACATEGORY	GROUP	VISIBLE
+PARAM	2103fa79-a310-44a5-9a52-2a7308096a53	Endereço internet do fabricante	URL		1	1
+PARAM	21ece315-1637-4204-9f28-26d092da56ba	Endereço internet da lista de peças sobressalentes recomendadas	URL		1	1
+PARAM	2782a7d0-aaca-45b1-a1f8-9e1f9d702ee5	Código do artigo	TEXT		1	1
+PARAM	2c8cb0ab-2c2e-4833-b57c-d0a0198d198f	Número de identificação NAFEM	TEXT		1	1
+PARAM	33b55482-e23e-4a67-a1ce-16977586b64c	Peso líquido	PIPE_MASS		1	1
+PARAM	35819fdb-1f9e-43ed-934e-ae7ebee67468	Especificações técnicas	TEXT		1	1
+PARAM	36bafbab-bfcd-4dfc-93f7-107f6d87434a	Endereço internet da lista de peças sobressalentes críticas	URL		1	1
+PARAM	37884bb1-ebad-472a-a744-e377959ff95b	Especificações do utilizador	TEXT		1	1
+PARAM	3e5b6b70-9e18-4ce7-9f7a-cbf7c44caec5	Especificações do fabricante	TEXT		1	1
+PARAM	5a00e935-cd2b-411e-a2d5-6a1833f1399a	Fornecido por	TEXT		1	1
+PARAM	5d0e257f-db34-4ecd-acfa-4e22a231dbeb	Acessório	YESNO		1	1
+PARAM	62d635b9-c295-4791-9560-ec3baa1471ca	Número SMACNA	TEXT		1	1
+PARAM	782a64e9-27bd-4d74-b441-ad4319034577	Classificação CSI MasterFormat	TEXT		1	1
+PARAM	7d1a2029-b6ac-49dc-9f51-eb3394632c94	Classificação sísmica	TEXT		1	1
+PARAM	ad25bcaf-61c6-4b68-9709-fd9a93295bc2	Código de revisão	TEXT		1	1
+PARAM	cd7eaf51-45da-4406-9468-ba3b3823f2fc	Quantidade por lote	YESNO		1	1
+PARAM	db6d0402-1b47-477d-8e1a-ffb1ee556531	Endereço internet da ficha técnica	URL		1	1
+PARAM	e3a0878c-a5b2-4be1-8ac9-c8a0da9cfc6b	Número de série	TEXT		1	1
+PARAM	ee417c6e-c1c8-4d3c-860a-58ae534be231	Instalado por	TEXT		1	1
+PARAM	f16fafe8-01d8-4b4e-bcf2-7011ee21adf1	Identificador de equipamento de cozinha profissional	YESNO		1	1
+PARAM	00661ef2-bbd3-4e56-a0ec-fdec5f053c01	Duração da garantia	TEXT		2	1
+PARAM	10500b81-4405-47ce-8c72-1c33b2a34eaf	Marcação ETL	YESNO		2	1
+PARAM	12124616-e738-4a55-90ea-cb4ed0678da7	Ano de fabrico	TEXT		2	1
+PARAM	1b48d461-1a3f-49cf-acad-112b4eab6c8a	Estado	TEXT		2	1
+PARAM	21392f66-17da-4a46-8fb7-bd7e39f58313	Nível de ruido	TEXT		2	1
+PARAM	491f2efa-0fba-4751-ab07-e8568cfa8c64	Marcação CE	YESNO		2	1
+PARAM	49b1e16d-f1ae-4010-89ac-11125115d6e4	Marcação de higiene	TEXT		2	1
+PARAM	4bd1b7a0-d8af-4cc4-8a14-bba298fc9be9	Autor	TEXT		2	1
+PARAM	527b5ee5-e1fc-462b-9191-b01031baa9bf	Data da instalação	TEXT		2	1
+PARAM	56b859ae-cefc-40b8-a55f-580a62d1479c	Número de inventário	TEXT		2	1
+PARAM	61666852-df55-4a3c-956d-1520aa2ea411	Tempo de vida útil	TEXT		2	1
+PARAM	6246fb59-01f3-4eaa-b927-07a7ac632708	Largura	LENGTH		2	1
+PARAM	6fa53706-1c02-4421-8f49-6d0dedcbeb86	Altura	LENGTH		2	1
+PARAM	7532b513-45d9-4284-86f2-8f980b1a2165	Carga pontual	NUMBER		2	1
+PARAM	857afe75-84d2-46dd-9c67-8fbca5079a60	Data de início da garantia	TEXT		2	1
+PARAM	9a9128ec-7b92-4209-8600-ad07ba7cf1c6	Profundidade	LENGTH		2	1
+PARAM	a556c15d-24b8-488e-953c-08047911ab21	Tipo de combustível sólido	TEXT		2	1
+PARAM	aa0d9545-b1ea-4e6a-b4bd-0892bf82961c	Outras marcações do equipamento	TEXT		2	1
+PARAM	b5c0571a-0f53-4750-8908-c67767b63fed	Código de barras	NUMBER		2	1
+PARAM	b8894649-27fb-4b92-9287-f5b044e21d34	ID	TEXT		2	1
+PARAM	b90804a7-a984-49bb-adc9-c30e283883ec	Revisão	TEXT		2	1
+PARAM	de78c1f2-60ed-4971-9e34-d64f8ab31b27	Advertência	TEXT		2	1
+PARAM	eb6e4c22-81ca-4f8a-80d3-d526a8f0976e	Código de identificação	TEXT		2	1
+PARAM	0c731378-54ed-4fea-b9b7-7967e9bac2fa	Absorção mínima de corrente	ELECTRICAL_CURRENT		3	1
+PARAM	138f1852-9282-445d-a41a-d28ffcf2892f	Potência eléctrica	ELECTRICAL_WATTAGE		3	1
+PARAM	187de743-261a-42a0-8ccc-3b5b62638d80	Equalização de tensão entre fases 	YESNO		3	1
+PARAM	1a074459-34a2-4bb6-af1c-505c70914893	Potência aparente	ELECTRICAL_APPARENT_POWER		3	1
+PARAM	1db9c6d9-9601-48b8-8a1e-17daa7e3cd14	Interruptor geral integrado	YESNO		3	1
+PARAM	230d92fd-0f34-4c29-a28e-8d3c7d9b1095	Conexão sem tensão	YESNO		3	1
+PARAM	4610e411-8466-4ef5-b8db-75ebf24934bb	Sistema centralizado de controlo do edifício com Interface digital	TEXT		3	1
+PARAM	50c8d4a1-e715-4be3-9111-e3d5b81b67c3	Potência absorvida sem carga	YESNO		3	1
+PARAM	5f60c6e2-4197-42f7-8290-16b68ac82a06	Corrente	ELECTRICAL_CURRENT		3	1
+PARAM	5fab9ed6-b095-4b07-a0e6-0c9e8ada7f6b	Corrente de serviço	ELECTRICAL_CURRENT		3	1
+PARAM	88300abc-ecda-41df-b4ec-dfe5b2310a75	Altura da conexão eléctrica do pavimento acabado	LENGTH		3	1
+PARAM	884c0685-6fca-4b16-b30b-6172aac38a8f	Comentários Parte eléctrica	TEXT		3	1
+PARAM	8c68dd65-92c2-44e6-b252-ad36cca169b7	Potência CV	TEXT		3	1
+PARAM	a04279ca-08ed-4c61-ad55-c27a69218213	Frequência	ELECTRICAL_FREQUENCY		3	1
+PARAM	be8c7ecc-0ff9-4953-bb59-11f88dc15142	Número de pólos	NOOFPOLES		3	1
+PARAM	df7da6ef-7f97-4946-b2ee-46095913dda4	Proteção máxima de corrente	ELECTRICAL_CURRENT		3	1
+PARAM	e026ceea-4098-4e23-8b35-a0d72d5658f7	Tubo de proteção da cablagem de alimentação	YESNO		3	1
+PARAM	e2105edf-3cf2-44ee-be8c-a790592e8a5f	Tensão	ELECTRICAL_POTENTIAL		3	1
+PARAM	e25b7c0a-c0de-4a07-9d3c-3dd2c4c7f8d9	Tipo de ligação eléctrica	TEXT		3	1
+PARAM	eaa6e959-5331-44a1-aaa7-289c1b9b1f3a	Corrente de arranque	ELECTRICAL_CURRENT		3	1
+PARAM	ead61c76-294d-4ed8-af16-368d772a7a4a	Altura da conexão eléctrica do pavimento em bruto	LENGTH		3	1
+PARAM	ee266c41-ac0d-4689-9866-682741050296	Conector ficha eléctrica	TEXT		3	1
+PARAM	fb39d483-5543-4f28-9606-769d2e3e9293	Número de fases	INTEGER		3	1
+PARAM	0dfe0a45-fd22-4991-8a89-b0a4fbc39ee6	Diâmetro da ligação Ar comprimido	PIPE_SIZE		4	1
+PARAM	0f8198ec-0e09-49ac-a72d-9aa67d91b4c9	Potência nominal Gás	HVAC_HEAT_GAIN		4	1
+PARAM	1172ae48-add4-43cf-8c9d-fced7853210c	Diâmetro da ligação de entrada Gás	PIPE_SIZE		4	1
+PARAM	11b5fa1c-55d9-414e-9ffc-f80ab4e91fd0	Pressão mínima entrada Vapor de água	PIPING_PRESSURE		4	1
+PARAM	18f9b55b-413d-41f3-9928-06e5437721ef	Comentários Vapor	TEXT		4	1
+PARAM	1a123e7a-7e21-4840-b24b-1cc889f3a7ff	Volume CO2	PIPING_FLOW		4	1
+PARAM	1af1b4e9-4e68-423b-948e-8aaa5fd2327f	Diâmetro Entrada Vapor de água	PIPE_SIZE		4	1
+PARAM	1b0e1842-3d21-4d1b-9027-9ae24a89491c	Potência frigorífica BTUH	HVAC_HEAT_GAIN		4	1
+PARAM	21cc75c6-295f-46c2-a9c5-33031c56cd75	Caudal Fluido frigorigéneo	PIPING_FLOW		4	1
+PARAM	22aee7e6-f7d9-4a4e-a2d8-de5ad93e9c66	Diâmetro da ligação CO2	PIPE_SIZE		4	1
+PARAM	280602ff-67e1-4339-bbda-577e5cb16bc9	Qualidade Ar comprimido	TEXT		4	1
+PARAM	29970cbe-a66f-49fa-b625-7d1ec9ab688b	Altura da ligação CO2 do pavimento acabado	LENGTH		4	1
+PARAM	2a42589c-79ac-41e4-85e3-61a42f9df92f	Volume Ar comprimido	PIPING_FLOW		4	1
+PARAM	2b70c706-5127-48ca-a731-31cefddf86da	Altura da ligação Gás do pavimento acabado	LENGTH		4	1
+PARAM	2f619576-a20c-4640-9cdd-65af395d72bd	Pressão Ar comprimido 	PIPING_PRESSURE		4	1
+PARAM	3a5f48c9-513f-42f5-b56a-c4913ca6eb11	Altura da ligação Ar comprimido do pavimento acabado	LENGTH		4	1
+PARAM	3b8f38ac-9fb2-41cf-a236-8a497e21ceeb	Emissão de calor latente	HVAC_HEAT_GAIN		4	1
+PARAM	3f03f544-8863-4b9c-8248-1e359d46ebfb	Altura da ligação Gás do pavimento em bruto	LENGTH		4	1
+PARAM	4fd93d6a-d929-47f3-914b-7a4fa3a716c6	Altura da ligação Ar comprimido do pavimento em bruto	LENGTH		4	1
+PARAM	5438b013-06c4-4206-8613-273889c8eda0	Tipo de Gás	TEXT		4	1
+PARAM	560b969a-dc30-41c8-8e1b-615db537908b	Diâmetro da ligação fixa Gás	PIPE_SIZE		4	1
+PARAM	592b6b40-e7fa-4447-866b-a6275f1c443d	Emissão de calor sensível	HVAC_HEAT_GAIN		4	1
+PARAM	59a71622-f09d-4758-b891-9c7438e474e5	Compressor remoto	YESNO		4	1
+PARAM	5d971ffd-3560-45b1-9b62-9f7c40607588	Altura da ligação de retorno Condensados do pavimento em bruto	LENGTH		4	1
+PARAM	66e0542e-94de-48af-9ff0-52a592b0c822	Tipo de ligações mecânicas	TEXT		4	1
+PARAM	74dea842-2b30-4927-b384-3d55a964c663	Diâmetro do retorno Condensados	PIPE_SIZE		4	1
+PARAM	798b2006-dab2-49a6-b597-58e4a6d010dc	Pressão CO2	PIPING_PRESSURE		4	1
+PARAM	8686d9b4-b322-4053-afea-b57be854d317	Temperatura de evaporação	PIPING_TEMPERATURE		4	1
+PARAM	873cc249-1eda-4842-b320-f48c0b851fe9	Emissão de calor direto	HVAC_HEAT_GAIN		4	1
+PARAM	876350a0-ac28-4d43-8cb5-9b8a65e2b12e	Diâmetro Linha de líquido	LENGTH		4	1
+PARAM	9a980b59-a3d5-4e9a-9687-0c2690cbff5f	Diâmetro Linha de aspiração	LENGTH		4	1
+PARAM	9de5bebd-bfda-48b9-aab3-e1f023b341d7	Pressão de funcionamento	PIPING_PRESSURE		4	1
+PARAM	a79a41e7-97a5-4b53-9453-07928747339b	Consumo Vapor de água	NUMBER		4	1
+PARAM	abbbe577-68b5-4c8f-b05d-694a45a73a51	Potência Gás kW	NUMBER		4	1
+PARAM	b0f11d64-c918-4dd5-96ad-88b6edbef518	Altura da ligação de entrada Vapor de água do pavimento acabado	LENGTH		4	1
+PARAM	b5915230-667a-42b0-8fe0-4e474ff36922	Caudal Gás	PIPING_FLOW		4	1
+PARAM	ba7243b9-faff-466d-a8e2-e8337501999a	Tipo Fluido frigorigéneo	TEXT		4	1
+PARAM	be4d3686-1c43-4d90-b9ba-107b470a06d7	Esgoto de descongelação	YESNO		4	1
+PARAM	c43bd675-b9d2-43d5-8296-1b53f8a81642	Diâmetro da ligação flexível Gás	PIPE_SIZE		4	1
+PARAM	d34dc451-60fd-4976-970a-ca94e58c2902	Índice de Eficiência Energética IEE	TEXT		4	1
+PARAM	d5d3e073-d613-44fd-9223-e11098f25acb	Tipo Vapor de água	TEXT		4	1
+PARAM	dc8c884d-557c-4d38-a3c0-f8c6e4940887	Etiqueta energética	TEXT		4	1
+PARAM	e2a5bd08-a77c-46ab-aad6-9978bb0fbebe	Caudal Entrada Vapor de água	PIPING_FLOW		4	1
+PARAM	e7dccd9b-d7af-415b-8691-c46631f40592	Comentários Mecânica	TEXT		4	1
+PARAM	e8fc6f2f-a5f3-42eb-86e6-580b7857106b	Carga Fluido frigorigéneo	NUMBER		4	1
+PARAM	ea59bbc0-2baf-4e48-831b-283cb6b09021	Altura da ligação de retorno Condensados do pavimento acabado	LENGTH		4	1
+PARAM	f043185b-3bfe-4f28-9635-74894aacda39	Altura da ligação de entrada Vapor de água do pavimento em bruto	LENGTH		4	1
+PARAM	f4a22d1f-4a4f-46df-9f5d-634d0a8bfcac	Classe climática do equipamento refrigerado	TEXT		4	1
+PARAM	fb10b0bf-2497-4eb8-af54-d478a2fbcf59	Pressão máxima entrada Vapor de água	PIPING_PRESSURE		4	1
+PARAM	fc4b1ce5-339b-4e43-9d8e-38fc6efe16a9	Tipo de condução de fumo	TEXT		4	1
+PARAM	ff52e471-3046-456a-b819-0109af4582fd	Altura da ligação CO2 do pavimento em bruto	LENGTH		4	1
+PARAM	0779e65e-2251-440c-b0db-f0c436fabf1f	Altura da ligação de retorno Água refrigerada do pavimento acabado	LENGTH		5	1
+PARAM	0eaf669c-120f-43aa-aad1-1e2cc64fd0f5	Pressão mínima Água quente	PIPING_PRESSURE		5	1
+PARAM	0ebf45b3-72a2-40f6-be5f-15251e70ed7c	Pressão máxima Águas residuais	PIPING_PRESSURE		5	1
+PARAM	0f370809-0a98-4ff6-ad29-4180fd9b2edf	Caudal Águas residuais	PIPING_FLOW		5	1
+PARAM	11dfbbe4-fabc-45ba-a079-4794bc41a32d	Diâmetro Descarga indirecta Águas residuais	PIPE_SIZE		5	1
+PARAM	121bbd5e-825f-47db-b0de-6afc9ea11ddd	Altura da ligação  Descarga directa Águas residuais do pavimento em bruto	LENGTH		5	1
+PARAM	1953faf9-d63b-453a-9b90-5e678450ced8	Diâmetro do tubo de retorno Água refrigerada	PIPE_SIZE		5	1
+PARAM	2928684b-4b2f-4e56-8ff8-bc6759b01672	Altura da ligação de entrada Água refrigerada do pavimento em bruto	LENGTH		5	1
+PARAM	2de7bf58-75af-4893-bf2e-11b5c1098781	Temperatura de descarga Águas residuais	PIPING_TEMPERATURE		5	1
+PARAM	3239f07b-0673-46d7-bf57-36de9d40e5dc	Pressão mínima Água fria	PIPING_PRESSURE		5	1
+PARAM	32def6f6-9bfe-48e8-8bac-e2cf8567c7df	Qualidade Água aquecida	TEXT		5	1
+PARAM	39c71e91-3e0f-4910-8db9-df6c62023468	Altura da ligação Águas residuais do pavimento em bruto	LENGTH		5	1
+PARAM	420eaaf5-4ca7-402d-a17b-f4cb53e45012	Pressão máxima Água refrigerada	PIPING_PRESSURE		5	1
+PARAM	4765341a-2adb-431e-beab-a897d6ddb237	Altura da ligação Águas residuais do pavimento acabado	LENGTH		5	1
+PARAM	484056f7-70a9-4ca6-bd5f-817ca27bd2f8	Diâmetro Descarga directa Águas residuais	PIPE_SIZE		5	1
+PARAM	4abf251f-26d2-4b3d-8a81-2cc7e9ff168b	Caudal Água aquecida	PIPING_FLOW		5	1
+PARAM	4b3f9d4b-a4de-434f-a855-9e7bf4b38ed8	Caudal Água quente	PIPING_FLOW		5	1
+PARAM	4eea0fd0-75c3-436b-b414-4c04711587a1	Altura da ligação Água filtrada do pavimento acabado	LENGTH		5	1
+PARAM	4fa0ec33-3fa6-41a1-9706-545ed9ddc05e	Sifão incluído	YESNO		5	1
+PARAM	510f7311-21aa-4aa9-be5a-e97e0e8a0a93	Qualidade Água fria	TEXT		5	1
+PARAM	53f1bfb1-71d2-4c1e-8484-f6df10b38ee0	Caudal Água refrigerada	PIPING_FLOW		5	1
+PARAM	554a9835-0b99-4244-a3dc-4ba224b7e013	Altura da ligação Água fria do pavimento acabado	LENGTH		5	1
+PARAM	58a69a06-5e24-4112-a47c-42c82e3ebb6a	Pressão máxima Água aquecida	PIPING_PRESSURE		5	1
+PARAM	5de4f84f-8810-4bfe-88a1-36fadd45721d	Qualidade Água filtrada	TEXT		5	1
+PARAM	6419f363-c39c-49f8-bf77-2f2b9cc6988b	Qualidade Água refrigerada	TEXT		5	1
+PARAM	6549b608-34c5-403c-a13e-ca4096ab8df4	Altura da ligação Água filtrada do pavimento em bruto	LENGTH		5	1
+PARAM	66b5367d-78cd-477a-9fd3-0e04f8459d5a	Temperatura de entrada Água quente	PIPING_TEMPERATURE		5	1
+PARAM	6a79fb38-f4ed-4605-afa0-ba99c4887701	Qualidade Água quente	TEXT		5	1
+PARAM	6b2ae170-1a20-4bcc-a214-0fabb349dd8f	Consumo Água aquecida	PIPING_FLOW		5	1
+PARAM	6c9b4e06-a082-4cb1-a8fc-b97a427c9c5f	Altura da ligação de retorno  Água refrigerada do pavimento em bruto	LENGTH		5	1
+PARAM	6cb10a65-5bb3-438b-93b3-dbd5f2e1939b	Diâmetro Águas residuais	PIPE_SIZE		5	1
+PARAM	7051758d-eb84-4b47-b1ac-17eb873e0a2a	Caudal Água fria	PIPING_FLOW		5	1
+PARAM	725c8e69-1df4-4999-9f94-39244cbceb1d	Marcação WARS	YESNO		5	1
+PARAM	78e9511a-716a-44fd-b5d4-8006d45bda6e	Tipo de ligação de tubagens	TEXT		5	1
+PARAM	8029057c-2601-4b3f-a9b7-39b86f0a22c5	Altura da ligação Água fria do pavimento em bruto	LENGTH		5	1
+PARAM	8bcf0b86-8b8c-431e-9db9-3ef37f7349b9	Diâmetro da ligação de entrada Água refrigerada	PIPE_SIZE		5	1
+PARAM	8e95a387-eec0-4228-b603-1b0fb46df02e	Pressão mínima Águas residuais	PIPING_PRESSURE		5	1
+PARAM	91507bee-dd95-419a-b4df-1c258143a14c	Altura da ligação de entrada Água refrigerada do pavimento acabado	LENGTH		5	1
+PARAM	976888ed-c302-4c58-ac96-44113427658a	Temperatura recomendada Águas residuais	PIPING_TEMPERATURE		5	1
+PARAM	99e06fdb-82cc-41fe-9fa2-9c524fec6f0f	Diâmetro da ligação Água fria	PIPE_SIZE		5	1
+PARAM	9aceaf0b-a9d4-4dd7-8463-cd2decb14586	Pressão máxima Água quente	PIPING_PRESSURE		5	1
+PARAM	9e94dc41-a461-4d2d-89b3-bdeb2f7545e3	Temperatura recomendada Água quente	PIPING_TEMPERATURE		5	1
+PARAM	9fd14743-959c-4e4c-96a7-5fefbcd3be70	Tipo de ligação Descarga indirecta Águas residuais	TEXT		5	1
+PARAM	a0030f64-4f46-4c02-a88e-a7e72a36611c	Consumo Água fria	PIPING_FLOW		5	1
+PARAM	a0934b10-c11b-4a0b-b774-cb4cf6e6b6f5	Caudal Descarga directa Águas residuais	PIPING_FLOW		5	1
+PARAM	a44ce2a2-4b89-4482-89af-ea627adaa2a6	Pressão máxima Água fria	PIPING_PRESSURE		5	1
+PARAM	a545c9b6-38c0-4700-ba8e-2651dc1a039f	Pressão mínima Água aquecida	PIPING_PRESSURE		5	1
+PARAM	aa148d21-ec50-4bcb-b5b7-babe0a1ae207	Diâmetro Água aquecida	PIPE_SIZE		5	1
+PARAM	aa4fc352-15cf-41f5-ada2-60fe1bac6972	Caudal Água filtrada	PIPING_FLOW		5	1
+PARAM	b1d62bcb-5a5b-473d-8bbb-b7013c064ba3	Altura da ligação Descarga indirecta Águas residuais do pavimento acabado	LENGTH		5	1
+PARAM	b96ead64-4cb4-459e-aec0-787140811551	Temperatura recomendada Água fria	PIPING_TEMPERATURE		5	1
+PARAM	c031fafc-ce7b-423b-84a1-b87f48f89abf	Diâmetro da ligação de entrada Água quente 	PIPE_SIZE		5	1
+PARAM	c288aed3-8db5-4523-8ac6-3aa1c0512b89	Temperatura Água refrigerada	PIPING_TEMPERATURE		5	1
+PARAM	da9d57f2-5896-4ca4-bde9-c5f609d2ac32	Comentários Águas residuais	TEXT		5	1
+PARAM	dd67f8a8-26e1-477c-a3bc-6f3ef444838a	Altura da ligação Água aquecida do pavimento acabado	LENGTH		5	1
+PARAM	df24d759-6b30-454b-8f34-c581a7d26b34	Consumo Águas residuais	TEXT		5	1
+PARAM	e046cf05-6097-460d-913f-e0b04d199b67	Altura da ligação Descarga directa Águas residuais do pavimento acabado	LENGTH		5	1
+PARAM	e05d012f-7591-4a80-8274-2952ceb40d1c	Altura da ligação de entrada Água quente do pavimento em bruto	LENGTH		5	1
+PARAM	e1ef6f77-19b1-40f2-bd3e-31840e2bc9c4	Comentários Tubagem	TEXT		5	1
+PARAM	e23832d1-f3ea-417d-ba6a-cf7615b7e3f6	Caudal Descarga indirecta Águas residuais	PIPING_FLOW		5	1
+PARAM	e915bfb5-6f1b-4543-ab8b-d1cd95f3da86	Pressão mínima Água filtrada	PIPING_PRESSURE		5	1
+PARAM	eea853fd-3aee-4f08-8af1-1c7383b7c696	Pressão mínima Água refrigerada	PIPING_PRESSURE		5	1
+PARAM	f03269ff-9593-4730-b2d1-e54dd75e45cf	Diâmetro da ligação de entrada Água filtrada	PIPE_SIZE		5	1
+PARAM	f28f9fc9-4ee6-4bd4-a7a8-1b934f601737	Pressão máxima Água filtrada	PIPING_PRESSURE		5	1
+PARAM	13054a85-ac25-45c2-923e-b8ed3f6a1f5b	Altura da ligação Respiradouro de extracção do pavimento em bruto	LENGTH		6	1
+PARAM	286f0443-67dc-4600-a32e-e64c96b73dcc	Profundidade Respiradouro de extração	LENGTH		6	1
+PARAM	33375e16-327a-4ef6-a7ce-d6a0b845ff26	Velocidade no obturador Ar de extração	HVAC_AIR_FLOW		6	1
+PARAM	51c77dae-3365-4021-a560-45978eec0702	Largura Respiradouro de extração	LENGTH		6	1
+PARAM	54e6e162-7aba-4a74-a4b5-1810341f8de7	Diâmetro Respiradouro ar de compensação 	LENGTH		6	1
+PARAM	689de609-ec48-4192-9ba7-c21c82eb7893	Comentários Ventilação	TEXT		6	1
+PARAM	6a0b3115-e1b3-4faa-bc20-1ddaec82a731	Diâmetro Respiradouro de extração	LENGTH		6	1
+PARAM	7cb46937-0249-4743-998f-9f7301172909	Pressão estática Ar de compensação	HVAC_PRESSURE		6	1
+PARAM	8ffd0bd8-a6de-4d39-b17d-a43ed9cdb1de	Profundidade Respiradouro ar de compensação	LENGTH		6	1
+PARAM	92f7d901-72b6-46ee-ae6d-4b69f1ce4ef2	MU Velocidade do ar no obturador	HVAC_AIR_FLOW		6	1
+PARAM	a2a51257-2b6f-4f88-8b2b-2c668b8acd1a	Temperatura Ar de extração	HVAC_TEMPERATURE		6	1
+PARAM	a457e654-e4bd-47aa-8eff-84f6f74336eb	Volume Ar de extração	HVAC_AIR_FLOW		6	1
+PARAM	a538b40b-d050-4290-9043-1d3c1e98d977	Altura da ligação Respiradouro ar de compensação do pavimento em bruto	LENGTH		6	1
+PARAM	ac3c75bb-b828-417e-a053-5cb3a63754c3	Largura Respiradouro ar de compensação 	LENGTH		6	1
+PARAM	be3c36f4-045e-4e1f-93f8-31988c306d22	Volume Ar de compensação	HVAC_AIR_FLOW		6	1
+PARAM	ca032f38-b575-41c4-b7ef-f2a38705adfb	Humidade Ar de extração	NUMBER		6	1
+PARAM	cedf83b7-75f9-4067-8773-a2f593b03ff4	Pressão estática Ar de extração	HVAC_PRESSURE		6	1
+PARAM	f5f462b4-b23c-4bc8-8c88-b94ad05c501c	Altura Respiradouro de extração	LENGTH		6	1

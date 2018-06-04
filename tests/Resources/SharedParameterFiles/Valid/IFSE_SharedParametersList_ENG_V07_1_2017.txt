@@ -1,0 +1,211 @@
+# This is a Revit shared parameter file.
+# Do not edit manually.
+*META	VERSION	MINVERSION
+META	2	1
+*GROUP	ID	NAME
+GROUP	1	Identity Data
+GROUP	2	General
+GROUP	3	Electrical
+GROUP	4	Mechanical
+GROUP	5	Plumbing
+GROUP	6	Mechanical - Flow
+*PARAM	GUID	NAME	DATATYPE	DATACATEGORY	GROUP	VISIBLE
+PARAM	2103fa79-a310-44a5-9a52-2a7308096a53	URL Manufacturer	URL		1	1
+PARAM	21ece315-1637-4204-9f28-26d092da56ba	URL Recommended Spares List	URL		1	1
+PARAM	2782a7d0-aaca-45b1-a1f8-9e1f9d702ee5	Item Number	TEXT		1	1
+PARAM	2c8cb0ab-2c2e-4833-b57c-d0a0198d198f	NAFEM Spec ID Number	TEXT		1	1
+PARAM	33b55482-e23e-4a67-a1ce-16977586b64c	Weight	PIPE_MASS		1	1
+PARAM	35819fdb-1f9e-43ed-934e-ae7ebee67468	Masterspec	TEXT		1	1
+PARAM	36bafbab-bfcd-4dfc-93f7-107f6d87434a	URL Critical Spares List	URL		1	1
+PARAM	37884bb1-ebad-472a-a744-e377959ff95b	Specification by User	TEXT		1	1
+PARAM	3e5b6b70-9e18-4ce7-9f7a-cbf7c44caec5	Specification by Manufacturer	TEXT		1	1
+PARAM	5a00e935-cd2b-411e-a2d5-6a1833f1399a	Furnished By	TEXT		1	1
+PARAM	5d0e257f-db34-4ecd-acfa-4e22a231dbeb	Accessory	YESNO		1	1
+PARAM	62d635b9-c295-4791-9560-ec3baa1471ca	SMACNA No	TEXT		1	1
+PARAM	782a64e9-27bd-4d74-b441-ad4319034577	CSI MasterFormat	TEXT		1	1
+PARAM	7d1a2029-b6ac-49dc-9f51-eb3394632c94	Seismic Rating	TEXT		1	1
+PARAM	ad25bcaf-61c6-4b68-9709-fd9a93295bc2	Revision Code	TEXT		1	1
+PARAM	cd7eaf51-45da-4406-9468-ba3b3823f2fc	Identify Quantity as Lot	YESNO		1	1
+PARAM	db6d0402-1b47-477d-8e1a-ffb1ee556531	URL Cutsheet	URL		1	1
+PARAM	e3a0878c-a5b2-4be1-8ac9-c8a0da9cfc6b	Serial Number	TEXT		1	1
+PARAM	ee417c6e-c1c8-4d3c-860a-58ae534be231	Installed By	TEXT		1	1
+PARAM	f16fafe8-01d8-4b4e-bcf2-7011ee21adf1	Foodservice Equipment Identifier	YESNO		1	1
+PARAM	00661ef2-bbd3-4e56-a0ec-fdec5f053c01	Warranty Duration	TEXT		2	1
+PARAM	10500b81-4405-47ce-8c72-1c33b2a34eaf	ETL Approved	YESNO		2	1
+PARAM	12124616-e738-4a55-90ea-cb4ed0678da7	Production Year	TEXT		2	1
+PARAM	1b48d461-1a3f-49cf-acad-112b4eab6c8a	Status	TEXT		2	1
+PARAM	21392f66-17da-4a46-8fb7-bd7e39f58313	Sound Level	TEXT		2	1
+PARAM	491f2efa-0fba-4751-ab07-e8568cfa8c64	CE Approved	YESNO		2	1
+PARAM	49b1e16d-f1ae-4010-89ac-11125115d6e4	Hygiene Approval	TEXT		2	1
+PARAM	4bd1b7a0-d8af-4cc4-8a14-bba298fc9be9	Author	TEXT		2	1
+PARAM	527b5ee5-e1fc-462b-9191-b01031baa9bf	Installation Date	TEXT		2	1
+PARAM	56b859ae-cefc-40b8-a55f-580a62d1479c	Asset Identifier	TEXT		2	1
+PARAM	61666852-df55-4a3c-956d-1520aa2ea411	Service Life Duration	TEXT		2	1
+PARAM	6246fb59-01f3-4eaa-b927-07a7ac632708	Length Actual	LENGTH		2	1
+PARAM	6fa53706-1c02-4421-8f49-6d0dedcbeb86	Height Actual	LENGTH		2	1
+PARAM	7532b513-45d9-4284-86f2-8f980b1a2165	Point Load	NUMBER		2	1
+PARAM	857afe75-84d2-46dd-9c67-8fbca5079a60	Warranty Start Date	TEXT		2	1
+PARAM	9a9128ec-7b92-4209-8600-ad07ba7cf1c6	Depth Actual	LENGTH		2	1
+PARAM	a556c15d-24b8-488e-953c-08047911ab21	Solid Fuel Type	TEXT		2	1
+PARAM	aa0d9545-b1ea-4e6a-b4bd-0892bf82961c	Other Equipment Approvals	TEXT		2	1
+PARAM	b5c0571a-0f53-4750-8908-c67767b63fed	Barcode	NUMBER		2	1
+PARAM	b8894649-27fb-4b92-9287-f5b044e21d34	ID	TEXT		2	1
+PARAM	b90804a7-a984-49bb-adc9-c30e283883ec	Revision	TEXT		2	1
+PARAM	de78c1f2-60ed-4971-9e34-d64f8ab31b27	Model Warning	TEXT		2	1
+PARAM	eb6e4c22-81ca-4f8a-80d3-d526a8f0976e	Tag Number	TEXT		2	1
+PARAM	0c731378-54ed-4fea-b9b7-7967e9bac2fa	Min Ckt Ampacity	ELECTRICAL_CURRENT		3	1
+PARAM	138f1852-9282-445d-a41a-d28ffcf2892f	Electric power	ELECTRICAL_WATTAGE		3	1
+PARAM	187de743-261a-42a0-8ccc-3b5b62638d80	Potential Equalisation	YESNO		3	1
+PARAM	1a074459-34a2-4bb6-af1c-505c70914893	Apparent Power	ELECTRICAL_APPARENT_POWER		3	1
+PARAM	1db9c6d9-9601-48b8-8a1e-17daa7e3cd14	Main switch integrated	YESNO		3	1
+PARAM	230d92fd-0f34-4c29-a28e-8d3c7d9b1095	Volt Free Conn	YESNO		3	1
+PARAM	4610e411-8466-4ef5-b8db-75ebf24934bb	Centralized building control system with digital interface	TEXT		3	1
+PARAM	50c8d4a1-e715-4be3-9111-e3d5b81b67c3	No Load Power Draw	YESNO		3	1
+PARAM	5f60c6e2-4197-42f7-8290-16b68ac82a06	FL Amps	ELECTRICAL_CURRENT		3	1
+PARAM	5fab9ed6-b095-4b07-a0e6-0c9e8ada7f6b	Operational Current	ELECTRICAL_CURRENT		3	1
+PARAM	88300abc-ecda-41df-b4ec-dfe5b2310a75	Elec Conn Connection Height	LENGTH		3	1
+PARAM	884c0685-6fca-4b16-b30b-6172aac38a8f	Electrical Remarks	TEXT		3	1
+PARAM	8c68dd65-92c2-44e6-b252-ad36cca169b7	HP power	TEXT		3	1
+PARAM	a04279ca-08ed-4c61-ad55-c27a69218213	Cycle	ELECTRICAL_FREQUENCY		3	1
+PARAM	be8c7ecc-0ff9-4953-bb59-11f88dc15142	Number of Poles	NOOFPOLES		3	1
+PARAM	df7da6ef-7f97-4946-b2ee-46095913dda4	Max Overcurrent Protection	ELECTRICAL_CURRENT		3	1
+PARAM	e026ceea-4098-4e23-8b35-a0d72d5658f7	Conn Conduit	YESNO		3	1
+PARAM	e2105edf-3cf2-44ee-be8c-a790592e8a5f	Volts	ELECTRICAL_POTENTIAL		3	1
+PARAM	e25b7c0a-c0de-4a07-9d3c-3dd2c4c7f8d9	Electric Connection Type	TEXT		3	1
+PARAM	eaa6e959-5331-44a1-aaa7-289c1b9b1f3a	Start Up Current	ELECTRICAL_CURRENT		3	1
+PARAM	ead61c76-294d-4ed8-af16-368d772a7a4a	Elec Conn RI Height	LENGTH		3	1
+PARAM	ee266c41-ac0d-4689-9866-682741050296	Conn Plug	TEXT		3	1
+PARAM	fb39d483-5543-4f28-9606-769d2e3e9293	Phase	INTEGER		3	1
+PARAM	0dfe0a45-fd22-4991-8a89-b0a4fbc39ee6	Compressed Air Size	PIPE_SIZE		4	1
+PARAM	0f8198ec-0e09-49ac-a72d-9aa67d91b4c9	Nominal Gas power	HVAC_HEAT_GAIN		4	1
+PARAM	1172ae48-add4-43cf-8c9d-fced7853210c	Gas Size	PIPE_SIZE		4	1
+PARAM	11b5fa1c-55d9-414e-9ffc-f80ab4e91fd0	Steam Supply Minimum Pressure	PIPING_PRESSURE		4	1
+PARAM	18f9b55b-413d-41f3-9928-06e5437721ef	Steam Remarks	TEXT		4	1
+PARAM	1a123e7a-7e21-4840-b24b-1cc889f3a7ff	CO2 Volume	PIPING_FLOW		4	1
+PARAM	1af1b4e9-4e68-423b-948e-8aaa5fd2327f	Steam Supply Size	PIPE_SIZE		4	1
+PARAM	1b0e1842-3d21-4d1b-9027-9ae24a89491c	BTUH	HVAC_HEAT_GAIN		4	1
+PARAM	21cc75c6-295f-46c2-a9c5-33031c56cd75	Refrigerant Volume	PIPING_FLOW		4	1
+PARAM	22aee7e6-f7d9-4a4e-a2d8-de5ad93e9c66	CO2 Size	PIPE_SIZE		4	1
+PARAM	280602ff-67e1-4339-bbda-577e5cb16bc9	Compressed Air Quality	TEXT		4	1
+PARAM	29970cbe-a66f-49fa-b625-7d1ec9ab688b	CO2 Connection Height	LENGTH		4	1
+PARAM	2a42589c-79ac-41e4-85e3-61a42f9df92f	Compressed Air Volume	PIPING_FLOW		4	1
+PARAM	2b70c706-5127-48ca-a731-31cefddf86da	Gas Connection Height	LENGTH		4	1
+PARAM	2f619576-a20c-4640-9cdd-65af395d72bd	Compressed Air Pressure	PIPING_PRESSURE		4	1
+PARAM	3a5f48c9-513f-42f5-b56a-c4913ca6eb11	Compressed Air Connection Height	LENGTH		4	1
+PARAM	3b8f38ac-9fb2-41cf-a236-8a497e21ceeb	Latent Heat Output	HVAC_HEAT_GAIN		4	1
+PARAM	3f03f544-8863-4b9c-8248-1e359d46ebfb	Gas RI Height	LENGTH		4	1
+PARAM	4fd93d6a-d929-47f3-914b-7a4fa3a716c6	Compressed Air RI Height	LENGTH		4	1
+PARAM	5438b013-06c4-4206-8613-273889c8eda0	Fuel Type	TEXT		4	1
+PARAM	560b969a-dc30-41c8-8e1b-615db537908b	Gas Size Fixed	PIPE_SIZE		4	1
+PARAM	592b6b40-e7fa-4447-866b-a6275f1c443d	Sensitive Heat Output	HVAC_HEAT_GAIN		4	1
+PARAM	59a71622-f09d-4758-b891-9c7438e474e5	Refrigerant Compressor Remote	YESNO		4	1
+PARAM	5d971ffd-3560-45b1-9b62-9f7c40607588	Condensate Return RI Height	LENGTH		4	1
+PARAM	66e0542e-94de-48af-9ff0-52a592b0c822	Mechanical Connection Type	TEXT		4	1
+PARAM	74dea842-2b30-4927-b384-3d55a964c663	Condensate Return Size	PIPE_SIZE		4	1
+PARAM	798b2006-dab2-49a6-b597-58e4a6d010dc	CO2 Pressure	PIPING_PRESSURE		4	1
+PARAM	8686d9b4-b322-4053-afea-b57be854d317	Refrigeration Evaporation Temperature	PIPING_TEMPERATURE		4	1
+PARAM	873cc249-1eda-4842-b320-f48c0b851fe9	Direct Heat Output	HVAC_HEAT_GAIN		4	1
+PARAM	876350a0-ac28-4d43-8cb5-9b8a65e2b12e	Refrigeration Liquid Line Size	LENGTH		4	1
+PARAM	9a980b59-a3d5-4e9a-9687-0c2690cbff5f	Refrigeration Suction Line Size	LENGTH		4	1
+PARAM	9de5bebd-bfda-48b9-aab3-e1f023b341d7	Refrigeration Working Pressure	PIPING_PRESSURE		4	1
+PARAM	a79a41e7-97a5-4b53-9453-07928747339b	Steam Pounds per Hour	NUMBER		4	1
+PARAM	abbbe577-68b5-4c8f-b05d-694a45a73a51	Gas power kW	NUMBER		4	1
+PARAM	b0f11d64-c918-4dd5-96ad-88b6edbef518	Steam Supply Connection Height	LENGTH		4	1
+PARAM	b5915230-667a-42b0-8fe0-4e474ff36922	Gas Flow	PIPING_FLOW		4	1
+PARAM	ba7243b9-faff-466d-a8e2-e8337501999a	Refrigerant Type	TEXT		4	1
+PARAM	be4d3686-1c43-4d90-b9ba-107b470a06d7	Refrigeration Defrost Drain	YESNO		4	1
+PARAM	c43bd675-b9d2-43d5-8296-1b53f8a81642	Gas Size Flexible	PIPE_SIZE		4	1
+PARAM	d34dc451-60fd-4976-970a-ca94e58c2902	Refrigeration Energy Efficiency Index	TEXT		4	1
+PARAM	d5d3e073-d613-44fd-9223-e11098f25acb	Steam type	TEXT		4	1
+PARAM	dc8c884d-557c-4d38-a3c0-f8c6e4940887	Energy Efficiency Labelling	TEXT		4	1
+PARAM	e2a5bd08-a77c-46ab-aad6-9978bb0fbebe	Steam Supply Volume	PIPING_FLOW		4	1
+PARAM	e7dccd9b-d7af-415b-8691-c46631f40592	Mechanical Remarks	TEXT		4	1
+PARAM	e8fc6f2f-a5f3-42eb-86e6-580b7857106b	Refrigerant Mass	NUMBER		4	1
+PARAM	ea59bbc0-2baf-4e48-831b-283cb6b09021	Condensate Return Connection Height	LENGTH		4	1
+PARAM	f043185b-3bfe-4f28-9635-74894aacda39	Steam Supply RI Height	LENGTH		4	1
+PARAM	f4a22d1f-4a4f-46df-9f5d-634d0a8bfcac	Refrigeration Climate Class	TEXT		4	1
+PARAM	fb10b0bf-2497-4eb8-af54-d478a2fbcf59	Steam Supply Maximum Pressure	PIPING_PRESSURE		4	1
+PARAM	fc4b1ce5-339b-4e43-9d8e-38fc6efe16a9	Flue Type	TEXT		4	1
+PARAM	ff52e471-3046-456a-b819-0109af4582fd	CO2 RI Height	LENGTH		4	1
+PARAM	0779e65e-2251-440c-b0db-f0c436fabf1f	Chilled Water Return Connection Height	LENGTH		5	1
+PARAM	0eaf669c-120f-43aa-aad1-1e2cc64fd0f5	Hot Water Minimum Pressure	PIPING_PRESSURE		5	1
+PARAM	0ebf45b3-72a2-40f6-be5f-15251e70ed7c	Treated Water Maximum Pressure	PIPING_PRESSURE		5	1
+PARAM	0f370809-0a98-4ff6-ad29-4180fd9b2edf	Treated Water Flow	PIPING_FLOW		5	1
+PARAM	11dfbbe4-fabc-45ba-a079-4794bc41a32d	Indirect Waste Size	PIPE_SIZE		5	1
+PARAM	121bbd5e-825f-47db-b0de-6afc9ea11ddd	Direct Waste RI Height	LENGTH		5	1
+PARAM	1953faf9-d63b-453a-9b90-5e678450ced8	Chilled Water Return Size	PIPE_SIZE		5	1
+PARAM	2928684b-4b2f-4e56-8ff8-bc6759b01672	Chilled Water Supply RI Height	LENGTH		5	1
+PARAM	2de7bf58-75af-4893-bf2e-11b5c1098781	Waste Water Discharge Temperature	PIPING_TEMPERATURE		5	1
+PARAM	3239f07b-0673-46d7-bf57-36de9d40e5dc	Cold Water Minimum Pressure	PIPING_PRESSURE		5	1
+PARAM	32def6f6-9bfe-48e8-8bac-e2cf8567c7df	Heated Hot Water Quality	TEXT		5	1
+PARAM	39c71e91-3e0f-4910-8db9-df6c62023468	Treated Water RI Height	LENGTH		5	1
+PARAM	420eaaf5-4ca7-402d-a17b-f4cb53e45012	Chilled Water Maximum Pressure	PIPING_PRESSURE		5	1
+PARAM	4765341a-2adb-431e-beab-a897d6ddb237	Treated Water Connection Height	LENGTH		5	1
+PARAM	484056f7-70a9-4ca6-bd5f-817ca27bd2f8	Direct Waste Size	PIPE_SIZE		5	1
+PARAM	4abf251f-26d2-4b3d-8a81-2cc7e9ff168b	Preheated Hot Water Flow	PIPING_FLOW		5	1
+PARAM	4b3f9d4b-a4de-434f-a855-9e7bf4b38ed8	Hot Water Flow	PIPING_FLOW		5	1
+PARAM	4eea0fd0-75c3-436b-b414-4c04711587a1	Filtered Water Connection Height	LENGTH		5	1
+PARAM	4fa0ec33-3fa6-41a1-9706-545ed9ddc05e	Odor Trap Included	YESNO		5	1
+PARAM	510f7311-21aa-4aa9-be5a-e97e0e8a0a93	Cold Water Quality	TEXT		5	1
+PARAM	53f1bfb1-71d2-4c1e-8484-f6df10b38ee0	Chilled Water Flow	PIPING_FLOW		5	1
+PARAM	554a9835-0b99-4244-a3dc-4ba224b7e013	Cold Water Connection Height	LENGTH		5	1
+PARAM	58a69a06-5e24-4112-a47c-42c82e3ebb6a	Preheated Hot Water Maximum Pressure	PIPING_PRESSURE		5	1
+PARAM	5de4f84f-8810-4bfe-88a1-36fadd45721d	Filtered Water Quality	TEXT		5	1
+PARAM	6419f363-c39c-49f8-bf77-2f2b9cc6988b	Chilled Water Quality	TEXT		5	1
+PARAM	6549b608-34c5-403c-a13e-ca4096ab8df4	Filtered Water RI Height	LENGTH		5	1
+PARAM	66b5367d-78cd-477a-9fd3-0e04f8459d5a	Hot Water Supply Temperature	PIPING_TEMPERATURE		5	1
+PARAM	6a79fb38-f4ed-4605-afa0-ba99c4887701	Hot Water Quality	TEXT		5	1
+PARAM	6b2ae170-1a20-4bcc-a214-0fabb349dd8f	Hot Water Consumption	PIPING_FLOW		5	1
+PARAM	6c9b4e06-a082-4cb1-a8fc-b97a427c9c5f	Chilled Water Return RI Height	LENGTH		5	1
+PARAM	6cb10a65-5bb3-438b-93b3-dbd5f2e1939b	Treated Water Size	PIPE_SIZE		5	1
+PARAM	7051758d-eb84-4b47-b1ac-17eb873e0a2a	Cold Water Flow	PIPING_FLOW		5	1
+PARAM	725c8e69-1df4-4999-9f94-39244cbceb1d	National Water Regulation Certification	YESNO		5	1
+PARAM	78e9511a-716a-44fd-b5d4-8006d45bda6e	Plumbing Connection Type	TEXT		5	1
+PARAM	8029057c-2601-4b3f-a9b7-39b86f0a22c5	Cold Water RI Height	LENGTH		5	1
+PARAM	8bcf0b86-8b8c-431e-9db9-3ef37f7349b9	Chilled Water Supply Size	PIPE_SIZE		5	1
+PARAM	8e95a387-eec0-4228-b603-1b0fb46df02e	Treated Water Minimum Pressure	PIPING_PRESSURE		5	1
+PARAM	91507bee-dd95-419a-b4df-1c258143a14c	Chilled Water Supply Connection Height	LENGTH		5	1
+PARAM	976888ed-c302-4c58-ac96-44113427658a	Treated Water Recommended Temperature	PIPING_TEMPERATURE		5	1
+PARAM	99e06fdb-82cc-41fe-9fa2-9c524fec6f0f	Cold Water Size	PIPE_SIZE		5	1
+PARAM	9aceaf0b-a9d4-4dd7-8463-cd2decb14586	Hot Water Maximum Pressure	PIPING_PRESSURE		5	1
+PARAM	9e94dc41-a461-4d2d-89b3-bdeb2f7545e3	Hot Water Temperature Recommended	PIPING_TEMPERATURE		5	1
+PARAM	9fd14743-959c-4e4c-96a7-5fefbcd3be70	Indirect Waste Connection Type	TEXT		5	1
+PARAM	a0030f64-4f46-4c02-a88e-a7e72a36611c	Cold Water Consumption	PIPING_FLOW		5	1
+PARAM	a0934b10-c11b-4a0b-b774-cb4cf6e6b6f5	Direct Waste Flow	PIPING_FLOW		5	1
+PARAM	a44ce2a2-4b89-4482-89af-ea627adaa2a6	Cold Water Maximum Pressure	PIPING_PRESSURE		5	1
+PARAM	a545c9b6-38c0-4700-ba8e-2651dc1a039f	Preheated Hot Water Minimum Pressure	PIPING_PRESSURE		5	1
+PARAM	aa148d21-ec50-4bcb-b5b7-babe0a1ae207	Preheated Hot Water Size	PIPE_SIZE		5	1
+PARAM	aa4fc352-15cf-41f5-ada2-60fe1bac6972	Filtered Water Flow	PIPING_FLOW		5	1
+PARAM	b1d62bcb-5a5b-473d-8bbb-b7013c064ba3	Indirect Waste Connection Height	LENGTH		5	1
+PARAM	b96ead64-4cb4-459e-aec0-787140811551	Cold Water Temperature Recommended	PIPING_TEMPERATURE		5	1
+PARAM	c031fafc-ce7b-423b-84a1-b87f48f89abf	Hot Water Size	PIPE_SIZE		5	1
+PARAM	c288aed3-8db5-4523-8ac6-3aa1c0512b89	Chilled Water Temperature	PIPING_TEMPERATURE		5	1
+PARAM	da9d57f2-5896-4ca4-bde9-c5f609d2ac32	Waste Remarks	TEXT		5	1
+PARAM	dd67f8a8-26e1-477c-a3bc-6f3ef444838a	Hot Water Connection Height	LENGTH		5	1
+PARAM	df24d759-6b30-454b-8f34-c581a7d26b34	Treated Water Consumption	TEXT		5	1
+PARAM	e046cf05-6097-460d-913f-e0b04d199b67	Direct Waste Connection Height	LENGTH		5	1
+PARAM	e05d012f-7591-4a80-8274-2952ceb40d1c	Hot Water RI Height	LENGTH		5	1
+PARAM	e1ef6f77-19b1-40f2-bd3e-31840e2bc9c4	Plumbing Remarks	TEXT		5	1
+PARAM	e23832d1-f3ea-417d-ba6a-cf7615b7e3f6	Indirect Waste Flow	PIPING_FLOW		5	1
+PARAM	e915bfb5-6f1b-4543-ab8b-d1cd95f3da86	Filtered Water Minimum Pressure	PIPING_PRESSURE		5	1
+PARAM	eea853fd-3aee-4f08-8af1-1c7383b7c696	Chilled Water Minimum Pressure	PIPING_PRESSURE		5	1
+PARAM	f03269ff-9593-4730-b2d1-e54dd75e45cf	Filtered Water Supply Size	PIPE_SIZE		5	1
+PARAM	f28f9fc9-4ee6-4bd4-a7a8-1b934f601737	Filtered Water Maximum Pressure	PIPING_PRESSURE		5	1
+PARAM	13054a85-ac25-45c2-923e-b8ed3f6a1f5b	Exhaust RI Height	LENGTH		6	1
+PARAM	286f0443-67dc-4600-a32e-e64c96b73dcc	Exhaust Vent Depth	LENGTH		6	1
+PARAM	33375e16-327a-4ef6-a7ce-d6a0b845ff26	Exhaust Speed at Spigot	HVAC_AIR_FLOW		6	1
+PARAM	51c77dae-3365-4021-a560-45978eec0702	Exhaust Vent Width	LENGTH		6	1
+PARAM	54e6e162-7aba-4a74-a4b5-1810341f8de7	MU Air Vent Diameter	LENGTH		6	1
+PARAM	689de609-ec48-4192-9ba7-c21c82eb7893	Ventilation Remarks	TEXT		6	1
+PARAM	6a0b3115-e1b3-4faa-bc20-1ddaec82a731	Exhaust Vent Diameter	LENGTH		6	1
+PARAM	7cb46937-0249-4743-998f-9f7301172909	MU Air Static Press	HVAC_PRESSURE		6	1
+PARAM	8ffd0bd8-a6de-4d39-b17d-a43ed9cdb1de	MU Air Vent Depth	LENGTH		6	1
+PARAM	92f7d901-72b6-46ee-ae6d-4b69f1ce4ef2	MU Air Speed at Spigot	HVAC_AIR_FLOW		6	1
+PARAM	a2a51257-2b6f-4f88-8b2b-2c668b8acd1a	Exhaust Air Temperature	HVAC_TEMPERATURE		6	1
+PARAM	a457e654-e4bd-47aa-8eff-84f6f74336eb	Exhaust Volume	HVAC_AIR_FLOW		6	1
+PARAM	a538b40b-d050-4290-9043-1d3c1e98d977	MU Air RI Height	LENGTH		6	1
+PARAM	ac3c75bb-b828-417e-a053-5cb3a63754c3	MU Air Vent Width	LENGTH		6	1
+PARAM	be3c36f4-045e-4e1f-93f8-31988c306d22	MU Air Volume	HVAC_AIR_FLOW		6	1
+PARAM	ca032f38-b575-41c4-b7ef-f2a38705adfb	Exhaust Air Humidity	NUMBER		6	1
+PARAM	cedf83b7-75f9-4067-8773-a2f593b03ff4	Exhaust Static Press	HVAC_PRESSURE		6	1
+PARAM	f5f462b4-b23c-4bc8-8c88-b94ad05c501c	Exhaust Vent Height	LENGTH		6	1

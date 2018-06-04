@@ -123,7 +123,7 @@ namespace CodeCave.Revit.Toolkit.Tests
                     var sharedParamFile = SharedParameterFile.FromFile(sharedParamFilePath);
                     var sharedParamFileText = File.ReadAllText(sharedParamFilePath);
                     var paramLineMatches = paramLineRegex.Matches(sharedParamFileText);
-                    var paramNames = paramLineMatches.Select(m => m.Groups["name"].Value).ToArray();
+                    var paramNames = paramLineMatches.Select(m => m.Groups["name"]?.Value.Trim()).ToArray();
                     var paramGuids = paramLineMatches.Select(m => m.Groups["guid"].Value).Select(g => new Guid(g)).ToArray();
                     Assert.All(
                         sharedParamFile.Parameters,

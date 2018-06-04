@@ -19,12 +19,25 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
     public sealed partial class SharedParameterFile : ICloneable, IEquatable<SharedParameterFile>
     {
         /// <summary>
+        /// Initializes a new instance of the <see cref="SharedParameterFile"/> class.
+        /// </summary>
+        /// <param name="meta">The metadata section.</param>
+        /// <param name="groups">The list of groups.</param>
+        /// <param name="parameters">The list of parameters.</param>
+        public SharedParameterFile(Meta meta = null, IEnumerable<Group> groups = null, IEnumerable<Parameter> parameters = null)
+        {
+            Metadata = meta ?? new Meta {Version = 2, MinVersion = 1};
+            Groups = groups != null ? new List<Group>(groups) : new List<Group>();
+            Parameters = parameters != null ? new List<Parameter>(parameters) : new List<Parameter>();
+        }
+
+        /// <summary>
         /// Gets or sets the meta-data section of the shared parameter file.
         /// </summary>
         /// <value>
         /// The meta-data section of the shared parameter file.
         /// </value>
-        public Meta Metadata { get; private set; } = new Meta {Version = 2, MinVersion = 1};
+        public Meta Metadata { get; }
 
         /// <summary>
         /// Gets or sets the groups section of the shared parameter file.
@@ -32,7 +45,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         /// <value>
         /// The groups section of the shared parameter file.
         /// </value>
-        public List<Group> Groups { get; private set; } = new List<Group>();
+        public List<Group> Groups { get; } = new List<Group>();
 
         /// <summary>
         /// Gets or sets the parameters section of the shared parameter file.
@@ -40,7 +53,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         /// <value>
         /// The parameters section of the shared parameter file.
         /// </value>
-        public List<Parameter> Parameters { get; private set; } = new List<Parameter>();
+        public List<Parameter> Parameters { get; } = new List<Parameter>();
 
         /// <summary>
         /// Returns a <see cref="String" /> that represents this instance.
@@ -176,11 +189,15 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         internal SharedParameterFile CloneFile(bool randomize = false)
         {
             var clone = new SharedParameterFile
-            {
-                Metadata = new Meta { Version = Metadata.Version, MinVersion = Metadata.MinVersion },
-                Groups = randomize ? new List<Group>(Groups.OrderBy(x => Guid.NewGuid())) : new List<Group>(Groups),
-                Parameters = randomize ? new List<Parameter>(Parameters.OrderBy(x => Guid.NewGuid())) : new List<Parameter>(Parameters),
-            };
+            (
+                new Meta {Version = Metadata.Version, MinVersion = Metadata.MinVersion},
+                randomize
+                    ? new List<Group>(Groups.OrderBy(x => Guid.NewGuid()))
+                    : new List<Group>(Groups),
+                randomize
+                    ? new List<Parameter>(Parameters.OrderBy(x => Guid.NewGuid()))
+                    : new List<Parameter>(Parameters)
+            );
 
             return clone;
         }

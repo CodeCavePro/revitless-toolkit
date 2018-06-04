@@ -84,7 +84,6 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                 .Select((e, i) => new { Key = e, Value = sharedParamsFileLines[i * 2 + 1] })
                 .ToDictionary(kp => kp.Key, kp => kp.Value.Replace($"{kp.Key}\t", string.Empty));
 
-            var sharedParamsFile = new SharedParameterFile();
             if (sharedParamsFileSections == null || sharedParamsFileSections.Count < 3 ||
                 !(sharedParamsFileSections.ContainsKey(Sections.META) &&
                   sharedParamsFileSections.ContainsKey(Sections.GROUPS) &&
@@ -93,6 +92,10 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                 throw new InvalidDataException("Failed to parse shared parameter file content," +
                                                "because it doesn't contain enough data for being qualified as a valid shared parameter file.");
             }
+
+            var meta = default(Meta);
+            var groups = new List<Group>();
+            var parameters = new List<Parameter>();
 
             foreach (var section in sharedParamsFileSections)
             {
@@ -144,19 +147,19 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                             // Parse *META section
                             case Sections.META:
                                 csvReader.Configuration.RegisterClassMap<MetaClassMap>();
-                                sharedParamsFile.Metadata = csvReader.GetRecords<Meta>().FirstOrDefault();
+                                meta = csvReader.GetRecords<Meta>().FirstOrDefault();
                                 break;
 
                             // Parse *GROUP section
                             case Sections.GROUPS:
                                 csvReader.Configuration.RegisterClassMap<GroupClassMap>();
-                                sharedParamsFile.Groups = csvReader.GetRecords<Group>().ToList();
+                                groups = csvReader.GetRecords<Group>().ToList();
                                 break;
 
                             // Parse *PARAM section
                             case Sections.PARAMS:
                                 csvReader.Configuration.RegisterClassMap<ParameterClassMap>();
-                                sharedParamsFile.Parameters = csvReader.GetRecords<Parameter>().ToList();
+                                parameters = csvReader.GetRecords<Parameter>().ToList();
                                 break;
 
                             default:
@@ -169,17 +172,17 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
 
             // Post-process parameters by assigning group names using group IDs
             // and recover UnitType from ParameterType
-            sharedParamsFile.Parameters = sharedParamsFile
-                .Parameters
+            parameters = parameters
+                .AsParallel()
                 .Select(p =>
                 {
-                    p.GroupName = sharedParamsFile.Groups?.FirstOrDefault(g => g.Id == p.GroupId)?.Name;
+                    p.GroupName = groups?.FirstOrDefault(g => g.Id == p.GroupId)?.Name;
                     p.UnitType = p.ParameterType.GetUnitType();
                     return p;
                 })
                 .ToList();
 
-            return sharedParamsFile;
+            return new SharedParameterFile(meta, groups, parameters);
         }
 
         /// <summary>

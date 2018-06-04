@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net452;net47</TargetFrameworks>
-    <RuntimeFrameworkVersion>2.0.7</RuntimeFrameworkVersion>
+    <RuntimeFrameworkVersion>2.1.0</RuntimeFrameworkVersion>
     <Description>A toolkit for processing .rfa, .rvt etc without Revit</Description>
     <Product>Revit.Toolkit</Product>
     <AssemblyName>Revit.Toolkit</AssemblyName>

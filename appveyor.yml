@@ -28,11 +28,8 @@ environment:
 
 init:
 - ps: |
-    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-    $github_last_release=(Invoke-WebRequest -Uri https://api.github.com/repos/$env:APPVEYOR_REPO_NAME/releases/latest) -join '`n' | ConvertFrom-Json
-    $github_tag_name=$github_last_release.tag_name
-    $env:VERSION_SIMPLE = "$github_tag_name.$env:APPVEYOR_BUILD_NUMBER"
-    $env:VERSION_INFORMATIONAL = $github_tag_name
+    $env:VERSION_INFORMATIONAL = $env:APPVEYOR_BUILD_VERSION
+    $env:VERSION_SIMPLE = "$env:APPVEYOR_BUILD_VERSION.$env:APPVEYOR_BUILD_NUMBER"
 
     if ($env:APPVEYOR_REPO_TAG -eq "true" -and $env:APPVEYOR_REPO_TAG_NAME)
     {
@@ -47,11 +44,27 @@ init:
     } 
     else
     {
+        try {
+            [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+            $github_last_release=(Invoke-WebRequest -Uri https://api.github.com/repos/$env:APPVEYOR_REPO_NAME/releases/latest) -join '`n' | ConvertFrom-Json
+            $github_tag_name=$github_last_release.tag_name
+            if ($github_tag_name -match '^([0-9]+\.[0-9]+\.[0-9]+)$')
+            {
+                $github_tag_ver = [version]$github_tag_name
+                $github_tag_name = "{0}.{1}.{2}" -f $github_tag_ver.Major, $github_tag_ver.Minor, ($github_tag_ver.Build + 1)
+            }
+            $env:VERSION_INFORMATIONAL = $github_tag_name
+        } catch {
+            $env:VERSION_INFORMATIONAL = "1.0.0"
+            Write-Host "Failed to get version from the last GitHub release falling back on '$env:VERSION_INFORMATIONAL' base version";
+        }
+
         $env:VERSION_INFORMATIONAL = "$env:VERSION_INFORMATIONAL$env:VERSION_SUFFIX"
     }
 
     Update-AppveyorBuild -Version $env:VERSION_INFORMATIONAL
     Write-Host "Using build version: $env:APPVEYOR_BUILD_VERSION";
+
 
 dotnet_csproj:
   patch: true

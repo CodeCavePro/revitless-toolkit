@@ -28,9 +28,9 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         /// <param name="metadata">The metadata section.</param>
         /// <param name="groups">The list of groups.</param>
         /// <param name="parameters">The list of parameters.</param>
-        public SharedParameterFile(Meta metadata = null, IEnumerable<Group> groups = null, IEnumerable<Parameter> parameters = null)
+        public SharedParameterFile(MetaData metadata = null, IEnumerable<Group> groups = null, IEnumerable<Parameter> parameters = null)
         {
-            Metadata = metadata ?? new Meta {Version = 2, MinVersion = 1};
+            Metadata = metadata ?? new MetaData {Version = 2, MinVersion = 1};
             Groups = groups != null ? new List<Group>(groups) : new List<Group>();
             Parameters = parameters != null ? new List<Parameter>(parameters) : new List<Parameter>();
         }
@@ -136,7 +136,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                             // Parse *META section
                             case Sections.META:
                                 csvReader.Configuration.RegisterClassMap<MetaClassMap>();
-                                Metadata = csvReader.GetRecords<Meta>().FirstOrDefault();
+                                Metadata = csvReader.GetRecords<MetaData>().FirstOrDefault();
                                 break;
 
                             // Parse *GROUP section
@@ -190,7 +190,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         /// <value>
         /// The meta-data section of the shared parameter file.
         /// </value>
-        public Meta Metadata { get; }
+        public MetaData Metadata { get; }
 
         /// <summary>
         /// Gets or sets the groups section of the shared parameter file.
@@ -336,7 +336,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             unchecked
             {
                 var hashCode = -409059346;
-                hashCode = hashCode * -1521134295 + EqualityComparer<Meta>.Default.GetHashCode(Metadata);
+                hashCode = hashCode * -1521134295 + EqualityComparer<MetaData>.Default.GetHashCode(Metadata);
                 hashCode = hashCode * -1521134295 + EqualityComparer<List<Group>>.Default.GetHashCode(Groups);
                 hashCode = hashCode * -1521134295 + EqualityComparer<List<Parameter>>.Default.GetHashCode(Parameters);
                 return hashCode;
@@ -375,7 +375,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         {
             var clone = new SharedParameterFile
             (
-                new Meta {Version = Metadata.Version, MinVersion = Metadata.MinVersion},
+                new MetaData {Version = Metadata.Version, MinVersion = Metadata.MinVersion},
                 randomize
                     ? new List<Group>(Groups.OrderBy(x => Guid.NewGuid()))
                     : new List<Group>(Groups),

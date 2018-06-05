@@ -10,8 +10,8 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
     /// </summary>
     /// <inheritdoc cref="ICloneable" />
     /// <inheritdoc cref="IEquatable{SharedParameterFile}" />
-    /// <seealso cref="System.ICloneable" />
-    /// <seealso cref="System.IEquatable{SharedParameterFile}" />
+    /// <seealso cref="ICloneable" />
+    /// <seealso cref="IEquatable{SharedParameterFile}" />
     public sealed partial class SharedParameterFile
     {
         /// <summary>
@@ -29,7 +29,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         /// </summary>
         /// <seealso cref="T:CsvHelper.Configuration.ClassMap`1" />
         /// <inheritdoc />
-        internal sealed class MetaClassMap : ClassMap<Meta>
+        internal sealed class MetaClassMap : ClassMap<MetaData>
         {
             /// <inheritdoc />
             /// <summary>

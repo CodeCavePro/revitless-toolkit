@@ -124,7 +124,8 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         /// <summary>
         /// Represents the entry of the *META section of a shared parameter file
         /// </summary>
-        public class Meta
+        /// <inheritdoc />
+        public class MetaData : IEquatable<MetaData>
         {
             /// <summary>
             /// Gets or sets the version.
@@ -141,6 +142,49 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             /// The minimum version.
             /// </value>
             public int MinVersion { get; set; }
+
+            /// <summary>
+            /// Indicates whether the current object is equal to another object of the same type.
+            /// </summary>
+            /// <param name="other">An object to compare with this object.</param>
+            /// <returns>
+            /// true if the current object is equal to the <paramref name="other">other</paramref> parameter; otherwise, false.
+            /// </returns>1
+            /// <inheritdoc />
+            public bool Equals(MetaData other)
+            {
+                return null != other && Version.Equals(other.Version) && MinVersion.Equals(other.MinVersion);
+            }
+
+            /// <summary>
+            /// Determines whether the specified <see cref="object" />, is equal to this instance.
+            /// </summary>
+            /// <param name="obj">The <see cref="object" /> to compare with this instance.</param>
+            /// <returns>
+            ///   <c>true</c> if the specified <see cref="object" /> is equal to this instance; otherwise, <c>false</c>.
+            /// </returns>
+            public override bool Equals(object obj)
+            {
+                return !(obj is null) &&
+                       (
+                           ReferenceEquals(this, obj) ||
+                           obj.GetType() == GetType() && Equals(obj as Group)
+                       );
+            }
+
+            /// <summary>
+            /// Returns a hash code for this instance.
+            /// </summary>
+            /// <returns>
+            /// A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
+            /// </returns>
+            public override int GetHashCode()
+            {
+                unchecked
+                {
+                    return (Version * 397) ^ MinVersion;
+                }
+            }
         }
 
         #endregion Metadata
@@ -150,7 +194,9 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         /// <summary>
         /// Represents the entries of the *GROUP section of a shared parameter file
         /// </summary>
-        public class Group
+        /// <seealso cref="T:System.IEquatable`1" />
+        /// <inheritdoc />
+        public class Group : IEquatable<Group>
         {
             /// <summary>
             /// Gets or sets the identifier of the group.
@@ -167,6 +213,52 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             /// The name of the group.
             /// </value>
             public string Name { get; set; }
+
+            /// <summary>
+            /// Indicates whether the current object is equal to another object of the same type.
+            /// </summary>
+            /// <param name="other">An object to compare with this object.</param>
+            /// <returns>
+            /// true if the current object is equal to the <paramref name="other">other</paramref> parameter; otherwise, false.
+            /// </returns>
+            /// <inheritdoc />
+            public bool Equals(Group other)
+            {
+                return null != other && Id.Equals(other.Id) && Name.Equals(other.Name);
+            }
+
+            /// <summary>
+            /// Determines whether the specified <see cref="object" />, is equal to this instance.
+            /// </summary>
+            /// <param name="obj">The <see cref="object" /> to compare with this instance.</param>
+            /// <returns>
+            ///   <c>true</c> if the specified <see cref="object" /> is equal to this instance; otherwise, <c>false</c>.
+            /// </returns>
+            public override bool Equals(object obj)
+            {
+                return !(obj is null) &&
+                       (
+                           ReferenceEquals(this, obj) || 
+                           obj.GetType() == GetType() && Equals(obj as Group)
+                       );
+            }
+
+            /// <summary>
+            /// Returns a hash code for this instance.
+            /// </summary>
+            /// <returns>
+            /// A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
+            /// </returns>
+            public override int GetHashCode()
+            {
+                unchecked
+                {
+                    var hashCode = -1919740922;
+                    hashCode = hashCode * -1521134295 + Id.GetHashCode();
+                    hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Name);
+                    return hashCode;
+                }
+            }
         }
 
         #endregion Group
@@ -180,7 +272,8 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         /// <seealso cref="T:CodeCave.Revit.Toolkit.Parameters.IParameter" />
         /// <inheritdoc cref="IDefinition" />
         /// <inheritdoc cref="IParameter" />
-        public class Parameter : IDefinition, IParameter
+        /// <seealso cref="IEquatable{SharedParameterFile}" />
+        public class Parameter : IDefinition, IParameter, IEquatable<Parameter>
         {
             /// <inheritdoc />
             /// <summary>
@@ -294,26 +387,32 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             public bool UserModifiable { get; set; } = true;
 
             /// <summary>
-            /// Determines whether the specified <see cref="Object" />, is equal to this instance.
+            /// Determines whether the specified <see cref="object" />, is equal to this instance.
             /// </summary>
-            /// <param name="obj">The <see cref="Object" /> to compare with this instance.</param>
+            /// <param name="obj">The <see cref="object" /> to compare with this instance.</param>
             /// <returns>
-            ///   <c>true</c> if the specified <see cref="Object" /> is equal to this instance; otherwise, <c>false</c>.
+            ///   <c>true</c> if the specified <see cref="object" /> is equal to this instance; otherwise, <c>false</c>.
             /// </returns>
             public override bool Equals(object obj)
             {
-                if (!(obj is Parameter))
-                {
-                    // ReSharper disable once BaseObjectEqualsIsObjectEquals
-                    return base.Equals(obj);
-                }
+                return !(obj is null) && (ReferenceEquals(this, obj) || Equals(obj as Parameter));
+            }
 
-                var other = (Parameter) obj;
-                return Guid.Equals(other.Guid) &&
-                       Name.Equals(other.Name) &&
-                       IsShared.Equals(other.IsShared) &&
-                       Description.Equals(other.Description) &&
-                       (GroupId.Equals(other.GroupId) || GroupName.Equals(other.GroupName));
+            /// <summary>
+            /// Indicates whether the current object is equal to another object of the same type.
+            /// </summary>
+            /// <param name="other">An object to compare with this object.</param>
+            /// <returns>
+            /// true if the current object is equal to the <paramref name="other">other</paramref> parameter; otherwise, false.
+            /// </returns>
+            /// <inheritdoc />
+            public bool Equals(Parameter other)
+            {
+                return null != other && (Guid.Equals(other.Guid) &&
+                                         Name.Equals(other.Name) &&
+                                         IsShared.Equals(other.IsShared) &&
+                                         Description.Equals(other.Description) &&
+                                         (GroupId.Equals(other.GroupId) || GroupName.Equals(other.GroupName)));
             }
 
             /// <summary>
@@ -324,8 +423,21 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             /// </returns>
             public override int GetHashCode()
             {
-                // ReSharper disable once NonReadonlyMemberInGetHashCode
-                return -737073652 + EqualityComparer<Guid>.Default.GetHashCode(Guid);
+                unchecked
+                {
+                    var hashCode = Guid.GetHashCode();
+                    hashCode = (hashCode * 397) ^ (Name != null ? Name.GetHashCode() : 0);
+                    hashCode = (hashCode * 397) ^ (int) UnitType;
+                    hashCode = (hashCode * 397) ^ (int) ParameterGroup;
+                    hashCode = (hashCode * 397) ^ (int) ParameterType;
+                    hashCode = (hashCode * 397) ^ (int) DisplayUnitType;
+                    hashCode = (hashCode * 397) ^ GroupId;
+                    hashCode = (hashCode * 397) ^ (DataCategory != null ? DataCategory.GetHashCode() : 0);
+                    hashCode = (hashCode * 397) ^ IsVisible.GetHashCode();
+                    hashCode = (hashCode * 397) ^ (Description != null ? Description.GetHashCode() : 0);
+                    hashCode = (hashCode * 397) ^ UserModifiable.GetHashCode();
+                    return hashCode;
+                }
             }
         }
 

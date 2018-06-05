@@ -1,7 +1,6 @@
 using System;
 using CsvHelper;
 using CsvHelper.Configuration;
-using CsvHelper.TypeConversion;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -15,10 +14,12 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
     /// </summary>
     /// <inheritdoc cref="ICloneable" />
     /// <inheritdoc cref="IEquatable{SharedParameterFile}" />
-    /// <seealso cref="System.ICloneable" />
-    /// <seealso cref="System.IEquatable{SharedParameterFile}" />
+    /// <seealso cref="ICloneable" />
+    /// <seealso cref="IEquatable{SharedParameterFile}" />
     public sealed partial class SharedParameterFile
     {
+        #region Constructor
+
         // ReSharper disable once PrivateFieldCanBeConvertedToLocalVariable
         private static readonly Regex SectionRegex;
         private static readonly Configuration CsvConfiguration;
@@ -44,6 +45,10 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 #endif
         }
+
+        #endregion Constructor
+
+        #region Methods
 
         /// <summary>
         /// Extracts <see cref="SharedParameterFile"/> object from a .txt file.
@@ -93,6 +98,10 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             }
         }
 
+        #endregion Methods
+
+        #region Helpers
+
         /// <summary>
         /// Handles cases when invalid data raises <see cref="BadDataException"/>.
         /// </summary>
@@ -108,15 +117,9 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             throw new BadDataException(readingContext, $"File contains bad / invalid data: {readingContext.Field}");
         }
 
-        /// <summary>
-        /// Defines the names of shared parameter file sections
-        /// </summary>
-        internal struct Sections
-        {
-            public const string META = "META";
-            public const string GROUPS = "GROUP";
-            public const string PARAMS = "PARAM";
-        }
+        #endregion Helpers
+
+        #region Metadata
 
         /// <summary>
         /// Represents the entry of the *META section of a shared parameter file
@@ -140,6 +143,10 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             public int MinVersion { get; set; }
         }
 
+        #endregion Metadata
+
+        #region Group
+
         /// <summary>
         /// Represents the entries of the *GROUP section of a shared parameter file
         /// </summary>
@@ -162,11 +169,17 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             public string Name { get; set; }
         }
 
+        #endregion Group
+
+        #region Parameter
+
         /// <summary>
         /// Represents the entries of the *PARAM section of a shared parameter file
         /// </summary>
         /// <seealso cref="T:CodeCave.Revit.Toolkit.Parameters.IDefinition" />
         /// <seealso cref="T:CodeCave.Revit.Toolkit.Parameters.IParameter" />
+        /// <inheritdoc cref="IDefinition" />
+        /// <inheritdoc cref="IParameter" />
         public class Parameter : IDefinition, IParameter
         {
             /// <inheritdoc />
@@ -311,134 +324,11 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             /// </returns>
             public override int GetHashCode()
             {
+                // ReSharper disable once NonReadonlyMemberInGetHashCode
                 return -737073652 + EqualityComparer<Guid>.Default.GetHashCode(Guid);
             }
         }
 
-        /// <inheritdoc />
-        ///  <summary>
-        ///  </summary>
-        ///  <seealso cref="T:CsvHelper.Configuration.ClassMap`1" />
-        internal sealed class MetaClassMap : ClassMap<Meta>
-        {
-            /// <inheritdoc />
-            /// <summary>
-            /// Initializes a new instance of the <see cref="T:CodeCave.Revit.Toolkit.Parameters.Shared.SharedParameterFile.MetaClassMap" /> class.
-            /// </summary>
-            public MetaClassMap()
-            {
-                Map(m => m.Version).Name("VERSION");
-                Map(m => m.MinVersion).Name("MINVERSION");
-            }
-        }
-
-        /// <inheritdoc />
-        ///  <summary>
-        ///  </summary>
-        ///  <seealso cref="T:CsvHelper.Configuration.ClassMap`1" />
-        internal sealed class GroupClassMap : ClassMap<Group>
-        {
-            /// <inheritdoc />
-            /// <summary>
-            /// Initializes a new instance of the <see cref="T:CodeCave.Revit.Toolkit.Parameters.Shared.SharedParameterFile.GroupClassMap" /> class.
-            /// </summary>
-            public GroupClassMap()
-            {
-                Map(m => m.Id).Name("ID");
-                Map(m => m.Name).Name("NAME");
-            }
-        }
-
-        internal sealed class ParameterClassMap : ClassMap<Parameter>
-        {
-            /// <inheritdoc />
-            /// <summary>
-            /// Initializes a new instance of the <see cref="T:CodeCave.Revit.Toolkit.Parameters.Shared.SharedParameterFile.ParameterClassMap" /> class.
-            /// </summary>
-            public ParameterClassMap()
-            {
-                // "Visible" fields
-                Map(m => m.Guid).Name("GUID").TypeConverter<GuidConverter>();
-                Map(m => m.Name).Name("NAME");
-                Map(m => m.ParameterType).Name("DATATYPE").TypeConverter<ParameterTypeConverter>();
-                Map(m => m.DataCategory).Name("DATACATEGORY");
-                Map(m => m.GroupId).Name("GROUP");
-                Map(m => m.IsVisible).Name("VISIBLE").TypeConverter<AdvancedBooleanConverter>();
-                Map(m => m.Description).Name("DESCRIPTION");
-                Map(m => m.UserModifiable).Name("USERMODIFIABLE").TypeConverter<AdvancedBooleanConverter>();
-
-                // Ignored fields
-                Map(m => m.UnitType).Ignore();
-                Map(m => m.DisplayUnitType).Ignore();
-                Map(m => m.ParameterGroup).Ignore();
-                Map(m => m.GroupName).Ignore();
-            }
-
-            /// <inheritdoc />
-            /// <summary>
-            /// Ensures a correct conversion of <see cref="ParameterType"/> values to/from their relative string representations
-            /// </summary>
-            /// <seealso cref="ITypeConverter" />
-            internal class ParameterTypeConverter : ITypeConverter
-            {
-                /// <inheritdoc />
-                /// <summary>
-                /// Converts the string to an object.
-                /// </summary>
-                /// <param name="text">The string to convert to an object.</param>
-                /// <param name="row">The <see cref="T:CsvHelper.ICsvReaderRow" /> for the current record.</param>
-                /// <param name="propertyMapData">The <see cref="T:CsvHelper.Configuration.CsvPropertyMapData" /> for the property/field being created.</param>
-                /// <returns>
-                /// The object created from the string.
-                /// </returns>
-                public object ConvertFromString(string text, IReaderRow row, MemberMapData propertyMapData)
-                {
-                    return text.FromSharedDataType();
-                }
-
-                /// <inheritdoc />
-                /// <summary>
-                /// Converts the object to a string.
-                /// </summary>
-                /// <param name="value">The object to convert to a string.</param>
-                /// <param name="row">The <see cref="T:CsvHelper.ICsvWriterRow" /> for the current record.</param>
-                /// <param name="propertyMapData">The <see cref="T:CsvHelper.Configuration.CsvPropertyMapData" /> for the property/field being written.</param>
-                /// <returns>
-                /// The string representation of the object.
-                /// </returns>
-                public string ConvertToString(object value, IWriterRow row, MemberMapData propertyMapData)
-                {
-                    var parameterType = (ParameterType)value;
-                    return parameterType.ToSharedDataType();
-                }
-            }
-
-            /// <inheritdoc />
-            /// <summary>
-            /// A specialized CSV field value converter.
-            /// Helps to serialize <see cref="bool"/> properties of <see cref="Parameter"/> object correctly.
-            /// </summary>
-            /// <seealso cref="CsvHelper.TypeConversion.BooleanConverter" />
-            internal class AdvancedBooleanConverter : BooleanConverter
-            {
-                /// <inheritdoc />
-                /// <summary>
-                /// Converts the object to a string.
-                /// </summary>
-                /// <param name="value">The object to convert to a string.</param>
-                /// <param name="row">The <see cref="T:CsvHelper.ICsvWriterRow" /> for the current record.</param>
-                /// <param name="propertyMapData">The <see cref="T:CsvHelper.Configuration.CsvPropertyMapData" /> for the property/field being written.</param>
-                /// <returns>
-                /// The string representation of the object.
-                /// </returns>
-                public override string ConvertToString(object value, IWriterRow row, MemberMapData propertyMapData)
-                {
-                    if (string.IsNullOrWhiteSpace(value?.ToString()))
-                        return "0";
-
-                    return (bool.TryParse(value.ToString(), out var boolValue) && boolValue) ? "1" : "0";
-                }
-            }
-        }
+        #endregion Parameter
     }
 }

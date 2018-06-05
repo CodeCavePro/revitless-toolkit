@@ -5,11 +5,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
-using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 
 namespace CodeCave.Revit.Toolkit.Parameters.Shared
 {
@@ -18,10 +16,12 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
     /// </summary>
     /// <inheritdoc cref="ICloneable" />
     /// <inheritdoc cref="IEquatable{SharedParameterFile}" />
-    /// <seealso cref="System.ICloneable" />
-    /// <seealso cref="System.IEquatable{SharedParameterFile}" />
+    /// <seealso cref="ICloneable" />
+    /// <seealso cref="IEquatable{SharedParameterFile}" />
     public sealed partial class SharedParameterFile : ICloneable, IEquatable<SharedParameterFile>, IValidatableObject
     {
+        #region Constructors
+
         /// <summary>
         /// Initializes a new instance of the <see cref="SharedParameterFile"/> class.
         /// </summary>
@@ -172,6 +172,10 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                 .ToList();
         }
 
+        #endregion Constructors
+
+        #region Properties
+
         /// <summary>
         /// Gets the encoding.
         /// </summary>
@@ -203,6 +207,189 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         /// The parameters section of the shared parameter file.
         /// </value>
         public List<Parameter> Parameters { get; }
+
+        #endregion Properties
+
+        #region Validation
+
+        /// <summary>
+        /// Returns true if shared parameter file is valid.
+        /// </summary>
+        /// <returns>
+        ///   <c>true</c> if this instance is valid; otherwise, <c>false</c>.
+        /// </returns>
+        public bool IsValid()
+        {
+            var validationResults = Validate(new ValidationContext(this));
+            return !validationResults.Any();
+        }
+
+        /// <summary>
+        /// Determines whether the specified file is valid or not.
+        /// </summary>
+        /// <param name="validationContext">The validation context.</param>
+        /// <returns>
+        /// A collection that holds failed-validation information.
+        /// </returns>
+        /// <inheritdoc />
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            var results = new List<ValidationResult>();
+
+            // General health check
+            if (Metadata.Version <= 0 || Metadata.MinVersion <= 0)
+                results.Add(new ValidationResult($"Data in {nameof(Sections.META)} section is invalid",
+                    new[] {nameof(Metadata)}));
+
+            if (!Groups.Any())
+                results.Add(new ValidationResult("The list of groups is empty", new[] {nameof(Groups)}));
+
+            if (!Parameters.Any())
+                results.Add(new ValidationResult("The list of parameters is empty", new[] {nameof(Parameters)}));
+
+            // Check for group duplicates by ID
+            var groupIds = Groups.GroupBy(p => p.Id).Where(g => g.Count() > 1).Select(p => p.Key);
+            results.AddRange(groupIds.Select(groupId =>
+                new ValidationResult($"The following group {nameof(Group.Id)} has duplicates: {groupId}",
+                    new[] {nameof(Groups)})));
+
+            // Check for group duplicates by name
+            var groupNames = Groups.GroupBy(p => p.Name).Where(g => g.Count() > 1).Select(p => p.Key);
+            results.AddRange(groupNames.Select(group =>
+                new ValidationResult($"The following group {nameof(Group.Name)} has duplicates: {group}",
+                    new[] {nameof(Groups)})));
+
+            // Check for unused
+            var unusedGroups = Groups.Where(g => !Parameters.Any(p => p.GroupId.Equals(g.Id)));
+            results.AddRange(unusedGroups.Select(g =>
+                new ValidationResult($"The following group is unused (not assigned to any parameter): {g.Id}={g.Name}",
+                    new[] {nameof(Groups)})));
+
+            // Check for parameter duplicates by Guid
+            var paramGuidDuplicates = Parameters.GroupBy(p => p.Guid).Where(g => g.Count() > 1).Select(p => p.Key);
+            results.AddRange(paramGuidDuplicates.Select(guid =>
+                new ValidationResult($"The following parameter {nameof(Parameter.Guid)} has duplicates: {guid}",
+                    new[] {nameof(Parameters)})));
+
+            // Check for parameter duplicates by name
+            var paramNameDuplicates = Parameters.GroupBy(p => p.Name).Where(g => g.Count() > 1).Select(p => p.Key);
+            results.AddRange(paramNameDuplicates.Select(name =>
+                new ValidationResult($"The following parameter {nameof(Parameter.Name)} has duplicates: {name}",
+                    new[] {nameof(Parameters)})));
+
+            // Check for orphan parameters by groups
+            var paramGroupOrphans = Parameters.Where(p => !Groups.Any(g => g.Id.Equals(p.GroupId)));
+            results.AddRange(paramGroupOrphans.Select(p =>
+                new ValidationResult($"The following parameter is assigned to an unknown group ({p.GroupId}): {p.Name}",
+                    new[] {nameof(Parameters)})));
+
+            return results;
+        }
+
+        #endregion Validation
+
+        #region Equals and GetHashCode
+
+        /// <summary>
+        /// Determines whether the specified <see cref="Object" />, is equal to this instance.
+        /// </summary>
+        /// <param name="obj">The <see cref="Object" /> to compare with this instance.</param>
+        /// <returns>
+        /// </returns>
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            return obj.GetType() == GetType() && Equals(obj as SharedParameterFile);
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Indicates whether the current object is equal to another object of the same type.
+        /// </summary>
+        /// <param name="other">An object to compare with this object.</param>
+        /// <returns>
+        /// true if the current object is equal to the <paramref name="other">other</paramref> parameter; otherwise, false.
+        /// </returns>
+        public bool Equals(SharedParameterFile other)
+        {
+            // ReSharper disable once UseNullPropagation
+            if (other == null) return false;
+
+            if (Metadata.Version != other.Metadata.Version || Metadata.MinVersion != other.Metadata.MinVersion)
+                return false;
+
+            if (Groups.Count != other.Groups.Count || Groups.Intersect(other.Groups).Count() != Groups.Count)
+                return false;
+
+            return Parameters.Count == other.Parameters.Count && Parameters.Intersect(other.Parameters).Count() == Parameters.Count;
+        }
+
+        /// <summary>
+        /// Returns a hash code for this instance.
+        /// </summary>
+        /// <returns>
+        /// A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
+        /// </returns>
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                var hashCode = -409059346;
+                hashCode = hashCode * -1521134295 + EqualityComparer<Meta>.Default.GetHashCode(Metadata);
+                hashCode = hashCode * -1521134295 + EqualityComparer<List<Group>>.Default.GetHashCode(Groups);
+                hashCode = hashCode * -1521134295 + EqualityComparer<List<Parameter>>.Default.GetHashCode(Parameters);
+                return hashCode;
+            }
+        }
+
+        #endregion Equals and GetHashCode
+
+        #region Cloning
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Clones this instance.
+        /// </summary>
+        /// <returns></returns>
+        object ICloneable.Clone()
+        {
+            return CloneFile();
+        }
+
+        /// <summary>
+        /// Clones this instance.
+        /// </summary>
+        /// <returns></returns>
+        public SharedParameterFile Clone()
+        {
+            return CloneFile();
+        }
+
+        /// <summary>
+        /// Clones the file.
+        /// </summary>
+        /// <param name="randomize">if set to <c>true</c> [randomize].</param>
+        /// <returns></returns>
+        internal SharedParameterFile CloneFile(bool randomize = false)
+        {
+            var clone = new SharedParameterFile
+            (
+                new Meta {Version = Metadata.Version, MinVersion = Metadata.MinVersion},
+                randomize
+                    ? new List<Group>(Groups.OrderBy(x => Guid.NewGuid()))
+                    : new List<Group>(Groups),
+                randomize
+                    ? new List<Parameter>(Parameters.OrderBy(x => Guid.NewGuid()))
+                    : new List<Parameter>(Parameters)
+            );
+
+            return clone;
+        }
+
+        #endregion Cloning
+
+        #region ToString
 
         /// <summary>
         /// Returns a <see cref="String" /> that represents this instance.
@@ -263,163 +450,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             return $"*{sectionAsString}";
         }
 
-        /// <summary>
-        /// Returns true if shared parameter file is valid.
-        /// </summary>
-        /// <returns>
-        ///   <c>true</c> if this instance is valid; otherwise, <c>false</c>.
-        /// </returns>
-        public bool IsValid()
-        {
-            var validationResults = Validate(new ValidationContext(this));
-            return !validationResults.Any();
-        }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        {
-            var results = new List<ValidationResult>();
-
-            // General health check
-            if (Metadata.Version <= 0 || Metadata.MinVersion <= 0)
-                results.Add(new ValidationResult($"Data in {nameof(Sections.META)} section is invalid",
-                    new[] {nameof(Metadata)}));
-
-            if (!Groups.Any())
-                results.Add(new ValidationResult("The list of groups is empty", new[] {nameof(Groups)}));
-
-            if (!Parameters.Any())
-                results.Add(new ValidationResult("The list of parameters is empty", new[] {nameof(Parameters)}));
-
-            // Check for group duplicates by ID
-            var groupIds = Groups.GroupBy(p => p.Id).Where(g => g.Count() > 1).Select(p => p.Key);
-            results.AddRange(groupIds.Select(groupId =>
-                new ValidationResult($"The following group {nameof(Group.Id)} has duplicates: {groupId}",
-                    new[] {nameof(Groups)})));
-
-            // Check for group duplicates by name
-            var groupNames = Groups.GroupBy(p => p.Name).Where(g => g.Count() > 1).Select(p => p.Key);
-            results.AddRange(groupNames.Select(group =>
-                new ValidationResult($"The following group {nameof(Group.Name)} has duplicates: {group}",
-                    new[] {nameof(Groups)})));
-
-            // Check for unused
-            var unusedGroups = Groups.Where(g => !Parameters.Any(p => p.GroupId.Equals(g.Id)));
-            results.AddRange(unusedGroups.Select(g =>
-                new ValidationResult($"The following group is unused (not assigned to any parameter): {g.Id}={g.Name}",
-                    new[] {nameof(Groups)})));
-
-            // Check for parameter duplicates by Guid
-            var paramGuidDuplicates = Parameters.GroupBy(p => p.Guid).Where(g => g.Count() > 1).Select(p => p.Key);
-            results.AddRange(paramGuidDuplicates.Select(guid =>
-                new ValidationResult($"The following parameter {nameof(Parameter.Guid)} has duplicates: {guid}",
-                    new[] {nameof(Parameters)})));
-
-            // Check for parameter duplicates by name
-            var paramNameDuplicates = Parameters.GroupBy(p => p.Name).Where(g => g.Count() > 1).Select(p => p.Key);
-            results.AddRange(paramNameDuplicates.Select(name =>
-                new ValidationResult($"The following parameter {nameof(Parameter.Name)} has duplicates: {name}",
-                    new[] {nameof(Parameters)})));
-
-            // Check for orphan parameters by groups
-            var paramGroupOrphans = Parameters.Where(p => !Groups.Any(g => g.Id.Equals(p.GroupId)));
-            results.AddRange(paramGroupOrphans.Select(p =>
-                new ValidationResult($"The following parameter is assigned to an unknown group ({p.GroupId}): {p.Name}",
-                    new[] {nameof(Parameters)})));
-
-            return results;
-        }
-
-        /// <summary>
-        /// Determines whether the specified <see cref="Object" />, is equal to this instance.
-        /// </summary>
-        /// <param name="obj">The <see cref="Object" /> to compare with this instance.</param>
-        /// <returns>
-        /// </returns>
-        public override bool Equals(object obj)
-        {
-            if (ReferenceEquals(null, obj)) return false;
-            if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals(obj as SharedParameterFile);
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Indicates whether the current object is equal to another object of the same type.
-        /// </summary>
-        /// <param name="other">An object to compare with this object.</param>
-        /// <returns>
-        /// true if the current object is equal to the <paramref name="other">other</paramref> parameter; otherwise, false.
-        /// </returns>
-        public bool Equals(SharedParameterFile other)
-        {
-            // ReSharper disable once UseNullPropagation
-            if (other == null) return false;
-
-            if (Metadata.Version != other.Metadata.Version || Metadata.MinVersion != other.Metadata.MinVersion)
-                return false;
-
-            if (Groups.Count != other.Groups.Count || Groups.Intersect(other.Groups).Count() != Groups.Count)
-                return false;
-
-            return Parameters.Count == other.Parameters.Count && Parameters.Intersect(other.Parameters).Count() == Parameters.Count;
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Clones this instance.
-        /// </summary>
-        /// <returns></returns>
-        object ICloneable.Clone()
-        {
-            return CloneFile();
-        }
-
-        /// <summary>
-        /// Clones this instance.
-        /// </summary>
-        /// <returns></returns>
-        public SharedParameterFile Clone()
-        {
-            return CloneFile();
-        }
-
-        /// <summary>
-        /// Clones the file.
-        /// </summary>
-        /// <param name="randomize">if set to <c>true</c> [randomize].</param>
-        /// <returns></returns>
-        internal SharedParameterFile CloneFile(bool randomize = false)
-        {
-            var clone = new SharedParameterFile
-            (
-                new Meta {Version = Metadata.Version, MinVersion = Metadata.MinVersion},
-                randomize
-                    ? new List<Group>(Groups.OrderBy(x => Guid.NewGuid()))
-                    : new List<Group>(Groups),
-                randomize
-                    ? new List<Parameter>(Parameters.OrderBy(x => Guid.NewGuid()))
-                    : new List<Parameter>(Parameters)
-            );
-
-            return clone;
-        }
-
-        /// <summary>
-        /// Returns a hash code for this instance.
-        /// </summary>
-        /// <returns>
-        /// A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
-        /// </returns>
-        public override int GetHashCode()
-        {
-            unchecked
-            {
-                var hashCode = -409059346;
-                hashCode = hashCode * -1521134295 + EqualityComparer<Meta>.Default.GetHashCode(Metadata);
-                hashCode = hashCode * -1521134295 + EqualityComparer<List<Group>>.Default.GetHashCode(Groups);
-                hashCode = hashCode * -1521134295 + EqualityComparer<List<Parameter>>.Default.GetHashCode(Parameters);
-                return hashCode;
-            }
-        }
+        #endregion ToString
     }
 }

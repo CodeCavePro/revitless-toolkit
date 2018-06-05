@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 
 namespace CodeCave.Revit.Toolkit
 {
@@ -109,7 +110,7 @@ namespace CodeCave.Revit.Toolkit
                 throw new ArgumentException($"{nameof(omniclassResName)} must be a non empty string");
             }
 
-            using (var stream = EmbeddedResourceManager.ExecutingResources.GetStream(omniclassResName))
+            using (var stream = typeof(OmniClassTaxonomyItem).GetTypeInfo().GetTypesAssemblyResource(omniclassResName))
             {
                 using (var reader = new StreamReader(stream))
                 {

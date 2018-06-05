@@ -20,9 +20,6 @@ cache:
   - '%LocalAppData%\NuGet\Cache'    # NuGet < v3
   - '%LocalAppData%\NuGet\v3-cache' # NuGet v3
 
-# Version format
-version: 2017.2.3.{build}
-
 environment:
   VERSION_SIMPLE: '{version}'
   VERSION_INFORMATIONAL: '{version}'
@@ -31,8 +28,11 @@ environment:
 
 init:
 - ps: |
-    $env:VERSION_SIMPLE = $env:APPVEYOR_BUILD_VERSION
-    $env:VERSION_INFORMATIONAL = $env:APPVEYOR_BUILD_VERSION.TrimEnd(".$env:APPVEYOR_BUILD_NUMBER")
+    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+    $github_last_release=(Invoke-WebRequest -Uri https://api.github.com/repos/$env:APPVEYOR_REPO_NAME/releases/latest) -join '`n' | ConvertFrom-Json
+    $github_tag_name=$github_last_release.tag_name
+    $env:VERSION_SIMPLE = "$github_tag_name.$env:APPVEYOR_BUILD_NUMBER"
+    $env:VERSION_INFORMATIONAL = $github_tag_name
 
     if ($env:APPVEYOR_REPO_TAG -eq "true" -and $env:APPVEYOR_REPO_TAG_NAME)
     {

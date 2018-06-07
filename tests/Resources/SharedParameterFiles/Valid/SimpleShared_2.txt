@@ -1,0 +1,23 @@
+﻿# This is a Revit shared parameter file.
+# Do not edit manually.
+*META	VERSION	MINVERSION
+META	2	1
+*GROUP	ID	NAME
+GROUP	1	For_Walls
+GROUP	2	NewDefinitionGroup1
+GROUP	3	Group1
+GROUP	4	For_Project.rvt
+GROUP	5	For_Doors
+GROUP	6	Group2
+GROUP	7	For_Drawer.rfa
+*PARAM	GUID	NAME	DATATYPE	DATACATEGORY	GROUP	VISIBLE
+PARAM	7d4c1903-c65e-4bcd-9bce-dd06532af03c	Phase	Created	TEXT	1	1
+PARAM	64901a31-62e5-4332-b148-9c4ffb93ae51	WindowFamilyType	FAMILYTYPE	-2000014	2	1
+PARAM	d1d46f92-e1bf-43c8-8c75-8d068e075db7	Volume42	LENGTH		1	1
+PARAM	c0909793-c220-44c5-b231-350aa215b06e	int	INTEGER		3	1
+PARAM	727fa294-66ca-4258-ab24-c74ed280c7f9	Ins_LengthDim_WallsWindows	LENGTH		4	1
+PARAM	c6e8fc94-f300-425d-95de-fbffa3c6aaf9	Phase Created	TEXT		5	1
+PARAM	d29fac95-7a0e-439f-97bd-124a2100ba62	WattageTest21	ELECTRICAL_WATTAGE		6	1
+PARAM	4f907896-ee5e-4859-9d2a-a15a38b029bb	Operation	TEXT		7	1
+PARAM	1d14f996-3682-48e5-ad2d-3b4b5c38a59e	Base is Attached	YESNO		1	1
+PARAM	c3452bf6-5b1c-4234-9762-a61719a5f305	ColumnsFamilyType	FAMILYTYPE	-2000100	2	1

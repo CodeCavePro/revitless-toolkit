@@ -28,4 +28,14 @@
     </None>
   </ItemGroup>
 
+  <Target Name="CleanTestFiles" AfterTargets="Clean">
+    <ItemGroup>
+      <ValidShared Include="$(OutputPath)Resources\SharedParameterFiles\Valid\*.txt" />
+      <InvalidShared Include="$(OutputPath)Resources\SharedParameterFiles\Invalid\*.txt" />
+    </ItemGroup>
+    <Message Text="Deleting Shared parameter files from $(OutputPath)Resources\SharedParameterFiles" Importance="high" />
+    <Delete Files="@(ValidShared)" />
+    <Delete Files="@(InvalidShared)" />
+  </Target>
+
 </Project>

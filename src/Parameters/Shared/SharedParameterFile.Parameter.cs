@@ -187,12 +187,17 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             /// <inheritdoc />
             public bool Equals(Parameter other)
             {
-                return null != other && (Guid.Equals(other.Guid) &&
-                                         Name.Equals(other.Name) &&
-                                         IsShared.Equals(other.IsShared) &&
-                                         Equals(Description, other.Description) &&
-                                         Equals(Group, other.Group));
-                    ;
+                return null != other && Equals(Guid, other.Guid) &&
+                                        Equals(Name, other.Name) &&
+                                        Equals(UnitType, other.UnitType) &&
+                                        Equals(ParameterGroup, other.ParameterGroup) &&
+                                        Equals(ParameterType, other.ParameterType) &&
+                                        Equals(DisplayUnitType, other.DisplayUnitType) &&
+                                        Equals(Group, other.Group) &&
+                                        Equals(DataCategory, other.DataCategory) &&
+                                        Equals(IsVisible, other.IsVisible) &&
+                                        Equals(Description, other.Description) &&
+                                        Equals(UserModifiable, other.UserModifiable);
             }
 
             /// <summary>

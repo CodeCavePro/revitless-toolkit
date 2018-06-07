@@ -58,7 +58,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             /// <inheritdoc />
             public bool Equals(Group other)
             {
-                return null != other && Id.Equals(other.Id) && Name.Equals(other.Name);
+                return null != other && Equals(Id, other.Id) && Equals(Name, other.Name);
             }
 
             /// <summary>

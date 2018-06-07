@@ -71,7 +71,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             /// <inheritdoc />
             public bool Equals(MetaData other)
             {
-                return null != other && Version.Equals(other.Version) && MinVersion.Equals(other.MinVersion);
+                return null != other && Equals(Version, other.Version) && Equals(MinVersion, other.MinVersion);
             }
 
             /// <summary>

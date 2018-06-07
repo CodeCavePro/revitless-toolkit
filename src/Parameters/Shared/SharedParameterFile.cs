@@ -206,7 +206,8 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             if (Groups.Count != other.Groups.Count || Groups.Intersect(other.Groups).Count() != Groups.Count)
                 return false;
 
-            return Parameters.Count == other.Parameters.Count && Parameters.Intersect(other.Parameters).Count() == Parameters.Count;
+            return Equals(Parameters?.Count, other.Parameters?.Count) &&
+                   Equals(Parameters?.Count, Parameters?.Intersect(other.Parameters ?? new List<Parameter>()).Count());
         }
 
         /// <summary>

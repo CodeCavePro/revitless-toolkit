@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace CodeCave.Revit.Toolkit.Parameters.Shared
 {
@@ -17,6 +18,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         /// </summary>
         /// <seealso cref="T:System.IEquatable`1" />
         /// <inheritdoc />
+        [DebuggerDisplay("Id = {Id}   Name = {Name}")]
         public class Group : IEquatable<Group>
         {
             protected Group() { }

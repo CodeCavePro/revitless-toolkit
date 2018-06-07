@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 
 namespace CodeCave.Revit.Toolkit.Parameters.Shared
 {
@@ -15,6 +16,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         /// Represents the entry of the *META section of a shared parameter file
         /// </summary>
         /// <inheritdoc />
+        [DebuggerDisplay("Version = {Version}   MinVersion = {MinVersion}")]
         public class MetaData : IEquatable<MetaData>
         {
             /// <summary>

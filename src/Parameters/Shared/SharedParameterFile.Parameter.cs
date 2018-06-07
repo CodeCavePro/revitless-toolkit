@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 
 namespace CodeCave.Revit.Toolkit.Parameters.Shared
 {
@@ -19,6 +20,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         /// <inheritdoc cref="IDefinition" />
         /// <inheritdoc cref="IParameter" />
         /// <seealso cref="IEquatable{SharedParameterFile}" />
+        [DebuggerDisplay("Name = {Name}   Guid = {Guid}   Group = {Group?.Id}   Type = {ParameterType}")]
         public class Parameter : IDefinition, IParameter, IEquatable<Parameter>
         {
             /// <summary>

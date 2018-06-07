@@ -18,6 +18,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
     /// <inheritdoc cref="IEquatable{SharedParameterFile}" />
     /// <seealso cref="ICloneable" />
     /// <seealso cref="IEquatable{SharedParameterFile}" />
+    [DebuggerDisplay("Metadata = {Metadata.Version}.{Metadata.MinVersion}   Groups = {Groups?.Count}   Parameters = {Parameters?.Count}")]
     public sealed partial class SharedParameterFile : ICloneable, IEquatable<SharedParameterFile>, IValidatableObject
     {
         #region Constructors

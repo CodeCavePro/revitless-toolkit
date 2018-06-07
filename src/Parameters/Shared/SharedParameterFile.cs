@@ -289,15 +289,15 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             output.AppendLine("# Do not edit manually.");
 
             // Serialize META to CSV
-            var metaAsString = SectionToCsv<MetaClassMap>(Sections.META, new[] { Metadata });
+            var metaAsString = SectionToCsv<MetaClassMap, MetaData>(Sections.META, new[] { Metadata });
             output.AppendLine(metaAsString);
 
             // Serialize GROUP entries to CSV
-            var groupsAsString = SectionToCsv<GroupClassMap>(Sections.GROUPS, Groups);
+            var groupsAsString = SectionToCsv<GroupClassMap, Group>(Sections.GROUPS, Groups);
             output.AppendLine(groupsAsString);
 
             // Serialize PARAM entries to CSV
-            var paramsAsString = SectionToCsv<ParameterClassMap>(Sections.PARAMS, Parameters);
+            var paramsAsString = SectionToCsv<ParameterClassMap, Parameter>(Sections.PARAMS, Parameters);
             output.AppendLine(paramsAsString);
 
             return output.ToString();
@@ -307,11 +307,12 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         /// Serializes shared parameter file's sections to CSV.
         /// </summary>
         /// <typeparam name="TCsvMap">CSV class mappings</typeparam>
+        /// <typeparam name="TEntries">Type of entries to serialize</typeparam>
         /// <param name="sectionName">Name of the section.</param>
         /// <param name="sectionEntries">Section entries.</param>
         /// <returns></returns>
-        private static string SectionToCsv<TCsvMap>(string sectionName, IEnumerable sectionEntries)
-            where TCsvMap : ClassMap
+        private static string SectionToCsv<TCsvMap, TEntries>(string sectionName, IEnumerable<TEntries> sectionEntries)
+            where TCsvMap : ClassMap<TEntries>
         {
             // Serialize entries to CSV
             var sectionBuilder = new StringBuilder();

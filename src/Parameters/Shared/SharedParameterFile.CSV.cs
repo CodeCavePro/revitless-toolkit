@@ -321,14 +321,14 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             public ParameterClassMap()
             {
                 // "Visible" fields
-                Map(m => m.Guid).Name("GUID").TypeConverter<GuidConverter>();
-                Map(m => m.Name).Name("NAME");
-                Map(m => m.ParameterType).Name("DATATYPE").TypeConverter<ParameterTypeConverter>();
-                Map(m => m.DataCategory).Name("DATACATEGORY");
-                Map(m => m.Group.Id).Name("GROUP");
-                Map(m => m.IsVisible).Name("VISIBLE").TypeConverter<AdvancedBooleanConverter>();
-                Map(m => m.Description).Name("DESCRIPTION");
-                Map(m => m.UserModifiable).Name("USERMODIFIABLE").TypeConverter<AdvancedBooleanConverter>();
+                Map(m => m.Guid).Name("GUID").TypeConverter<GuidConverter>().Index(0);
+                Map(m => m.Name).Name("NAME").Index(1);
+                Map(m => m.ParameterType).Name("DATATYPE").TypeConverter<ParameterTypeConverter>().Index(2);
+                Map(m => m.DataCategory).Name("DATACATEGORY").Index(3);
+                Map(m => m.Group.Id).Name("GROUP").Index(4);
+                Map(m => m.IsVisible).Name("VISIBLE").TypeConverter<AdvancedBooleanConverter>().Index(5);
+                Map(m => m.Description).Name("DESCRIPTION").Index(6);
+                Map(m => m.UserModifiable).Name("USERMODIFIABLE").TypeConverter<AdvancedBooleanConverter>().Index(7);
 
                 // Ignored fields
                 Map(m => m.UnitType).Ignore();

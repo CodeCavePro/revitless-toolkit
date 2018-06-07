@@ -38,6 +38,9 @@ namespace CodeCave.Revit.Toolkit.Tests
             );
         }
 
+        /// <summary>
+        /// Checks if invalid file fail to pass validation.
+        /// </summary>
         [Fact]
         public void InvalidFilesFailValidation()
         {
@@ -178,7 +181,7 @@ namespace CodeCave.Revit.Toolkit.Tests
                 sharedParamFilePath =>
                 {
                     var sharedParamFile1 = new SharedParameterFile(sharedParamFilePath);
-                    var sharedParamFile2 = sharedParamFile1.CloneFile(true);
+                    var sharedParamFile2 = sharedParamFile1.Clone(true);
                     Assert.True(sharedParamFile1.Equals(sharedParamFile2));
                 }
             );
@@ -195,6 +198,7 @@ namespace CodeCave.Revit.Toolkit.Tests
                 {
                     var sharedParamFile1 = new SharedParameterFile(sharedParamFilePath);
                     var sharedParamFile2 = new SharedParameterFile(sharedParamFile1.ToString());
+
                     Assert.True(sharedParamFile1.Equals(sharedParamFile2));
                 }
             );

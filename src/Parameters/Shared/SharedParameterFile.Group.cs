@@ -19,13 +19,24 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         /// <inheritdoc />
         public class Group : IEquatable<Group>
         {
+            protected Group() { }
+
+            public Group(string name, int id)
+            {
+                if (string.IsNullOrWhiteSpace(name)) throw new ArgumentNullException(nameof(name));
+                if (id < 1) throw new ArgumentException(nameof(id));
+
+                Name = name;
+                Id = id;
+            }
+
             /// <summary>
             /// Gets or sets the identifier of the group.
             /// </summary>
             /// <value>
             /// The identifier of the group.
             /// </value>
-            public int Id { get; set; }
+            public int Id { get; protected set; }
 
             /// <summary>
             /// Gets or sets the name of the group.
@@ -33,7 +44,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             /// <value>
             /// The name of the group.
             /// </value>
-            public string Name { get; set; }
+            public string Name { get; protected set; }
 
             /// <summary>
             /// Indicates whether the current object is equal to another object of the same type.

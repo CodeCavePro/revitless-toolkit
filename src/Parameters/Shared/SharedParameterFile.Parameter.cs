@@ -21,6 +21,44 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         /// <seealso cref="IEquatable{SharedParameterFile}" />
         public class Parameter : IDefinition, IParameter, IEquatable<Parameter>
         {
+            /// <summary>
+            /// Initializes a new instance of the <see cref="Parameter"/> class.
+            /// </summary>
+            protected Parameter() {}
+
+            /// <summary>
+            /// Initializes a new instance of the <see cref="T:CodeCave.Revit.Toolkit.Parameters.Shared.SharedParameterFile.Parameter" /> class.
+            /// </summary>
+            /// <param name="guid">The unique identifier of the parameter.</param>
+            /// <param name="name">The name of the parameter.</param>
+            /// <param name="group">The group parameter belongs to.</param>
+            /// <param name="type">The parameter type.</param>
+            /// <param name="dataCategory">The data category.</param>
+            /// <param name="description">The description.</param>
+            /// <param name="isVisible">if set to <c>true</c> [is visible].</param>
+            /// <param name="userModifiable">if set to <c>true</c> [is user modifiable].</param>
+            /// <inheritdoc />
+            public Parameter(
+                Guid guid,
+                string name,
+                Group group,
+                ParameterType type = ParameterType.Invalid,
+                string dataCategory = "",
+                string description = "",
+                bool isVisible = true,
+                bool userModifiable = true
+            ) : this()
+            {
+                Guid = guid;
+                Name = name;
+                Group = group;
+                ParameterType = type;
+                DataCategory = dataCategory;
+                Description = description;
+                IsVisible = isVisible;
+                UserModifiable = userModifiable;
+            }
+
             /// <inheritdoc />
             /// <summary>
             /// Gets the unique identifier.
@@ -28,7 +66,69 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             /// <value>
             /// The unique identifier.
             /// </value>
-            public Guid Guid { get; set; } = Guid.Empty;
+            public Guid Guid { get; protected set; } = Guid.Empty;
+
+            /// <inheritdoc />
+            /// <summary>
+            /// Gets the name.
+            /// </summary>
+            /// <value>
+            /// The name.
+            /// </value>
+            public string Name { get; protected set; }
+
+            /// <inheritdoc />
+            /// <summary>
+            /// Gets the type of the unit.
+            /// </summary>
+            /// <value>
+            /// The type of the unit.
+            /// </value>
+            public UnitType UnitType => ParameterType.GetUnitType();
+
+            /// <inheritdoc />
+            /// <summary>
+            /// Gets the parameter group.
+            /// </summary>
+            /// <value>
+            /// The parameter group.
+            /// </value>
+            public BuiltInParameterGroup ParameterGroup => BuiltInParameterGroup.INVALID;
+
+            /// <inheritdoc />
+            /// <summary>
+            /// Gets the type of the parameter.
+            /// </summary>
+            /// <value>
+            /// The type of the parameter.
+            /// </value>
+            public ParameterType ParameterType { get; protected set; } = ParameterType.Invalid;
+
+            /// <inheritdoc />
+            /// <summary>
+            /// Gets the display type of the unit.
+            /// </summary>
+            /// <value>
+            /// The display type of the unit.
+            /// </value>
+            public DisplayUnitType DisplayUnitType => DisplayUnitType.DUT_UNDEFINED;
+
+            /// <summary>
+            /// Gets or sets the group.
+            /// </summary>
+            /// <value>
+            /// The group object.
+            /// </value>
+            public Group Group { get; set; }
+
+            /// <summary>
+            /// Gets or sets the data category.
+            /// https://knowledge.autodesk.com/support/revit-products/troubleshooting/caas/sfdcarticles/sfdcarticles/Why-the-DATACATEGORY-column-is-empty-in-shared-parameter-txt-file.html
+            /// </summary>
+            /// <value>
+            /// The data category.
+            /// </value>
+            public string DataCategory { get; protected set; } = "";
 
             /// <inheritdoc />
             /// <summary>
@@ -39,82 +139,13 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             /// </value>
             public bool IsShared => true;
 
-            /// <inheritdoc />
-            /// <summary>
-            /// Gets the name.
-            /// </summary>
-            /// <value>
-            /// The name.
-            /// </value>
-            public string Name { get; set; }
-
-            /// <inheritdoc />
-            /// <summary>
-            /// Gets the type of the unit.
-            /// </summary>
-            /// <value>
-            /// The type of the unit.
-            /// </value>
-            public UnitType UnitType { get; internal set; } = UnitType.UT_Undefined;
-
-            /// <inheritdoc />
-            /// <summary>
-            /// Gets the parameter group.
-            /// </summary>
-            /// <value>
-            /// The parameter group.
-            /// </value>
-            public BuiltInParameterGroup ParameterGroup { get; set; } = BuiltInParameterGroup.INVALID;
-
-            /// <inheritdoc />
-            /// <summary>
-            /// Gets the type of the parameter.
-            /// </summary>
-            /// <value>
-            /// The type of the parameter.
-            /// </value>
-            public ParameterType ParameterType { get; set; } = ParameterType.Invalid;
-
-            /// <inheritdoc />
-            /// <summary>
-            /// Gets the display type of the unit.
-            /// </summary>
-            /// <value>
-            /// The display type of the unit.
-            /// </value>
-            public DisplayUnitType DisplayUnitType { get; set; } = DisplayUnitType.DUT_UNDEFINED;
-
-            /// <summary>
-            /// Gets or sets the group ID.
-            /// </summary>
-            /// <value>
-            /// The group ID.
-            /// </value>
-            public int GroupId { get; set; } = -1;
-
-            /// <summary>
-            /// Gets the name of the group.
-            /// </summary>
-            /// <value>
-            /// The name of the group.
-            /// </value>
-            public string GroupName { get; internal set; } = "";
-
-            /// <summary>
-            /// Gets or sets the data category.
-            /// </summary>
-            /// <value>
-            /// The data category.
-            /// </value>
-            public string DataCategory { get; set; } = "";
-
             /// <summary>
             /// Gets or sets a value indicating whether this instance is visible.
             /// </summary>
             /// <value>
             ///   <c>true</c> if this instance is visible; otherwise, <c>false</c>.
             /// </value>
-            public bool IsVisible { get; set; } = true;
+            public bool IsVisible { get; protected set; } = true;
 
             /// <summary>
             /// Gets or sets the description.
@@ -122,7 +153,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             /// <value>
             /// The description.
             /// </value>
-            public string Description { get; set; } = "";
+            public string Description { get; protected set; } = "";
 
             /// <summary>
             /// Gets or sets a value indicating whether [user modifiable].
@@ -130,7 +161,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             /// <value>
             ///   <c>true</c> if [user modifiable]; otherwise, <c>false</c>.
             /// </value>
-            public bool UserModifiable { get; set; } = true;
+            public bool UserModifiable { get; protected set; } = true;
 
             /// <summary>
             /// Determines whether the specified <see cref="object" />, is equal to this instance.
@@ -157,8 +188,9 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                 return null != other && (Guid.Equals(other.Guid) &&
                                          Name.Equals(other.Name) &&
                                          IsShared.Equals(other.IsShared) &&
-                                         Description.Equals(other.Description) &&
-                                         (GroupId.Equals(other.GroupId) || GroupName.Equals(other.GroupName)));
+                                         Equals(Description, other.Description) &&
+                                         Equals(Group, other.Group));
+                    ;
             }
 
             /// <summary>
@@ -177,7 +209,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                     hashCode = (hashCode * 397) ^ (int) ParameterGroup;
                     hashCode = (hashCode * 397) ^ (int) ParameterType;
                     hashCode = (hashCode * 397) ^ (int) DisplayUnitType;
-                    hashCode = (hashCode * 397) ^ GroupId;
+                    hashCode = (hashCode * 397) ^ (Group != null ? Group.GetHashCode() : 0);
                     hashCode = (hashCode * 397) ^ (DataCategory != null ? DataCategory.GetHashCode() : 0);
                     hashCode = (hashCode * 397) ^ IsVisible.GetHashCode();
                     hashCode = (hashCode * 397) ^ (Description != null ? Description.GetHashCode() : 0);

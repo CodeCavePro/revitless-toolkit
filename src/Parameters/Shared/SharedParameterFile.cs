@@ -22,16 +22,17 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
     {
         #region Constructors
 
+        private List<Group> _groups;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="SharedParameterFile"/> class.
         /// </summary>
         /// <param name="metadata">The metadata section.</param>
         /// <param name="groups">The list of groups.</param>
         /// <param name="parameters">The list of parameters.</param>
-        public SharedParameterFile(MetaData metadata = null, IEnumerable<Group> groups = null, IEnumerable<Parameter> parameters = null)
+        public SharedParameterFile(MetaData metadata = null, IEnumerable<Parameter> parameters = null)
         {
-            Metadata = metadata ?? new MetaData {Version = 2, MinVersion = 1};
-            Groups = groups != null ? new List<Group>(groups) : new List<Group>();
+            Metadata = metadata ?? new MetaData(2, 1);
             Parameters = parameters != null ? new List<Parameter>(parameters) : new List<Parameter>();
         }
 
@@ -46,132 +47,6 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             : this(sharedParameterFile?.FullName, encoding)
         {}
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SharedParameterFile" /> class.
-        /// </summary>
-        /// <param name="sharedParameterFile">The shared parameter file.</param>
-        /// <param name="encoding">The encoding to use, fallbacks to UTF-8.</param>
-        /// <exception cref="ArgumentException">sharedParameterFile</exception>
-        /// <exception cref="InvalidDataException">Failed to parse shared parameter file content," +
-        /// "because it doesn't contain enough data for being qualified as a valid shared parameter file.</exception>
-        public SharedParameterFile(string sharedParameterFile, Encoding encoding = null)
-        {
-            if (string.IsNullOrWhiteSpace(sharedParameterFile))
-            {
-                throw new ArgumentException($"{nameof(sharedParameterFile)} must be a non empty string");
-            }
-
-            if (!SectionRegex.IsMatch(sharedParameterFile) && File.Exists(sharedParameterFile))
-            {
-                Encoding = encoding ?? new FileInfo(sharedParameterFile).GetEncoding();
-                sharedParameterFile = File.ReadAllText(sharedParameterFile, Encoding);
-            }
-            
-            var sharedParamsFileLines = SectionRegex
-                .Split(sharedParameterFile)
-                .Where(line => !line.StartsWith("#")) // Exclude comment lines
-                .ToArray();
-
-            var sharedParamsFileSections = sharedParamsFileLines
-                .Where((e, i) => i % 2 == 0)
-                .Select((e, i) => new { Key = e, Value = sharedParamsFileLines[i * 2 + 1] })
-                .ToDictionary(kp => kp.Key, kp => kp.Value.Replace($"{kp.Key}\t", string.Empty));
-
-            if (sharedParamsFileSections == null || sharedParamsFileSections.Count < 3 ||
-                !(sharedParamsFileSections.ContainsKey(Sections.META) &&
-                  sharedParamsFileSections.ContainsKey(Sections.GROUPS) &&
-                  sharedParamsFileSections.ContainsKey(Sections.PARAMS)))
-            {
-                throw new InvalidDataException("Failed to parse shared parameter file content," +
-                                               "because it doesn't contain enough data for being qualified as a valid shared parameter file.");
-            }
-
-            foreach (var section in sharedParamsFileSections)
-            {
-                using (var stringReader = new StringReader(section.Value))
-                {
-                    using (var csvReader = new CsvReader(stringReader, CsvConfiguration))
-                    {
-                        csvReader.Configuration.TrimOptions = TrimOptions.Trim;
-                        csvReader.Configuration.BadDataFound = BadDataFound;
-
-                        // TODO implement
-                        // csvReader.Configuration.AllowComments = true;
-                        // csvReader.Configuration.Comment = '#';
-
-                        var originalHeaderValidated = csvReader.Configuration.HeaderValidated;
-                        csvReader.Configuration.HeaderValidated = (isValid, headerNames, headerIndex, context) =>
-                        {
-                            // Everything is OK, just go out
-                            if (isValid)
-                                return;
-
-                            // Allow DESCRIPTION header to be missing (it's actually missing in older shared parameter files)
-                            if (nameof(Parameter.Description).Equals(headerNames?.FirstOrDefault(), StringComparison.OrdinalIgnoreCase))
-                                return;
-
-                            // Allow USERMODIFIABLE header to be missing (it's actually missing in older shared parameter files)
-                            if (nameof(Parameter.UserModifiable).Equals(headerNames?.FirstOrDefault(), StringComparison.OrdinalIgnoreCase))
-                                return;
-
-                            originalHeaderValidated(false, headerNames, headerIndex, context);
-                        };
-
-                        var originalMissingFieldFound = csvReader.Configuration.MissingFieldFound;
-                        csvReader.Configuration.MissingFieldFound = (headerNames, index, context) =>
-                        {
-                            // Allow DESCRIPTION header to be missing (it's actually missing in older shared parameter files)
-                            if (nameof(Parameter.Description).Equals(headerNames?.FirstOrDefault(), StringComparison.OrdinalIgnoreCase))
-                                return;
-
-                            // Allow USERMODIFIABLE header to be missing (it's actually missing in older shared parameter files)
-                            if (nameof(Parameter.UserModifiable).Equals(headerNames?.FirstOrDefault(), StringComparison.OrdinalIgnoreCase))
-                                return;
-
-                            originalMissingFieldFound(headerNames, index, context);
-                        };
-
-                        switch (section.Key)
-                        {
-                            // Parse *META section
-                            case Sections.META:
-                                csvReader.Configuration.RegisterClassMap<MetaClassMap>();
-                                Metadata = csvReader.GetRecords<MetaData>().FirstOrDefault();
-                                break;
-
-                            // Parse *GROUP section
-                            case Sections.GROUPS:
-                                csvReader.Configuration.RegisterClassMap<GroupClassMap>();
-                                Groups = csvReader.GetRecords<Group>().ToList();
-                                break;
-
-                            // Parse *PARAM section
-                            case Sections.PARAMS:
-                                csvReader.Configuration.RegisterClassMap<ParameterClassMap>();
-                                Parameters = csvReader.GetRecords<Parameter>().ToList();
-                                break;
-
-                            default:
-                                Debug.WriteLine($"Unknown section type: {section.Key}");
-                                continue;
-                        }
-                    }
-                }
-            }
-
-            // Post-process parameters by assigning group names using group IDs
-            // and recover UnitType from ParameterType
-            Parameters = Parameters
-                .AsParallel()
-                .Select(p =>
-                {
-                    p.GroupName = Groups?.FirstOrDefault(g => g.Id == p.GroupId)?.Name;
-                    p.UnitType = p.ParameterType.GetUnitType();
-                    return p;
-                })
-                .ToList();
-        }
-
         #endregion Constructors
 
         #region Properties
@@ -182,7 +57,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         /// <value>
         /// The encoding.
         /// </value>
-        public Encoding Encoding { get; }
+        public Encoding Encoding { get; } = Encoding.UTF8;
 
         /// <summary>
         /// Gets or sets the meta-data section of the shared parameter file.
@@ -190,15 +65,22 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         /// <value>
         /// The meta-data section of the shared parameter file.
         /// </value>
-        public MetaData Metadata { get; }
+        public MetaData Metadata { get; } = new MetaData(2, 1);
 
         /// <summary>
-        /// Gets or sets the groups section of the shared parameter file.
+        /// Gets the group items from *GROUP section of the shared parameter file.
         /// </summary>
         /// <value>
         /// The groups section of the shared parameter file.
         /// </value>
-        public List<Group> Groups { get; }
+        public IReadOnlyList<Group> Groups
+        {
+            get
+            {
+                return new HashSet<Group>((_groups ?? new List<Group>()).Concat(Parameters.Where(p => null != p.Group).Select(p => p.Group))).ToList();
+            }
+            private set => _groups = (null != value) ? new List<Group>(value) : null;
+        }
 
         /// <summary>
         /// Gets or sets the parameters section of the shared parameter file.
@@ -241,26 +123,27 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                 results.Add(new ValidationResult($"Data in {nameof(Sections.META)} section is invalid",
                     new[] {nameof(Metadata)}));
 
-            if (!Groups.Any())
+            var groups = Groups.ToArray();
+            if (!groups.Any())
                 results.Add(new ValidationResult("The list of groups is empty", new[] {nameof(Groups)}));
 
             if (!Parameters.Any())
                 results.Add(new ValidationResult("The list of parameters is empty", new[] {nameof(Parameters)}));
 
             // Check for group duplicates by ID
-            var groupIds = Groups.GroupBy(p => p.Id).Where(g => g.Count() > 1).Select(p => p.Key);
+            var groupIds = groups.GroupBy(p => p.Id).Where(g => g.Count() > 1).Select(p => p.Key);
             results.AddRange(groupIds.Select(groupId =>
                 new ValidationResult($"The following group {nameof(Group.Id)} has duplicates: {groupId}",
                     new[] {nameof(Groups)})));
 
             // Check for group duplicates by name
-            var groupNames = Groups.GroupBy(p => p.Name).Where(g => g.Count() > 1).Select(p => p.Key);
+            var groupNames = groups.GroupBy(p => p.Name).Where(g => g.Count() > 1).Select(p => p.Key);
             results.AddRange(groupNames.Select(group =>
                 new ValidationResult($"The following group {nameof(Group.Name)} has duplicates: {group}",
                     new[] {nameof(Groups)})));
 
             // Check for unused
-            var unusedGroups = Groups.Where(g => !Parameters.Any(p => p.GroupId.Equals(g.Id)));
+            var unusedGroups = groups.Where(g => !Parameters.Any(p => g.Id.Equals(p.Group?.Id)));
             results.AddRange(unusedGroups.Select(g =>
                 new ValidationResult($"The following group is unused (not assigned to any parameter): {g.Id}={g.Name}",
                     new[] {nameof(Groups)})));
@@ -278,9 +161,9 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                     new[] {nameof(Parameters)})));
 
             // Check for orphan parameters by groups
-            var paramGroupOrphans = Parameters.Where(p => !Groups.Any(g => g.Id.Equals(p.GroupId)));
+            var paramGroupOrphans = Parameters.Where(p => !groups.Any(g => g.Id.Equals(p.Group?.Id)));
             results.AddRange(paramGroupOrphans.Select(p =>
-                new ValidationResult($"The following parameter is assigned to an unknown group ({p.GroupId}): {p.Name}",
+                new ValidationResult($"The following parameter is assigned to an unknown group ({p.Group?.Id}): {p.Name}",
                     new[] {nameof(Parameters)})));
 
             return results;
@@ -337,7 +220,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             {
                 var hashCode = -409059346;
                 hashCode = hashCode * -1521134295 + EqualityComparer<MetaData>.Default.GetHashCode(Metadata);
-                hashCode = hashCode * -1521134295 + EqualityComparer<List<Group>>.Default.GetHashCode(Groups);
+                hashCode = hashCode * -1521134295 + EqualityComparer<IReadOnlyCollection<Group>>.Default.GetHashCode(Groups);
                 hashCode = hashCode * -1521134295 + EqualityComparer<List<Parameter>>.Default.GetHashCode(Parameters);
                 return hashCode;
             }
@@ -354,7 +237,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         /// <returns></returns>
         object ICloneable.Clone()
         {
-            return CloneFile();
+            return Clone(false);
         }
 
         /// <summary>
@@ -363,7 +246,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         /// <returns></returns>
         public SharedParameterFile Clone()
         {
-            return CloneFile();
+            return Clone(false);
         }
 
         /// <summary>
@@ -371,19 +254,17 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         /// </summary>
         /// <param name="randomize">if set to <c>true</c> [randomize].</param>
         /// <returns></returns>
-        internal SharedParameterFile CloneFile(bool randomize = false)
+        internal SharedParameterFile Clone(bool randomize)
         {
             var clone = new SharedParameterFile
             (
-                new MetaData {Version = Metadata.Version, MinVersion = Metadata.MinVersion},
+                new MetaData(Metadata),
                 randomize
-                    ? new List<Group>(Groups.OrderBy(x => Guid.NewGuid()))
-                    : new List<Group>(Groups),
-                randomize
-                    ? new List<Parameter>(Parameters.OrderBy(x => Guid.NewGuid()))
-                    : new List<Parameter>(Parameters)
+                    ? Parameters.OrderBy(x => Guid.NewGuid()).ToList()
+                    : Parameters.ToList()
             );
 
+            clone._groups = _groups;
             return clone;
         }
 

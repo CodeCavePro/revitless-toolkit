@@ -18,12 +18,38 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         public class MetaData : IEquatable<MetaData>
         {
             /// <summary>
+            /// Initializes a new instance of the <see cref="MetaData"/> class.
+            /// </summary>
+            protected MetaData() {}
+
+            /// <summary>
+            /// Initializes a new instance of the <see cref="MetaData"/> class.
+            /// </summary>
+            /// <param name="other">The other.</param>
+            public MetaData(MetaData other)
+            {
+                Version = other.Version;
+                MinVersion = other.MinVersion;
+            }
+
+            /// <summary>
+            /// Initializes a new instance of the <see cref="MetaData"/> class.
+            /// </summary>
+            /// <param name="majorVersion">The major version.</param>
+            /// <param name="minorVersion">The minor version.</param>
+            public MetaData(int majorVersion, int minorVersion)
+            {
+                Version = majorVersion;
+                MinVersion = minorVersion;
+            }
+
+            /// <summary>
             /// Gets or sets the version.
             /// </summary>
             /// <value>
             /// The version.
             /// </value>
-            public int Version { get; set; }
+            public int Version { get; protected set; }
 
             /// <summary>
             /// Gets or sets the minimum version.
@@ -31,7 +57,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             /// <value>
             /// The minimum version.
             /// </value>
-            public int MinVersion { get; set; }
+            public int MinVersion { get; protected set; }
 
             /// <summary>
             /// Indicates whether the current object is equal to another object of the same type.

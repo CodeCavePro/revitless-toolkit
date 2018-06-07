@@ -1,4 +1,8 @@
 ﻿using System;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
 using CsvHelper;
 using CsvHelper.Configuration;
 using CsvHelper.TypeConversion;
@@ -14,6 +18,90 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
     /// <seealso cref="IEquatable{SharedParameterFile}" />
     public sealed partial class SharedParameterFile
     {
+        #region Constructor
+
+        // ReSharper disable once PrivateFieldCanBeConvertedToLocalVariable
+        private static readonly Regex SectionRegex;
+        private static readonly Configuration CsvConfiguration;
+
+        /// <summary>
+        /// Initializes the <see cref="SharedParameterFile"/> class.
+        /// </summary>
+        static SharedParameterFile()
+        {
+            SectionRegex = new Regex(@"\*(?<section>[A-Z]+)\t", RegexOptions.IgnoreCase | RegexOptions.Compiled);
+            CsvConfiguration = new Configuration
+            {
+                HasHeaderRecord = true,
+                AllowComments = true,
+                IgnoreBlankLines = true,
+                Delimiter = "\t",
+                DetectColumnCountChanges = false,
+                QuoteNoFields = true
+            };
+
+#if !NET452
+            // Allow the usage of ANSI encoding other than the default one 
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+#endif
+        }
+
+        #endregion Constructor
+
+        #region Methods
+
+        /// <summary>
+        /// Extracts <see cref="SharedParameterFile"/> object from a .txt file.
+        /// </summary>
+        /// <param name="sharedParameterFile">The shared parameter file path.</param>
+        /// <returns>The shared parameter file</returns>
+        /// <exception cref="ArgumentException"></exception>
+        [Obsolete("Please use constructor instead")]
+        public static SharedParameterFile FromFile(string sharedParameterFile)
+        {
+            return new SharedParameterFile(new FileInfo(sharedParameterFile));
+        }
+
+        /// <summary>
+        /// Extracts <see cref="SharedParameterFile"/> object from a string.
+        /// </summary>
+        /// <param name="sharedParameterText">Text content of shared parameter file.</param>
+        /// <returns>The shared parameter file</returns>
+        /// <exception cref="System.ArgumentException">sharedParameterText</exception>
+        [Obsolete("Please use constructor instead")]
+        public static SharedParameterFile FromText(string sharedParameterText)
+        {
+            return new SharedParameterFile(sharedParameterText);
+        }
+
+        /// <summary>
+        /// Saves shared parameter file to specified file.
+        /// </summary>
+        /// <param name="pathToFile">The path to the file.</param>
+        /// <param name="throwOnError">if set to <c>true</c> [throw an Exception on error].</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException">pathToFile</exception>
+        public bool Save(string pathToFile, bool throwOnError = false)
+        {
+            if (string.IsNullOrWhiteSpace(pathToFile) || Path.GetInvalidFileNameChars().Concat(Path.GetInvalidPathChars()).Any(pathToFile.Contains))
+                throw new ArgumentException($"{nameof(pathToFile)} must contain a valid path to a file");
+
+            try
+            {
+                File.WriteAllText(pathToFile, ToString(), Encoding ?? Encoding.UTF8);
+                return true;
+            }
+            catch
+            {
+                if (throwOnError) throw;
+                return false;
+            }
+        }
+
+        #endregion Methods
+
+        #region Helpers
+
         /// <summary>
         /// Defines the names of shared parameter file sections
         /// </summary>
@@ -23,6 +111,23 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             public const string GROUPS = "GROUP";
             public const string PARAMS = "PARAM";
         }
+
+        /// <summary>
+        /// Handles cases when invalid data raises <see cref="BadDataException"/>.
+        /// </summary>
+        /// <param name="readingContext">CSV parsing context.</param>
+        /// <exception cref="BadDataException"></exception>
+        private static void BadDataFound(ReadingContext readingContext)
+        {
+            if (readingContext.Field.Contains('\"')) // Allow double quotes in parameter names
+            {
+                return;
+            }
+
+            throw new BadDataException(readingContext, $"File contains bad / invalid data: {readingContext.Field}");
+        }
+
+        #endregion Helpers
 
         /// <summary>
         /// CSVHelper mappings for META section

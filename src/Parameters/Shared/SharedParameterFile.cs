@@ -31,10 +31,11 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         /// <param name="metadata">The metadata section.</param>
         /// <param name="groups">The list of groups.</param>
         /// <param name="parameters">The list of parameters.</param>
-        public SharedParameterFile(MetaData metadata = null, IEnumerable<Parameter> parameters = null)
+        public SharedParameterFile(MetaData metadata = null, IEnumerable<Group> groups = null, IEnumerable<Parameter> parameters = null)
         {
             Metadata = metadata ?? new MetaData(2, 1);
             Parameters = parameters != null ? new List<Parameter>(parameters) : new List<Parameter>();
+            _groups = groups != null ? new List<Group>(groups) : new List<Group>();
         }
 
         /// <summary>
@@ -261,12 +262,13 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             var clone = new SharedParameterFile
             (
                 new MetaData(Metadata),
+                _groups,
                 randomize
                     ? Parameters.OrderBy(x => Guid.NewGuid()).ToList()
                     : Parameters.ToList()
             );
 
-            clone._groups = _groups;
+
             return clone;
         }
 

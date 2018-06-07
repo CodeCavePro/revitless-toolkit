@@ -44,7 +44,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                 Guid guid,
                 string name,
                 Group group,
-                ParameterType type = ParameterType.Invalid,
+                ParameterType type,
                 string dataCategory = "",
                 string description = "",
                 bool isVisible = true,

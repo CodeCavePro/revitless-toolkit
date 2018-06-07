@@ -172,13 +172,29 @@ namespace CodeCave.Revit.Toolkit.Tests
         /// Checks if a shared parameter file and it's randomized clone are equal.
         /// </summary>
         [Fact]
-        public void FilesAreEqual()
+        public void ClonedAndRandomizedFilesAreEqual()
         {
             Assert.All(SharedParameterFiles,
                 sharedParamFilePath =>
                 {
                     var sharedParamFile1 = new SharedParameterFile(sharedParamFilePath);
                     var sharedParamFile2 = sharedParamFile1.CloneFile(true);
+                    Assert.True(sharedParamFile1.Equals(sharedParamFile2));
+                }
+            );
+        }
+
+        /// <summary>
+        /// Checks if to string works correctly.
+        /// </summary>
+        [Fact]
+        public void ToStringOutputCopyIsEqual()
+        {
+            Assert.All(SharedParameterFiles.Where(f => f.StartsWith(PathToValidFiles)),
+                sharedParamFilePath =>
+                {
+                    var sharedParamFile1 = new SharedParameterFile(sharedParamFilePath);
+                    var sharedParamFile2 = new SharedParameterFile(sharedParamFile1.ToString());
                     Assert.True(sharedParamFile1.Equals(sharedParamFile2));
                 }
             );

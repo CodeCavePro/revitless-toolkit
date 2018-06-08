@@ -22,7 +22,14 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
     {
         #region Constructors
 
-        private List<Group> _groups;
+        private IReadOnlyList<Group> _groups;
+
+        internal SharedParameterFile()
+        {
+            Metadata = new MetaData(2, 1);
+            Parameters = new ParameterCollection(this, null);
+            _groups =  new List<Group>();
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SharedParameterFile"/> class.
@@ -35,6 +42,38 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             Metadata = metadata ?? new MetaData(2, 1);
             Parameters = new ParameterCollection(this, parameters ?? new List<Parameter>());
             _groups = groups != null ? new List<Group>(groups) : new List<Group>();
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:CodeCave.Revit.Toolkit.Parameters.Shared.SharedParameterFile" /> class.
+        /// </summary>
+        /// <param name="groups">The list of groups.</param>
+        /// <param name="parameters">The list of parameters.</param>
+        /// <param name="metadata">The metadata section.</param>
+        /// <inheritdoc />
+        public SharedParameterFile(IEnumerable<string> groups = null, IEnumerable<Parameter> parameters = null, MetaData metadata = null)
+            : this(
+                groups?.Select((g, i) => new Group(g, i +1)),
+                parameters,
+                metadata
+            )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SharedParameterFile"/> class.
+        /// </summary>
+        /// <param name="groups">The list of groups.</param>
+        /// <param name="parameters">The list of parameters.</param>
+        /// <param name="metadata">The metadata section.</param>
+        /// <inheritdoc />
+        public SharedParameterFile(IDictionary<string, int> groups = null, IEnumerable<Parameter> parameters = null, MetaData metadata = null)
+            : this(
+                groups?.Select((g, i) => new Group(g.Key, (g.Value > 0) ? g.Value : i)),
+                parameters,
+                metadata
+            )
+        {
         }
 
         /// <summary>

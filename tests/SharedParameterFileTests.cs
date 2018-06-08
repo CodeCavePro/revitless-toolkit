@@ -184,7 +184,7 @@ namespace CodeCave.Revit.Toolkit.Tests
         [Fact]
         public void ClonedAndRandomizedFilesAreEqual()
         {
-            Assert.All(SharedParameterFiles,
+            Assert.All(SharedParameterFiles.Where(f => f.StartsWith(PathToValidFiles)),
                 sharedParamFilePath =>
                 {
                     var sharedParamFile1 = new SharedParameterFile(sharedParamFilePath);

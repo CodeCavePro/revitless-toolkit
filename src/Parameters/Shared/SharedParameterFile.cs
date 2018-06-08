@@ -24,6 +24,9 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
 
         private IReadOnlyList<Group> _groups;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SharedParameterFile"/> class.
+        /// </summary>
         internal SharedParameterFile()
         {
             Metadata = new MetaData(2, 1);
@@ -42,10 +45,19 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             Metadata = metadata ?? new MetaData(2, 1);
             Parameters = new ParameterCollection(this, parameters ?? new List<Parameter>());
             _groups = groups != null ? new List<Group>(groups) : new List<Group>();
+
+            var groupValidation = ValidateGroups(_groups?.ToList())?.ToArray();
+            if (groupValidation != null && groupValidation.Any())
+            {
+                throw new ArgumentException(
+                    nameof(groups),
+                    $"Groups you have supplied are invalid. Here is what is wrong: {string.Join(", ", groupValidation.Select(v => v.ErrorMessage))}"
+                );
+            }
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:CodeCave.Revit.Toolkit.Parameters.Shared.SharedParameterFile" /> class.
+        /// Initializes a new instance of the <see cref="SharedParameterFile" /> class.
         /// </summary>
         /// <param name="groups">The list of groups.</param>
         /// <param name="parameters">The list of parameters.</param>
@@ -163,30 +175,12 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                 results.Add(new ValidationResult($"Data in {nameof(Sections.META)} section is invalid",
                     new[] {nameof(Metadata)}));
 
-            var groups = Groups.ToArray();
-            if (!groups.Any())
-                results.Add(new ValidationResult("The list of groups is empty", new[] {nameof(Groups)}));
-
             if (!Parameters.Any())
                 results.Add(new ValidationResult("The list of parameters is empty", new[] {nameof(Parameters)}));
 
-            // Check for group duplicates by ID
-            var groupIds = groups.GroupBy(p => p.Id).Where(g => g.Count() > 1).Select(p => p.Key);
-            results.AddRange(groupIds.Select(groupId =>
-                new ValidationResult($"The following group {nameof(Group.Id)} has duplicates: {groupId}",
-                    new[] {nameof(Groups)})));
-
-            // Check for group duplicates by name
-            var groupNames = groups.GroupBy(p => p.Name).Where(g => g.Count() > 1).Select(p => p.Key);
-            results.AddRange(groupNames.Select(group =>
-                new ValidationResult($"The following group {nameof(Group.Name)} has duplicates: {group}",
-                    new[] {nameof(Groups)})));
-
-            // Check for unused
-            var unusedGroups = groups.Where(g => !Parameters.Any(p => g.Id.Equals(p.Group?.Id)));
-            results.AddRange(unusedGroups.Select(g =>
-                new ValidationResult($"The following group is unused (not assigned to any parameter): {g.Id}={g.Name}",
-                    new[] {nameof(Groups)})));
+            // Validate groups
+            var groups = Groups.ToArray();
+            results.AddRange(ValidateGroups(groups));
 
             // Check for parameter duplicates by Guid
             var paramGuidDuplicates = Parameters.GroupBy(p => p.Guid).Where(g => g.Count() > 1).Select(p => p.Key);
@@ -200,14 +194,48 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                 new ValidationResult($"The following parameter {nameof(Parameter.Name)} has duplicates: {name}",
                     new[] {nameof(Parameters)})));
 
+            // Check for unused
+            var unusedGroups = groups.Where(g => !Parameters.Any(p => g.Id.Equals(p.Group?.Id)));
+            results.AddRange(unusedGroups.Select(g =>
+                new ValidationResult($"The following group is unused (not assigned to any parameter): {g.Id}={g.Name}",
+                    new[] { nameof(Groups) })));
+
             // Check for orphan parameters by groups
             var paramGroupOrphans = Parameters.Where(p => !groups.Any(g => g.Id.Equals(p.Group?.Id)));
             results.AddRange(paramGroupOrphans.Select(p =>
                 new ValidationResult($"The following parameter is assigned to an unknown group ({p.Group?.Id}): {p.Name}",
-                    new[] {nameof(Parameters)})));
+                    new[] { nameof(Parameters) })));
 
             return results;
         }
+
+        /// <summary>
+        /// Validates a list of groups.
+        /// </summary>
+        /// <param name="groups">The groups to validate.</param>
+        /// <returns></returns>
+        internal IEnumerable<ValidationResult> ValidateGroups(ICollection<Group> groups)
+        {
+            var results = new List<ValidationResult>();
+
+            if (!groups.Any())
+                results.Add(new ValidationResult("The list of groups is empty", new[] { nameof(Groups) }));
+
+            // Check for group duplicates by ID
+            var groupIds = groups.GroupBy(p => p.Id).Where(g => g.Count() > 1).Select(p => p.Key);
+            results.AddRange(groupIds.Select(groupId =>
+                new ValidationResult($"The following group {nameof(Group.Id)} has duplicates: {groupId}",
+                    new[] { nameof(Groups) })));
+
+            // Check for group duplicates by name
+            var groupNames = groups.GroupBy(p => p.Name).Where(g => g.Count() > 1).Select(p => p.Key);
+            results.AddRange(groupNames.Select(group =>
+                new ValidationResult($"The following group {nameof(Group.Name)} has duplicates: {group}",
+                    new[] { nameof(Groups) })));
+
+            return results;
+        }
+
 
         #endregion Validation
 

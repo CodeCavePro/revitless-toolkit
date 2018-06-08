@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -155,7 +156,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                             // Parse *PARAM section
                             case Sections.PARAMS:
                                 csvReader.Configuration.RegisterClassMap<ParameterClassMap>();
-                                Parameters = csvReader.GetRecords<Parameter>().ToList();
+                                Parameters = new ParameterCollection(this, csvReader.GetRecords<Parameter>().ToList());
                                 break;
 
                             default:
@@ -168,14 +169,17 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
 
             // Post-process parameters by assigning group names using group IDs 
             // and recover UnitType from ParameterType 
-            Parameters = Parameters
-                .AsParallel()
-                .Select(p =>
-                {
-                    p.Group = _groups?.FirstOrDefault(g => g.Id == p.Group.Id);
-                    return p;
-                })
-                .ToList();
+            Parameters = new ParameterCollection(
+                this, // Parent shared parameter file
+                Parameters
+                    ?.AsParallel()
+                    .Select(p =>
+                    {
+                        p.Group = _groups?.FirstOrDefault(g => g.Id == p.Group.Id);
+                        return p;
+                    })
+                    .ToList() ?? new List<Parameter>()
+                );
         }
 
         #endregion Constructor

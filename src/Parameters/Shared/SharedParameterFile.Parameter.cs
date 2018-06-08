@@ -1,5 +1,8 @@
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
+using System.Linq;
 
 namespace CodeCave.Revit.Toolkit.Parameters.Shared
 {
@@ -223,6 +226,156 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                     hashCode = (hashCode * 397) ^ UserModifiable.GetHashCode();
                     return hashCode;
                 }
+            }
+        }
+
+
+        /// <summary>
+        /// A collection of parameter entries tied to a specific <see cref="SharedParameterFile"/> parent
+        /// </summary>
+        /// <seealso cref="T:System.Collections.Generic.List`1" />
+        /// <inheritdoc />
+        public class ParameterCollection : List<Parameter>
+        {
+            protected readonly SharedParameterFile parameterFile;
+
+            /// <summary>
+            /// Initializes a new instance of the <see cref="ParameterCollection" /> class.
+            /// </summary>
+            /// <param name="parameterFile">The parent parameter file.</param>
+            /// <param name="parameters">The parameters.</param>
+            /// <exception cref="T:System.ArgumentNullException">parameterFile</exception>
+            /// <inheritdoc />
+            public ParameterCollection(SharedParameterFile parameterFile, IEnumerable<Parameter> parameters)
+                :base(parameters)
+            {
+                this.parameterFile = parameterFile ?? throw new ArgumentNullException(nameof(parameterFile));
+            }
+
+            public new void Add(Parameter parameter)
+            {
+                if (parameter == null) throw new ArgumentNullException(nameof(parameter));
+                if (parameter.Group == null) throw new ArgumentNullException(
+                    nameof(parameter), $"Parameter you have provided has no {nameof(Parameter.Group)} assigned"
+                );
+                if (parameter.Guid == null) throw new ArgumentNullException(
+                    nameof(parameter), $"Parameter you have provided has no {nameof(Parameter.Guid)} assigned"
+                );
+
+                if (this.Any(p => Equals(parameter.Guid, p.Guid))) throw new ArgumentException(
+                    nameof(parameter),
+                    $"You are trying to add a parameter with {nameof(Parameter.Guid)}={parameter.Guid} value already used by another parameter in the collection"
+                );
+
+                if (this.Any(p => Equals(parameter.Name, p.Name))) throw new ArgumentException(
+                    nameof(parameter),
+                    $"You are trying to add a parameter with {nameof(Parameter.Guid)}={parameter.Guid} value already used by another parameter in the collection"
+                );
+
+                if (parameterFile.Groups.Any(g => Equals(g.Id, parameter.Group?.Id) && !Equals(g.Name, parameter.Group?.Name))) throw new ArgumentException(
+                    nameof(parameter),
+                    $"You are trying to add a parameter with {nameof(Group)}.{nameof(Group.Id)}={parameter.Group.Id} value already used by another group in {nameof(Groups)} collection"
+                );
+
+                if (parameterFile.Groups.Any(g => Equals(g.Name, parameter.Group?.Name) && !Equals(g.Id, parameter.Group?.Id))) throw new ArgumentException(
+                    nameof(parameter),
+                    $"You are trying to add a parameter with {nameof(Group)}.{nameof(Group.Name)}={parameter.Group.Name} value already used by another group in {nameof(Groups)} collection"
+                );
+
+                base.Add(parameter);
+            }
+
+            /// <summary>
+            /// Adds the range of parameters.
+            /// </summary>
+            /// <param name="parameters">The parameters.</param>
+            /// <exception cref="ArgumentNullException">parameters</exception>
+            public new void AddRange(IEnumerable<Parameter> parameters)
+            {
+                if (parameters == null) throw new ArgumentNullException(nameof(parameters));
+
+                foreach (var parameter in parameters)
+                {
+                    Add(parameter);
+                }
+            }
+
+            /// <summary>
+            /// Adds the specified unique identifier.
+            /// </summary>
+            /// <param name="guid">The unique identifier.</param>
+            /// <param name="name">The name.</param>
+            /// <param name="groupName">Name of the group.</param>
+            /// <param name="type">The type.</param>
+            /// <param name="dataCategory">The data category.</param>
+            /// <param name="description">The description.</param>
+            /// <param name="isVisible">if set to <c>true</c> [is visible].</param>
+            /// <param name="userModifiable">if set to <c>true</c> [user modifiable].</param>
+            /// <exception cref="ArgumentNullException">groupName</exception>
+            public void Add(
+                Guid guid,
+                string name,
+                string groupName,
+                ParameterType type,
+                string dataCategory = "",
+                string description = "",
+                bool isVisible = true,
+                bool userModifiable = true
+            )
+            {
+                if (string.IsNullOrWhiteSpace(groupName)) throw new ArgumentNullException(nameof(groupName));
+
+                var group =
+                    parameterFile.Groups.FirstOrDefault(g => Equals(groupName, g.Name)) ??
+                    new Group(groupName, parameterFile.Groups.Count + 1);
+
+                Add(
+                    guid, name, group, type,
+                    dataCategory, description,
+                    isVisible, userModifiable
+                );
+            }
+
+            /// <summary>
+            /// Adds the specified unique identifier.
+            /// </summary>
+            /// <param name="guid">The unique identifier.</param>
+            /// <param name="name">The name.</param>
+            /// <param name="group">The group.</param>
+            /// <param name="type">The type.</param>
+            /// <param name="dataCategory">The data category.</param>
+            /// <param name="description">The description.</param>
+            /// <param name="isVisible">if set to <c>true</c> [is visible].</param>
+            /// <param name="userModifiable">if set to <c>true</c> [user modifiable].</param>
+            /// <exception cref="ArgumentNullException">
+            /// name
+            /// or
+            /// group
+            /// </exception>
+            public void Add(
+                Guid guid,
+                string name,
+                Group group,
+                ParameterType type,
+                string dataCategory = "",
+                string description = "",
+                bool isVisible = true,
+                bool userModifiable = true
+            )
+            {
+                if (string.IsNullOrWhiteSpace(name)) throw new ArgumentNullException(nameof(name));
+                if (@group == null) throw new ArgumentNullException(nameof(@group));
+
+                Add(new Parameter(
+                    guid,
+                    name,
+                    group,
+                    type,
+                    dataCategory,
+                    description,
+                    isVisible,
+                    userModifiable
+                ));
             }
         }
     }

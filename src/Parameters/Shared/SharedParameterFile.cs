@@ -1,7 +1,6 @@
 ﻿using CsvHelper;
 using CsvHelper.Configuration;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
@@ -28,13 +27,13 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         /// <summary>
         /// Initializes a new instance of the <see cref="SharedParameterFile"/> class.
         /// </summary>
-        /// <param name="metadata">The metadata section.</param>
         /// <param name="groups">The list of groups.</param>
         /// <param name="parameters">The list of parameters.</param>
-        public SharedParameterFile(MetaData metadata = null, IEnumerable<Group> groups = null, IEnumerable<Parameter> parameters = null)
+        /// <param name="metadata">The metadata section.</param>
+        public SharedParameterFile(IEnumerable<Group> groups = null, IEnumerable<Parameter> parameters = null, MetaData metadata = null)
         {
             Metadata = metadata ?? new MetaData(2, 1);
-            Parameters = parameters != null ? new List<Parameter>(parameters) : new List<Parameter>();
+            Parameters = new ParameterCollection(this, parameters ?? new List<Parameter>());
             _groups = groups != null ? new List<Group>(groups) : new List<Group>();
         }
 
@@ -90,7 +89,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         /// <value>
         /// The parameters section of the shared parameter file.
         /// </value>
-        public List<Parameter> Parameters { get; }
+        public ParameterCollection Parameters { get; }
 
         #endregion Properties
 
@@ -183,9 +182,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         /// </returns>
         public override bool Equals(object obj)
         {
-            if (ReferenceEquals(null, obj)) return false;
-            if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals(obj as SharedParameterFile);
+            return !(obj is null) && (ReferenceEquals(this, obj) || obj.GetType() == GetType() && Equals(obj as SharedParameterFile));
         }
 
         /// <inheritdoc />
@@ -223,8 +220,8 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             {
                 var hashCode = -409059346;
                 hashCode = hashCode * -1521134295 + EqualityComparer<MetaData>.Default.GetHashCode(Metadata);
-                hashCode = hashCode * -1521134295 + EqualityComparer<IReadOnlyCollection<Group>>.Default.GetHashCode(Groups);
-                hashCode = hashCode * -1521134295 + EqualityComparer<List<Parameter>>.Default.GetHashCode(Parameters);
+                hashCode = hashCode * -1521134295 + EqualityComparer<IReadOnlyList<Group>>.Default.GetHashCode(Groups);
+                hashCode = hashCode * -1521134295 + EqualityComparer<ParameterCollection>.Default.GetHashCode(Parameters);
                 return hashCode;
             }
         }
@@ -261,11 +258,11 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         {
             var clone = new SharedParameterFile
             (
-                new MetaData(Metadata),
                 _groups,
                 randomize
                     ? Parameters.OrderBy(x => Guid.NewGuid()).ToList()
-                    : Parameters.ToList()
+                    : Parameters.ToList(),
+                new MetaData(Metadata)
             );
 
 

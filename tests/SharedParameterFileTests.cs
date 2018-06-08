@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -219,29 +220,31 @@ namespace CodeCave.Revit.Toolkit.Tests
             var simpleSharedFromDisk = File
                 .ReadAllText(SharedParameterFiles.FirstOrDefault(f => f.EndsWith(@"SimpleShared_1.txt")));
 
-            var simpleSharedFromBuilt = new SharedParameterFile();
+            var simpleSharedFromBuilt = new SharedParameterFile(new Dictionary<string,int> { { "Identity Data", 100 } } );
 
             #region Identity Data
 
-            var identityDataGroup = new SharedParameterFile.Group("Identity Data", 100);
             simpleSharedFromBuilt.Parameters.Add(
-                new Guid("61ff3d56-09d7-4049-8c78-4abe745e4e5a"), "EquipmentName",
-                identityDataGroup, ParameterType.Text
+                new Guid("61ff3d56-09d7-4049-8c78-4abe745e4e5a"),"EquipmentName",
+                "Identity Data", // Passing group by name
+                ParameterType.Text
             );
 
             simpleSharedFromBuilt.Parameters.Add(
                 new Guid("758c97dc-6b88-4fbd-9570-4affdc32f08d"), "EquipmentNumber",
-                identityDataGroup, ParameterType.Text
+                simpleSharedFromBuilt.Groups.FirstOrDefault(g => "Identity Data".Equals(g.Name)), // Finding group dynamically
+                ParameterType.Text
             );
 
             simpleSharedFromBuilt.Parameters.Add(
                 new Guid("b5a53ea4-55d9-497c-8488-6607faa11e5f"), "EquipmentServed",
-                identityDataGroup, ParameterType.Text
+                new SharedParameterFile.Group("Identity Data", 100), // Creating group as object
+                ParameterType.Text
             );
 
             simpleSharedFromBuilt.Parameters.Add(
                 new Guid("d4fa8765-86f3-4472-860c-a906aff18593"), "EquipmentType",
-                identityDataGroup, ParameterType.Text
+                "Identity Data", ParameterType.Text
             );
 
             #endregion

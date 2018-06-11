@@ -1,6 +1,6 @@
 namespace CodeCave.Revit.Toolkit.Parameters
 {
-    internal interface IDefinition
+    public interface IDefinition
     {
         /// <summary>
         /// Gets the name.

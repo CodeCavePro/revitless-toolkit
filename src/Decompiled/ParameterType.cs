@@ -304,15 +304,15 @@ namespace CodeCave.Revit.Toolkit
             _parameterTypes2UnitTypes = new Dictionary<ParameterType, UnitType>
             {
                 //! TODO Check these matches, not really sure about them
-                { ParameterType.Text, UnitType.UT_Number },
-                { ParameterType.MultilineText, UnitType.UT_Number },
-                { ParameterType.FixtureUnit, UnitType.UT_Number },
-                { ParameterType.FamilyType, UnitType.UT_Number },
-                { ParameterType.LoadClassification, UnitType.UT_Number },
-                { ParameterType.Image, UnitType.UT_Number },
-                { ParameterType.URL, UnitType.UT_Number },
-                { ParameterType.Material, UnitType.UT_Number },
-                { ParameterType.YesNo, UnitType.UT_Number },
+                { ParameterType.Text, UnitType.UT_Undefined },
+                { ParameterType.MultilineText, UnitType.UT_Undefined },
+                { ParameterType.FixtureUnit, UnitType.UT_Undefined },
+                { ParameterType.FamilyType, UnitType.UT_Undefined },
+                { ParameterType.LoadClassification, UnitType.UT_Undefined },
+                { ParameterType.Image, UnitType.UT_Undefined },
+                { ParameterType.URL, UnitType.UT_Undefined },
+                { ParameterType.Material, UnitType.UT_Undefined },
+                { ParameterType.YesNo, UnitType.UT_Undefined },
 
                 // These matches are OK
                 { ParameterType.NumberOfPoles, UnitType.UT_Number },

@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 #pragma warning disable 1591
@@ -289,6 +291,7 @@ namespace CodeCave.Revit.Toolkit
         private static readonly Dictionary<DisplayUnitType, string> _dutToCatalog;
         private static readonly Dictionary<DisplayUnitType, List<UnitType>> _dutToUnitType;
         private static readonly Dictionary<DisplayUnitType, List<UnitSymbolType>> _dutToUnitSymType;
+        private static readonly Dictionary<DisplayUnitType, List<ParameterType>> _dutToParameterType;
 
         /// <summary>
         /// Initializes the <see cref="DisplayUnitTypeExtensions"/> class.
@@ -473,7 +476,7 @@ namespace CodeCave.Revit.Toolkit
                 { DisplayUnitType.DUT_LITERS_PER_SECOND_KILOWATTS, "LITERS_PER_SECOND_KILOWATTS" },
                 { DisplayUnitType.DUT_SQUARE_FEET_PER_TON_OF_REFRIGERATION, "SQUARE_FEET_PER_TON_OF_REFRIGERATION" },
                 { DisplayUnitType.DUT_SQUARE_METERS_PER_KILOWATTS, "CUBIC_SQUARE_METERS_PER_KILOWATTS" },
-                { DisplayUnitType.DUT_CURRENCY, "" },
+                { DisplayUnitType.DUT_CURRENCY, "CURRENCY" },
                 { DisplayUnitType.DUT_LUMENS_PER_WATT, "LUMENS_PER_WATT" },
                 { DisplayUnitType.DUT_SQUARE_FEET_PER_THOUSAND_BRITISH_THERMAL_UNITS_PER_HOUR, "SQUARE_FEET_PER_THOUSAND_BRITISH_THERMAL_UNITS_PER_HOUR" },
                 { DisplayUnitType.DUT_KILONEWTONS_PER_SQUARE_CENTIMETER, "KILONEWTONS_PER_SQUARE_CENTIMETER" },
@@ -1046,6 +1049,256 @@ namespace CodeCave.Revit.Toolkit
             };
 
             #endregion DisplayUnitType to UnitType
+
+            #region DisplayUnitType to ParameterType
+
+            _dutToParameterType = new Dictionary<DisplayUnitType, List<ParameterType>>
+            {
+                { DisplayUnitType.DUT_DECIMAL_FEET, new List<ParameterType>{ ParameterType.Length, ParameterType.Length, ParameterType.HVACDuctSize, ParameterType.HVACRoughness, ParameterType.PipeSize, ParameterType.PipingRoughness, ParameterType.WireSize, ParameterType.Length, ParameterType.ElectricalCableTraySize, ParameterType.ElectricalConduitSize, ParameterType.ReinforcementLength, ParameterType.HVACDuctInsulationThickness, ParameterType.HVACDuctLiningThickness, ParameterType.PipeInsulationThickness, ParameterType.BarDiameter, ParameterType.CrackWidth, ParameterType.DisplacementDeflection, ParameterType.ReinforcementCover, ParameterType.ReinforcementSpacing, ParameterType.SectionDimension, ParameterType.SectionProperty } },
+                { DisplayUnitType.DUT_FEET_FRACTIONAL_INCHES, new List<ParameterType>{ ParameterType.Length, ParameterType.Length, ParameterType.HVACDuctSize, ParameterType.HVACRoughness, ParameterType.PipeSize, ParameterType.PipingRoughness, ParameterType.WireSize, ParameterType.Length, ParameterType.ElectricalCableTraySize, ParameterType.ElectricalConduitSize, ParameterType.ReinforcementLength, ParameterType.HVACDuctInsulationThickness, ParameterType.HVACDuctLiningThickness, ParameterType.PipeInsulationThickness, ParameterType.BarDiameter, ParameterType.CrackWidth, ParameterType.DisplacementDeflection, ParameterType.ReinforcementCover, ParameterType.ReinforcementSpacing, ParameterType.SectionDimension, ParameterType.SectionProperty } },
+                { DisplayUnitType.DUT_DECIMAL_INCHES, new List<ParameterType>{ ParameterType.Length, ParameterType.Length, ParameterType.HVACDuctSize, ParameterType.HVACRoughness, ParameterType.PipeSize, ParameterType.PipingRoughness, ParameterType.WireSize, ParameterType.Length, ParameterType.ElectricalCableTraySize, ParameterType.ElectricalConduitSize, ParameterType.ReinforcementLength, ParameterType.HVACDuctInsulationThickness, ParameterType.HVACDuctLiningThickness, ParameterType.PipeInsulationThickness, ParameterType.BarDiameter, ParameterType.CrackWidth, ParameterType.DisplacementDeflection, ParameterType.ReinforcementCover, ParameterType.ReinforcementSpacing, ParameterType.SectionDimension, ParameterType.SectionProperty, ParameterType.Length } },
+                { DisplayUnitType.DUT_FRACTIONAL_INCHES, new List<ParameterType>{ ParameterType.Length, ParameterType.Length, ParameterType.HVACDuctSize, ParameterType.HVACRoughness, ParameterType.PipeSize, ParameterType.PipingRoughness, ParameterType.WireSize, ParameterType.Length, ParameterType.ElectricalCableTraySize, ParameterType.ElectricalConduitSize, ParameterType.ReinforcementLength, ParameterType.HVACDuctInsulationThickness, ParameterType.HVACDuctLiningThickness, ParameterType.PipeInsulationThickness, ParameterType.BarDiameter, ParameterType.CrackWidth, ParameterType.DisplacementDeflection, ParameterType.ReinforcementCover, ParameterType.ReinforcementSpacing, ParameterType.SectionDimension, ParameterType.SectionProperty, ParameterType.Length } },
+                { DisplayUnitType.DUT_METERS, new List<ParameterType>{ ParameterType.Length, ParameterType.Length, ParameterType.HVACDuctSize, ParameterType.HVACRoughness, ParameterType.PipeSize, ParameterType.PipingRoughness, ParameterType.WireSize, ParameterType.Length, ParameterType.ElectricalCableTraySize, ParameterType.ElectricalConduitSize, ParameterType.ReinforcementLength, ParameterType.HVACDuctInsulationThickness, ParameterType.HVACDuctLiningThickness, ParameterType.PipeInsulationThickness, ParameterType.BarDiameter, ParameterType.CrackWidth, ParameterType.DisplacementDeflection, ParameterType.ReinforcementCover, ParameterType.ReinforcementSpacing, ParameterType.SectionDimension, ParameterType.SectionProperty } },
+                { DisplayUnitType.DUT_DECIMETERS, new List<ParameterType>{ ParameterType.Length, ParameterType.Length, ParameterType.HVACDuctSize, ParameterType.HVACRoughness, ParameterType.PipeSize, ParameterType.PipingRoughness, ParameterType.WireSize, ParameterType.Length, ParameterType.ElectricalCableTraySize, ParameterType.ElectricalConduitSize, ParameterType.ReinforcementLength, ParameterType.HVACDuctInsulationThickness, ParameterType.HVACDuctLiningThickness, ParameterType.PipeInsulationThickness } },
+                { DisplayUnitType.DUT_CENTIMETERS, new List<ParameterType>{ ParameterType.Length, ParameterType.Length, ParameterType.HVACDuctSize, ParameterType.HVACRoughness, ParameterType.PipeSize, ParameterType.PipingRoughness, ParameterType.WireSize, ParameterType.Length, ParameterType.ElectricalCableTraySize, ParameterType.ElectricalConduitSize, ParameterType.ReinforcementLength, ParameterType.HVACDuctInsulationThickness, ParameterType.HVACDuctLiningThickness, ParameterType.PipeInsulationThickness, ParameterType.BarDiameter, ParameterType.CrackWidth, ParameterType.DisplacementDeflection, ParameterType.ReinforcementCover, ParameterType.ReinforcementSpacing, ParameterType.SectionDimension, ParameterType.SectionProperty, ParameterType.Length } },
+                { DisplayUnitType.DUT_MILLIMETERS, new List<ParameterType>{ ParameterType.Length, ParameterType.Length, ParameterType.HVACDuctSize, ParameterType.HVACRoughness, ParameterType.PipeSize, ParameterType.PipingRoughness, ParameterType.WireSize, ParameterType.Length, ParameterType.ElectricalCableTraySize, ParameterType.ElectricalConduitSize, ParameterType.ReinforcementLength, ParameterType.HVACDuctInsulationThickness, ParameterType.HVACDuctLiningThickness, ParameterType.PipeInsulationThickness, ParameterType.BarDiameter, ParameterType.CrackWidth, ParameterType.DisplacementDeflection, ParameterType.ReinforcementCover, ParameterType.ReinforcementSpacing, ParameterType.SectionDimension, ParameterType.SectionProperty, ParameterType.Length } },
+                { DisplayUnitType.DUT_METERS_CENTIMETERS, new List<ParameterType>{ ParameterType.Length, ParameterType.Length, ParameterType.HVACDuctSize, ParameterType.HVACRoughness, ParameterType.PipeSize, ParameterType.PipingRoughness, ParameterType.WireSize, ParameterType.Length, ParameterType.ElectricalCableTraySize, ParameterType.ElectricalConduitSize, ParameterType.ReinforcementLength, ParameterType.HVACDuctInsulationThickness, ParameterType.HVACDuctLiningThickness, ParameterType.PipeInsulationThickness, ParameterType.CrackWidth, ParameterType.DisplacementDeflection, ParameterType.ReinforcementSpacing, ParameterType.SectionDimension, ParameterType.SectionProperty } },
+                { DisplayUnitType.DUT_SQUARE_FEET, new List<ParameterType>{ ParameterType.Area, ParameterType.HVACCrossSection, ParameterType.ReinforcementArea, ParameterType.SectionArea } },
+                { DisplayUnitType.DUT_SQUARE_INCHES, new List<ParameterType>{ ParameterType.Area, ParameterType.HVACCrossSection, ParameterType.ReinforcementArea, ParameterType.SectionArea } },
+                { DisplayUnitType.DUT_SQUARE_METERS, new List<ParameterType>{ ParameterType.Area, ParameterType.HVACCrossSection, ParameterType.ReinforcementArea, ParameterType.SectionArea } },
+                { DisplayUnitType.DUT_SQUARE_CENTIMETERS, new List<ParameterType>{ ParameterType.Area, ParameterType.HVACCrossSection, ParameterType.ReinforcementArea, ParameterType.SectionArea } },
+                { DisplayUnitType.DUT_SQUARE_MILLIMETERS, new List<ParameterType>{ ParameterType.Area, ParameterType.HVACCrossSection, ParameterType.ReinforcementArea, ParameterType.SectionArea } },
+                { DisplayUnitType.DUT_ACRES, new List<ParameterType>{ ParameterType.Area, ParameterType.HVACCrossSection } },
+                { DisplayUnitType.DUT_HECTARES, new List<ParameterType>{ ParameterType.Area, ParameterType.HVACCrossSection } },
+                { DisplayUnitType.DUT_CUBIC_YARDS, new List<ParameterType>{ ParameterType.Volume, ParameterType.PipingVolume } },
+                { DisplayUnitType.DUT_CUBIC_FEET, new List<ParameterType>{ ParameterType.Volume, ParameterType.PipingVolume, ParameterType.ReinforcementVolume, ParameterType.SectionModulus } },
+                { DisplayUnitType.DUT_CUBIC_INCHES, new List<ParameterType>{ ParameterType.Volume, ParameterType.PipingVolume, ParameterType.ReinforcementVolume, ParameterType.SectionModulus } },
+                { DisplayUnitType.DUT_CUBIC_METERS, new List<ParameterType>{ ParameterType.Volume, ParameterType.PipingVolume, ParameterType.ReinforcementVolume, ParameterType.SectionModulus } },
+                { DisplayUnitType.DUT_CUBIC_CENTIMETERS, new List<ParameterType>{ ParameterType.Volume, ParameterType.PipingVolume, ParameterType.ReinforcementVolume, ParameterType.SectionModulus } },
+                { DisplayUnitType.DUT_CUBIC_MILLIMETERS, new List<ParameterType>{ ParameterType.Volume, ParameterType.PipingVolume, ParameterType.SectionModulus } },
+                { DisplayUnitType.DUT_LITERS, new List<ParameterType>{ ParameterType.Volume, ParameterType.PipingVolume } },
+                { DisplayUnitType.DUT_GALLONS_US, new List<ParameterType>{ ParameterType.Volume, ParameterType.PipingVolume } },
+                { DisplayUnitType.DUT_DECIMAL_DEGREES, new List<ParameterType>{ ParameterType.Angle, ParameterType.Angle, ParameterType.Rotation } },
+                { DisplayUnitType.DUT_DEGREES_AND_MINUTES, new List<ParameterType>{ ParameterType.Angle, ParameterType.Angle, ParameterType.Rotation } },
+                { DisplayUnitType.DUT_RADIANS, new List<ParameterType>{ ParameterType.Angle, ParameterType.Angle, ParameterType.Rotation } },
+                { DisplayUnitType.DUT_GRADS, new List<ParameterType>{ ParameterType.Angle, ParameterType.Angle, ParameterType.Rotation } },
+                { DisplayUnitType.DUT_GENERAL, new List<ParameterType>{ ParameterType.Number, ParameterType.Text, ParameterType.MultilineText, ParameterType.FixtureUnit, ParameterType.FamilyType, ParameterType.LoadClassification, ParameterType.Image, ParameterType.URL, ParameterType.Material, ParameterType.YesNo, } },
+                { DisplayUnitType.DUT_FIXED, new List<ParameterType>{ ParameterType.Number, ParameterType.HVACFactor, ParameterType.ElectricalDemandFactor } },
+                { DisplayUnitType.DUT_CURRENCY, new List<ParameterType>{ ParameterType.Number, ParameterType.Currency } },
+                { DisplayUnitType.DUT_PERCENTAGE, new List<ParameterType>{ ParameterType.Number, ParameterType.Slope, ParameterType.HVACSlope, ParameterType.PipingSlope, ParameterType.HVACFactor, ParameterType.ElectricalDemandFactor } },
+                { DisplayUnitType.DUT_SQUARE_FEET_PER_FOOT, new List<ParameterType>{ ParameterType.Length, ParameterType.Length, ParameterType.SurfaceArea, ParameterType.ReinforcementAreaPerUnitLength } },
+                { DisplayUnitType.DUT_SQUARE_INCHES_PER_FOOT, new List<ParameterType>{ ParameterType.Length, ParameterType.Length, ParameterType.ReinforcementAreaPerUnitLength } },
+                { DisplayUnitType.DUT_SQUARE_MILLIMETERS_PER_METER, new List<ParameterType>{ ParameterType.Length, ParameterType.Length, ParameterType.ReinforcementAreaPerUnitLength } },
+                { DisplayUnitType.DUT_SQUARE_CENTIMETERS_PER_METER, new List<ParameterType>{ ParameterType.Length, ParameterType.Length, ParameterType.ReinforcementAreaPerUnitLength } },
+                { DisplayUnitType.DUT_SQUARE_METERS_PER_METER, new List<ParameterType>{ ParameterType.Length, ParameterType.Length, ParameterType.SurfaceArea, ParameterType.ReinforcementAreaPerUnitLength } },
+                { DisplayUnitType.DUT_KILOGRAMS_PER_CUBIC_METER, new List<ParameterType>{ ParameterType.HVACDensity, ParameterType.PipingDensity, ParameterType.MassDensity } },
+                { DisplayUnitType.DUT_POUNDS_MASS_PER_CUBIC_FOOT, new List<ParameterType>{ ParameterType.HVACDensity, ParameterType.PipingDensity, ParameterType.MassDensity } },
+                { DisplayUnitType.DUT_POUNDS_MASS_PER_CUBIC_INCH, new List<ParameterType>{ ParameterType.HVACDensity, ParameterType.PipingDensity } },
+                { DisplayUnitType.DUT_BRITISH_THERMAL_UNITS, new List<ParameterType>{ ParameterType.HVACEnergy } },
+                { DisplayUnitType.DUT_CALORIES, new List<ParameterType>{ ParameterType.HVACEnergy } },
+                { DisplayUnitType.DUT_KILOCALORIES, new List<ParameterType>{ ParameterType.HVACEnergy } },
+                { DisplayUnitType.DUT_JOULES, new List<ParameterType>{ ParameterType.HVACEnergy, ParameterType.Energy } },
+                { DisplayUnitType.DUT_KILOWATT_HOURS, new List<ParameterType>{ ParameterType.HVACEnergy } },
+                { DisplayUnitType.DUT_THERMS, new List<ParameterType>{ ParameterType.HVACEnergy } },
+                { DisplayUnitType.DUT_INCHES_OF_WATER_PER_100FT, new List<ParameterType>{ ParameterType.HVACFriction, ParameterType.AreaForcePerLength } },
+                { DisplayUnitType.DUT_PASCALS_PER_METER, new List<ParameterType>{ ParameterType.HVACFriction, ParameterType.PipingFriction, ParameterType.AreaForcePerLength } },
+                { DisplayUnitType.DUT_WATTS, new List<ParameterType>{ ParameterType.HVACPower, ParameterType.HVACHeatGain, ParameterType.ElectricalPower, ParameterType.ElectricalApparentPower, ParameterType.HVACCoolingLoad, ParameterType.HVACHeatingLoad, ParameterType.ElectricalWattage } },
+                { DisplayUnitType.DUT_KILOWATTS, new List<ParameterType>{ ParameterType.HVACPower, ParameterType.HVACHeatGain, ParameterType.ElectricalPower, ParameterType.ElectricalApparentPower, ParameterType.HVACCoolingLoad, ParameterType.HVACHeatingLoad } },
+                { DisplayUnitType.DUT_BRITISH_THERMAL_UNITS_PER_SECOND, new List<ParameterType>{ ParameterType.HVACPower, ParameterType.HVACHeatGain, ParameterType.ElectricalPower, ParameterType.ElectricalApparentPower, ParameterType.HVACCoolingLoad, ParameterType.HVACHeatingLoad } },
+                { DisplayUnitType.DUT_BRITISH_THERMAL_UNITS_PER_HOUR, new List<ParameterType>{ ParameterType.HVACPower, ParameterType.HVACHeatGain, ParameterType.ElectricalPower, ParameterType.ElectricalApparentPower, ParameterType.HVACCoolingLoad, ParameterType.HVACHeatingLoad } },
+                { DisplayUnitType.DUT_CALORIES_PER_SECOND, new List<ParameterType>{ ParameterType.HVACPower, ParameterType.HVACHeatGain, ParameterType.ElectricalPower, ParameterType.ElectricalApparentPower } },
+                { DisplayUnitType.DUT_KILOCALORIES_PER_SECOND, new List<ParameterType>{ ParameterType.HVACPower, ParameterType.HVACHeatGain, ParameterType.ElectricalPower, ParameterType.ElectricalApparentPower } },
+                { DisplayUnitType.DUT_WATTS_PER_SQUARE_FOOT, new List<ParameterType>{ ParameterType.HVACPower, ParameterType.ElectricalPowerDensity, ParameterType.HVACCoolingLoadDividedByArea, ParameterType.HVACHeatingLoadDividedByArea } },
+                { DisplayUnitType.DUT_WATTS_PER_SQUARE_METER, new List<ParameterType>{ ParameterType.HVACPower, ParameterType.ElectricalPowerDensity, ParameterType.HVACCoolingLoadDividedByArea, ParameterType.HVACHeatingLoadDividedByArea } },
+                { DisplayUnitType.DUT_BRITISH_THERMAL_UNITS_PER_HOUR_SQUARE_FOOT, new List<ParameterType>{ ParameterType.HVACPower, ParameterType.ElectricalPowerDensity, ParameterType.HVACCoolingLoadDividedByArea, ParameterType.HVACHeatingLoadDividedByArea } },
+                { DisplayUnitType.DUT_INCHES_OF_WATER, new List<ParameterType>{ ParameterType.HVACPressure, ParameterType.LinearForcePerLength } },
+                { DisplayUnitType.DUT_PASCALS, new List<ParameterType>{ ParameterType.HVACPressure, ParameterType.AreaForce, ParameterType.PipingPressure, ParameterType.Stress, ParameterType.LinearForcePerLength } },
+                { DisplayUnitType.DUT_KILOPASCALS, new List<ParameterType>{ ParameterType.HVACPressure, ParameterType.AreaForce, ParameterType.PipingPressure, ParameterType.Stress, ParameterType.LinearForcePerLength } },
+                { DisplayUnitType.DUT_MEGAPASCALS, new List<ParameterType>{ ParameterType.HVACPressure, ParameterType.AreaForce, ParameterType.PipingPressure, ParameterType.Stress, ParameterType.LinearForcePerLength } },
+                { DisplayUnitType.DUT_POUNDS_FORCE_PER_SQUARE_INCH, new List<ParameterType>{ ParameterType.HVACPressure, ParameterType.PipingPressure, ParameterType.Stress, ParameterType.LinearForcePerLength } },
+                { DisplayUnitType.DUT_INCHES_OF_MERCURY, new List<ParameterType>{ ParameterType.HVACPressure, ParameterType.PipingPressure, ParameterType.LinearForcePerLength } },
+                { DisplayUnitType.DUT_MILLIMETERS_OF_MERCURY, new List<ParameterType>{ ParameterType.HVACPressure, ParameterType.PipingPressure, ParameterType.LinearForcePerLength } },
+                { DisplayUnitType.DUT_ATMOSPHERES, new List<ParameterType>{ ParameterType.HVACPressure, ParameterType.PipingPressure, ParameterType.LinearForcePerLength } },
+                { DisplayUnitType.DUT_BARS, new List<ParameterType>{ ParameterType.HVACPressure, ParameterType.PipingPressure, ParameterType.Stress, ParameterType.LinearForcePerLength } },
+                { DisplayUnitType.DUT_FAHRENHEIT, new List<ParameterType>{ ParameterType.HVACTemperature, ParameterType.PipingTemperature, ParameterType.ElectricalTemperature } },
+                { DisplayUnitType.DUT_CELSIUS, new List<ParameterType>{ ParameterType.HVACTemperature, ParameterType.PipingTemperature, ParameterType.ElectricalTemperature } },
+                { DisplayUnitType.DUT_KELVIN, new List<ParameterType>{ ParameterType.HVACTemperature, ParameterType.PipingTemperature, ParameterType.ColorTemperature, ParameterType.ElectricalTemperature } },
+                { DisplayUnitType.DUT_RANKINE, new List<ParameterType>{ ParameterType.HVACTemperature, ParameterType.PipingTemperature, ParameterType.ElectricalTemperature } },
+                { DisplayUnitType.DUT_FEET_PER_MINUTE, new List<ParameterType>{ ParameterType.HVACVelocity, ParameterType.StructuralVelocity } },
+                { DisplayUnitType.DUT_METERS_PER_SECOND, new List<ParameterType>{ ParameterType.HVACVelocity, ParameterType.PipingVelocity, ParameterType.StructuralVelocity } },
+                { DisplayUnitType.DUT_CENTIMETERS_PER_MINUTE, new List<ParameterType>{ ParameterType.HVACVelocity } },
+                { DisplayUnitType.DUT_CUBIC_FEET_PER_MINUTE, new List<ParameterType>{ ParameterType.HVACAirflow } },
+                { DisplayUnitType.DUT_LITERS_PER_SECOND, new List<ParameterType>{ ParameterType.HVACAirflow, ParameterType.PipingFlow } },
+                { DisplayUnitType.DUT_LITERS_PER_MINUTE, new List<ParameterType>{ ParameterType.HVACAirflow, ParameterType.PipingFlow } },
+                { DisplayUnitType.DUT_CUBIC_METERS_PER_SECOND, new List<ParameterType>{ ParameterType.HVACAirflow, ParameterType.PipingFlow } },
+                { DisplayUnitType.DUT_CUBIC_METERS_PER_HOUR, new List<ParameterType>{ ParameterType.HVACAirflow, ParameterType.PipingFlow } },
+                { DisplayUnitType.DUT_GALLONS_US_PER_MINUTE, new List<ParameterType>{ ParameterType.HVACAirflow, ParameterType.PipingFlow } },
+                { DisplayUnitType.DUT_GALLONS_US_PER_HOUR, new List<ParameterType>{ ParameterType.HVACAirflow, ParameterType.PipingFlow } },
+                { DisplayUnitType.DUT_AMPERES, new List<ParameterType>{ ParameterType.ElectricalCurrent } },
+                { DisplayUnitType.DUT_KILOAMPERES, new List<ParameterType>{ ParameterType.ElectricalCurrent } },
+                { DisplayUnitType.DUT_MILLIAMPERES, new List<ParameterType>{ ParameterType.ElectricalCurrent } },
+                { DisplayUnitType.DUT_VOLTS, new List<ParameterType>{ ParameterType.ElectricalPotential } },
+                { DisplayUnitType.DUT_KILOVOLTS, new List<ParameterType>{ ParameterType.ElectricalPotential } },
+                { DisplayUnitType.DUT_MILLIVOLTS, new List<ParameterType>{ ParameterType.ElectricalPotential } },
+                { DisplayUnitType.DUT_HERTZ, new List<ParameterType>{ ParameterType.ElectricalFrequency, ParameterType.StructuralFrequency } },
+                { DisplayUnitType.DUT_CYCLES_PER_SECOND, new List<ParameterType>{ ParameterType.ElectricalFrequency } },
+                { DisplayUnitType.DUT_CUBIC_FEET_PER_MINUTE_CUBIC_FOOT, new List<ParameterType>{ ParameterType.ElectricalFrequency, ParameterType.HVACAirflowDividedByVolume } },
+                { DisplayUnitType.DUT_LITERS_PER_SECOND_CUBIC_METER, new List<ParameterType>{ ParameterType.ElectricalFrequency, ParameterType.HVACAirflowDividedByVolume } },
+                { DisplayUnitType.DUT_LUX, new List<ParameterType>{ ParameterType.ElectricalIlluminance } },
+                { DisplayUnitType.DUT_FOOTCANDLES, new List<ParameterType>{ ParameterType.ElectricalIlluminance } },
+                { DisplayUnitType.DUT_LUMENS, new List<ParameterType>{ ParameterType.ElectricalLuminousFlux } },
+                { DisplayUnitType.DUT_VOLT_AMPERES, new List<ParameterType>{ ParameterType.ElectricalPower, ParameterType.ElectricalApparentPower } },
+                { DisplayUnitType.DUT_KILOVOLT_AMPERES, new List<ParameterType>{ ParameterType.ElectricalPower, ParameterType.ElectricalApparentPower } },
+                { DisplayUnitType.DUT_HORSEPOWER, new List<ParameterType>{ ParameterType.ElectricalPower, ParameterType.ElectricalApparentPower } },
+                { DisplayUnitType.DUT_NEWTONS, new List<ParameterType>{ ParameterType.Force, ParameterType.Weight } },
+                { DisplayUnitType.DUT_DECANEWTONS, new List<ParameterType>{ ParameterType.Force, ParameterType.Weight } },
+                { DisplayUnitType.DUT_KILONEWTONS, new List<ParameterType>{ ParameterType.Force, ParameterType.Weight } },
+                { DisplayUnitType.DUT_MEGANEWTONS, new List<ParameterType>{ ParameterType.Force, ParameterType.Weight } },
+                { DisplayUnitType.DUT_KIPS, new List<ParameterType>{ ParameterType.Force, ParameterType.Weight } },
+                { DisplayUnitType.DUT_KILOGRAMS_FORCE, new List<ParameterType>{ ParameterType.Force, ParameterType.Weight } },
+                { DisplayUnitType.DUT_TONNES_FORCE, new List<ParameterType>{ ParameterType.Force, ParameterType.Weight } },
+                { DisplayUnitType.DUT_POUNDS_FORCE, new List<ParameterType>{ ParameterType.Force, ParameterType.Weight } },
+                { DisplayUnitType.DUT_NEWTONS_PER_METER, new List<ParameterType>{ ParameterType.LinearForce, ParameterType.ForcePerLength, ParameterType.WeightPerUnitLength } },
+                { DisplayUnitType.DUT_DECANEWTONS_PER_METER, new List<ParameterType>{ ParameterType.LinearForce, ParameterType.ForcePerLength, ParameterType.WeightPerUnitLength } },
+                { DisplayUnitType.DUT_KILONEWTONS_PER_METER, new List<ParameterType>{ ParameterType.LinearForce, ParameterType.ForcePerLength, ParameterType.WeightPerUnitLength } },
+                { DisplayUnitType.DUT_MEGANEWTONS_PER_METER, new List<ParameterType>{ ParameterType.LinearForce, ParameterType.ForcePerLength, ParameterType.WeightPerUnitLength } },
+                { DisplayUnitType.DUT_KIPS_PER_FOOT, new List<ParameterType>{ ParameterType.LinearForce, ParameterType.ForcePerLength, ParameterType.WeightPerUnitLength } },
+                { DisplayUnitType.DUT_KILOGRAMS_FORCE_PER_METER, new List<ParameterType>{ ParameterType.LinearForce, ParameterType.ForcePerLength, ParameterType.WeightPerUnitLength } },
+                { DisplayUnitType.DUT_TONNES_FORCE_PER_METER, new List<ParameterType>{ ParameterType.LinearForce, ParameterType.ForcePerLength, ParameterType.WeightPerUnitLength } },
+                { DisplayUnitType.DUT_POUNDS_FORCE_PER_FOOT, new List<ParameterType>{ ParameterType.LinearForce, ParameterType.ForcePerLength, ParameterType.WeightPerUnitLength } },
+                { DisplayUnitType.DUT_KIPS_PER_INCH, new List<ParameterType>{ ParameterType.LinearForce, ParameterType.ForcePerLength, ParameterType.WeightPerUnitLength } },
+                { DisplayUnitType.DUT_NEWTONS_PER_SQUARE_METER, new List<ParameterType>{ ParameterType.AreaForce, ParameterType.Stress, ParameterType.LinearForcePerLength } },
+                { DisplayUnitType.DUT_DECANEWTONS_PER_SQUARE_METER, new List<ParameterType>{ ParameterType.AreaForce, ParameterType.Stress, ParameterType.LinearForcePerLength } },
+                { DisplayUnitType.DUT_KILONEWTONS_PER_SQUARE_METER, new List<ParameterType>{ ParameterType.AreaForce, ParameterType.Stress, ParameterType.LinearForcePerLength } },
+                { DisplayUnitType.DUT_MEGANEWTONS_PER_SQUARE_METER, new List<ParameterType>{ ParameterType.AreaForce, ParameterType.Stress, ParameterType.LinearForcePerLength } },
+                { DisplayUnitType.DUT_KIPS_PER_SQUARE_FOOT, new List<ParameterType>{ ParameterType.AreaForce, ParameterType.Stress, ParameterType.LinearForcePerLength } },
+                { DisplayUnitType.DUT_KILOGRAMS_FORCE_PER_SQUARE_METER, new List<ParameterType>{ ParameterType.AreaForce, ParameterType.Stress, ParameterType.LinearForcePerLength } },
+                { DisplayUnitType.DUT_TONNES_FORCE_PER_SQUARE_METER, new List<ParameterType>{ ParameterType.AreaForce, ParameterType.Stress, ParameterType.LinearForcePerLength } },
+                { DisplayUnitType.DUT_POUNDS_FORCE_PER_SQUARE_FOOT, new List<ParameterType>{ ParameterType.AreaForce, ParameterType.Stress, ParameterType.LinearForcePerLength } },
+                { DisplayUnitType.DUT_NEWTON_METERS, new List<ParameterType>{ ParameterType.Moment, ParameterType.Energy } },
+                { DisplayUnitType.DUT_DECANEWTON_METERS, new List<ParameterType>{ ParameterType.Moment } },
+                { DisplayUnitType.DUT_KILONEWTON_METERS, new List<ParameterType>{ ParameterType.Moment } },
+                { DisplayUnitType.DUT_MEGANEWTON_METERS, new List<ParameterType>{ ParameterType.Moment } },
+                { DisplayUnitType.DUT_KIP_FEET, new List<ParameterType>{ ParameterType.Moment } },
+                { DisplayUnitType.DUT_KILOGRAM_FORCE_METERS, new List<ParameterType>{ ParameterType.Moment, ParameterType.Energy } },
+                { DisplayUnitType.DUT_TONNE_FORCE_METERS, new List<ParameterType>{ ParameterType.Moment } },
+                { DisplayUnitType.DUT_POUND_FORCE_FEET, new List<ParameterType>{ ParameterType.Moment, ParameterType.Energy } },
+                { DisplayUnitType.DUT_METERS_PER_KILONEWTON, new List<ParameterType>{ ParameterType.Number, ParameterType.Number } },
+                { DisplayUnitType.DUT_FEET_PER_KIP, new List<ParameterType>{ ParameterType.Number, ParameterType.Number } },
+                { DisplayUnitType.DUT_SQUARE_METERS_PER_KILONEWTON, new List<ParameterType>{ ParameterType.Number } },
+                { DisplayUnitType.DUT_SQUARE_FEET_PER_KIP, new List<ParameterType>{ ParameterType.Number } },
+                { DisplayUnitType.DUT_CUBIC_FEET_PER_MINUTE_TON_OF_REFRIGERATION, new List<ParameterType>{ ParameterType.Number, ParameterType.HVACAirflowDividedByCoolingLoad } },
+                { DisplayUnitType.DUT_LITERS_PER_SECOND_KILOWATTS, new List<ParameterType>{ ParameterType.Number, ParameterType.HVACAirflowDividedByCoolingLoad } },
+                { DisplayUnitType.DUT_CUBIC_METERS_PER_KILONEWTON, new List<ParameterType>{ ParameterType.Number } },
+                { DisplayUnitType.DUT_CUBIC_FEET_PER_KIP, new List<ParameterType>{ ParameterType.Number } },
+                { DisplayUnitType.DUT_INV_KILONEWTONS, new List<ParameterType>{ ParameterType.Number } },
+                { DisplayUnitType.DUT_INV_KIPS, new List<ParameterType>{ ParameterType.Number } },
+                { DisplayUnitType.DUT_FEET_OF_WATER_PER_100FT, new List<ParameterType>{ ParameterType.PipingFriction, ParameterType.AreaForcePerLength } },
+                { DisplayUnitType.DUT_FEET_OF_WATER, new List<ParameterType>{ ParameterType.PipingPressure, ParameterType.LinearForcePerLength } },
+                { DisplayUnitType.DUT_FEET_PER_SECOND, new List<ParameterType>{ ParameterType.PipingVelocity, ParameterType.StructuralVelocity } },
+                { DisplayUnitType.DUT_PASCAL_SECONDS, new List<ParameterType>{ ParameterType.PipingViscosity, ParameterType.HVACViscosity } },
+                { DisplayUnitType.DUT_POUNDS_MASS_PER_FOOT_SECOND, new List<ParameterType>{ ParameterType.PipingViscosity, ParameterType.HVACViscosity } },
+                { DisplayUnitType.DUT_CENTIPOISES, new List<ParameterType>{ ParameterType.PipingViscosity, ParameterType.HVACViscosity } },
+                { DisplayUnitType.DUT_POUNDS_MASS_PER_FOOT_HOUR, new List<ParameterType>{ ParameterType.PipingViscosity, ParameterType.HVACViscosity } },
+                { DisplayUnitType.DUT_KILONEWTONS_PER_SQUARE_CENTIMETER, new List<ParameterType>{ ParameterType.Stress, ParameterType.LinearForcePerLength } },
+                { DisplayUnitType.DUT_NEWTONS_PER_SQUARE_MILLIMETER, new List<ParameterType>{ ParameterType.Stress, ParameterType.LinearForcePerLength } },
+                { DisplayUnitType.DUT_KILONEWTONS_PER_SQUARE_MILLIMETER, new List<ParameterType>{ ParameterType.Stress, ParameterType.LinearForcePerLength } },
+                { DisplayUnitType.DUT_KIPS_PER_SQUARE_INCH, new List<ParameterType>{ ParameterType.Stress, ParameterType.LinearForcePerLength } },
+                { DisplayUnitType.DUT_POUNDS_FORCE_PER_CUBIC_FOOT, new List<ParameterType>{ ParameterType.UnitWeight, ParameterType.AreaForcePerLength } },
+                { DisplayUnitType.DUT_KIPS_PER_CUBIC_INCH, new List<ParameterType>{ ParameterType.UnitWeight, ParameterType.AreaForcePerLength } },
+                { DisplayUnitType.DUT_KILONEWTONS_PER_CUBIC_METER, new List<ParameterType>{ ParameterType.UnitWeight, ParameterType.AreaForcePerLength } },
+                { DisplayUnitType.DUT_INV_FAHRENHEIT, new List<ParameterType>{ ParameterType.ThermalExpansion } },
+                { DisplayUnitType.DUT_MICROINCHES_PER_INCH_FAHRENHEIT, new List<ParameterType>{ ParameterType.ThermalExpansion } },
+                { DisplayUnitType.DUT_INV_CELSIUS, new List<ParameterType>{ ParameterType.ThermalExpansion } },
+                { DisplayUnitType.DUT_MICROMETERS_PER_METER_CELSIUS, new List<ParameterType>{ ParameterType.ThermalExpansion } },
+                { DisplayUnitType.DUT_NEWTON_METERS_PER_METER, new List<ParameterType>{ ParameterType.LinearMoment } },
+                { DisplayUnitType.DUT_DECANEWTON_METERS_PER_METER, new List<ParameterType>{ ParameterType.LinearMoment } },
+                { DisplayUnitType.DUT_KILONEWTON_METERS_PER_METER, new List<ParameterType>{ ParameterType.LinearMoment } },
+                { DisplayUnitType.DUT_MEGANEWTON_METERS_PER_METER, new List<ParameterType>{ ParameterType.LinearMoment } },
+                { DisplayUnitType.DUT_KIP_FEET_PER_FOOT, new List<ParameterType>{ ParameterType.LinearMoment } },
+                { DisplayUnitType.DUT_KILOGRAM_FORCE_METERS_PER_METER, new List<ParameterType>{ ParameterType.LinearMoment } },
+                { DisplayUnitType.DUT_TONNE_FORCE_METERS_PER_METER, new List<ParameterType>{ ParameterType.LinearMoment } },
+                { DisplayUnitType.DUT_POUND_FORCE_FEET_PER_FOOT, new List<ParameterType>{ ParameterType.LinearMoment } },
+                { DisplayUnitType.DUT_KIP_FEET_PER_DEGREE, new List<ParameterType>{ ParameterType.ForceLengthPerAngle } },
+                { DisplayUnitType.DUT_KILONEWTON_METERS_PER_DEGREE, new List<ParameterType>{ ParameterType.ForceLengthPerAngle } },
+                { DisplayUnitType.DUT_KIP_FEET_PER_DEGREE_PER_FOOT, new List<ParameterType>{ ParameterType.LinearForceLengthPerAngle } },
+                { DisplayUnitType.DUT_KILONEWTON_METERS_PER_DEGREE_PER_METER, new List<ParameterType>{ ParameterType.LinearForceLengthPerAngle } },
+                { DisplayUnitType.DUT_KIPS_PER_CUBIC_FOOT, new List<ParameterType>{ ParameterType.AreaForcePerLength } },
+                { DisplayUnitType.DUT_WATTS_PER_SQUARE_METER_KELVIN, new List<ParameterType>{ ParameterType.HVACCoefficientOfHeatTransfer } },
+                { DisplayUnitType.DUT_BRITISH_THERMAL_UNITS_PER_HOUR_SQUARE_FOOT_FAHRENHEIT, new List<ParameterType>{ ParameterType.HVACCoefficientOfHeatTransfer } },
+                { DisplayUnitType.DUT_CUBIC_FEET_PER_MINUTE_SQUARE_FOOT, new List<ParameterType>{ ParameterType.HVACAirflowDensity } },
+                { DisplayUnitType.DUT_LITERS_PER_SECOND_SQUARE_METER, new List<ParameterType>{ ParameterType.HVACAirflowDensity } },
+                { DisplayUnitType.DUT_1_RATIO, new List<ParameterType>{ ParameterType.Slope, ParameterType.HVACSlope, ParameterType.PipingSlope } },
+                { DisplayUnitType.DUT_RATIO_12, new List<ParameterType>{ ParameterType.Slope, ParameterType.HVACSlope, ParameterType.PipingSlope } },
+                { DisplayUnitType.DUT_RATIO_10, new List<ParameterType>{ ParameterType.Slope, ParameterType.HVACSlope, ParameterType.PipingSlope } },
+                { DisplayUnitType.DUT_RISE_OVER_INCHES, new List<ParameterType>{ ParameterType.Slope, ParameterType.HVACSlope, ParameterType.PipingSlope } },
+                { DisplayUnitType.DUT_RISE_OVER_FOOT, new List<ParameterType>{ ParameterType.Slope, ParameterType.HVACSlope, ParameterType.PipingSlope } },
+                { DisplayUnitType.DUT_RISE_OVER_MMS, new List<ParameterType>{ ParameterType.Slope, ParameterType.HVACSlope, ParameterType.PipingSlope } },
+                { DisplayUnitType.DUT_SLOPE_DEGREES, new List<ParameterType>{ ParameterType.Slope, ParameterType.HVACSlope, ParameterType.PipingSlope } },
+                { DisplayUnitType.DUT_TON_OF_REFRIGERATION, new List<ParameterType>{ ParameterType.HVACCoolingLoad } },
+                { DisplayUnitType.DUT_WATTS_PER_CUBIC_FOOT, new List<ParameterType>{ ParameterType.HVACCoolingLoadDividedByVolume, ParameterType.HVACHeatingLoadDividedByVolume } },
+                { DisplayUnitType.DUT_WATTS_PER_CUBIC_METER, new List<ParameterType>{ ParameterType.HVACCoolingLoadDividedByVolume, ParameterType.HVACHeatingLoadDividedByVolume } },
+                { DisplayUnitType.DUT_BRITISH_THERMAL_UNITS_PER_HOUR_CUBIC_FOOT, new List<ParameterType>{ ParameterType.HVACCoolingLoadDividedByVolume, ParameterType.HVACHeatingLoadDividedByVolume } },
+                { DisplayUnitType.DUT_SQUARE_FEET_PER_TON_OF_REFRIGERATION, new List<ParameterType>{ ParameterType.HVACAreaDividedByCoolingLoad } },
+                { DisplayUnitType.DUT_SQUARE_METERS_PER_KILOWATTS, new List<ParameterType>{ ParameterType.HVACAreaDividedByCoolingLoad, ParameterType.HVACAreaDividedByHeatingLoad } },
+                { DisplayUnitType.DUT_PER_MILLE, new List<ParameterType>{ ParameterType.HVACSlope, ParameterType.PipingSlope } },
+                { DisplayUnitType.DUT_RISE_OVER_120_INCHES, new List<ParameterType>{ ParameterType.PipingSlope } },
+                { DisplayUnitType.DUT_RISE_OVER_10_FEET, new List<ParameterType>{ ParameterType.PipingSlope } },
+                { DisplayUnitType.DUT_LUMENS_PER_WATT, new List<ParameterType>{ ParameterType.ElectricalEfficacy } },
+                { DisplayUnitType.DUT_CANDELAS, new List<ParameterType>{ ParameterType.ElectricalLuminousIntensity } },
+                { DisplayUnitType.DUT_FOOTLAMBERTS, new List<ParameterType>{ ParameterType.ElectricalLuminance } },
+                { DisplayUnitType.DUT_CANDELAS_PER_SQUARE_METER, new List<ParameterType>{ ParameterType.ElectricalLuminance } },
+                { DisplayUnitType.DUT_SQUARE_FEET_PER_THOUSAND_BRITISH_THERMAL_UNITS_PER_HOUR, new List<ParameterType>{ ParameterType.HVACAreaDividedByHeatingLoad } },
+                { DisplayUnitType.DUT_SQUARE_METER_KELVIN_PER_WATT, new List<ParameterType>{ ParameterType.HVACThermalResistance } },
+                { DisplayUnitType.DUT_HOUR_SQUARE_FOOT_FAHRENHEIT_PER_BRITISH_THERMAL_UNIT, new List<ParameterType>{ ParameterType.HVACThermalResistance } },
+                { DisplayUnitType.DUT_BRITISH_THERMAL_UNIT_PER_FAHRENHEIT, new List<ParameterType>{ ParameterType.HVACThermalMass } },
+                { DisplayUnitType.DUT_JOULES_PER_KELVIN, new List<ParameterType>{ ParameterType.HVACThermalMass } },
+                { DisplayUnitType.DUT_KILOJOULES_PER_KELVIN, new List<ParameterType>{ ParameterType.HVACThermalMass } },
+                { DisplayUnitType.DUT_METERS_PER_SECOND_SQUARED, new List<ParameterType>{ ParameterType.Acceleration } },
+                { DisplayUnitType.DUT_KILOMETERS_PER_SECOND_SQUARED, new List<ParameterType>{ ParameterType.Acceleration } },
+                { DisplayUnitType.DUT_INCHES_PER_SECOND_SQUARED, new List<ParameterType>{ ParameterType.Acceleration } },
+                { DisplayUnitType.DUT_FEET_PER_SECOND_SQUARED, new List<ParameterType>{ ParameterType.Acceleration } },
+                { DisplayUnitType.DUT_MILES_PER_SECOND_SQUARED, new List<ParameterType>{ ParameterType.Acceleration } },
+                { DisplayUnitType.DUT_KILOJOULES, new List<ParameterType>{ ParameterType.Energy } },
+                { DisplayUnitType.DUT_KILOGRAMS_MASS, new List<ParameterType>{ ParameterType.Mass, ParameterType.Mass } },
+                { DisplayUnitType.DUT_TONNES_MASS, new List<ParameterType>{ ParameterType.Mass, ParameterType.Mass } },
+                { DisplayUnitType.DUT_POUNDS_MASS, new List<ParameterType>{ ParameterType.Mass, ParameterType.Mass } },
+                { DisplayUnitType.DUT_USTONNES_MASS, new List<ParameterType>{ ParameterType.Mass } },
+                { DisplayUnitType.DUT_KILOGRAMS_MASS_PER_METER, new List<ParameterType>{ ParameterType.MassPerUnitLength, ParameterType.MassPerUnitLength } },
+                { DisplayUnitType.DUT_POUNDS_MASS_PER_FOOT, new List<ParameterType>{ ParameterType.MassPerUnitLength, ParameterType.MassPerUnitLength } },
+                { DisplayUnitType.DUT_FEET_TO_THE_FOURTH_POWER, new List<ParameterType>{ ParameterType.MomentOfInertia } },
+                { DisplayUnitType.DUT_INCHES_TO_THE_FOURTH_POWER, new List<ParameterType>{ ParameterType.MomentOfInertia } },
+                { DisplayUnitType.DUT_MILLIMETERS_TO_THE_FOURTH_POWER, new List<ParameterType>{ ParameterType.MomentOfInertia } },
+                { DisplayUnitType.DUT_CENTIMETERS_TO_THE_FOURTH_POWER, new List<ParameterType>{ ParameterType.MomentOfInertia } },
+                { DisplayUnitType.DUT_METERS_TO_THE_FOURTH_POWER, new List<ParameterType>{ ParameterType.MomentOfInertia } },
+                { DisplayUnitType.DUT_MILISECONDS, new List<ParameterType>{ ParameterType.Period } },
+                { DisplayUnitType.DUT_SECONDS, new List<ParameterType>{ ParameterType.Period } },
+                { DisplayUnitType.DUT_MINUTES, new List<ParameterType>{ ParameterType.Period } },
+                { DisplayUnitType.DUT_HOURS, new List<ParameterType>{ ParameterType.Period } },
+                { DisplayUnitType.DUT_RADIANS_PER_SECOND, new List<ParameterType>{ ParameterType.Pulsation } },
+                { DisplayUnitType.DUT_KILOMETERS_PER_HOUR, new List<ParameterType>{ ParameterType.StructuralVelocity } },
+                { DisplayUnitType.DUT_MILES_PER_HOUR, new List<ParameterType>{ ParameterType.StructuralVelocity } },
+                { DisplayUnitType.DUT_FEET_TO_THE_SIXTH_POWER, new List<ParameterType>{ ParameterType.WarpingConstant } },
+                { DisplayUnitType.DUT_INCHES_TO_THE_SIXTH_POWER, new List<ParameterType>{ ParameterType.WarpingConstant } },
+                { DisplayUnitType.DUT_MILLIMETERS_TO_THE_SIXTH_POWER, new List<ParameterType>{ ParameterType.WarpingConstant } },
+                { DisplayUnitType.DUT_CENTIMETERS_TO_THE_SIXTH_POWER, new List<ParameterType>{ ParameterType.WarpingConstant } },
+                { DisplayUnitType.DUT_METERS_TO_THE_SIXTH_POWER, new List<ParameterType>{ ParameterType.WarpingConstant } },
+                { DisplayUnitType.DUT_USTONNES_FORCE, new List<ParameterType>{ ParameterType.Weight } },
+                { DisplayUnitType.DUT_WATTS_PER_METER_KELVIN, new List<ParameterType>{ ParameterType.HVACThermalConductivity } },
+                { DisplayUnitType.DUT_BRITISH_THERMAL_UNITS_PER_HOUR_FOOT_FAHRENHEIT, new List<ParameterType>{ ParameterType.HVACThermalConductivity } },
+                { DisplayUnitType.DUT_JOULES_PER_GRAM_CELSIUS, new List<ParameterType>{ ParameterType.HVACSpecificHeat } },
+                { DisplayUnitType.DUT_JOULES_PER_KILOGRAM_CELSIUS, new List<ParameterType>{ ParameterType.HVACSpecificHeat } },
+                { DisplayUnitType.DUT_BRITISH_THERMAL_UNITS_PER_POUND_FAHRENHEIT, new List<ParameterType>{ ParameterType.HVACSpecificHeat } },
+                { DisplayUnitType.DUT_JOULES_PER_GRAM, new List<ParameterType>{ ParameterType.HVACSpecificHeatOfVaporization } },
+                { DisplayUnitType.DUT_BRITISH_THERMAL_UNITS_PER_POUND, new List<ParameterType>{ ParameterType.HVACSpecificHeatOfVaporization } },
+                { DisplayUnitType.DUT_NANOGRAMS_PER_PASCAL_SECOND_SQUARE_METER, new List<ParameterType>{ ParameterType.HVACPermeability } },
+                { DisplayUnitType.DUT_GRAINS_PER_HOUR_SQUARE_FOOT_INCH_MERCURY, new List<ParameterType>{ ParameterType.HVACPermeability } },
+                { DisplayUnitType.DUT_OHM_METERS, new List<ParameterType>{ ParameterType.ElectricalResistivity } },
+                { DisplayUnitType.DUT_POUNDS_MASS_PER_SQUARE_FOOT, new List<ParameterType>{ ParameterType.MassPerUnitArea } },
+                { DisplayUnitType.DUT_KILOGRAMS_MASS_PER_SQUARE_METER, new List<ParameterType>{ ParameterType.MassPerUnitArea } },
+            };
+
+            #endregion
         }
 
         /// <summary>
@@ -1060,6 +1313,22 @@ namespace CodeCave.Revit.Toolkit
         }
 
         /// <summary>
+        /// Tries the get <see cref="DisplayUnitType"/> from catalog string.
+        /// </summary>
+        /// <param name="catalogString">The catalog string.</param>
+        /// <param name="displayUnitType">Display type of the unit.</param>
+        /// <returns></returns>
+        public static bool TryGetFromCatalogString(this string catalogString, out DisplayUnitType displayUnitType)
+        {
+            var values = _dutToCatalog?.Where(u => u.Value.Equals(catalogString)).Select(x => x.Key).ToList();
+            var valueExists = values != null && values.Any();
+            displayUnitType = valueExists
+                ? values.FirstOrDefault()
+                : DisplayUnitType.DUT_UNDEFINED;
+            return valueExists;
+        }
+
+        /// <summary>
         /// Tries the type of the get unit.
         /// </summary>
         /// <param name="displayUnitType">Display type of the unit.</param>
@@ -1068,6 +1337,30 @@ namespace CodeCave.Revit.Toolkit
         public static bool TryGetUnitType(this DisplayUnitType displayUnitType, out List<UnitType> unitType)
         {
             return _dutToUnitType.TryGetValue(displayUnitType, out unitType);
+        }
+
+        /// <summary>
+        /// Tries to convert <see cref="ParameterType"/> of the get display for unit.
+        /// </summary>
+        /// <param name="unitType">Type of the unit.</param>
+        /// <param name="displayUnitTypes">The display unit types.</param>
+        /// <returns></returns>
+        public static bool TryGetDisplayForUnitType(this UnitType unitType, out List<DisplayUnitType> displayUnitTypes)
+        {
+            displayUnitTypes = _dutToUnitType.Where(dut => dut.Value.Contains(unitType)).Select(dut => dut.Key).ToList();
+            return displayUnitTypes.Any();
+        }
+
+        /// <summary>
+        /// Tries to convert <see cref="ParameterType"/> of the get display for parameter.
+        /// </summary>
+        /// <param name="parameterType">Type of the parameter.</param>
+        /// <param name="displayUnitTypes">The display unit types.</param>
+        /// <returns></returns>
+        public static bool TryGetDisplayForParameterType(this ParameterType parameterType, out List<DisplayUnitType> displayUnitTypes)
+        {
+            displayUnitTypes = _dutToParameterType.Where(dut => dut.Value.Contains(parameterType)).Select(dut => dut.Key).ToList();
+            return displayUnitTypes.Any();
         }
 
         /// <summary>
@@ -1090,7 +1383,7 @@ namespace CodeCave.Revit.Toolkit
         public static bool TryGetFromUnitSymbol(this string unitSymbol, out DisplayUnitType displayUnitType)
         {
             displayUnitType = DisplayUnitType.DUT_UNDEFINED;
-            return unitSymbol.TryGetFromSymbol(out UnitSymbolType unitSymbolType) && unitSymbolType.TryGetFromUnitSymbol(out displayUnitType);
+            return unitSymbol.TryGetFromSymbol(out var unitSymbolType) && unitSymbolType.TryGetFromUnitSymbol(out displayUnitType);
         }
 
         /// <summary>
@@ -1107,5 +1400,7 @@ namespace CodeCave.Revit.Toolkit
                 : DisplayUnitType.DUT_UNDEFINED;
             return values.Any();
         }
+
+
     }
 }

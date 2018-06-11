@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 
 #pragma warning disable 1591
 
@@ -265,9 +266,27 @@ namespace CodeCave.Revit.Toolkit
         /// <param name="builtInParameterGroup">Built in parameter group value.</param>
         /// <param name="builtInParameterGroupString">Human-readable English label for the given <see cref="BuiltInParameterGroup"/> value.</param>
         /// <returns></returns>
-        public static bool ToEnglishLabel(this BuiltInParameterGroup builtInParameterGroup, out string builtInParameterGroupString)
+        public static bool ToEnglishLabel(this BuiltInParameterGroup builtInParameterGroup,
+            out string builtInParameterGroupString)
         {
             return _builtInParameterGroup.TryGetValue(builtInParameterGroup, out builtInParameterGroupString);
+        }
+
+        /// <summary>
+        /// Tries to convert <see cref="string"/> label to <see cref="BuiltInParameterGroup"/> enum value.
+        /// </summary>
+        /// <param name="builtInParameterGroupString">The built in parameter group string.</param>
+        /// <param name="builtInParameterGroup">The built in parameter group.</param>
+        /// <returns></returns>
+        public static bool FromEnglishLabel(this string builtInParameterGroupString, 
+            out BuiltInParameterGroup builtInParameterGroup)
+        {
+            builtInParameterGroup = BuiltInParameterGroup.INVALID;
+            if (!_builtInParameterGroup.ContainsValue(builtInParameterGroupString))
+                return false;
+
+            builtInParameterGroup = _builtInParameterGroup.FirstOrDefault(kp =>Equals(kp.Value, builtInParameterGroupString)).Key;
+            return true;
         }
     }
 }

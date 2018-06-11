@@ -15,6 +15,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Catalog
 
         private static readonly Configuration CsvConfiguration;
         internal IReadOnlyList<IDefinition> parameterDefinitions;
+        internal TypeCollection types = new TypeCollection();
 
         /// <summary>
         /// Initializes the <see cref="TypeCatalogFile"/> class.
@@ -112,7 +113,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Catalog
                             value
                         )));
                         var type = new Type(typeName, parameters);
-                        Types.Add(type);
+                        types.Add(type);
                     }
                 }
             }
@@ -128,7 +129,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Catalog
         /// <value>
         /// The types.
         /// </value>
-        private TypeCollection Types { get; } = new TypeCollection();
+        public IReadOnlyCollection<Type> Types => types;
 
         /// <summary>
         /// Gets the encoding.
@@ -148,7 +149,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Catalog
         /// <param name="type">The type.</param>
         public void Add(Type type)
         {
-            Types.Add(type);
+            types.Add(type);
             if (parameterDefinitions == null && type.Parameters != null)
                 parameterDefinitions = new List<IDefinition>(type.Parameters.Select(p => p.ToDefinition()));
         }
@@ -160,7 +161,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Catalog
         /// <param name="parameters">The parameters.</param>
         public void Add(string typeName, ICollection<IParameterWithValue> parameters)
         {
-            Types.Add(typeName, parameters);
+            types.Add(typeName, parameters);
             if (parameterDefinitions == null && parameters != null)
                 parameterDefinitions = new List<IDefinition>(parameters.Select(p => p.ToDefinition()));
         }

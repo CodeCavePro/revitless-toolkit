@@ -13,6 +13,8 @@ namespace CodeCave.Revit.Toolkit.Parameters.Catalog
             /// </summary>
             protected Type() {}
 
+            #region Properties
+
             /// <summary>
             /// Initializes a new instance of the <see cref="Type" /> class.
             /// </summary>
@@ -44,6 +46,8 @@ namespace CodeCave.Revit.Toolkit.Parameters.Catalog
             /// The parameters.
             /// </value>
             public IReadOnlyList<IParameterWithValue> Parameters { get; } = new List<IParameterWithValue>();
+
+            #endregion
         }
 
         public class TypeCollection : List<Type>
@@ -55,6 +59,8 @@ namespace CodeCave.Revit.Toolkit.Parameters.Catalog
             internal TypeCollection()
             {
             }
+
+            #region Methods
 
             /// <summary>
             /// Adds the specified type.
@@ -103,6 +109,8 @@ namespace CodeCave.Revit.Toolkit.Parameters.Catalog
                     Add(type);
                 }
             }
+
+            #endregion
         }
     }
 }

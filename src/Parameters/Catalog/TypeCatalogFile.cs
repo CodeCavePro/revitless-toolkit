@@ -11,8 +11,10 @@ namespace CodeCave.Revit.Toolkit.Parameters.Catalog
 {
     public sealed partial class TypeCatalogFile
     {
+        #region Constructors
+
         private static readonly Configuration CsvConfiguration;
-        internal IReadOnlyList<ParameterDefinition> parameterDefinitions;
+        internal IReadOnlyList<IDefinition> parameterDefinitions;
 
         /// <summary>
         /// Initializes the <see cref="TypeCatalogFile"/> class.
@@ -105,13 +107,20 @@ namespace CodeCave.Revit.Toolkit.Parameters.Catalog
                     {
                         var record = csvReader.Context.Record;
                         var typeName = record.First();
-                        var parameters = new List<Parameter<object>>(record.Skip(1).Select((value, index) => new Parameter<object>(parameterDefinitions[index], value)));
+                        var parameters = new List<IParameterWithValue>(record.Skip(1).Select((value, index) => new Parameter<object>(
+                            parameterDefinitions[index] as ParameterDefinition,
+                            value
+                        )));
                         var type = new Type(typeName, parameters);
                         Types.Add(type);
                     }
                 }
             }
         }
+
+        #endregion
+
+        #region Properties
 
         /// <summary>
         /// Gets the types.
@@ -129,6 +138,10 @@ namespace CodeCave.Revit.Toolkit.Parameters.Catalog
         /// </value>
         public Encoding Encoding { get; }
 
+        #endregion
+
+        #region Methods
+
         /// <summary>
         /// Adds the specified type.
         /// </summary>
@@ -137,7 +150,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Catalog
         {
             Types.Add(type);
             if (parameterDefinitions == null && type.Parameters != null)
-                parameterDefinitions = new List<ParameterDefinition>(type.Parameters.Cast<ParameterDefinition>());
+                parameterDefinitions = new List<IDefinition>(type.Parameters.Select(p => p.ToDefinition()));
         }
 
         /// <summary>
@@ -149,7 +162,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Catalog
         {
             Types.Add(typeName, parameters);
             if (parameterDefinitions == null && parameters != null)
-                parameterDefinitions = new List<ParameterDefinition>(parameters.Cast<ParameterDefinition>());
+                parameterDefinitions = new List<IDefinition>(parameters.Select(p => p.ToDefinition()));
         }
 
         /// <summary>
@@ -163,7 +176,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Catalog
             var catalogTypeString = new StringBuilder();
             using (var textWriter = new StringWriter(catalogTypeString))
             {
-                textWriter.WriteLine($",{string.Join(",", parameterDefinitions)}");
+                textWriter.WriteLine($",{string.Join(",", parameterDefinitions.Select(p => p.ToString()))}");
                 foreach (var type in Types)
                 {
                     textWriter.WriteLine($"{type.Name},{string.Join(",", type.Parameters.Select(p => p.ValueString))}");
@@ -172,5 +185,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Catalog
 
             return catalogTypeString.ToString();
         }
+
+        #endregion
     }
 }

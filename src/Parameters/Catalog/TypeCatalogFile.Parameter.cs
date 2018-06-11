@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 
@@ -6,8 +7,11 @@ namespace CodeCave.Revit.Toolkit.Parameters.Catalog
 {
     public sealed partial class TypeCatalogFile
     {
+        [DebuggerDisplay("Name = {Name}   Value = {ValueString}   Type = {ParameterType}   UnitType = {UnitType}   DisplayUnitType = {DisplayUnitType}")]
         public class Parameter<TValue> : ParameterDefinition, IParameterWithValue
         {
+            #region Constructors
+
             /// <inheritdoc />
             /// <summary>
             /// Initializes a new instance of the <see cref="T:CodeCave.Revit.Toolkit.Parameters.Catalog.TypeCatalogFile.Parameter" /> class.
@@ -103,12 +107,21 @@ namespace CodeCave.Revit.Toolkit.Parameters.Catalog
                 }
             }
 
+            /// <inheritdoc />
+            /// <summary>
+            /// Initializes a new instance of the <see cref="T:CodeCave.Revit.Toolkit.Parameters.Catalog.TypeCatalogFile.Parameter`1" /> class.
+            /// </summary>
+            /// <param name="definition">The definition.</param>
+            /// <param name="value">The value.</param>
             public Parameter(ParameterDefinition definition, TValue value) 
                 : base(definition.Name, definition.ParameterType, definition.DisplayUnitType)
             {
                 ValueRaw = value;
             }
 
+            #endregion
+
+            #region Value
 
             /// <inheritdoc />
             /// <summary>
@@ -139,6 +152,16 @@ namespace CodeCave.Revit.Toolkit.Parameters.Catalog
             {
                 get => GetValue();
                 set => ValueRaw = value;
+            }
+
+            public IDefinition ToDefinition()
+            {
+                return new ParameterDefinition
+                {
+                    Name = Name,
+                    ParameterType = ParameterType,
+                    DisplayUnitType = DisplayUnitType,
+                };
             }
 
             /// <summary>
@@ -175,6 +198,10 @@ namespace CodeCave.Revit.Toolkit.Parameters.Catalog
                 return ValueRaw?.ToString();
             }
 
+            #endregion
+
+            #region ToString
+
             /// <inheritdoc />
             /// <summary>
             /// Returns a <see cref="T:System.String" /> that represents this instance.
@@ -186,6 +213,21 @@ namespace CodeCave.Revit.Toolkit.Parameters.Catalog
             {
                 return GetValue();
             }
+
+            #endregion
+
+            #region Clone
+
+            /// <summary>
+            /// Clones this instance.
+            /// </summary>
+            /// <returns></returns>
+            public new Parameter<TValue> Clone()
+            {
+                return new Parameter<TValue>(Name, ParameterType, Value, DisplayUnitType);
+            }
+
+            #endregion
         }
     }
 }

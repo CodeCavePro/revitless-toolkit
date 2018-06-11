@@ -1,12 +1,16 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Linq;
 
 namespace CodeCave.Revit.Toolkit.Parameters.Catalog
 {
     public sealed partial class TypeCatalogFile
     {
+        [DebuggerDisplay("Name = {Name}   Type = {ParameterType}   UnitType = {UnitType}   DisplayUnitType = {DisplayUnitType}")]
         public class ParameterDefinition : IDefinition, ICloneable
         {
+            #region Constructors
+
             /// <summary>
             /// Initializes a new instance of the <see cref="ParameterDefinition"/> class.
             /// </summary>
@@ -72,6 +76,10 @@ namespace CodeCave.Revit.Toolkit.Parameters.Catalog
                 DisplayUnitType = displayUnits.First();
             }
 
+            #endregion
+
+            #region Properties
+
             /// <summary>
             /// Gets the name.
             /// </summary>
@@ -118,6 +126,10 @@ namespace CodeCave.Revit.Toolkit.Parameters.Catalog
                 ? builtInParameterGroup
                 : BuiltInParameterGroup.INVALID;
 
+            #endregion
+
+            #region Methods
+
             /// <inheritdoc />
             /// <summary>
             /// Creates a new object that is a copy of the current instance.
@@ -157,6 +169,8 @@ namespace CodeCave.Revit.Toolkit.Parameters.Catalog
 
                 return $"{Name}##{paramTypeString}##{displayUnitString}";
             }
+            
+            #endregion
         }
     }
 }

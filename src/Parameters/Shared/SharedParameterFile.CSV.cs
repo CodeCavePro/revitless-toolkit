@@ -111,12 +111,12 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                                 return;
 
                             // Allow DESCRIPTION header to be missing (it's actually missing in older shared parameter files)
-                            if (nameof(Parameter.Description).Equals(headerNames?.FirstOrDefault(),
+                            if (nameof(ParameterDefinition.Description).Equals(headerNames?.FirstOrDefault(),
                                 StringComparison.OrdinalIgnoreCase))
                                 return;
 
                             // Allow USERMODIFIABLE header to be missing (it's actually missing in older shared parameter files)
-                            if (nameof(Parameter.UserModifiable).Equals(headerNames?.FirstOrDefault(),
+                            if (nameof(ParameterDefinition.UserModifiable).Equals(headerNames?.FirstOrDefault(),
                                 StringComparison.OrdinalIgnoreCase))
                                 return;
 
@@ -127,12 +127,12 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                         csvReader.Configuration.MissingFieldFound = (headerNames, index, context) =>
                         {
                             // Allow DESCRIPTION header to be missing (it's actually missing in older shared parameter files)
-                            if (nameof(Parameter.Description).Equals(headerNames?.FirstOrDefault(),
+                            if (nameof(ParameterDefinition.Description).Equals(headerNames?.FirstOrDefault(),
                                 StringComparison.OrdinalIgnoreCase))
                                 return;
 
                             // Allow USERMODIFIABLE header to be missing (it's actually missing in older shared parameter files)
-                            if (nameof(Parameter.UserModifiable).Equals(headerNames?.FirstOrDefault(),
+                            if (nameof(ParameterDefinition.UserModifiable).Equals(headerNames?.FirstOrDefault(),
                                 StringComparison.OrdinalIgnoreCase))
                                 return;
 
@@ -156,7 +156,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                             // Parse *PARAM section
                             case Sections.PARAMS:
                                 csvReader.Configuration.RegisterClassMap<ParameterClassMap>();
-                                Parameters = new ParameterCollection(this, csvReader.GetRecords<Parameter>().ToList());
+                                Parameters = new ParameterCollection(this, csvReader.GetRecords<ParameterDefinition>().ToList());
                                 break;
 
                             default:
@@ -178,7 +178,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                         p.Group = _groups?.FirstOrDefault(g => g.Id == p.Group.Id);
                         return p;
                     })
-                    .ToList() ?? new List<Parameter>()
+                    .ToList() ?? new List<ParameterDefinition>()
                 );
         }
 
@@ -316,7 +316,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         /// </summary>
         /// <seealso cref="!:CsvHelper.Configuration.ClassMap{CodeCave.Revit.Toolkit.Parameters.Shared.Parameter}" />
         /// <inheritdoc />
-        internal sealed class ParameterClassMap : ClassMap<Parameter>
+        internal sealed class ParameterClassMap : ClassMap<ParameterDefinition>
         {
             /// <inheritdoc />
             /// <summary>

@@ -40,10 +40,10 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         /// <param name="groups">The list of groups.</param>
         /// <param name="parameters">The list of parameters.</param>
         /// <param name="metadata">The metadata section.</param>
-        public SharedParameterFile(IEnumerable<Group> groups = null, IEnumerable<Parameter> parameters = null, MetaData metadata = null)
+        public SharedParameterFile(IEnumerable<Group> groups = null, IEnumerable<ParameterDefinition> parameters = null, MetaData metadata = null)
         {
             Metadata = metadata ?? new MetaData(2, 1);
-            Parameters = new ParameterCollection(this, parameters ?? new List<Parameter>());
+            Parameters = new ParameterCollection(this, parameters ?? new List<ParameterDefinition>());
             _groups = groups != null ? new List<Group>(groups) : new List<Group>();
 
             var groupValidation = ValidateGroups(_groups?.ToList())?.ToArray();
@@ -63,7 +63,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         /// <param name="parameters">The list of parameters.</param>
         /// <param name="metadata">The metadata section.</param>
         /// <inheritdoc />
-        public SharedParameterFile(IEnumerable<string> groups = null, IEnumerable<Parameter> parameters = null, MetaData metadata = null)
+        public SharedParameterFile(IEnumerable<string> groups = null, IEnumerable<ParameterDefinition> parameters = null, MetaData metadata = null)
             : this(
                 groups?.Select((g, i) => new Group(g, i +1)),
                 parameters,
@@ -79,7 +79,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         /// <param name="parameters">The list of parameters.</param>
         /// <param name="metadata">The metadata section.</param>
         /// <inheritdoc />
-        public SharedParameterFile(IDictionary<string, int> groups = null, IEnumerable<Parameter> parameters = null, MetaData metadata = null)
+        public SharedParameterFile(IDictionary<string, int> groups = null, IEnumerable<ParameterDefinition> parameters = null, MetaData metadata = null)
             : this(
                 groups?.Select((g, i) => new Group(g.Key, (g.Value > 0) ? g.Value : i)),
                 parameters,
@@ -185,13 +185,13 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             // Check for parameter duplicates by Guid
             var paramGuidDuplicates = Parameters.GroupBy(p => p.Guid).Where(g => g.Count() > 1).Select(p => p.Key);
             results.AddRange(paramGuidDuplicates.Select(guid =>
-                new ValidationResult($"The following parameter {nameof(Parameter.Guid)} has duplicates: {guid}",
+                new ValidationResult($"The following parameter {nameof(ParameterDefinition.Guid)} has duplicates: {guid}",
                     new[] {nameof(Parameters)})));
 
             // Check for parameter duplicates by name
             var paramNameDuplicates = Parameters.GroupBy(p => p.Name).Where(g => g.Count() > 1).Select(p => p.Key);
             results.AddRange(paramNameDuplicates.Select(name =>
-                new ValidationResult($"The following parameter {nameof(Parameter.Name)} has duplicates: {name}",
+                new ValidationResult($"The following parameter {nameof(ParameterDefinition.Name)} has duplicates: {name}",
                     new[] {nameof(Parameters)})));
 
             // Check for unused
@@ -272,7 +272,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                 return false;
 
             return Equals(Parameters?.Count, other.Parameters?.Count) &&
-                   Equals(Parameters?.Count, Parameters?.Intersect(other.Parameters ?? new List<Parameter>()).Count());
+                   Equals(Parameters?.Count, Parameters?.Intersect(other.Parameters ?? new List<ParameterDefinition>()).Count());
         }
 
         /// <summary>
@@ -361,7 +361,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             output.AppendLine(groupsAsString);
 
             // Serialize PARAM entries to CSV
-            var paramsAsString = SectionToCsv<ParameterClassMap, Parameter>(Sections.PARAMS, Parameters);
+            var paramsAsString = SectionToCsv<ParameterClassMap, ParameterDefinition>(Sections.PARAMS, Parameters);
             output.AppendLine(paramsAsString);
 
             return output.ToString();

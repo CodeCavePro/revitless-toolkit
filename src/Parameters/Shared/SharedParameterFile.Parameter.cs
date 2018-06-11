@@ -1,8 +1,5 @@
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
-using System.Linq;
 
 namespace CodeCave.Revit.Toolkit.Parameters.Shared
 {
@@ -24,7 +21,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         /// <inheritdoc cref="IParameter" />
         /// <seealso cref="IEquatable{SharedParameterFile}" />
         [DebuggerDisplay("Name = {Name}   Guid = {Guid}   Value = {ValueString}   Group = {Group?.Id}   Type = {ParameterType}")]
-        public class Parameter<TValue> : ParameterDefinition
+        public class Parameter<TValue> : ParameterDefinition, IParameterWithValue
         {
             /// <summary>
             /// Initializes a new instance of the <see cref="T:CodeCave.Revit.Toolkit.Parameters.Shared.SharedParameterFile.Parameter" /> class.
@@ -55,6 +52,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                 ValueRaw = value;
             }
 
+            /// <inheritdoc />
             /// <summary>
             /// Gets the raw value.
             /// </summary>
@@ -75,15 +73,52 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                 set => ValueRaw = value;
             }
 
+            /// <inheritdoc />
             /// <summary>
             /// Gets the value.
             /// </summary>
             /// <value>
             /// The value.
             /// </value>
-            public virtual string ValueString()
+            public string ValueString => ValueRaw?.ToString();
+
+            /// <inheritdoc />
+            /// <summary>
+            /// To the definition.
+            /// </summary>
+            /// <returns></returns>
+            /// <exception cref="T:System.NotImplementedException"></exception>
+            public IDefinition ToDefinition()
             {
-                return ValueRaw?.ToString();
+                return new ParameterDefinition(
+                    Guid, Name, Group, ParameterType, 
+                    DataCategory, Description, IsVisible, UserModifiable
+                );
+            }
+
+            /// <inheritdoc />
+            /// <summary>
+            /// Creates a new object that is a copy of the current instance.
+            /// </summary>
+            /// <returns>
+            /// A new object that is a copy of this instance.
+            /// </returns>
+            /// <exception cref="T:System.NotImplementedException"></exception>
+            object ICloneable.Clone()
+            {
+                return Clone();
+            }
+
+            /// <summary>
+            /// Clones this instance.
+            /// </summary>
+            /// <returns></returns>
+            public Parameter<TValue> Clone()
+            {
+                return new Parameter<TValue>(
+                    Guid, Name, Group, ParameterType, Value, 
+                    DataCategory, Description, IsVisible, UserModifiable
+                );
             }
         }
     }

@@ -66,7 +66,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Catalog
                 using (var csvReader = new CsvReader(stringReader, CsvConfiguration))
                 {
                     string[] header = { };
-                    while (csvReader.Read() && csvReader.ReadHeader() && !header.Any())
+                    if (!header.Any() && csvReader.Read() && csvReader.ReadHeader())
                     {
                         header = csvReader.Context.HeaderRecord;
                     }

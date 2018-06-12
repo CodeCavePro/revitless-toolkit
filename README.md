@@ -20,7 +20,7 @@ A cross-platform **Revit-less** toolkit for processing .rfa, .rvt and other file
 Installation
 ============
 
-**Revit Toolkit** can be installed via [NuGet](https://www.nuget.org/packages?q=CodeCave.Revit)
+**RevitLESS Toolkit** can be installed via [NuGet](https://www.nuget.org/packages?q=CodeCave.Revit)
 by using Package Manager in your IDE, `dotnet` binary or Package Console
 
 ```bash
@@ -41,7 +41,7 @@ Install-Package Elmah -ProjectName [<PROJECT>]
 Usage
 =====
 
-**Revit Toolkit** provides various tools, you can easily find the full list by browsing the [documentation](http://revit-toolkit.readthedocs.io/en/latest/).
+**RevitLESS Toolkit** provides various tools, you can easily find the full list by browsing the [documentation](http://revit-toolkit.readthedocs.io/en/latest/).
 
 ## Shared parameter file
 
@@ -98,4 +98,51 @@ sharedParamFile.Parameters.Add(
 
 // Write out shared parameters file to disk
 sharedParamFile.Save("path/a/new/shared/file.txt");
+```
+
+## Catalog type file
+
+This is a pretty useful tool for easily creating and then writing out Revit [type catalog files](https://knowledge.autodesk.com/support/revit-products/learn-explore/caas/CloudHelp/cloudhelp/2016/ENU/Revit-Customize/files/GUID-FFA71D72-D4C5-416D-BF65-1757657C3CE9-htm.html).
+
+```cs
+var catalogTypeFile = new TypeCatalogFile();
+var iPhoneCommonParameters = new List<IParameterWithValue>
+{
+    new TypeCatalogFile.Parameter<string>("Manufacturer", ParameterType.Text, "Apple"),
+    new TypeCatalogFile.Parameter<string>("Model", ParameterType.Text, "A1549"),
+    new TypeCatalogFile.Parameter<double>("Width", ParameterType.Length, 77.8, DisplayUnitType.DUT_MILLIMETERS),
+    new TypeCatalogFile.Parameter<double>("Depth", ParameterType.Length, 6.9, DisplayUnitType.DUT_MILLIMETERS),
+    new TypeCatalogFile.Parameter<double>("Height", ParameterType.Length, 158.1, DisplayUnitType.DUT_MILLIMETERS),
+};
+
+catalogTypeFile.Add("MG562LL/A", iPhoneCommonParameters.Concat(new List<IParameterWithValue>
+{
+    new TypeCatalogFile.Parameter<string>("AssemblyCode", ParameterType.Text, "MG562LL/A"),
+    new TypeCatalogFile.Parameter<string>("Description", ParameterType.Text, "iPhone 6 16GB Gold (GSM) T-Mobile"),
+    new TypeCatalogFile.Parameter<double>("Price", ParameterType.Currency, 299.90),
+    new TypeCatalogFile.Parameter<string>("Currency", ParameterType.Text, "$"),
+    new TypeCatalogFile.Parameter<int>("Storage GB", 16),
+    new TypeCatalogFile.Parameter<bool>("Unlocked", ParameterType.YesNo, false),
+}).ToArray());
+catalogTypeFile.Add("MG5D2LL/A", iPhoneCommonParameters.Concat(new List<IParameterWithValue>
+{
+    new TypeCatalogFile.Parameter<string>("AssemblyCode", ParameterType.Text, "MG5D2LL/A"),
+    new TypeCatalogFile.Parameter<string>("Description", ParameterType.Text, "iPhone 6 64GB Gold (GSM) T-Mobile"),
+    new TypeCatalogFile.Parameter<double>("Price", ParameterType.Currency, 380.0),
+    new TypeCatalogFile.Parameter<string>("Currency", ParameterType.Text, "$"),
+    new TypeCatalogFile.Parameter<int>("Storage GB", 32),
+    new TypeCatalogFile.Parameter<bool>("Unlocked", ParameterType.YesNo, false),
+}).ToArray());
+catalogTypeFile.Add("MG3A2CL/A", iPhoneCommonParameters.Concat(new List<IParameterWithValue>
+{
+    new TypeCatalogFile.Parameter<string>("AssemblyCode", ParameterType.Text, "MG3A2CL/A"),
+    new TypeCatalogFile.Parameter<string>("Description", ParameterType.Text, "iPhone 6 16GB Space Grey Unlocked"),
+    new TypeCatalogFile.Parameter<double>("Price", ParameterType.Currency, 600.0),
+    new TypeCatalogFile.Parameter<string>("Currency", ParameterType.Text, "CAD"),
+    new TypeCatalogFile.Parameter<int>("Storage GB", 16),
+    new TypeCatalogFile.Parameter<bool>("Unlocked", ParameterType.YesNo, true),
+}).ToArray());
+
+// Write out type catalog file to disk
+catalogTypeFile.Save("path/a/new/shared/file.txt");
 ```

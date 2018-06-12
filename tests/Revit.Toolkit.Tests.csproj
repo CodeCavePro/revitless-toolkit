@@ -26,6 +26,17 @@
     <None Update="Resources\SharedParameterFiles\Invalid\*.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+
+    <None Update="Resources\TypeCatalogFile\Valid\*.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\TypeCatalogFile\Invalid\*.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Resources\TypeCatalogFile\Invalid\" />
   </ItemGroup>
 
   <Target Name="CleanTestFiles" AfterTargets="Clean">

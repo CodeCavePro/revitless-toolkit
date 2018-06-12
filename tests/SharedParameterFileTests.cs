@@ -343,5 +343,19 @@ namespace CodeCave.Revit.Toolkit.Tests
 
             Assert.Equal(simpleSharedFromBuiltText, simpleSharedFromDisk);
         }
+        /// <summary>
+        /// Saves the a catalog to a file.
+        /// </summary>
+        [Fact]
+        public void SavingSharedParametersToFile()
+        {
+            var sharedParamFile = new SharedParameterFile();
+            sharedParamFile.Parameters.Add(
+                new Guid("61ff3d56-09d7-4049-8c78-4abe745e4e5a"), "EquipmentName",
+                "Identity Data", ParameterType.Text
+            );
+            var sharedParamFileTmp = $"{Path.GetTempFileName()}.txt";
+            Assert.True(sharedParamFile.Save(sharedParamFileTmp) && File.Exists(sharedParamFileTmp));
+        }
     }
 }

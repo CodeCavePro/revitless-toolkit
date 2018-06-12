@@ -246,7 +246,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             /// <exception cref="T:System.ArgumentNullException">parameterFile</exception>
             /// <inheritdoc />
             public ParameterCollection(SharedParameterFile parameterFile, IEnumerable<ParameterDefinition> parameters)
-                :base(parameters)
+                :base(parameters ?? new List<ParameterDefinition>())
             {
                 this.parameterFile = parameterFile ?? throw new ArgumentNullException(nameof(parameterFile));
             }

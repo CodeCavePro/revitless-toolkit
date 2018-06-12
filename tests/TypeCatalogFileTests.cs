@@ -14,7 +14,7 @@ namespace CodeCave.Revit.Toolkit.Tests
         private static readonly string PathToValidFiles, PathToInvalidFiles;
 
         /// <summary>
-        /// Initializes the <see cref="TypeCatalogFileTests"/> class.
+        /// Initializes the <see cref="TypeCatalogFileTests" /> class.
         /// </summary>
         static TypeCatalogFileTests()
         {
@@ -24,6 +24,9 @@ namespace CodeCave.Revit.Toolkit.Tests
             CatalogTypeFiles = Directory.GetFiles(sharedParamFilesDir, "*.txt", SearchOption.AllDirectories);
         }
 
+        /// <summary>
+        /// Checks if the count of parameters is correct.
+        /// </summary>
         [Fact]
         public void CheckIfNumberOfParametersIsCorrect()
         {
@@ -37,6 +40,10 @@ namespace CodeCave.Revit.Toolkit.Tests
                 }
             );
         }
+
+        /// <summary>
+        /// Checks if the number of types is correct.
+        /// </summary>
         [Fact]
         public void CheckIfNumberOfTypesIsCorrect()
         {
@@ -50,8 +57,48 @@ namespace CodeCave.Revit.Toolkit.Tests
             );
         }
 
+        /// <summary>
+        /// Builds a catalog of iPhone products and compares it to the same catalog stored on disk.
+        /// </summary>
         [Fact]
-        public void iPhoneCatalogReadAndBuiltAreEqual()
+        public void AppleCatalogReadAndBuiltAreEqual()
+        {
+            var catalogTypeFile = AppleTypeCatalogInstance();
+            var catalogTypeFileFromBuilt = catalogTypeFile.ToString();
+            Assert.True(!string.IsNullOrWhiteSpace(catalogTypeFileFromBuilt));
+
+            var iPhoneCatalogFilePath = CatalogTypeFiles.FirstOrDefault(f => f.EndsWith(@"iPhone6.txt", StringComparison.InvariantCulture));
+            var iPhoneCatalogFromDisk = File.ReadAllText(iPhoneCatalogFilePath);
+            Assert.True(File.Exists(iPhoneCatalogFilePath) && !string.IsNullOrWhiteSpace(iPhoneCatalogFromDisk));
+
+            // Remove any difference in terms of line endings
+            var simpleSharedFromBuiltText = catalogTypeFileFromBuilt
+                .Replace("\r\n", "\n").Replace("\r", "\n").Replace("\n", "\n")
+                .TrimEnd('\n');
+
+            iPhoneCatalogFromDisk = iPhoneCatalogFromDisk
+                .Replace("\r\n", "\n").Replace("\r", "\n").Replace("\n", "\n")
+                .TrimEnd('\n');
+
+            Assert.Equal(simpleSharedFromBuiltText, iPhoneCatalogFromDisk);
+        }
+
+        /// <summary>
+        /// Saves the a catalog to a file.
+        /// </summary>
+        [Fact]
+        public void SavingTypeCatalogToFile()
+        {
+            var catalogTypeFile = AppleTypeCatalogInstance();
+            var catalogTypeFileTmp = $"{Path.GetTempFileName()}.txt";;
+            Assert.True(catalogTypeFile.Save(catalogTypeFileTmp) && File.Exists(catalogTypeFileTmp));
+        }
+
+        /// <summary>
+        /// is the phone type catalog instance.
+        /// </summary>
+        /// <returns></returns>
+        private static TypeCatalogFile AppleTypeCatalogInstance()
         {
             var catalogTypeFile = new TypeCatalogFile();
             var commonParams = new List<IParameterWithValue>
@@ -91,24 +138,7 @@ namespace CodeCave.Revit.Toolkit.Tests
                 new TypeCatalogFile.Parameter<bool>("Unlocked", ParameterType.YesNo, true),
             }).ToArray());
 
-
-            var catalogTypeFileFromBuilt = catalogTypeFile.ToString();
-            Assert.True(!string.IsNullOrWhiteSpace(catalogTypeFileFromBuilt));
-
-            var iPhoneCatalogFilePath = CatalogTypeFiles.FirstOrDefault(f => f.EndsWith(@"iPhone6.txt", StringComparison.InvariantCulture));
-            var iPhoneCatalogFromDisk = File.ReadAllText(iPhoneCatalogFilePath);
-            Assert.True(File.Exists(iPhoneCatalogFilePath) && !string.IsNullOrWhiteSpace(iPhoneCatalogFromDisk));
-
-            // Remove any difference in terms of line endings
-            var simpleSharedFromBuiltText = catalogTypeFileFromBuilt
-                .Replace("\r\n", "\n").Replace("\r", "\n").Replace("\n", "\n")
-                .TrimEnd('\n');
-
-            iPhoneCatalogFromDisk = iPhoneCatalogFromDisk
-                .Replace("\r\n", "\n").Replace("\r", "\n").Replace("\n", "\n")
-                .TrimEnd('\n');
-
-            Assert.Equal(simpleSharedFromBuiltText, iPhoneCatalogFromDisk);
+            return catalogTypeFile;
         }
     }
 }

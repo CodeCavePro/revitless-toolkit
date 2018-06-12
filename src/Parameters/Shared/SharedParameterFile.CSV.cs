@@ -219,7 +219,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         /// <exception cref="ArgumentException">pathToFile</exception>
         public bool Save(string pathToFile, bool throwOnError = false)
         {
-            if (string.IsNullOrWhiteSpace(pathToFile) || Path.GetInvalidFileNameChars().Concat(Path.GetInvalidPathChars()).Any(pathToFile.Contains))
+            if (string.IsNullOrWhiteSpace(pathToFile) || Path.GetInvalidPathChars().Any(pathToFile.Contains) || Path.GetInvalidFileNameChars().Any(Path.GetFileName(pathToFile).Contains))
                 throw new ArgumentException($"{nameof(pathToFile)} must contain a valid path to a file");
 
             try

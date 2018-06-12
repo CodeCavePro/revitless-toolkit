@@ -1,16 +1,20 @@
-Revit(less) Toolkit
+RevitLESS Toolkit
 =============
 
 A cross-platform **Revit-less** toolkit for processing .rfa, .rvt and other files without [Revit](https://en.wikipedia.org/wiki/Autodesk_Revit)
 
 [![Revit API](https://img.shields.io/badge/Revit%20API-2017-447788.svg)](http://www.revitapidocs.com/2017/)
 [![NuGet version](https://img.shields.io/nuget/v/CodeCave.Revit.Toolkit.svg?label=NuGet)](https://www.nuget.org/packages/CodeCave.Revit.Toolkit/)
+[![Revit API](https://img.shields.io/badge/.NET%20Standard-2.0-484877.svg)](https://social.msdn.microsoft.com/Forums/vstudio/en-US/7035edc6-97fc-49ee-8eee-2fa4d040a63b/)
+[![Revit API](https://img.shields.io/badge/.NET%20Framework-4.5.2+-748478.svg)](https://social.msdn.microsoft.com/Forums/vstudio/en-US/7035edc6-97fc-49ee-8eee-2fa4d040a63b/)
+
 [![License](https://img.shields.io/github/license/codecavepro/revit-toolkit.svg)](https://github.com/CodeCavePro/revit-toolkit/blob/master/LICENSE.txt)
 [![NuGet downloads](https://img.shields.io/nuget/dt/CodeCave.Revit.Toolkit.svg?label=NuGet%20downloads)](https://www.nuget.org/packages/CodeCave.Revit.Toolkit/)
-[![GitHub downloads](https://img.shields.io/github/downloads/CodeCavePro/revit-toolkit/total.svg?label=GitHub%20downloads)](https://github.com/CodeCavePro/revit-toolkit/releases)
+[![GitHub downloads](https://img.shields.io/github/downloads/CodeCavePro/revit-toolkit/total.svg?label=GitHub%20downloads&colorB=8e8cba)](https://github.com/CodeCavePro/revit-toolkit/releases)
 
 [![AppVeyor build status](https://img.shields.io/appveyor/ci/salaros/revit-toolkit/master.svg?logo=appveyor)](https://ci.appveyor.com/project/salaros/revit-toolkit/history)
 [![AppVeyor tests](https://img.shields.io/appveyor/tests/salaros/revit-toolkit.svg)](https://ci.appveyor.com/project/salaros/revit-toolkit/build/tests)
+[![Coverage Status](https://coveralls.io/repos/github/CodeCavePro/revit-toolkit/badge.svg?branch=master)](https://coveralls.io/github/CodeCavePro/revit-toolkit?branch=master)
 [![Read the Docs (version)](https://img.shields.io/readthedocs/revit-toolkit/latest.svg)](http://revit-toolkit.readthedocs.io/en/latest/)
 
 Installation
@@ -40,6 +44,8 @@ Usage
 **Revit Toolkit** provides various tools, you can easily find the full list by browsing the [documentation](http://revit-toolkit.readthedocs.io/en/latest/).
 
 ## Shared parameter file
+
+One of the most interesting tools is Revit [shared parameter file](https://knowledge.autodesk.com/support/revit-products/learn-explore/caas/CloudHelp/cloudhelp/2018/ENU/Revit-Model/files/GUID-E7D12B71-C50D-46D8-886B-8E0C2B285988-htm.html) reading and manipulation.
 
 ```cs
 var sharedParamFile = new SharedParameterFile(@"path/to/shared/parameter/file.txt");
@@ -86,10 +92,10 @@ sharedParamFile.Parameters.Add(
 );
 sharedParamFile.Parameters.Add(
     new Guid("c006d4d6-0b12-42ad-8078-fe38ab8b1eff"), "Phases",
-    "Electrical", // Using group's name, because we've just added parameters with a group object having the same name
+    "Electrical", // Using group's name, because it's just added parameters with a group object having the same name
     ParameterType.NumberOfPoles
 );
 
 // Write out shared parameters file to disk
-sharedParamFile.Save("path/new/shared/file.txt");
+sharedParamFile.Save("path/a/new/shared/file.txt");
 ```

@@ -187,6 +187,30 @@ namespace CodeCave.Revit.Toolkit.Parameters.Catalog
             return catalogTypeString.ToString();
         }
 
+        /// <summary>
+        /// Saves type catalog file to specified file.
+        /// </summary>
+        /// <param name="pathToFile">The path to a type catalog file.</param>
+        /// <param name="throwOnError">if set to <c>true</c> [throw an Exception on error].</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException">pathToFile</exception>
+        public bool Save(string pathToFile, bool throwOnError = false)
+        {
+            if (string.IsNullOrWhiteSpace(pathToFile) || Path.GetInvalidFileNameChars().Concat(Path.GetInvalidPathChars()).Any(pathToFile.Contains))
+                throw new ArgumentException($"{nameof(pathToFile)} must contain a valid path to a file");
+
+            try
+            {
+                File.WriteAllText(pathToFile, ToString(), Encoding ?? Encoding.UTF8);
+                return true;
+            }
+            catch
+            {
+                if (throwOnError) throw;
+                return false;
+            }
+        }
+
         #endregion
     }
 }

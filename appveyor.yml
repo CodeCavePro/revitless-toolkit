@@ -24,6 +24,8 @@ environment:
   VERSION_SIMPLE: '{version}'
   VERSION_INFORMATIONAL: '{version}'
   VERSION_UNSTABLE_SUFFIX: '-preview-$(APPVEYOR_BUILD_NUMBER)'
+  COVERALLS_REPO_TOKEN:
+    secure: rI17LigDiGiYdTsDrZVCfQkdldPrlgJ8lGXfdcOSldQQu1iDiTMIYEAA7ZkBq4st
 
 init:
 - ps: |
@@ -136,3 +138,14 @@ skip_non_tags: false
 # Tests
 test_script:
   - ps: dotnet test tests
+
+# CCoverage: OpenCover + Coveralls
+after_test:
+  - ps: |
+      # Install NuGet pacakges and tools
+      nuget install  OpenCover  -Version 4.6.519  -OutputDirectory packages
+      dotnet tool install coveralls.net --tool-path tools
+      
+      # Set variables
+      .\packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -target:"dotnet.exe" -targetargs:"test --framework netcoreapp2.1 --logger:trx ""tests\Revit.Toolkit.Tests.csproj"" " -output:"tests\coverage.xml" -oldstyle -log:Warn
+      .\tools\csmacnz.Coveralls.exe --opencover --input .\tests\coverage.xml --repoToken $env:COVERALLS_REPO_TOKEN --commitId $env:APPVEYOR_REPO_COMMIT --commitBranch $env:APPVEYOR_REPO_BRANCH --commitAuthor $env:APPVEYOR_REPO_COMMIT_AUTHOR --commitEmail $env:APPVEYOR_REPO_COMMIT_AUTHOR_EMAIL --commitMessage $env:APPVEYOR_REPO_COMMIT_MESSAGE --jobId $env:APPVEYOR_JOB_ID

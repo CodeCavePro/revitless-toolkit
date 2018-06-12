@@ -244,3 +244,9 @@ ModelManifest.xml
 
 # Exclude backups
 *.bak*
+
+# Exclude NuGet tools
+tools/*
+
+# Exclude test coverage results
+tests/*coverage.xml

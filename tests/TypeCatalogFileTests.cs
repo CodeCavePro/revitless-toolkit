@@ -27,7 +27,7 @@ namespace CodeCave.Revit.Toolkit.Tests
         [Fact]
         public void CheckIfNumberOfParametersIsCorrect()
         {
-            Assert.All(CatalogTypeFiles.Where(f => f.StartsWith(PathToValidFiles)),
+            Assert.All(CatalogTypeFiles.Where(f => f.StartsWith(PathToValidFiles, StringComparison.InvariantCulture)),
                 catalogTypeFilePath =>
                 {
                     var catalogTypeFile = new TypeCatalogFile(catalogTypeFilePath);
@@ -40,7 +40,7 @@ namespace CodeCave.Revit.Toolkit.Tests
         [Fact]
         public void CheckIfNumberOfTypesIsCorrect()
         {
-            Assert.All(CatalogTypeFiles.Where(f => f.StartsWith(PathToValidFiles)),
+            Assert.All(CatalogTypeFiles.Where(f => f.StartsWith(PathToValidFiles, StringComparison.InvariantCulture)),
                 catalogTypeFilePath =>
                 {
                     var catalogTypeFile = new TypeCatalogFile(catalogTypeFilePath);
@@ -95,7 +95,7 @@ namespace CodeCave.Revit.Toolkit.Tests
             var catalogTypeFileFromBuilt = catalogTypeFile.ToString();
             Assert.True(!string.IsNullOrWhiteSpace(catalogTypeFileFromBuilt));
 
-            var iPhoneCatalogFilePath = CatalogTypeFiles.FirstOrDefault(f => f.EndsWith(@"iPhone6.txt"));
+            var iPhoneCatalogFilePath = CatalogTypeFiles.FirstOrDefault(f => f.EndsWith(@"iPhone6.txt", StringComparison.InvariantCulture));
             var iPhoneCatalogFromDisk = File.ReadAllText(iPhoneCatalogFilePath);
             Assert.True(File.Exists(iPhoneCatalogFilePath) && !string.IsNullOrWhiteSpace(iPhoneCatalogFromDisk));
 

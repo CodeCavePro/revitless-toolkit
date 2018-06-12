@@ -30,7 +30,7 @@ namespace CodeCave.Revit.Toolkit.Tests
         [Fact]
         public void ValidFilesPassValidation()
         {
-            Assert.All(SharedParameterFiles.Where(f => f.StartsWith(PathToValidFiles)),
+            Assert.All(SharedParameterFiles.Where(f => f.StartsWith(PathToValidFiles, StringComparison.InvariantCulture)),
                 sharedParamFilePath =>
                 {
                     var sharedParamFile = new SharedParameterFile(sharedParamFilePath);
@@ -45,7 +45,7 @@ namespace CodeCave.Revit.Toolkit.Tests
         [Fact]
         public void InvalidFilesFailValidation()
         {
-            Assert.All(SharedParameterFiles.Where(f => f.StartsWith(PathToInvalidFiles)),
+            Assert.All(SharedParameterFiles.Where(f => f.StartsWith(PathToInvalidFiles, StringComparison.InvariantCulture)),
                 sharedParamFilePath =>
                 {
                     var sharedParamFile = new SharedParameterFile(sharedParamFilePath);
@@ -184,7 +184,7 @@ namespace CodeCave.Revit.Toolkit.Tests
         [Fact]
         public void ClonedAndRandomizedFilesAreEqual()
         {
-            Assert.All(SharedParameterFiles.Where(f => f.StartsWith(PathToValidFiles)),
+            Assert.All(SharedParameterFiles.Where(f => f.StartsWith(PathToValidFiles, StringComparison.InvariantCulture)),
                 sharedParamFilePath =>
                 {
                     var sharedParamFile1 = new SharedParameterFile(sharedParamFilePath);
@@ -200,7 +200,7 @@ namespace CodeCave.Revit.Toolkit.Tests
         [Fact]
         public void ToStringOutputCopyIsEqual()
         {
-            Assert.All(SharedParameterFiles.Where(f => f.StartsWith(PathToValidFiles)),
+            Assert.All(SharedParameterFiles.Where(f => f.StartsWith(PathToValidFiles, StringComparison.InvariantCulture)),
                 sharedParamFilePath =>
                 {
                     var sharedParamFile1 = new SharedParameterFile(sharedParamFilePath);
@@ -218,7 +218,7 @@ namespace CodeCave.Revit.Toolkit.Tests
         public void FileIsSerializedProperly()
         {
             var simpleSharedFromDisk = File
-                .ReadAllText(SharedParameterFiles.FirstOrDefault(f => f.EndsWith(@"SimpleShared_1.txt")));
+                .ReadAllText(SharedParameterFiles.FirstOrDefault(f => f.EndsWith(@"SimpleShared_1.txt", StringComparison.InvariantCulture)));
 
             var simpleSharedFromBuilt = new SharedParameterFile(new Dictionary<string,int> { { "Identity Data", 100 } } );
 

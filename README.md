@@ -35,7 +35,7 @@ or Visual Studio's Package Console
 Install-Package CodeCave.Revit
 
 # Add the CodeCave.Revit package to a project named [<PROJECT>]
-Install-Package Elmah -ProjectName [<PROJECT>]
+Install-Package CodeCave.Revit -ProjectName [<PROJECT>]
 ```
 
 Usage

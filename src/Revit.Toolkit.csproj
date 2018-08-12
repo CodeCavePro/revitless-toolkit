@@ -57,12 +57,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="CodeCave.CAD.Toolkit.Primitives" Version="1.0.5.18" />
-    <PackageReference Include="CodeCave.Extensions" Version="1.0.12" />
-    <PackageReference Include="CsvHelper" Version="7.1.0" />
+    <PackageReference Include="CodeCave.Extensions" Version="1.0.13" />
+    <PackageReference Include="CsvHelper" Version="7.1.1" />
     <PackageReference Include="OpenMcdf-2" Version="2.1.1.5" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="4.5.0" />
-    <PackageReference Include="System.Drawing.Common" Version="4.5.0-preview1-25914-04" Condition="'$(TargetFramework)' == 'netstandard2.0'" />
+    <PackageReference Include="System.Drawing.Common" Version="4.5.0" Condition="'$(TargetFramework)' == 'netstandard2.0' Or '$(TargetFramework)' == 'netcoreapp2.1'" />
     <PackageReference Include="System.Text.Encoding.CodePages" Version="4.5.0" Condition="'$(TargetFramework)' != 'net452'" />
   </ItemGroup>
 

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.IO;
-using CodeCave.CAD.Toolkit;
+using CodeCave.Revit.Toolkit.OLE;
 
-namespace CodeCave.Revit.Toolkit.OLE
+namespace CodeCave.Revit.Toolkit.Thumbnails
 {
     /// <summary>
     /// Utility class for Revit (.rfa, .rvt etc) thumbnail creation

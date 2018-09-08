@@ -20,22 +20,22 @@ A cross-platform **Revit-less** toolkit for processing .rfa, .rvt and other file
 Installation
 ============
 
-**RevitLESS Toolkit** can be installed via [NuGet](https://www.nuget.org/packages?q=CodeCave.Revit)
+**RevitLESS Toolkit** can be installed via [NuGet](https://www.nuget.org/packages?q=CodeCave.Revit.Toolkit)
 by using Package Manager in your IDE, `dotnet` binary or Package Console
 
 ```bash
-# Add the CodeCave.Revit package to a project named [<PROJECT>]
-dotnet add [<PROJECT>] package CodeCave.Revit
+# Add the CodeCave.Revit.Toolkit package to a project named [<PROJECT>]
+dotnet add [<PROJECT>] package CodeCave.Revit.Toolkit
 ```
 
 or Visual Studio's Package Console
 
 ```powershell
-# Add the CodeCave.Revit package to the default project
-Install-Package CodeCave.Revit
+# Add the CodeCave.Revit.Toolkit package to the default project
+Install-Package CodeCave.Revit.Toolkit
 
-# Add the CodeCave.Revit package to a project named [<PROJECT>]
-Install-Package CodeCave.Revit -ProjectName [<PROJECT>]
+# Add the CodeCave.Revit.Toolkit package to a project named [<PROJECT>]
+Install-Package CodeCave.Revit.Toolkit -ProjectName [<PROJECT>]
 ```
 
 Usage

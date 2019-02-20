@@ -43,7 +43,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                 IncludePrivateMembers = true
             };
 
-#if !NET452
+#if !NET45
             // Allow the usage of ANSI encoding other than the default one 
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 #endif

@@ -116,7 +116,7 @@ deploy:
   - 
     provider: NuGet
     api_key: 
-      secure: TrtChQUTQ9rD8pffK1A9bjMYyN/8eQUjV+7IKVjS/C37TgXMae46Bzd527bZUVSb
+      secure: i6oWn60J7ZOM4UuYcvxbuk9OAEp6or+Wq7izyJDPNlcLIhG2UKsxz7G/8erhdY3M
     artifact: Revit_Toolkit
     server:             # remove to push to NuGet.org
     skip_symbols: false

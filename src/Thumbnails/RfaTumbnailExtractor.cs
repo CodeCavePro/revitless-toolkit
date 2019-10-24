@@ -20,11 +20,10 @@ namespace CodeCave.Revit.Toolkit.Thumbnails
         /// <param name="pathToFile">The path to file.</param>
         /// <returns></returns>
         /// <exception cref="InvalidDataException"></exception>
-        public override MemoryStream ExtractStream(string pathToFile)
+        private MemoryStream ExtractStream(byte[] thumbnailBytes)
         {
             try
             {
-                var thumbnailBytes = OleDataReader.GetRawBytes(pathToFile, RevitFileMap.OleStorage.IMAGE_STREAM);
                 // Validate preview data or go out
                 if ((thumbnailBytes == null) || (thumbnailBytes.Length <= 0))
                 {
@@ -50,6 +49,32 @@ namespace CodeCave.Revit.Toolkit.Thumbnails
                     var outms = new MemoryStream(pngDataBuffer);
                     return outms;
                 }
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidDataException($"Failed to extract the thumbnail of the following Revit file \"{pathToFile}\"", ex);
+            }
+        }
+
+        public override MemoryStream ExtractStream(string pathToFile)
+        {
+            try
+            {
+                var thumbnailBytes = OleDataReader.GetRawBytes(pathToFile, RevitFileMap.OleStorage.IMAGE_STREAM);
+                return ExtractStream(thumbnailBytes);
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidDataException($"Failed to extract the thumbnail of the following Revit file \"{pathToFile}\"", ex);
+            }
+        }
+
+        public override MemoryStream ExtractStream(MemoryStream memoryStream)
+        {
+            try
+            {
+                var thumbnailBytes = OleDataReader.GetRawBytes(memoryStream, RevitFileMap.OleStorage.IMAGE_STREAM);
+                return ExtractStream(thumbnailBytes);
             }
             catch (Exception ex)
             {

@@ -23,6 +23,13 @@ namespace CodeCave.Revit.Toolkit.Thumbnails
         MemoryStream ExtractStream(string pathToFile);
 
         /// <summary>
+        /// Extracts thumbnail to a stream.
+        /// </summary>
+        /// <param name="memoryStream">OLE memory stream.</param>
+        /// <returns></returns>
+        MemoryStream ExtractStream(MemoryStream memoryStream);
+
+        /// <summary>
         /// Tries to extract thumbnail to an image file.
         /// </summary>
         /// <param name="srcFile">The source file.</param>

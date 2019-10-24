@@ -84,7 +84,7 @@ assembly_info:
 # Run scripts below before
 before_build:
   - where msbuild
-  - cmd: msbuild /t:Clean 
+  - cmd: msbuild /t:Clean
 
 # To run your custom scripts instead of automatic MSBuild
 build_script:
@@ -96,10 +96,10 @@ artifacts:
     name: Revit_Toolkit
 
 # Deploy to GitHub releases
-deploy: 
-  - 
+deploy:
+  -
     provider: GitHub
-    auth_token: 
+    auth_token:
       secure: 2+d0KgCbWQpUR8TZfzvUEzbi4NQP6F/Tt0PUwLn6jXZCyO8FnrFVFJPsFa0QBQFl
     artifact: Revit_Toolkit
     description: |-
@@ -110,18 +110,18 @@ deploy:
     prerelease: false
     release: "Revit Toolkit v$(APPVEYOR_REPO_TAG_NAME)"
     tag: $(APPVEYOR_REPO_TAG_NAME)
-    on: 
+    on:
       appveyor_repo_tag: true
 
-  - 
+  -
     provider: NuGet
-    api_key: 
+    api_key:
       secure: i6oWn60J7ZOM4UuYcvxbuk9OAEp6or+Wq7izyJDPNlcLIhG2UKsxz7G/8erhdY3M
     artifact: Revit_Toolkit
     server:             # remove to push to NuGet.org
     skip_symbols: false
     symbol_server:      # remove to push symbols to SymbolSource.org
-    on: 
+    on:
       appveyor_repo_tag: true
 
   -
@@ -145,7 +145,6 @@ after_test:
       # Install NuGet pacakges and tools
       nuget install  OpenCover  -Version 4.6.519  -OutputDirectory packages
       dotnet tool install coveralls.net --tool-path tools
-      
       # Set variables
       .\packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -target:dotnet.exe -targetargs:"test tests" -register:user -filter:"+[*]* -[xunit*]*" -output:"tests\coverage.xml" -oldStyle
       .\tools\csmacnz.Coveralls.exe --opencover --input .\tests\coverage.xml --repoToken $env:COVERALLS_REPO_TOKEN --commitId $env:APPVEYOR_REPO_COMMIT --commitBranch $env:APPVEYOR_REPO_BRANCH --commitAuthor $env:APPVEYOR_REPO_COMMIT_AUTHOR --commitEmail $env:APPVEYOR_REPO_COMMIT_AUTHOR_EMAIL --commitMessage $env:APPVEYOR_REPO_COMMIT_MESSAGE --jobId $env:APPVEYOR_JOB_ID

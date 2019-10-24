@@ -41,7 +41,7 @@ namespace CodeCave.Revit.Toolkit.Thumbnails
             {
                 throw new InvalidDataException($"Failed to extract to extract thumbnail from \"{srcFile}\" to \"{outFile}\"", ex);
             }
-		}
+        }
 
         /// <inheritdoc />
         /// <summary>
@@ -66,5 +66,15 @@ namespace CodeCave.Revit.Toolkit.Thumbnails
         /// Memory stream containing thumbnail data
         /// </returns>
         public abstract MemoryStream ExtractStream(string pathToFile);
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Extracts thumbnail to a stream.
+        /// </summary>
+        /// <param name="memoryStream">The memory stream.</param>
+        /// <returns>
+        /// Memory stream containing thumbnail data
+        /// </returns>
+        public abstract MemoryStream ExtractStream(MemoryStream memoryStream);
     }
 }

@@ -2,15 +2,14 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net45;net47</TargetFrameworks>
-    <RuntimeFrameworkVersion>2.1.0</RuntimeFrameworkVersion>
     <Description>A toolkit for processing .rfa, .rvt etc without Revit</Description>
     <Product>Revit.Toolkit</Product>
     <AssemblyName>Revit.Toolkit</AssemblyName>
     <PackageId>CodeCave.Revit.Toolkit</PackageId>
     <RootNamespace>CodeCave.Revit.Toolkit</RootNamespace>
-    <Version>2017.2.3</Version>
-    <AssemblyVersion>2017.2.3</AssemblyVersion>
-    <FileVersion>2017.2.3</FileVersion>
+    <Version>2017.2.11</Version>
+    <AssemblyVersion>2017.2.11</AssemblyVersion>
+    <FileVersion>2017.2.11</FileVersion>
     <Company>CodeCave, PUE</Company>
     <Authors>Zhmayev Yaroslav aka Salaros</Authors>
     <Copyright>Copyright 2016 (c) CodeCave, PUE</Copyright>
@@ -32,7 +31,7 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <OutputPath>..\bin\Debug\</OutputPath>
-    <DebugType>full</DebugType> 
+    <DebugType>full</DebugType>
     <NoWarn>1701;1702;1705</NoWarn>
   </PropertyGroup>
 
@@ -59,7 +58,6 @@
   <ItemGroup>
     <PackageReference Include="CodeCave.Extensions" Version="1.0.14" />
     <PackageReference Include="CsvHelper" Version="7.1.1" />
-    <PackageReference Include="OpenMcdf-2" Version="2.1.1.5" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="4.5.0" />
     <PackageReference Include="System.Drawing.Common" Version="4.5.1" Condition="'$(TargetFramework)' == 'netstandard2.0' Or '$(TargetFramework)' == 'netcoreapp2.1'" />
     <PackageReference Include="System.Text.Encoding.CodePages" Version="4.5.1" Condition="'$(TargetFramework)' != 'net45'" />
@@ -67,6 +65,10 @@
 
   <ItemGroup>
     <Folder Include="Properties\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\OpenMCDF\src\OpenMcdf.csproj" />
   </ItemGroup>
 
   <Target Name="CleanNuGetFiles" AfterTargets="Clean">

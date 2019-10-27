@@ -58,6 +58,7 @@
   <ItemGroup>
     <PackageReference Include="CodeCave.Extensions" Version="1.0.14" />
     <PackageReference Include="CsvHelper" Version="7.1.1" />
+    <PackageReference Include="OpenMcdf-2" Version="2.1.2" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="4.5.0" />
     <PackageReference Include="System.Drawing.Common" Version="4.5.1" Condition="'$(TargetFramework)' == 'netstandard2.0' Or '$(TargetFramework)' == 'netcoreapp2.1'" />
     <PackageReference Include="System.Text.Encoding.CodePages" Version="4.5.1" Condition="'$(TargetFramework)' != 'net45'" />
@@ -65,10 +66,6 @@
 
   <ItemGroup>
     <Folder Include="Properties\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\OpenMCDF\src\OpenMcdf.csproj" />
   </ItemGroup>
 
   <Target Name="CleanNuGetFiles" AfterTargets="Clean">

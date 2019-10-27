@@ -52,7 +52,7 @@ namespace CodeCave.Revit.Toolkit.Thumbnails
             }
             catch (Exception ex)
             {
-                throw new InvalidDataException($"Failed to extract the thumbnail of the following Revit file \"{pathToFile}\"", ex);
+                throw new InvalidDataException($"Failed to extract the thumbnail of the Revit file", ex);
             }
         }
 
@@ -78,7 +78,7 @@ namespace CodeCave.Revit.Toolkit.Thumbnails
             }
             catch (Exception ex)
             {
-                throw new InvalidDataException($"Failed to extract the thumbnail of the following Revit file \"{pathToFile}\"", ex);
+                throw new InvalidDataException($"Failed to extract the thumbnail of the Revit file", ex);
             }
         }
 

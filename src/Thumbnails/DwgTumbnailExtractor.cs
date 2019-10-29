@@ -100,12 +100,9 @@ namespace CodeCave.Revit.Toolkit.Thumbnails
                             binaryWriter.Write(54u + colorTableSize);
                             binaryWriter.Write(bitmapBuffer);
 
-                            using (var imageTmp = new Bitmap(ms))
-                            {
-
-                                imageTmp.Save(ms, ImageFormat.Png);
-                                return outms;
-                            }
+                            using var imageTmp = new Bitmap(ms);
+                            imageTmp.Save(outms, ImageFormat.Png);
+                            return outms;
                         }
 
                     #endregion

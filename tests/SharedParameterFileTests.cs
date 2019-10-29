@@ -220,12 +220,12 @@ namespace CodeCave.Revit.Toolkit.Tests
             var simpleSharedFromDisk = File
                 .ReadAllText(SharedParameterFiles.FirstOrDefault(f => f.EndsWith(@"SimpleShared_1.txt", StringComparison.InvariantCulture)));
 
-            var simpleSharedFromBuilt = new SharedParameterFile(new Dictionary<string,int> { { "Identity Data", 100 } } );
+            var simpleSharedFromBuilt = new SharedParameterFile(new Dictionary<string, int> { { "Identity Data", 100 } });
 
             #region Identity Data
 
             simpleSharedFromBuilt.Parameters.Add(
-                new Guid("61ff3d56-09d7-4049-8c78-4abe745e4e5a"),"EquipmentName",
+                new Guid("61ff3d56-09d7-4049-8c78-4abe745e4e5a"), "EquipmentName",
                 "Identity Data", // Passing group by name
                 ParameterType.Text
             );

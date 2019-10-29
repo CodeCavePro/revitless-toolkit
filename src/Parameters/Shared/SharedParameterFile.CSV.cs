@@ -44,11 +44,10 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             };
 
 #if !NET45
-            // Allow the usage of ANSI encoding other than the default one 
+            // Allow the usage of ANSI encoding other than the default one
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 #endif
         }
-
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SharedParameterFile" /> class.
@@ -71,6 +70,9 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                 sharedParameterFile = File.ReadAllText(sharedParameterFile, Encoding);
             }
 
+            if (!SectionRegex.IsMatch(sharedParameterFile))
+                throw new InvalidDataException("Please make sure you supplied a correct file path or file content string.");
+
             var sharedParamsFileLines = SectionRegex
                 .Split(sharedParameterFile)
                 .Where(line => !line.StartsWith("#")) // Exclude comment lines
@@ -92,83 +94,75 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
 
             foreach (var section in sharedParamsFileSections)
             {
-                using (var stringReader = new StringReader(section.Value))
+                using var stringReader = new StringReader(section.Value);
+                using var csvReader = new CsvReader(stringReader, CsvConfiguration);
+                csvReader.Configuration.TrimOptions = TrimOptions.Trim;
+                csvReader.Configuration.BadDataFound = BadDataFound;
+
+                // TODO implement
+                // csvReader.Configuration.AllowComments = true;
+                // csvReader.Configuration.Comment = '#';
+
+                var originalHeaderValidated = csvReader.Configuration.HeaderValidated;
+                csvReader.Configuration.HeaderValidated = (isValid, headerNames, headerIndex, context) =>
                 {
-                    using (var csvReader = new CsvReader(stringReader, CsvConfiguration))
-                    {
-                        csvReader.Configuration.TrimOptions = TrimOptions.Trim;
-                        csvReader.Configuration.BadDataFound = BadDataFound;
+                    // Everything is OK, just go out
+                    if (isValid)
+                        return;
 
-                        // TODO implement
-                        // csvReader.Configuration.AllowComments = true;
-                        // csvReader.Configuration.Comment = '#';
+                    // Allow DESCRIPTION header to be missing (it's actually missing in older shared parameter files)
+                    if (nameof(ParameterDefinition.Description).Equals(headerNames?.FirstOrDefault(), StringComparison.OrdinalIgnoreCase))
+                        return;
 
-                        var originalHeaderValidated = csvReader.Configuration.HeaderValidated;
-                        csvReader.Configuration.HeaderValidated = (isValid, headerNames, headerIndex, context) =>
-                        {
-                            // Everything is OK, just go out
-                            if (isValid)
-                                return;
+                    // Allow USERMODIFIABLE header to be missing (it's actually missing in older shared parameter files)
+                    if (nameof(ParameterDefinition.UserModifiable).Equals(headerNames?.FirstOrDefault(), StringComparison.OrdinalIgnoreCase))
+                        return;
 
-                            // Allow DESCRIPTION header to be missing (it's actually missing in older shared parameter files)
-                            if (nameof(ParameterDefinition.Description).Equals(headerNames?.FirstOrDefault(),
-                                StringComparison.OrdinalIgnoreCase))
-                                return;
+                    originalHeaderValidated(false, headerNames, headerIndex, context);
+                };
 
-                            // Allow USERMODIFIABLE header to be missing (it's actually missing in older shared parameter files)
-                            if (nameof(ParameterDefinition.UserModifiable).Equals(headerNames?.FirstOrDefault(),
-                                StringComparison.OrdinalIgnoreCase))
-                                return;
+                var originalMissingFieldFound = csvReader.Configuration.MissingFieldFound;
+                csvReader.Configuration.MissingFieldFound = (headerNames, index, context) =>
+                {
+                    // Allow DESCRIPTION header to be missing (it's actually missing in older shared parameter files)
+                    if (nameof(ParameterDefinition.Description).Equals(headerNames?.FirstOrDefault(), StringComparison.OrdinalIgnoreCase))
+                        return;
 
-                            originalHeaderValidated(false, headerNames, headerIndex, context);
-                        };
+                    // Allow USERMODIFIABLE header to be missing (it's actually missing in older shared parameter files)
+                    if (nameof(ParameterDefinition.UserModifiable).Equals(headerNames?.FirstOrDefault(), StringComparison.OrdinalIgnoreCase))
+                        return;
 
-                        var originalMissingFieldFound = csvReader.Configuration.MissingFieldFound;
-                        csvReader.Configuration.MissingFieldFound = (headerNames, index, context) =>
-                        {
-                            // Allow DESCRIPTION header to be missing (it's actually missing in older shared parameter files)
-                            if (nameof(ParameterDefinition.Description).Equals(headerNames?.FirstOrDefault(),
-                                StringComparison.OrdinalIgnoreCase))
-                                return;
+                    originalMissingFieldFound(headerNames, index, context);
+                };
 
-                            // Allow USERMODIFIABLE header to be missing (it's actually missing in older shared parameter files)
-                            if (nameof(ParameterDefinition.UserModifiable).Equals(headerNames?.FirstOrDefault(),
-                                StringComparison.OrdinalIgnoreCase))
-                                return;
+                switch (section.Key)
+                {
+                    // Parse *META section
+                    case Sections.META:
+                        csvReader.Configuration.RegisterClassMap<MetaClassMap>();
+                        Metadata = csvReader.GetRecords<MetaData>().FirstOrDefault();
+                        break;
 
-                            originalMissingFieldFound(headerNames, index, context);
-                        };
+                    // Parse *GROUP section
+                    case Sections.GROUPS:
+                        csvReader.Configuration.RegisterClassMap<GroupClassMap>();
+                        _groups = csvReader.GetRecords<Group>().ToList();
+                        break;
 
-                        switch (section.Key)
-                        {
-                            // Parse *META section
-                            case Sections.META:
-                                csvReader.Configuration.RegisterClassMap<MetaClassMap>();
-                                Metadata = csvReader.GetRecords<MetaData>().FirstOrDefault();
-                                break;
+                    // Parse *PARAM section
+                    case Sections.PARAMS:
+                        csvReader.Configuration.RegisterClassMap<ParameterClassMap>();
+                        Parameters = new ParameterCollection(this, csvReader.GetRecords<ParameterDefinition>().ToList());
+                        break;
 
-                            // Parse *GROUP section
-                            case Sections.GROUPS:
-                                csvReader.Configuration.RegisterClassMap<GroupClassMap>();
-                                _groups = csvReader.GetRecords<Group>().ToList();
-                                break;
-
-                            // Parse *PARAM section
-                            case Sections.PARAMS:
-                                csvReader.Configuration.RegisterClassMap<ParameterClassMap>();
-                                Parameters = new ParameterCollection(this, csvReader.GetRecords<ParameterDefinition>().ToList());
-                                break;
-
-                            default:
-                                Debug.WriteLine($"Unknown section type: {section.Key}");
-                                continue;
-                        }
-                    }
+                    default:
+                        Debug.WriteLine($"Unknown section type: {section.Key}");
+                        continue;
                 }
             }
 
-            // Post-process parameters by assigning group names using group IDs 
-            // and recover UnitType from ParameterType 
+            // Post-process parameters by assigning group names using group IDs
+            // and recover UnitType from ParameterType
             Parameters = new ParameterCollection(
                 this, // Parent shared parameter file
                 Parameters

@@ -51,6 +51,21 @@
     <Folder Include="Resources\TypeCatalogFile\Invalid\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Resources\Thumbnails\Valid\A1ANG-3.dwg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\Thumbnails\Valid\A1ANG-3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\Thumbnails\Valid\qf_hatco_hdw-2bn_cat.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\Thumbnails\Valid\qf_hatco_hdw-2bn_cat.rfa">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
   <Target Name="CleanTestFiles" AfterTargets="Clean">
     <ItemGroup>
       <ValidShared Include="$(OutputPath)Resources\SharedParameterFiles\Valid\*.txt" />

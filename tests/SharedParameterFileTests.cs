@@ -343,6 +343,7 @@ namespace CodeCave.Revit.Toolkit.Tests
 
             Assert.Equal(simpleSharedFromBuiltText, simpleSharedFromDisk);
         }
+
         /// <summary>
         /// Saves the a catalog to a file.
         /// </summary>
@@ -356,6 +357,15 @@ namespace CodeCave.Revit.Toolkit.Tests
             );
             var sharedParamFileTmp = $"{Path.GetTempFileName()}.txt";
             Assert.True(sharedParamFile.Save(sharedParamFileTmp) && File.Exists(sharedParamFileTmp));
+        }
+
+        /// <summary>
+        /// Tries to initialize shared param file with an ambiguous string.
+        /// </summary>
+        [Fact]
+        public void SharedParametersFromAmbiguousString()
+        {
+            Assert.Throws<InvalidDataException>(() => new SharedParameterFile("abc"));
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -18,7 +18,7 @@ namespace CodeCave.Revit.Toolkit.Tests
         /// </summary>
         static TypeCatalogFileTests()
         {
-            var sharedParamFilesDir = Path.Combine(Environment.CurrentDirectory, "Resources", "TypeCatalogFile");
+            var sharedParamFilesDir = Path.Combine(Environment.CurrentDirectory, "Resources", nameof(TypeCatalogFile));
             PathToValidFiles = Path.Combine(sharedParamFilesDir, "Valid");
             PathToInvalidFiles = Path.Combine(sharedParamFilesDir, "Invalid");
             CatalogTypeFiles = Directory.GetFiles(sharedParamFilesDir, "*.txt", SearchOption.AllDirectories);

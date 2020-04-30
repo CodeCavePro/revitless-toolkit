@@ -18,7 +18,7 @@ namespace CodeCave.Revit.Toolkit.Tests
         /// </summary>
         static SharedParameterFileTests()
         {
-            var sharedParamFilesDir = Path.Combine(Environment.CurrentDirectory, "Resources", "SharedParameterFiles");
+            var sharedParamFilesDir = Path.Combine(Environment.CurrentDirectory, "Resources", nameof(SharedParameterFiles));
             PathToValidFiles = Path.Combine(sharedParamFilesDir, "Valid");
             PathToInvalidFiles = Path.Combine(sharedParamFilesDir, "Invalid");
             SharedParameterFiles = Directory.GetFiles(sharedParamFilesDir, "*.txt", SearchOption.AllDirectories);

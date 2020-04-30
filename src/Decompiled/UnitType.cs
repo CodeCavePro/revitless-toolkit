@@ -610,7 +610,7 @@ namespace CodeCave.Revit.Toolkit
         /// <returns></returns>
         public static bool TryGetUnitTypeFromCatalogString(this string catalogString, out UnitType unitType)
         {
-            var values = _utToCatalog?.Where(u => u.Value.Equals(catalogString)).Select(x => x.Key).ToList();
+            var values = _utToCatalog?.Where(u => u.Value.Equals(catalogString, System.StringComparison.OrdinalIgnoreCase)).Select(x => x.Key).ToList();
             var valueExists = values != null && values.Any();
             unitType = valueExists
                 ? values.FirstOrDefault()

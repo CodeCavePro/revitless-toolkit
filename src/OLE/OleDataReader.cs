@@ -10,7 +10,7 @@ namespace CodeCave.Revit.Toolkit.OLE
     /// <summary>
     /// A reader for OLE metadata information stored in Revit files
     /// </summary>
-    public class OleDataReader
+    public static class OleDataReader
     {
         /// <summary>
         /// Gets the raw XML data.
@@ -167,13 +167,9 @@ namespace CodeCave.Revit.Toolkit.OLE
             {
                 var stringData = GetRawString(pathToFile, oleStream, enc);
                 var xmlSerializer = new XmlSerializer(typeof(TResult));
-                using (var stringReader = new StringReader(stringData))
-                {
-                    using (var xmlReader = XmlReader.Create(stringReader))
-                    {
-                        resultObject = xmlSerializer.Deserialize(xmlReader) as TResult;
-                    }
-                }
+                using var stringReader = new StringReader(stringData);
+                using var xmlReader = XmlReader.Create(stringReader);
+                resultObject = xmlSerializer.Deserialize(xmlReader) as TResult;
             }
             catch (Exception ex)
             {

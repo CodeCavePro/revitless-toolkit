@@ -15,7 +15,7 @@ namespace CodeCave.Revit.Toolkit.Tests
         /// </summary>
         static ThumbnailFixture()
         {
-            var filesForThumbnails = Path.Combine(Environment.CurrentDirectory, "Resources", "Thumbnails");
+            var filesForThumbnails = Path.Combine(Environment.CurrentDirectory, "Resources", nameof(Thumbnails));
             PathToValidFiles = Path.Combine(filesForThumbnails, "Valid");
             PathToInvalidFiles = Path.Combine(filesForThumbnails, "Invalid");
         }

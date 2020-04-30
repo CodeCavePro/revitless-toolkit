@@ -1320,7 +1320,7 @@ namespace CodeCave.Revit.Toolkit
         /// <returns></returns>
         public static bool TryGetFromCatalogString(this string catalogString, out DisplayUnitType displayUnitType)
         {
-            var values = _dutToCatalog?.Where(u => u.Value.Equals(catalogString)).Select(x => x.Key).ToList();
+            var values = _dutToCatalog?.Where(u => u.Value.Equals(catalogString, StringComparison.OrdinalIgnoreCase)).Select(x => x.Key).ToList();
             var valueExists = values != null && values.Any();
             displayUnitType = valueExists
                 ? values.FirstOrDefault()
@@ -1400,7 +1400,5 @@ namespace CodeCave.Revit.Toolkit
                 : DisplayUnitType.DUT_UNDEFINED;
             return values.Any();
         }
-
-
     }
 }

@@ -68,7 +68,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Catalog
 
                 if (!ParameterType.TryGetDisplayForParameterType(out var displayUnits) || displayUnits.Count != 1)
                     throw new ArgumentException(
-                        nameof(type), 
+                        nameof(type),
                         $"{nameof(ParameterType)} you have specified ({type}) cannot be used to determine " +
                         $"{nameof(DisplayUnitType)} value. Please use constructor with {nameof(DisplayUnitType)} parameter"
                     );
@@ -159,7 +159,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Catalog
             /// </returns>
             public override string ToString()
             {
-                var paramTypeString = ParameterType.GetUnitType().TryGetCatalogString(out var paramType) 
+                var paramTypeString = ParameterType.GetUnitType().TryGetCatalogString(out var paramType)
                     ? paramType
                     : "OTHER";
 
@@ -169,7 +169,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Catalog
 
                 return $"{Name}##{paramTypeString}##{displayUnitString}";
             }
-            
+
             #endregion
         }
     }

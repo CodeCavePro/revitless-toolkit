@@ -10,7 +10,7 @@ namespace CodeCave.Revit.Toolkit.Thumbnails
     /// http://thebuildingcoder.typepad.com/blog/2008/10/rvt-file-version.html
     /// </summary>
     /// <seealso cref="ThumbnailExtractor" />
-    public class RfaTumbnailExtractor : ThumbnailExtractor
+    public partial class RevitTumbnailExtractor : ThumbnailExtractor
     {
         #region Methods
 
@@ -60,7 +60,7 @@ namespace CodeCave.Revit.Toolkit.Thumbnails
         {
             try
             {
-                var thumbnailBytes = OleDataReader.GetRawBytes(pathToFile, RevitFileMap.OleStorage.IMAGE_STREAM);
+                var thumbnailBytes = OleDataReader.GetRawBytes(pathToFile, RevitFileMap.OleStreams.IMAGE_STREAM);
                 return ExtractStream(thumbnailBytes);
             }
             catch (Exception ex)
@@ -73,7 +73,7 @@ namespace CodeCave.Revit.Toolkit.Thumbnails
         {
             try
             {
-                var thumbnailBytes = OleDataReader.GetRawBytes(memoryStream, RevitFileMap.OleStorage.IMAGE_STREAM);
+                var thumbnailBytes = OleDataReader.GetRawBytes(memoryStream, RevitFileMap.OleStreams.IMAGE_STREAM);
                 return ExtractStream(thumbnailBytes);
             }
             catch (Exception ex)
@@ -177,28 +177,5 @@ namespace CodeCave.Revit.Toolkit.Thumbnails
         }
 
         #endregion Helpers
-
-        #region Revit file map
-
-        internal struct RevitFileMap
-        {
-            internal struct OleStorage
-            {
-                public const string IMAGE_STREAM = "RevitPreview4.0";
-            }
-
-            internal struct PngImageMarker
-            {
-                public const int MARKER_10 = 10;  // 0x0A
-                public const int MARKER_13 = 13;  // 0x0D
-                public const int MARKER_26 = 26;  // 0x1A
-                public const int MARKER_71 = 71;  // 0x47
-                public const int MARKER_78 = 78;  // 0x4E
-                public const int MARKER_80 = 80;  // 0x50
-                public const int MARKER_137 = 137; // 0x89
-            }
-        }
-
-        #endregion
     }
 }

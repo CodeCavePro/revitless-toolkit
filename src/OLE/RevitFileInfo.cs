@@ -5,11 +5,20 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
+using static CodeCave.Revit.Toolkit.RevitFileInfoExtensions;
 
-namespace CodeCave.Revit.Toolkit
+namespace CodeCave.Revit.Toolkit.OLE
 {
     public class RevitFileInfo
     {
+        static RevitFileInfo()
+        {
+#if !NET45
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+#endif
+        }
+
         #region Properties
 
         /// <summary>
@@ -58,21 +67,33 @@ namespace CodeCave.Revit.Toolkit
         /// </value>
         public FamilyType[] Types => PartAtom?.Family?.Parts;
 
-        public Version Version { get; internal set; }
+        public string ProductVendor { get; internal set; } = "Autodesk";
 
-        public string Name { get; internal set; }
+        public string ProductVersion { get; internal set; }
 
-        public string Vendor { get; internal set; }
+        public string ProductName { get; internal set; } = "Revit";
 
-        public object Architecture { get; internal set; }
+        public int Format { get; internal set; }
 
-        public bool Is64Bit { get; internal set; }
+        public bool Is64Bit { get; internal set; } = true;
 
         public string FilePath { get; private set; }
 
         #endregion
 
         #region Methods
+
+        public static int GetFormatFromFile(string filePath)
+        {
+            if (string.IsNullOrWhiteSpace(filePath) || !File.Exists(filePath))
+                throw new ArgumentException("Please supply a valid path to a Revit document", nameof(filePath));
+
+            var properties = GetProperties(filePath);
+            if (properties.TryGetValue(KnownRevitInfoProps.FORMAT, out var formatRaw) && int.TryParse(formatRaw, out var format))
+                return format;
+
+            throw new InvalidDataException($"Couldn't read format information from the followin file: '{filePath}'");
+        }
 
         /// <summary>
         /// Gets a <see cref="RevitFileInfo" /> instance from the given file path.
@@ -84,8 +105,8 @@ namespace CodeCave.Revit.Toolkit
         /// <exception cref="T:System.ArgumentException">filePath is invalid</exception>
         public static RevitFileInfo GetFromFile(string filePath)
         {
-            if (string.IsNullOrWhiteSpace(filePath))
-                throw new ArgumentException("filePath is invalid");
+            if (string.IsNullOrWhiteSpace(filePath) || !File.Exists(filePath))
+                throw new ArgumentException("Please supply a valid path to a Revit document", nameof(filePath));
 
             var rfi = new RevitFileInfo
             {
@@ -130,28 +151,25 @@ namespace CodeCave.Revit.Toolkit
         /// <returns></returns>
         internal static Dictionary<string, string> GetProperties(string filePath)
         {
-            var basicInfo = OleDataReader.GetRawBytes(filePath, "BasicFileInfo");
+            var basicInfo = OleDataReader.GetRawBytes(filePath, RevitFileMap.OleStreams.BASIC_FILE_INFO);
             var fileProps = new Dictionary<string, string>();
-            var supportedEncodeings = new[]
-            {
-                Encoding.Unicode,
-                Encoding.BigEndianUnicode,
-                Encoding.UTF8,
-                Encoding.ASCII,
-                Encoding.Default,
-            };
 
-            foreach (var encoding in supportedEncodeings)
+            var asd = new Regex(@"\p{IsCJKUnifiedIdeographs}");
+
+            foreach (var encoding in RevitFileMap.SupportedEncodings)
             {
                 var basicInfoString = encoding.GetString(basicInfo)?.TrimEnd('\u0a0d');
-                using var basicInfoReader = new StringReader(basicInfoString);
+                if (asd.IsMatch(basicInfoString))
+                    continue;
+
+                using var basicInfoReader = new StringReader(basicInfoString?.Replace("\0", string.Empty));
 
                 // ReSharper disable once RedundantAssignment
                 var stringLine = basicInfoReader.ReadLine(); // skip the first line
                 while (!string.IsNullOrWhiteSpace(stringLine = basicInfoReader.ReadLine()))
                 {
-                    var parts = stringLine.Split(new[] { ":" }, 2, StringSplitOptions.None);
-                    if (parts.Length != 2)
+                    var parts = stringLine.Split(new[] { ":" }, StringSplitOptions.None);
+                    if (parts.Length != 2 || IsInvalidProperty(parts.FirstOrDefault()))
                         continue;
                     fileProps.Add(parts[0].Trim(), parts[1].Trim());
                 }
@@ -161,6 +179,11 @@ namespace CodeCave.Revit.Toolkit
             }
 
             return fileProps;
+        }
+
+        private static bool IsInvalidProperty(string input)
+        {
+            return input?.Any(c => char.IsControl(c)) ?? true;
         }
 
         #endregion

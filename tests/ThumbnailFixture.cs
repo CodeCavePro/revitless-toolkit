@@ -30,7 +30,7 @@ namespace CodeCave.Revit.Toolkit.Tests
             var rfaThumbnailPath = Path.ChangeExtension(Path.Combine(Environment.CurrentDirectory, Path.GetFileName(rfaFilePath)), "png");
 
             // act
-            var rfaThumbnailer = new RfaTumbnailExtractor();
+            var rfaThumbnailer = new RevitTumbnailExtractor();
             var fileExtracted = rfaThumbnailer.TryExtractFile(rfaFilePath, rfaThumbnailPath);
 
             // assert

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CodeCave.Revit.Toolkit.OLE;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -18,6 +19,8 @@ namespace CodeCave.Revit.Toolkit
             public const string USERNAME = "Username";
             public const string CENTRAL_MODEL_PATH = "Central Model Path";
             public const string REVIT_BUILD = "Revit Build";
+            public const string BUILD = "Build";
+            public const string FORMAT = "Format";
             public const string LAST_SAVE_PATH = "Last Save Path";
             public const string OPEN_WORKSET_DEFAULT = "Open Workset Default";
             public const string PROJECT_SPARK_FILE = "Project Spark File";
@@ -32,6 +35,12 @@ namespace CodeCave.Revit.Toolkit
 
         private static readonly Regex versionExtractor =
             new Regex(@"(?<vendor>\w*) (?<software>(\w|\s)*) (?<version>\d{4}) \(Build\: (?<build>\d*)_(?<revision>\d*)(\((?<arch>\w*)\))?\)",
+                RegexOptions.Compiled |
+                RegexOptions.IgnoreCase |
+                RegexOptions.CultureInvariant);
+
+        private static readonly Regex versionExtractorSimple =
+            new Regex(@"(?<build>\d*)_(?<revision>\d*)(\((?<arch>\w*)\))?",
                 RegexOptions.Compiled |
                 RegexOptions.IgnoreCase |
                 RegexOptions.CultureInvariant);
@@ -68,23 +77,28 @@ namespace CodeCave.Revit.Toolkit
         {
             if (properties == null) throw new ArgumentNullException(nameof(properties));
 
+            if (properties.TryGetValue(KnownRevitInfoProps.FORMAT, out var formatRaw) && int.TryParse(formatRaw, out var format))
+                revitFileInfo.Format = format;
+
             // Parse Revit Build string
-            if (!properties.ContainsKey(KnownRevitInfoProps.REVIT_BUILD))
+            var versionObj = default(Match);
+            if (properties.TryGetValue(KnownRevitInfoProps.REVIT_BUILD, out var buildInfo))
+                versionObj = versionExtractor.Match(buildInfo);
+
+            if (properties.TryGetValue(KnownRevitInfoProps.BUILD, out buildInfo))
+                versionObj = versionExtractorSimple.Match(buildInfo);
+
+            if (!versionObj?.Success ?? false)
                 return;
 
-            var versionObj = versionExtractor.Match(properties[KnownRevitInfoProps.REVIT_BUILD]);
-            if (!versionObj.Success)
-                return;
-
-            revitFileInfo.Vendor = versionObj?.Groups["vendor"]?.Value;
-            revitFileInfo.Name = versionObj?.Groups["software"]?.Value;
             revitFileInfo.Is64Bit = versionObj.Groups["arch"]?.Value?.Contains("x64") ?? false;
+            revitFileInfo.ProductVersion = $"{versionObj.Groups["build"].Value}_{versionObj.Groups["revision"].Value}";
 
-            var versionString = string.Format("{0}.{1}.{2}",
-                versionObj.Groups["version"].Value,
-                versionObj.Groups["build"].Value,
-                versionObj.Groups["revision"].Value);
-            revitFileInfo.Version = new Version(versionString);
+            if (!string.IsNullOrWhiteSpace(versionObj?.Groups["vendor"]?.Value))
+                revitFileInfo.ProductVendor = versionObj?.Groups["vendor"]?.Value;
+
+            if (!string.IsNullOrWhiteSpace(versionObj?.Groups["software"]?.Value))
+                revitFileInfo.ProductName = versionObj?.Groups["software"]?.Value;
         }
 
         /// <summary>

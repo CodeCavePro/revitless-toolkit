@@ -75,19 +75,11 @@ namespace CodeCave.Revit.Toolkit
         /// <exception cref="T:System.ArgumentNullException">properties</exception>
         public static void ParseRevit(this RevitFileInfo revitFileInfo, Dictionary<string, string> properties)
         {
-            if (properties == null) throw new ArgumentNullException(nameof(properties));
-
-            if (properties.TryGetValue(KnownRevitInfoProps.FORMAT, out var formatRaw) && int.TryParse(formatRaw, out var format))
-                revitFileInfo.Format = format;
+            if (properties == null)
+                throw new ArgumentNullException(nameof(properties));
 
             // Parse Revit Build string
-            var versionObj = default(Match);
-            if (properties.TryGetValue(KnownRevitInfoProps.REVIT_BUILD, out var buildInfo))
-                versionObj = versionExtractor.Match(buildInfo);
-
-            if (properties.TryGetValue(KnownRevitInfoProps.BUILD, out buildInfo))
-                versionObj = versionExtractorSimple.Match(buildInfo);
-
+            var versionObj = GetBuildMatch(properties);
             if (!versionObj?.Success ?? false)
                 return;
 
@@ -99,6 +91,51 @@ namespace CodeCave.Revit.Toolkit
 
             if (!string.IsNullOrWhiteSpace(versionObj?.Groups["software"]?.Value))
                 revitFileInfo.ProductName = versionObj?.Groups["software"]?.Value;
+        }
+
+        private static Match GetBuildMatch(Dictionary<string, string> properties)
+        {
+            if (properties == null)
+                throw new ArgumentNullException(nameof(properties));
+
+            // Parse Revit Build string
+            var versionObj = default(Match);
+            if (properties.TryGetValue(KnownRevitInfoProps.REVIT_BUILD, out var buildInfo))
+                versionObj = versionExtractor.IsMatch(buildInfo)
+                    ? versionExtractor.Match(buildInfo)
+                    : versionExtractorSimple.Match(buildInfo);
+
+            if (properties.TryGetValue(KnownRevitInfoProps.BUILD, out buildInfo))
+                versionObj = versionExtractorSimple.Match(buildInfo);
+
+            return versionObj;
+        }
+
+        public static int GetFormat(this Dictionary<string, string> properties)
+        {
+            if (properties == null)
+                throw new ArgumentNullException(nameof(properties));
+
+            if (properties.TryGetValue(KnownRevitInfoProps.FORMAT, out var formatRaw) && int.TryParse(formatRaw, out var format))
+                return format;
+
+            // Parse Revit Build string
+            var versionObj = GetBuildMatch(properties);
+            if (!versionObj?.Success ?? false)
+                return -1;
+
+            if (!string.IsNullOrWhiteSpace(versionObj?.Groups["version"]?.Value) && int.TryParse(versionObj.Groups["version"].Value, out format))
+                return format;
+
+            if (!string.IsNullOrWhiteSpace(versionObj?.Groups["build"]?.Value) && int.TryParse(versionObj.Groups["build"].Value, out format))
+            {
+                format = (format > 2099)
+                    ? format / 10000
+                    : format;
+                return format + 1;
+            }
+
+            return -1;
         }
 
         /// <summary>

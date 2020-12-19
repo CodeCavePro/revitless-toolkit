@@ -68,6 +68,11 @@ namespace CodeCave.Revit.Toolkit.OLE
         [XmlElement("family", Namespace = "urn:schemas-autodesk-com:partatom")]
         public Family Family { get; set; }
 
+        /// <summary>Gets or sets the link.</summary>
+        /// <value>The link.</value>
+        [XmlElement("link")]
+        public Link Link { get; set; }
+
         /// <summary>
         /// Gets from file.
         /// </summary>

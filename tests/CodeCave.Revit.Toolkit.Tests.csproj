@@ -1,23 +1,19 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
-    <RuntimeFrameworkVersion>2.1.0</RuntimeFrameworkVersion>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <IsPackable>false</IsPackable>
-    <RootNamespace>CodeCave.Revit.Toolkit.Tests</RootNamespace>
-    <AssemblyName>Revit.Toolkit.Tests</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.7.2" />
-    <PackageReference Include="OpenCover" Version="4.6.519" />
-    <PackageReference Include="xunit" Version="2.3.1" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="2.3.1" />
-    <DotNetCliToolReference Include="dotnet-xunit" Version="2.3.1" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="[16.*, 17.0)" />
+    <PackageReference Include="OpenCover" Version="4.6.*" />
+    <PackageReference Include="xunit" Version="2.4.*" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.*" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\Revit.Toolkit.csproj" />
+    <ProjectReference Include="..\src\CodeCave.Revit.Toolkit.csproj" />
   </ItemGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">

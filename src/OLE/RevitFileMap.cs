@@ -23,9 +23,9 @@ namespace CodeCave.Revit.Toolkit.OLE
 
         public static readonly Encoding[] SupportedEncodings = new[]
         {
-            Encoding.BigEndianUnicode,
             Encoding.UTF8,
             Encoding.Unicode,
+            Encoding.BigEndianUnicode,
             Encoding.ASCII,
             Encoding.GetEncoding(1251),
             Encoding.UTF32,

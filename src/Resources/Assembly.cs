@@ -1,3 +1,3 @@
 ﻿using System.Runtime.CompilerServices;
 
-[assembly:InternalsVisibleTo("Revit.Toolkit.Tests")] 
+[assembly:InternalsVisibleTo("CodeCave.Revit.Toolkit.Tests")]

@@ -1,5 +1,4 @@
-﻿using CodeCave.Revit.Toolkit.OLE;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
@@ -12,6 +11,8 @@ namespace CodeCave.Revit.Toolkit.OLE
 {
     public class RevitFileInfo
     {
+        private static readonly Regex asianCharMatcher = new Regex(@"\p{IsCJKUnifiedIdeographs}", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+
         static RevitFileInfo()
         {
 #if !NET45
@@ -88,11 +89,33 @@ namespace CodeCave.Revit.Toolkit.OLE
             if (string.IsNullOrWhiteSpace(filePath) || !File.Exists(filePath))
                 throw new ArgumentException("Please supply a valid path to a Revit document", nameof(filePath));
 
-            var properties = GetProperties(filePath);
-            if (properties.TryGetValue(KnownRevitInfoProps.FORMAT, out var formatRaw) && int.TryParse(formatRaw, out var format))
-                return format;
+            try
+            {
+                var basicInfo = OleDataReader.GetRawBytes(filePath, RevitFileMap.OleStreams.BASIC_FILE_INFO);
+                var properties = GetProperties(basicInfo);
+                var formatFromBasicInfo = properties.GetFormat();
+                if (formatFromBasicInfo > 0)
+                    return formatFromBasicInfo;
+            }
+            catch
+            {
+                // TODO ad logging
+                // Trying to read
+            }
 
-            throw new InvalidDataException($"Couldn't read format information from the followin file: '{filePath}'");
+            try
+            {
+                var partAtom = PartAtom.GetFromFile(filePath);
+                var formatFromPartAtom = partAtom?.Link?.Files?.FirstOrDefault()?.ProductVersion;
+                if (formatFromPartAtom != null)
+                    return formatFromPartAtom.GetValueOrDefault();
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidDataException($"Couldn't read format information from the followin file: '{filePath}'", ex);
+            }
+
+            return -1;
         }
 
         /// <summary>
@@ -116,7 +139,8 @@ namespace CodeCave.Revit.Toolkit.OLE
             // Read basic file info from metadata
             try
             {
-                var properties = GetProperties(filePath);
+                var basicInfo = OleDataReader.GetRawBytes(filePath, RevitFileMap.OleStreams.BASIC_FILE_INFO);
+                var properties = GetProperties(basicInfo);
                 rfi.ParseDocumentInfo(properties);
                 rfi.ParseLocale(properties);
                 rfi.ParseRevit(properties);
@@ -131,6 +155,8 @@ namespace CodeCave.Revit.Toolkit.OLE
             try
             {
                 rfi.PartAtom = PartAtom.GetFromFile(filePath);
+                if (rfi.Format <= 0)
+                    rfi.Format = rfi.PartAtom?.Link?.Files?.FirstOrDefault()?.ProductVersion ?? -1;
             }
             catch (Exception)
             {
@@ -149,33 +175,27 @@ namespace CodeCave.Revit.Toolkit.OLE
         /// </summary>
         /// <param name="filePath">The file path.</param>
         /// <returns></returns>
-        internal static Dictionary<string, string> GetProperties(string filePath)
+        internal static Dictionary<string, string> GetProperties(byte[] basicInfo)
         {
-            var basicInfo = OleDataReader.GetRawBytes(filePath, RevitFileMap.OleStreams.BASIC_FILE_INFO);
             var fileProps = new Dictionary<string, string>();
-
-            var asd = new Regex(@"\p{IsCJKUnifiedIdeographs}");
+            const char marker = '\u0a0d';
 
             foreach (var encoding in RevitFileMap.SupportedEncodings)
             {
-                var basicInfoString = encoding.GetString(basicInfo)?.TrimEnd('\u0a0d');
-                if (asd.IsMatch(basicInfoString))
+                var basicInfoString = encoding.GetString(basicInfo);
+                if (!basicInfoString.Contains(marker))
                     continue;
 
-                using var basicInfoReader = new StringReader(basicInfoString?.Replace("\0", string.Empty));
+                basicInfo = basicInfo.Skip(SearchBytes(basicInfo, encoding.GetBytes(new[] { marker }))).ToArray();
+                basicInfoString = encoding.GetString(basicInfo).Trim(marker);
 
-                // ReSharper disable once RedundantAssignment
-                var stringLine = basicInfoReader.ReadLine(); // skip the first line
-                while (!string.IsNullOrWhiteSpace(stringLine = basicInfoReader.ReadLine()))
+                using var basicInfoReader = new StringReader(basicInfoString?.Replace("\0", string.Empty));
+                string stringLine;
+                while ((stringLine = basicInfoReader.ReadLine()) != null)
                 {
-                    var parts = stringLine.Split(new[] { ":" }, StringSplitOptions.None);
-                    if (parts.Length != 2 || IsInvalidProperty(parts.FirstOrDefault()))
-                        continue;
+                    var parts = stringLine.Split(new[] { ":" }, 2, StringSplitOptions.None);
                     fileProps.Add(parts[0].Trim(), parts[1].Trim());
                 }
-
-                if (fileProps.Any())
-                    break;
             }
 
             return fileProps;
@@ -184,6 +204,28 @@ namespace CodeCave.Revit.Toolkit.OLE
         private static bool IsInvalidProperty(string input)
         {
             return input?.Any(c => char.IsControl(c)) ?? true;
+        }
+
+        private static int SearchBytes(byte[] haystack, byte[] needle, int offset = 0)
+        {
+            int success = 0;
+            for (int i = offset; i < haystack.Length; i++)
+            {
+                if (haystack[i] == needle[success])
+                {
+                    success++;
+                }
+                else
+                {
+                    success = 0;
+                }
+
+                if (needle.Length == success)
+                {
+                    return i - needle.Length + 1;
+                }
+            }
+            return -1;
         }
 
         #endregion

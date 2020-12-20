@@ -1,9 +1,9 @@
 # Operating system (build VM template)
-os: Windows Server 2016
+os: Windows Server 2019
 
 # If the build configuration does not specify build worker image
 # then Visual Studio 2015 image is used.
-image: Visual Studio 2017
+image: Visual Studio 2019
 
 # Restrict to Git branches below
 branches:

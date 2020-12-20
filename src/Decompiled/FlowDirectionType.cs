@@ -13,11 +13,11 @@ namespace CodeCave.Revit.Toolkit
     /// <summary>An enumerated type listing direction types for a connector.</summary>
     public enum FlowDirectionType
     {
-        /// <summary>Flow bidirectional</summary>
+        /// <summary>Flow bidirectional.</summary>
         Bidirectional,
-        /// <summary>Flow in</summary>
+        /// <summary>Flow in.</summary>
         In,
-        /// <summary>Flow out</summary>
+        /// <summary>Flow out.</summary>
         Out,
     }
 }

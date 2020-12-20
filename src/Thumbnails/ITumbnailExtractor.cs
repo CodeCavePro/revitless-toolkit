@@ -4,7 +4,7 @@ namespace CodeCave.Revit.Toolkit.Thumbnails
 {
     /// <summary>
     /// Defines methods of thumbnail extractor object,
-    /// which is supposed to extract thumbnails from 3D models without relying on proprietary APIs
+    /// which is supposed to extract thumbnails from 3D models without relying on proprietary APIs.
     /// </summary>
     public interface IThumbnailExtractor
     {
@@ -12,14 +12,14 @@ namespace CodeCave.Revit.Toolkit.Thumbnails
         /// Extracts thumbnail to an image object.
         /// </summary>
         /// <param name="pathToFile">The path to file.</param>
-        /// <returns>Image object</returns>
+        /// <returns>Image object.</returns>
         byte[] ExtractImageBytes(string pathToFile);
 
         /// <summary>
         /// Extracts thumbnail to a stream.
         /// </summary>
         /// <param name="pathToFile">The path to file.</param>
-        /// <returns>Memory stream containing thumbnail data</returns>
+        /// <returns>Memory stream containing thumbnail data.</returns>
         MemoryStream ExtractStream(string pathToFile);
 
         /// <summary>
@@ -34,7 +34,7 @@ namespace CodeCave.Revit.Toolkit.Thumbnails
         /// </summary>
         /// <param name="srcFile">The source file.</param>
         /// <param name="outFile">The output image file.</param>
-        /// <returns>true if thumbnail has been extracted successfully</returns>
+        /// <returns>true if thumbnail has been extracted successfully.</returns>
         bool TryExtractFile(string srcFile, string outFile);
     }
 }

@@ -18,6 +18,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Catalog
         internal TypeCollection types = new TypeCollection();
 
         /// <summary>
+        /// Initializes static members of the <see cref="TypeCatalogFile"/> class.
         /// Initializes the <see cref="TypeCatalogFile"/> class.
         /// </summary>
         static TypeCatalogFile()
@@ -44,7 +45,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Catalog
         /// </summary>
         /// <param name="typeCatalogFile">The type catalog file.</param>
         /// <param name="encoding">The encoding.</param>
-        /// <exception cref="ArgumentException">typeCatalogFile</exception>
+        /// <exception cref="ArgumentException">typeCatalogFile.</exception>
         public TypeCatalogFile(string typeCatalogFile, Encoding encoding = null)
         {
             if (string.IsNullOrWhiteSpace(typeCatalogFile))
@@ -78,8 +79,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Catalog
                             {
                                 throw new InvalidDataException(
                                     "Type catalog's header must consists of the following 3 parts: " +
-                                    "{ParameterName}##{ParameterType}##{ParameterUnits}"
-                                );
+                                    "{ParameterName}##{ParameterType}##{ParameterUnits}");
                             }
 
                             var name = headerParts.ElementAt(0);
@@ -108,8 +108,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Catalog
                         var typeName = record.First();
                         var parameters = new List<IParameterWithValue>(record.Skip(1).Select((value, index) => new Parameter<object>(
                             parameterDefinitions[index] as ParameterDefinition,
-                            value
-                        )));
+                            value)));
                         var type = new Type(typeName, parameters);
                         types.Add(type);
                     }
@@ -194,7 +193,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Catalog
         /// <param name="pathToFile">The path to a type catalog file.</param>
         /// <param name="throwOnError">if set to <c>true</c> [throw an Exception on error].</param>
         /// <returns></returns>
-        /// <exception cref="ArgumentException">pathToFile</exception>
+        /// <exception cref="ArgumentException">pathToFile.</exception>
         public bool Save(string pathToFile, bool throwOnError = false)
         {
             if (string.IsNullOrWhiteSpace(pathToFile) || Path.GetInvalidPathChars().Any(pathToFile.Contains) || Path.GetInvalidFileNameChars().Any(Path.GetFileName(pathToFile).Contains))

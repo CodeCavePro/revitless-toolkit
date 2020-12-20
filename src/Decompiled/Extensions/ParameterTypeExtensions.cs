@@ -7,7 +7,7 @@ using System.Linq;
 namespace CodeCave.Revit.Toolkit
 {
     /// <summary>
-    /// UnitType extension class featuring extension methods for ParameterType enumeration
+    /// UnitType extension class featuring extension methods for ParameterType enumeration.
     /// </summary>
     public static class ParameterTypeExtensions
     {
@@ -15,7 +15,8 @@ namespace CodeCave.Revit.Toolkit
         private static readonly Dictionary<ParameterType, UnitType> parameterTypes2UnitTypes;
 
         /// <summary>
-        /// Static constructor
+        /// Initializes static members of the <see cref="ParameterTypeExtensions"/> class.
+        /// Static constructor.
         /// </summary>
         static ParameterTypeExtensions()
         {
@@ -299,9 +300,9 @@ namespace CodeCave.Revit.Toolkit
         }
 
         /// <summary>
-        /// Converts DATATYPE of a shared parameter to <see cref="ParameterType"/>
+        /// Converts DATATYPE of a shared parameter to <see cref="ParameterType"/>.
         /// </summary>
-        /// <param name="dataType">DATATYPE string to convert</param>
+        /// <param name="dataType">DATATYPE string to convert.</param>
         /// <returns></returns>
         public static ParameterType FromSharedDataType(this string dataType)
         {
@@ -312,9 +313,9 @@ namespace CodeCave.Revit.Toolkit
         }
 
         /// <summary>
-        /// Converts <see cref="ParameterType"/> value to DATATYPE (shared parameter file)
+        /// Converts <see cref="ParameterType"/> value to DATATYPE (shared parameter file).
         /// </summary>
-        /// <param name="parameter">ParameterType value to convert</param>
+        /// <param name="parameter">ParameterType value to convert.</param>
         /// <returns></returns>
         public static string ToSharedDataType(this ParameterType parameter)
         {
@@ -323,7 +324,7 @@ namespace CodeCave.Revit.Toolkit
         }
 
         /// <summary>
-        /// Ge value to UnityType
+        /// Ge value to UnityType.
         /// </summary>
         /// <param name="parameter"></param>
         /// <returns></returns>

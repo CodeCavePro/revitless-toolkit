@@ -10,7 +10,7 @@ namespace CodeCave.Revit.Toolkit.Thumbnails
     /// This code is originally from http://www.theswamp.org:
     /// http://www.theswamp.org/index.php?topic=30985.msg470910#msg470910
     /// http://www.theswamp.org/index.php?topic=45598.msg507524#msg507524
-    /// However some heavy changes have been applied
+    /// However some heavy changes have been applied.
     /// </summary>
     public class DwgTumbnailExtractor : ThumbnailExtractor
     {
@@ -19,7 +19,7 @@ namespace CodeCave.Revit.Toolkit.Thumbnails
         /// </summary>
         /// <param name="pathToFile">The path to file.</param>
         /// <returns>
-        /// Memory stream containing thumbnail data
+        /// Memory stream containing thumbnail data.
         /// </returns>
         /// <exception cref="InvalidDataException"></exception>
         public override MemoryStream ExtractStream(string pathToFile)
@@ -40,9 +40,9 @@ namespace CodeCave.Revit.Toolkit.Thumbnails
         /// </summary>
         /// <param name="memoryStream">The memory stream.</param>
         /// <returns>
-        /// Memory stream containing thumbnail data
+        /// Memory stream containing thumbnail data.
         /// </returns>
-        /// <exception cref="InvalidDataException">Failed to extract the thumbnail of the following CAD drawing</exception>
+        /// <exception cref="InvalidDataException">Failed to extract the thumbnail of the following CAD drawing.</exception>
         /// <inheritdoc />
         public override MemoryStream ExtractStream(MemoryStream memoryStream)
         {

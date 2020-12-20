@@ -31,14 +31,13 @@ namespace CodeCave.Revit.Toolkit.Parameters.Catalog
             /// or
             /// units
             /// or
-            /// displayUnits
+            /// displayUnits.
             /// </exception>
             public ParameterDefinition
             (
                 string name,
                 ParameterType type,
-                DisplayUnitType displayUnits
-            )
+                DisplayUnitType displayUnits)
             {
                 Name = !string.IsNullOrWhiteSpace(name) ? name : throw new ArgumentException(nameof(name));
                 ParameterType = (ParameterType.Invalid != type) ? type : throw new ArgumentException(nameof(type));
@@ -55,13 +54,12 @@ namespace CodeCave.Revit.Toolkit.Parameters.Catalog
             /// or
             /// type
             /// or
-            /// type - ParameterType
+            /// type - ParameterType.
             /// </exception>
             protected ParameterDefinition
             (
                 string name,
-                ParameterType type
-            )
+                ParameterType type)
             {
                 Name = !string.IsNullOrWhiteSpace(name) ? name : throw new ArgumentException(nameof(name));
                 ParameterType = (ParameterType.Invalid != type) ? type : throw new ArgumentException(nameof(type));
@@ -70,8 +68,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Catalog
                     throw new ArgumentException(
                         nameof(type),
                         $"{nameof(ParameterType)} you have specified ({type}) cannot be used to determine " +
-                        $"{nameof(DisplayUnitType)} value. Please use constructor with {nameof(DisplayUnitType)} parameter"
-                    );
+                        $"{nameof(DisplayUnitType)} value. Please use constructor with {nameof(DisplayUnitType)} parameter");
 
                 DisplayUnitType = displayUnits.First();
             }

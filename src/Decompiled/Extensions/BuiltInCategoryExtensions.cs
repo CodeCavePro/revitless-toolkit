@@ -3,7 +3,7 @@
 namespace CodeCave.Revit.Toolkit
 {
     /// <summary>
-    /// Extensions for Revit API BuiltInCategory enum
+    /// Extensions for Revit API BuiltInCategory enum.
     /// </summary>
     public static class BuiltInCategoryExtensions
     {

@@ -4,13 +4,14 @@ using System.Linq;
 namespace CodeCave.Revit.Toolkit
 {
     /// <summary>
-    /// Contains extension methods for <see cref="BuiltInParameterGroup"/>
+    /// Contains extension methods for <see cref="BuiltInParameterGroup"/>.
     /// </summary>
     public static class BuiltInParameterGroupExtensions
     {
         private static readonly Dictionary<BuiltInParameterGroup, string> builtInParameterGroup;
 
         /// <summary>
+        /// Initializes static members of the <see cref="BuiltInParameterGroupExtensions"/> class.
         /// Initializes the <see cref="BuiltInParameterGroupExtensions"/> class.
         /// </summary>
         static BuiltInParameterGroupExtensions()
@@ -140,7 +141,8 @@ namespace CodeCave.Revit.Toolkit
         /// <param name="builtInParameterGroup">Built in parameter group value.</param>
         /// <param name="builtInParameterGroupString">Human-readable English label for the given <see cref="BuiltInParameterGroup"/> value.</param>
         /// <returns></returns>
-        public static bool ToEnglishLabel(this BuiltInParameterGroup builtInParameterGroup,
+        public static bool ToEnglishLabel(
+            this BuiltInParameterGroup builtInParameterGroup,
             out string builtInParameterGroupString)
         {
             return BuiltInParameterGroupExtensions.builtInParameterGroup.TryGetValue(builtInParameterGroup, out builtInParameterGroupString);
@@ -152,7 +154,8 @@ namespace CodeCave.Revit.Toolkit
         /// <param name="builtInParameterGroupString">The built in parameter group string.</param>
         /// <param name="builtInParameterGroup">The built in parameter group.</param>
         /// <returns></returns>
-        public static bool FromEnglishLabel(this string builtInParameterGroupString,
+        public static bool FromEnglishLabel(
+            this string builtInParameterGroupString,
             out BuiltInParameterGroup builtInParameterGroup)
         {
             builtInParameterGroup = BuiltInParameterGroup.INVALID;

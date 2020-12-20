@@ -8,7 +8,7 @@ namespace CodeCave.Revit.Toolkit.Thumbnails
 {
     /// <inheritdoc />
     /// <summary>
-    /// Extracts thumbnails from 3D models without relying on proprietary APIs
+    /// Extracts thumbnails from 3D models without relying on proprietary APIs.
     /// </summary>
     /// <seealso cref="T:CodeCave.CAD.Toolkit.Primitives.IThumbnailExtractor" />
     public abstract class ThumbnailExtractor : IThumbnailExtractor
@@ -16,6 +16,7 @@ namespace CodeCave.Revit.Toolkit.Thumbnails
         private static readonly Guid[] validThumbImageFormats;
 
         /// <summary>
+        /// Initializes static members of the <see cref="ThumbnailExtractor"/> class.
         /// Initializes the <see cref="ThumbnailExtractor"/> class.
         /// </summary>
         static ThumbnailExtractor()
@@ -30,9 +31,9 @@ namespace CodeCave.Revit.Toolkit.Thumbnails
         /// <param name="srcFile">The source file.</param>
         /// <param name="outFile">The output image file.</param>
         /// <returns>
-        /// true if thumbnail has been extracted successfully
+        /// true if thumbnail has been extracted successfully.
         /// </returns>
-        /// <exception cref="T:System.IO.InvalidDataException">Failed to extract to extract thumbnail from \"{srcFile}\" to \"{outFile}\</exception>
+        /// <exception cref="T:System.IO.InvalidDataException">Failed to extract to extract thumbnail from \"{srcFile}\" to \"{outFile}\.</exception>
         public virtual bool TryExtractFile(string srcFile, string outFile)
         {
             if (string.IsNullOrEmpty(srcFile) || !File.Exists(srcFile))
@@ -98,7 +99,7 @@ namespace CodeCave.Revit.Toolkit.Thumbnails
         /// </summary>
         /// <param name="pathToFile">The path to file.</param>
         /// <returns>
-        /// Memory stream containing thumbnail data
+        /// Memory stream containing thumbnail data.
         /// </returns>
         public abstract MemoryStream ExtractStream(string pathToFile);
 
@@ -108,7 +109,7 @@ namespace CodeCave.Revit.Toolkit.Thumbnails
         /// </summary>
         /// <param name="memoryStream">The memory stream.</param>
         /// <returns>
-        /// Memory stream containing thumbnail data
+        /// Memory stream containing thumbnail data.
         /// </returns>
         public abstract MemoryStream ExtractStream(MemoryStream memoryStream);
 
@@ -118,7 +119,7 @@ namespace CodeCave.Revit.Toolkit.Thumbnails
         /// Converts an image format to file extension.
         /// </summary>
         /// <param name="format">Image format.</param>
-        /// <returns>File extension</returns>
+        /// <returns>File extension.</returns>
         private static string ImageFormatToExtension(ImageFormat format)
         {
             return ImageCodecInfo.GetImageEncoders().FirstOrDefault(x => x.FormatID == format.Guid)

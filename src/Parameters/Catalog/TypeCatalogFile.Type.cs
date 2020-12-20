@@ -20,8 +20,8 @@ namespace CodeCave.Revit.Toolkit.Parameters.Catalog
             /// </summary>
             /// <param name="name">Name of the type.</param>
             /// <param name="parameters">The parameters.</param>
-            /// <exception cref="ArgumentException">typeName</exception>
-            /// <exception cref="ArgumentNullException">parameters</exception>
+            /// <exception cref="ArgumentException">typeName.</exception>
+            /// <exception cref="ArgumentNullException">parameters.</exception>
             public Type(string name, IEnumerable<IParameterWithValue> parameters)
             {
                 if (string.IsNullOrWhiteSpace(name)) throw new ArgumentException(nameof(name));
@@ -53,7 +53,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Catalog
         public class TypeCollection : List<Type>
         {
             /// <summary>
-            /// Initializes a new instance of the <see cref="T:CodeCave.Revit.Toolkit.Parameters.Catalog.TypeCatalogFile.TypeCollection" /> class.
+            /// Initializes a new instance of the <see cref="TypeCollection"/> class.
             /// </summary>
             /// <inheritdoc />
             internal TypeCollection()
@@ -66,21 +66,19 @@ namespace CodeCave.Revit.Toolkit.Parameters.Catalog
             /// Adds the specified type.
             /// </summary>
             /// <param name="type">The type to add.</param>
-            /// <exception cref="ArgumentNullException">type</exception>
-            /// <exception cref="ArgumentException">type - Type</exception>
+            /// <exception cref="ArgumentNullException">type.</exception>
+            /// <exception cref="ArgumentException">type - Type.</exception>
             public new void Add(Type type)
             {
                 if (type == null) throw new ArgumentNullException(nameof(type));
                 if (string.IsNullOrWhiteSpace(type.Name))
                     throw new ArgumentException(
-                        nameof(type), $"{nameof(Type)}.{nameof(Type.Name)} must be a non-empty string!"
-                    );
+                        nameof(type), $"{nameof(Type)}.{nameof(Type.Name)} must be a non-empty string!");
 
                 if(this.Any(t => Equals(t.Name, type.Name)))
                     throw new ArgumentException(
                         nameof(type), 
-                        $"A type with {nameof(Type)}.{nameof(Type.Name)}={type.Name} is already present in the list"
-                    );
+                        $"A type with {nameof(Type)}.{nameof(Type.Name)}={type.Name} is already present in the list");
 
                 base.Add(type);
             }
@@ -99,7 +97,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Catalog
             /// Adds the range of types.
             /// </summary>
             /// <param name="types">The types to add.</param>
-            /// <exception cref="ArgumentNullException">types</exception>
+            /// <exception cref="ArgumentNullException">types.</exception>
             public new void AddRange(IEnumerable<Type> types)
             {
                 if (types == null) throw new ArgumentNullException(nameof(types));

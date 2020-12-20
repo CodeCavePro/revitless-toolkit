@@ -34,13 +34,15 @@ namespace CodeCave.Revit.Toolkit
         }
 
         private static readonly Regex versionExtractor =
-            new Regex(@"(?<vendor>\w*) (?<software>(\w|\s)*) (?<version>\d{4}) \(Build\: (?<build>\d*)_(?<revision>\d*)(\((?<arch>\w*)\))?\)",
+            new Regex(
+                @"(?<vendor>\w*) (?<software>(\w|\s)*) (?<version>\d{4}) \(Build\: (?<build>\d*)_(?<revision>\d*)(\((?<arch>\w*)\))?\)",
                 RegexOptions.Compiled |
                 RegexOptions.IgnoreCase |
                 RegexOptions.CultureInvariant);
 
         private static readonly Regex versionExtractorSimple =
-            new Regex(@"(?<build>\d*)_(?<revision>\d*)(\((?<arch>\w*)\))?",
+            new Regex(
+                @"(?<build>\d*)_(?<revision>\d*)(\((?<arch>\w*)\))?",
                 RegexOptions.Compiled |
                 RegexOptions.IgnoreCase |
                 RegexOptions.CultureInvariant);
@@ -54,7 +56,7 @@ namespace CodeCave.Revit.Toolkit
         /// </summary>
         /// <param name="revitFileInfo">The revit file information.</param>
         /// <param name="properties">The properties.</param>
-        /// <exception cref="T:System.ArgumentNullException">properties</exception>
+        /// <exception cref="T:System.ArgumentNullException">properties.</exception>
         public static void ParseUsername(this RevitFileInfo revitFileInfo, Dictionary<string, string> properties)
         {
             if (properties == null)
@@ -72,7 +74,7 @@ namespace CodeCave.Revit.Toolkit
         /// </summary>
         /// <param name="revitFileInfo">The revit file information.</param>
         /// <param name="properties">The properties.</param>
-        /// <exception cref="T:System.ArgumentNullException">properties</exception>
+        /// <exception cref="T:System.ArgumentNullException">properties.</exception>
         public static void ParseRevit(this RevitFileInfo revitFileInfo, Dictionary<string, string> properties)
         {
             if (properties == null)
@@ -143,7 +145,7 @@ namespace CodeCave.Revit.Toolkit
         /// </summary>
         /// <param name="revitFileInfo">The revit file information.</param>
         /// <param name="properties">The properties.</param>
-        /// <exception cref="T:System.ArgumentNullException">properties</exception>
+        /// <exception cref="T:System.ArgumentNullException">properties.</exception>
         public static void ParseLocale(this RevitFileInfo revitFileInfo, Dictionary<string, string> properties)
         {
             if (properties == null) throw new ArgumentNullException(nameof(properties));
@@ -163,7 +165,7 @@ namespace CodeCave.Revit.Toolkit
         /// </summary>
         /// <param name="revitFileInfo">The revit file information.</param>
         /// <param name="properties">The properties.</param>
-        /// <exception cref="T:System.ArgumentNullException">properties</exception>
+        /// <exception cref="T:System.ArgumentNullException">properties.</exception>
         public static void ParseDocumentInfo(this RevitFileInfo revitFileInfo, Dictionary<string, string> properties)
         {
             if (properties == null) throw new ArgumentNullException(nameof(properties));

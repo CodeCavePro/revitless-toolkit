@@ -11,7 +11,7 @@ using System.Text;
 namespace CodeCave.Revit.Toolkit.Parameters.Shared
 {
     /// <summary>
-    /// This class represents Revit shared parameter file
+    /// This class represents Revit shared parameter file.
     /// </summary>
     /// <inheritdoc cref="ICloneable" />
     /// <inheritdoc cref="IEquatable{SharedParameterFile}" />
@@ -51,8 +51,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             {
                 throw new ArgumentException(
                     nameof(groups),
-                    $"Groups you have supplied are invalid. Here is what is wrong: {string.Join(", ", groupValidation.Select(v => v.ErrorMessage))}"
-                );
+                    $"Groups you have supplied are invalid. Here is what is wrong: {string.Join(", ", groupValidation.Select(v => v.ErrorMessage))}");
             }
         }
 
@@ -67,8 +66,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             : this(
                 groups?.Select((g, i) => new Group(g, i +1)),
                 parameters,
-                metadata
-            )
+                metadata)
         {
         }
 
@@ -83,13 +81,12 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             : this(
                 groups?.Select((g, i) => new Group(g.Key, (g.Value > 0) ? g.Value : i)),
                 parameters,
-                metadata
-            )
+                metadata)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:CodeCave.Revit.Toolkit.Parameters.Shared.SharedParameterFile" /> class.
+        /// Initializes a new instance of the <see cref="SharedParameterFile"/> class.
         /// </summary>
         /// <param name="sharedParameterFile">The shared parameter file.</param>
         /// <param name="encoding">The encoding to use, fallbacks to UTF-8.</param>
@@ -112,7 +109,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         public Encoding Encoding { get; } = Encoding.UTF8;
 
         /// <summary>
-        /// Gets or sets the meta-data section of the shared parameter file.
+        /// Gets the meta-data section of the shared parameter file.
         /// </summary>
         /// <value>
         /// The meta-data section of the shared parameter file.
@@ -135,7 +132,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         }
 
         /// <summary>
-        /// Gets or sets the parameters section of the shared parameter file.
+        /// Gets the parameters section of the shared parameter file.
         /// </summary>
         /// <value>
         /// The parameters section of the shared parameter file.
@@ -172,11 +169,12 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
 
             // General health check
             if (Metadata.Version <= 0 || Metadata.MinVersion <= 0)
-                results.Add(new ValidationResult($"Data in {nameof(Sections.META)} section is invalid",
-                    new[] {nameof(Metadata)}));
+                results.Add(new ValidationResult(
+                    $"Data in {nameof(Sections.META)} section is invalid",
+                    new[] {nameof(Metadata) }));
 
             if (!Parameters.Any())
-                results.Add(new ValidationResult("The list of parameters is empty", new[] {nameof(Parameters)}));
+                results.Add(new ValidationResult("The list of parameters is empty", new[] {nameof(Parameters) }));
 
             // Validate groups
             var groups = Groups.ToArray();
@@ -185,25 +183,29 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             // Check for parameter duplicates by Guid
             var paramGuidDuplicates = Parameters.GroupBy(p => p.Guid).Where(g => g.Count() > 1).Select(p => p.Key);
             results.AddRange(paramGuidDuplicates.Select(guid =>
-                new ValidationResult($"The following parameter {nameof(ParameterDefinition.Guid)} has duplicates: {guid}",
-                    new[] {nameof(Parameters)})));
+                new ValidationResult(
+                    $"The following parameter {nameof(ParameterDefinition.Guid)} has duplicates: {guid}",
+                    new[] {nameof(Parameters) })));
 
             // Check for parameter duplicates by name
             var paramNameDuplicates = Parameters.GroupBy(p => p.Name).Where(g => g.Count() > 1).Select(p => p.Key);
             results.AddRange(paramNameDuplicates.Select(name =>
-                new ValidationResult($"The following parameter {nameof(ParameterDefinition.Name)} has duplicates: {name}",
-                    new[] {nameof(Parameters)})));
+                new ValidationResult(
+                    $"The following parameter {nameof(ParameterDefinition.Name)} has duplicates: {name}",
+                    new[] {nameof(Parameters) })));
 
             // Check for unused
             var unusedGroups = groups.Where(g => !Parameters.Any(p => g.Id.Equals(p.Group?.Id)));
             results.AddRange(unusedGroups.Select(g =>
-                new ValidationResult($"The following group is unused (not assigned to any parameter): {g.Id}={g.Name}",
+                new ValidationResult(
+                    $"The following group is unused (not assigned to any parameter): {g.Id}={g.Name}",
                     new[] { nameof(Groups) })));
 
             // Check for orphan parameters by groups
             var paramGroupOrphans = Parameters.Where(p => !groups.Any(g => g.Id.Equals(p.Group?.Id)));
             results.AddRange(paramGroupOrphans.Select(p =>
-                new ValidationResult($"The following parameter is assigned to an unknown group ({p.Group?.Id}): {p.Name}",
+                new ValidationResult(
+                    $"The following parameter is assigned to an unknown group ({p.Group?.Id}): {p.Name}",
                     new[] { nameof(Parameters) })));
 
             return results;
@@ -224,13 +226,15 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             // Check for group duplicates by ID
             var groupIds = groups.GroupBy(p => p.Id).Where(g => g.Count() > 1).Select(p => p.Key);
             results.AddRange(groupIds.Select(groupId =>
-                new ValidationResult($"The following group {nameof(Group.Id)} has duplicates: {groupId}",
+                new ValidationResult(
+                    $"The following group {nameof(Group.Id)} has duplicates: {groupId}",
                     new[] { nameof(Groups) })));
 
             // Check for group duplicates by name
             var groupNames = groups.GroupBy(p => p.Name).Where(g => g.Count() > 1).Select(p => p.Key);
             results.AddRange(groupNames.Select(group =>
-                new ValidationResult($"The following group {nameof(Group.Name)} has duplicates: {group}",
+                new ValidationResult(
+                    $"The following group {nameof(Group.Name)} has duplicates: {group}",
                     new[] { nameof(Groups) })));
 
             return results;
@@ -329,8 +333,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                 randomize
                     ? Parameters.OrderBy(x => Guid.NewGuid()).ToList()
                     : Parameters.ToList(),
-                new MetaData(Metadata)
-            );
+                new MetaData(Metadata));
 
 
             return clone;
@@ -370,8 +373,8 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         /// <summary>
         /// Serializes shared parameter file's sections to CSV.
         /// </summary>
-        /// <typeparam name="TCsvMap">CSV class mappings</typeparam>
-        /// <typeparam name="TEntries">Type of entries to serialize</typeparam>
+        /// <typeparam name="TCsvMap">CSV class mappings.</typeparam>
+        /// <typeparam name="TEntries">Type of entries to serialize.</typeparam>
         /// <param name="sectionName">Name of the section.</param>
         /// <param name="sectionEntries">Section entries.</param>
         /// <returns></returns>
@@ -390,11 +393,11 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             }
 
             // Prepends section lines with section name
-            var sectionAsString = string.Join(Environment.NewLine,
+            var sectionAsString = string.Join(
+                Environment.NewLine,
                 sectionBuilder.ToString()
                     .Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries)
-                    .Select(line => $"{sectionName}\t{line}")
-            );
+                    .Select(line => $"{sectionName}\t{line}"));
 
             // Prepends asterisk as section marker
             return $"*{sectionAsString}";

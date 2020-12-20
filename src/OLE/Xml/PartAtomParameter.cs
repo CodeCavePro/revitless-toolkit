@@ -37,7 +37,7 @@ namespace CodeCave.Revit.Toolkit.OLE
         public string Type { get; internal set; }
 
         /// <summary>
-        /// Gets or sets the value.
+        /// Gets the value.
         /// </summary>
         /// <value>The value.</value>
         [XmlText]

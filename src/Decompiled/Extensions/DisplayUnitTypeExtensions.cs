@@ -7,7 +7,7 @@ using System.Linq;
 namespace CodeCave.Revit.Toolkit
 {
     /// <summary>
-    /// Contains extension methods for <see cref="DisplayUnitType"/>
+    /// Contains extension methods for <see cref="DisplayUnitType"/>.
     /// </summary>
     public static class DisplayUnitTypeExtensions
     {
@@ -17,6 +17,7 @@ namespace CodeCave.Revit.Toolkit
         private static readonly Dictionary<DisplayUnitType, List<ParameterType>> dutToParameterType;
 
         /// <summary>
+        /// Initializes static members of the <see cref="DisplayUnitTypeExtensions"/> class.
         /// Initializes the <see cref="DisplayUnitTypeExtensions"/> class.
         /// </summary>
         static DisplayUnitTypeExtensions()

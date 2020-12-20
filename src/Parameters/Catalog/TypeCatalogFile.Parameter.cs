@@ -14,7 +14,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Catalog
 
             /// <inheritdoc />
             /// <summary>
-            /// Initializes a new instance of the <see cref="T:CodeCave.Revit.Toolkit.Parameters.Catalog.TypeCatalogFile.Parameter" /> class.
+            /// Initializes a new instance of the <see cref="Parameter{TValue}"/> class.
             /// </summary>
             /// <param name="name">The name of the parameter.</param>
             /// <param name="type">The type of the parameter.</param>
@@ -27,16 +27,14 @@ namespace CodeCave.Revit.Toolkit.Parameters.Catalog
             /// or
             /// units
             /// or
-            /// displayUnits
+            /// displayUnits.
             /// </exception>
             public Parameter
             (
                 string name,
                 ParameterType type,
                 TValue value,
-                DisplayUnitType displayUnits
-
-            ) 
+                DisplayUnitType displayUnits) 
                 : base(name, type, displayUnits)
             {
                 ValueRaw = value;
@@ -44,7 +42,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Catalog
 
             /// <inheritdoc />
             /// <summary>
-            /// Initializes a new instance of the <see cref="T:CodeCave.Revit.Toolkit.Parameters.Catalog.TypeCatalogFile.Parameter" /> class.
+            /// Initializes a new instance of the <see cref="Parameter{TValue}"/> class.
             /// </summary>
             /// <param name="name">The name of the parameter.</param>
             /// <param name="type">The type of the parameter.</param>
@@ -54,14 +52,13 @@ namespace CodeCave.Revit.Toolkit.Parameters.Catalog
             /// or
             /// type
             /// or
-            /// type - ParameterType
+            /// type - ParameterType.
             /// </exception>
             public Parameter
             (
                 string name,
                 ParameterType type,
-                TValue value
-            ) 
+                TValue value) 
                 : base(name, type)
             {
                 ValueRaw = value;
@@ -69,16 +66,15 @@ namespace CodeCave.Revit.Toolkit.Parameters.Catalog
 
             /// <inheritdoc />
             /// <summary>
-            /// Initializes a new instance of the <see cref="T:CodeCave.Revit.Toolkit.Parameters.Catalog.TypeCatalogFile.Parameter`1" /> class.
+            /// Initializes a new instance of the <see cref="Parameter{TValue}"/> class.
             /// </summary>
             /// <param name="name">The name.</param>
             /// <param name="value">The value.</param>
-            /// <exception cref="T:System.ArgumentException">value - Value</exception>
+            /// <exception cref="T:System.ArgumentException">value - Value.</exception>
             public Parameter
             (
                 string name,
-                TValue value
-            )
+                TValue value)
             {
                 Name = name;
                 ValueRaw = value;
@@ -102,14 +98,13 @@ namespace CodeCave.Revit.Toolkit.Parameters.Catalog
                         throw new ArgumentException(
                             nameof(value),
                             $"{nameof(Value)} you have specified ({value}) cannot be used to determine " +
-                            $"{nameof(ParameterType)} value. Please use constructor with {nameof(ParameterType)} parameter"
-                        );
+                            $"{nameof(ParameterType)} value. Please use constructor with {nameof(ParameterType)} parameter");
                 }
             }
 
             /// <inheritdoc />
             /// <summary>
-            /// Initializes a new instance of the <see cref="T:CodeCave.Revit.Toolkit.Parameters.Catalog.TypeCatalogFile.Parameter`1" /> class.
+            /// Initializes a new instance of the <see cref="Parameter{TValue}"/> class.
             /// </summary>
             /// <param name="definition">The definition.</param>
             /// <param name="value">The value.</param>

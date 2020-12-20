@@ -11,22 +11,22 @@
 namespace CodeCave.Revit.Toolkit
 {
     /// <summary>A group of related unit types, primarily classified by discipline.</summary>
-    /// <since>2014</since>
+    /// <since>2014.</since>
     public enum UnitGroup
     {
-        /// <summary>Common</summary>
+        /// <summary>Common.</summary>
         Common,
-        /// <summary>Structural</summary>
+        /// <summary>Structural.</summary>
         Structural,
-        /// <summary>HVAC</summary>
+        /// <summary>HVAC.</summary>
         HVAC,
-        /// <summary>Electrical</summary>
+        /// <summary>Electrical.</summary>
         Electrical,
-        /// <summary>Piping</summary>
+        /// <summary>Piping.</summary>
         Piping,
-        /// <summary>Energy</summary>
+        /// <summary>Energy.</summary>
         Energy,
-        /// <summary>Infrastructure</summary>
+        /// <summary>Infrastructure.</summary>
         Infrastructure,
     }
 }

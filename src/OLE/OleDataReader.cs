@@ -8,7 +8,7 @@ using OpenMcdf;
 namespace CodeCave.Revit.Toolkit.OLE
 {
     /// <summary>
-    /// A reader for OLE metadata information stored in Revit files
+    /// A reader for OLE metadata information stored in Revit files.
     /// </summary>
     public static class OleDataReader
     {
@@ -19,7 +19,7 @@ namespace CodeCave.Revit.Toolkit.OLE
         /// <param name="oleStream">The name of the OLE stream.</param>
         /// <param name="enc">The enc.</param>
         /// <returns></returns>
-        /// <exception cref="InvalidDataException">Failed to get XML data from OLE metadata of the following file {pathToFile}</exception>
+        /// <exception cref="InvalidDataException">Failed to get XML data from OLE metadata of the following file {pathToFile}.</exception>
         public static XmlDocument GetRawXml(string pathToFile, string oleStream, Encoding enc = null)
         {
             XmlDocument xmlDocument;
@@ -45,7 +45,7 @@ namespace CodeCave.Revit.Toolkit.OLE
         /// <param name="oleStream">The name of the OLE stream.</param>
         /// <param name="enc">The enc.</param>
         /// <returns></returns>
-        /// <exception cref="InvalidDataException">Failed to decode OLE byte data to {enc.EncodingName}-</exception>
+        /// <exception cref="InvalidDataException">Failed to decode OLE byte data to {enc.EncodingName}-.</exception>
         public static string GetRawString(string pathToFile, string oleStream, Encoding enc = null)
         {
             string stringData;
@@ -70,12 +70,12 @@ namespace CodeCave.Revit.Toolkit.OLE
         /// <param name="compoundFile">The compound file.</param>
         /// <param name="oleStream">The OLE stream.</param>
         /// <returns></returns>
-        /// <exception cref="ArgumentNullException">compoundFile</exception>
-        /// <exception cref="ArgumentException">oleStream</exception>
+        /// <exception cref="ArgumentNullException">compoundFile.</exception>
+        /// <exception cref="ArgumentException">oleStream.</exception>
         /// <exception cref="InvalidDataException">
         /// The following stream \"{oleStream}\" does not exist
         /// or
-        /// Failed to get raw OLE byte data
+        /// Failed to get raw OLE byte data.
         /// </exception>
         private static byte[] GetRawBytes(CompoundFile compoundFile, string oleStream)
         {
@@ -118,7 +118,7 @@ namespace CodeCave.Revit.Toolkit.OLE
         /// <exception cref="InvalidDataException">
         /// The following stream \"{oleStream}\" does not exist in this file \"{pathToFile}\
         /// or
-        /// Failed to get raw OLE byte data from the following file {pathToFile}
+        /// Failed to get raw OLE byte data from the following file {pathToFile}.
         /// </exception>
         public static byte[] GetRawBytes(string pathToFile, string oleStream)
         {
@@ -157,7 +157,7 @@ namespace CodeCave.Revit.Toolkit.OLE
         /// <param name="oleStream">The name of the OLE stream.</param>
         /// <param name="enc">The enc.</param>
         /// <returns></returns>
-        /// <exception cref="InvalidDataException">Failed to get OLE data of type 'TResult' data from the following file {pathToFile}",</exception>
+        /// <exception cref="InvalidDataException">Failed to get OLE data of type 'TResult' data from the following file {pathToFile}".</exception>
         public static TResult GetData<TResult>(string pathToFile, string oleStream, Encoding enc = null)
             where TResult : class
         {

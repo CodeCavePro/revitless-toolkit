@@ -1,9 +1,11 @@
-﻿using System;
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+#pragma warning disable CS0618 // Type or member is obsolete
+#pragma warning disable S3963 // "static" fields should be initialized inline
+
+using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using CodeCave.Revit.Toolkit.OLE;
 using CodeCave.Revit.Toolkit.Parameters;
 using CodeCave.Revit.Toolkit.Parameters.Catalog;
 using Xunit;
@@ -13,16 +15,16 @@ namespace CodeCave.Revit.Toolkit.Tests
     public class TypeCatalogFileTests
     {
         private static readonly string[] CatalogTypeFiles;
-        private static readonly string PathToValidFiles, PathToInvalidFiles;
+        private static readonly string PathToValidFiles;
 
         /// <summary>
+        /// Initializes static members of the <see cref="TypeCatalogFileTests"/> class.
         /// Initializes the <see cref="TypeCatalogFileTests" /> class.
         /// </summary>
         static TypeCatalogFileTests()
         {
             var sharedParamFilesDir = Path.Combine(Environment.CurrentDirectory, "Resources", nameof(TypeCatalogFile));
             PathToValidFiles = Path.Combine(sharedParamFilesDir, "Valid");
-            PathToInvalidFiles = Path.Combine(sharedParamFilesDir, "Invalid");
             CatalogTypeFiles = Directory.GetFiles(sharedParamFilesDir, "*.txt", SearchOption.AllDirectories);
         }
 
@@ -32,15 +34,15 @@ namespace CodeCave.Revit.Toolkit.Tests
         [Fact]
         public void CheckIfNumberOfParametersIsCorrect()
         {
-            Assert.All(CatalogTypeFiles.Where(f => f.StartsWith(PathToValidFiles, StringComparison.InvariantCulture)),
+            Assert.All(
+                CatalogTypeFiles.Where(f => f.StartsWith(PathToValidFiles, StringComparison.InvariantCulture)),
                 catalogTypeFilePath =>
                 {
                     var catalogTypeFile = new TypeCatalogFile(catalogTypeFilePath);
                     var catalogTypeFileText = File.ReadAllLines(catalogTypeFilePath);
                     var catalogTypeFileHeader = catalogTypeFileText.FirstOrDefault();
                     Assert.Equal(catalogTypeFile.parameterDefinitions.Count, catalogTypeFileHeader?.Count(f => f == ',') ?? 0);
-                }
-            );
+                });
         }
 
         /// <summary>
@@ -49,14 +51,14 @@ namespace CodeCave.Revit.Toolkit.Tests
         [Fact]
         public void CheckIfNumberOfTypesIsCorrect()
         {
-            Assert.All(CatalogTypeFiles.Where(f => f.StartsWith(PathToValidFiles, StringComparison.InvariantCulture)),
+            Assert.All(
+                CatalogTypeFiles.Where(f => f.StartsWith(PathToValidFiles, StringComparison.InvariantCulture)),
                 catalogTypeFilePath =>
                 {
                     var catalogTypeFile = new TypeCatalogFile(catalogTypeFilePath);
                     var catalogTypeFileText = File.ReadAllLines(catalogTypeFilePath);
                     Assert.Equal(catalogTypeFile.Types.Count, catalogTypeFileText?.Count(l => !string.IsNullOrWhiteSpace(l)) - 1);
-                }
-            );
+                });
         }
 
         /// <summary>
@@ -65,7 +67,7 @@ namespace CodeCave.Revit.Toolkit.Tests
         [Fact]
         public void AppleCatalogReadAndBuiltAreEqual()
         {
-            var catalogTypeFile = AppleTypeCatalogInstance();
+            var catalogTypeFile = CreateAppleTypeCatalogInstance();
             var catalogTypeFileFromBuilt = catalogTypeFile.ToString();
             Assert.True(!string.IsNullOrWhiteSpace(catalogTypeFileFromBuilt));
 
@@ -91,16 +93,14 @@ namespace CodeCave.Revit.Toolkit.Tests
         [Fact]
         public void SavingTypeCatalogToFile()
         {
-            var catalogTypeFile = AppleTypeCatalogInstance();
-            var catalogTypeFileTmp = $"{Path.GetTempFileName()}.txt";;
+            var catalogTypeFile = CreateAppleTypeCatalogInstance();
+            var catalogTypeFileTmp = $"{Path.GetTempFileName()}.txt";
             Assert.True(catalogTypeFile.Save(catalogTypeFileTmp) && File.Exists(catalogTypeFileTmp));
         }
 
-        /// <summary>
-        /// is the phone type catalog instance.
-        /// </summary>
-        /// <returns></returns>
-        private static TypeCatalogFile AppleTypeCatalogInstance()
+        /// <summary>Creates the apple type catalog instance.</summary>
+        /// <returns><see cref="TypeCatalogFile"/> object.</returns>
+        private static TypeCatalogFile CreateAppleTypeCatalogInstance()
         {
             var catalogTypeFile = new TypeCatalogFile();
             var commonParams = new List<IParameterWithValue>

@@ -7,13 +7,14 @@ using System.Linq;
 namespace CodeCave.Revit.Toolkit
 {
     /// <summary>
-    /// Contains extension methods for <see cref="UnitSymbolType"/>
+    /// Contains extension methods for <see cref="UnitSymbolType"/>.
     /// </summary>
     public static class UnitSymbolTypeExtensions
     {
         private static readonly Dictionary<UnitSymbolType, string> unitSymbolTypes;
 
         /// <summary>
+        /// Initializes static members of the <see cref="UnitSymbolTypeExtensions"/> class.
         /// Initializes the <see cref="UnitSymbolTypeExtensions"/> class.
         /// </summary>
         static UnitSymbolTypeExtensions()

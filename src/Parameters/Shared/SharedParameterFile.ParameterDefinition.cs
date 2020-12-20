@@ -6,7 +6,7 @@ using System.Linq;
 namespace CodeCave.Revit.Toolkit.Parameters.Shared
 {
     /// <summary>
-    /// This class represents Revit shared parameter file
+    /// This class represents Revit shared parameter file.
     /// </summary>
     /// <inheritdoc cref="ICloneable" />
     /// <inheritdoc cref="IEquatable{SharedParameterFile}" />
@@ -15,7 +15,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
     public sealed partial class SharedParameterFile
     {
         /// <summary>
-        /// Represents the entries of the *PARAM section of a shared parameter file
+        /// Represents the entries of the *PARAM section of a shared parameter file.
         /// </summary>
         /// <seealso cref="T:CodeCave.Revit.Toolkit.Parameters.IDefinition" />
         /// <seealso cref="T:CodeCave.Revit.Toolkit.Parameters.IParameter" />
@@ -26,12 +26,12 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         public class ParameterDefinition : IDefinition, IParameter, IEquatable<ParameterDefinition>
         {
             /// <summary>
-            /// Initializes a new instance of the <see cref="Parameter"/> class.
+            /// Initializes a new instance of the <see cref="ParameterDefinition"/> class.
             /// </summary>
             protected ParameterDefinition() {}
 
             /// <summary>
-            /// Initializes a new instance of the <see cref="T:CodeCave.Revit.Toolkit.Parameters.Shared.SharedParameterFile.Parameter" /> class.
+            /// Initializes a new instance of the <see cref="ParameterDefinition"/> class.
             /// </summary>
             /// <param name="guid">The unique identifier of the parameter.</param>
             /// <param name="name">The name of the parameter.</param>
@@ -50,8 +50,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                 string dataCategory = "",
                 string description = "",
                 bool isVisible = true,
-                bool userModifiable = true
-            ) : this()
+                bool userModifiable = true) : this()
             {
                 Guid = guid;
                 Name = name;
@@ -127,7 +126,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
 
             /// <summary>
             /// Gets or sets the data category.
-            /// https://knowledge.autodesk.com/support/revit-products/troubleshooting/caas/sfdcarticles/sfdcarticles/Why-the-DATACATEGORY-column-is-empty-in-shared-parameter-txt-file.html
+            /// https://knowledge.autodesk.com/support/revit-products/troubleshooting/caas/sfdcarticles/sfdcarticles/Why-the-DATACATEGORY-column-is-empty-in-shared-parameter-txt-file.html.
             /// </summary>
             /// <value>
             /// The data category.
@@ -214,10 +213,10 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                 {
                     var hashCode = Guid.GetHashCode();
                     hashCode = (hashCode * 397) ^ (Name != null ? Name.GetHashCode() : 0);
-                    hashCode = (hashCode * 397) ^ (int) UnitType;
-                    hashCode = (hashCode * 397) ^ (int) ParameterGroup;
-                    hashCode = (hashCode * 397) ^ (int) ParameterType;
-                    hashCode = (hashCode * 397) ^ (int) DisplayUnitType;
+                    hashCode = (hashCode * 397) ^ (int)UnitType;
+                    hashCode = (hashCode * 397) ^ (int)ParameterGroup;
+                    hashCode = (hashCode * 397) ^ (int)ParameterType;
+                    hashCode = (hashCode * 397) ^ (int)DisplayUnitType;
                     hashCode = (hashCode * 397) ^ (Group != null ? Group.GetHashCode() : 0);
                     hashCode = (hashCode * 397) ^ (DataCategory != null ? DataCategory.GetHashCode() : 0);
                     hashCode = (hashCode * 397) ^ IsVisible.GetHashCode();
@@ -230,7 +229,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
 
 
         /// <summary>
-        /// A collection of parameter entries tied to a specific <see cref="SharedParameterFile"/> parent
+        /// A collection of parameter entries tied to a specific <see cref="SharedParameterFile"/> parent.
         /// </summary>
         /// <seealso cref="T:System.Collections.Generic.List`1" />
         /// <inheritdoc />
@@ -243,7 +242,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             /// </summary>
             /// <param name="parameterFile">The parent parameter file.</param>
             /// <param name="parameters">The parameters.</param>
-            /// <exception cref="T:System.ArgumentNullException">parameterFile</exception>
+            /// <exception cref="T:System.ArgumentNullException">parameterFile.</exception>
             /// <inheritdoc />
             public ParameterCollection(SharedParameterFile parameterFile, IEnumerable<ParameterDefinition> parameters)
                 :base(parameters ?? new List<ParameterDefinition>())
@@ -255,31 +254,25 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             {
                 if (parameter == null) throw new ArgumentNullException(nameof(parameter));
                 if (parameter.Group == null) throw new ArgumentNullException(
-                    nameof(parameter), $"Parameter you have provided has no {nameof(ParameterDefinition.Group)} assigned"
-                );
+                    nameof(parameter), $"Parameter you have provided has no {nameof(ParameterDefinition.Group)} assigned");
                 if (parameter.Guid == null) throw new ArgumentNullException(
-                    nameof(parameter), $"Parameter you have provided has no {nameof(ParameterDefinition.Guid)} assigned"
-                );
+                    nameof(parameter), $"Parameter you have provided has no {nameof(ParameterDefinition.Guid)} assigned");
 
                 if (this.Any(p => Equals(parameter.Guid, p.Guid))) throw new ArgumentException(
                     nameof(parameter),
-                    $"You are trying to add a parameter with {nameof(ParameterDefinition.Guid)}={parameter.Guid} value already used by another parameter in the collection"
-                );
+                    $"You are trying to add a parameter with {nameof(ParameterDefinition.Guid)}={parameter.Guid} value already used by another parameter in the collection");
 
                 if (this.Any(p => Equals(parameter.Name, p.Name))) throw new ArgumentException(
                     nameof(parameter),
-                    $"You are trying to add a parameter with {nameof(ParameterDefinition.Guid)}={parameter.Guid} value already used by another parameter in the collection"
-                );
+                    $"You are trying to add a parameter with {nameof(ParameterDefinition.Guid)}={parameter.Guid} value already used by another parameter in the collection");
 
                 if (parameterFile.Groups.Any(g => Equals(g.Id, parameter.Group?.Id) && !Equals(g.Name, parameter.Group?.Name))) throw new ArgumentException(
                     nameof(parameter),
-                    $"You are trying to add a parameter with {nameof(Group)}.{nameof(Group.Id)}={parameter.Group.Id} value already used by another group in {nameof(Groups)} collection"
-                );
+                    $"You are trying to add a parameter with {nameof(Group)}.{nameof(Group.Id)}={parameter.Group.Id} value already used by another group in {nameof(Groups)} collection");
 
                 if (parameterFile.Groups.Any(g => Equals(g.Name, parameter.Group?.Name) && !Equals(g.Id, parameter.Group?.Id))) throw new ArgumentException(
                     nameof(parameter),
-                    $"You are trying to add a parameter with {nameof(Group)}.{nameof(Group.Name)}={parameter.Group.Name} value already used by another group in {nameof(Groups)} collection"
-                );
+                    $"You are trying to add a parameter with {nameof(Group)}.{nameof(Group.Name)}={parameter.Group.Name} value already used by another group in {nameof(Groups)} collection");
 
                 base.Add(parameter);
             }
@@ -288,7 +281,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             /// Adds the range of parameters.
             /// </summary>
             /// <param name="parameters">The parameters.</param>
-            /// <exception cref="ArgumentNullException">parameters</exception>
+            /// <exception cref="ArgumentNullException">parameters.</exception>
             public new void AddRange(IEnumerable<ParameterDefinition> parameters)
             {
                 if (parameters == null) throw new ArgumentNullException(nameof(parameters));
@@ -310,7 +303,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             /// <param name="description">The description.</param>
             /// <param name="isVisible">if set to <c>true</c> [is visible].</param>
             /// <param name="userModifiable">if set to <c>true</c> [user modifiable].</param>
-            /// <exception cref="ArgumentNullException">groupName</exception>
+            /// <exception cref="ArgumentNullException">groupName.</exception>
             public void Add(
                 Guid guid,
                 string name,
@@ -319,8 +312,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                 string dataCategory = "",
                 string description = "",
                 bool isVisible = true,
-                bool userModifiable = true
-            )
+                bool userModifiable = true)
             {
                 if (string.IsNullOrWhiteSpace(groupName)) throw new ArgumentNullException(nameof(groupName));
 
@@ -331,8 +323,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                 Add(
                     guid, name, group, type,
                     dataCategory, description,
-                    isVisible, userModifiable
-                );
+                    isVisible, userModifiable);
             }
 
             /// <summary>
@@ -349,7 +340,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             /// <exception cref="ArgumentNullException">
             /// name
             /// or
-            /// group
+            /// group.
             /// </exception>
             public void Add(
                 Guid guid,
@@ -359,8 +350,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                 string dataCategory = "",
                 string description = "",
                 bool isVisible = true,
-                bool userModifiable = true
-            )
+                bool userModifiable = true)
             {
                 if (string.IsNullOrWhiteSpace(name)) throw new ArgumentNullException(nameof(name));
                 if (@group == null) throw new ArgumentNullException(nameof(@group));
@@ -373,8 +363,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                     dataCategory,
                     description,
                     isVisible,
-                    userModifiable
-                ));
+                    userModifiable));
             }
         }
     }

@@ -1,4 +1,7 @@
-﻿using System;
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+#pragma warning disable S3963 // "static" fields should be initialized inline
+
+using System;
 using System.IO;
 using System.Linq;
 using CodeCave.Revit.Toolkit.Thumbnails;
@@ -8,36 +11,19 @@ namespace CodeCave.Revit.Toolkit.Tests
 {
     public class ThumbnailFixture
     {
-        private static readonly string PathToValidFiles, PathToInvalidFiles;
+        private static readonly string PathToValidFiles;
 
         /// <summary>
-        /// Initializes the <see cref="TypeCatalogFileTests" /> class.
+        /// Initializes static members of the <see cref="ThumbnailFixture"/> class.
         /// </summary>
         static ThumbnailFixture()
         {
             var filesForThumbnails = Path.Combine(Environment.CurrentDirectory, "Resources", nameof(Thumbnails));
             PathToValidFiles = Path.Combine(filesForThumbnails, "Valid");
-            PathToInvalidFiles = Path.Combine(filesForThumbnails, "Invalid");
         }
 
-        [Theory]
-        [InlineData("Thumbnails/Valid/qf_hatco_hdw-2bn_cat.rfa")]
-        public void RfaThumbnailIsGenerated(string rfaRelativePath)
-        {
-            // setup
-            rfaRelativePath = rfaRelativePath?.Replace('/', Path.DirectorySeparatorChar);
-            var rfaFilePath = Directory.GetFiles(PathToValidFiles, "*.rfa").FirstOrDefault(f => f.EndsWith(rfaRelativePath));
-            var rfaThumbnailPath = Path.ChangeExtension(Path.Combine(Environment.CurrentDirectory, Path.GetFileName(rfaFilePath)), "png");
-
-            // act
-            var rfaThumbnailer = new RevitTumbnailExtractor();
-            var fileExtracted = rfaThumbnailer.TryExtractFile(rfaFilePath, rfaThumbnailPath);
-
-            // assert
-            Assert.True(fileExtracted);
-            Assert.True(File.Exists(rfaThumbnailPath));
-        }
-
+        /// <summary>The thumbnails are generated for DWGs.</summary>
+        /// <param name="dwgRelativePath">The DWG relative path.</param>
         [Theory]
         [InlineData("Thumbnails/Valid/A1ANG-3.dwg")]
         public void DwgThumbnailIsGenerated(string dwgRelativePath)
@@ -54,6 +40,26 @@ namespace CodeCave.Revit.Toolkit.Tests
             // assert
             Assert.True(fileExtracted);
             Assert.True(File.Exists(dwgThumbnailPath));
+        }
+
+        /// <summary>The thumbnails are generated for RFAs.</summary>
+        /// <param name="rfaRelativePath">The rfa relative path.</param>
+        [Theory]
+        [InlineData("Thumbnails/Valid/qf_hatco_hdw-2bn_cat.rfa")]
+        public void RfaThumbnailIsGenerated(string rfaRelativePath)
+        {
+            // setup
+            rfaRelativePath = rfaRelativePath?.Replace('/', Path.DirectorySeparatorChar);
+            var rfaFilePath = Directory.GetFiles(PathToValidFiles, "*.rfa").FirstOrDefault(f => f.EndsWith(rfaRelativePath));
+            var rfaThumbnailPath = Path.ChangeExtension(Path.Combine(Environment.CurrentDirectory, Path.GetFileName(rfaFilePath)), "png");
+
+            // act
+            var rfaThumbnailer = new RevitTumbnailExtractor();
+            var fileExtracted = rfaThumbnailer.TryExtractFile(rfaFilePath, rfaThumbnailPath);
+
+            // assert
+            Assert.True(fileExtracted);
+            Assert.True(File.Exists(rfaThumbnailPath));
         }
     }
 }

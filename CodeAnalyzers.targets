@@ -1,0 +1,74 @@
+<Project>
+
+  <!--
+  IDEALLY THIS IS ALWAYS ENABLED, BUT THAT TENDS TO HURT DEVELOPER PRODUCTIVITY
+  =============================================================================
+  <PropertyGroup Condition="'$(BuildingInsideVisualStudio)' != 'true'">
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  -->
+
+  <PropertyGroup>
+    <SolutionDir Condition="'$(SolutionDir)'==''">$(MSBuildThisFileDirectory)</SolutionDir>
+  </PropertyGroup>
+
+  <!-- Documentation-related settings -->
+  <PropertyGroup>
+    <!--
+    Make sure any documentation comments which are included in code get checked for syntax during the build, but do
+    not report warnings for missing comments.
+
+    CS1573: Parameter 'parameter' has no matching param tag in the XML comment for 'parameter' (but other parameters do)
+    CS1591: Missing XML comment for publicly visible type or member 'Type_or_Member'
+    -->
+    <NoWarn>$(NoWarn),1573,1591,1712</NoWarn>
+  </PropertyGroup>
+
+  <!-- Analyzers-related configuration -->
+  <PropertyGroup>
+    <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
+    <RunAnalyzersDuringLiveAnalysis>true</RunAnalyzersDuringLiveAnalysis>
+    <StyleCopTreatErrorsAsWarnings>true</StyleCopTreatErrorsAsWarnings>
+    <CodeAnalysisRuleSet Condition="Exists('$(SolutionDir)\stylecop.ruleset')">$(SolutionDir)\stylecop.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- StyleCop Analyzer-related configuration -->
+    <AdditionalFiles Include="$(SolutionDir)\stylecop.json" Condition="Exists('$(SolutionDir)\stylecop.json')" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.*">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <None Remove="**\*.Cache" />
+
+    <!-- FxCop Analyzer-related configuration -->
+    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="5.0.*">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+
+    <!-- CodeCracker Analyzer-related configuration -->
+    <PackageReference Include="codecracker.CSharp" Version="1.1.*">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+
+    <!-- Sonar Analyzer-related configuration -->
+    <PackageReference Include="SonarAnalyzer.CSharp" Version="8.*">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <!--
+      Disable analyzers when building a project inside Visual Studio.
+      Note that analyzer behavior for IntelliSense purposes is not altered by this.
+    -->
+  <Target Name="DisableAnalyzersForVisualStudioBuild" BeforeTargets="CoreCompile"
+        Condition="'$(BuildingInsideVisualStudio)' == 'true' And '$(BuildingProject)' == 'true' And '$(Configuration)' == 'Debug'">
+    <ItemGroup>
+      <Analyzer Remove="@(Analyzer)"/>
+    </ItemGroup>
+  </Target>
+
+</Project>

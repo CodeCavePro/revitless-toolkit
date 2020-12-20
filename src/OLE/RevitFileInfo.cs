@@ -125,7 +125,7 @@ namespace CodeCave.Revit.Toolkit.OLE
         /// <param name="readProperties">if set to <c>true</c> [read properties].</param>
         /// <param name="readTypes">if set to <c>true</c> [read types].</param>
         /// <returns></returns>
-        /// <exception cref="T:System.ArgumentException">filePath is invalid</exception>
+        /// <exception cref="T:System.ArgumentException">filePath is invalid.</exception>
         public static RevitFileInfo GetFromFile(string filePath)
         {
             if (string.IsNullOrWhiteSpace(filePath) || !File.Exists(filePath))

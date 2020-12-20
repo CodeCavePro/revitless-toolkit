@@ -1,0 +1,12 @@
+<Project>
+
+  <Target Name="CleanNuGetFiles" AfterTargets="Clean">
+    <ItemGroup>
+      <NuGetFilesBin Include="$(OutputPath)\..\*.nupkg" />
+    </ItemGroup>
+    <Message Text="Deleting NuGet files from $(OutputPath)\..\*.nupkg" Importance="high" />
+    <Delete Files="@(NuGetFilesBin)" />
+    <Delete Files="@(NuGetFilesProject)" />
+  </Target>
+
+</Project>

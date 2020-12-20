@@ -6,7 +6,7 @@ using System.Linq;
 namespace CodeCave.Revit.Toolkit
 {
     /// <summary>
-    /// UnitType extension class featuring extension methods for UnitType enumeration
+    /// UnitType extension class featuring extension methods for UnitType enumeration.
     /// </summary>
     public static class UnitTypeExtensions
     {
@@ -15,6 +15,7 @@ namespace CodeCave.Revit.Toolkit
         private static readonly Dictionary<UnitType, ParameterType> parameterTypes;
 
         /// <summary>
+        /// Initializes static members of the <see cref="UnitTypeExtensions"/> class.
         /// Initializes the <see cref="UnitTypeExtensions"/> class.
         /// </summary>
         static UnitTypeExtensions()

@@ -10,16 +10,16 @@
 // Assembly location: C:\Program Files\Autodesk\Revit 2021\RevitAPI.dll
 namespace CodeCave.Revit.Toolkit
 {
-    /// <summary>An enumerated type listing all connector flow configuration</summary>
+    /// <summary>An enumerated type listing all connector flow configuration.</summary>
     public enum PipeFlowConfigurationType
     {
-        /// <summary>Flow configuration is calculated</summary>
+        /// <summary>Flow configuration is calculated.</summary>
         Calculated,
-        /// <summary>Flow configuration is Preset</summary>
+        /// <summary>Flow configuration is Preset.</summary>
         Preset,
-        /// <summary>Flow configuration depends on system</summary>
+        /// <summary>Flow configuration depends on system.</summary>
         System,
-        /// <summary>Flow configuration depends on demand</summary>
+        /// <summary>Flow configuration depends on demand.</summary>
         Demand,
     }
 }

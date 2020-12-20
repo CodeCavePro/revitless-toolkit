@@ -13,7 +13,7 @@ using System;
 
 namespace CodeCave.Revit.Toolkit
 {
-    /// <since>2014</since>
+    /// <since>2014.</since>
     /// <summary>
     ///    The unit symbol displayed in the formatted string representation of a number to indicate the units of the value.
     /// </summary>
@@ -22,7 +22,7 @@ namespace CodeCave.Revit.Toolkit
     ///    for example "mm" for millimeters.  Some currency symbols appear as
     ///    prefixes, for example "$" for dollars.
     /// </remarks>
-    /// <since>2014</since>
+    /// <since>2014.</since>
     [Obsolete("This enumeration is deprecated in Revit 2021 and may be removed in a future version of Revit. Please use the `ForgeTypeId` class instead. Use constant members of the `SymbolTypeId` class to replace uses of specific values of this enumeration.")]
     public enum UnitSymbolType
     {

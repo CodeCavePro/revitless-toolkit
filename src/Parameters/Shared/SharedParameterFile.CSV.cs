@@ -13,7 +13,7 @@ using CsvHelper.TypeConversion;
 namespace CodeCave.Revit.Toolkit.Parameters.Shared
 {
     /// <summary>
-    /// This class represents Revit shared parameter file
+    /// This class represents Revit shared parameter file.
     /// </summary>
     /// <inheritdoc cref="ICloneable" />
     /// <inheritdoc cref="IEquatable{SharedParameterFile}" />
@@ -28,6 +28,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         private static readonly CsvConfiguration CsvConfiguration;
 
         /// <summary>
+        /// Initializes static members of the <see cref="SharedParameterFile"/> class.
         /// Initializes the <see cref="SharedParameterFile"/> class.
         /// </summary>
         static SharedParameterFile()
@@ -54,7 +55,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         /// </summary>
         /// <param name="sharedParameterFile">The shared parameter file.</param>
         /// <param name="encoding">The encoding to use, fallbacks to UTF-8.</param>
-        /// <exception cref="ArgumentException">sharedParameterFile</exception>
+        /// <exception cref="ArgumentException">sharedParameterFile.</exception>
         /// <exception cref="InvalidDataException">Failed to parse shared parameter file content," +
         /// "because it doesn't contain enough data for being qualified as a valid shared parameter file.</exception>
         public SharedParameterFile(string sharedParameterFile, Encoding encoding = null)
@@ -172,8 +173,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                         p.Group = _groups?.FirstOrDefault(g => g.Id == p.Group.Id);
                         return p;
                     })
-                    .ToList() ?? new List<ParameterDefinition>()
-                );
+                    .ToList() ?? new List<ParameterDefinition>());
         }
 
         #endregion Constructor
@@ -184,7 +184,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         /// Extracts <see cref="SharedParameterFile"/> object from a .txt file.
         /// </summary>
         /// <param name="sharedParameterFile">The shared parameter file path.</param>
-        /// <returns>The shared parameter file</returns>
+        /// <returns>The shared parameter file.</returns>
         /// <exception cref="ArgumentException"></exception>
         [Obsolete("Please use constructor instead")]
         public static SharedParameterFile FromFile(string sharedParameterFile)
@@ -196,8 +196,8 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         /// Extracts <see cref="SharedParameterFile"/> object from a string.
         /// </summary>
         /// <param name="sharedParameterText">Text content of shared parameter file.</param>
-        /// <returns>The shared parameter file</returns>
-        /// <exception cref="System.ArgumentException">sharedParameterText</exception>
+        /// <returns>The shared parameter file.</returns>
+        /// <exception cref="System.ArgumentException">sharedParameterText.</exception>
         [Obsolete("Please use constructor instead")]
         public static SharedParameterFile FromText(string sharedParameterText)
         {
@@ -210,7 +210,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         /// <param name="pathToFile">The path to the file.</param>
         /// <param name="throwOnError">if set to <c>true</c> [throw an Exception on error].</param>
         /// <returns></returns>
-        /// <exception cref="ArgumentException">pathToFile</exception>
+        /// <exception cref="ArgumentException">pathToFile.</exception>
         public bool Save(string pathToFile, bool throwOnError = false)
         {
             if (string.IsNullOrWhiteSpace(pathToFile) || Path.GetInvalidPathChars().Any(pathToFile.Contains) || Path.GetInvalidFileNameChars().Any(Path.GetFileName(pathToFile).Contains))
@@ -233,7 +233,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         #region Helpers
 
         /// <summary>
-        /// Defines the names of shared parameter file sections
+        /// Defines the names of shared parameter file sections.
         /// </summary>
         internal struct Sections
         {
@@ -262,7 +262,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         #region MetaClassMap
 
         /// <summary>
-        /// CSVHelper mappings for META section
+        /// CSVHelper mappings for META section.
         /// </summary>
         /// <seealso cref="T:CsvHelper.Configuration.ClassMap`1" />
         /// <inheritdoc />
@@ -270,7 +270,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         {
             /// <inheritdoc />
             /// <summary>
-            /// Initializes a new instance of the <see cref="T:CodeCave.Revit.Toolkit.Parameters.Shared.MetaClassMap" /> class.
+            /// Initializes a new instance of the <see cref="MetaClassMap"/> class.
             /// </summary>
             public MetaClassMap()
             {
@@ -284,7 +284,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         #region GroupClassMap
 
         /// <summary>
-        /// CSVHelper mappings for GROUP section
+        /// CSVHelper mappings for GROUP section.
         /// </summary>
         /// <seealso cref="T:CsvHelper.Configuration.ClassMap`1" />
         /// <inheritdoc />
@@ -292,7 +292,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         {
             /// <inheritdoc />
             /// <summary>
-            /// Initializes a new instance of the <see cref="T:CodeCave.Revit.Toolkit.Parameters.Shared.GroupClassMap" /> class.
+            /// Initializes a new instance of the <see cref="GroupClassMap"/> class.
             /// </summary>
             public GroupClassMap()
             {
@@ -306,7 +306,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         #region ParameterClassMap
 
         /// <summary>
-        /// CSVHelper mappings for PARAM section
+        /// CSVHelper mappings for PARAM section.
         /// </summary>
         /// <seealso cref="!:CsvHelper.Configuration.ClassMap{CodeCave.Revit.Toolkit.Parameters.Shared.Parameter}" />
         /// <inheritdoc />
@@ -314,7 +314,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         {
             /// <inheritdoc />
             /// <summary>
-            /// Initializes a new instance of the <see cref="T:CodeCave.Revit.Toolkit.Parameters.Shared.ParameterClassMap" /> class.
+            /// Initializes a new instance of the <see cref="ParameterClassMap"/> class.
             /// </summary>
             public ParameterClassMap()
             {
@@ -336,7 +336,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
 
             /// <inheritdoc />
             /// <summary>
-            /// Ensures a correct conversion of <see cref="ParameterType"/> values to/from their relative string representations
+            /// Ensures a correct conversion of <see cref="ParameterType"/> values to/from their relative string representations.
             /// </summary>
             /// <seealso cref="ITypeConverter" />
             internal class ParameterTypeConverter : ITypeConverter

@@ -4,7 +4,7 @@ using System.Diagnostics;
 namespace CodeCave.Revit.Toolkit.Parameters.Shared
 {
     /// <summary>
-    /// This class represents Revit shared parameter file
+    /// This class represents Revit shared parameter file.
     /// </summary>
     /// <inheritdoc cref="ICloneable" />
     /// <inheritdoc cref="IEquatable{SharedParameterFile}" />
@@ -13,7 +13,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
     public sealed partial class SharedParameterFile
     {
         /// <summary>
-        /// Represents the entries of the *PARAM section of a shared parameter file
+        /// Represents the entries of the *PARAM section of a shared parameter file.
         /// </summary>
         /// <seealso cref="T:CodeCave.Revit.Toolkit.Parameters.IDefinition" />
         /// <seealso cref="T:CodeCave.Revit.Toolkit.Parameters.IParameter" />
@@ -24,7 +24,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         public class Parameter<TValue> : ParameterDefinition, IParameterWithValue
         {
             /// <summary>
-            /// Initializes a new instance of the <see cref="T:CodeCave.Revit.Toolkit.Parameters.Shared.SharedParameterFile.Parameter" /> class.
+            /// Initializes a new instance of the <see cref="Parameter{TValue}"/> class.
             /// </summary>
             /// <param name="guid">The unique identifier of the parameter.</param>
             /// <param name="name">The name of the parameter.</param>
@@ -45,8 +45,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                 string dataCategory = "",
                 string description = "",
                 bool isVisible = true,
-                bool userModifiable = true
-            ) 
+                bool userModifiable = true) 
                 : base(guid, name, group, type, dataCategory, description, isVisible, userModifiable)
             {
                 ValueRaw = value;
@@ -69,7 +68,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             /// </value>
             public TValue Value
             {
-                get => (TValue) ValueRaw;
+                get => (TValue)ValueRaw;
                 set => ValueRaw = value;
             }
 
@@ -92,8 +91,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             {
                 return new ParameterDefinition(
                     Guid, Name, Group, ParameterType, 
-                    DataCategory, Description, IsVisible, UserModifiable
-                );
+                    DataCategory, Description, IsVisible, UserModifiable);
             }
 
             /// <inheritdoc />
@@ -117,8 +115,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             {
                 return new Parameter<TValue>(
                     Guid, Name, Group, ParameterType, Value, 
-                    DataCategory, Description, IsVisible, UserModifiable
-                );
+                    DataCategory, Description, IsVisible, UserModifiable);
             }
         }
     }

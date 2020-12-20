@@ -7,7 +7,7 @@ namespace CodeCave.Revit.Toolkit.Thumbnails
     /// <summary>
     /// Utility class for Revit (.rfa, .rvt etc) thumbnail creation
     /// Inspired by Jeremy Tammik's post on The Building Coder website
-    /// http://thebuildingcoder.typepad.com/blog/2008/10/rvt-file-version.html
+    /// http://thebuildingcoder.typepad.com/blog/2008/10/rvt-file-version.html.
     /// </summary>
     /// <seealso cref="ThumbnailExtractor" />
     public partial class RevitTumbnailExtractor : ThumbnailExtractor

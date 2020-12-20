@@ -1,75 +1,49 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFrameworks>net46;netstandard2.0;net45;</TargetFrameworks>
-    <Description>A toolkit for processing .rfa, .rvt etc without Revit</Description>
-    <Version>2021.0.1</Version>
-    <AssemblyVersion>2021.0.1</AssemblyVersion>
-    <FileVersion>2021.0.1</FileVersion>
-    <Company>CodeCave, PUE</Company>
-    <Authors>Zhmayev Yaroslav aka Salaros</Authors>
-    <Copyright>Copyright 2016 (c) CodeCave, PUE</Copyright>
-    <NeutralLanguage>en</NeutralLanguage>
-    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <PackageTags>Revit, Metadata, Thumbnail, Parameters, PartAtom, OLE</PackageTags>
-    <PackageLicenseUrl>https://github.com/CodeCavePro/revit-toolkit/master/LICENSE.txt</PackageLicenseUrl>
-    <PackageProjectUrl>https://github.com/CodeCavePro/revit-toolkit</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/CodeCavePro/revit-toolkit</RepositoryUrl>
-    <RepositoryType>Git</RepositoryType>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
+		<AppendTargetFrameworkToOutputPath Condition="'$(TargetFrameworks)' != ''">true</AppendTargetFrameworkToOutputPath>
+	</PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <OutputPath>..\bin\Release\</OutputPath>
-    <DocumentationFile>..\bin\Release\netstandard2.0\Toolkit.xml</DocumentationFile>
-    <DefineConstants>TRACE;RELEASE;NETSTANDARD2_0</DefineConstants>
-  </PropertyGroup>
+	<PropertyGroup>
+		<Version>2021.0.1</Version>
+		<AssemblyVersion>2021.0.1</AssemblyVersion>
+		<FileVersion>2021.0.1</FileVersion>
+	</PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <OutputPath>..\bin\Debug\</OutputPath>
-    <DebugType>full</DebugType>
-    <NoWarn>1701;1702;1705</NoWarn>
-  </PropertyGroup>
+	<PropertyGroup>
+		<Authors>Zhmayev Yaroslav aka Salaros</Authors>
+		<Description>A toolkit for processing .rfa, .rvt etc without Revit</Description>
+		<PackageTags>Revit, Metadata, Thumbnail, Parameters, PartAtom, OLE</PackageTags>
+		<RepositoryUrl>https://github.com/CodeCavePro/revit-toolkit</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+	</PropertyGroup>
 
-  <PropertyGroup>
-    <LangVersion>8.0</LangVersion>
-  </PropertyGroup>
+	<PropertyGroup>
+		<IsPackable>true</IsPackable>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<NeutralLanguage>en</NeutralLanguage>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+		<Product>$(AssemblyName)</Product>
+		<PackageProjectUrl>$(RepositoryUrl)</PackageProjectUrl>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="CodeCave.Extensions" Version="1.1.*" />
+		<PackageReference Include="CsvHelper" Version="18.0.*" />
+		<PackageReference Include="OpenMcdf" Version="2.2.*" />
+		<PackageReference Include="System.ComponentModel.Annotations" Version="$(NetCorePackageVersion)" />
+		<PackageReference Include="System.Drawing.Common" Version="$(NetCorePackageVersion)" Condition="'$(TargetFramework)' == 'netstandard2.0' Or '$(TargetFramework)' == 'netcoreapp2.1'" />
+		<PackageReference Include="System.Text.Encoding.CodePages" Version="$(NetCorePackageVersion)" Condition="'$(TargetFramework)' != 'net45'" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <None Remove="OmniClass\OmniClassTaxonomy_FoodService.txt" />
-    <None Remove="OmniClass\OmniClassTaxonomy_Vanilla.txt" />
-    <None Remove="Revit.Toolkit.csproj.DotSettings" />
-    <None Remove="Toolkit.csproj.DotSettings" />
-  </ItemGroup>
+	<ItemGroup>
+		<None Remove="OmniClass\OmniClassTaxonomy_FoodService.txt" />
+		<None Remove="OmniClass\OmniClassTaxonomy_Vanilla.txt" />
+		<None Remove="**\*.DotSettings" />
+		<EmbeddedResource Include="OmniClass\OmniClassTaxonomy_FoodService.txt" />
+		<EmbeddedResource Include="OmniClass\OmniClassTaxonomy_Vanilla.txt" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <EmbeddedResource Include="OmniClass\OmniClassTaxonomy_FoodService.txt" />
-    <EmbeddedResource Include="OmniClass\OmniClassTaxonomy_Vanilla.txt" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="CodeCave.Extensions" Version="1.1.*" />
-    <PackageReference Include="CsvHelper" Version="18.0.*" />
-    <PackageReference Include="OpenMcdf" Version="2.2.*" />
-    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
-    <PackageReference Include="System.Drawing.Common" Version="5.0.0" Condition="'$(TargetFramework)' == 'netstandard2.0' Or '$(TargetFramework)' == 'netcoreapp2.1'" />
-    <PackageReference Include="System.Text.Encoding.CodePages" Version="5.0.0" Condition="'$(TargetFramework)' != 'net45'" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Properties\" />
-  </ItemGroup>
-
-  <Target Name="CleanNuGetFiles" AfterTargets="Clean">
-    <ItemGroup>
-      <NuGetFilesBin Include="$(OutputPath)\..\*.nupkg" />
-    </ItemGroup>
-    <Message Text="Deleting NuGet files from $(OutputPath)\..\*.nupkg" Importance="high" />
-    <Delete Files="@(NuGetFilesBin)" />
-    <Delete Files="@(NuGetFilesProject)" />
-  </Target>
 </Project>

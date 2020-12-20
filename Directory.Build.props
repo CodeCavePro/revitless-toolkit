@@ -1,0 +1,77 @@
+<Project>
+
+  <PropertyGroup>
+    <NetStandardVersion>netstandard2.1</NetStandardVersion>
+    <NetCoreAppVersion>net5.0</NetCoreAppVersion>
+    <NetCorePackageVersion>5.0.0</NetCorePackageVersion>
+    <EFCorePackageVersion>5.0.0</EFCorePackageVersion>
+    <LangVersion>8.0</LangVersion>
+    <Configurations>Debug;Release</Configurations>
+    <ResolveNuGetPackages>true</ResolveNuGetPackages>
+  </PropertyGroup>
+
+  <!-- NuGet packaging-related stuff -->
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <Company>CODECAVE LLC</Company>
+    <Authors>CODECAVE LLC</Authors>
+    <Copyright>Copyright © $([System.DateTime]::Now.ToString(yyyy)) CODECAVE LLC - All Rights Reserved</Copyright>
+    <NeutralLanguage>en</NeutralLanguage>
+  </PropertyGroup>
+
+  <!-- Output-related settings -->
+  <PropertyGroup>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <AppendTargetFrameworkToOutputPath Condition="'$(TargetFrameworks)' == ''">false</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>true</AppendRuntimeIdentifierToOutputPath>
+    <SolutionDir Condition="'$(SolutionDir)'==''">$(MSBuildThisFileDirectory)</SolutionDir>
+    <OutputPath>$(SolutionDir)\bin\$(Configuration)\</OutputPath>
+  </PropertyGroup>
+
+  <!-- Some tweaks for Unit Test projects, e.g. xUnit -->
+  <PropertyGroup>
+    <IsTestProject Condition="'$(IsTestProject)' == ''">$(MSBuildProjectName.Contains('.Test'))</IsTestProject>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(IsTestProject)' == 'true'">
+    <!-- Changing output path for xUnit tests, so it won't break actual compiled code by shipping its Newtonsoft.Json v9.0.0 -->
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <!-- Mark the project as being a test project -->
+    <SonarQubeTestProject>true</SonarQubeTestProject>
+  </PropertyGroup>
+
+  <!-- Coverage-related settings -->
+  <PropertyGroup>
+    <CollectCoverage>true</CollectCoverage>
+    <CoverletOutputFormat>opencover</CoverletOutputFormat>
+    <CoverletOutput>$(SolutionDir)/tests/coverage/</CoverletOutput>
+  </PropertyGroup>
+
+  <!-- Docker-related settings -->
+  <PropertyGroup Condition="Exists('$(SolutionDir)\docker-compose.dcproj') And '$(IsTestProject)' != 'true'">
+    <Configurations>$(Configurations);DebugDocker</Configurations>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..</DockerfileContext>
+    <DockerComposeProjectPath>$(DockerfileContext)\docker-compose.dcproj</DockerComposeProjectPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="$(Configuration.Contains('Docker'))">
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+
+  <!-- Debug-related settings -->
+  <PropertyGroup>
+    <Configuration Condition="'$(Configuration)' == ''">Debug</Configuration>
+    <Platform Condition="'$(Platform)' == ''">AnyCPU</Platform>
+  </PropertyGroup>
+  <PropertyGroup Condition="$(Configuration.Contains('Debug'))">
+    <DefineConstants>$(DefineConstants);DEBUG</DefineConstants>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(OS)' == 'Windows_NT' And $(TargetFramework.Contains('net4'))">
+    <DebugType>full</DebugType>
+  </PropertyGroup>
+
+  <Import Project="$(SolutionDir)\CodeAnalyzers.targets" Condition="Exists('$(SolutionDir)\CodeAnalyzers.targets')" />
+
+</Project>

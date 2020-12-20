@@ -11,9 +11,11 @@ namespace CodeCave.Revit.Toolkit.Tests
     public class SharedParameterFileTests
     {
         private static readonly string[] SharedParameterFiles;
-        private static readonly string PathToValidFiles, PathToInvalidFiles;
+        private static readonly string PathToValidFiles;
+        private static readonly string PathToInvalidFiles;
 
         /// <summary>
+        /// Initializes static members of the <see cref="SharedParameterFileTests"/> class.
         /// Initializes the <see cref="SharedParameterFileTests"/> class.
         /// </summary>
         static SharedParameterFileTests()
@@ -30,13 +32,13 @@ namespace CodeCave.Revit.Toolkit.Tests
         [Fact]
         public void ValidFilesPassValidation()
         {
-            Assert.All(SharedParameterFiles.Where(f => f.StartsWith(PathToValidFiles, StringComparison.InvariantCulture)),
+            Assert.All(
+                SharedParameterFiles.Where(f => f.StartsWith(PathToValidFiles, StringComparison.InvariantCulture)),
                 sharedParamFilePath =>
                 {
                     var sharedParamFile = new SharedParameterFile(sharedParamFilePath);
                     Assert.True(sharedParamFile.IsValid());
-                }
-            );
+                });
         }
 
         /// <summary>
@@ -45,13 +47,13 @@ namespace CodeCave.Revit.Toolkit.Tests
         [Fact]
         public void InvalidFilesFailValidation()
         {
-            Assert.All(SharedParameterFiles.Where(f => f.StartsWith(PathToInvalidFiles, StringComparison.InvariantCulture)),
+            Assert.All(
+                SharedParameterFiles.Where(f => f.StartsWith(PathToInvalidFiles, StringComparison.InvariantCulture)),
                 sharedParamFilePath =>
                 {
                     var sharedParamFile = new SharedParameterFile(sharedParamFilePath);
                     Assert.False(sharedParamFile.IsValid());
-                }
-            );
+                });
         }
 
         /// <summary>
@@ -60,7 +62,8 @@ namespace CodeCave.Revit.Toolkit.Tests
         [Fact]
         public void MetaIsParsedCorrectly()
         {
-            Assert.All(SharedParameterFiles,
+            Assert.All(
+                SharedParameterFiles,
                 sharedParamFilePath =>
                 {
                     var sharedParamFile = new SharedParameterFile(sharedParamFilePath);
@@ -68,8 +71,7 @@ namespace CodeCave.Revit.Toolkit.Tests
                     var metaRow = $"META\t{sharedParamFile.Metadata.Version}\t{sharedParamFile.Metadata.MinVersion}";
                     var containsMeta = sharedParamFileText.Any(line => line.Contains(metaRow));
                     Assert.True(containsMeta);
-                }
-            );
+                });
         }
 
         /// <summary>
@@ -78,18 +80,19 @@ namespace CodeCave.Revit.Toolkit.Tests
         [Fact]
         public void GroupsCountIsCorrect()
         {
-            var groupLineRegex = new Regex(@"^GROUP(.+?)$",
+            var groupLineRegex = new Regex(
+                @"^GROUP(.+?)$",
                 RegexOptions.Compiled | RegexOptions.Multiline | RegexOptions.IgnoreCase);
 
-            Assert.All(SharedParameterFiles,
+            Assert.All(
+                SharedParameterFiles,
                 sharedParamFilePath =>
                 {
                     var sharedParamFile = new SharedParameterFile(sharedParamFilePath);
                     var sharedParamFileText = File.ReadAllText(sharedParamFilePath, sharedParamFile.Encoding);
                     var paramLineMatches = groupLineRegex.Matches(sharedParamFileText);
                     Assert.Equal(paramLineMatches.Count, sharedParamFile.Groups?.Count);
-                }
-            );
+                });
         }
 
         /// <summary>
@@ -98,18 +101,19 @@ namespace CodeCave.Revit.Toolkit.Tests
         [Fact]
         public void ParametersCountIsCorrect()
         {
-            var paramLineRegex = new Regex(@"^PARAM(.*)$",
+            var paramLineRegex = new Regex(
+                @"^PARAM(.*)$",
                 RegexOptions.Compiled | RegexOptions.Multiline | RegexOptions.IgnoreCase);
 
-            Assert.All(SharedParameterFiles,
+            Assert.All(
+                SharedParameterFiles,
                 sharedParamFilePath =>
                 {
                     var sharedParamFile = new SharedParameterFile(sharedParamFilePath);
                     var sharedParamFileText = File.ReadAllText(sharedParamFilePath, sharedParamFile.Encoding);
                     var paramLineMatches = paramLineRegex.Matches(sharedParamFileText);
                     Assert.Equal(paramLineMatches.Count, sharedParamFile.Parameters?.Count);
-                }
-            );
+                });
         }
 
         /// <summary>
@@ -120,10 +124,10 @@ namespace CodeCave.Revit.Toolkit.Tests
         {
             var paramLineRegex = new Regex(
                 @"^PARAM\t(?<guid>[({]?[a-zA-Z0-9]{8}[-]?([a-zA-Z0-9]{4}[-]?){3}[a-zA-Z0-9]{12}[})]?)\t(?<name>.*?)\t.*$",
-                RegexOptions.Compiled | RegexOptions.Multiline | RegexOptions.IgnoreCase
-            );
+                RegexOptions.Compiled | RegexOptions.Multiline | RegexOptions.IgnoreCase);
 
-            Assert.All(SharedParameterFiles,
+            Assert.All(
+                SharedParameterFiles,
                 sharedParamFilePath =>
                 {
                     var sharedParamFile = new SharedParameterFile(sharedParamFilePath);
@@ -138,10 +142,8 @@ namespace CodeCave.Revit.Toolkit.Tests
                         {
                             Assert.Contains(param.Name, paramNames);
                             Assert.Contains(param.Guid, paramGuids);
-                        }
-                    );
-                }
-            );
+                        });
+                });
         }
 
         /// <summary>
@@ -152,10 +154,10 @@ namespace CodeCave.Revit.Toolkit.Tests
         {
             var groupLineRegex = new Regex(
                 @"^GROUP\t(?<id>\d+)\t(?<name>.*?)$",
-                RegexOptions.Compiled | RegexOptions.Multiline | RegexOptions.IgnoreCase
-            );
+                RegexOptions.Compiled | RegexOptions.Multiline | RegexOptions.IgnoreCase);
 
-            Assert.All(SharedParameterFiles,
+            Assert.All(
+                SharedParameterFiles,
                 sharedParamFilePath =>
                 {
                     var sharedParamFile = new SharedParameterFile(sharedParamFilePath);
@@ -172,10 +174,8 @@ namespace CodeCave.Revit.Toolkit.Tests
                         {
                             Assert.Contains(param.Id, groupIds);
                             Assert.Contains(param.Name, groupNames);
-                        }
-                    );
-                }
-            );
+                        });
+                });
         }
 
         /// <summary>
@@ -184,14 +184,14 @@ namespace CodeCave.Revit.Toolkit.Tests
         [Fact]
         public void ClonedAndRandomizedFilesAreEqual()
         {
-            Assert.All(SharedParameterFiles.Where(f => f.StartsWith(PathToValidFiles, StringComparison.InvariantCulture)),
+            Assert.All(
+                SharedParameterFiles.Where(f => f.StartsWith(PathToValidFiles, StringComparison.InvariantCulture)),
                 sharedParamFilePath =>
                 {
                     var sharedParamFile1 = new SharedParameterFile(sharedParamFilePath);
                     var sharedParamFile2 = sharedParamFile1.Clone(true);
                     Assert.True(sharedParamFile1.Equals(sharedParamFile2));
-                }
-            );
+                });
         }
 
         /// <summary>
@@ -200,15 +200,15 @@ namespace CodeCave.Revit.Toolkit.Tests
         [Fact]
         public void ToStringOutputCopyIsEqual()
         {
-            Assert.All(SharedParameterFiles.Where(f => f.StartsWith(PathToValidFiles, StringComparison.InvariantCulture)),
+            Assert.All(
+                SharedParameterFiles.Where(f => f.StartsWith(PathToValidFiles, StringComparison.InvariantCulture)),
                 sharedParamFilePath =>
                 {
                     var sharedParamFile1 = new SharedParameterFile(sharedParamFilePath);
                     var sharedParamFile2 = new SharedParameterFile(sharedParamFile1.ToString());
 
                     Assert.True(sharedParamFile1.Equals(sharedParamFile2));
-                }
-            );
+                });
         }
 
         /// <summary>
@@ -227,25 +227,21 @@ namespace CodeCave.Revit.Toolkit.Tests
             simpleSharedFromBuilt.Parameters.Add(
                 new Guid("61ff3d56-09d7-4049-8c78-4abe745e4e5a"), "EquipmentName",
                 "Identity Data", // Passing group by name
-                ParameterType.Text
-            );
+                ParameterType.Text);
 
             simpleSharedFromBuilt.Parameters.Add(
                 new Guid("758c97dc-6b88-4fbd-9570-4affdc32f08d"), "EquipmentNumber",
                 simpleSharedFromBuilt.Groups.FirstOrDefault(g => "Identity Data".Equals(g.Name)), // Finding group dynamically
-                ParameterType.Text
-            );
+                ParameterType.Text);
 
             simpleSharedFromBuilt.Parameters.Add(
                 new Guid("b5a53ea4-55d9-497c-8488-6607faa11e5f"), "EquipmentServed",
                 new SharedParameterFile.Group("Identity Data", 100), // Creating group as object
-                ParameterType.Text
-            );
+                ParameterType.Text);
 
             simpleSharedFromBuilt.Parameters.Add(
                 new Guid("d4fa8765-86f3-4472-860c-a906aff18593"), "EquipmentType",
-                "Identity Data", ParameterType.Text
-            );
+                "Identity Data", ParameterType.Text);
 
             #endregion
 
@@ -254,16 +250,13 @@ namespace CodeCave.Revit.Toolkit.Tests
             var dimensionsGroup = new SharedParameterFile.Group("Dimensions", 101);
             simpleSharedFromBuilt.Parameters.Add(
                 new Guid("90850b08-3b50-4c46-95d6-24558d1f7800"), "Depth",
-                dimensionsGroup, ParameterType.Length
-            );
+                dimensionsGroup, ParameterType.Length);
             simpleSharedFromBuilt.Parameters.Add(
                 new Guid("00acc8ba-6168-415b-8570-0264a70a3053"), "Length",
-                dimensionsGroup, ParameterType.Length
-            );
+                dimensionsGroup, ParameterType.Length);
             simpleSharedFromBuilt.Parameters.Add(
                 new Guid("2ceb290a-55c6-40b4-a91b-0df3681f6520"), "Width",
-                dimensionsGroup, ParameterType.Length
-            );
+                dimensionsGroup, ParameterType.Length);
 
             #endregion
 
@@ -272,32 +265,25 @@ namespace CodeCave.Revit.Toolkit.Tests
             var electricalGroup = new SharedParameterFile.Group("Electrical", 102);
             simpleSharedFromBuilt.Parameters.Add(
                 new Guid("5031db93-bb19-454e-bea4-0f77d60f15e6"), "ApparentPower",
-                electricalGroup, ParameterType.ElectricalApparentPower
-            );
+                electricalGroup, ParameterType.ElectricalApparentPower);
             simpleSharedFromBuilt.Parameters.Add(
                 new Guid("963abdb6-372f-496c-b99e-f11d8e0e5d20"), "Current",
-                electricalGroup, ParameterType.ElectricalCurrent
-            );
+                electricalGroup, ParameterType.ElectricalCurrent);
             simpleSharedFromBuilt.Parameters.Add(
                 new Guid("c006d4d6-0b12-42ad-8078-fe38ab8b1eff"), "Phases",
-                electricalGroup, ParameterType.NumberOfPoles
-            );
+                electricalGroup, ParameterType.NumberOfPoles);
             simpleSharedFromBuilt.Parameters.Add(
                 new Guid("bce04092-fe19-476a-a652-4903bb02081e"), "Power",
-                electricalGroup, ParameterType.ElectricalPower
-            );
+                electricalGroup, ParameterType.ElectricalPower);
             simpleSharedFromBuilt.Parameters.Add(
                 new Guid("ecebf138-86d6-4868-879c-bdc5a0b7d746"), "PowerFactor",
-                electricalGroup, ParameterType.Number
-            );
+                electricalGroup, ParameterType.Number);
             simpleSharedFromBuilt.Parameters.Add(
                 new Guid("ab0a5903-6625-482f-9e6b-f3bffb38dd13"), "Voltage",
-                electricalGroup, ParameterType.ElectricalPotential
-            );
+                electricalGroup, ParameterType.ElectricalPotential);
             simpleSharedFromBuilt.Parameters.Add(
                 new Guid("7dfc1be1-c5d2-471a-b341-7532d2d1627c"), "Wiring",
-                "Electrical", ParameterType.Text
-            );
+                "Electrical", ParameterType.Text);
 
             #endregion
 
@@ -306,28 +292,22 @@ namespace CodeCave.Revit.Toolkit.Tests
             var plumbingGroup = new SharedParameterFile.Group("Plumbing", 103);
             simpleSharedFromBuilt.Parameters.Add(
                 new Guid("99e06fdb-82cc-41fe-9fa2-9c524fec6f0f"), "Cold Water Size",
-                plumbingGroup, ParameterType.PipeSize
-            );
+                plumbingGroup, ParameterType.PipeSize);
             simpleSharedFromBuilt.Parameters.Add(
                 new Guid("a0030f64-4f46-4c02-a88e-a7e72a36611c"), "Cold Water Consumption",
-                plumbingGroup, ParameterType.PipingFlow
-            );
+                plumbingGroup, ParameterType.PipingFlow);
             simpleSharedFromBuilt.Parameters.Add(
                 new Guid("b96ead64-4cb4-459e-aec0-787140811551"), "Cold Water Temperature",
-                plumbingGroup, ParameterType.PipingTemperature
-            );
+                plumbingGroup, ParameterType.PipingTemperature);
             simpleSharedFromBuilt.Parameters.Add(
                 new Guid("c031fafc-ce7b-423b-84a1-b87f48f89abf"), "Hot Water Size",
-                plumbingGroup, ParameterType.PipeSize
-            );
+                plumbingGroup, ParameterType.PipeSize);
             simpleSharedFromBuilt.Parameters.Add(
                 new Guid("6b2ae170-1a20-4bcc-a214-0fabb349dd8f"), "Hot Water Consumption",
-                plumbingGroup, ParameterType.PipingFlow
-            );
+                plumbingGroup, ParameterType.PipingFlow);
             simpleSharedFromBuilt.Parameters.Add(
                 new Guid("66b5367d-78cd-477a-9fd3-0e04f8459d5a"), "Hot Water Supply Temperature",
-                plumbingGroup, ParameterType.PipingTemperature
-            );
+                plumbingGroup, ParameterType.PipingTemperature);
 
             #endregion
 
@@ -353,8 +333,7 @@ namespace CodeCave.Revit.Toolkit.Tests
             var sharedParamFile = new SharedParameterFile();
             sharedParamFile.Parameters.Add(
                 new Guid("61ff3d56-09d7-4049-8c78-4abe745e4e5a"), "EquipmentName",
-                "Identity Data", ParameterType.Text
-            );
+                "Identity Data", ParameterType.Text);
             var sharedParamFileTmp = $"{Path.GetTempFileName()}.txt";
             Assert.True(sharedParamFile.Save(sharedParamFileTmp) && File.Exists(sharedParamFileTmp));
         }

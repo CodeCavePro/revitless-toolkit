@@ -10,7 +10,7 @@ using System.Reflection;
 namespace CodeCave.Revit.Toolkit
 {
     /// <summary>
-    /// Represents a row of an OmniClass file
+    /// Represents a row of an OmniClass file.
     /// </summary>
     public class OmniClassTaxonomyItem
     {
@@ -28,7 +28,7 @@ namespace CodeCave.Revit.Toolkit
         }
 
         /// <summary>
-        /// Gets or sets the identifier.
+        /// Gets the identifier.
         /// </summary>
         /// <value>
         /// The identifier.
@@ -36,7 +36,7 @@ namespace CodeCave.Revit.Toolkit
         public string Id { get; }
 
         /// <summary>
-        /// Gets or sets taxonomy's name.
+        /// Gets taxonomy's name.
         /// </summary>
         /// <value>
         /// Taxonomy's name.
@@ -44,7 +44,7 @@ namespace CodeCave.Revit.Toolkit
         public string Name { get; }
 
         /// <summary>
-        /// Gets or sets taxonomy's category.
+        /// Gets taxonomy's category.
         /// </summary>
         /// <value>
         /// Taxonomy's category.
@@ -92,7 +92,7 @@ namespace CodeCave.Revit.Toolkit
             if (!(obj is OmniClassTaxonomyItem))
                 return false;
 
-            var item = (OmniClassTaxonomyItem) obj;
+            var item = (OmniClassTaxonomyItem)obj;
             return Id.Equals(item.Id) &&
                 Name.Equals(item.Name) &&
                 Category.Equals(item.Category);
@@ -102,8 +102,8 @@ namespace CodeCave.Revit.Toolkit
         /// Reads a list of <see cref="OmniClassTaxonomyItem"/> items from the embedded resources.
         /// </summary>
         /// <param name="omniclassResName">Name of the embedded resource representing OmniClass text file.</param>
-        /// <returns>The list of <see cref="OmniClassTaxonomyItem"/></returns>
-        /// <exception cref="System.ArgumentException">omniclassResName</exception>
+        /// <returns>The list of <see cref="OmniClassTaxonomyItem"/>.</returns>
+        /// <exception cref="System.ArgumentException">omniclassResName.</exception>
         public static List<OmniClassTaxonomyItem> ReadFromResource(string omniclassResName)
         {
             if (string.IsNullOrWhiteSpace(omniclassResName))
@@ -125,8 +125,8 @@ namespace CodeCave.Revit.Toolkit
         /// Reads a list of <see cref="OmniClassTaxonomyItem"/> items from string.
         /// </summary>
         /// <param name="text">String containing <see cref="OmniClassTaxonomyItem"/> items.</param>
-        /// <returns>The list of <see cref="OmniClassTaxonomyItem"/></returns>
-        /// <exception cref="ArgumentException">text is an empty string</exception>
+        /// <returns>The list of <see cref="OmniClassTaxonomyItem"/>.</returns>
+        /// <exception cref="ArgumentException">text is an empty string.</exception>
         /// <exception cref="InvalidDataException"></exception>
         public static List<OmniClassTaxonomyItem> ReadFromText(string text)
         {
@@ -163,14 +163,14 @@ namespace CodeCave.Revit.Toolkit
     }
 
     /// <summary>
-    /// Contains <see cref="OmniClassTaxonomyItem"/> extension methods
+    /// Contains <see cref="OmniClassTaxonomyItem"/> extension methods.
     /// </summary>
     public static class OmniClassTaxonomyItemExtensions
     {
         /// <summary>
-        /// Converts a list of <see cref="OmniClassTaxonomyItem"/> items to string (OmniClass text file)
+        /// Converts a list of <see cref="OmniClassTaxonomyItem"/> items to string (OmniClass text file).
         /// </summary>
-        /// <param name="items">The list of <see cref="OmniClassTaxonomyItem"/></param>
+        /// <param name="items">The list of <see cref="OmniClassTaxonomyItem"/>.</param>
         /// <returns></returns>
         public static string ToText(this List<OmniClassTaxonomyItem> items)
         {

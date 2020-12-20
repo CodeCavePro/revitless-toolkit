@@ -5,7 +5,7 @@ using System.Diagnostics;
 namespace CodeCave.Revit.Toolkit.Parameters.Shared
 {
     /// <summary>
-    /// This class represents Revit shared parameter file
+    /// This class represents Revit shared parameter file.
     /// </summary>
     /// <inheritdoc cref="ICloneable" />
     /// <inheritdoc cref="IEquatable{SharedParameterFile}" />
@@ -14,7 +14,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
     public sealed partial class SharedParameterFile
     {
         /// <summary>
-        /// Represents the entries of the *GROUP section of a shared parameter file
+        /// Represents the entries of the *GROUP section of a shared parameter file.
         /// </summary>
         /// <seealso cref="T:System.IEquatable`1" />
         /// <inheritdoc />
@@ -73,8 +73,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                 return !(obj is null) &&
                        (
                            ReferenceEquals(this, obj) || 
-                           obj.GetType() == GetType() && Equals(obj as Group)
-                       );
+                           obj.GetType() == GetType() && Equals(obj as Group));
             }
 
             /// <summary>

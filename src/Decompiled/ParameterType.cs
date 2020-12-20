@@ -283,11 +283,11 @@ namespace CodeCave.Revit.Toolkit
         MassDensity = 222, // 0x000000DE
         /// <summary>The data value will be represented as a MassPerUnitArea.</summary>
         MassPerUnitArea = 223, // 0x000000DF
-        /// <summary>The value of this parameter will be a Pipe Dimension</summary>
+        /// <summary>The value of this parameter will be a Pipe Dimension.</summary>
         PipeDimension = 224, // 0x000000E0
-        /// <summary>The value of this parameter will be the Pipe Mass</summary>
+        /// <summary>The value of this parameter will be the Pipe Mass.</summary>
         PipeMass = 225, // 0x000000E1
-        /// <summary>The value of this parameter will be the Pipe Mass per Unit Length</summary>
+        /// <summary>The value of this parameter will be the Pipe Mass per Unit Length.</summary>
         PipeMassPerUnitLength = 226, // 0x000000E2
         /// <summary>The data value will be represented as a HVACTemperatureDifference.</summary>
         HVACTemperatureDifference = 227, // 0x000000E3
@@ -295,11 +295,11 @@ namespace CodeCave.Revit.Toolkit
         PipingTemperatureDifference = 228, // 0x000000E4
         /// <summary>The data value will be represented as an ElectricalTemperatureDifference.</summary>
         ElectricalTemperatureDifference = 229, // 0x000000E5
-        /// <summary>The data value will be represented as a TimeInterval</summary>
+        /// <summary>The data value will be represented as a TimeInterval.</summary>
         TimeInterval = 230, // 0x000000E6
-        /// <summary>The data value will be represented as a Speed</summary>
+        /// <summary>The data value will be represented as a Speed.</summary>
         Speed = 231, // 0x000000E7
-        /// <summary>The data value will be represented as infrastructure stationing</summary>
+        /// <summary>The data value will be represented as infrastructure stationing.</summary>
         Stationing = 232, // 0x000000E8
     }
 

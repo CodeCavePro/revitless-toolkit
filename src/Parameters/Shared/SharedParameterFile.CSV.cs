@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -24,7 +25,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
 
         // ReSharper disable once PrivateFieldCanBeConvertedToLocalVariable
         private static readonly Regex SectionRegex;
-        private static readonly Configuration CsvConfiguration;
+        private static readonly CsvConfiguration CsvConfiguration;
 
         /// <summary>
         /// Initializes the <see cref="SharedParameterFile"/> class.
@@ -32,14 +33,13 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         static SharedParameterFile()
         {
             SectionRegex = new Regex(@"\*(?<section>[A-Z]+)\t", RegexOptions.IgnoreCase | RegexOptions.Compiled);
-            CsvConfiguration = new Configuration
+            CsvConfiguration = new CsvConfiguration(new CultureInfo("en-US"))
             {
                 HasHeaderRecord = true,
                 AllowComments = true,
                 IgnoreBlankLines = true,
                 Delimiter = "\t",
                 DetectColumnCountChanges = false,
-                QuoteNoFields = true,
                 IncludePrivateMembers = true
             };
 
@@ -104,21 +104,21 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                 // csvReader.Configuration.Comment = '#';
 
                 var originalHeaderValidated = csvReader.Configuration.HeaderValidated;
-                csvReader.Configuration.HeaderValidated = (isValid, headerNames, headerIndex, context) =>
+                csvReader.Configuration.HeaderValidated = (invalidHeaders, context) =>
                 {
                     // Everything is OK, just go out
-                    if (isValid)
+                    if (!(invalidHeaders?.Any() ?? false))
                         return;
 
                     // Allow DESCRIPTION header to be missing (it's actually missing in older shared parameter files)
-                    if (nameof(ParameterDefinition.Description).Equals(headerNames?.FirstOrDefault(), StringComparison.OrdinalIgnoreCase))
+                    if (invalidHeaders.Any(h => h.Names.Contains(nameof(ParameterDefinition.Description), StringComparison.OrdinalIgnoreCase)))
                         return;
 
                     // Allow USERMODIFIABLE header to be missing (it's actually missing in older shared parameter files)
-                    if (nameof(ParameterDefinition.UserModifiable).Equals(headerNames?.FirstOrDefault(), StringComparison.OrdinalIgnoreCase))
+                    if (invalidHeaders.Any(h => h.Names.Contains(nameof(ParameterDefinition.UserModifiable), StringComparison.OrdinalIgnoreCase)))
                         return;
 
-                    originalHeaderValidated(false, headerNames, headerIndex, context);
+                    originalHeaderValidated(invalidHeaders, context);
                 };
 
                 var originalMissingFieldFound = csvReader.Configuration.MissingFieldFound;

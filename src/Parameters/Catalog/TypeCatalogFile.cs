@@ -13,7 +13,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Catalog
     {
         #region Constructors
 
-        private static readonly Configuration CsvConfiguration;
+        private static readonly CsvConfiguration CsvConfiguration;
         internal IReadOnlyList<IDefinition> parameterDefinitions;
         internal TypeCollection types = new TypeCollection();
 
@@ -22,17 +22,15 @@ namespace CodeCave.Revit.Toolkit.Parameters.Catalog
         /// </summary>
         static TypeCatalogFile()
         {
-            CsvConfiguration = new Configuration
+            CsvConfiguration = new CsvConfiguration(new CultureInfo("en-US"))
             {
                 HasHeaderRecord = true,
                 AllowComments = true,
                 IgnoreBlankLines = true,
                 Delimiter = ",",
                 DetectColumnCountChanges = false,
-                QuoteNoFields = true,
                 IncludePrivateMembers = true,
                 TrimOptions = TrimOptions.Trim,
-                CultureInfo = new CultureInfo("en-US"),
             };
         }
 

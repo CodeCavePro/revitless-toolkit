@@ -2,6 +2,7 @@ using CsvHelper;
 using CsvHelper.Configuration;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -137,7 +138,7 @@ namespace CodeCave.Revit.Toolkit
             var omniClassItems = new List<OmniClassTaxonomyItem>();
             using (var csvReader = new StringReader(text))
             {
-                var csvCofig = new Configuration
+                var csvCofig = new CsvConfiguration(new CultureInfo("en-US"))
                 {
                     HasHeaderRecord = false,
                     Delimiter = "\t",

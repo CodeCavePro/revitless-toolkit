@@ -3,9 +3,9 @@
   <PropertyGroup>
     <TargetFrameworks>net46;netstandard2.0;net45;</TargetFrameworks>
     <Description>A toolkit for processing .rfa, .rvt etc without Revit</Description>
-    <Version>2017.2.14</Version>
-    <AssemblyVersion>2017.2.14</AssemblyVersion>
-    <FileVersion>2017.2.14</FileVersion>
+    <Version>2021.0.1</Version>
+    <AssemblyVersion>2021.0.1</AssemblyVersion>
+    <FileVersion>2021.0.1</FileVersion>
     <Company>CodeCave, PUE</Company>
     <Authors>Zhmayev Yaroslav aka Salaros</Authors>
     <Copyright>Copyright 2016 (c) CodeCave, PUE</Copyright>

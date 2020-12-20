@@ -1,16 +1,23 @@
-using System.Collections.Generic;
-using System.Linq;
+﻿#pragma warning disable IDE0079 // Remove unnecessary suppression
+#pragma warning disable CS1591
 
-#pragma warning disable 1591
+// ReSharper disable InconsistentNaming
 
+using System;
+
+// Decompiled with JetBrains decompiler
+// Type: Autodesk.Revit.DB.UnitType
+// Assembly: RevitAPI, Version=21.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: E5118772-F025-44D6-A6E2-B8EDEDB90979
+// Assembly location: C:\Program Files\Autodesk\Revit 2021\RevitAPI.dll
 namespace CodeCave.Revit.Toolkit
 {
     /// <summary>The type of physical quantity to be measured, for example length or force.</summary>
     /// <remarks>
-    /// <para>Some unit types represent fundamental physical quantities to
+    ///      <para>Some unit types represent fundamental physical quantities to
     /// be measured, for example UT_Length, UT_Area, UT_Mass, or
     /// UT_Force.</para>
-    /// <para>Other unit types exist to provide an alternate set of unit
+    ///      <para>Other unit types exist to provide an alternate set of unit
     /// settings for a physical quantity.  For example, UT_HVAC_DuctSize is
     /// used for measuring sizes of ducts, UT_PipeSize is used for
     /// measuring sizes of pipes, and UT_SheetLength is used for measuring
@@ -20,613 +27,300 @@ namespace CodeCave.Revit.Toolkit
     /// lengths in a building.  By using different unit types, the Units
     /// class can have different default settings for measuring values of
     /// the same physical quantity.</para>
-    /// </remarks>
-    // Decompiled with JetBrains decompiler
-    // Type: Autodesk.Revit.DB.UnitType
-    // Assembly: RevitAPI, Version=17.0.0.0, Culture=neutral, PublicKeyToken=null
-    // ReSharper disable InconsistentNaming
+    ///    </remarks>
+    [Obsolete("This enumeration is deprecated in Revit 2021 and may be removed in a future version of Revit. Please use the `ForgeTypeId` class instead. Use constant members of the `SpecTypeId` class to replace uses of specific values of this enumeration.")]
     public enum UnitType
     {
-        UT_Undefined = -2,
-        UT_Custom = -1,
+        /// <summary>Undefined unit value</summary>
+        UT_Undefined = -2, // 0xFFFFFFFE
+        /// <summary>A custom unit value</summary>
+        UT_Custom = -1, // 0xFFFFFFFF
+        /// <summary>Length, e.g. ft, in, m, mm</summary>
         UT_Length = 0,
+        /// <summary>Area, e.g. ft², in², m², mm²</summary>
         UT_Area = 1,
+        /// <summary>Volume, e.g. ft³, in³, m³, mm³</summary>
         UT_Volume = 2,
+        /// <summary>Angular measurement, e.g. radians, degrees</summary>
         UT_Angle = 3,
+        /// <summary>General format unit, appropriate for general counts or percentages</summary>
         UT_Number = 4,
+        /// <summary>Sheet length</summary>
         UT_SheetLength = 5,
+        /// <summary>Site angle</summary>
         UT_SiteAngle = 6,
+        /// <summary>Density (HVAC) e.g.	kg/m³</summary>
         UT_HVAC_Density = 7,
+        /// <summary>Energy (HVAC) e.g.	(m² · kg)/s², J</summary>
         UT_HVAC_Energy = 8,
+        /// <summary>Friction (HVAC) e.g. kg/(m² · s²), Pa/m</summary>
         UT_HVAC_Friction = 9,
-        UT_HVAC_Power = 10,
-        UT_HVAC_Power_Density = 11,
-        UT_HVAC_Pressure = 12,
-        UT_HVAC_Temperature = 13,
-        UT_HVAC_Velocity = 14,
-        UT_HVAC_Airflow = 15,
-        UT_HVAC_DuctSize = 16,
-        UT_HVAC_CrossSection = 17,
-        UT_HVAC_HeatGain = 18,
-        UT_Electrical_Current = 19,
-        UT_Electrical_Potential = 20,
-        UT_Electrical_Frequency = 21,
-        UT_Electrical_Illuminance = 22,
-        UT_Electrical_Luminous_Flux = 23,
-        UT_Electrical_Power = 24,
-        UT_HVAC_Roughness = 25,
-        UT_Force = 26,
-        UT_LinearForce = 27,
-        UT_AreaForce = 28,
-        UT_Moment = 29,
-        UT_ForceScale = 30,
-        UT_LinearForceScale = 31,
-        UT_AreaForceScale = 32,
-        UT_MomentScale = 33,
-        UT_Electrical_Apparent_Power = 34,
-        UT_Electrical_Power_Density = 35,
-        UT_Piping_Density = 36,
-        UT_Piping_Flow = 37,
-        UT_Piping_Friction = 38,
-        UT_Piping_Pressure = 39,
-        UT_Piping_Temperature = 40,
-        UT_Piping_Velocity = 41,
-        UT_Piping_Viscosity = 42,
-        UT_PipeSize = 43,
-        UT_Piping_Roughness = 44,
-        UT_Stress = 45,
-        UT_UnitWeight = 46,
-        UT_ThermalExpansion = 47,
-        UT_LinearMoment = 48,
-        UT_LinearMomentScale = 49,
-        UT_ForcePerLength = 50,
-        UT_ForceLengthPerAngle = 51,
-        UT_LinearForcePerLength = 52,
-        UT_LinearForceLengthPerAngle = 53,
-        UT_AreaForcePerLength = 54,
-        UT_Piping_Volume = 55,
-        UT_HVAC_Viscosity = 56,
-        UT_HVAC_CoefficientOfHeatTransfer = 57,
-        UT_HVAC_Airflow_Density = 58,
-        UT_Slope = 59,
-        UT_HVAC_Cooling_Load = 60,
-        UT_HVAC_Cooling_Load_Divided_By_Area = 61,
-        UT_HVAC_Cooling_Load_Divided_By_Volume = 62,
-        UT_HVAC_Heating_Load = 63,
-        UT_HVAC_Heating_Load_Divided_By_Area = 64,
-        UT_HVAC_Heating_Load_Divided_By_Volume = 65,
-        UT_HVAC_Airflow_Divided_By_Volume = 66,
-        UT_HVAC_Airflow_Divided_By_Cooling_Load = 67,
-        UT_HVAC_Area_Divided_By_Cooling_Load = 68,
-        UT_WireSize = 69,
-        UT_HVAC_Slope = 70,
-        UT_Piping_Slope = 71,
-        UT_Currency = 72,
-        UT_Electrical_Efficacy = 73,
-        UT_Electrical_Wattage = 74,
-        UT_Color_Temperature = 75,
-        UT_DecSheetLength = 76,
-        UT_Electrical_Luminous_Intensity = 77,
-        UT_Electrical_Luminance = 78,
-        UT_HVAC_Area_Divided_By_Heating_Load = 79,
-        UT_HVAC_Factor = 80,
-        UT_Electrical_Temperature = 81,
-        UT_Electrical_CableTraySize = 82,
-        UT_Electrical_ConduitSize = 83,
-        UT_Reinforcement_Volume = 84,
-        UT_Reinforcement_Length = 85,
-        UT_Electrical_Demand_Factor = 86,
-        UT_HVAC_DuctInsulationThickness = 87,
-        UT_HVAC_DuctLiningThickness = 88,
-        UT_PipeInsulationThickness = 89,
-        UT_HVAC_ThermalResistance = 90,
-        UT_HVAC_ThermalMass = 91,
-        UT_Acceleration = 92,
-        UT_Bar_Diameter = 93,
-        UT_Crack_Width = 94,
-        UT_Displacement_Deflection = 95,
-        UT_Energy = 96,
-        UT_Structural_Frequency = 97,
-        UT_Mass = 98,
-        UT_Mass_per_Unit_Length = 99,
-        UT_Moment_of_Inertia = 100,
-        UT_Surface_Area = 101,
-        UT_Period = 102,
-        UT_Pulsation = 103,
-        UT_Reinforcement_Area = 104,
-        UT_Reinforcement_Area_per_Unit_Length = 105,
-        UT_Reinforcement_Cover = 106,
-        UT_Reinforcement_Spacing = 107,
-        UT_Rotation = 108,
-        UT_Section_Area = 109,
-        UT_Section_Dimension = 110,
-        UT_Section_Modulus = 111,
-        UT_Section_Property = 112,
-        UT_Structural_Velocity = 113,
-        UT_Warping_Constant = 114,
-        UT_Weight = 115,
-        UT_Weight_per_Unit_Length = 116,
-        UT_HVAC_ThermalConductivity = 117,
-        UT_HVAC_SpecificHeat = 118,
-        UT_HVAC_SpecificHeatOfVaporization = 119,
-        UT_HVAC_Permeability = 120,
-        UT_Electrical_Resistivity = 121,
-        UT_MassDensity = 122,
-        UT_MassPerUnitArea = 123,
-        UT_Pipe_Dimension = 124,
-        UT_PipeMass = 125,
-        UT_PipeMassPerUnitLength = 126,
-        UT_HVAC_TemperatureDifference = 127,
-        UT_Piping_TemperatureDifference = 128,
-        UT_Electrical_TemperatureDifference = 129,
+        /// <summary>Power (HVAC) e.g. (m² · kg)/s³, W</summary>
+        UT_HVAC_Power = 10, // 0x0000000A
+        /// <summary>Power Density (HVAC), e.g. kg/s³, W/m²</summary>
+        UT_HVAC_Power_Density = 11, // 0x0000000B
+        /// <summary>Pressure (HVAC) e.g. kg/(m · s²), Pa</summary>
+        UT_HVAC_Pressure = 12, // 0x0000000C
+        /// <summary>Temperature (HVAC) e.g. K, C, F</summary>
+        UT_HVAC_Temperature = 13, // 0x0000000D
+        /// <summary>Velocity (HVAC) e.g. m/s</summary>
+        UT_HVAC_Velocity = 14, // 0x0000000E
+        /// <summary>Air Flow (HVAC) e.g. m³/s</summary>
+        UT_HVAC_Airflow = 15, // 0x0000000F
+        /// <summary>Duct Size (HVAC) e.g. mm, in</summary>
+        UT_HVAC_DuctSize = 16, // 0x00000010
+        /// <summary>Cross Section (HVAC) e.g. mm², in²</summary>
+        UT_HVAC_CrossSection = 17, // 0x00000011
+        /// <summary>Heat Gain (HVAC) e.g. (m² · kg)/s³, W</summary>
+        UT_HVAC_HeatGain = 18, // 0x00000012
+        /// <summary>Current (Electrical) e.g. A</summary>
+        UT_Electrical_Current = 19, // 0x00000013
+        /// <summary>Electrical Potential e.g.	(m² · kg) / (s³· A), V</summary>
+        UT_Electrical_Potential = 20, // 0x00000014
+        /// <summary>Frequency (Electrical) e.g. 1/s, Hz</summary>
+        UT_Electrical_Frequency = 21, // 0x00000015
+        /// <summary>Illuminance (Electrical) e.g. (cd · sr)/m², lm/m²</summary>
+        UT_Electrical_Illuminance = 22, // 0x00000016
+        /// <summary>Luminous Flux (Electrical) e.g. cd · sr, lm</summary>
+        UT_Electrical_Luminous_Flux = 23, // 0x00000017
+        /// <summary>Power (Electrical) e.g.	(m² · kg)/s³, W</summary>
+        UT_Electrical_Power = 24, // 0x00000018
+        /// <summary>Roughness factor (HVAC) e,g. ft, in, mm</summary>
+        UT_HVAC_Roughness = 25, // 0x00000019
+        /// <summary>Force, e.g. (kg · m)/s², N</summary>
+        UT_Force = 26, // 0x0000001A
+        /// <summary>Force per unit length, e.g. kg/s², N/m</summary>
+        UT_LinearForce = 27, // 0x0000001B
+        /// <summary>Force per unit area, e.g. kg/(m · s²), N/m²</summary>
+        UT_AreaForce = 28, // 0x0000001C
+        /// <summary>Moment, e.g. (kg · m²)/s², N · m</summary>
+        UT_Moment = 29, // 0x0000001D
+        /// <summary>Force scale, e.g. m / N</summary>
+        UT_ForceScale = 30, // 0x0000001E
+        /// <summary>Linear force scale, e.g. m² / N</summary>
+        UT_LinearForceScale = 31, // 0x0000001F
+        /// <summary>Area force scale, e.g. m³ / N</summary>
+        UT_AreaForceScale = 32, // 0x00000020
+        /// <summary>Moment scale, e.g. 1 / N</summary>
+        UT_MomentScale = 33, // 0x00000021
+        /// <summary>Apparent Power (Electrical), e.g. (m² · kg)/s³, W</summary>
+        UT_Electrical_Apparent_Power = 34, // 0x00000022
+        /// <summary>Power Density (Electrical), e.g. kg/s³, W/m²</summary>
+        UT_Electrical_Power_Density = 35, // 0x00000023
+        /// <summary>Density (Piping) e.g. kg/m³</summary>
+        UT_Piping_Density = 36, // 0x00000024
+        /// <summary>Flow (Piping), e.g. m³/s</summary>
+        UT_Piping_Flow = 37, // 0x00000025
+        /// <summary>Friction (Piping), e.g. kg/(m² · s²), Pa/m</summary>
+        UT_Piping_Friction = 38, // 0x00000026
+        /// <summary>Pressure (Piping), e.g. kg/(m · s²), Pa</summary>
+        UT_Piping_Pressure = 39, // 0x00000027
+        /// <summary>Temperature (Piping), e.g. K</summary>
+        UT_Piping_Temperature = 40, // 0x00000028
+        /// <summary>Velocity (Piping), e.g. m/s</summary>
+        UT_Piping_Velocity = 41, // 0x00000029
+        /// <summary>Dynamic Viscosity (Piping), e.g. kg/(m · s), Pa · s</summary>
+        UT_Piping_Viscosity = 42, // 0x0000002A
+        /// <summary>Pipe Size (Piping), e.g.	m</summary>
+        UT_PipeSize = 43, // 0x0000002B
+        /// <summary>Roughness factor (Piping), e.g. ft, in, mm</summary>
+        UT_Piping_Roughness = 44, // 0x0000002C
+        /// <summary>Stress, e.g. kg/(m · s²), ksi, MPa</summary>
+        UT_Stress = 45, // 0x0000002D
+        /// <summary>Unit weight, e.g. N/m³</summary>
+        UT_UnitWeight = 46, // 0x0000002E
+        /// <summary>Thermal expansion, e.g. 1/K</summary>
+        UT_ThermalExpansion = 47, // 0x0000002F
+        /// <summary>Linear moment, e,g. (N · m)/m, lbf / ft</summary>
+        UT_LinearMoment = 48, // 0x00000030
+        /// <summary>Linear moment scale, e.g. ft/kip, m/kN</summary>
+        UT_LinearMomentScale = 49, // 0x00000031
+        /// <summary>Point Spring Coefficient, e.g. kg/s², N/m</summary>
+        UT_ForcePerLength = 50, // 0x00000032
+        /// <summary>
+        ///    Rotational Point Spring Coefficient, e.g. (kg · m²)/(s² · rad), (N · m)/rad
+        /// </summary>
+        UT_ForceLengthPerAngle = 51, // 0x00000033
+        /// <summary>Line Spring Coefficient, e.g. kg/(m · s²), (N · m)/m²</summary>
+        UT_LinearForcePerLength = 52, // 0x00000034
+        /// <summary>Rotational Line Spring Coefficient, e.g. (kg · m)/(s² · rad), N/rad</summary>
+        UT_LinearForceLengthPerAngle = 53, // 0x00000035
+        /// <summary>Area Spring Coefficient, e.g.  kg/(m² · s²), N/m³</summary>
+        UT_AreaForcePerLength = 54, // 0x00000036
+        /// <summary>Pipe Volume, e.g. gallons, liters</summary>
+        UT_Piping_Volume = 55, // 0x00000037
+        /// <summary>Dynamic Viscosity (HVAC), e.g. kg/(m · s), Pa · s</summary>
+        UT_HVAC_Viscosity = 56, // 0x00000038
+        /// <summary>
+        ///    Coefficient of Heat Transfer (U-value) (HVAC), e.g. kg/(s³ · K), W/(m² · K)
+        /// </summary>
+        UT_HVAC_CoefficientOfHeatTransfer = 57, // 0x00000039
+        /// <summary>Air Flow Density (HVAC), m³/(s · m²)</summary>
+        UT_HVAC_Airflow_Density = 58, // 0x0000003A
+        /// <summary>Slope, rise/run</summary>
+        UT_Slope = 59, // 0x0000003B
+        /// <summary>Cooling load (HVAC), e.g. (m² · kg)/s³, W, kW, Btu/s, Btu/h</summary>
+        UT_HVAC_Cooling_Load = 60, // 0x0000003C
+        /// <summary>
+        ///    Cooling load per unit area (HVAC), e.g. kg/s³, W/m², W/ft², Btu/(h·ft²)
+        /// </summary>
+        UT_HVAC_Cooling_Load_Divided_By_Area = 61, // 0x0000003D
+        /// <summary>
+        ///    Cooling load per unit volume (HVAC), e.g. kg/(s³ · m), W/m³, Btu/(h·ft³)
+        /// </summary>
+        UT_HVAC_Cooling_Load_Divided_By_Volume = 62, // 0x0000003E
+        /// <summary>Heating load (HVAC), e.g. (m² · kg)/s³, W, kW, Btu/s, Btu/h</summary>
+        UT_HVAC_Heating_Load = 63, // 0x0000003F
+        /// <summary>
+        ///    Heating load per unit area (HVAC), e.g. kg/s³, W/m², W/ft², Btu/(h·ft²)
+        /// </summary>
+        UT_HVAC_Heating_Load_Divided_By_Area = 64, // 0x00000040
+        /// <summary>
+        ///    Heating load per unit volume (HVAC), e.g. kg/(s³ · m), W/m³, Btu/(h·ft³)
+        /// </summary>
+        UT_HVAC_Heating_Load_Divided_By_Volume = 65, // 0x00000041
+        /// <summary>
+        ///    Airflow per unit volume (HVAC), e.g. m³/(s · m³), CFM/ft³, CFM/CF, L/(s·m³)
+        /// </summary>
+        UT_HVAC_Airflow_Divided_By_Volume = 66, // 0x00000042
+        /// <summary>
+        ///    Airflow per unit cooling load (HVAC), e.g. (m · s²)/kg, ft²/ton, SF/ton, m²/kW
+        /// </summary>
+        UT_HVAC_Airflow_Divided_By_Cooling_Load = 67, // 0x00000043
+        /// <summary>Area per unit cooling load (HVAC), e.g.  s³/kg, ft²/ton, m²/kW</summary>
+        UT_HVAC_Area_Divided_By_Cooling_Load = 68, // 0x00000044
+        /// <summary>Wire Size (Electrical), e.g.	mm, inch</summary>
+        UT_WireSize = 69, // 0x00000045
+        /// <summary>Slope (HVAC)</summary>
+        UT_HVAC_Slope = 70, // 0x00000046
+        /// <summary>Slope (Piping)</summary>
+        UT_Piping_Slope = 71, // 0x00000047
+        /// <summary>Currency</summary>
+        UT_Currency = 72, // 0x00000048
+        /// <summary>Electrical efficacy (lighting), e.g. cd·sr·s³/(m²·kg), lm/W</summary>
+        UT_Electrical_Efficacy = 73, // 0x00000049
+        /// <summary>Wattage (lighting), e.g. (m² · kg)/s³, W</summary>
+        UT_Electrical_Wattage = 74, // 0x0000004A
+        /// <summary>Color temperature (lighting), e.g. K</summary>
+        UT_Color_Temperature = 75, // 0x0000004B
+        /// <summary>Sheet length in decimal form, decimal inches, mm</summary>
+        UT_DecSheetLength = 76, // 0x0000004C
+        /// <summary>Luminous Intensity (Lighting), e.g. cd, cd</summary>
+        UT_Electrical_Luminous_Intensity = 77, // 0x0000004D
+        /// <summary>Luminance (Lighting), cd/m², cd/m²</summary>
+        UT_Electrical_Luminance = 78, // 0x0000004E
+        /// <summary>Area per unit heating load (HVAC), e.g.  s³/kg, ft²/ton, m²/kW</summary>
+        UT_HVAC_Area_Divided_By_Heating_Load = 79, // 0x0000004F
+        /// <summary>Heating and coooling factor, percentage</summary>
+        UT_HVAC_Factor = 80, // 0x00000050
+        /// <summary>Temperature (electrical), e.g. F, C</summary>
+        UT_Electrical_Temperature = 81, // 0x00000051
+        /// <summary>Cable tray size (electrical), e.g. in, mm</summary>
+        UT_Electrical_CableTraySize = 82, // 0x00000052
+        /// <summary>Conduit size (electrical), e.g. in, mm</summary>
+        UT_Electrical_ConduitSize = 83, // 0x00000053
+        /// <summary>Structural reinforcement volume, e.g. in³, cm³</summary>
+        UT_Reinforcement_Volume = 84, // 0x00000054
+        /// <summary>Structural reinforcement length, e.g. mm, in, ft</summary>
+        UT_Reinforcement_Length = 85, // 0x00000055
+        /// <summary>Electrical demand factor, percentage</summary>
+        UT_Electrical_Demand_Factor = 86, // 0x00000056
+        /// <summary>Duct Insulation Thickness (HVAC), e.g. mm, in</summary>
+        UT_HVAC_DuctInsulationThickness = 87, // 0x00000057
+        /// <summary>Duct Lining Thickness (HVAC), e.g. mm, in</summary>
+        UT_HVAC_DuctLiningThickness = 88, // 0x00000058
+        /// <summary>Pipe Insulation Thickness (Piping), e.g. mm, in</summary>
+        UT_PipeInsulationThickness = 89, // 0x00000059
+        /// <summary>Thermal Resistance (HVAC), R Value, e.g. m²·K/W</summary>
+        UT_HVAC_ThermalResistance = 90, // 0x0000005A
+        /// <summary>Thermal Mass (HVAC), e.g.  J/K, BTU/F</summary>
+        UT_HVAC_ThermalMass = 91, // 0x0000005B
+        /// <summary>Acceleration, e.g. m/s², km/s², in/s², ft/s², mi/s²</summary>
+        UT_Acceleration = 92, // 0x0000005C
+        /// <summary>Bar Diameter, e.g. ', LF, ", m, cm, mm</summary>
+        UT_Bar_Diameter = 93, // 0x0000005D
+        /// <summary>Crack Width, e.g. ', LF, ", m, cm, mm</summary>
+        UT_Crack_Width = 94, // 0x0000005E
+        /// <summary>Displacement/Deflection, e.g. ', LF, ", m, cm, mm</summary>
+        UT_Displacement_Deflection = 95, // 0x0000005F
+        /// <summary>Energy, e.g. J, kJ, kgf-m, lb-ft, N-m</summary>
+        UT_Energy = 96, // 0x00000060
+        /// <summary>FREQUENCY, Frequency (Structural) e.g. Hz</summary>
+        UT_Structural_Frequency = 97, // 0x00000061
+        /// <summary>Mass, e.g.  kg, lb, t</summary>
+        UT_Mass = 98, // 0x00000062
+        /// <summary>Mass per Unit Length, e.g. kg/m, lb/ft</summary>
+        UT_Mass_per_Unit_Length = 99, // 0x00000063
+        /// <summary>Moment of Inertia, e.g. ft^4, in^4, mm^4, cm^4, m^4</summary>
+        UT_Moment_of_Inertia = 100, // 0x00000064
+        /// <summary>Surface Area, e.g. ft²/ft, m²/m</summary>
+        UT_Surface_Area = 101, // 0x00000065
+        /// <summary>Period, e.g. ms, s, min, h</summary>
+        UT_Period = 102, // 0x00000066
+        /// <summary>Pulsation, e.g. rad/s</summary>
+        UT_Pulsation = 103, // 0x00000067
+        /// <summary>Reinforcement Area, e.g. SF, ft², in², mm², cm², m²</summary>
+        UT_Reinforcement_Area = 104, // 0x00000068
+        /// <summary>
+        ///    Reinforcement Area per Unit Length, e.g. ft²/ft, in²/ft, mm²/m, cm²/m, m²/m
+        /// </summary>
+        UT_Reinforcement_Area_per_Unit_Length = 105, // 0x00000069
+        /// <summary>Reinforcement Cover, e.g. ', LF, ", m, cm, mm</summary>
+        UT_Reinforcement_Cover = 106, // 0x0000006A
+        /// <summary>Reinforcement Spacing, e.g. ', LF, ", m, cm, mm</summary>
+        UT_Reinforcement_Spacing = 107, // 0x0000006B
+        /// <summary>Rotation, e.g. °, rad, grad</summary>
+        UT_Rotation = 108, // 0x0000006C
+        /// <summary>Section Area, e.g.  ft²/ft, in²/ft, mm²/m, cm²/m, m²/m</summary>
+        UT_Section_Area = 109, // 0x0000006D
+        /// <summary>Section Dimension, e.g.  ', LF, ", m, cm, mm</summary>
+        UT_Section_Dimension = 110, // 0x0000006E
+        /// <summary>Section Modulus, e.g. ft^3, in^3, mm^3, cm^3, m^3</summary>
+        UT_Section_Modulus = 111, // 0x0000006F
+        /// <summary>Section Property, e.g.  ', LF, ", m, cm, mm</summary>
+        UT_Section_Property = 112, // 0x00000070
+        /// <summary>Section Property, e.g. km/h, m/s, ft/min, ft/s, mph</summary>
+        UT_Structural_Velocity = 113, // 0x00000071
+        /// <summary>Warping Constant, e.g. ft^6, in^6, mm^6, cm^6, m^6</summary>
+        UT_Warping_Constant = 114, // 0x00000072
+        /// <summary>Weight, e.g. N, daN, kN, MN, kip, kgf, Tf, lb, lbf</summary>
+        UT_Weight = 115, // 0x00000073
+        /// <summary>
+        ///    Weight per Unit Length, e.g. N/m, daN/m, kN/m, MN/m, kip/ft, kgf/m, Tf/m, lb/ft, lbf/ft, kip/in
+        /// </summary>
+        UT_Weight_per_Unit_Length = 116, // 0x00000074
+        /// <summary>Thermal Conductivity (HVAC), e.g. W/(m·K)</summary>
+        UT_HVAC_ThermalConductivity = 117, // 0x00000075
+        /// <summary>Specific Heat (HVAC), e.g. J/(g·°C)</summary>
+        UT_HVAC_SpecificHeat = 118, // 0x00000076
+        /// <summary>Specific Heat of Vaporization, e.g. J/g</summary>
+        UT_HVAC_SpecificHeatOfVaporization = 119, // 0x00000077
+        /// <summary>Permeability, e.g. ng/(Pa·s·m²)</summary>
+        UT_HVAC_Permeability = 120, // 0x00000078
+        /// <summary>Electrical Resistivity, e.g.</summary>
+        UT_Electrical_Resistivity = 121, // 0x00000079
+        /// <summary>Mass Density, e.g. kg/m³, lb/ft³</summary>
+        UT_MassDensity = 122, // 0x0000007A
+        /// <summary>Mass Per Unit Area, e.g. kg/m², lb/ft²</summary>
+        UT_MassPerUnitArea = 123, // 0x0000007B
+        /// <summary>Length unit for pipe dimension, e.g. in, mm</summary>
+        UT_Pipe_Dimension = 124, // 0x0000007C
+        /// <summary>Mass, e.g.  kg, lb, t</summary>
+        UT_PipeMass = 125, // 0x0000007D
+        /// <summary>Mass per Unit Length, e.g. kg/m, lb/ft</summary>
+        UT_PipeMassPerUnitLength = 126, // 0x0000007E
+        /// <summary>Temperature Difference (HVAC) e.g. C, F, K, R</summary>
+        UT_HVAC_TemperatureDifference = 127, // 0x0000007F
+        /// <summary>Temperature Difference (Piping), e.g. C, F, K, R</summary>
+        UT_Piping_TemperatureDifference = 128, // 0x00000080
+        /// <summary>Temperature Difference (Electrical), e.g. C, F, K, R</summary>
+        UT_Electrical_TemperatureDifference = 129, // 0x00000081
+        /// <summary>Interval of time e.g. ms, s, min, h</summary>
+        UT_TimeInterval = 130, // 0x00000082
+        /// <summary>Distance interval over time e.g.  m/h etc.</summary>
+        UT_Speed = 131, // 0x00000083
+        /// <summary>Infrastructure Alignment stationing/distance e.g. 1+020 ft etc.</summary>
+        UT_Stationing = 132, // 0x00000084
     }
 
-    /// <summary>
-    /// UnitType extension class featuring extension methods for UnitType enumeration
-    /// </summary>
-    public static class UnitTypeExtensions
-    {
-        private static readonly Dictionary<UnitType, string> _utToCatalog;
-        private static readonly Dictionary<UnitType, UnitGroup> _utGroups;
-        private static readonly Dictionary<UnitType, ParameterType> _parameterTypes;
-
-        /// <summary>
-        /// Initializes the <see cref="UnitTypeExtensions"/> class.
-        /// </summary>
-        static UnitTypeExtensions()
-        {
-            _utToCatalog = new Dictionary<UnitType, string>
-            {
-                // TODO: figure out mappings for these types.
-                { UnitType.UT_SheetLength, "LENGTH" },
-                { UnitType.UT_SiteAngle, "ANGLE" },
-                { UnitType.UT_ForceScale, "OTHER" },
-                { UnitType.UT_LinearForceScale, "OTHER" },
-                { UnitType.UT_AreaForceScale, "OTHER" },
-                { UnitType.UT_MomentScale, "OTHER" },
-                { UnitType.UT_LinearMomentScale, "OTHER" },
-                { UnitType.UT_DecSheetLength, "LENGTH" },
-
-                { UnitType.UT_Length, "LENGTH" },
-                { UnitType.UT_Area, "AREA" },
-                { UnitType.UT_Volume, "VOLUME" },
-                { UnitType.UT_Angle, "ANGLE" },
-                { UnitType.UT_Number, "OTHER" },
-                { UnitType.UT_HVAC_Density, "HVAC_DENSITY" },
-                { UnitType.UT_HVAC_Energy, "HVAC_ENERGY" },
-                { UnitType.UT_HVAC_Friction, "HVAC_FRICTION" },
-                { UnitType.UT_HVAC_Power, "HVAC_POWER" },
-                { UnitType.UT_HVAC_Power_Density, "HVAC_POWER_DENSITY" },
-                { UnitType.UT_HVAC_Pressure, "HVAC_PRESSURE" },
-                { UnitType.UT_HVAC_Temperature, "HVAC_TEMPERATURE" },
-                { UnitType.UT_HVAC_Velocity, "HVAC_VELOCITY" },
-                { UnitType.UT_HVAC_Airflow, "HVAC_AIR_FLOW" },
-                { UnitType.UT_HVAC_DuctSize, "HVAC_DUCT_SIZE" },
-                { UnitType.UT_HVAC_CrossSection, "HVAC_CROSS_SECTION" },
-                { UnitType.UT_HVAC_HeatGain, "HVAC_HEAT_GAIN" },
-                { UnitType.UT_Electrical_Current, "ELECTRICAL_CURRENT" },
-                { UnitType.UT_Electrical_Potential, "ELECTRICAL_POTENTIAL" },
-                { UnitType.UT_Electrical_Frequency, "ELECTRICAL_FREQUENCY" },
-                { UnitType.UT_Electrical_Illuminance, "ELECTRICAL_ILLUMINANCE" },
-                { UnitType.UT_Electrical_Luminous_Flux, "ELECTRICAL_LUMINOUS_FLUX" },
-                { UnitType.UT_Electrical_Power, "ELECTRICAL_POWER" },
-                { UnitType.UT_HVAC_Roughness, "HVAC_ROUGHNESS" },
-                { UnitType.UT_Force, "FORCE" },
-                { UnitType.UT_LinearForce, "LINEAR_FORCE" },
-                { UnitType.UT_AreaForce, "AREA_FORCE" },
-                { UnitType.UT_Moment, "MOMENT" },
-                { UnitType.UT_Electrical_Apparent_Power, "ELECTRICAL_APPARENT_POWER" },
-                { UnitType.UT_Electrical_Power_Density, "ELECTRICAL_POWER_DENSITY" },
-                { UnitType.UT_Piping_Density, "PIPING_DENSITY" },
-                { UnitType.UT_Piping_Flow, "PIPING_FLOW" },
-                { UnitType.UT_Piping_Friction, "PIPING_FRICTION" },
-                { UnitType.UT_Piping_Pressure, "PIPING_PRESSURE" },
-                { UnitType.UT_Piping_Temperature, "PIPING_TEMPERATURE" },
-                { UnitType.UT_Piping_Velocity, "PIPING_VELOCITY" },
-                { UnitType.UT_Piping_Viscosity, "PIPING_VISCOSITY" },
-                { UnitType.UT_PipeSize, "PIPE_SIZE" },
-                { UnitType.UT_Piping_Roughness, "PIPING_ROUGHNESS" },
-                { UnitType.UT_Stress, "STRESS" },
-                { UnitType.UT_UnitWeight, "UNIT_WEIGHT" },
-                { UnitType.UT_ThermalExpansion, "THERMAL_EXPANSION_COEFFICIENT" },
-                { UnitType.UT_LinearMoment, "LINEAR_MOMENT" },
-                { UnitType.UT_ForcePerLength, "POINT_SPRING_COEFFICIENT" },
-                { UnitType.UT_ForceLengthPerAngle, "ROTATIONAL_POINT_SPRING_COEFFICIENT" },
-                { UnitType.UT_LinearForcePerLength, "LINEAR_SPRING_COEFFICIENT" },
-                { UnitType.UT_LinearForceLengthPerAngle, "ROTATIONAL_LINEAR_SPRING_COEFFICIENT" },
-                { UnitType.UT_AreaForcePerLength, "AREA_SPRING_COEFFICIENT" },
-                { UnitType.UT_Piping_Volume, "PIPING_VOLUME" },
-                { UnitType.UT_HVAC_Viscosity, "HVAC_VISCOSITY" },
-                { UnitType.UT_HVAC_CoefficientOfHeatTransfer, "HVAC_COEFFICIENT_OF_HEAT_TRANSFER" },
-                { UnitType.UT_HVAC_Airflow_Density, "HVAC_AIRFLOW_DENSITY" },
-                { UnitType.UT_Slope, "SLOPE" },
-                { UnitType.UT_HVAC_Cooling_Load, "HVAC_COOLING_LOAD" },
-                { UnitType.UT_HVAC_Cooling_Load_Divided_By_Area, "HVAC_COOLING_LOAD_DIVIDED_BY_AREA" },
-                { UnitType.UT_HVAC_Cooling_Load_Divided_By_Volume, "HVAC_COOLING_LOAD_DIVIDED_BY_VOLUME" },
-                { UnitType.UT_HVAC_Heating_Load, "HVAC_HEATING_LOAD" },
-                { UnitType.UT_HVAC_Heating_Load_Divided_By_Area, "HVAC_HEATING_LOAD_DIVIDED_BY_AREA" },
-                { UnitType.UT_HVAC_Heating_Load_Divided_By_Volume, "HVAC_HEATING_LOAD_DIVIDED_BY_VOLUME" },
-                { UnitType.UT_HVAC_Airflow_Divided_By_Volume, "HVAC_AIRFLOW_DIVIDED_BY_VOLUME" },
-                { UnitType.UT_HVAC_Airflow_Divided_By_Cooling_Load, "HVAC_AIRFLOW_DIVIDED_BY_COOLING_LOAD" },
-                { UnitType.UT_HVAC_Area_Divided_By_Cooling_Load, "HVAC_AREA_DIVIDED_BY_COOLING_LOAD" },
-                { UnitType.UT_WireSize, "WIRE_SIZE" },
-                { UnitType.UT_HVAC_Slope, "HVAC_SLOPE" },
-                { UnitType.UT_Piping_Slope, "PIPING_SLOPE" },
-                { UnitType.UT_Currency, "CURRENCY" },
-                { UnitType.UT_Electrical_Efficacy, "ELECTRICAL_EFFICACY" },
-                { UnitType.UT_Electrical_Wattage, "ELECTRICAL_WATTAGE" },
-                { UnitType.UT_Color_Temperature, "COLOR_TEMPERATURE" },
-                { UnitType.UT_Electrical_Luminous_Intensity, "ELECTRICAL_LUMINOUS_INTENSITY" },
-                { UnitType.UT_Electrical_Luminance, "ELECTRICAL_LUMINANCE" },
-                { UnitType.UT_HVAC_Area_Divided_By_Heating_Load, "HVAC_AREA_DIVIDED_BY_HEATING_LOAD" },
-                { UnitType.UT_HVAC_Factor, "HVAC_FACTOR" },
-                { UnitType.UT_Electrical_Temperature, "ELECTRICAL_TEMPERATURE" },
-                { UnitType.UT_Electrical_CableTraySize, "CABLETRAY_SIZE" },
-                { UnitType.UT_Electrical_ConduitSize, "CONDUIT_SIZE" },
-                { UnitType.UT_Reinforcement_Volume, "REINFORCEMENT_VOLUME" },
-                { UnitType.UT_Reinforcement_Length, "REINFORCEMENT_LENGTH" },
-                { UnitType.UT_Electrical_Demand_Factor, "ELECTRICAL_DEMAND_FACTOR" },
-                { UnitType.UT_HVAC_DuctInsulationThickness, "HVAC_DUCT_INSULATION_THICKNESS" },
-                { UnitType.UT_HVAC_DuctLiningThickness, "HVAC_DUCT_LINING_THICKNESS" },
-                { UnitType.UT_PipeInsulationThickness, "PIPE_INSUlATION_THICKNESS" },
-                { UnitType.UT_HVAC_ThermalResistance, "HVAC_THERMAL_RESISTANCE" },
-                { UnitType.UT_HVAC_ThermalMass, "HVAC_THERMAL_MASS" },
-                { UnitType.UT_Acceleration, "ACCELERATION" },
-                { UnitType.UT_Bar_Diameter, "BAR_DIAMETER" },
-                { UnitType.UT_Crack_Width, "CRACK_WIDTH" },
-                { UnitType.UT_Displacement_Deflection, "DISPLACEMENT/DEFLECTION" },
-                { UnitType.UT_Energy, "ENERGY" },
-                { UnitType.UT_Structural_Frequency, "STRUCTURAL_FREQUENCY" },
-                { UnitType.UT_Mass, "MASS" },
-                { UnitType.UT_Mass_per_Unit_Length, "MASS_PER_UNIT_LENGTH" },
-                { UnitType.UT_Moment_of_Inertia, "MOMENT_OF_INERTIA" },
-                { UnitType.UT_Surface_Area, "SURFACE_AREA" },
-                { UnitType.UT_Period, "PERIOD" },
-                { UnitType.UT_Pulsation, "PULSATION" },
-                { UnitType.UT_Reinforcement_Area, "REINFORCEMENT_AREA" },
-                { UnitType.UT_Reinforcement_Area_per_Unit_Length, "REINFORCEMENT_AREA_PER_UNIT_LENGTH" },
-                { UnitType.UT_Reinforcement_Cover, "REINFORCEMENT_COVER" },
-                { UnitType.UT_Reinforcement_Spacing, "REINFORCEMENT_SPACING" },
-                { UnitType.UT_Rotation, "ROTATION" },
-                { UnitType.UT_Section_Area, "SECTION_AREA" },
-                { UnitType.UT_Section_Dimension, "SECTION_DIMENSION" },
-                { UnitType.UT_Section_Modulus, "SECTION_MODULUS" },
-                { UnitType.UT_Section_Property, "SECTION_PROPERTY" },
-                { UnitType.UT_Structural_Velocity, "VELOCITY" },
-                { UnitType.UT_Warping_Constant, "WARPING_CONSTANT" },
-                { UnitType.UT_Weight, "WEIGHT" },
-                { UnitType.UT_Weight_per_Unit_Length, "WEIGHT_PER_UNIT_LENGTH" },
-                { UnitType.UT_HVAC_ThermalConductivity, "HVAC_THERMAL_CONDUCTIVITY" },
-                { UnitType.UT_HVAC_SpecificHeat, "HVAC_SPECIFIC_HEAT" },
-                { UnitType.UT_HVAC_SpecificHeatOfVaporization, "HVAC_SPECIFIC_HEAT_OF_VAPORIZATION" },
-                { UnitType.UT_HVAC_Permeability, "HVAC_PERMEABILITY" },
-                { UnitType.UT_Electrical_Resistivity, "ELECTRICAL_RESISTIVITY" },
-                { UnitType.UT_MassDensity, "MASS_DENSITY" },
-                { UnitType.UT_MassPerUnitArea, "MASS_PER_UNIT_AREA" },
-                { UnitType.UT_Pipe_Dimension, "PIPE_DIMENSION" },
-                { UnitType.UT_PipeMass, "PIPE_MASS" },
-                { UnitType.UT_PipeMassPerUnitLength, "PIPE_MASS_PER_UNIT_LENGTH" },
-                { UnitType.UT_HVAC_TemperatureDifference, "HVAC_TEMPERATURE_DIFFERENCE" },
-                { UnitType.UT_Piping_TemperatureDifference, "PIPING_TEMPERATURE_DIFFERENCE" },
-                { UnitType.UT_Electrical_TemperatureDifference, "ELECTRICAL_TEMPERATURE_DIFFERENCE" },
-
-            };
-
-            _utGroups = new Dictionary<UnitType, UnitGroup>
-            {
-                { UnitType.UT_Length, UnitGroup.Common },
-                { UnitType.UT_Area, UnitGroup.Common },
-                { UnitType.UT_Volume, UnitGroup.Common },
-                { UnitType.UT_Angle, UnitGroup.Common },
-                { UnitType.UT_Number, UnitGroup.Common },
-                { UnitType.UT_SheetLength, UnitGroup.Common },
-                { UnitType.UT_SiteAngle, UnitGroup.Common },
-                { UnitType.UT_HVAC_Density, UnitGroup.HVAC },
-                { UnitType.UT_HVAC_Energy, UnitGroup.Energy },
-                { UnitType.UT_HVAC_Friction, UnitGroup.HVAC },
-                { UnitType.UT_HVAC_Power, UnitGroup.HVAC },
-                { UnitType.UT_HVAC_Power_Density, UnitGroup.HVAC },
-                { UnitType.UT_HVAC_Pressure, UnitGroup.HVAC },
-                { UnitType.UT_HVAC_Temperature, UnitGroup.HVAC },
-                { UnitType.UT_HVAC_Velocity, UnitGroup.HVAC },
-                { UnitType.UT_HVAC_Airflow, UnitGroup.HVAC },
-                { UnitType.UT_HVAC_DuctSize, UnitGroup.HVAC },
-                { UnitType.UT_HVAC_CrossSection, UnitGroup.HVAC },
-                { UnitType.UT_HVAC_HeatGain, UnitGroup.HVAC },
-                { UnitType.UT_Electrical_Current, UnitGroup.Electrical },
-                { UnitType.UT_Electrical_Potential, UnitGroup.Electrical },
-                { UnitType.UT_Electrical_Frequency, UnitGroup.Electrical },
-                { UnitType.UT_Electrical_Illuminance, UnitGroup.Electrical },
-                { UnitType.UT_Electrical_Luminous_Flux, UnitGroup.Electrical },
-                { UnitType.UT_Electrical_Power, UnitGroup.Electrical },
-                { UnitType.UT_HVAC_Roughness, UnitGroup.HVAC },
-                { UnitType.UT_Force, UnitGroup.Structural },
-                { UnitType.UT_LinearForce, UnitGroup.Structural },
-                { UnitType.UT_AreaForce, UnitGroup.Structural },
-                { UnitType.UT_Moment, UnitGroup.Structural },
-                { UnitType.UT_ForceScale, UnitGroup.Structural },
-                { UnitType.UT_LinearForceScale, UnitGroup.Structural },
-                { UnitType.UT_AreaForceScale, UnitGroup.Structural },
-                { UnitType.UT_MomentScale, UnitGroup.Structural },
-                { UnitType.UT_Electrical_Apparent_Power, UnitGroup.Electrical },
-                { UnitType.UT_Electrical_Power_Density, UnitGroup.Electrical },
-                { UnitType.UT_Piping_Density, UnitGroup.Piping },
-                { UnitType.UT_Piping_Flow, UnitGroup.Piping },
-                { UnitType.UT_Piping_Friction, UnitGroup.Piping },
-                { UnitType.UT_Piping_Pressure, UnitGroup.Piping },
-                { UnitType.UT_Piping_Temperature, UnitGroup.Piping },
-                { UnitType.UT_Piping_Velocity, UnitGroup.Piping },
-                { UnitType.UT_Piping_Viscosity, UnitGroup.Piping },
-                { UnitType.UT_PipeSize, UnitGroup.Piping },
-                { UnitType.UT_Piping_Roughness, UnitGroup.Piping },
-                { UnitType.UT_Stress, UnitGroup.Structural },
-                { UnitType.UT_UnitWeight, UnitGroup.Structural },
-                { UnitType.UT_ThermalExpansion, UnitGroup.Structural },
-                { UnitType.UT_LinearMoment, UnitGroup.Structural },
-                { UnitType.UT_LinearMomentScale, UnitGroup.Structural },
-                { UnitType.UT_ForcePerLength, UnitGroup.Structural },
-                { UnitType.UT_ForceLengthPerAngle, UnitGroup.Structural },
-                { UnitType.UT_LinearForcePerLength, UnitGroup.Structural },
-                { UnitType.UT_LinearForceLengthPerAngle, UnitGroup.Structural },
-                { UnitType.UT_AreaForcePerLength, UnitGroup.Structural },
-                { UnitType.UT_Piping_Volume, UnitGroup.Piping },
-                { UnitType.UT_HVAC_Viscosity, UnitGroup.HVAC },
-                { UnitType.UT_HVAC_CoefficientOfHeatTransfer, UnitGroup.Energy },
-                { UnitType.UT_HVAC_Airflow_Density, UnitGroup.HVAC },
-                { UnitType.UT_Slope, UnitGroup.Common },
-                { UnitType.UT_HVAC_Cooling_Load, UnitGroup.HVAC },
-                { UnitType.UT_HVAC_Cooling_Load_Divided_By_Area, UnitGroup.HVAC },
-                { UnitType.UT_HVAC_Cooling_Load_Divided_By_Volume, UnitGroup.HVAC },
-                { UnitType.UT_HVAC_Heating_Load, UnitGroup.HVAC },
-                { UnitType.UT_HVAC_Heating_Load_Divided_By_Area, UnitGroup.HVAC },
-                { UnitType.UT_HVAC_Heating_Load_Divided_By_Volume, UnitGroup.HVAC },
-                { UnitType.UT_HVAC_Airflow_Divided_By_Volume, UnitGroup.HVAC },
-                { UnitType.UT_HVAC_Airflow_Divided_By_Cooling_Load, UnitGroup.HVAC },
-                { UnitType.UT_HVAC_Area_Divided_By_Cooling_Load, UnitGroup.HVAC },
-                { UnitType.UT_WireSize, UnitGroup.Electrical },
-                { UnitType.UT_HVAC_Slope, UnitGroup.HVAC },
-                { UnitType.UT_Piping_Slope, UnitGroup.Piping },
-                { UnitType.UT_Currency, UnitGroup.Common },
-                { UnitType.UT_Electrical_Efficacy, UnitGroup.Electrical },
-                { UnitType.UT_Electrical_Wattage, UnitGroup.Electrical },
-                { UnitType.UT_Color_Temperature, UnitGroup.Electrical },
-                { UnitType.UT_DecSheetLength, UnitGroup.Common },
-                { UnitType.UT_Electrical_Luminous_Intensity, UnitGroup.Electrical },
-                { UnitType.UT_Electrical_Luminance, UnitGroup.Electrical },
-                { UnitType.UT_HVAC_Area_Divided_By_Heating_Load, UnitGroup.HVAC },
-                { UnitType.UT_HVAC_Factor, UnitGroup.HVAC },
-                { UnitType.UT_Electrical_Temperature, UnitGroup.Electrical },
-                { UnitType.UT_Electrical_CableTraySize, UnitGroup.Electrical },
-                { UnitType.UT_Electrical_ConduitSize, UnitGroup.Electrical },
-                { UnitType.UT_Reinforcement_Volume, UnitGroup.Structural },
-                { UnitType.UT_Reinforcement_Length, UnitGroup.Structural },
-                { UnitType.UT_Electrical_Demand_Factor, UnitGroup.Electrical },
-                { UnitType.UT_HVAC_DuctInsulationThickness, UnitGroup.HVAC },
-                { UnitType.UT_HVAC_DuctLiningThickness, UnitGroup.HVAC },
-                { UnitType.UT_PipeInsulationThickness, UnitGroup.Piping },
-                { UnitType.UT_HVAC_ThermalResistance, UnitGroup.Energy },
-                { UnitType.UT_HVAC_ThermalMass, UnitGroup.Energy },
-                { UnitType.UT_Acceleration, UnitGroup.Structural },
-                { UnitType.UT_Bar_Diameter, UnitGroup.Structural },
-                { UnitType.UT_Crack_Width, UnitGroup.Structural },
-                { UnitType.UT_Displacement_Deflection, UnitGroup.Structural },
-                { UnitType.UT_Energy, UnitGroup.Structural },
-                { UnitType.UT_Structural_Frequency, UnitGroup.Structural },
-                { UnitType.UT_Mass, UnitGroup.Structural },
-                { UnitType.UT_Mass_per_Unit_Length, UnitGroup.Structural },
-                { UnitType.UT_Moment_of_Inertia, UnitGroup.Structural },
-                { UnitType.UT_Surface_Area, UnitGroup.Structural },
-                { UnitType.UT_Period, UnitGroup.Structural },
-                { UnitType.UT_Pulsation, UnitGroup.Structural },
-                { UnitType.UT_Reinforcement_Area, UnitGroup.Structural },
-                { UnitType.UT_Reinforcement_Area_per_Unit_Length, UnitGroup.Structural },
-                { UnitType.UT_Reinforcement_Cover, UnitGroup.Structural },
-                { UnitType.UT_Reinforcement_Spacing, UnitGroup.Structural },
-                { UnitType.UT_Rotation, UnitGroup.Structural },
-                { UnitType.UT_Section_Area, UnitGroup.Structural },
-                { UnitType.UT_Section_Dimension, UnitGroup.Structural },
-                { UnitType.UT_Section_Modulus, UnitGroup.Structural },
-                { UnitType.UT_Section_Property, UnitGroup.Structural },
-                { UnitType.UT_Structural_Velocity, UnitGroup.Structural },
-                { UnitType.UT_Warping_Constant, UnitGroup.Structural },
-                { UnitType.UT_Weight, UnitGroup.Structural },
-                { UnitType.UT_Weight_per_Unit_Length, UnitGroup.Structural },
-                { UnitType.UT_HVAC_ThermalConductivity, UnitGroup.Energy },
-                { UnitType.UT_HVAC_SpecificHeat, UnitGroup.Energy },
-                { UnitType.UT_HVAC_SpecificHeatOfVaporization, UnitGroup.Energy },
-                { UnitType.UT_HVAC_Permeability, UnitGroup.Energy },
-                { UnitType.UT_Electrical_Resistivity, UnitGroup.Electrical },
-                { UnitType.UT_MassDensity, UnitGroup.Common },
-                { UnitType.UT_MassPerUnitArea, UnitGroup.Structural },
-                { UnitType.UT_Pipe_Dimension, UnitGroup.Piping },
-                { UnitType.UT_PipeMass, UnitGroup.Piping },
-                { UnitType.UT_PipeMassPerUnitLength, UnitGroup.Piping },
-                { UnitType.UT_HVAC_TemperatureDifference, UnitGroup.HVAC },
-                { UnitType.UT_Piping_TemperatureDifference, UnitGroup.Piping },
-                { UnitType.UT_Electrical_TemperatureDifference, UnitGroup.Electrical },
-            };
-
-            _parameterTypes = new Dictionary<UnitType, ParameterType>
-            {
-                // TODO: figure out mappings for these types.
-                { UnitType.UT_ForceScale, ParameterType.Number },
-                { UnitType.UT_LinearForceScale, ParameterType.Number },
-                { UnitType.UT_AreaForceScale, ParameterType.Number },
-                { UnitType.UT_MomentScale, ParameterType.Number },
-                { UnitType.UT_LinearMomentScale, ParameterType.Number },
-
-                { UnitType.UT_Length, ParameterType.Length },
-                { UnitType.UT_SheetLength, ParameterType.Length },
-                { UnitType.UT_Area, ParameterType.Area },
-                { UnitType.UT_Volume, ParameterType.Volume },
-                { UnitType.UT_Angle, ParameterType.Angle },
-                { UnitType.UT_SiteAngle, ParameterType.Angle },
-                { UnitType.UT_Number, ParameterType.Number },
-                { UnitType.UT_HVAC_Density, ParameterType.HVACDensity },
-                { UnitType.UT_HVAC_Energy, ParameterType.HVACEnergy },
-                { UnitType.UT_HVAC_Friction, ParameterType.HVACFriction },
-                { UnitType.UT_HVAC_Power, ParameterType.HVACPower },
-                { UnitType.UT_HVAC_Power_Density, ParameterType.HVACPower },
-                { UnitType.UT_HVAC_Pressure, ParameterType.HVACPressure },
-                { UnitType.UT_HVAC_Temperature, ParameterType.HVACTemperature },
-                { UnitType.UT_HVAC_Velocity, ParameterType.HVACVelocity },
-                { UnitType.UT_HVAC_Airflow, ParameterType.HVACAirflow },
-                { UnitType.UT_HVAC_DuctSize, ParameterType.HVACDuctSize },
-                { UnitType.UT_HVAC_CrossSection, ParameterType.HVACCrossSection },
-                { UnitType.UT_HVAC_HeatGain, ParameterType.HVACHeatGain },
-                { UnitType.UT_Electrical_Current, ParameterType.ElectricalCurrent },
-                { UnitType.UT_Electrical_Potential, ParameterType.ElectricalPotential },
-                { UnitType.UT_Electrical_Frequency, ParameterType.ElectricalFrequency },
-                { UnitType.UT_Electrical_Illuminance, ParameterType.ElectricalIlluminance },
-                { UnitType.UT_Electrical_Luminous_Flux, ParameterType.ElectricalLuminousFlux },
-                { UnitType.UT_Electrical_Power, ParameterType.ElectricalPower },
-                { UnitType.UT_HVAC_Roughness, ParameterType.HVACRoughness },
-                { UnitType.UT_Force, ParameterType.Force },
-                { UnitType.UT_LinearForce, ParameterType.LinearForce },
-                { UnitType.UT_AreaForce, ParameterType.AreaForce },
-                { UnitType.UT_Moment, ParameterType.Moment },
-                { UnitType.UT_Electrical_Apparent_Power, ParameterType.ElectricalApparentPower },
-                { UnitType.UT_Electrical_Power_Density, ParameterType.ElectricalPowerDensity },
-                { UnitType.UT_Piping_Density, ParameterType.PipingDensity },
-                { UnitType.UT_Piping_Flow, ParameterType.PipingFlow },
-                { UnitType.UT_Piping_Friction, ParameterType.PipingFriction },
-                { UnitType.UT_Piping_Pressure, ParameterType.PipingPressure },
-                { UnitType.UT_Piping_Temperature, ParameterType.PipingTemperature },
-                { UnitType.UT_Piping_Velocity, ParameterType.PipingVelocity },
-                { UnitType.UT_Piping_Viscosity, ParameterType.PipingViscosity },
-                { UnitType.UT_PipeSize, ParameterType.PipeSize },
-                { UnitType.UT_Piping_Roughness, ParameterType.PipingRoughness },
-                { UnitType.UT_Stress, ParameterType.Stress },
-                { UnitType.UT_UnitWeight, ParameterType.UnitWeight },
-                { UnitType.UT_ThermalExpansion, ParameterType.ThermalExpansion },
-                { UnitType.UT_LinearMoment, ParameterType.LinearMoment },
-                { UnitType.UT_ForcePerLength, ParameterType.ForcePerLength },
-                { UnitType.UT_ForceLengthPerAngle, ParameterType.ForceLengthPerAngle },
-                { UnitType.UT_LinearForcePerLength, ParameterType.LinearForcePerLength },
-                { UnitType.UT_LinearForceLengthPerAngle, ParameterType.LinearForceLengthPerAngle },
-                { UnitType.UT_AreaForcePerLength, ParameterType.AreaForcePerLength },
-                { UnitType.UT_Piping_Volume, ParameterType.PipingVolume },
-                { UnitType.UT_HVAC_Viscosity, ParameterType.HVACViscosity },
-                { UnitType.UT_HVAC_CoefficientOfHeatTransfer, ParameterType.HVACCoefficientOfHeatTransfer },
-                { UnitType.UT_HVAC_Airflow_Density, ParameterType.HVACAirflowDensity },
-                { UnitType.UT_Slope, ParameterType.Slope },
-                { UnitType.UT_HVAC_Cooling_Load, ParameterType.HVACCoolingLoad },
-                { UnitType.UT_HVAC_Cooling_Load_Divided_By_Area, ParameterType.HVACCoolingLoadDividedByArea },
-                { UnitType.UT_HVAC_Cooling_Load_Divided_By_Volume, ParameterType.HVACCoolingLoadDividedByVolume },
-                { UnitType.UT_HVAC_Heating_Load, ParameterType.HVACHeatingLoad },
-                { UnitType.UT_HVAC_Heating_Load_Divided_By_Area, ParameterType.HVACHeatingLoadDividedByArea },
-                { UnitType.UT_HVAC_Heating_Load_Divided_By_Volume, ParameterType.HVACHeatingLoadDividedByVolume },
-                { UnitType.UT_HVAC_Airflow_Divided_By_Volume, ParameterType.HVACAirflowDividedByVolume },
-                { UnitType.UT_HVAC_Airflow_Divided_By_Cooling_Load, ParameterType.HVACAirflowDividedByCoolingLoad },
-                { UnitType.UT_HVAC_Area_Divided_By_Cooling_Load, ParameterType.HVACAreaDividedByCoolingLoad },
-                { UnitType.UT_WireSize, ParameterType.WireSize },
-                { UnitType.UT_HVAC_Slope, ParameterType.HVACSlope },
-                { UnitType.UT_Piping_Slope, ParameterType.PipingSlope },
-                { UnitType.UT_Currency, ParameterType.Currency },
-                { UnitType.UT_Electrical_Efficacy, ParameterType.ElectricalEfficacy },
-                { UnitType.UT_Electrical_Wattage, ParameterType.ElectricalWattage },
-                { UnitType.UT_Color_Temperature, ParameterType.ColorTemperature },
-                { UnitType.UT_DecSheetLength, ParameterType.Length },
-                { UnitType.UT_Electrical_Luminous_Intensity, ParameterType.ElectricalLuminousIntensity },
-                { UnitType.UT_Electrical_Luminance, ParameterType.ElectricalLuminance },
-                { UnitType.UT_HVAC_Area_Divided_By_Heating_Load, ParameterType.HVACAreaDividedByHeatingLoad },
-                { UnitType.UT_HVAC_Factor, ParameterType.HVACFactor },
-                { UnitType.UT_Electrical_Temperature, ParameterType.ElectricalTemperature },
-                { UnitType.UT_Electrical_CableTraySize, ParameterType.ElectricalCableTraySize },
-                { UnitType.UT_Electrical_ConduitSize, ParameterType.ElectricalConduitSize },
-                { UnitType.UT_Reinforcement_Volume, ParameterType.ReinforcementVolume },
-                { UnitType.UT_Reinforcement_Length, ParameterType.ReinforcementLength },
-                { UnitType.UT_Electrical_Demand_Factor, ParameterType.ElectricalDemandFactor },
-                { UnitType.UT_HVAC_DuctInsulationThickness, ParameterType.HVACDuctInsulationThickness },
-                { UnitType.UT_HVAC_DuctLiningThickness, ParameterType.HVACDuctLiningThickness },
-                { UnitType.UT_PipeInsulationThickness, ParameterType.PipeInsulationThickness },
-                { UnitType.UT_HVAC_ThermalResistance, ParameterType.HVACThermalResistance },
-                { UnitType.UT_HVAC_ThermalMass, ParameterType.HVACThermalMass },
-                { UnitType.UT_Acceleration, ParameterType.Acceleration },
-                { UnitType.UT_Bar_Diameter, ParameterType.BarDiameter },
-                { UnitType.UT_Crack_Width, ParameterType.CrackWidth },
-                { UnitType.UT_Displacement_Deflection, ParameterType.DisplacementDeflection },
-                { UnitType.UT_Energy, ParameterType.Energy },
-                { UnitType.UT_Structural_Frequency, ParameterType.StructuralFrequency },
-                { UnitType.UT_Mass, ParameterType.Mass },
-                { UnitType.UT_Mass_per_Unit_Length, ParameterType.MassPerUnitLength },
-                { UnitType.UT_Moment_of_Inertia, ParameterType.MomentOfInertia },
-                { UnitType.UT_Surface_Area, ParameterType.SurfaceArea },
-                { UnitType.UT_Period, ParameterType.Period },
-                { UnitType.UT_Pulsation, ParameterType.Pulsation },
-                { UnitType.UT_Reinforcement_Area, ParameterType.ReinforcementArea },
-                { UnitType.UT_Reinforcement_Area_per_Unit_Length, ParameterType.ReinforcementAreaPerUnitLength },
-                { UnitType.UT_Reinforcement_Cover, ParameterType.ReinforcementCover },
-                { UnitType.UT_Reinforcement_Spacing, ParameterType.ReinforcementSpacing },
-                { UnitType.UT_Rotation, ParameterType.Rotation },
-                { UnitType.UT_Section_Area, ParameterType.SectionArea },
-                { UnitType.UT_Section_Dimension, ParameterType.SectionDimension },
-                { UnitType.UT_Section_Modulus, ParameterType.SectionModulus },
-                { UnitType.UT_Section_Property, ParameterType.SectionProperty },
-                { UnitType.UT_Structural_Velocity, ParameterType.StructuralVelocity },
-                { UnitType.UT_Warping_Constant, ParameterType.WarpingConstant },
-                { UnitType.UT_Weight, ParameterType.Weight },
-                { UnitType.UT_Weight_per_Unit_Length, ParameterType.WeightPerUnitLength },
-                { UnitType.UT_HVAC_ThermalConductivity, ParameterType.HVACThermalConductivity },
-                { UnitType.UT_HVAC_SpecificHeat, ParameterType.HVACSpecificHeat },
-                { UnitType.UT_HVAC_SpecificHeatOfVaporization, ParameterType.HVACSpecificHeatOfVaporization },
-                { UnitType.UT_HVAC_Permeability, ParameterType.HVACPermeability },
-                { UnitType.UT_Electrical_Resistivity, ParameterType.ElectricalResistivity },
-                { UnitType.UT_MassDensity, ParameterType.MassDensity },
-                { UnitType.UT_MassPerUnitArea, ParameterType.MassPerUnitArea },
-                { UnitType.UT_Pipe_Dimension, ParameterType.Length },
-                { UnitType.UT_PipeMass, ParameterType.Mass },
-                { UnitType.UT_PipeMassPerUnitLength, ParameterType.MassPerUnitLength },
-            };
-        }
-
-        /// <summary>
-        /// Tries the get the catalog string for the given UnitType value.
-        /// </summary>
-        /// <param name="unitType">Type of the unit.</param>
-        /// <param name="catalogString">The resulting catalog string.</param>
-        /// <returns></returns>
-        public static bool TryGetCatalogString(this UnitType unitType, out string catalogString)
-        {
-            return _utToCatalog.TryGetValue(unitType, out catalogString);
-        }
-
-        /// <summary>
-        /// Tries the get the UnitGroup for the given UnitType value.
-        /// </summary>
-        /// <param name="unitType">The unit type to convert.</param>
-        /// <param name="group">The resulting unit group.</param>
-        /// <returns></returns>
-        public static bool TryGetGroup(this UnitType unitType, out UnitGroup group)
-        {
-            return _utGroups.TryGetValue(unitType, out group);
-        }
-
-        /// <summary>
-        /// Tries the get the UnitType value for the given catalog string.
-        /// </summary>
-        /// <param name="catalogString">The catalog string to convert.</param>
-        /// <param name="unitType">The resulting unit type.</param>
-        /// <returns></returns>
-        public static bool TryGetUnitTypeFromCatalogString(this string catalogString, out UnitType unitType)
-        {
-            var values = _utToCatalog?.Where(u => u.Value.Equals(catalogString, System.StringComparison.OrdinalIgnoreCase)).Select(x => x.Key).ToList();
-            var valueExists = values != null && values.Any();
-            unitType = valueExists
-                ? values.FirstOrDefault()
-                : UnitType.UT_Undefined;
-            return valueExists;
-        }
-
-        /// <summary>
-        /// Tries the get the ParameterType value for the given UnitType value.
-        /// </summary>
-        /// <param name="unitType">The unit type.</param>
-        /// <param name="parameterType">The resulting ParameterType value.</param>
-        /// <returns></returns>
-        public static bool TryGetParameterType(this UnitType unitType, out ParameterType parameterType)
-        {
-            return _parameterTypes.TryGetValue(unitType, out parameterType);
-        }
-    }
 }

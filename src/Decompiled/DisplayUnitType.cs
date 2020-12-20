@@ -1,10 +1,15 @@
+#pragma warning disable IDE0079 // Remove unnecessary suppression
+#pragma warning disable CS1591
+
+// ReSharper disable InconsistentNaming
+
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
 
-#pragma warning disable 1591
-
+// Decompiled with JetBrains decompiler
+// Type: Autodesk.Revit.DB.DisplayUnitType
+// Assembly: RevitAPI, Version=21.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: E5118772-F025-44D6-A6E2-B8EDEDB90979
+// Assembly location: C:\Program Files\Autodesk\Revit 2021\RevitAPI.dll
 namespace CodeCave.Revit.Toolkit
 {
     /// <summary>
@@ -26,14 +31,11 @@ namespace CodeCave.Revit.Toolkit
     /// display units still correspond to an underlying simple unit when
     /// used with the conversion utilities.</para>
     ///    </remarks>
-    // Decompiled with JetBrains decompiler
-    // Type: Autodesk.Revit.DB.DisplayUnitType
-    // Assembly: RevitAPI, Version=17.0.0.0, Culture=neutral, PublicKeyToken=null
-    // ReSharper disable InconsistentNaming
+    [Obsolete("This enumeration is deprecated in Revit 2021 and may be removed in a future version of Revit. Please use the `ForgeTypeId` class instead. Use constant members of the `UnitTypeId` class to replace uses of specific values of this enumeration.")]
     public enum DisplayUnitType
     {
-        DUT_UNDEFINED = -2,
-        DUT_CUSTOM = -1,
+        DUT_UNDEFINED = -2, // 0xFFFFFFFE
+        DUT_CUSTOM = -1, // 0xFFFFFFFF
         DUT_METERS = 0,
         DUT_CENTIMETERS = 1,
         DUT_MILLIMETERS = 2,
@@ -44,1361 +46,402 @@ namespace CodeCave.Revit.Toolkit
         DUT_ACRES = 7,
         DUT_HECTARES = 8,
         DUT_METERS_CENTIMETERS = 9,
-        DUT_CUBIC_YARDS = 10,
-        DUT_SQUARE_FEET = 11,
-        DUT_SQUARE_METERS = 12,
-        DUT_CUBIC_FEET = 13,
-        DUT_CUBIC_METERS = 14,
-        DUT_DECIMAL_DEGREES = 15,
-        DUT_DEGREES_AND_MINUTES = 16,
-        DUT_GENERAL = 17,
-        DUT_FIXED = 18,
-        DUT_PERCENTAGE = 19,
-        DUT_SQUARE_INCHES = 20,
-        DUT_SQUARE_CENTIMETERS = 21,
-        DUT_SQUARE_MILLIMETERS = 22,
-        DUT_CUBIC_INCHES = 23,
-        DUT_CUBIC_CENTIMETERS = 24,
-        DUT_CUBIC_MILLIMETERS = 25,
-        DUT_LITERS = 26,
-        DUT_GALLONS_US = 27,
-        DUT_KILOGRAMS_PER_CUBIC_METER = 28,
-        DUT_POUNDS_MASS_PER_CUBIC_FOOT = 29,
-        DUT_POUNDS_MASS_PER_CUBIC_INCH = 30,
-        DUT_BRITISH_THERMAL_UNITS = 31,
-        DUT_CALORIES = 32,
-        DUT_KILOCALORIES = 33,
-        DUT_JOULES = 34,
-        DUT_KILOWATT_HOURS = 35,
-        DUT_THERMS = 36,
-        DUT_INCHES_OF_WATER_PER_100FT = 37,
-        DUT_PASCALS_PER_METER = 38,
-        DUT_WATTS = 39,
-        DUT_KILOWATTS = 40,
-        DUT_BRITISH_THERMAL_UNITS_PER_SECOND = 41,
-        DUT_BRITISH_THERMAL_UNITS_PER_HOUR = 42,
-        DUT_CALORIES_PER_SECOND = 43,
-        DUT_KILOCALORIES_PER_SECOND = 44,
-        DUT_WATTS_PER_SQUARE_FOOT = 45,
-        DUT_WATTS_PER_SQUARE_METER = 46,
-        DUT_INCHES_OF_WATER = 47,
-        DUT_PASCALS = 48,
-        DUT_KILOPASCALS = 49,
-        DUT_MEGAPASCALS = 50,
-        DUT_POUNDS_FORCE_PER_SQUARE_INCH = 51,
-        DUT_INCHES_OF_MERCURY = 52,
-        DUT_MILLIMETERS_OF_MERCURY = 53,
-        DUT_ATMOSPHERES = 54,
-        DUT_BARS = 55,
-        DUT_FAHRENHEIT = 56,
-        DUT_CELSIUS = 57,
-        DUT_KELVIN = 58,
-        DUT_RANKINE = 59,
-        DUT_FEET_PER_MINUTE = 60,
-        DUT_METERS_PER_SECOND = 61,
-        DUT_CENTIMETERS_PER_MINUTE = 62,
-        DUT_CUBIC_FEET_PER_MINUTE = 63,
-        DUT_LITERS_PER_SECOND = 64,
-        DUT_CUBIC_METERS_PER_SECOND = 65,
-        DUT_CUBIC_METERS_PER_HOUR = 66,
-        DUT_GALLONS_US_PER_MINUTE = 67,
-        DUT_GALLONS_US_PER_HOUR = 68,
-        DUT_AMPERES = 69,
-        DUT_KILOAMPERES = 70,
-        DUT_MILLIAMPERES = 71,
-        DUT_VOLTS = 72,
-        DUT_KILOVOLTS = 73,
-        DUT_MILLIVOLTS = 74,
-        DUT_HERTZ = 75,
-        DUT_CYCLES_PER_SECOND = 76,
-        DUT_LUX = 77,
-        DUT_FOOTCANDLES = 78,
-        DUT_FOOTLAMBERTS = 79,
-        DUT_CANDELAS_PER_SQUARE_METER = 80,
-        DUT_CANDELAS = 81,
-        DUT_CANDLEPOWER = 82,
-        DUT_LUMENS = 83,
-        DUT_VOLT_AMPERES = 84,
-        DUT_KILOVOLT_AMPERES = 85,
-        DUT_HORSEPOWER = 86,
-        DUT_NEWTONS = 87,
-        DUT_DECANEWTONS = 88,
-        DUT_KILONEWTONS = 89,
-        DUT_MEGANEWTONS = 90,
-        DUT_KIPS = 91,
-        DUT_KILOGRAMS_FORCE = 92,
-        DUT_TONNES_FORCE = 93,
-        DUT_POUNDS_FORCE = 94,
-        DUT_NEWTONS_PER_METER = 95,
-        DUT_DECANEWTONS_PER_METER = 96,
-        DUT_KILONEWTONS_PER_METER = 97,
-        DUT_MEGANEWTONS_PER_METER = 98,
-        DUT_KIPS_PER_FOOT = 99,
-        DUT_KILOGRAMS_FORCE_PER_METER = 100,
-        DUT_TONNES_FORCE_PER_METER = 101,
-        DUT_POUNDS_FORCE_PER_FOOT = 102,
-        DUT_NEWTONS_PER_SQUARE_METER = 103,
-        DUT_DECANEWTONS_PER_SQUARE_METER = 104,
-        DUT_KILONEWTONS_PER_SQUARE_METER = 105,
-        DUT_MEGANEWTONS_PER_SQUARE_METER = 106,
-        DUT_KIPS_PER_SQUARE_FOOT = 107,
-        DUT_KILOGRAMS_FORCE_PER_SQUARE_METER = 108,
-        DUT_TONNES_FORCE_PER_SQUARE_METER = 109,
-        DUT_POUNDS_FORCE_PER_SQUARE_FOOT = 110,
-        DUT_NEWTON_METERS = 111,
-        DUT_DECANEWTON_METERS = 112,
-        DUT_KILONEWTON_METERS = 113,
-        DUT_MEGANEWTON_METERS = 114,
-        DUT_KIP_FEET = 115,
-        DUT_KILOGRAM_FORCE_METERS = 116,
-        DUT_TONNE_FORCE_METERS = 117,
-        DUT_POUND_FORCE_FEET = 118,
-        DUT_METERS_PER_KILONEWTON = 119,
-        DUT_FEET_PER_KIP = 120,
-        DUT_SQUARE_METERS_PER_KILONEWTON = 121,
-        DUT_SQUARE_FEET_PER_KIP = 122,
-        DUT_CUBIC_METERS_PER_KILONEWTON = 123,
-        DUT_CUBIC_FEET_PER_KIP = 124,
-        DUT_INV_KILONEWTONS = 125,
-        DUT_INV_KIPS = 126,
-        DUT_FEET_OF_WATER_PER_100FT = 127,
-        DUT_FEET_OF_WATER = 128,
-        DUT_PASCAL_SECONDS = 129,
-        DUT_POUNDS_MASS_PER_FOOT_SECOND = 130,
-        DUT_CENTIPOISES = 131,
-        DUT_FEET_PER_SECOND = 132,
-        DUT_KIPS_PER_SQUARE_INCH = 133,
-        DUT_KILONEWTONS_PER_CUBIC_METER = 134,
-        DUT_POUNDS_FORCE_PER_CUBIC_FOOT = 135,
-        DUT_KIPS_PER_CUBIC_INCH = 136,
-        DUT_INV_FAHRENHEIT = 137,
-        DUT_INV_CELSIUS = 138,
-        DUT_NEWTON_METERS_PER_METER = 139,
-        DUT_DECANEWTON_METERS_PER_METER = 140,
-        DUT_KILONEWTON_METERS_PER_METER = 141,
-        DUT_MEGANEWTON_METERS_PER_METER = 142,
-        DUT_KIP_FEET_PER_FOOT = 143,
-        DUT_KILOGRAM_FORCE_METERS_PER_METER = 144,
-        DUT_TONNE_FORCE_METERS_PER_METER = 145,
-        DUT_POUND_FORCE_FEET_PER_FOOT = 146,
-        DUT_POUNDS_MASS_PER_FOOT_HOUR = 147,
-        DUT_KIPS_PER_INCH = 148,
-        DUT_KIPS_PER_CUBIC_FOOT = 149,
-        DUT_KIP_FEET_PER_DEGREE = 150,
-        DUT_KILONEWTON_METERS_PER_DEGREE = 151,
-        DUT_KIP_FEET_PER_DEGREE_PER_FOOT = 152,
-        DUT_KILONEWTON_METERS_PER_DEGREE_PER_METER = 153,
-        DUT_WATTS_PER_SQUARE_METER_KELVIN = 154,
-        DUT_BRITISH_THERMAL_UNITS_PER_HOUR_SQUARE_FOOT_FAHRENHEIT = 155,
-        DUT_CUBIC_FEET_PER_MINUTE_SQUARE_FOOT = 156,
-        DUT_LITERS_PER_SECOND_SQUARE_METER = 157,
-        DUT_RATIO_10 = 158,
-        DUT_RATIO_12 = 159,
-        DUT_SLOPE_DEGREES = 160,
-        DUT_RISE_OVER_INCHES = 161,
-        DUT_RISE_OVER_FOOT = 162,
-        DUT_RISE_OVER_MMS = 163,
-        DUT_WATTS_PER_CUBIC_FOOT = 164,
-        DUT_WATTS_PER_CUBIC_METER = 165,
-        DUT_BRITISH_THERMAL_UNITS_PER_HOUR_SQUARE_FOOT = 166,
-        DUT_BRITISH_THERMAL_UNITS_PER_HOUR_CUBIC_FOOT = 167,
-        DUT_TON_OF_REFRIGERATION = 168,
-        DUT_CUBIC_FEET_PER_MINUTE_CUBIC_FOOT = 169,
-        DUT_LITERS_PER_SECOND_CUBIC_METER = 170,
-        DUT_CUBIC_FEET_PER_MINUTE_TON_OF_REFRIGERATION = 171,
-        DUT_LITERS_PER_SECOND_KILOWATTS = 172,
-        DUT_SQUARE_FEET_PER_TON_OF_REFRIGERATION = 173,
-        DUT_SQUARE_METERS_PER_KILOWATTS = 174,
-        DUT_CURRENCY = 175,
-        DUT_LUMENS_PER_WATT = 176,
-        DUT_SQUARE_FEET_PER_THOUSAND_BRITISH_THERMAL_UNITS_PER_HOUR = 177,
-        DUT_KILONEWTONS_PER_SQUARE_CENTIMETER = 178,
-        DUT_NEWTONS_PER_SQUARE_MILLIMETER = 179,
-        DUT_KILONEWTONS_PER_SQUARE_MILLIMETER = 180,
-        DUT_RISE_OVER_120_INCHES = 181,
-        DUT_1_RATIO = 182,
-        DUT_RISE_OVER_10_FEET = 183,
-        DUT_HOUR_SQUARE_FOOT_FAHRENHEIT_PER_BRITISH_THERMAL_UNIT = 184,
-        DUT_SQUARE_METER_KELVIN_PER_WATT = 185,
-        DUT_BRITISH_THERMAL_UNIT_PER_FAHRENHEIT = 186,
-        DUT_JOULES_PER_KELVIN = 187,
-        DUT_KILOJOULES_PER_KELVIN = 188,
-        DUT_KILOGRAMS_MASS = 189,
-        DUT_TONNES_MASS = 190,
-        DUT_POUNDS_MASS = 191,
-        DUT_METERS_PER_SECOND_SQUARED = 192,
-        DUT_KILOMETERS_PER_SECOND_SQUARED = 193,
-        DUT_INCHES_PER_SECOND_SQUARED = 194,
-        DUT_FEET_PER_SECOND_SQUARED = 195,
-        DUT_MILES_PER_SECOND_SQUARED = 196,
-        DUT_FEET_TO_THE_FOURTH_POWER = 197,
-        DUT_INCHES_TO_THE_FOURTH_POWER = 198,
-        DUT_MILLIMETERS_TO_THE_FOURTH_POWER = 199,
-        DUT_CENTIMETERS_TO_THE_FOURTH_POWER = 200,
-        DUT_METERS_TO_THE_FOURTH_POWER = 201,
-        DUT_FEET_TO_THE_SIXTH_POWER = 202,
-        DUT_INCHES_TO_THE_SIXTH_POWER = 203,
-        DUT_MILLIMETERS_TO_THE_SIXTH_POWER = 204,
-        DUT_CENTIMETERS_TO_THE_SIXTH_POWER = 205,
-        DUT_METERS_TO_THE_SIXTH_POWER = 206,
-        DUT_SQUARE_FEET_PER_FOOT = 207,
-        DUT_SQUARE_INCHES_PER_FOOT = 208,
-        DUT_SQUARE_MILLIMETERS_PER_METER = 209,
-        DUT_SQUARE_CENTIMETERS_PER_METER = 210,
-        DUT_SQUARE_METERS_PER_METER = 211,
-        DUT_KILOGRAMS_MASS_PER_METER = 212,
-        DUT_POUNDS_MASS_PER_FOOT = 213,
-        DUT_RADIANS = 214,
-        DUT_GRADS = 215,
-        DUT_RADIANS_PER_SECOND = 216,
-        DUT_MILISECONDS = 217,
-        DUT_SECONDS = 218,
-        DUT_MINUTES = 219,
-        DUT_HOURS = 220,
-        DUT_KILOMETERS_PER_HOUR = 221,
-        DUT_MILES_PER_HOUR = 222,
-        DUT_KILOJOULES = 223,
-        DUT_KILOGRAMS_MASS_PER_SQUARE_METER = 224,
-        DUT_POUNDS_MASS_PER_SQUARE_FOOT = 225,
-        DUT_WATTS_PER_METER_KELVIN = 226,
-        DUT_JOULES_PER_GRAM_CELSIUS = 227,
-        DUT_JOULES_PER_GRAM = 228,
-        DUT_NANOGRAMS_PER_PASCAL_SECOND_SQUARE_METER = 229,
-        DUT_OHM_METERS = 230,
-        DUT_BRITISH_THERMAL_UNITS_PER_HOUR_FOOT_FAHRENHEIT = 231,
-        DUT_BRITISH_THERMAL_UNITS_PER_POUND_FAHRENHEIT = 232,
-        DUT_BRITISH_THERMAL_UNITS_PER_POUND = 233,
-        DUT_GRAINS_PER_HOUR_SQUARE_FOOT_INCH_MERCURY = 234,
-        DUT_PER_MILLE = 235,
-        DUT_DECIMETERS = 236,
-        DUT_JOULES_PER_KILOGRAM_CELSIUS = 237,
-        DUT_MICROMETERS_PER_METER_CELSIUS = 238,
-        DUT_MICROINCHES_PER_INCH_FAHRENHEIT = 239,
-        DUT_USTONNES_MASS = 240,
-        DUT_USTONNES_FORCE = 241,
-        DUT_LITERS_PER_MINUTE = 242,
-        DUT_FAHRENHEIT_DIFFERENCE = 243,
-        DUT_CELSIUS_DIFFERENCE = 244,
-        DUT_KELVIN_DIFFERENCE = 245,
-        DUT_RANKINE_DIFFERENCE = 246,
-    }
-
-    /// <summary>
-    /// Contains extension methods for <see cref="DisplayUnitType"/>
-    /// </summary>
-    public static class DisplayUnitTypeExtensions
-    {
-        private static readonly Dictionary<DisplayUnitType, string> _dutToCatalog;
-        private static readonly Dictionary<DisplayUnitType, List<UnitType>> _dutToUnitType;
-        private static readonly Dictionary<DisplayUnitType, List<UnitSymbolType>> _dutToUnitSymType;
-        private static readonly Dictionary<DisplayUnitType, List<ParameterType>> _dutToParameterType;
-
+        DUT_CUBIC_YARDS = 10, // 0x0000000A
+        DUT_SQUARE_FEET = 11, // 0x0000000B
+        DUT_SQUARE_METERS = 12, // 0x0000000C
+        DUT_CUBIC_FEET = 13, // 0x0000000D
+        DUT_CUBIC_METERS = 14, // 0x0000000E
+        DUT_DECIMAL_DEGREES = 15, // 0x0000000F
+        DUT_DEGREES_AND_MINUTES = 16, // 0x00000010
+        DUT_GENERAL = 17, // 0x00000011
+        DUT_FIXED = 18, // 0x00000012
+        DUT_PERCENTAGE = 19, // 0x00000013
+        DUT_SQUARE_INCHES = 20, // 0x00000014
+        DUT_SQUARE_CENTIMETERS = 21, // 0x00000015
+        DUT_SQUARE_MILLIMETERS = 22, // 0x00000016
+        DUT_CUBIC_INCHES = 23, // 0x00000017
+        DUT_CUBIC_CENTIMETERS = 24, // 0x00000018
+        DUT_CUBIC_MILLIMETERS = 25, // 0x00000019
+        /// <summary>liter (L)</summary>
+        DUT_LITERS = 26, // 0x0000001A
+        /// <summary>gallon (U.S.) (gal)</summary>
+        DUT_GALLONS_US = 27, // 0x0000001B
+        /// <summary>kilogram per cubic meter (kg/m³)</summary>
+        DUT_KILOGRAMS_PER_CUBIC_METER = 28, // 0x0000001C
+        /// <summary>pound per cubic foot (lb/ft³)</summary>
+        DUT_POUNDS_MASS_PER_CUBIC_FOOT = 29, // 0x0000001D
+        /// <summary>pound per cubic inch (lb/in³)</summary>
+        DUT_POUNDS_MASS_PER_CUBIC_INCH = 30, // 0x0000001E
+        /// <summary>British thermal unit[IT] (Btu[IT])</summary>
+        DUT_BRITISH_THERMAL_UNITS = 31, // 0x0000001F
+        /// <summary>calorie[IT] (cal[IT])</summary>
+        DUT_CALORIES = 32, // 0x00000020
+        /// <summary>kilocalorie[IT] (kcal[IT])</summary>
+        DUT_KILOCALORIES = 33, // 0x00000021
+        /// <summary>joule (J)</summary>
+        DUT_JOULES = 34, // 0x00000022
+        /// <summary>kilowatt hour (kW · h)</summary>
+        DUT_KILOWATT_HOURS = 35, // 0x00000023
+        /// <summary>therm (EC)</summary>
+        DUT_THERMS = 36, // 0x00000024
+        /// <summary>Inches of water per 100 feet</summary>
+        DUT_INCHES_OF_WATER_PER_100FT = 37, // 0x00000025
+        /// <summary>pascal per meter (N/m)</summary>
+        DUT_PASCALS_PER_METER = 38, // 0x00000026
+        /// <summary>watt (W)</summary>
+        DUT_WATTS = 39, // 0x00000027
+        /// <summary>kilowatt (kW)</summary>
+        DUT_KILOWATTS = 40, // 0x00000028
+        /// <summary>British thermal unit[IT] per second (Btu[IT]/s)</summary>
+        DUT_BRITISH_THERMAL_UNITS_PER_SECOND = 41, // 0x00000029
+        /// <summary>British thermal unit[IT] per hour (Btu[IT]/h)</summary>
+        DUT_BRITISH_THERMAL_UNITS_PER_HOUR = 42, // 0x0000002A
+        /// <summary>calorie[IT] per second (cal[IT]/s)</summary>
+        DUT_CALORIES_PER_SECOND = 43, // 0x0000002B
+        /// <summary>kilocalorie[IT] per second (kcal[IT]/s)</summary>
+        DUT_KILOCALORIES_PER_SECOND = 44, // 0x0000002C
+        /// <summary>watt per square foot (W/ft²)</summary>
+        DUT_WATTS_PER_SQUARE_FOOT = 45, // 0x0000002D
+        /// <summary>watt per square meter (W/m²)</summary>
+        DUT_WATTS_PER_SQUARE_METER = 46, // 0x0000002E
+        /// <summary>inch of water (60.8°F)</summary>
+        DUT_INCHES_OF_WATER = 47, // 0x0000002F
+        /// <summary>pascal (Pa)</summary>
+        DUT_PASCALS = 48, // 0x00000030
+        /// <summary>kilopascal (kPa)</summary>
+        DUT_KILOPASCALS = 49, // 0x00000031
+        /// <summary>megapascal (MPa)</summary>
+        DUT_MEGAPASCALS = 50, // 0x00000032
+        /// <summary>pound-force per square inch (psi) (lbf/in2)</summary>
+        DUT_POUNDS_FORCE_PER_SQUARE_INCH = 51, // 0x00000033
+        /// <summary>inch of mercury  conventional (inHg)</summary>
+        DUT_INCHES_OF_MERCURY = 52, // 0x00000034
+        /// <summary>millimeter of mercury  conventional (mmHg)</summary>
+        DUT_MILLIMETERS_OF_MERCURY = 53, // 0x00000035
+        /// <summary>atmosphere  standard (atm)</summary>
+        DUT_ATMOSPHERES = 54, // 0x00000036
+        /// <summary>bar (bar)</summary>
+        DUT_BARS = 55, // 0x00000037
+        /// <summary>degree Fahrenheit (°F)</summary>
+        DUT_FAHRENHEIT = 56, // 0x00000038
+        /// <summary>degree Celsius (°C)</summary>
+        DUT_CELSIUS = 57, // 0x00000039
+        /// <summary>kelvin (K)</summary>
+        DUT_KELVIN = 58, // 0x0000003A
+        /// <summary>degree Rankine (°R)</summary>
+        DUT_RANKINE = 59, // 0x0000003B
+        /// <summary>foot per minute (ft/min)</summary>
+        DUT_FEET_PER_MINUTE = 60, // 0x0000003C
+        /// <summary>meter per second (m/s)</summary>
+        DUT_METERS_PER_SECOND = 61, // 0x0000003D
+        /// <summary>centimeter per minute (cm/min)</summary>
+        DUT_CENTIMETERS_PER_MINUTE = 62, // 0x0000003E
+        /// <summary>cubic foot per minute (ft³/min)</summary>
+        DUT_CUBIC_FEET_PER_MINUTE = 63, // 0x0000003F
+        /// <summary>liter per second (L/s)</summary>
+        DUT_LITERS_PER_SECOND = 64, // 0x00000040
+        /// <summary>cubic meter per second (m³/s)</summary>
+        DUT_CUBIC_METERS_PER_SECOND = 65, // 0x00000041
+        /// <summary>cubic meters per hour (m³/h)</summary>
+        DUT_CUBIC_METERS_PER_HOUR = 66, // 0x00000042
+        /// <summary>gallon (U.S.) per minute (gpm) (gal/min)</summary>
+        DUT_GALLONS_US_PER_MINUTE = 67, // 0x00000043
+        /// <summary>gallon (U.S.) per hour (gph) (gal/h)</summary>
+        DUT_GALLONS_US_PER_HOUR = 68, // 0x00000044
+        /// <summary>ampere (A)</summary>
+        DUT_AMPERES = 69, // 0x00000045
+        /// <summary>kiloampere (kA)</summary>
+        DUT_KILOAMPERES = 70, // 0x00000046
+        /// <summary>milliampere (mA)</summary>
+        DUT_MILLIAMPERES = 71, // 0x00000047
+        /// <summary>volt (V)</summary>
+        DUT_VOLTS = 72, // 0x00000048
+        /// <summary>kilovolt (kV)</summary>
+        DUT_KILOVOLTS = 73, // 0x00000049
+        /// <summary>millivolt (mV)</summary>
+        DUT_MILLIVOLTS = 74, // 0x0000004A
+        /// <summary>hertz (Hz)</summary>
+        DUT_HERTZ = 75, // 0x0000004B
+        DUT_CYCLES_PER_SECOND = 76, // 0x0000004C
+        /// <summary>lux (lx)</summary>
+        DUT_LUX = 77, // 0x0000004D
+        /// <summary>footcandle</summary>
+        DUT_FOOTCANDLES = 78, // 0x0000004E
+        /// <summary>footlambert</summary>
+        DUT_FOOTLAMBERTS = 79, // 0x0000004F
+        /// <summary>candela per square meter (cd/m²)</summary>
+        DUT_CANDELAS_PER_SQUARE_METER = 80, // 0x00000050
+        /// <summary>candela (cd)</summary>
+        DUT_CANDELAS = 81, // 0x00000051
+        /// <summary>obsolete</summary>
+        DUT_CANDLEPOWER = 82, // 0x00000052
+        /// <summary>lumen (lm)</summary>
+        DUT_LUMENS = 83, // 0x00000053
+        DUT_VOLT_AMPERES = 84, // 0x00000054
+        DUT_KILOVOLT_AMPERES = 85, // 0x00000055
+        /// <summary>horsepower (550 ft · lbf/s)</summary>
+        DUT_HORSEPOWER = 86, // 0x00000056
+        DUT_NEWTONS = 87, // 0x00000057
+        DUT_DECANEWTONS = 88, // 0x00000058
+        DUT_KILONEWTONS = 89, // 0x00000059
+        DUT_MEGANEWTONS = 90, // 0x0000005A
+        DUT_KIPS = 91, // 0x0000005B
+        DUT_KILOGRAMS_FORCE = 92, // 0x0000005C
+        DUT_TONNES_FORCE = 93, // 0x0000005D
+        DUT_POUNDS_FORCE = 94, // 0x0000005E
+        DUT_NEWTONS_PER_METER = 95, // 0x0000005F
+        DUT_DECANEWTONS_PER_METER = 96, // 0x00000060
+        DUT_KILONEWTONS_PER_METER = 97, // 0x00000061
+        DUT_MEGANEWTONS_PER_METER = 98, // 0x00000062
+        DUT_KIPS_PER_FOOT = 99, // 0x00000063
+        DUT_KILOGRAMS_FORCE_PER_METER = 100, // 0x00000064
+        DUT_TONNES_FORCE_PER_METER = 101, // 0x00000065
+        DUT_POUNDS_FORCE_PER_FOOT = 102, // 0x00000066
+        DUT_NEWTONS_PER_SQUARE_METER = 103, // 0x00000067
+        DUT_DECANEWTONS_PER_SQUARE_METER = 104, // 0x00000068
+        DUT_KILONEWTONS_PER_SQUARE_METER = 105, // 0x00000069
+        DUT_MEGANEWTONS_PER_SQUARE_METER = 106, // 0x0000006A
+        DUT_KIPS_PER_SQUARE_FOOT = 107, // 0x0000006B
+        DUT_KILOGRAMS_FORCE_PER_SQUARE_METER = 108, // 0x0000006C
+        DUT_TONNES_FORCE_PER_SQUARE_METER = 109, // 0x0000006D
+        DUT_POUNDS_FORCE_PER_SQUARE_FOOT = 110, // 0x0000006E
+        DUT_NEWTON_METERS = 111, // 0x0000006F
+        DUT_DECANEWTON_METERS = 112, // 0x00000070
+        DUT_KILONEWTON_METERS = 113, // 0x00000071
+        DUT_MEGANEWTON_METERS = 114, // 0x00000072
+        DUT_KIP_FEET = 115, // 0x00000073
+        DUT_KILOGRAM_FORCE_METERS = 116, // 0x00000074
+        DUT_TONNE_FORCE_METERS = 117, // 0x00000075
+        DUT_POUND_FORCE_FEET = 118, // 0x00000076
+        DUT_METERS_PER_KILONEWTON = 119, // 0x00000077
+        DUT_FEET_PER_KIP = 120, // 0x00000078
+        DUT_SQUARE_METERS_PER_KILONEWTON = 121, // 0x00000079
+        DUT_SQUARE_FEET_PER_KIP = 122, // 0x0000007A
+        DUT_CUBIC_METERS_PER_KILONEWTON = 123, // 0x0000007B
+        DUT_CUBIC_FEET_PER_KIP = 124, // 0x0000007C
+        DUT_INV_KILONEWTONS = 125, // 0x0000007D
+        DUT_INV_KIPS = 126, // 0x0000007E
+        /// <summary>foot of water  conventional (ftH2O) per 100 ft</summary>
+        DUT_FEET_OF_WATER_PER_100FT = 127, // 0x0000007F
+        /// <summary>foot of water  conventional (ftH2O)</summary>
+        DUT_FEET_OF_WATER = 128, // 0x00000080
+        /// <summary>pascal second (Pa · s)</summary>
+        DUT_PASCAL_SECONDS = 129, // 0x00000081
+        /// <summary>pound per foot second (lb/(ft · s))</summary>
+        DUT_POUNDS_MASS_PER_FOOT_SECOND = 130, // 0x00000082
+        /// <summary>centipoise (cP)</summary>
+        DUT_CENTIPOISES = 131, // 0x00000083
+        /// <summary>foot per second (ft/s)</summary>
+        DUT_FEET_PER_SECOND = 132, // 0x00000084
+        DUT_KIPS_PER_SQUARE_INCH = 133, // 0x00000085
+        /// <summary>kilnewtons per cubic meter (kN/m³)</summary>
+        DUT_KILONEWTONS_PER_CUBIC_METER = 134, // 0x00000086
+        /// <summary>pound per cubic foot (kip/ft³)</summary>
+        DUT_POUNDS_FORCE_PER_CUBIC_FOOT = 135, // 0x00000087
+        /// <summary>pound per cubic foot (kip/in³)</summary>
+        DUT_KIPS_PER_CUBIC_INCH = 136, // 0x00000088
+        DUT_INV_FAHRENHEIT = 137, // 0x00000089
+        DUT_INV_CELSIUS = 138, // 0x0000008A
+        DUT_NEWTON_METERS_PER_METER = 139, // 0x0000008B
+        DUT_DECANEWTON_METERS_PER_METER = 140, // 0x0000008C
+        DUT_KILONEWTON_METERS_PER_METER = 141, // 0x0000008D
+        DUT_MEGANEWTON_METERS_PER_METER = 142, // 0x0000008E
+        DUT_KIP_FEET_PER_FOOT = 143, // 0x0000008F
+        DUT_KILOGRAM_FORCE_METERS_PER_METER = 144, // 0x00000090
+        DUT_TONNE_FORCE_METERS_PER_METER = 145, // 0x00000091
+        DUT_POUND_FORCE_FEET_PER_FOOT = 146, // 0x00000092
+        /// <summary>pound per foot hour (lb/(ft · h))</summary>
+        DUT_POUNDS_MASS_PER_FOOT_HOUR = 147, // 0x00000093
+        DUT_KIPS_PER_INCH = 148, // 0x00000094
+        /// <summary>pound per cubic foot (kip/ft³)</summary>
+        DUT_KIPS_PER_CUBIC_FOOT = 149, // 0x00000095
+        DUT_KIP_FEET_PER_DEGREE = 150, // 0x00000096
+        DUT_KILONEWTON_METERS_PER_DEGREE = 151, // 0x00000097
+        DUT_KIP_FEET_PER_DEGREE_PER_FOOT = 152, // 0x00000098
+        DUT_KILONEWTON_METERS_PER_DEGREE_PER_METER = 153, // 0x00000099
+        /// <summary>watt per square meter kelvin (W/(m² · K))</summary>
+        DUT_WATTS_PER_SQUARE_METER_KELVIN = 154, // 0x0000009A
         /// <summary>
-        /// Initializes the <see cref="DisplayUnitTypeExtensions"/> class.
+        ///    British thermal unit[IT] per hour square foot degree Fahrenheit (Btu[IT]/(h · ft² · °F)
         /// </summary>
-        static DisplayUnitTypeExtensions()
-        {
-            #region DisplayUnitType to catalog string
-
-            _dutToCatalog = new Dictionary<DisplayUnitType, string>
-            {
-                { DisplayUnitType.DUT_METERS, "METERS" },
-                { DisplayUnitType.DUT_CENTIMETERS, "CENTIMETERS" },
-                { DisplayUnitType.DUT_MILLIMETERS, "MILLIMETERS" },
-                { DisplayUnitType.DUT_DECIMAL_FEET, "FEET" },
-                { DisplayUnitType.DUT_FEET_FRACTIONAL_INCHES, "FEET" },
-                { DisplayUnitType.DUT_FRACTIONAL_INCHES, "INCHES" },
-                { DisplayUnitType.DUT_DECIMAL_INCHES, "INCHES" },
-                { DisplayUnitType.DUT_ACRES, "ACRES" },
-                { DisplayUnitType.DUT_HECTARES, "HECTARES" },
-                { DisplayUnitType.DUT_METERS_CENTIMETERS, "METERS" },
-                { DisplayUnitType.DUT_CUBIC_YARDS, "CUBIC_YARDS" },
-                { DisplayUnitType.DUT_SQUARE_FEET, "SQUARE_FEET" },
-                { DisplayUnitType.DUT_SQUARE_METERS, "SQUARE_METERS" },
-                { DisplayUnitType.DUT_CUBIC_FEET, "CUBIC_FEET" },
-                { DisplayUnitType.DUT_CUBIC_METERS, "CUBIC_METERS" },
-                { DisplayUnitType.DUT_DECIMAL_DEGREES, "DEGREES" },
-                { DisplayUnitType.DUT_DEGREES_AND_MINUTES, "DEGREES" },
-                { DisplayUnitType.DUT_GENERAL, "" },
-                { DisplayUnitType.DUT_FIXED, "" },
-                { DisplayUnitType.DUT_PERCENTAGE, "PERCENTAGE" },
-                { DisplayUnitType.DUT_SQUARE_INCHES, "SQUARE_INCHES" },
-                { DisplayUnitType.DUT_SQUARE_CENTIMETERS, "SQUARE_CENTIMETERS" },
-                { DisplayUnitType.DUT_SQUARE_MILLIMETERS, "SQUARE_MILLIMETERS" },
-                { DisplayUnitType.DUT_CUBIC_INCHES, "CUBIC_INCHES" },
-                { DisplayUnitType.DUT_CUBIC_CENTIMETERS, "CUBIC_CENTIMETERS" },
-                { DisplayUnitType.DUT_CUBIC_MILLIMETERS, "CUBIC_MILLIMETERS" },
-                { DisplayUnitType.DUT_LITERS, "LITERS" },
-                { DisplayUnitType.DUT_GALLONS_US, "GALLONS" },
-                { DisplayUnitType.DUT_KILOGRAMS_PER_CUBIC_METER, "KILOGRAMS_PER_CUBIC_METER" },
-                { DisplayUnitType.DUT_POUNDS_MASS_PER_CUBIC_FOOT, "POUNDS_MASS_PER_CUBIC_FOOT" },
-                { DisplayUnitType.DUT_POUNDS_MASS_PER_CUBIC_INCH, "POUNDS_MASS_PER_CUBIC_INCH" },
-                { DisplayUnitType.DUT_BRITISH_THERMAL_UNITS, "BRITISH_THERMAL_UNITS" },
-                { DisplayUnitType.DUT_CALORIES, "CALORIES" },
-                { DisplayUnitType.DUT_KILOCALORIES, "KILOCALORIES" },
-                { DisplayUnitType.DUT_JOULES, "JOULES" },
-                { DisplayUnitType.DUT_KILOWATT_HOURS, "KILOWATT_HOURS" },
-                { DisplayUnitType.DUT_THERMS, "THERMS" },
-                { DisplayUnitType.DUT_INCHES_OF_WATER_PER_100FT, "INCHES_OF_WATER_PER_100FT" },
-                { DisplayUnitType.DUT_PASCALS_PER_METER, "PASCALS_PER_METER" },
-                { DisplayUnitType.DUT_WATTS, "WATTS" },
-                { DisplayUnitType.DUT_KILOWATTS, "KILOWATTS" },
-                { DisplayUnitType.DUT_BRITISH_THERMAL_UNITS_PER_SECOND, "BRITISH_THERMAL_UNITS_PER_SECOND" },
-                { DisplayUnitType.DUT_BRITISH_THERMAL_UNITS_PER_HOUR, "BRITISH_THERMAL_UNITS_PER_HOUR" },
-                { DisplayUnitType.DUT_CALORIES_PER_SECOND, "CALORIES_PER_SECOND" },
-                { DisplayUnitType.DUT_KILOCALORIES_PER_SECOND, "KILOCALORIES_PER_SECOND" },
-                { DisplayUnitType.DUT_WATTS_PER_SQUARE_FOOT, "WATTS_PER_SQUARE_FOOT" },
-                { DisplayUnitType.DUT_WATTS_PER_SQUARE_METER, "WATTS_PER_SQUARE_METER" },
-                { DisplayUnitType.DUT_INCHES_OF_WATER, "INCHES_OF_WATER" },
-                { DisplayUnitType.DUT_PASCALS, "PASCALS" },
-                { DisplayUnitType.DUT_KILOPASCALS, "KILOPASCALS" },
-                { DisplayUnitType.DUT_MEGAPASCALS, "MEGAPASCALS" },
-                { DisplayUnitType.DUT_POUNDS_FORCE_PER_SQUARE_INCH, "POUNDS_FORCE_PER_SQUARE_INCH" },
-                { DisplayUnitType.DUT_INCHES_OF_MERCURY, "INCHES_OF_MERCURY" },
-                { DisplayUnitType.DUT_MILLIMETERS_OF_MERCURY, "MILLIMETERS_OF_MERCURY" },
-                { DisplayUnitType.DUT_ATMOSPHERES, "ATMOSPHERES" },
-                { DisplayUnitType.DUT_BARS, "BARS" },
-                { DisplayUnitType.DUT_FAHRENHEIT, "FAHRENHEIT" },
-                { DisplayUnitType.DUT_CELSIUS, "CELSIUS" },
-                { DisplayUnitType.DUT_KELVIN, "KELVIN" },
-                { DisplayUnitType.DUT_RANKINE, "RANKINE" },
-                { DisplayUnitType.DUT_FEET_PER_MINUTE, "FEET_PER_MINUTE" },
-                { DisplayUnitType.DUT_METERS_PER_SECOND, "METERS_PER_SECOND" },
-                { DisplayUnitType.DUT_CENTIMETERS_PER_MINUTE, "CENTIMETERS_PER_MINUTE" },
-                { DisplayUnitType.DUT_CUBIC_FEET_PER_MINUTE, "CUBIC_FEET_PER_MINUTE" },
-                { DisplayUnitType.DUT_LITERS_PER_SECOND, "LITERS_PER_SECOND" },
-                { DisplayUnitType.DUT_CUBIC_METERS_PER_SECOND, "CUBIC_METERS_PER_SECOND" },
-                { DisplayUnitType.DUT_CUBIC_METERS_PER_HOUR, "CUBIC_METERS_PER_HOUR" },
-                { DisplayUnitType.DUT_GALLONS_US_PER_MINUTE, "GALLONS_US_PER_MINUTE" },
-                { DisplayUnitType.DUT_GALLONS_US_PER_HOUR, "GALLONS_US_PER_HOUR" },
-                { DisplayUnitType.DUT_AMPERES, "AMPERES" },
-                { DisplayUnitType.DUT_KILOAMPERES, "KILOAMPERES" },
-                { DisplayUnitType.DUT_MILLIAMPERES, "MILLIAMPERES" },
-                { DisplayUnitType.DUT_VOLTS, "VOLTS" },
-                { DisplayUnitType.DUT_KILOVOLTS, "KILOVOLTS" },
-                { DisplayUnitType.DUT_MILLIVOLTS, "MILLIVOLTS" },
-                { DisplayUnitType.DUT_HERTZ, "HERTZ" },
-                { DisplayUnitType.DUT_CYCLES_PER_SECOND, "CYCLES_PER_SECOND" },
-                { DisplayUnitType.DUT_LUX, "LUX" },
-                { DisplayUnitType.DUT_FOOTCANDLES, "FOOTCANDLES" },
-                { DisplayUnitType.DUT_FOOTLAMBERTS, "FOOTLAMBERTS" },
-                { DisplayUnitType.DUT_CANDELAS_PER_SQUARE_METER, "CANDELAS_PER_SQUARE_METER" },
-                { DisplayUnitType.DUT_CANDELAS, "CANDELAS" },
-                { DisplayUnitType.DUT_LUMENS, "LUMENS" },
-                { DisplayUnitType.DUT_VOLT_AMPERES, "VOLT_AMPERES" },
-                { DisplayUnitType.DUT_KILOVOLT_AMPERES, "KILOVOLT_AMPERES" },
-                { DisplayUnitType.DUT_HORSEPOWER, "HORSEPOWER" },
-                { DisplayUnitType.DUT_NEWTONS, "NEWTONS" },
-                { DisplayUnitType.DUT_DECANEWTONS, "DECANEWTONS" },
-                { DisplayUnitType.DUT_KILONEWTONS, "KILONEWTONS" },
-                { DisplayUnitType.DUT_MEGANEWTONS, "MEGANEWTONS" },
-                { DisplayUnitType.DUT_KIPS, "KIPS" },
-                { DisplayUnitType.DUT_KILOGRAMS_FORCE, "KILOGRAMS_FORCE" },
-                { DisplayUnitType.DUT_TONNES_FORCE, "TONNES_FORCE" },
-                { DisplayUnitType.DUT_POUNDS_FORCE, "POUNDS" },
-                { DisplayUnitType.DUT_NEWTONS_PER_METER, "NEWTONS_PER_METER" },
-                { DisplayUnitType.DUT_DECANEWTONS_PER_METER, "DECANEWTONS_PER_METER" },
-                { DisplayUnitType.DUT_KILONEWTONS_PER_METER, "KILONEWTONS_PER_METER" },
-                { DisplayUnitType.DUT_MEGANEWTONS_PER_METER, "MEGANEWTONS_PER_METER" },
-                { DisplayUnitType.DUT_KIPS_PER_FOOT, "KIPS_PER_FOOT" },
-                { DisplayUnitType.DUT_KILOGRAMS_FORCE_PER_METER, "KILOGRAMS_FORCE_PER_METER" },
-                { DisplayUnitType.DUT_TONNES_FORCE_PER_METER, "TONNES_FORCE_PER_METER" },
-                { DisplayUnitType.DUT_POUNDS_FORCE_PER_FOOT, "POUNDS_FORCE_PER_FOOT" },
-                { DisplayUnitType.DUT_NEWTONS_PER_SQUARE_METER, "NEWTONS_PER_SQUARE_METER" },
-                { DisplayUnitType.DUT_DECANEWTONS_PER_SQUARE_METER, "DECANEWTONS_PER_SQUARE_METER" },
-                { DisplayUnitType.DUT_KILONEWTONS_PER_SQUARE_METER, "KILONEWTONS_PER_SQUARE_METER" },
-                { DisplayUnitType.DUT_MEGANEWTONS_PER_SQUARE_METER, "MEGANEWTONS_PER_SQUARE_METER" },
-                { DisplayUnitType.DUT_KIPS_PER_SQUARE_FOOT, "KIPS_PER_SQUARE_FOOT" },
-                { DisplayUnitType.DUT_KILOGRAMS_FORCE_PER_SQUARE_METER, "KILOGRAMS_FORCE_PER_SQUARE_METER" },
-                { DisplayUnitType.DUT_TONNES_FORCE_PER_SQUARE_METER, "TONNES_FORCE_PER_SQUARE_METER" },
-                { DisplayUnitType.DUT_POUNDS_FORCE_PER_SQUARE_FOOT, "POUNDS_FORCE_PER_SQUARE_FOOT" },
-                { DisplayUnitType.DUT_NEWTON_METERS, "NEWTON_METERS" },
-                { DisplayUnitType.DUT_DECANEWTON_METERS, "DECANEWTON_METERS" },
-                { DisplayUnitType.DUT_KILONEWTON_METERS, "KILONEWTON_METERS" },
-                { DisplayUnitType.DUT_MEGANEWTON_METERS, "MEGANEWTON_METERS" },
-                { DisplayUnitType.DUT_KIP_FEET, "KIP_FEET" },
-                { DisplayUnitType.DUT_KILOGRAM_FORCE_METERS, "KILOGRAM_FORCE_METERS" },
-                { DisplayUnitType.DUT_TONNE_FORCE_METERS, "TONNE_FORCE_METERS" },
-                { DisplayUnitType.DUT_POUND_FORCE_FEET, "POUND_FORCE_FEET" },
-                { DisplayUnitType.DUT_METERS_PER_KILONEWTON, "" },
-                { DisplayUnitType.DUT_FEET_PER_KIP, "" },
-                { DisplayUnitType.DUT_SQUARE_METERS_PER_KILONEWTON, "" },
-                { DisplayUnitType.DUT_SQUARE_FEET_PER_KIP, "" },
-                { DisplayUnitType.DUT_CUBIC_METERS_PER_KILONEWTON, "" },
-                { DisplayUnitType.DUT_CUBIC_FEET_PER_KIP, "" },
-                { DisplayUnitType.DUT_INV_KILONEWTONS, "" },
-                { DisplayUnitType.DUT_INV_KIPS, "" },
-                { DisplayUnitType.DUT_FEET_OF_WATER_PER_100FT, "FEET_OF_WATER_PER_100FT" },
-                { DisplayUnitType.DUT_FEET_OF_WATER, "FEET_OF_WATER" },
-                { DisplayUnitType.DUT_PASCAL_SECONDS, "PASCAL_SECONDS" },
-                { DisplayUnitType.DUT_POUNDS_MASS_PER_FOOT_SECOND, "POUNDS_MASS_PER_FOOT_SECOND" },
-                { DisplayUnitType.DUT_CENTIPOISES, "CENTIPOISES" },
-                { DisplayUnitType.DUT_FEET_PER_SECOND, "FEET_PER_SECOND" },
-                { DisplayUnitType.DUT_KIPS_PER_SQUARE_INCH, "KIPS_PER_SQUARE_INCH" },
-                { DisplayUnitType.DUT_KILONEWTONS_PER_CUBIC_METER, "KILONEWTONS_PER_CUBIC_METER" },
-                { DisplayUnitType.DUT_POUNDS_FORCE_PER_CUBIC_FOOT, "POUNDS_FORCE_PER_CUBIC_FOOT" },
-                { DisplayUnitType.DUT_KIPS_PER_CUBIC_INCH, "KIPS_PER_CUBIC_INCH" },
-                { DisplayUnitType.DUT_INV_FAHRENHEIT, "INVERSE_DEGREES_FAHRENHEIT" },
-                { DisplayUnitType.DUT_INV_CELSIUS, "INVERSE_DEGREES_CELSIUS" },
-                { DisplayUnitType.DUT_NEWTON_METERS_PER_METER, "NEWTON_METERS_PER_METER" },
-                { DisplayUnitType.DUT_DECANEWTON_METERS_PER_METER, "DECANEWTON_METERS_PER_METER" },
-                { DisplayUnitType.DUT_KILONEWTON_METERS_PER_METER, "KILONEWTON_METERS_PER_METER" },
-                { DisplayUnitType.DUT_MEGANEWTON_METERS_PER_METER, "MEGANEWTON_METERS_PER_METER" },
-                { DisplayUnitType.DUT_KIP_FEET_PER_FOOT, "KIP_FEET_PER_FOOT" },
-                { DisplayUnitType.DUT_KILOGRAM_FORCE_METERS_PER_METER, "KILOGRAM_FORCE_METERS_PER_METER" },
-                { DisplayUnitType.DUT_TONNE_FORCE_METERS_PER_METER, "TONNE_FORCE_METERS_PER_METER" },
-                { DisplayUnitType.DUT_POUND_FORCE_FEET_PER_FOOT, "POUND_FORCE_FEET_PER_FOOT" },
-                { DisplayUnitType.DUT_POUNDS_MASS_PER_FOOT_HOUR, "POUNDS_MASS_PER_FOOT_HOUR" },
-                { DisplayUnitType.DUT_KIPS_PER_INCH, "KIPS_PER_INCH" },
-                { DisplayUnitType.DUT_KIPS_PER_CUBIC_FOOT, "KIPS_PER_CUBIC_FOOT" },
-                { DisplayUnitType.DUT_KIP_FEET_PER_DEGREE, "KIPS_PER_DEGREE" },
-                { DisplayUnitType.DUT_KILONEWTON_METERS_PER_DEGREE, "KILONEWTONS_PER_DEGREE" },
-                { DisplayUnitType.DUT_KIP_FEET_PER_DEGREE_PER_FOOT, "KIPS_PER_DEGREE_PER_FOOT" },
-                { DisplayUnitType.DUT_KILONEWTON_METERS_PER_DEGREE_PER_METER, "KILONEWTONS_PER_DEGREE_PER_METER" },
-                { DisplayUnitType.DUT_WATTS_PER_SQUARE_METER_KELVIN, "WATTS_PER_SQUARE_METER_KELVIN" },
-                { DisplayUnitType.DUT_BRITISH_THERMAL_UNITS_PER_HOUR_SQUARE_FOOT_FAHRENHEIT, "BRITISH_THERMAL_UNITS_PER_HOUR_SQUARE_FOOT_FAHRENHEIT" },
-                { DisplayUnitType.DUT_CUBIC_FEET_PER_MINUTE_SQUARE_FOOT, "CUBIC_FEET_PER_MINUTE_SQUARE_FOOT" },
-                { DisplayUnitType.DUT_LITERS_PER_SECOND_SQUARE_METER, "LITERS_PER_SECOND_SQUARE_METER" },
-                { DisplayUnitType.DUT_RATIO_10, "RATIO10" },
-                { DisplayUnitType.DUT_RATIO_12, "RATIO12" },
-                { DisplayUnitType.DUT_SLOPE_DEGREES, "SLOPE_DEGREES" },
-                { DisplayUnitType.DUT_RISE_OVER_INCHES, "RISE_INCHES" },
-                { DisplayUnitType.DUT_RISE_OVER_FOOT, "RISE_FOOT" },
-                { DisplayUnitType.DUT_RISE_OVER_MMS, "RISE_MMS" },
-                { DisplayUnitType.DUT_WATTS_PER_CUBIC_FOOT, "WATTS_PER_CUBIC_FOOT" },
-                { DisplayUnitType.DUT_WATTS_PER_CUBIC_METER, "WATTS_PER_CUBIC_METER" },
-                { DisplayUnitType.DUT_BRITISH_THERMAL_UNITS_PER_HOUR_SQUARE_FOOT, "DUT_BRITISH_THERMAL_UNITS_PER_HOUR_SQUARE_FOOT" },
-                { DisplayUnitType.DUT_BRITISH_THERMAL_UNITS_PER_HOUR_CUBIC_FOOT, "DUT_BRITISH_THERMAL_UNITS_PER_HOUR_CUBIC_FOOT" },
-                { DisplayUnitType.DUT_TON_OF_REFRIGERATION, "DUT_TON_OF_REFRIGERATION" },
-                { DisplayUnitType.DUT_CUBIC_FEET_PER_MINUTE_CUBIC_FOOT, "CUBIC_FEET_PER_MINUTE_CUBIC_FOOT" },
-                { DisplayUnitType.DUT_LITERS_PER_SECOND_CUBIC_METER, "LITERS_PER_SECOND_CUBIC_METER" },
-                { DisplayUnitType.DUT_CUBIC_FEET_PER_MINUTE_TON_OF_REFRIGERATION, "CUBIC_FEET_PER_MINUTE_TON_OF_REFRIGERATION" },
-                { DisplayUnitType.DUT_LITERS_PER_SECOND_KILOWATTS, "LITERS_PER_SECOND_KILOWATTS" },
-                { DisplayUnitType.DUT_SQUARE_FEET_PER_TON_OF_REFRIGERATION, "SQUARE_FEET_PER_TON_OF_REFRIGERATION" },
-                { DisplayUnitType.DUT_SQUARE_METERS_PER_KILOWATTS, "CUBIC_SQUARE_METERS_PER_KILOWATTS" },
-                { DisplayUnitType.DUT_CURRENCY, "CURRENCY" },
-                { DisplayUnitType.DUT_LUMENS_PER_WATT, "LUMENS_PER_WATT" },
-                { DisplayUnitType.DUT_SQUARE_FEET_PER_THOUSAND_BRITISH_THERMAL_UNITS_PER_HOUR, "SQUARE_FEET_PER_THOUSAND_BRITISH_THERMAL_UNITS_PER_HOUR" },
-                { DisplayUnitType.DUT_KILONEWTONS_PER_SQUARE_CENTIMETER, "KILONEWTONS_PER_SQUARE_CENTIMETER" },
-                { DisplayUnitType.DUT_NEWTONS_PER_SQUARE_MILLIMETER, "NEWTONS_PER_SQUARE_MILLIMETER" },
-                { DisplayUnitType.DUT_KILONEWTONS_PER_SQUARE_MILLIMETER, "KILONEWTONS_PER_SQUARE_MILLIMETER" },
-                { DisplayUnitType.DUT_RISE_OVER_120_INCHES, "RISE_120_INCHES" },
-                { DisplayUnitType.DUT_1_RATIO, "RATIO1" },
-                { DisplayUnitType.DUT_RISE_OVER_10_FEET, "RISE_10_FOOT" },
-                { DisplayUnitType.DUT_HOUR_SQUARE_FOOT_FAHRENHEIT_PER_BRITISH_THERMAL_UNIT, "HOUR_SQUARE_FOOT_FAHRENHEIT_PER_BRITISH_THERMAL_UNIT" },
-                { DisplayUnitType.DUT_SQUARE_METER_KELVIN_PER_WATT, "SQUARE_METER_KELVIN_PER_WATT" },
-                { DisplayUnitType.DUT_BRITISH_THERMAL_UNIT_PER_FAHRENHEIT, "BRITISH_THERMAL_UNIT_PER_FAHRENHEIT" },
-                { DisplayUnitType.DUT_JOULES_PER_KELVIN, "JOULES_PER_KELVIN" },
-                { DisplayUnitType.DUT_KILOJOULES_PER_KELVIN, "KILOJOULES_PER_KELVIN" },
-                { DisplayUnitType.DUT_KILOGRAMS_MASS, "KILOGRAMS" },
-                { DisplayUnitType.DUT_TONNES_MASS, "TONNES" },
-                { DisplayUnitType.DUT_POUNDS_MASS, "POUNDS_MASS" },
-                { DisplayUnitType.DUT_METERS_PER_SECOND_SQUARED, "METERS_PER_SECOND_SQUARED" },
-                { DisplayUnitType.DUT_KILOMETERS_PER_SECOND_SQUARED, "KILOMETERS_PER_SECOND_SQUARED" },
-                { DisplayUnitType.DUT_INCHES_PER_SECOND_SQUARED, "INCHES_PER_SECOND_SQUARED" },
-                { DisplayUnitType.DUT_FEET_PER_SECOND_SQUARED, "FEET_PER_SECOND_SQUARED" },
-                { DisplayUnitType.DUT_MILES_PER_SECOND_SQUARED, "MILES_PER_SECOND_SQUARED" },
-                { DisplayUnitType.DUT_FEET_TO_THE_FOURTH_POWER, "FEET_TO_THE_FOURTH_POWER" },
-                { DisplayUnitType.DUT_INCHES_TO_THE_FOURTH_POWER, "INCHES_TO_THE_FOURTH_POWER" },
-                { DisplayUnitType.DUT_MILLIMETERS_TO_THE_FOURTH_POWER, "MILLIMETERS_TO_THE_FOURTH_POWER" },
-                { DisplayUnitType.DUT_CENTIMETERS_TO_THE_FOURTH_POWER, "CENTIMETERS_TO_THE_FOURTH_POWER" },
-                { DisplayUnitType.DUT_METERS_TO_THE_FOURTH_POWER, "METERS_TO_THE_FOURTH_POWER" },
-                { DisplayUnitType.DUT_FEET_TO_THE_SIXTH_POWER, "FEET_TO_THE_SIXTH_POWER" },
-                { DisplayUnitType.DUT_INCHES_TO_THE_SIXTH_POWER, "INCHES_TO_THE_SIXTH_POWER" },
-                { DisplayUnitType.DUT_MILLIMETERS_TO_THE_SIXTH_POWER, "MILLIMETERS_TO_THE_SIXTH_POWER" },
-                { DisplayUnitType.DUT_CENTIMETERS_TO_THE_SIXTH_POWER, "CENTIMETERS_TO_THE_SIXTH_POWER" },
-                { DisplayUnitType.DUT_METERS_TO_THE_SIXTH_POWER, "METERS_TO_THE_SIXTH_POWER" },
-                { DisplayUnitType.DUT_SQUARE_FEET_PER_FOOT, "SQUARE_FEET_PER_FOOT" },
-                { DisplayUnitType.DUT_SQUARE_INCHES_PER_FOOT, "SQUARE_INCHES_PER_FOOT" },
-                { DisplayUnitType.DUT_SQUARE_MILLIMETERS_PER_METER, "SQUARE_MILLIMETERS_PER_METER" },
-                { DisplayUnitType.DUT_SQUARE_CENTIMETERS_PER_METER, "SQUARE_CENTIMETERS_PER_METER" },
-                { DisplayUnitType.DUT_SQUARE_METERS_PER_METER, "SQUARE_METERS_PER_METER" },
-                { DisplayUnitType.DUT_KILOGRAMS_MASS_PER_METER, "KILOGRAMS_MASS_PER_METER" },
-                { DisplayUnitType.DUT_POUNDS_MASS_PER_FOOT, "POUNDS_MASS_PER_FOOT" },
-                { DisplayUnitType.DUT_RADIANS, "RADIANS" },
-                { DisplayUnitType.DUT_GRADS, "GRADS" },
-                { DisplayUnitType.DUT_RADIANS_PER_SECOND, "RADIANS_PER_SECOND" },
-                { DisplayUnitType.DUT_MILISECONDS, "MILLISECONDS" },
-                { DisplayUnitType.DUT_SECONDS, "SECONDS" },
-                { DisplayUnitType.DUT_MINUTES, "MINUTES" },
-                { DisplayUnitType.DUT_HOURS, "HOURS" },
-                { DisplayUnitType.DUT_KILOMETERS_PER_HOUR, "KILOMETERS_PER_HOUR" },
-                { DisplayUnitType.DUT_MILES_PER_HOUR, "MILES_PER_HOUR" },
-                { DisplayUnitType.DUT_KILOJOULES, "KILOJOULES" },
-                { DisplayUnitType.DUT_KILOGRAMS_MASS_PER_SQUARE_METER, "POUNDS_MASS_PER_SQUARE_METER" },
-                { DisplayUnitType.DUT_POUNDS_MASS_PER_SQUARE_FOOT, "POUNDS_MASS_PER_SQUARE_FOOT" },
-                { DisplayUnitType.DUT_WATTS_PER_METER_KELVIN, "WATTS_PER_METER_KELVIN" },
-                { DisplayUnitType.DUT_JOULES_PER_GRAM_CELSIUS, "JOULES_PER_GRAM_CELSIUS" },
-                { DisplayUnitType.DUT_JOULES_PER_GRAM, "JOULES_PER_GRAM" },
-                { DisplayUnitType.DUT_NANOGRAMS_PER_PASCAL_SECOND_SQUARE_METER, "NANOGRAMS_PER_PASCAL_SECOND_SQUARE_METER" },
-                { DisplayUnitType.DUT_OHM_METERS, "OHM_METERS" },
-                { DisplayUnitType.DUT_BRITISH_THERMAL_UNITS_PER_HOUR_FOOT_FAHRENHEIT, "BRITISH_THERMAL_UNITS_PER_HOUR_FOOT_FAHRENHEIT" },
-                { DisplayUnitType.DUT_BRITISH_THERMAL_UNITS_PER_POUND_FAHRENHEIT, "BRITISH_THERMAL_UNITS_PER_POUND_FAHRENHEIT" },
-                { DisplayUnitType.DUT_BRITISH_THERMAL_UNITS_PER_POUND, "BRITISH_THERMAL_UNITS_PER_POUND" },
-                { DisplayUnitType.DUT_GRAINS_PER_HOUR_SQUARE_FOOT_INCH_MERCURY, "GRAINS_PER_HOUR_SQUARE_FOOT_INCH_MERCURY" },
-                { DisplayUnitType.DUT_PER_MILLE, "PERMILLE" },
-                { DisplayUnitType.DUT_DECIMETERS, "DECIMETERS" },
-                { DisplayUnitType.DUT_JOULES_PER_KILOGRAM_CELSIUS, "JOULES_PER_KILOGRAM_CELSIUS" },
-                { DisplayUnitType.DUT_MICROMETERS_PER_METER_CELSIUS, "MICROMETERS_PER_METER_CELSIUS" },
-                { DisplayUnitType.DUT_MICROINCHES_PER_INCH_FAHRENHEIT, "MICROINCHES_PER_INCH_FAHRENHEIT" },
-                { DisplayUnitType.DUT_USTONNES_MASS, "US_TONNES_MASS" },
-                { DisplayUnitType.DUT_USTONNES_FORCE, "US_TONNES_FORCE" },
-                { DisplayUnitType.DUT_LITERS_PER_MINUTE, "LITERS_PER_MINUTE" },
-                { DisplayUnitType.DUT_FAHRENHEIT_DIFFERENCE, "FAHRENHEIT_DIFFERENCE" },
-                { DisplayUnitType.DUT_CELSIUS_DIFFERENCE, "CELSIUS_DIFFERENCE" },
-                { DisplayUnitType.DUT_KELVIN_DIFFERENCE, "KELVIN_DIFFERENCE" },
-                { DisplayUnitType.DUT_RANKINE_DIFFERENCE, "RANKINE_DIFFERENCE" },
-
-            };
-
-            #endregion DisplayUnitType to catalog string
-
-            #region DisplayUnitType to UnitSymbolType
-
-            _dutToUnitSymType = new Dictionary<DisplayUnitType, List<UnitSymbolType>>
-            {
-                { DisplayUnitType.DUT_METERS, new List<UnitSymbolType>{ UnitSymbolType.UST_M } },
-                { DisplayUnitType.DUT_CENTIMETERS, new List<UnitSymbolType>{ UnitSymbolType.UST_CM } },
-                { DisplayUnitType.DUT_MILLIMETERS, new List<UnitSymbolType>{ UnitSymbolType.UST_MM } },
-                { DisplayUnitType.DUT_DECIMAL_FEET, new List<UnitSymbolType>{ UnitSymbolType.UST_FOOT_SINGLE_QUOTE, UnitSymbolType.UST_LF, UnitSymbolType.UST_FT } },
-                { DisplayUnitType.DUT_DECIMAL_INCHES, new List<UnitSymbolType>{ UnitSymbolType.UST_INCH_DOUBLE_QUOTE, UnitSymbolType.UST_IN } },
-                { DisplayUnitType.DUT_ACRES, new List<UnitSymbolType>{ UnitSymbolType.UST_ACRES } },
-                { DisplayUnitType.DUT_HECTARES, new List<UnitSymbolType>{ UnitSymbolType.UST_HECTARES } },
-                { DisplayUnitType.DUT_CUBIC_YARDS, new List<UnitSymbolType>{ UnitSymbolType.UST_CY } },
-                { DisplayUnitType.DUT_SQUARE_FEET, new List<UnitSymbolType>{ UnitSymbolType.UST_SF, UnitSymbolType.UST_FT_SUP_2 } },
-                { DisplayUnitType.DUT_SQUARE_METERS, new List<UnitSymbolType>{ UnitSymbolType.UST_M_SUP_2 } },
-                { DisplayUnitType.DUT_CUBIC_FEET, new List<UnitSymbolType>{ UnitSymbolType.UST_CF, UnitSymbolType.UST_FT_SUP_3 } },
-                { DisplayUnitType.DUT_CUBIC_METERS, new List<UnitSymbolType>{ UnitSymbolType.UST_M_SUP_3 } },
-                { DisplayUnitType.DUT_DECIMAL_DEGREES, new List<UnitSymbolType>{ UnitSymbolType.UST_DEGREE_SYMBOL } },
-                { DisplayUnitType.DUT_PERCENTAGE, new List<UnitSymbolType>{ UnitSymbolType.UST_PERCENT_SIGN } },
-                { DisplayUnitType.DUT_SQUARE_INCHES, new List<UnitSymbolType>{ UnitSymbolType.UST_IN_SUP_2 } },
-                { DisplayUnitType.DUT_SQUARE_CENTIMETERS, new List<UnitSymbolType>{ UnitSymbolType.UST_CM_SUP_2 } },
-                { DisplayUnitType.DUT_SQUARE_MILLIMETERS, new List<UnitSymbolType>{ UnitSymbolType.UST_MM_SUP_2 } },
-                { DisplayUnitType.DUT_CUBIC_INCHES, new List<UnitSymbolType>{ UnitSymbolType.UST_IN_SUP_3 } },
-                { DisplayUnitType.DUT_CUBIC_CENTIMETERS, new List<UnitSymbolType>{ UnitSymbolType.UST_CM_SUP_3 } },
-                { DisplayUnitType.DUT_CUBIC_MILLIMETERS, new List<UnitSymbolType>{ UnitSymbolType.UST_MM_SUP_3 } },
-                { DisplayUnitType.DUT_LITERS, new List<UnitSymbolType>{ UnitSymbolType.UST_L } },
-                { DisplayUnitType.DUT_GALLONS_US, new List<UnitSymbolType>{ UnitSymbolType.UST_GAL } },
-                { DisplayUnitType.DUT_KILOGRAMS_PER_CUBIC_METER, new List<UnitSymbolType>{ UnitSymbolType.UST_KG_PER_CU_M } },
-                { DisplayUnitType.DUT_POUNDS_MASS_PER_CUBIC_FOOT, new List<UnitSymbolType>{ UnitSymbolType.UST_LB_MASS_PER_CU_FT, UnitSymbolType.UST_LBM_PER_CU_FT } },
-                { DisplayUnitType.DUT_POUNDS_MASS_PER_CUBIC_INCH, new List<UnitSymbolType>{ UnitSymbolType.UST_LB_MASS_PER_CU_IN, UnitSymbolType.UST_LBM_PER_CU_IN } },
-                { DisplayUnitType.DUT_BRITISH_THERMAL_UNITS, new List<UnitSymbolType>{ UnitSymbolType.UST_BTU } },
-                { DisplayUnitType.DUT_CALORIES, new List<UnitSymbolType>{ UnitSymbolType.UST_CAL } },
-                { DisplayUnitType.DUT_KILOCALORIES, new List<UnitSymbolType>{ UnitSymbolType.UST_KCAL } },
-                { DisplayUnitType.DUT_JOULES, new List<UnitSymbolType>{ UnitSymbolType.UST_JOULE } },
-                { DisplayUnitType.DUT_KILOWATT_HOURS, new List<UnitSymbolType>{ UnitSymbolType.UST_KWH } },
-                { DisplayUnitType.DUT_THERMS, new List<UnitSymbolType>{ UnitSymbolType.UST_THERM } },
-                { DisplayUnitType.DUT_INCHES_OF_WATER_PER_100FT, new List<UnitSymbolType>{ UnitSymbolType.UST_IN_WG_PER_100FT } },
-                { DisplayUnitType.DUT_PASCALS_PER_METER, new List<UnitSymbolType>{ UnitSymbolType.UST_PASCAL_PER_M } },
-                { DisplayUnitType.DUT_WATTS, new List<UnitSymbolType>{ UnitSymbolType.UST_WATT } },
-                { DisplayUnitType.DUT_KILOWATTS, new List<UnitSymbolType>{ UnitSymbolType.UST_KILOWATT } },
-                { DisplayUnitType.DUT_BRITISH_THERMAL_UNITS_PER_SECOND, new List<UnitSymbolType>{ UnitSymbolType.UST_BTU_PER_S } },
-                { DisplayUnitType.DUT_BRITISH_THERMAL_UNITS_PER_HOUR, new List<UnitSymbolType>{ UnitSymbolType.UST_BTU_PER_H } },
-                { DisplayUnitType.DUT_CALORIES_PER_SECOND, new List<UnitSymbolType>{ UnitSymbolType.UST_CAL_PER_S } },
-                { DisplayUnitType.DUT_KILOCALORIES_PER_SECOND, new List<UnitSymbolType>{ UnitSymbolType.UST_KCAL_PER_S } },
-                { DisplayUnitType.DUT_WATTS_PER_SQUARE_FOOT, new List<UnitSymbolType>{ UnitSymbolType.UST_WATT_PER_SQ_FT } },
-                { DisplayUnitType.DUT_WATTS_PER_SQUARE_METER, new List<UnitSymbolType>{ UnitSymbolType.UST_WATT_PER_SQ_M } },
-                { DisplayUnitType.DUT_INCHES_OF_WATER, new List<UnitSymbolType>{ UnitSymbolType.UST_IN_WG } },
-                { DisplayUnitType.DUT_PASCALS, new List<UnitSymbolType>{ UnitSymbolType.UST_PASCAL } },
-                { DisplayUnitType.DUT_KILOPASCALS, new List<UnitSymbolType>{ UnitSymbolType.UST_KILOPASCAL } },
-                { DisplayUnitType.DUT_MEGAPASCALS, new List<UnitSymbolType>{ UnitSymbolType.UST_MEGAPASCAL } },
-                { DisplayUnitType.DUT_POUNDS_FORCE_PER_SQUARE_INCH, new List<UnitSymbolType>{ UnitSymbolType.UST_PSI, UnitSymbolType.UST_LB_FORCE_PER_SQ_IN, UnitSymbolType.UST_LBF_PER_SQ_IN, UnitSymbolType.UST_PSIG, UnitSymbolType.UST_PSIA } },
-                { DisplayUnitType.DUT_INCHES_OF_MERCURY, new List<UnitSymbolType>{ UnitSymbolType.UST_IN_HG } },
-                { DisplayUnitType.DUT_MILLIMETERS_OF_MERCURY, new List<UnitSymbolType>{ UnitSymbolType.UST_MM_HG } },
-                { DisplayUnitType.DUT_ATMOSPHERES, new List<UnitSymbolType>{ UnitSymbolType.UST_ATM } },
-                { DisplayUnitType.DUT_BARS, new List<UnitSymbolType>{ UnitSymbolType.UST_BAR } },
-                { DisplayUnitType.DUT_FAHRENHEIT, new List<UnitSymbolType>{ UnitSymbolType.UST_DEGREE_F } },
-                { DisplayUnitType.DUT_CELSIUS, new List<UnitSymbolType>{ UnitSymbolType.UST_DEGREE_C } },
-                { DisplayUnitType.DUT_KELVIN, new List<UnitSymbolType>{ UnitSymbolType.UST_KELVIN } },
-                { DisplayUnitType.DUT_RANKINE, new List<UnitSymbolType>{ UnitSymbolType.UST_DEGREE_R } },
-                { DisplayUnitType.DUT_FEET_PER_MINUTE, new List<UnitSymbolType>{ UnitSymbolType.UST_FT_PER_MIN, UnitSymbolType.UST_FPM } },
-                { DisplayUnitType.DUT_METERS_PER_SECOND, new List<UnitSymbolType>{ UnitSymbolType.UST_M_PER_S } },
-                { DisplayUnitType.DUT_CENTIMETERS_PER_MINUTE, new List<UnitSymbolType>{ UnitSymbolType.UST_CM_PER_MIN } },
-                { DisplayUnitType.DUT_CUBIC_FEET_PER_MINUTE, new List<UnitSymbolType>{ UnitSymbolType.UST_CU_FT_PER_MIN, UnitSymbolType.UST_CFM } },
-                { DisplayUnitType.DUT_LITERS_PER_SECOND, new List<UnitSymbolType>{ UnitSymbolType.UST_L_PER_S, UnitSymbolType.UST_LPS } },
-                { DisplayUnitType.DUT_CUBIC_METERS_PER_SECOND, new List<UnitSymbolType>{ UnitSymbolType.UST_CU_M_PER_S, UnitSymbolType.UST_CMS } },
-                { DisplayUnitType.DUT_CUBIC_METERS_PER_HOUR, new List<UnitSymbolType>{ UnitSymbolType.UST_CU_M_PER_H, UnitSymbolType.UST_CMH } },
-                { DisplayUnitType.DUT_GALLONS_US_PER_MINUTE, new List<UnitSymbolType>{ UnitSymbolType.UST_GAL_PER_MIN, UnitSymbolType.UST_GPM, UnitSymbolType.UST_USGPM } },
-                { DisplayUnitType.DUT_GALLONS_US_PER_HOUR, new List<UnitSymbolType>{ UnitSymbolType.UST_GAL_PER_H, UnitSymbolType.UST_GPH, UnitSymbolType.UST_USGPH } },
-                { DisplayUnitType.DUT_AMPERES, new List<UnitSymbolType>{ UnitSymbolType.UST_AMPERE } },
-                { DisplayUnitType.DUT_KILOAMPERES, new List<UnitSymbolType>{ UnitSymbolType.UST_KILOAMPERE } },
-                { DisplayUnitType.DUT_MILLIAMPERES, new List<UnitSymbolType>{ UnitSymbolType.UST_MILLIAMPERE } },
-                { DisplayUnitType.DUT_VOLTS, new List<UnitSymbolType>{ UnitSymbolType.UST_VOLT } },
-                { DisplayUnitType.DUT_KILOVOLTS, new List<UnitSymbolType>{ UnitSymbolType.UST_KILOVOLT } },
-                { DisplayUnitType.DUT_MILLIVOLTS, new List<UnitSymbolType>{ UnitSymbolType.UST_MILLIVOLT } },
-                { DisplayUnitType.DUT_HERTZ, new List<UnitSymbolType>{ UnitSymbolType.UST_HZ } },
-                { DisplayUnitType.DUT_CYCLES_PER_SECOND, new List<UnitSymbolType>{ UnitSymbolType.UST_CPS } },
-                { DisplayUnitType.DUT_LUX, new List<UnitSymbolType>{ UnitSymbolType.UST_LX } },
-                { DisplayUnitType.DUT_FOOTCANDLES, new List<UnitSymbolType>{ UnitSymbolType.UST_FC, UnitSymbolType.UST_FTC } },
-                { DisplayUnitType.DUT_FOOTLAMBERTS, new List<UnitSymbolType>{ UnitSymbolType.UST_FL, UnitSymbolType.UST_FL_LOWERCASE, UnitSymbolType.UST_FTL } },
-                { DisplayUnitType.DUT_CANDELAS_PER_SQUARE_METER, new List<UnitSymbolType>{ UnitSymbolType.UST_CD_PER_SQ_M } },
-                { DisplayUnitType.DUT_CANDELAS, new List<UnitSymbolType>{ UnitSymbolType.UST_CD } },
-                { DisplayUnitType.DUT_LUMENS, new List<UnitSymbolType>{ UnitSymbolType.UST_LM } },
-                { DisplayUnitType.DUT_VOLT_AMPERES, new List<UnitSymbolType>{ UnitSymbolType.UST_VOLTAMPERE } },
-                { DisplayUnitType.DUT_KILOVOLT_AMPERES, new List<UnitSymbolType>{ UnitSymbolType.UST_KILOVOLTAMPERE } },
-                { DisplayUnitType.DUT_HORSEPOWER, new List<UnitSymbolType>{ UnitSymbolType.UST_HP } },
-                { DisplayUnitType.DUT_NEWTONS, new List<UnitSymbolType>{ UnitSymbolType.UST_N } },
-                { DisplayUnitType.DUT_DECANEWTONS, new List<UnitSymbolType>{ UnitSymbolType.UST_DA_N } },
-                { DisplayUnitType.DUT_KILONEWTONS, new List<UnitSymbolType>{ UnitSymbolType.UST_K_N } },
-                { DisplayUnitType.DUT_MEGANEWTONS, new List<UnitSymbolType>{ UnitSymbolType.UST_M_N } },
-                { DisplayUnitType.DUT_KIPS, new List<UnitSymbolType>{ UnitSymbolType.UST_KIP } },
-                { DisplayUnitType.DUT_KILOGRAMS_FORCE, new List<UnitSymbolType>{ UnitSymbolType.UST_KGF } },
-                { DisplayUnitType.DUT_TONNES_FORCE, new List<UnitSymbolType>{ UnitSymbolType.UST_TF } },
-                { DisplayUnitType.DUT_POUNDS_FORCE, new List<UnitSymbolType>{ UnitSymbolType.UST_LB_FORCE, UnitSymbolType.UST_LBF } },
-                { DisplayUnitType.DUT_NEWTONS_PER_METER, new List<UnitSymbolType>{ UnitSymbolType.UST_N_PER_M } },
-                { DisplayUnitType.DUT_DECANEWTONS_PER_METER, new List<UnitSymbolType>{ UnitSymbolType.UST_DA_N_PER_M } },
-                { DisplayUnitType.DUT_KILONEWTONS_PER_METER, new List<UnitSymbolType>{ UnitSymbolType.UST_K_N_PER_M } },
-                { DisplayUnitType.DUT_MEGANEWTONS_PER_METER, new List<UnitSymbolType>{ UnitSymbolType.UST_M_N_PER_M } },
-                { DisplayUnitType.DUT_KIPS_PER_FOOT, new List<UnitSymbolType>{ UnitSymbolType.UST_KIP_PER_FT } },
-                { DisplayUnitType.DUT_KILOGRAMS_FORCE_PER_METER, new List<UnitSymbolType>{ UnitSymbolType.UST_KGF_PER_M } },
-                { DisplayUnitType.DUT_TONNES_FORCE_PER_METER, new List<UnitSymbolType>{ UnitSymbolType.UST_TF_PER_M } },
-                { DisplayUnitType.DUT_POUNDS_FORCE_PER_FOOT, new List<UnitSymbolType>{ UnitSymbolType.UST_LB_FORCE_PER_FT, UnitSymbolType.UST_LBF_PER_FT } },
-                { DisplayUnitType.DUT_NEWTONS_PER_SQUARE_METER, new List<UnitSymbolType>{ UnitSymbolType.UST_N_PER_M_SUP_2 } },
-                { DisplayUnitType.DUT_DECANEWTONS_PER_SQUARE_METER, new List<UnitSymbolType>{ UnitSymbolType.UST_DA_N_PER_M_SUP_2 } },
-                { DisplayUnitType.DUT_KILONEWTONS_PER_SQUARE_METER, new List<UnitSymbolType>{ UnitSymbolType.UST_K_N_PER_M_SUP_2 } },
-                { DisplayUnitType.DUT_MEGANEWTONS_PER_SQUARE_METER, new List<UnitSymbolType>{ UnitSymbolType.UST_M_N_PER_M_SUP_2 } },
-                { DisplayUnitType.DUT_KIPS_PER_SQUARE_FOOT, new List<UnitSymbolType>{ UnitSymbolType.UST_KSF, UnitSymbolType.UST_KIP_PER_SQ_FT } },
-                { DisplayUnitType.DUT_KILOGRAMS_FORCE_PER_SQUARE_METER, new List<UnitSymbolType>{ UnitSymbolType.UST_KGF_PER_M_SUP_2 } },
-                { DisplayUnitType.DUT_TONNES_FORCE_PER_SQUARE_METER, new List<UnitSymbolType>{ UnitSymbolType.UST_TF_PER_M_SUP_2 } },
-                { DisplayUnitType.DUT_POUNDS_FORCE_PER_SQUARE_FOOT, new List<UnitSymbolType>{ UnitSymbolType.UST_PSF, UnitSymbolType.UST_LB_FORCE_PER_SQ_FT, UnitSymbolType.UST_LBF_PER_SQ_FT } },
-                { DisplayUnitType.DUT_NEWTON_METERS, new List<UnitSymbolType>{ UnitSymbolType.UST_N_DASH_M } },
-                { DisplayUnitType.DUT_DECANEWTON_METERS, new List<UnitSymbolType>{ UnitSymbolType.UST_DA_N_DASH_M } },
-                { DisplayUnitType.DUT_KILONEWTON_METERS, new List<UnitSymbolType>{ UnitSymbolType.UST_K_N_DASH_M } },
-                { DisplayUnitType.DUT_MEGANEWTON_METERS, new List<UnitSymbolType>{ UnitSymbolType.UST_M_N_DASH_M } },
-                { DisplayUnitType.DUT_KIP_FEET, new List<UnitSymbolType>{ UnitSymbolType.UST_KIP_DASH_FT } },
-                { DisplayUnitType.DUT_KILOGRAM_FORCE_METERS, new List<UnitSymbolType>{ UnitSymbolType.UST_KGF_DASH_M } },
-                { DisplayUnitType.DUT_TONNE_FORCE_METERS, new List<UnitSymbolType>{ UnitSymbolType.UST_TF_DASH_M } },
-                { DisplayUnitType.DUT_POUND_FORCE_FEET, new List<UnitSymbolType>{ UnitSymbolType.UST_LB_FORCE_DASH_FT, UnitSymbolType.UST_LBF_DASH_FT } },
-                { DisplayUnitType.DUT_METERS_PER_KILONEWTON, new List<UnitSymbolType>{ UnitSymbolType.UST_M_PER_K_N } },
-                { DisplayUnitType.DUT_FEET_PER_KIP, new List<UnitSymbolType>{ UnitSymbolType.UST_FT_PER_KIP } },
-                { DisplayUnitType.DUT_SQUARE_METERS_PER_KILONEWTON, new List<UnitSymbolType>{ UnitSymbolType.UST_M_SUP_2_PER_K_N } },
-                { DisplayUnitType.DUT_SQUARE_FEET_PER_KIP, new List<UnitSymbolType>{ UnitSymbolType.UST_FT_SUP_2_PER_KIP } },
-                { DisplayUnitType.DUT_CUBIC_METERS_PER_KILONEWTON, new List<UnitSymbolType>{ UnitSymbolType.UST_M_SUP_3_PER_K_N } },
-                { DisplayUnitType.DUT_CUBIC_FEET_PER_KIP, new List<UnitSymbolType>{ UnitSymbolType.UST_FT_SUP_3_PER_KIP } },
-                { DisplayUnitType.DUT_INV_KILONEWTONS, new List<UnitSymbolType>{ UnitSymbolType.UST_INV_K_N } },
-                { DisplayUnitType.DUT_INV_KIPS, new List<UnitSymbolType>{ UnitSymbolType.UST_INV_KIP } },
-                { DisplayUnitType.DUT_FEET_OF_WATER_PER_100FT, new List<UnitSymbolType>{ UnitSymbolType.UST_FTH2O_PER_100FT, UnitSymbolType.UST_FT_OF_WATER_PER_100FT, UnitSymbolType.UST_FEET_OF_WATER_PER_100FT } },
-                { DisplayUnitType.DUT_FEET_OF_WATER, new List<UnitSymbolType>{ UnitSymbolType.UST_FTH2O, UnitSymbolType.UST_FT_OF_WATER, UnitSymbolType.UST_FEET_OF_WATER } },
-                { DisplayUnitType.DUT_PASCAL_SECONDS, new List<UnitSymbolType>{ UnitSymbolType.UST_PA_S } },
-                { DisplayUnitType.DUT_POUNDS_MASS_PER_FOOT_SECOND, new List<UnitSymbolType>{ UnitSymbolType.UST_LB_FORCE_PER_FT_S, UnitSymbolType.UST_LBM_PER_FT_S } },
-                { DisplayUnitType.DUT_CENTIPOISES, new List<UnitSymbolType>{ UnitSymbolType.UST_CP } },
-                { DisplayUnitType.DUT_FEET_PER_SECOND, new List<UnitSymbolType>{ UnitSymbolType.UST_FT_PER_S, UnitSymbolType.UST_FPS } },
-                { DisplayUnitType.DUT_KIPS_PER_SQUARE_INCH, new List<UnitSymbolType>{ UnitSymbolType.UST_KSI, UnitSymbolType.UST_KIP_PER_SQ_IN } },
-                { DisplayUnitType.DUT_KILONEWTONS_PER_CUBIC_METER, new List<UnitSymbolType>{ UnitSymbolType.UST_KN_PER_M_SUP_3 } },
-                { DisplayUnitType.DUT_POUNDS_FORCE_PER_CUBIC_FOOT, new List<UnitSymbolType>{ UnitSymbolType.UST_LB_FORCE_PER_CU_FT, UnitSymbolType.UST_LBF_PER_CU_FT } },
-                { DisplayUnitType.DUT_KIPS_PER_CUBIC_INCH, new List<UnitSymbolType>{ UnitSymbolType.UST_KIP_PER_IN_SUP_3 } },
-                { DisplayUnitType.DUT_INV_FAHRENHEIT, new List<UnitSymbolType>{ UnitSymbolType.UST_INV_DEGREE_F } },
-                { DisplayUnitType.DUT_INV_CELSIUS, new List<UnitSymbolType>{ UnitSymbolType.UST_INV_DEGREE_C } },
-                { DisplayUnitType.DUT_NEWTON_METERS_PER_METER, new List<UnitSymbolType>{ UnitSymbolType.UST_N_DASH_M_PER_M } },
-                { DisplayUnitType.DUT_DECANEWTON_METERS_PER_METER, new List<UnitSymbolType>{ UnitSymbolType.UST_DA_N_DASH_M_PER_M } },
-                { DisplayUnitType.DUT_KILONEWTON_METERS_PER_METER, new List<UnitSymbolType>{ UnitSymbolType.UST_K_N_DASH_M_PER_M } },
-                { DisplayUnitType.DUT_MEGANEWTON_METERS_PER_METER, new List<UnitSymbolType>{ UnitSymbolType.UST_M_N_DASH_M_PER_M } },
-                { DisplayUnitType.DUT_KIP_FEET_PER_FOOT, new List<UnitSymbolType>{ UnitSymbolType.UST_KIP_DASH_FT_PER_FT } },
-                { DisplayUnitType.DUT_KILOGRAM_FORCE_METERS_PER_METER, new List<UnitSymbolType>{ UnitSymbolType.UST_KGF_DASH_M_PER_M } },
-                { DisplayUnitType.DUT_TONNE_FORCE_METERS_PER_METER, new List<UnitSymbolType>{ UnitSymbolType.UST_TF_DASH_M_PER_M } },
-                { DisplayUnitType.DUT_POUND_FORCE_FEET_PER_FOOT, new List<UnitSymbolType>{ UnitSymbolType.UST_LB_FORCE_DASH_FT_PER_FT, UnitSymbolType.UST_LBF_DASH_FT_PER_FT } },
-                { DisplayUnitType.DUT_POUNDS_MASS_PER_FOOT_HOUR, new List<UnitSymbolType>{ UnitSymbolType.UST_LB_FORCE_PER_FT_H, UnitSymbolType.UST_LBM_PER_FT_H } },
-                { DisplayUnitType.DUT_KIPS_PER_INCH, new List<UnitSymbolType>{ UnitSymbolType.UST_KIPS_PER_IN } },
-                { DisplayUnitType.DUT_KIPS_PER_CUBIC_FOOT, new List<UnitSymbolType>{ UnitSymbolType.UST_KIPS_PER_CU_FT } },
-                { DisplayUnitType.DUT_KIP_FEET_PER_DEGREE, new List<UnitSymbolType>{ UnitSymbolType.UST_KIP_FT_PER_DEGREE } },
-                { DisplayUnitType.DUT_KILONEWTON_METERS_PER_DEGREE, new List<UnitSymbolType>{ UnitSymbolType.UST_K_N_M_PER_DEGREE } },
-                { DisplayUnitType.DUT_KIP_FEET_PER_DEGREE_PER_FOOT, new List<UnitSymbolType>{ UnitSymbolType.UST_KIP_FT_PER_DEGREE_PER_FT } },
-                { DisplayUnitType.DUT_KILONEWTON_METERS_PER_DEGREE_PER_METER, new List<UnitSymbolType>{ UnitSymbolType.UST_K_N_M_PER_DEGREE_PER_M } },
-                { DisplayUnitType.DUT_WATTS_PER_SQUARE_METER_KELVIN, new List<UnitSymbolType>{ UnitSymbolType.UST_WATT_PER_SQ_M_K } },
-                { DisplayUnitType.DUT_BRITISH_THERMAL_UNITS_PER_HOUR_SQUARE_FOOT_FAHRENHEIT, new List<UnitSymbolType>{ UnitSymbolType.UST_BTU_PER_H_SQ_FT_DEGREE_F } },
-                { DisplayUnitType.DUT_CUBIC_FEET_PER_MINUTE_SQUARE_FOOT, new List<UnitSymbolType>{ UnitSymbolType.UST_CFM_PER_SQ_FT, UnitSymbolType.UST_CFM_PER_SF } },
-                { DisplayUnitType.DUT_LITERS_PER_SECOND_SQUARE_METER, new List<UnitSymbolType>{ UnitSymbolType.UST_LPS_PER_SQ_M, UnitSymbolType.UST_L_PER_S_SQ_M } },
-                { DisplayUnitType.DUT_RATIO_10, new List<UnitSymbolType>{ UnitSymbolType.UST_COLON_10 } },
-                { DisplayUnitType.DUT_RATIO_12, new List<UnitSymbolType>{ UnitSymbolType.UST_COLON_12 } },
-                { DisplayUnitType.DUT_SLOPE_DEGREES, new List<UnitSymbolType>{ UnitSymbolType.UST_SLOPE_DEGREE_SYMBOL } },
-                { DisplayUnitType.DUT_WATTS_PER_CUBIC_FOOT, new List<UnitSymbolType>{ UnitSymbolType.UST_WATT_PER_CU_FT } },
-                { DisplayUnitType.DUT_WATTS_PER_CUBIC_METER, new List<UnitSymbolType>{ UnitSymbolType.UST_WATT_PER_CU_M } },
-                { DisplayUnitType.DUT_BRITISH_THERMAL_UNITS_PER_HOUR_SQUARE_FOOT, new List<UnitSymbolType>{ UnitSymbolType.UST_BTU_PER_H_SQ_FT } },
-                { DisplayUnitType.DUT_BRITISH_THERMAL_UNITS_PER_HOUR_CUBIC_FOOT, new List<UnitSymbolType>{ UnitSymbolType.UST_BTU_PER_H_CU_FT } },
-                { DisplayUnitType.DUT_TON_OF_REFRIGERATION, new List<UnitSymbolType>{ UnitSymbolType.UST_TON } },
-                { DisplayUnitType.DUT_CUBIC_FEET_PER_MINUTE_CUBIC_FOOT, new List<UnitSymbolType>{ UnitSymbolType.UST_CFM_PER_CU_FT, UnitSymbolType.UST_CFM_PER_CF } },
-                { DisplayUnitType.DUT_LITERS_PER_SECOND_CUBIC_METER, new List<UnitSymbolType>{ UnitSymbolType.UST_L_PER_S_CU_M } },
-                { DisplayUnitType.DUT_CUBIC_FEET_PER_MINUTE_TON_OF_REFRIGERATION, new List<UnitSymbolType>{ UnitSymbolType.UST_CFM_PER_TON } },
-                { DisplayUnitType.DUT_LITERS_PER_SECOND_KILOWATTS, new List<UnitSymbolType>{ UnitSymbolType.UST_L_PER_S_KW } },
-                { DisplayUnitType.DUT_SQUARE_FEET_PER_TON_OF_REFRIGERATION, new List<UnitSymbolType>{ UnitSymbolType.UST_SQ_FT_PER_TON, UnitSymbolType.UST_SF_PER_TON } },
-                { DisplayUnitType.DUT_SQUARE_METERS_PER_KILOWATTS, new List<UnitSymbolType>{ UnitSymbolType.UST_SQ_M_PER_KW } },
-                { DisplayUnitType.DUT_CURRENCY, new List<UnitSymbolType>{ UnitSymbolType.UST_DOLLAR, UnitSymbolType.UST_EURO_SUFFIX, UnitSymbolType.UST_EURO_PREFIX, UnitSymbolType.UST_POUND, UnitSymbolType.UST_YEN, UnitSymbolType.UST_CHINESE_HONG_KONG_SAR, UnitSymbolType.UST_WON, UnitSymbolType.UST_SHEQEL, UnitSymbolType.UST_DONG, UnitSymbolType.UST_BAHT, UnitSymbolType.UST_KRONER } },
-                { DisplayUnitType.DUT_LUMENS_PER_WATT, new List<UnitSymbolType>{ UnitSymbolType.UST_LM_PER_W } },
-                { DisplayUnitType.DUT_SQUARE_FEET_PER_THOUSAND_BRITISH_THERMAL_UNITS_PER_HOUR, new List<UnitSymbolType>{ UnitSymbolType.UST_SF_PER_MBH, UnitSymbolType.UST_SF_PER_KBTU_PER_H, UnitSymbolType.UST_SQ_FT_PER_MBH, UnitSymbolType.UST_SQ_FT_PER_KBTU_PER_H } },
-                { DisplayUnitType.DUT_KILONEWTONS_PER_SQUARE_CENTIMETER, new List<UnitSymbolType>{ UnitSymbolType.UST_K_N_PER_CM_SUP_2 } },
-                { DisplayUnitType.DUT_NEWTONS_PER_SQUARE_MILLIMETER, new List<UnitSymbolType>{ UnitSymbolType.UST_N_PER_MM_SUP_2 } },
-                { DisplayUnitType.DUT_KILONEWTONS_PER_SQUARE_MILLIMETER, new List<UnitSymbolType>{ UnitSymbolType.UST_K_N_PER_MM_SUP_2 } },
-                { DisplayUnitType.DUT_1_RATIO, new List<UnitSymbolType>{ UnitSymbolType.UST_ONE_COLON } },
-                { DisplayUnitType.DUT_HOUR_SQUARE_FOOT_FAHRENHEIT_PER_BRITISH_THERMAL_UNIT, new List<UnitSymbolType>{ UnitSymbolType.UST_H_SQ_FT_DEGREE_F_PER_BTU } },
-                { DisplayUnitType.DUT_SQUARE_METER_KELVIN_PER_WATT, new List<UnitSymbolType>{ UnitSymbolType.UST_SQ_M_K_PER_WATT } },
-                { DisplayUnitType.DUT_BRITISH_THERMAL_UNIT_PER_FAHRENHEIT, new List<UnitSymbolType>{ UnitSymbolType.UST_BTU_PER_F } },
-                { DisplayUnitType.DUT_JOULES_PER_KELVIN, new List<UnitSymbolType>{ UnitSymbolType.UST_J_PER_KELVIN } },
-                { DisplayUnitType.DUT_KILOJOULES_PER_KELVIN, new List<UnitSymbolType>{ UnitSymbolType.UST_KJ_PER_KELVIN } },
-                { DisplayUnitType.DUT_KILOGRAMS_MASS, new List<UnitSymbolType>{ UnitSymbolType.UST_KGM } },
-                { DisplayUnitType.DUT_TONNES_MASS, new List<UnitSymbolType>{ UnitSymbolType.UST_TM } },
-                { DisplayUnitType.DUT_POUNDS_MASS, new List<UnitSymbolType>{ UnitSymbolType.UST_LBM, UnitSymbolType.UST_LB_MASS } },
-                { DisplayUnitType.DUT_METERS_PER_SECOND_SQUARED, new List<UnitSymbolType>{ UnitSymbolType.UST_M_PER_SQ_S } },
-                { DisplayUnitType.DUT_KILOMETERS_PER_SECOND_SQUARED, new List<UnitSymbolType>{ UnitSymbolType.UST_KM_PER_SQ_S } },
-                { DisplayUnitType.DUT_INCHES_PER_SECOND_SQUARED, new List<UnitSymbolType>{ UnitSymbolType.UST_IN_PER_SQ_S } },
-                { DisplayUnitType.DUT_FEET_PER_SECOND_SQUARED, new List<UnitSymbolType>{ UnitSymbolType.UST_FT_PER_SQ_S } },
-                { DisplayUnitType.DUT_MILES_PER_SECOND_SQUARED, new List<UnitSymbolType>{ UnitSymbolType.UST_MI_PER_SQ_S } },
-                { DisplayUnitType.DUT_FEET_TO_THE_FOURTH_POWER, new List<UnitSymbolType>{ UnitSymbolType.UST_FT_SUP_4 } },
-                { DisplayUnitType.DUT_INCHES_TO_THE_FOURTH_POWER, new List<UnitSymbolType>{ UnitSymbolType.UST_IN_SUP_4 } },
-                { DisplayUnitType.DUT_MILLIMETERS_TO_THE_FOURTH_POWER, new List<UnitSymbolType>{ UnitSymbolType.UST_MM_SUP_4 } },
-                { DisplayUnitType.DUT_CENTIMETERS_TO_THE_FOURTH_POWER, new List<UnitSymbolType>{ UnitSymbolType.UST_CM_SUP_4 } },
-                { DisplayUnitType.DUT_METERS_TO_THE_FOURTH_POWER, new List<UnitSymbolType>{ UnitSymbolType.UST_M_SUP_4 } },
-                { DisplayUnitType.DUT_FEET_TO_THE_SIXTH_POWER, new List<UnitSymbolType>{ UnitSymbolType.UST_FT_SUP_6 } },
-                { DisplayUnitType.DUT_INCHES_TO_THE_SIXTH_POWER, new List<UnitSymbolType>{ UnitSymbolType.UST_IN_SUP_6 } },
-                { DisplayUnitType.DUT_MILLIMETERS_TO_THE_SIXTH_POWER, new List<UnitSymbolType>{ UnitSymbolType.UST_MM_SUP_6 } },
-                { DisplayUnitType.DUT_CENTIMETERS_TO_THE_SIXTH_POWER, new List<UnitSymbolType>{ UnitSymbolType.UST_CM_SUP_6 } },
-                { DisplayUnitType.DUT_METERS_TO_THE_SIXTH_POWER, new List<UnitSymbolType>{ UnitSymbolType.UST_M_SUP_6 } },
-                { DisplayUnitType.DUT_SQUARE_FEET_PER_FOOT, new List<UnitSymbolType>{ UnitSymbolType.UST_SQ_FT_PER_FT } },
-                { DisplayUnitType.DUT_SQUARE_INCHES_PER_FOOT, new List<UnitSymbolType>{ UnitSymbolType.UST_SQ_IN_PER_FT } },
-                { DisplayUnitType.DUT_SQUARE_MILLIMETERS_PER_METER, new List<UnitSymbolType>{ UnitSymbolType.UST_SQ_MM_PER_M } },
-                { DisplayUnitType.DUT_SQUARE_CENTIMETERS_PER_METER, new List<UnitSymbolType>{ UnitSymbolType.UST_SQ_CM_PER_M } },
-                { DisplayUnitType.DUT_SQUARE_METERS_PER_METER, new List<UnitSymbolType>{ UnitSymbolType.UST_SQ_M_PER_M } },
-                { DisplayUnitType.DUT_KILOGRAMS_MASS_PER_METER, new List<UnitSymbolType>{ UnitSymbolType.UST_KGM_PER_M } },
-                { DisplayUnitType.DUT_POUNDS_MASS_PER_FOOT, new List<UnitSymbolType>{ UnitSymbolType.UST_LB_MASS_PER_FT, UnitSymbolType.UST_LBM_PER_FT } },
-                { DisplayUnitType.DUT_RADIANS, new List<UnitSymbolType>{ UnitSymbolType.UST_RAD } },
-                { DisplayUnitType.DUT_GRADS, new List<UnitSymbolType>{ UnitSymbolType.UST_GRAD } },
-                { DisplayUnitType.DUT_RADIANS_PER_SECOND, new List<UnitSymbolType>{ UnitSymbolType.UST_RAD_PER_S } },
-                { DisplayUnitType.DUT_MILISECONDS, new List<UnitSymbolType>{ UnitSymbolType.UST_MS } },
-                { DisplayUnitType.DUT_SECONDS, new List<UnitSymbolType>{ UnitSymbolType.UST_S } },
-                { DisplayUnitType.DUT_MINUTES, new List<UnitSymbolType>{ UnitSymbolType.UST_MIN } },
-                { DisplayUnitType.DUT_HOURS, new List<UnitSymbolType>{ UnitSymbolType.UST_H } },
-                { DisplayUnitType.DUT_KILOMETERS_PER_HOUR, new List<UnitSymbolType>{ UnitSymbolType.UST_KM_PER_H } },
-                { DisplayUnitType.DUT_MILES_PER_HOUR, new List<UnitSymbolType>{ UnitSymbolType.UST_MI_PER_H } },
-                { DisplayUnitType.DUT_KILOJOULES, new List<UnitSymbolType>{ UnitSymbolType.UST_KJ } },
-                { DisplayUnitType.DUT_KILOGRAMS_MASS_PER_SQUARE_METER, new List<UnitSymbolType>{ UnitSymbolType.UST_KGM_PER_SQ_M } },
-                { DisplayUnitType.DUT_POUNDS_MASS_PER_SQUARE_FOOT, new List<UnitSymbolType>{ UnitSymbolType.UST_LBM_PER_SQ_FT } },
-                { DisplayUnitType.DUT_WATTS_PER_METER_KELVIN, new List<UnitSymbolType>{ UnitSymbolType.UST_WATTS_PER_METER_KELVIN } },
-                { DisplayUnitType.DUT_JOULES_PER_GRAM_CELSIUS, new List<UnitSymbolType>{ UnitSymbolType.UST_J_PER_G_CELSIUS } },
-                { DisplayUnitType.DUT_JOULES_PER_GRAM, new List<UnitSymbolType>{ UnitSymbolType.UST_J_PER_G } },
-                { DisplayUnitType.DUT_NANOGRAMS_PER_PASCAL_SECOND_SQUARE_METER, new List<UnitSymbolType>{ UnitSymbolType.UST_NG_PER_PA_S_SQ_M } },
-                { DisplayUnitType.DUT_OHM_METERS, new List<UnitSymbolType>{ UnitSymbolType.UST_OHM_M } },
-                { DisplayUnitType.DUT_BRITISH_THERMAL_UNITS_PER_HOUR_FOOT_FAHRENHEIT, new List<UnitSymbolType>{ UnitSymbolType.UST_BTU_PER_H_FT_DEGREE_F } },
-                { DisplayUnitType.DUT_BRITISH_THERMAL_UNITS_PER_POUND_FAHRENHEIT, new List<UnitSymbolType>{ UnitSymbolType.UST_BTU_PER_LB_DEGREE_F } },
-                { DisplayUnitType.DUT_BRITISH_THERMAL_UNITS_PER_POUND, new List<UnitSymbolType>{ UnitSymbolType.UST_BTU_PER_LB } },
-                { DisplayUnitType.DUT_GRAINS_PER_HOUR_SQUARE_FOOT_INCH_MERCURY, new List<UnitSymbolType>{ UnitSymbolType.UST_GR_PER_H_SQ_FT_IN_HG } },
-                { DisplayUnitType.DUT_PER_MILLE, new List<UnitSymbolType>{ UnitSymbolType.UST_PER_MILLE_SIGN } },
-                { DisplayUnitType.DUT_DECIMETERS, new List<UnitSymbolType>{ UnitSymbolType.UST_DM } },
-                { DisplayUnitType.DUT_JOULES_PER_KILOGRAM_CELSIUS, new List<UnitSymbolType>{ UnitSymbolType.UST_J_PER_KG_CELSIUS } },
-                { DisplayUnitType.DUT_MICROMETERS_PER_METER_CELSIUS, new List<UnitSymbolType>{ UnitSymbolType.UST_UM_PER_M_C } },
-                { DisplayUnitType.DUT_MICROINCHES_PER_INCH_FAHRENHEIT, new List<UnitSymbolType>{ UnitSymbolType.UST_UIN_PER_IN_F } },
-                { DisplayUnitType.DUT_USTONNES_MASS, new List<UnitSymbolType>{ UnitSymbolType.UST_USTONNES_MASS_TONS, UnitSymbolType.UST_USTONNES_MASS_T, UnitSymbolType.UST_USTONNES_MASS_ST } },
-                { DisplayUnitType.DUT_USTONNES_FORCE, new List<UnitSymbolType>{ UnitSymbolType.UST_USTONNES_FORCE_TONSF, UnitSymbolType.UST_USTONNES_FORCE_STF, UnitSymbolType.UST_USTONNES_FORCE_AS_MASS_TONS, UnitSymbolType.UST_USTONNES_FORCE_AS_MASS_T, UnitSymbolType.UST_USTONNES_FORCE_AS_MASS_ST } },
-                { DisplayUnitType.DUT_LITERS_PER_MINUTE, new List<UnitSymbolType>{ UnitSymbolType.UST_L_PER_M, UnitSymbolType.UST_LPM } },
-                { DisplayUnitType.DUT_FAHRENHEIT_DIFFERENCE, new List<UnitSymbolType>{ UnitSymbolType.UST_DEGREE_F_DIFFERENCE } },
-                { DisplayUnitType.DUT_CELSIUS_DIFFERENCE, new List<UnitSymbolType>{ UnitSymbolType.UST_DEGREE_C_DIFFERENCE } },
-                { DisplayUnitType.DUT_KELVIN_DIFFERENCE, new List<UnitSymbolType>{ UnitSymbolType.UST_KELVIN_DIFFERENCE } },
-                { DisplayUnitType.DUT_RANKINE_DIFFERENCE, new List<UnitSymbolType>{ UnitSymbolType.UST_DEGREE_R_DIFFERENCE } },
-            };
-
-            #endregion DisplayUnitType to UnitSymbolType
-
-            #region DisplayUnitType to UnitType
-
-            _dutToUnitType = new Dictionary<DisplayUnitType, List<UnitType>>
-            {
-                { DisplayUnitType.DUT_DECIMAL_FEET, new List<UnitType>{ UnitType.UT_Length, UnitType.UT_SheetLength, UnitType.UT_HVAC_DuctSize, UnitType.UT_HVAC_Roughness, UnitType.UT_PipeSize, UnitType.UT_Piping_Roughness, UnitType.UT_WireSize, UnitType.UT_DecSheetLength, UnitType.UT_Electrical_CableTraySize, UnitType.UT_Electrical_ConduitSize, UnitType.UT_Reinforcement_Length, UnitType.UT_HVAC_DuctInsulationThickness, UnitType.UT_HVAC_DuctLiningThickness, UnitType.UT_PipeInsulationThickness, UnitType.UT_Bar_Diameter, UnitType.UT_Crack_Width, UnitType.UT_Displacement_Deflection, UnitType.UT_Reinforcement_Cover, UnitType.UT_Reinforcement_Spacing, UnitType.UT_Section_Dimension, UnitType.UT_Section_Property } },
-                { DisplayUnitType.DUT_FEET_FRACTIONAL_INCHES, new List<UnitType>{ UnitType.UT_Length, UnitType.UT_SheetLength, UnitType.UT_HVAC_DuctSize, UnitType.UT_HVAC_Roughness, UnitType.UT_PipeSize, UnitType.UT_Piping_Roughness, UnitType.UT_WireSize, UnitType.UT_DecSheetLength, UnitType.UT_Electrical_CableTraySize, UnitType.UT_Electrical_ConduitSize, UnitType.UT_Reinforcement_Length, UnitType.UT_HVAC_DuctInsulationThickness, UnitType.UT_HVAC_DuctLiningThickness, UnitType.UT_PipeInsulationThickness, UnitType.UT_Bar_Diameter, UnitType.UT_Crack_Width, UnitType.UT_Displacement_Deflection, UnitType.UT_Reinforcement_Cover, UnitType.UT_Reinforcement_Spacing, UnitType.UT_Section_Dimension, UnitType.UT_Section_Property } },
-                { DisplayUnitType.DUT_DECIMAL_INCHES, new List<UnitType>{ UnitType.UT_Length, UnitType.UT_SheetLength, UnitType.UT_HVAC_DuctSize, UnitType.UT_HVAC_Roughness, UnitType.UT_PipeSize, UnitType.UT_Piping_Roughness, UnitType.UT_WireSize, UnitType.UT_DecSheetLength, UnitType.UT_Electrical_CableTraySize, UnitType.UT_Electrical_ConduitSize, UnitType.UT_Reinforcement_Length, UnitType.UT_HVAC_DuctInsulationThickness, UnitType.UT_HVAC_DuctLiningThickness, UnitType.UT_PipeInsulationThickness, UnitType.UT_Bar_Diameter, UnitType.UT_Crack_Width, UnitType.UT_Displacement_Deflection, UnitType.UT_Reinforcement_Cover, UnitType.UT_Reinforcement_Spacing, UnitType.UT_Section_Dimension, UnitType.UT_Section_Property, UnitType.UT_Pipe_Dimension } },
-                { DisplayUnitType.DUT_FRACTIONAL_INCHES, new List<UnitType>{ UnitType.UT_Length, UnitType.UT_SheetLength, UnitType.UT_HVAC_DuctSize, UnitType.UT_HVAC_Roughness, UnitType.UT_PipeSize, UnitType.UT_Piping_Roughness, UnitType.UT_WireSize, UnitType.UT_DecSheetLength, UnitType.UT_Electrical_CableTraySize, UnitType.UT_Electrical_ConduitSize, UnitType.UT_Reinforcement_Length, UnitType.UT_HVAC_DuctInsulationThickness, UnitType.UT_HVAC_DuctLiningThickness, UnitType.UT_PipeInsulationThickness, UnitType.UT_Bar_Diameter, UnitType.UT_Crack_Width, UnitType.UT_Displacement_Deflection, UnitType.UT_Reinforcement_Cover, UnitType.UT_Reinforcement_Spacing, UnitType.UT_Section_Dimension, UnitType.UT_Section_Property, UnitType.UT_Pipe_Dimension } },
-                { DisplayUnitType.DUT_METERS, new List<UnitType>{ UnitType.UT_Length, UnitType.UT_SheetLength, UnitType.UT_HVAC_DuctSize, UnitType.UT_HVAC_Roughness, UnitType.UT_PipeSize, UnitType.UT_Piping_Roughness, UnitType.UT_WireSize, UnitType.UT_DecSheetLength, UnitType.UT_Electrical_CableTraySize, UnitType.UT_Electrical_ConduitSize, UnitType.UT_Reinforcement_Length, UnitType.UT_HVAC_DuctInsulationThickness, UnitType.UT_HVAC_DuctLiningThickness, UnitType.UT_PipeInsulationThickness, UnitType.UT_Bar_Diameter, UnitType.UT_Crack_Width, UnitType.UT_Displacement_Deflection, UnitType.UT_Reinforcement_Cover, UnitType.UT_Reinforcement_Spacing, UnitType.UT_Section_Dimension, UnitType.UT_Section_Property } },
-                { DisplayUnitType.DUT_DECIMETERS, new List<UnitType>{ UnitType.UT_Length, UnitType.UT_SheetLength, UnitType.UT_HVAC_DuctSize, UnitType.UT_HVAC_Roughness, UnitType.UT_PipeSize, UnitType.UT_Piping_Roughness, UnitType.UT_WireSize, UnitType.UT_DecSheetLength, UnitType.UT_Electrical_CableTraySize, UnitType.UT_Electrical_ConduitSize, UnitType.UT_Reinforcement_Length, UnitType.UT_HVAC_DuctInsulationThickness, UnitType.UT_HVAC_DuctLiningThickness, UnitType.UT_PipeInsulationThickness } },
-                { DisplayUnitType.DUT_CENTIMETERS, new List<UnitType>{ UnitType.UT_Length, UnitType.UT_SheetLength, UnitType.UT_HVAC_DuctSize, UnitType.UT_HVAC_Roughness, UnitType.UT_PipeSize, UnitType.UT_Piping_Roughness, UnitType.UT_WireSize, UnitType.UT_DecSheetLength, UnitType.UT_Electrical_CableTraySize, UnitType.UT_Electrical_ConduitSize, UnitType.UT_Reinforcement_Length, UnitType.UT_HVAC_DuctInsulationThickness, UnitType.UT_HVAC_DuctLiningThickness, UnitType.UT_PipeInsulationThickness, UnitType.UT_Bar_Diameter, UnitType.UT_Crack_Width, UnitType.UT_Displacement_Deflection, UnitType.UT_Reinforcement_Cover, UnitType.UT_Reinforcement_Spacing, UnitType.UT_Section_Dimension, UnitType.UT_Section_Property, UnitType.UT_Pipe_Dimension } },
-                { DisplayUnitType.DUT_MILLIMETERS, new List<UnitType>{ UnitType.UT_Length, UnitType.UT_SheetLength, UnitType.UT_HVAC_DuctSize, UnitType.UT_HVAC_Roughness, UnitType.UT_PipeSize, UnitType.UT_Piping_Roughness, UnitType.UT_WireSize, UnitType.UT_DecSheetLength, UnitType.UT_Electrical_CableTraySize, UnitType.UT_Electrical_ConduitSize, UnitType.UT_Reinforcement_Length, UnitType.UT_HVAC_DuctInsulationThickness, UnitType.UT_HVAC_DuctLiningThickness, UnitType.UT_PipeInsulationThickness, UnitType.UT_Bar_Diameter, UnitType.UT_Crack_Width, UnitType.UT_Displacement_Deflection, UnitType.UT_Reinforcement_Cover, UnitType.UT_Reinforcement_Spacing, UnitType.UT_Section_Dimension, UnitType.UT_Section_Property, UnitType.UT_Pipe_Dimension } },
-                { DisplayUnitType.DUT_METERS_CENTIMETERS, new List<UnitType>{ UnitType.UT_Length, UnitType.UT_SheetLength, UnitType.UT_HVAC_DuctSize, UnitType.UT_HVAC_Roughness, UnitType.UT_PipeSize, UnitType.UT_Piping_Roughness, UnitType.UT_WireSize, UnitType.UT_DecSheetLength, UnitType.UT_Electrical_CableTraySize, UnitType.UT_Electrical_ConduitSize, UnitType.UT_Reinforcement_Length, UnitType.UT_HVAC_DuctInsulationThickness, UnitType.UT_HVAC_DuctLiningThickness, UnitType.UT_PipeInsulationThickness, UnitType.UT_Crack_Width, UnitType.UT_Displacement_Deflection, UnitType.UT_Reinforcement_Spacing, UnitType.UT_Section_Dimension, UnitType.UT_Section_Property } },
-                { DisplayUnitType.DUT_SQUARE_FEET, new List<UnitType>{ UnitType.UT_Area, UnitType.UT_HVAC_CrossSection, UnitType.UT_Reinforcement_Area, UnitType.UT_Section_Area } },
-                { DisplayUnitType.DUT_SQUARE_INCHES, new List<UnitType>{ UnitType.UT_Area, UnitType.UT_HVAC_CrossSection, UnitType.UT_Reinforcement_Area, UnitType.UT_Section_Area } },
-                { DisplayUnitType.DUT_SQUARE_METERS, new List<UnitType>{ UnitType.UT_Area, UnitType.UT_HVAC_CrossSection, UnitType.UT_Reinforcement_Area, UnitType.UT_Section_Area } },
-                { DisplayUnitType.DUT_SQUARE_CENTIMETERS, new List<UnitType>{ UnitType.UT_Area, UnitType.UT_HVAC_CrossSection, UnitType.UT_Reinforcement_Area, UnitType.UT_Section_Area } },
-                { DisplayUnitType.DUT_SQUARE_MILLIMETERS, new List<UnitType>{ UnitType.UT_Area, UnitType.UT_HVAC_CrossSection, UnitType.UT_Reinforcement_Area, UnitType.UT_Section_Area } },
-                { DisplayUnitType.DUT_ACRES, new List<UnitType>{ UnitType.UT_Area, UnitType.UT_HVAC_CrossSection } },
-                { DisplayUnitType.DUT_HECTARES, new List<UnitType>{ UnitType.UT_Area, UnitType.UT_HVAC_CrossSection } },
-                { DisplayUnitType.DUT_CUBIC_YARDS, new List<UnitType>{ UnitType.UT_Volume, UnitType.UT_Piping_Volume } },
-                { DisplayUnitType.DUT_CUBIC_FEET, new List<UnitType>{ UnitType.UT_Volume, UnitType.UT_Piping_Volume, UnitType.UT_Reinforcement_Volume, UnitType.UT_Section_Modulus } },
-                { DisplayUnitType.DUT_CUBIC_INCHES, new List<UnitType>{ UnitType.UT_Volume, UnitType.UT_Piping_Volume, UnitType.UT_Reinforcement_Volume, UnitType.UT_Section_Modulus } },
-                { DisplayUnitType.DUT_CUBIC_METERS, new List<UnitType>{ UnitType.UT_Volume, UnitType.UT_Piping_Volume, UnitType.UT_Reinforcement_Volume, UnitType.UT_Section_Modulus } },
-                { DisplayUnitType.DUT_CUBIC_CENTIMETERS, new List<UnitType>{ UnitType.UT_Volume, UnitType.UT_Piping_Volume, UnitType.UT_Reinforcement_Volume, UnitType.UT_Section_Modulus } },
-                { DisplayUnitType.DUT_CUBIC_MILLIMETERS, new List<UnitType>{ UnitType.UT_Volume, UnitType.UT_Piping_Volume, UnitType.UT_Section_Modulus } },
-                { DisplayUnitType.DUT_LITERS, new List<UnitType>{ UnitType.UT_Volume, UnitType.UT_Piping_Volume } },
-                { DisplayUnitType.DUT_GALLONS_US, new List<UnitType>{ UnitType.UT_Volume, UnitType.UT_Piping_Volume } },
-                { DisplayUnitType.DUT_DECIMAL_DEGREES, new List<UnitType>{ UnitType.UT_Angle, UnitType.UT_SiteAngle, UnitType.UT_Rotation } },
-                { DisplayUnitType.DUT_DEGREES_AND_MINUTES, new List<UnitType>{ UnitType.UT_Angle, UnitType.UT_SiteAngle, UnitType.UT_Rotation } },
-                { DisplayUnitType.DUT_RADIANS, new List<UnitType>{ UnitType.UT_Angle, UnitType.UT_SiteAngle, UnitType.UT_Rotation } },
-                { DisplayUnitType.DUT_GRADS, new List<UnitType>{ UnitType.UT_Angle, UnitType.UT_SiteAngle, UnitType.UT_Rotation } },
-                { DisplayUnitType.DUT_GENERAL, new List<UnitType>{ UnitType.UT_Number } },
-                { DisplayUnitType.DUT_FIXED, new List<UnitType>{ UnitType.UT_Number, UnitType.UT_HVAC_Factor, UnitType.UT_Electrical_Demand_Factor } },
-                { DisplayUnitType.DUT_CURRENCY, new List<UnitType>{ UnitType.UT_Number, UnitType.UT_Currency } },
-                { DisplayUnitType.DUT_PERCENTAGE, new List<UnitType>{ UnitType.UT_Number, UnitType.UT_Slope, UnitType.UT_HVAC_Slope, UnitType.UT_Piping_Slope, UnitType.UT_HVAC_Factor, UnitType.UT_Electrical_Demand_Factor } },
-                { DisplayUnitType.DUT_SQUARE_FEET_PER_FOOT, new List<UnitType>{ UnitType.UT_SheetLength, UnitType.UT_DecSheetLength, UnitType.UT_Surface_Area, UnitType.UT_Reinforcement_Area_per_Unit_Length } },
-                { DisplayUnitType.DUT_SQUARE_INCHES_PER_FOOT, new List<UnitType>{ UnitType.UT_SheetLength, UnitType.UT_DecSheetLength, UnitType.UT_Reinforcement_Area_per_Unit_Length } },
-                { DisplayUnitType.DUT_SQUARE_MILLIMETERS_PER_METER, new List<UnitType>{ UnitType.UT_SheetLength, UnitType.UT_DecSheetLength, UnitType.UT_Reinforcement_Area_per_Unit_Length } },
-                { DisplayUnitType.DUT_SQUARE_CENTIMETERS_PER_METER, new List<UnitType>{ UnitType.UT_SheetLength, UnitType.UT_DecSheetLength, UnitType.UT_Reinforcement_Area_per_Unit_Length } },
-                { DisplayUnitType.DUT_SQUARE_METERS_PER_METER, new List<UnitType>{ UnitType.UT_SheetLength, UnitType.UT_DecSheetLength, UnitType.UT_Surface_Area, UnitType.UT_Reinforcement_Area_per_Unit_Length } },
-                { DisplayUnitType.DUT_KILOGRAMS_PER_CUBIC_METER, new List<UnitType>{ UnitType.UT_HVAC_Density, UnitType.UT_Piping_Density, UnitType.UT_MassDensity } },
-                { DisplayUnitType.DUT_POUNDS_MASS_PER_CUBIC_FOOT, new List<UnitType>{ UnitType.UT_HVAC_Density, UnitType.UT_Piping_Density, UnitType.UT_MassDensity } },
-                { DisplayUnitType.DUT_POUNDS_MASS_PER_CUBIC_INCH, new List<UnitType>{ UnitType.UT_HVAC_Density, UnitType.UT_Piping_Density } },
-                { DisplayUnitType.DUT_BRITISH_THERMAL_UNITS, new List<UnitType>{ UnitType.UT_HVAC_Energy } },
-                { DisplayUnitType.DUT_CALORIES, new List<UnitType>{ UnitType.UT_HVAC_Energy } },
-                { DisplayUnitType.DUT_KILOCALORIES, new List<UnitType>{ UnitType.UT_HVAC_Energy } },
-                { DisplayUnitType.DUT_JOULES, new List<UnitType>{ UnitType.UT_HVAC_Energy, UnitType.UT_Energy } },
-                { DisplayUnitType.DUT_KILOWATT_HOURS, new List<UnitType>{ UnitType.UT_HVAC_Energy } },
-                { DisplayUnitType.DUT_THERMS, new List<UnitType>{ UnitType.UT_HVAC_Energy } },
-                { DisplayUnitType.DUT_INCHES_OF_WATER_PER_100FT, new List<UnitType>{ UnitType.UT_HVAC_Friction, UnitType.UT_AreaForcePerLength } },
-                { DisplayUnitType.DUT_PASCALS_PER_METER, new List<UnitType>{ UnitType.UT_HVAC_Friction, UnitType.UT_Piping_Friction, UnitType.UT_AreaForcePerLength } },
-                { DisplayUnitType.DUT_WATTS, new List<UnitType>{ UnitType.UT_HVAC_Power, UnitType.UT_HVAC_HeatGain, UnitType.UT_Electrical_Power, UnitType.UT_Electrical_Apparent_Power, UnitType.UT_HVAC_Cooling_Load, UnitType.UT_HVAC_Heating_Load, UnitType.UT_Electrical_Wattage } },
-                { DisplayUnitType.DUT_KILOWATTS, new List<UnitType>{ UnitType.UT_HVAC_Power, UnitType.UT_HVAC_HeatGain, UnitType.UT_Electrical_Power, UnitType.UT_Electrical_Apparent_Power, UnitType.UT_HVAC_Cooling_Load, UnitType.UT_HVAC_Heating_Load } },
-                { DisplayUnitType.DUT_BRITISH_THERMAL_UNITS_PER_SECOND, new List<UnitType>{ UnitType.UT_HVAC_Power, UnitType.UT_HVAC_HeatGain, UnitType.UT_Electrical_Power, UnitType.UT_Electrical_Apparent_Power, UnitType.UT_HVAC_Cooling_Load, UnitType.UT_HVAC_Heating_Load } },
-                { DisplayUnitType.DUT_BRITISH_THERMAL_UNITS_PER_HOUR, new List<UnitType>{ UnitType.UT_HVAC_Power, UnitType.UT_HVAC_HeatGain, UnitType.UT_Electrical_Power, UnitType.UT_Electrical_Apparent_Power, UnitType.UT_HVAC_Cooling_Load, UnitType.UT_HVAC_Heating_Load } },
-                { DisplayUnitType.DUT_CALORIES_PER_SECOND, new List<UnitType>{ UnitType.UT_HVAC_Power, UnitType.UT_HVAC_HeatGain, UnitType.UT_Electrical_Power, UnitType.UT_Electrical_Apparent_Power } },
-                { DisplayUnitType.DUT_KILOCALORIES_PER_SECOND, new List<UnitType>{ UnitType.UT_HVAC_Power, UnitType.UT_HVAC_HeatGain, UnitType.UT_Electrical_Power, UnitType.UT_Electrical_Apparent_Power } },
-                { DisplayUnitType.DUT_WATTS_PER_SQUARE_FOOT, new List<UnitType>{ UnitType.UT_HVAC_Power_Density, UnitType.UT_Electrical_Power_Density, UnitType.UT_HVAC_Cooling_Load_Divided_By_Area, UnitType.UT_HVAC_Heating_Load_Divided_By_Area } },
-                { DisplayUnitType.DUT_WATTS_PER_SQUARE_METER, new List<UnitType>{ UnitType.UT_HVAC_Power_Density, UnitType.UT_Electrical_Power_Density, UnitType.UT_HVAC_Cooling_Load_Divided_By_Area, UnitType.UT_HVAC_Heating_Load_Divided_By_Area } },
-                { DisplayUnitType.DUT_BRITISH_THERMAL_UNITS_PER_HOUR_SQUARE_FOOT, new List<UnitType>{ UnitType.UT_HVAC_Power_Density, UnitType.UT_Electrical_Power_Density, UnitType.UT_HVAC_Cooling_Load_Divided_By_Area, UnitType.UT_HVAC_Heating_Load_Divided_By_Area } },
-                { DisplayUnitType.DUT_INCHES_OF_WATER, new List<UnitType>{ UnitType.UT_HVAC_Pressure, UnitType.UT_LinearForcePerLength } },
-                { DisplayUnitType.DUT_PASCALS, new List<UnitType>{ UnitType.UT_HVAC_Pressure, UnitType.UT_AreaForce, UnitType.UT_Piping_Pressure, UnitType.UT_Stress, UnitType.UT_LinearForcePerLength } },
-                { DisplayUnitType.DUT_KILOPASCALS, new List<UnitType>{ UnitType.UT_HVAC_Pressure, UnitType.UT_AreaForce, UnitType.UT_Piping_Pressure, UnitType.UT_Stress, UnitType.UT_LinearForcePerLength } },
-                { DisplayUnitType.DUT_MEGAPASCALS, new List<UnitType>{ UnitType.UT_HVAC_Pressure, UnitType.UT_AreaForce, UnitType.UT_Piping_Pressure, UnitType.UT_Stress, UnitType.UT_LinearForcePerLength } },
-                { DisplayUnitType.DUT_POUNDS_FORCE_PER_SQUARE_INCH, new List<UnitType>{ UnitType.UT_HVAC_Pressure, UnitType.UT_Piping_Pressure, UnitType.UT_Stress, UnitType.UT_LinearForcePerLength } },
-                { DisplayUnitType.DUT_INCHES_OF_MERCURY, new List<UnitType>{ UnitType.UT_HVAC_Pressure, UnitType.UT_Piping_Pressure, UnitType.UT_LinearForcePerLength } },
-                { DisplayUnitType.DUT_MILLIMETERS_OF_MERCURY, new List<UnitType>{ UnitType.UT_HVAC_Pressure, UnitType.UT_Piping_Pressure, UnitType.UT_LinearForcePerLength } },
-                { DisplayUnitType.DUT_ATMOSPHERES, new List<UnitType>{ UnitType.UT_HVAC_Pressure, UnitType.UT_Piping_Pressure, UnitType.UT_LinearForcePerLength } },
-                { DisplayUnitType.DUT_BARS, new List<UnitType>{ UnitType.UT_HVAC_Pressure, UnitType.UT_Piping_Pressure, UnitType.UT_Stress, UnitType.UT_LinearForcePerLength } },
-                { DisplayUnitType.DUT_FAHRENHEIT, new List<UnitType>{ UnitType.UT_HVAC_Temperature, UnitType.UT_Piping_Temperature, UnitType.UT_Electrical_Temperature } },
-                { DisplayUnitType.DUT_CELSIUS, new List<UnitType>{ UnitType.UT_HVAC_Temperature, UnitType.UT_Piping_Temperature, UnitType.UT_Electrical_Temperature } },
-                { DisplayUnitType.DUT_KELVIN, new List<UnitType>{ UnitType.UT_HVAC_Temperature, UnitType.UT_Piping_Temperature, UnitType.UT_Color_Temperature, UnitType.UT_Electrical_Temperature } },
-                { DisplayUnitType.DUT_RANKINE, new List<UnitType>{ UnitType.UT_HVAC_Temperature, UnitType.UT_Piping_Temperature, UnitType.UT_Electrical_Temperature } },
-                { DisplayUnitType.DUT_FEET_PER_MINUTE, new List<UnitType>{ UnitType.UT_HVAC_Velocity, UnitType.UT_Structural_Velocity } },
-                { DisplayUnitType.DUT_METERS_PER_SECOND, new List<UnitType>{ UnitType.UT_HVAC_Velocity, UnitType.UT_Piping_Velocity, UnitType.UT_Structural_Velocity } },
-                { DisplayUnitType.DUT_CENTIMETERS_PER_MINUTE, new List<UnitType>{ UnitType.UT_HVAC_Velocity } },
-                { DisplayUnitType.DUT_CUBIC_FEET_PER_MINUTE, new List<UnitType>{ UnitType.UT_HVAC_Airflow } },
-                { DisplayUnitType.DUT_LITERS_PER_SECOND, new List<UnitType>{ UnitType.UT_HVAC_Airflow, UnitType.UT_Piping_Flow } },
-                { DisplayUnitType.DUT_LITERS_PER_MINUTE, new List<UnitType>{ UnitType.UT_HVAC_Airflow, UnitType.UT_Piping_Flow } },
-                { DisplayUnitType.DUT_CUBIC_METERS_PER_SECOND, new List<UnitType>{ UnitType.UT_HVAC_Airflow, UnitType.UT_Piping_Flow } },
-                { DisplayUnitType.DUT_CUBIC_METERS_PER_HOUR, new List<UnitType>{ UnitType.UT_HVAC_Airflow, UnitType.UT_Piping_Flow } },
-                { DisplayUnitType.DUT_GALLONS_US_PER_MINUTE, new List<UnitType>{ UnitType.UT_HVAC_Airflow, UnitType.UT_Piping_Flow } },
-                { DisplayUnitType.DUT_GALLONS_US_PER_HOUR, new List<UnitType>{ UnitType.UT_HVAC_Airflow, UnitType.UT_Piping_Flow } },
-                { DisplayUnitType.DUT_AMPERES, new List<UnitType>{ UnitType.UT_Electrical_Current } },
-                { DisplayUnitType.DUT_KILOAMPERES, new List<UnitType>{ UnitType.UT_Electrical_Current } },
-                { DisplayUnitType.DUT_MILLIAMPERES, new List<UnitType>{ UnitType.UT_Electrical_Current } },
-                { DisplayUnitType.DUT_VOLTS, new List<UnitType>{ UnitType.UT_Electrical_Potential } },
-                { DisplayUnitType.DUT_KILOVOLTS, new List<UnitType>{ UnitType.UT_Electrical_Potential } },
-                { DisplayUnitType.DUT_MILLIVOLTS, new List<UnitType>{ UnitType.UT_Electrical_Potential } },
-                { DisplayUnitType.DUT_HERTZ, new List<UnitType>{ UnitType.UT_Electrical_Frequency, UnitType.UT_Structural_Frequency } },
-                { DisplayUnitType.DUT_CYCLES_PER_SECOND, new List<UnitType>{ UnitType.UT_Electrical_Frequency } },
-                { DisplayUnitType.DUT_CUBIC_FEET_PER_MINUTE_CUBIC_FOOT, new List<UnitType>{ UnitType.UT_Electrical_Frequency, UnitType.UT_HVAC_Airflow_Divided_By_Volume } },
-                { DisplayUnitType.DUT_LITERS_PER_SECOND_CUBIC_METER, new List<UnitType>{ UnitType.UT_Electrical_Frequency, UnitType.UT_HVAC_Airflow_Divided_By_Volume } },
-                { DisplayUnitType.DUT_LUX, new List<UnitType>{ UnitType.UT_Electrical_Illuminance } },
-                { DisplayUnitType.DUT_FOOTCANDLES, new List<UnitType>{ UnitType.UT_Electrical_Illuminance } },
-                { DisplayUnitType.DUT_LUMENS, new List<UnitType>{ UnitType.UT_Electrical_Luminous_Flux } },
-                { DisplayUnitType.DUT_VOLT_AMPERES, new List<UnitType>{ UnitType.UT_Electrical_Power, UnitType.UT_Electrical_Apparent_Power } },
-                { DisplayUnitType.DUT_KILOVOLT_AMPERES, new List<UnitType>{ UnitType.UT_Electrical_Power, UnitType.UT_Electrical_Apparent_Power } },
-                { DisplayUnitType.DUT_HORSEPOWER, new List<UnitType>{ UnitType.UT_Electrical_Power, UnitType.UT_Electrical_Apparent_Power } },
-                { DisplayUnitType.DUT_NEWTONS, new List<UnitType>{ UnitType.UT_Force, UnitType.UT_Weight } },
-                { DisplayUnitType.DUT_DECANEWTONS, new List<UnitType>{ UnitType.UT_Force, UnitType.UT_Weight } },
-                { DisplayUnitType.DUT_KILONEWTONS, new List<UnitType>{ UnitType.UT_Force, UnitType.UT_Weight } },
-                { DisplayUnitType.DUT_MEGANEWTONS, new List<UnitType>{ UnitType.UT_Force, UnitType.UT_Weight } },
-                { DisplayUnitType.DUT_KIPS, new List<UnitType>{ UnitType.UT_Force, UnitType.UT_Weight } },
-                { DisplayUnitType.DUT_KILOGRAMS_FORCE, new List<UnitType>{ UnitType.UT_Force, UnitType.UT_Weight } },
-                { DisplayUnitType.DUT_TONNES_FORCE, new List<UnitType>{ UnitType.UT_Force, UnitType.UT_Weight } },
-                { DisplayUnitType.DUT_POUNDS_FORCE, new List<UnitType>{ UnitType.UT_Force, UnitType.UT_Weight } },
-                { DisplayUnitType.DUT_NEWTONS_PER_METER, new List<UnitType>{ UnitType.UT_LinearForce, UnitType.UT_ForcePerLength, UnitType.UT_Weight_per_Unit_Length } },
-                { DisplayUnitType.DUT_DECANEWTONS_PER_METER, new List<UnitType>{ UnitType.UT_LinearForce, UnitType.UT_ForcePerLength, UnitType.UT_Weight_per_Unit_Length } },
-                { DisplayUnitType.DUT_KILONEWTONS_PER_METER, new List<UnitType>{ UnitType.UT_LinearForce, UnitType.UT_ForcePerLength, UnitType.UT_Weight_per_Unit_Length } },
-                { DisplayUnitType.DUT_MEGANEWTONS_PER_METER, new List<UnitType>{ UnitType.UT_LinearForce, UnitType.UT_ForcePerLength, UnitType.UT_Weight_per_Unit_Length } },
-                { DisplayUnitType.DUT_KIPS_PER_FOOT, new List<UnitType>{ UnitType.UT_LinearForce, UnitType.UT_ForcePerLength, UnitType.UT_Weight_per_Unit_Length } },
-                { DisplayUnitType.DUT_KILOGRAMS_FORCE_PER_METER, new List<UnitType>{ UnitType.UT_LinearForce, UnitType.UT_ForcePerLength, UnitType.UT_Weight_per_Unit_Length } },
-                { DisplayUnitType.DUT_TONNES_FORCE_PER_METER, new List<UnitType>{ UnitType.UT_LinearForce, UnitType.UT_ForcePerLength, UnitType.UT_Weight_per_Unit_Length } },
-                { DisplayUnitType.DUT_POUNDS_FORCE_PER_FOOT, new List<UnitType>{ UnitType.UT_LinearForce, UnitType.UT_ForcePerLength, UnitType.UT_Weight_per_Unit_Length } },
-                { DisplayUnitType.DUT_KIPS_PER_INCH, new List<UnitType>{ UnitType.UT_LinearForce, UnitType.UT_ForcePerLength, UnitType.UT_Weight_per_Unit_Length } },
-                { DisplayUnitType.DUT_NEWTONS_PER_SQUARE_METER, new List<UnitType>{ UnitType.UT_AreaForce, UnitType.UT_Stress, UnitType.UT_LinearForcePerLength } },
-                { DisplayUnitType.DUT_DECANEWTONS_PER_SQUARE_METER, new List<UnitType>{ UnitType.UT_AreaForce, UnitType.UT_Stress, UnitType.UT_LinearForcePerLength } },
-                { DisplayUnitType.DUT_KILONEWTONS_PER_SQUARE_METER, new List<UnitType>{ UnitType.UT_AreaForce, UnitType.UT_Stress, UnitType.UT_LinearForcePerLength } },
-                { DisplayUnitType.DUT_MEGANEWTONS_PER_SQUARE_METER, new List<UnitType>{ UnitType.UT_AreaForce, UnitType.UT_Stress, UnitType.UT_LinearForcePerLength } },
-                { DisplayUnitType.DUT_KIPS_PER_SQUARE_FOOT, new List<UnitType>{ UnitType.UT_AreaForce, UnitType.UT_Stress, UnitType.UT_LinearForcePerLength } },
-                { DisplayUnitType.DUT_KILOGRAMS_FORCE_PER_SQUARE_METER, new List<UnitType>{ UnitType.UT_AreaForce, UnitType.UT_Stress, UnitType.UT_LinearForcePerLength } },
-                { DisplayUnitType.DUT_TONNES_FORCE_PER_SQUARE_METER, new List<UnitType>{ UnitType.UT_AreaForce, UnitType.UT_Stress, UnitType.UT_LinearForcePerLength } },
-                { DisplayUnitType.DUT_POUNDS_FORCE_PER_SQUARE_FOOT, new List<UnitType>{ UnitType.UT_AreaForce, UnitType.UT_Stress, UnitType.UT_LinearForcePerLength } },
-                { DisplayUnitType.DUT_NEWTON_METERS, new List<UnitType>{ UnitType.UT_Moment, UnitType.UT_Energy } },
-                { DisplayUnitType.DUT_DECANEWTON_METERS, new List<UnitType>{ UnitType.UT_Moment } },
-                { DisplayUnitType.DUT_KILONEWTON_METERS, new List<UnitType>{ UnitType.UT_Moment } },
-                { DisplayUnitType.DUT_MEGANEWTON_METERS, new List<UnitType>{ UnitType.UT_Moment } },
-                { DisplayUnitType.DUT_KIP_FEET, new List<UnitType>{ UnitType.UT_Moment } },
-                { DisplayUnitType.DUT_KILOGRAM_FORCE_METERS, new List<UnitType>{ UnitType.UT_Moment, UnitType.UT_Energy } },
-                { DisplayUnitType.DUT_TONNE_FORCE_METERS, new List<UnitType>{ UnitType.UT_Moment } },
-                { DisplayUnitType.DUT_POUND_FORCE_FEET, new List<UnitType>{ UnitType.UT_Moment, UnitType.UT_Energy } },
-                { DisplayUnitType.DUT_METERS_PER_KILONEWTON, new List<UnitType>{ UnitType.UT_ForceScale, UnitType.UT_LinearMomentScale } },
-                { DisplayUnitType.DUT_FEET_PER_KIP, new List<UnitType>{ UnitType.UT_ForceScale, UnitType.UT_LinearMomentScale } },
-                { DisplayUnitType.DUT_SQUARE_METERS_PER_KILONEWTON, new List<UnitType>{ UnitType.UT_LinearForceScale } },
-                { DisplayUnitType.DUT_SQUARE_FEET_PER_KIP, new List<UnitType>{ UnitType.UT_LinearForceScale } },
-                { DisplayUnitType.DUT_CUBIC_FEET_PER_MINUTE_TON_OF_REFRIGERATION, new List<UnitType>{ UnitType.UT_LinearForceScale, UnitType.UT_HVAC_Airflow_Divided_By_Cooling_Load } },
-                { DisplayUnitType.DUT_LITERS_PER_SECOND_KILOWATTS, new List<UnitType>{ UnitType.UT_LinearForceScale, UnitType.UT_HVAC_Airflow_Divided_By_Cooling_Load } },
-                { DisplayUnitType.DUT_CUBIC_METERS_PER_KILONEWTON, new List<UnitType>{ UnitType.UT_AreaForceScale } },
-                { DisplayUnitType.DUT_CUBIC_FEET_PER_KIP, new List<UnitType>{ UnitType.UT_AreaForceScale } },
-                { DisplayUnitType.DUT_INV_KILONEWTONS, new List<UnitType>{ UnitType.UT_MomentScale } },
-                { DisplayUnitType.DUT_INV_KIPS, new List<UnitType>{ UnitType.UT_MomentScale } },
-                { DisplayUnitType.DUT_FEET_OF_WATER_PER_100FT, new List<UnitType>{ UnitType.UT_Piping_Friction, UnitType.UT_AreaForcePerLength } },
-                { DisplayUnitType.DUT_FEET_OF_WATER, new List<UnitType>{ UnitType.UT_Piping_Pressure, UnitType.UT_LinearForcePerLength } },
-                { DisplayUnitType.DUT_FEET_PER_SECOND, new List<UnitType>{ UnitType.UT_Piping_Velocity, UnitType.UT_Structural_Velocity } },
-                { DisplayUnitType.DUT_PASCAL_SECONDS, new List<UnitType>{ UnitType.UT_Piping_Viscosity, UnitType.UT_HVAC_Viscosity } },
-                { DisplayUnitType.DUT_POUNDS_MASS_PER_FOOT_SECOND, new List<UnitType>{ UnitType.UT_Piping_Viscosity, UnitType.UT_HVAC_Viscosity } },
-                { DisplayUnitType.DUT_CENTIPOISES, new List<UnitType>{ UnitType.UT_Piping_Viscosity, UnitType.UT_HVAC_Viscosity } },
-                { DisplayUnitType.DUT_POUNDS_MASS_PER_FOOT_HOUR, new List<UnitType>{ UnitType.UT_Piping_Viscosity, UnitType.UT_HVAC_Viscosity } },
-                { DisplayUnitType.DUT_KILONEWTONS_PER_SQUARE_CENTIMETER, new List<UnitType>{ UnitType.UT_Stress, UnitType.UT_LinearForcePerLength } },
-                { DisplayUnitType.DUT_NEWTONS_PER_SQUARE_MILLIMETER, new List<UnitType>{ UnitType.UT_Stress, UnitType.UT_LinearForcePerLength } },
-                { DisplayUnitType.DUT_KILONEWTONS_PER_SQUARE_MILLIMETER, new List<UnitType>{ UnitType.UT_Stress, UnitType.UT_LinearForcePerLength } },
-                { DisplayUnitType.DUT_KIPS_PER_SQUARE_INCH, new List<UnitType>{ UnitType.UT_Stress, UnitType.UT_LinearForcePerLength } },
-                { DisplayUnitType.DUT_POUNDS_FORCE_PER_CUBIC_FOOT, new List<UnitType>{ UnitType.UT_UnitWeight, UnitType.UT_AreaForcePerLength } },
-                { DisplayUnitType.DUT_KIPS_PER_CUBIC_INCH, new List<UnitType>{ UnitType.UT_UnitWeight, UnitType.UT_AreaForcePerLength } },
-                { DisplayUnitType.DUT_KILONEWTONS_PER_CUBIC_METER, new List<UnitType>{ UnitType.UT_UnitWeight, UnitType.UT_AreaForcePerLength } },
-                { DisplayUnitType.DUT_INV_FAHRENHEIT, new List<UnitType>{ UnitType.UT_ThermalExpansion } },
-                { DisplayUnitType.DUT_MICROINCHES_PER_INCH_FAHRENHEIT, new List<UnitType>{ UnitType.UT_ThermalExpansion } },
-                { DisplayUnitType.DUT_INV_CELSIUS, new List<UnitType>{ UnitType.UT_ThermalExpansion } },
-                { DisplayUnitType.DUT_MICROMETERS_PER_METER_CELSIUS, new List<UnitType>{ UnitType.UT_ThermalExpansion } },
-                { DisplayUnitType.DUT_NEWTON_METERS_PER_METER, new List<UnitType>{ UnitType.UT_LinearMoment } },
-                { DisplayUnitType.DUT_DECANEWTON_METERS_PER_METER, new List<UnitType>{ UnitType.UT_LinearMoment } },
-                { DisplayUnitType.DUT_KILONEWTON_METERS_PER_METER, new List<UnitType>{ UnitType.UT_LinearMoment } },
-                { DisplayUnitType.DUT_MEGANEWTON_METERS_PER_METER, new List<UnitType>{ UnitType.UT_LinearMoment } },
-                { DisplayUnitType.DUT_KIP_FEET_PER_FOOT, new List<UnitType>{ UnitType.UT_LinearMoment } },
-                { DisplayUnitType.DUT_KILOGRAM_FORCE_METERS_PER_METER, new List<UnitType>{ UnitType.UT_LinearMoment } },
-                { DisplayUnitType.DUT_TONNE_FORCE_METERS_PER_METER, new List<UnitType>{ UnitType.UT_LinearMoment } },
-                { DisplayUnitType.DUT_POUND_FORCE_FEET_PER_FOOT, new List<UnitType>{ UnitType.UT_LinearMoment } },
-                { DisplayUnitType.DUT_KIP_FEET_PER_DEGREE, new List<UnitType>{ UnitType.UT_ForceLengthPerAngle } },
-                { DisplayUnitType.DUT_KILONEWTON_METERS_PER_DEGREE, new List<UnitType>{ UnitType.UT_ForceLengthPerAngle } },
-                { DisplayUnitType.DUT_KIP_FEET_PER_DEGREE_PER_FOOT, new List<UnitType>{ UnitType.UT_LinearForceLengthPerAngle } },
-                { DisplayUnitType.DUT_KILONEWTON_METERS_PER_DEGREE_PER_METER, new List<UnitType>{ UnitType.UT_LinearForceLengthPerAngle } },
-                { DisplayUnitType.DUT_KIPS_PER_CUBIC_FOOT, new List<UnitType>{ UnitType.UT_AreaForcePerLength } },
-                { DisplayUnitType.DUT_WATTS_PER_SQUARE_METER_KELVIN, new List<UnitType>{ UnitType.UT_HVAC_CoefficientOfHeatTransfer } },
-                { DisplayUnitType.DUT_BRITISH_THERMAL_UNITS_PER_HOUR_SQUARE_FOOT_FAHRENHEIT, new List<UnitType>{ UnitType.UT_HVAC_CoefficientOfHeatTransfer } },
-                { DisplayUnitType.DUT_CUBIC_FEET_PER_MINUTE_SQUARE_FOOT, new List<UnitType>{ UnitType.UT_HVAC_Airflow_Density } },
-                { DisplayUnitType.DUT_LITERS_PER_SECOND_SQUARE_METER, new List<UnitType>{ UnitType.UT_HVAC_Airflow_Density } },
-                { DisplayUnitType.DUT_1_RATIO, new List<UnitType>{ UnitType.UT_Slope, UnitType.UT_HVAC_Slope, UnitType.UT_Piping_Slope } },
-                { DisplayUnitType.DUT_RATIO_12, new List<UnitType>{ UnitType.UT_Slope, UnitType.UT_HVAC_Slope, UnitType.UT_Piping_Slope } },
-                { DisplayUnitType.DUT_RATIO_10, new List<UnitType>{ UnitType.UT_Slope, UnitType.UT_HVAC_Slope, UnitType.UT_Piping_Slope } },
-                { DisplayUnitType.DUT_RISE_OVER_INCHES, new List<UnitType>{ UnitType.UT_Slope, UnitType.UT_HVAC_Slope, UnitType.UT_Piping_Slope } },
-                { DisplayUnitType.DUT_RISE_OVER_FOOT, new List<UnitType>{ UnitType.UT_Slope, UnitType.UT_HVAC_Slope, UnitType.UT_Piping_Slope } },
-                { DisplayUnitType.DUT_RISE_OVER_MMS, new List<UnitType>{ UnitType.UT_Slope, UnitType.UT_HVAC_Slope, UnitType.UT_Piping_Slope } },
-                { DisplayUnitType.DUT_SLOPE_DEGREES, new List<UnitType>{ UnitType.UT_Slope, UnitType.UT_HVAC_Slope, UnitType.UT_Piping_Slope } },
-                { DisplayUnitType.DUT_TON_OF_REFRIGERATION, new List<UnitType>{ UnitType.UT_HVAC_Cooling_Load } },
-                { DisplayUnitType.DUT_WATTS_PER_CUBIC_FOOT, new List<UnitType>{ UnitType.UT_HVAC_Cooling_Load_Divided_By_Volume, UnitType.UT_HVAC_Heating_Load_Divided_By_Volume } },
-                { DisplayUnitType.DUT_WATTS_PER_CUBIC_METER, new List<UnitType>{ UnitType.UT_HVAC_Cooling_Load_Divided_By_Volume, UnitType.UT_HVAC_Heating_Load_Divided_By_Volume } },
-                { DisplayUnitType.DUT_BRITISH_THERMAL_UNITS_PER_HOUR_CUBIC_FOOT, new List<UnitType>{ UnitType.UT_HVAC_Cooling_Load_Divided_By_Volume, UnitType.UT_HVAC_Heating_Load_Divided_By_Volume } },
-                { DisplayUnitType.DUT_SQUARE_FEET_PER_TON_OF_REFRIGERATION, new List<UnitType>{ UnitType.UT_HVAC_Area_Divided_By_Cooling_Load } },
-                { DisplayUnitType.DUT_SQUARE_METERS_PER_KILOWATTS, new List<UnitType>{ UnitType.UT_HVAC_Area_Divided_By_Cooling_Load, UnitType.UT_HVAC_Area_Divided_By_Heating_Load } },
-                { DisplayUnitType.DUT_PER_MILLE, new List<UnitType>{ UnitType.UT_HVAC_Slope, UnitType.UT_Piping_Slope } },
-                { DisplayUnitType.DUT_RISE_OVER_120_INCHES, new List<UnitType>{ UnitType.UT_Piping_Slope } },
-                { DisplayUnitType.DUT_RISE_OVER_10_FEET, new List<UnitType>{ UnitType.UT_Piping_Slope } },
-                { DisplayUnitType.DUT_LUMENS_PER_WATT, new List<UnitType>{ UnitType.UT_Electrical_Efficacy } },
-                { DisplayUnitType.DUT_CANDELAS, new List<UnitType>{ UnitType.UT_Electrical_Luminous_Intensity } },
-                { DisplayUnitType.DUT_FOOTLAMBERTS, new List<UnitType>{ UnitType.UT_Electrical_Luminance } },
-                { DisplayUnitType.DUT_CANDELAS_PER_SQUARE_METER, new List<UnitType>{ UnitType.UT_Electrical_Luminance } },
-                { DisplayUnitType.DUT_SQUARE_FEET_PER_THOUSAND_BRITISH_THERMAL_UNITS_PER_HOUR, new List<UnitType>{ UnitType.UT_HVAC_Area_Divided_By_Heating_Load } },
-                { DisplayUnitType.DUT_SQUARE_METER_KELVIN_PER_WATT, new List<UnitType>{ UnitType.UT_HVAC_ThermalResistance } },
-                { DisplayUnitType.DUT_HOUR_SQUARE_FOOT_FAHRENHEIT_PER_BRITISH_THERMAL_UNIT, new List<UnitType>{ UnitType.UT_HVAC_ThermalResistance } },
-                { DisplayUnitType.DUT_BRITISH_THERMAL_UNIT_PER_FAHRENHEIT, new List<UnitType>{ UnitType.UT_HVAC_ThermalMass } },
-                { DisplayUnitType.DUT_JOULES_PER_KELVIN, new List<UnitType>{ UnitType.UT_HVAC_ThermalMass } },
-                { DisplayUnitType.DUT_KILOJOULES_PER_KELVIN, new List<UnitType>{ UnitType.UT_HVAC_ThermalMass } },
-                { DisplayUnitType.DUT_METERS_PER_SECOND_SQUARED, new List<UnitType>{ UnitType.UT_Acceleration } },
-                { DisplayUnitType.DUT_KILOMETERS_PER_SECOND_SQUARED, new List<UnitType>{ UnitType.UT_Acceleration } },
-                { DisplayUnitType.DUT_INCHES_PER_SECOND_SQUARED, new List<UnitType>{ UnitType.UT_Acceleration } },
-                { DisplayUnitType.DUT_FEET_PER_SECOND_SQUARED, new List<UnitType>{ UnitType.UT_Acceleration } },
-                { DisplayUnitType.DUT_MILES_PER_SECOND_SQUARED, new List<UnitType>{ UnitType.UT_Acceleration } },
-                { DisplayUnitType.DUT_KILOJOULES, new List<UnitType>{ UnitType.UT_Energy } },
-                { DisplayUnitType.DUT_KILOGRAMS_MASS, new List<UnitType>{ UnitType.UT_Mass, UnitType.UT_PipeMass } },
-                { DisplayUnitType.DUT_TONNES_MASS, new List<UnitType>{ UnitType.UT_Mass, UnitType.UT_PipeMass } },
-                { DisplayUnitType.DUT_POUNDS_MASS, new List<UnitType>{ UnitType.UT_Mass, UnitType.UT_PipeMass } },
-                { DisplayUnitType.DUT_USTONNES_MASS, new List<UnitType>{ UnitType.UT_Mass } },
-                { DisplayUnitType.DUT_KILOGRAMS_MASS_PER_METER, new List<UnitType>{ UnitType.UT_Mass_per_Unit_Length, UnitType.UT_PipeMassPerUnitLength } },
-                { DisplayUnitType.DUT_POUNDS_MASS_PER_FOOT, new List<UnitType>{ UnitType.UT_Mass_per_Unit_Length, UnitType.UT_PipeMassPerUnitLength } },
-                { DisplayUnitType.DUT_FEET_TO_THE_FOURTH_POWER, new List<UnitType>{ UnitType.UT_Moment_of_Inertia } },
-                { DisplayUnitType.DUT_INCHES_TO_THE_FOURTH_POWER, new List<UnitType>{ UnitType.UT_Moment_of_Inertia } },
-                { DisplayUnitType.DUT_MILLIMETERS_TO_THE_FOURTH_POWER, new List<UnitType>{ UnitType.UT_Moment_of_Inertia } },
-                { DisplayUnitType.DUT_CENTIMETERS_TO_THE_FOURTH_POWER, new List<UnitType>{ UnitType.UT_Moment_of_Inertia } },
-                { DisplayUnitType.DUT_METERS_TO_THE_FOURTH_POWER, new List<UnitType>{ UnitType.UT_Moment_of_Inertia } },
-                { DisplayUnitType.DUT_MILISECONDS, new List<UnitType>{ UnitType.UT_Period } },
-                { DisplayUnitType.DUT_SECONDS, new List<UnitType>{ UnitType.UT_Period } },
-                { DisplayUnitType.DUT_MINUTES, new List<UnitType>{ UnitType.UT_Period } },
-                { DisplayUnitType.DUT_HOURS, new List<UnitType>{ UnitType.UT_Period } },
-                { DisplayUnitType.DUT_RADIANS_PER_SECOND, new List<UnitType>{ UnitType.UT_Pulsation } },
-                { DisplayUnitType.DUT_KILOMETERS_PER_HOUR, new List<UnitType>{ UnitType.UT_Structural_Velocity } },
-                { DisplayUnitType.DUT_MILES_PER_HOUR, new List<UnitType>{ UnitType.UT_Structural_Velocity } },
-                { DisplayUnitType.DUT_FEET_TO_THE_SIXTH_POWER, new List<UnitType>{ UnitType.UT_Warping_Constant } },
-                { DisplayUnitType.DUT_INCHES_TO_THE_SIXTH_POWER, new List<UnitType>{ UnitType.UT_Warping_Constant } },
-                { DisplayUnitType.DUT_MILLIMETERS_TO_THE_SIXTH_POWER, new List<UnitType>{ UnitType.UT_Warping_Constant } },
-                { DisplayUnitType.DUT_CENTIMETERS_TO_THE_SIXTH_POWER, new List<UnitType>{ UnitType.UT_Warping_Constant } },
-                { DisplayUnitType.DUT_METERS_TO_THE_SIXTH_POWER, new List<UnitType>{ UnitType.UT_Warping_Constant } },
-                { DisplayUnitType.DUT_USTONNES_FORCE, new List<UnitType>{ UnitType.UT_Weight } },
-                { DisplayUnitType.DUT_WATTS_PER_METER_KELVIN, new List<UnitType>{ UnitType.UT_HVAC_ThermalConductivity } },
-                { DisplayUnitType.DUT_BRITISH_THERMAL_UNITS_PER_HOUR_FOOT_FAHRENHEIT, new List<UnitType>{ UnitType.UT_HVAC_ThermalConductivity } },
-                { DisplayUnitType.DUT_JOULES_PER_GRAM_CELSIUS, new List<UnitType>{ UnitType.UT_HVAC_SpecificHeat } },
-                { DisplayUnitType.DUT_JOULES_PER_KILOGRAM_CELSIUS, new List<UnitType>{ UnitType.UT_HVAC_SpecificHeat } },
-                { DisplayUnitType.DUT_BRITISH_THERMAL_UNITS_PER_POUND_FAHRENHEIT, new List<UnitType>{ UnitType.UT_HVAC_SpecificHeat } },
-                { DisplayUnitType.DUT_JOULES_PER_GRAM, new List<UnitType>{ UnitType.UT_HVAC_SpecificHeatOfVaporization } },
-                { DisplayUnitType.DUT_BRITISH_THERMAL_UNITS_PER_POUND, new List<UnitType>{ UnitType.UT_HVAC_SpecificHeatOfVaporization } },
-                { DisplayUnitType.DUT_NANOGRAMS_PER_PASCAL_SECOND_SQUARE_METER, new List<UnitType>{ UnitType.UT_HVAC_Permeability } },
-                { DisplayUnitType.DUT_GRAINS_PER_HOUR_SQUARE_FOOT_INCH_MERCURY, new List<UnitType>{ UnitType.UT_HVAC_Permeability } },
-                { DisplayUnitType.DUT_OHM_METERS, new List<UnitType>{ UnitType.UT_Electrical_Resistivity } },
-                { DisplayUnitType.DUT_POUNDS_MASS_PER_SQUARE_FOOT, new List<UnitType>{ UnitType.UT_MassPerUnitArea } },
-                { DisplayUnitType.DUT_KILOGRAMS_MASS_PER_SQUARE_METER, new List<UnitType>{ UnitType.UT_MassPerUnitArea } },
-                { DisplayUnitType.DUT_FAHRENHEIT_DIFFERENCE, new List<UnitType>{ UnitType.UT_HVAC_TemperatureDifference, UnitType.UT_Piping_TemperatureDifference, UnitType.UT_Electrical_TemperatureDifference } },
-                { DisplayUnitType.DUT_CELSIUS_DIFFERENCE, new List<UnitType>{ UnitType.UT_HVAC_TemperatureDifference, UnitType.UT_Piping_TemperatureDifference, UnitType.UT_Electrical_TemperatureDifference } },
-                { DisplayUnitType.DUT_KELVIN_DIFFERENCE, new List<UnitType>{ UnitType.UT_HVAC_TemperatureDifference, UnitType.UT_Piping_TemperatureDifference, UnitType.UT_Electrical_TemperatureDifference } },
-                { DisplayUnitType.DUT_RANKINE_DIFFERENCE, new List<UnitType>{ UnitType.UT_HVAC_TemperatureDifference, UnitType.UT_Piping_TemperatureDifference, UnitType.UT_Electrical_TemperatureDifference } },
-            };
-
-            #endregion DisplayUnitType to UnitType
-
-            #region DisplayUnitType to ParameterType
-
-            _dutToParameterType = new Dictionary<DisplayUnitType, List<ParameterType>>
-            {
-                { DisplayUnitType.DUT_DECIMAL_FEET, new List<ParameterType>{ ParameterType.Length, ParameterType.Length, ParameterType.HVACDuctSize, ParameterType.HVACRoughness, ParameterType.PipeSize, ParameterType.PipingRoughness, ParameterType.WireSize, ParameterType.Length, ParameterType.ElectricalCableTraySize, ParameterType.ElectricalConduitSize, ParameterType.ReinforcementLength, ParameterType.HVACDuctInsulationThickness, ParameterType.HVACDuctLiningThickness, ParameterType.PipeInsulationThickness, ParameterType.BarDiameter, ParameterType.CrackWidth, ParameterType.DisplacementDeflection, ParameterType.ReinforcementCover, ParameterType.ReinforcementSpacing, ParameterType.SectionDimension, ParameterType.SectionProperty } },
-                { DisplayUnitType.DUT_FEET_FRACTIONAL_INCHES, new List<ParameterType>{ ParameterType.Length, ParameterType.Length, ParameterType.HVACDuctSize, ParameterType.HVACRoughness, ParameterType.PipeSize, ParameterType.PipingRoughness, ParameterType.WireSize, ParameterType.Length, ParameterType.ElectricalCableTraySize, ParameterType.ElectricalConduitSize, ParameterType.ReinforcementLength, ParameterType.HVACDuctInsulationThickness, ParameterType.HVACDuctLiningThickness, ParameterType.PipeInsulationThickness, ParameterType.BarDiameter, ParameterType.CrackWidth, ParameterType.DisplacementDeflection, ParameterType.ReinforcementCover, ParameterType.ReinforcementSpacing, ParameterType.SectionDimension, ParameterType.SectionProperty } },
-                { DisplayUnitType.DUT_DECIMAL_INCHES, new List<ParameterType>{ ParameterType.Length, ParameterType.Length, ParameterType.HVACDuctSize, ParameterType.HVACRoughness, ParameterType.PipeSize, ParameterType.PipingRoughness, ParameterType.WireSize, ParameterType.Length, ParameterType.ElectricalCableTraySize, ParameterType.ElectricalConduitSize, ParameterType.ReinforcementLength, ParameterType.HVACDuctInsulationThickness, ParameterType.HVACDuctLiningThickness, ParameterType.PipeInsulationThickness, ParameterType.BarDiameter, ParameterType.CrackWidth, ParameterType.DisplacementDeflection, ParameterType.ReinforcementCover, ParameterType.ReinforcementSpacing, ParameterType.SectionDimension, ParameterType.SectionProperty, ParameterType.Length } },
-                { DisplayUnitType.DUT_FRACTIONAL_INCHES, new List<ParameterType>{ ParameterType.Length, ParameterType.Length, ParameterType.HVACDuctSize, ParameterType.HVACRoughness, ParameterType.PipeSize, ParameterType.PipingRoughness, ParameterType.WireSize, ParameterType.Length, ParameterType.ElectricalCableTraySize, ParameterType.ElectricalConduitSize, ParameterType.ReinforcementLength, ParameterType.HVACDuctInsulationThickness, ParameterType.HVACDuctLiningThickness, ParameterType.PipeInsulationThickness, ParameterType.BarDiameter, ParameterType.CrackWidth, ParameterType.DisplacementDeflection, ParameterType.ReinforcementCover, ParameterType.ReinforcementSpacing, ParameterType.SectionDimension, ParameterType.SectionProperty, ParameterType.Length } },
-                { DisplayUnitType.DUT_METERS, new List<ParameterType>{ ParameterType.Length, ParameterType.Length, ParameterType.HVACDuctSize, ParameterType.HVACRoughness, ParameterType.PipeSize, ParameterType.PipingRoughness, ParameterType.WireSize, ParameterType.Length, ParameterType.ElectricalCableTraySize, ParameterType.ElectricalConduitSize, ParameterType.ReinforcementLength, ParameterType.HVACDuctInsulationThickness, ParameterType.HVACDuctLiningThickness, ParameterType.PipeInsulationThickness, ParameterType.BarDiameter, ParameterType.CrackWidth, ParameterType.DisplacementDeflection, ParameterType.ReinforcementCover, ParameterType.ReinforcementSpacing, ParameterType.SectionDimension, ParameterType.SectionProperty } },
-                { DisplayUnitType.DUT_DECIMETERS, new List<ParameterType>{ ParameterType.Length, ParameterType.Length, ParameterType.HVACDuctSize, ParameterType.HVACRoughness, ParameterType.PipeSize, ParameterType.PipingRoughness, ParameterType.WireSize, ParameterType.Length, ParameterType.ElectricalCableTraySize, ParameterType.ElectricalConduitSize, ParameterType.ReinforcementLength, ParameterType.HVACDuctInsulationThickness, ParameterType.HVACDuctLiningThickness, ParameterType.PipeInsulationThickness } },
-                { DisplayUnitType.DUT_CENTIMETERS, new List<ParameterType>{ ParameterType.Length, ParameterType.Length, ParameterType.HVACDuctSize, ParameterType.HVACRoughness, ParameterType.PipeSize, ParameterType.PipingRoughness, ParameterType.WireSize, ParameterType.Length, ParameterType.ElectricalCableTraySize, ParameterType.ElectricalConduitSize, ParameterType.ReinforcementLength, ParameterType.HVACDuctInsulationThickness, ParameterType.HVACDuctLiningThickness, ParameterType.PipeInsulationThickness, ParameterType.BarDiameter, ParameterType.CrackWidth, ParameterType.DisplacementDeflection, ParameterType.ReinforcementCover, ParameterType.ReinforcementSpacing, ParameterType.SectionDimension, ParameterType.SectionProperty, ParameterType.Length } },
-                { DisplayUnitType.DUT_MILLIMETERS, new List<ParameterType>{ ParameterType.Length, ParameterType.Length, ParameterType.HVACDuctSize, ParameterType.HVACRoughness, ParameterType.PipeSize, ParameterType.PipingRoughness, ParameterType.WireSize, ParameterType.Length, ParameterType.ElectricalCableTraySize, ParameterType.ElectricalConduitSize, ParameterType.ReinforcementLength, ParameterType.HVACDuctInsulationThickness, ParameterType.HVACDuctLiningThickness, ParameterType.PipeInsulationThickness, ParameterType.BarDiameter, ParameterType.CrackWidth, ParameterType.DisplacementDeflection, ParameterType.ReinforcementCover, ParameterType.ReinforcementSpacing, ParameterType.SectionDimension, ParameterType.SectionProperty, ParameterType.Length } },
-                { DisplayUnitType.DUT_METERS_CENTIMETERS, new List<ParameterType>{ ParameterType.Length, ParameterType.Length, ParameterType.HVACDuctSize, ParameterType.HVACRoughness, ParameterType.PipeSize, ParameterType.PipingRoughness, ParameterType.WireSize, ParameterType.Length, ParameterType.ElectricalCableTraySize, ParameterType.ElectricalConduitSize, ParameterType.ReinforcementLength, ParameterType.HVACDuctInsulationThickness, ParameterType.HVACDuctLiningThickness, ParameterType.PipeInsulationThickness, ParameterType.CrackWidth, ParameterType.DisplacementDeflection, ParameterType.ReinforcementSpacing, ParameterType.SectionDimension, ParameterType.SectionProperty } },
-                { DisplayUnitType.DUT_SQUARE_FEET, new List<ParameterType>{ ParameterType.Area, ParameterType.HVACCrossSection, ParameterType.ReinforcementArea, ParameterType.SectionArea } },
-                { DisplayUnitType.DUT_SQUARE_INCHES, new List<ParameterType>{ ParameterType.Area, ParameterType.HVACCrossSection, ParameterType.ReinforcementArea, ParameterType.SectionArea } },
-                { DisplayUnitType.DUT_SQUARE_METERS, new List<ParameterType>{ ParameterType.Area, ParameterType.HVACCrossSection, ParameterType.ReinforcementArea, ParameterType.SectionArea } },
-                { DisplayUnitType.DUT_SQUARE_CENTIMETERS, new List<ParameterType>{ ParameterType.Area, ParameterType.HVACCrossSection, ParameterType.ReinforcementArea, ParameterType.SectionArea } },
-                { DisplayUnitType.DUT_SQUARE_MILLIMETERS, new List<ParameterType>{ ParameterType.Area, ParameterType.HVACCrossSection, ParameterType.ReinforcementArea, ParameterType.SectionArea } },
-                { DisplayUnitType.DUT_ACRES, new List<ParameterType>{ ParameterType.Area, ParameterType.HVACCrossSection } },
-                { DisplayUnitType.DUT_HECTARES, new List<ParameterType>{ ParameterType.Area, ParameterType.HVACCrossSection } },
-                { DisplayUnitType.DUT_CUBIC_YARDS, new List<ParameterType>{ ParameterType.Volume, ParameterType.PipingVolume } },
-                { DisplayUnitType.DUT_CUBIC_FEET, new List<ParameterType>{ ParameterType.Volume, ParameterType.PipingVolume, ParameterType.ReinforcementVolume, ParameterType.SectionModulus } },
-                { DisplayUnitType.DUT_CUBIC_INCHES, new List<ParameterType>{ ParameterType.Volume, ParameterType.PipingVolume, ParameterType.ReinforcementVolume, ParameterType.SectionModulus } },
-                { DisplayUnitType.DUT_CUBIC_METERS, new List<ParameterType>{ ParameterType.Volume, ParameterType.PipingVolume, ParameterType.ReinforcementVolume, ParameterType.SectionModulus } },
-                { DisplayUnitType.DUT_CUBIC_CENTIMETERS, new List<ParameterType>{ ParameterType.Volume, ParameterType.PipingVolume, ParameterType.ReinforcementVolume, ParameterType.SectionModulus } },
-                { DisplayUnitType.DUT_CUBIC_MILLIMETERS, new List<ParameterType>{ ParameterType.Volume, ParameterType.PipingVolume, ParameterType.SectionModulus } },
-                { DisplayUnitType.DUT_LITERS, new List<ParameterType>{ ParameterType.Volume, ParameterType.PipingVolume } },
-                { DisplayUnitType.DUT_GALLONS_US, new List<ParameterType>{ ParameterType.Volume, ParameterType.PipingVolume } },
-                { DisplayUnitType.DUT_DECIMAL_DEGREES, new List<ParameterType>{ ParameterType.Angle, ParameterType.Angle, ParameterType.Rotation } },
-                { DisplayUnitType.DUT_DEGREES_AND_MINUTES, new List<ParameterType>{ ParameterType.Angle, ParameterType.Angle, ParameterType.Rotation } },
-                { DisplayUnitType.DUT_RADIANS, new List<ParameterType>{ ParameterType.Angle, ParameterType.Angle, ParameterType.Rotation } },
-                { DisplayUnitType.DUT_GRADS, new List<ParameterType>{ ParameterType.Angle, ParameterType.Angle, ParameterType.Rotation } },
-                { DisplayUnitType.DUT_GENERAL, new List<ParameterType>{ ParameterType.Number, ParameterType.Text, ParameterType.MultilineText, ParameterType.FixtureUnit, ParameterType.FamilyType, ParameterType.LoadClassification, ParameterType.Image, ParameterType.URL, ParameterType.Material, ParameterType.YesNo, } },
-                { DisplayUnitType.DUT_FIXED, new List<ParameterType>{ ParameterType.Number, ParameterType.HVACFactor, ParameterType.ElectricalDemandFactor } },
-                { DisplayUnitType.DUT_CURRENCY, new List<ParameterType>{ ParameterType.Number, ParameterType.Currency } },
-                { DisplayUnitType.DUT_PERCENTAGE, new List<ParameterType>{ ParameterType.Number, ParameterType.Slope, ParameterType.HVACSlope, ParameterType.PipingSlope, ParameterType.HVACFactor, ParameterType.ElectricalDemandFactor } },
-                { DisplayUnitType.DUT_SQUARE_FEET_PER_FOOT, new List<ParameterType>{ ParameterType.Length, ParameterType.Length, ParameterType.SurfaceArea, ParameterType.ReinforcementAreaPerUnitLength } },
-                { DisplayUnitType.DUT_SQUARE_INCHES_PER_FOOT, new List<ParameterType>{ ParameterType.Length, ParameterType.Length, ParameterType.ReinforcementAreaPerUnitLength } },
-                { DisplayUnitType.DUT_SQUARE_MILLIMETERS_PER_METER, new List<ParameterType>{ ParameterType.Length, ParameterType.Length, ParameterType.ReinforcementAreaPerUnitLength } },
-                { DisplayUnitType.DUT_SQUARE_CENTIMETERS_PER_METER, new List<ParameterType>{ ParameterType.Length, ParameterType.Length, ParameterType.ReinforcementAreaPerUnitLength } },
-                { DisplayUnitType.DUT_SQUARE_METERS_PER_METER, new List<ParameterType>{ ParameterType.Length, ParameterType.Length, ParameterType.SurfaceArea, ParameterType.ReinforcementAreaPerUnitLength } },
-                { DisplayUnitType.DUT_KILOGRAMS_PER_CUBIC_METER, new List<ParameterType>{ ParameterType.HVACDensity, ParameterType.PipingDensity, ParameterType.MassDensity } },
-                { DisplayUnitType.DUT_POUNDS_MASS_PER_CUBIC_FOOT, new List<ParameterType>{ ParameterType.HVACDensity, ParameterType.PipingDensity, ParameterType.MassDensity } },
-                { DisplayUnitType.DUT_POUNDS_MASS_PER_CUBIC_INCH, new List<ParameterType>{ ParameterType.HVACDensity, ParameterType.PipingDensity } },
-                { DisplayUnitType.DUT_BRITISH_THERMAL_UNITS, new List<ParameterType>{ ParameterType.HVACEnergy } },
-                { DisplayUnitType.DUT_CALORIES, new List<ParameterType>{ ParameterType.HVACEnergy } },
-                { DisplayUnitType.DUT_KILOCALORIES, new List<ParameterType>{ ParameterType.HVACEnergy } },
-                { DisplayUnitType.DUT_JOULES, new List<ParameterType>{ ParameterType.HVACEnergy, ParameterType.Energy } },
-                { DisplayUnitType.DUT_KILOWATT_HOURS, new List<ParameterType>{ ParameterType.HVACEnergy } },
-                { DisplayUnitType.DUT_THERMS, new List<ParameterType>{ ParameterType.HVACEnergy } },
-                { DisplayUnitType.DUT_INCHES_OF_WATER_PER_100FT, new List<ParameterType>{ ParameterType.HVACFriction, ParameterType.AreaForcePerLength } },
-                { DisplayUnitType.DUT_PASCALS_PER_METER, new List<ParameterType>{ ParameterType.HVACFriction, ParameterType.PipingFriction, ParameterType.AreaForcePerLength } },
-                { DisplayUnitType.DUT_WATTS, new List<ParameterType>{ ParameterType.HVACPower, ParameterType.HVACHeatGain, ParameterType.ElectricalPower, ParameterType.ElectricalApparentPower, ParameterType.HVACCoolingLoad, ParameterType.HVACHeatingLoad, ParameterType.ElectricalWattage } },
-                { DisplayUnitType.DUT_KILOWATTS, new List<ParameterType>{ ParameterType.HVACPower, ParameterType.HVACHeatGain, ParameterType.ElectricalPower, ParameterType.ElectricalApparentPower, ParameterType.HVACCoolingLoad, ParameterType.HVACHeatingLoad } },
-                { DisplayUnitType.DUT_BRITISH_THERMAL_UNITS_PER_SECOND, new List<ParameterType>{ ParameterType.HVACPower, ParameterType.HVACHeatGain, ParameterType.ElectricalPower, ParameterType.ElectricalApparentPower, ParameterType.HVACCoolingLoad, ParameterType.HVACHeatingLoad } },
-                { DisplayUnitType.DUT_BRITISH_THERMAL_UNITS_PER_HOUR, new List<ParameterType>{ ParameterType.HVACPower, ParameterType.HVACHeatGain, ParameterType.ElectricalPower, ParameterType.ElectricalApparentPower, ParameterType.HVACCoolingLoad, ParameterType.HVACHeatingLoad } },
-                { DisplayUnitType.DUT_CALORIES_PER_SECOND, new List<ParameterType>{ ParameterType.HVACPower, ParameterType.HVACHeatGain, ParameterType.ElectricalPower, ParameterType.ElectricalApparentPower } },
-                { DisplayUnitType.DUT_KILOCALORIES_PER_SECOND, new List<ParameterType>{ ParameterType.HVACPower, ParameterType.HVACHeatGain, ParameterType.ElectricalPower, ParameterType.ElectricalApparentPower } },
-                { DisplayUnitType.DUT_WATTS_PER_SQUARE_FOOT, new List<ParameterType>{ ParameterType.HVACPower, ParameterType.ElectricalPowerDensity, ParameterType.HVACCoolingLoadDividedByArea, ParameterType.HVACHeatingLoadDividedByArea } },
-                { DisplayUnitType.DUT_WATTS_PER_SQUARE_METER, new List<ParameterType>{ ParameterType.HVACPower, ParameterType.ElectricalPowerDensity, ParameterType.HVACCoolingLoadDividedByArea, ParameterType.HVACHeatingLoadDividedByArea } },
-                { DisplayUnitType.DUT_BRITISH_THERMAL_UNITS_PER_HOUR_SQUARE_FOOT, new List<ParameterType>{ ParameterType.HVACPower, ParameterType.ElectricalPowerDensity, ParameterType.HVACCoolingLoadDividedByArea, ParameterType.HVACHeatingLoadDividedByArea } },
-                { DisplayUnitType.DUT_INCHES_OF_WATER, new List<ParameterType>{ ParameterType.HVACPressure, ParameterType.LinearForcePerLength } },
-                { DisplayUnitType.DUT_PASCALS, new List<ParameterType>{ ParameterType.HVACPressure, ParameterType.AreaForce, ParameterType.PipingPressure, ParameterType.Stress, ParameterType.LinearForcePerLength } },
-                { DisplayUnitType.DUT_KILOPASCALS, new List<ParameterType>{ ParameterType.HVACPressure, ParameterType.AreaForce, ParameterType.PipingPressure, ParameterType.Stress, ParameterType.LinearForcePerLength } },
-                { DisplayUnitType.DUT_MEGAPASCALS, new List<ParameterType>{ ParameterType.HVACPressure, ParameterType.AreaForce, ParameterType.PipingPressure, ParameterType.Stress, ParameterType.LinearForcePerLength } },
-                { DisplayUnitType.DUT_POUNDS_FORCE_PER_SQUARE_INCH, new List<ParameterType>{ ParameterType.HVACPressure, ParameterType.PipingPressure, ParameterType.Stress, ParameterType.LinearForcePerLength } },
-                { DisplayUnitType.DUT_INCHES_OF_MERCURY, new List<ParameterType>{ ParameterType.HVACPressure, ParameterType.PipingPressure, ParameterType.LinearForcePerLength } },
-                { DisplayUnitType.DUT_MILLIMETERS_OF_MERCURY, new List<ParameterType>{ ParameterType.HVACPressure, ParameterType.PipingPressure, ParameterType.LinearForcePerLength } },
-                { DisplayUnitType.DUT_ATMOSPHERES, new List<ParameterType>{ ParameterType.HVACPressure, ParameterType.PipingPressure, ParameterType.LinearForcePerLength } },
-                { DisplayUnitType.DUT_BARS, new List<ParameterType>{ ParameterType.HVACPressure, ParameterType.PipingPressure, ParameterType.Stress, ParameterType.LinearForcePerLength } },
-                { DisplayUnitType.DUT_FAHRENHEIT, new List<ParameterType>{ ParameterType.HVACTemperature, ParameterType.PipingTemperature, ParameterType.ElectricalTemperature } },
-                { DisplayUnitType.DUT_CELSIUS, new List<ParameterType>{ ParameterType.HVACTemperature, ParameterType.PipingTemperature, ParameterType.ElectricalTemperature } },
-                { DisplayUnitType.DUT_KELVIN, new List<ParameterType>{ ParameterType.HVACTemperature, ParameterType.PipingTemperature, ParameterType.ColorTemperature, ParameterType.ElectricalTemperature } },
-                { DisplayUnitType.DUT_RANKINE, new List<ParameterType>{ ParameterType.HVACTemperature, ParameterType.PipingTemperature, ParameterType.ElectricalTemperature } },
-                { DisplayUnitType.DUT_FEET_PER_MINUTE, new List<ParameterType>{ ParameterType.HVACVelocity, ParameterType.StructuralVelocity } },
-                { DisplayUnitType.DUT_METERS_PER_SECOND, new List<ParameterType>{ ParameterType.HVACVelocity, ParameterType.PipingVelocity, ParameterType.StructuralVelocity } },
-                { DisplayUnitType.DUT_CENTIMETERS_PER_MINUTE, new List<ParameterType>{ ParameterType.HVACVelocity } },
-                { DisplayUnitType.DUT_CUBIC_FEET_PER_MINUTE, new List<ParameterType>{ ParameterType.HVACAirflow } },
-                { DisplayUnitType.DUT_LITERS_PER_SECOND, new List<ParameterType>{ ParameterType.HVACAirflow, ParameterType.PipingFlow } },
-                { DisplayUnitType.DUT_LITERS_PER_MINUTE, new List<ParameterType>{ ParameterType.HVACAirflow, ParameterType.PipingFlow } },
-                { DisplayUnitType.DUT_CUBIC_METERS_PER_SECOND, new List<ParameterType>{ ParameterType.HVACAirflow, ParameterType.PipingFlow } },
-                { DisplayUnitType.DUT_CUBIC_METERS_PER_HOUR, new List<ParameterType>{ ParameterType.HVACAirflow, ParameterType.PipingFlow } },
-                { DisplayUnitType.DUT_GALLONS_US_PER_MINUTE, new List<ParameterType>{ ParameterType.HVACAirflow, ParameterType.PipingFlow } },
-                { DisplayUnitType.DUT_GALLONS_US_PER_HOUR, new List<ParameterType>{ ParameterType.HVACAirflow, ParameterType.PipingFlow } },
-                { DisplayUnitType.DUT_AMPERES, new List<ParameterType>{ ParameterType.ElectricalCurrent } },
-                { DisplayUnitType.DUT_KILOAMPERES, new List<ParameterType>{ ParameterType.ElectricalCurrent } },
-                { DisplayUnitType.DUT_MILLIAMPERES, new List<ParameterType>{ ParameterType.ElectricalCurrent } },
-                { DisplayUnitType.DUT_VOLTS, new List<ParameterType>{ ParameterType.ElectricalPotential } },
-                { DisplayUnitType.DUT_KILOVOLTS, new List<ParameterType>{ ParameterType.ElectricalPotential } },
-                { DisplayUnitType.DUT_MILLIVOLTS, new List<ParameterType>{ ParameterType.ElectricalPotential } },
-                { DisplayUnitType.DUT_HERTZ, new List<ParameterType>{ ParameterType.ElectricalFrequency, ParameterType.StructuralFrequency } },
-                { DisplayUnitType.DUT_CYCLES_PER_SECOND, new List<ParameterType>{ ParameterType.ElectricalFrequency } },
-                { DisplayUnitType.DUT_CUBIC_FEET_PER_MINUTE_CUBIC_FOOT, new List<ParameterType>{ ParameterType.ElectricalFrequency, ParameterType.HVACAirflowDividedByVolume } },
-                { DisplayUnitType.DUT_LITERS_PER_SECOND_CUBIC_METER, new List<ParameterType>{ ParameterType.ElectricalFrequency, ParameterType.HVACAirflowDividedByVolume } },
-                { DisplayUnitType.DUT_LUX, new List<ParameterType>{ ParameterType.ElectricalIlluminance } },
-                { DisplayUnitType.DUT_FOOTCANDLES, new List<ParameterType>{ ParameterType.ElectricalIlluminance } },
-                { DisplayUnitType.DUT_LUMENS, new List<ParameterType>{ ParameterType.ElectricalLuminousFlux } },
-                { DisplayUnitType.DUT_VOLT_AMPERES, new List<ParameterType>{ ParameterType.ElectricalPower, ParameterType.ElectricalApparentPower } },
-                { DisplayUnitType.DUT_KILOVOLT_AMPERES, new List<ParameterType>{ ParameterType.ElectricalPower, ParameterType.ElectricalApparentPower } },
-                { DisplayUnitType.DUT_HORSEPOWER, new List<ParameterType>{ ParameterType.ElectricalPower, ParameterType.ElectricalApparentPower } },
-                { DisplayUnitType.DUT_NEWTONS, new List<ParameterType>{ ParameterType.Force, ParameterType.Weight } },
-                { DisplayUnitType.DUT_DECANEWTONS, new List<ParameterType>{ ParameterType.Force, ParameterType.Weight } },
-                { DisplayUnitType.DUT_KILONEWTONS, new List<ParameterType>{ ParameterType.Force, ParameterType.Weight } },
-                { DisplayUnitType.DUT_MEGANEWTONS, new List<ParameterType>{ ParameterType.Force, ParameterType.Weight } },
-                { DisplayUnitType.DUT_KIPS, new List<ParameterType>{ ParameterType.Force, ParameterType.Weight } },
-                { DisplayUnitType.DUT_KILOGRAMS_FORCE, new List<ParameterType>{ ParameterType.Force, ParameterType.Weight } },
-                { DisplayUnitType.DUT_TONNES_FORCE, new List<ParameterType>{ ParameterType.Force, ParameterType.Weight } },
-                { DisplayUnitType.DUT_POUNDS_FORCE, new List<ParameterType>{ ParameterType.Force, ParameterType.Weight } },
-                { DisplayUnitType.DUT_NEWTONS_PER_METER, new List<ParameterType>{ ParameterType.LinearForce, ParameterType.ForcePerLength, ParameterType.WeightPerUnitLength } },
-                { DisplayUnitType.DUT_DECANEWTONS_PER_METER, new List<ParameterType>{ ParameterType.LinearForce, ParameterType.ForcePerLength, ParameterType.WeightPerUnitLength } },
-                { DisplayUnitType.DUT_KILONEWTONS_PER_METER, new List<ParameterType>{ ParameterType.LinearForce, ParameterType.ForcePerLength, ParameterType.WeightPerUnitLength } },
-                { DisplayUnitType.DUT_MEGANEWTONS_PER_METER, new List<ParameterType>{ ParameterType.LinearForce, ParameterType.ForcePerLength, ParameterType.WeightPerUnitLength } },
-                { DisplayUnitType.DUT_KIPS_PER_FOOT, new List<ParameterType>{ ParameterType.LinearForce, ParameterType.ForcePerLength, ParameterType.WeightPerUnitLength } },
-                { DisplayUnitType.DUT_KILOGRAMS_FORCE_PER_METER, new List<ParameterType>{ ParameterType.LinearForce, ParameterType.ForcePerLength, ParameterType.WeightPerUnitLength } },
-                { DisplayUnitType.DUT_TONNES_FORCE_PER_METER, new List<ParameterType>{ ParameterType.LinearForce, ParameterType.ForcePerLength, ParameterType.WeightPerUnitLength } },
-                { DisplayUnitType.DUT_POUNDS_FORCE_PER_FOOT, new List<ParameterType>{ ParameterType.LinearForce, ParameterType.ForcePerLength, ParameterType.WeightPerUnitLength } },
-                { DisplayUnitType.DUT_KIPS_PER_INCH, new List<ParameterType>{ ParameterType.LinearForce, ParameterType.ForcePerLength, ParameterType.WeightPerUnitLength } },
-                { DisplayUnitType.DUT_NEWTONS_PER_SQUARE_METER, new List<ParameterType>{ ParameterType.AreaForce, ParameterType.Stress, ParameterType.LinearForcePerLength } },
-                { DisplayUnitType.DUT_DECANEWTONS_PER_SQUARE_METER, new List<ParameterType>{ ParameterType.AreaForce, ParameterType.Stress, ParameterType.LinearForcePerLength } },
-                { DisplayUnitType.DUT_KILONEWTONS_PER_SQUARE_METER, new List<ParameterType>{ ParameterType.AreaForce, ParameterType.Stress, ParameterType.LinearForcePerLength } },
-                { DisplayUnitType.DUT_MEGANEWTONS_PER_SQUARE_METER, new List<ParameterType>{ ParameterType.AreaForce, ParameterType.Stress, ParameterType.LinearForcePerLength } },
-                { DisplayUnitType.DUT_KIPS_PER_SQUARE_FOOT, new List<ParameterType>{ ParameterType.AreaForce, ParameterType.Stress, ParameterType.LinearForcePerLength } },
-                { DisplayUnitType.DUT_KILOGRAMS_FORCE_PER_SQUARE_METER, new List<ParameterType>{ ParameterType.AreaForce, ParameterType.Stress, ParameterType.LinearForcePerLength } },
-                { DisplayUnitType.DUT_TONNES_FORCE_PER_SQUARE_METER, new List<ParameterType>{ ParameterType.AreaForce, ParameterType.Stress, ParameterType.LinearForcePerLength } },
-                { DisplayUnitType.DUT_POUNDS_FORCE_PER_SQUARE_FOOT, new List<ParameterType>{ ParameterType.AreaForce, ParameterType.Stress, ParameterType.LinearForcePerLength } },
-                { DisplayUnitType.DUT_NEWTON_METERS, new List<ParameterType>{ ParameterType.Moment, ParameterType.Energy } },
-                { DisplayUnitType.DUT_DECANEWTON_METERS, new List<ParameterType>{ ParameterType.Moment } },
-                { DisplayUnitType.DUT_KILONEWTON_METERS, new List<ParameterType>{ ParameterType.Moment } },
-                { DisplayUnitType.DUT_MEGANEWTON_METERS, new List<ParameterType>{ ParameterType.Moment } },
-                { DisplayUnitType.DUT_KIP_FEET, new List<ParameterType>{ ParameterType.Moment } },
-                { DisplayUnitType.DUT_KILOGRAM_FORCE_METERS, new List<ParameterType>{ ParameterType.Moment, ParameterType.Energy } },
-                { DisplayUnitType.DUT_TONNE_FORCE_METERS, new List<ParameterType>{ ParameterType.Moment } },
-                { DisplayUnitType.DUT_POUND_FORCE_FEET, new List<ParameterType>{ ParameterType.Moment, ParameterType.Energy } },
-                { DisplayUnitType.DUT_METERS_PER_KILONEWTON, new List<ParameterType>{ ParameterType.Number, ParameterType.Number } },
-                { DisplayUnitType.DUT_FEET_PER_KIP, new List<ParameterType>{ ParameterType.Number, ParameterType.Number } },
-                { DisplayUnitType.DUT_SQUARE_METERS_PER_KILONEWTON, new List<ParameterType>{ ParameterType.Number } },
-                { DisplayUnitType.DUT_SQUARE_FEET_PER_KIP, new List<ParameterType>{ ParameterType.Number } },
-                { DisplayUnitType.DUT_CUBIC_FEET_PER_MINUTE_TON_OF_REFRIGERATION, new List<ParameterType>{ ParameterType.Number, ParameterType.HVACAirflowDividedByCoolingLoad } },
-                { DisplayUnitType.DUT_LITERS_PER_SECOND_KILOWATTS, new List<ParameterType>{ ParameterType.Number, ParameterType.HVACAirflowDividedByCoolingLoad } },
-                { DisplayUnitType.DUT_CUBIC_METERS_PER_KILONEWTON, new List<ParameterType>{ ParameterType.Number } },
-                { DisplayUnitType.DUT_CUBIC_FEET_PER_KIP, new List<ParameterType>{ ParameterType.Number } },
-                { DisplayUnitType.DUT_INV_KILONEWTONS, new List<ParameterType>{ ParameterType.Number } },
-                { DisplayUnitType.DUT_INV_KIPS, new List<ParameterType>{ ParameterType.Number } },
-                { DisplayUnitType.DUT_FEET_OF_WATER_PER_100FT, new List<ParameterType>{ ParameterType.PipingFriction, ParameterType.AreaForcePerLength } },
-                { DisplayUnitType.DUT_FEET_OF_WATER, new List<ParameterType>{ ParameterType.PipingPressure, ParameterType.LinearForcePerLength } },
-                { DisplayUnitType.DUT_FEET_PER_SECOND, new List<ParameterType>{ ParameterType.PipingVelocity, ParameterType.StructuralVelocity } },
-                { DisplayUnitType.DUT_PASCAL_SECONDS, new List<ParameterType>{ ParameterType.PipingViscosity, ParameterType.HVACViscosity } },
-                { DisplayUnitType.DUT_POUNDS_MASS_PER_FOOT_SECOND, new List<ParameterType>{ ParameterType.PipingViscosity, ParameterType.HVACViscosity } },
-                { DisplayUnitType.DUT_CENTIPOISES, new List<ParameterType>{ ParameterType.PipingViscosity, ParameterType.HVACViscosity } },
-                { DisplayUnitType.DUT_POUNDS_MASS_PER_FOOT_HOUR, new List<ParameterType>{ ParameterType.PipingViscosity, ParameterType.HVACViscosity } },
-                { DisplayUnitType.DUT_KILONEWTONS_PER_SQUARE_CENTIMETER, new List<ParameterType>{ ParameterType.Stress, ParameterType.LinearForcePerLength } },
-                { DisplayUnitType.DUT_NEWTONS_PER_SQUARE_MILLIMETER, new List<ParameterType>{ ParameterType.Stress, ParameterType.LinearForcePerLength } },
-                { DisplayUnitType.DUT_KILONEWTONS_PER_SQUARE_MILLIMETER, new List<ParameterType>{ ParameterType.Stress, ParameterType.LinearForcePerLength } },
-                { DisplayUnitType.DUT_KIPS_PER_SQUARE_INCH, new List<ParameterType>{ ParameterType.Stress, ParameterType.LinearForcePerLength } },
-                { DisplayUnitType.DUT_POUNDS_FORCE_PER_CUBIC_FOOT, new List<ParameterType>{ ParameterType.UnitWeight, ParameterType.AreaForcePerLength } },
-                { DisplayUnitType.DUT_KIPS_PER_CUBIC_INCH, new List<ParameterType>{ ParameterType.UnitWeight, ParameterType.AreaForcePerLength } },
-                { DisplayUnitType.DUT_KILONEWTONS_PER_CUBIC_METER, new List<ParameterType>{ ParameterType.UnitWeight, ParameterType.AreaForcePerLength } },
-                { DisplayUnitType.DUT_INV_FAHRENHEIT, new List<ParameterType>{ ParameterType.ThermalExpansion } },
-                { DisplayUnitType.DUT_MICROINCHES_PER_INCH_FAHRENHEIT, new List<ParameterType>{ ParameterType.ThermalExpansion } },
-                { DisplayUnitType.DUT_INV_CELSIUS, new List<ParameterType>{ ParameterType.ThermalExpansion } },
-                { DisplayUnitType.DUT_MICROMETERS_PER_METER_CELSIUS, new List<ParameterType>{ ParameterType.ThermalExpansion } },
-                { DisplayUnitType.DUT_NEWTON_METERS_PER_METER, new List<ParameterType>{ ParameterType.LinearMoment } },
-                { DisplayUnitType.DUT_DECANEWTON_METERS_PER_METER, new List<ParameterType>{ ParameterType.LinearMoment } },
-                { DisplayUnitType.DUT_KILONEWTON_METERS_PER_METER, new List<ParameterType>{ ParameterType.LinearMoment } },
-                { DisplayUnitType.DUT_MEGANEWTON_METERS_PER_METER, new List<ParameterType>{ ParameterType.LinearMoment } },
-                { DisplayUnitType.DUT_KIP_FEET_PER_FOOT, new List<ParameterType>{ ParameterType.LinearMoment } },
-                { DisplayUnitType.DUT_KILOGRAM_FORCE_METERS_PER_METER, new List<ParameterType>{ ParameterType.LinearMoment } },
-                { DisplayUnitType.DUT_TONNE_FORCE_METERS_PER_METER, new List<ParameterType>{ ParameterType.LinearMoment } },
-                { DisplayUnitType.DUT_POUND_FORCE_FEET_PER_FOOT, new List<ParameterType>{ ParameterType.LinearMoment } },
-                { DisplayUnitType.DUT_KIP_FEET_PER_DEGREE, new List<ParameterType>{ ParameterType.ForceLengthPerAngle } },
-                { DisplayUnitType.DUT_KILONEWTON_METERS_PER_DEGREE, new List<ParameterType>{ ParameterType.ForceLengthPerAngle } },
-                { DisplayUnitType.DUT_KIP_FEET_PER_DEGREE_PER_FOOT, new List<ParameterType>{ ParameterType.LinearForceLengthPerAngle } },
-                { DisplayUnitType.DUT_KILONEWTON_METERS_PER_DEGREE_PER_METER, new List<ParameterType>{ ParameterType.LinearForceLengthPerAngle } },
-                { DisplayUnitType.DUT_KIPS_PER_CUBIC_FOOT, new List<ParameterType>{ ParameterType.AreaForcePerLength } },
-                { DisplayUnitType.DUT_WATTS_PER_SQUARE_METER_KELVIN, new List<ParameterType>{ ParameterType.HVACCoefficientOfHeatTransfer } },
-                { DisplayUnitType.DUT_BRITISH_THERMAL_UNITS_PER_HOUR_SQUARE_FOOT_FAHRENHEIT, new List<ParameterType>{ ParameterType.HVACCoefficientOfHeatTransfer } },
-                { DisplayUnitType.DUT_CUBIC_FEET_PER_MINUTE_SQUARE_FOOT, new List<ParameterType>{ ParameterType.HVACAirflowDensity } },
-                { DisplayUnitType.DUT_LITERS_PER_SECOND_SQUARE_METER, new List<ParameterType>{ ParameterType.HVACAirflowDensity } },
-                { DisplayUnitType.DUT_1_RATIO, new List<ParameterType>{ ParameterType.Slope, ParameterType.HVACSlope, ParameterType.PipingSlope } },
-                { DisplayUnitType.DUT_RATIO_12, new List<ParameterType>{ ParameterType.Slope, ParameterType.HVACSlope, ParameterType.PipingSlope } },
-                { DisplayUnitType.DUT_RATIO_10, new List<ParameterType>{ ParameterType.Slope, ParameterType.HVACSlope, ParameterType.PipingSlope } },
-                { DisplayUnitType.DUT_RISE_OVER_INCHES, new List<ParameterType>{ ParameterType.Slope, ParameterType.HVACSlope, ParameterType.PipingSlope } },
-                { DisplayUnitType.DUT_RISE_OVER_FOOT, new List<ParameterType>{ ParameterType.Slope, ParameterType.HVACSlope, ParameterType.PipingSlope } },
-                { DisplayUnitType.DUT_RISE_OVER_MMS, new List<ParameterType>{ ParameterType.Slope, ParameterType.HVACSlope, ParameterType.PipingSlope } },
-                { DisplayUnitType.DUT_SLOPE_DEGREES, new List<ParameterType>{ ParameterType.Slope, ParameterType.HVACSlope, ParameterType.PipingSlope } },
-                { DisplayUnitType.DUT_TON_OF_REFRIGERATION, new List<ParameterType>{ ParameterType.HVACCoolingLoad } },
-                { DisplayUnitType.DUT_WATTS_PER_CUBIC_FOOT, new List<ParameterType>{ ParameterType.HVACCoolingLoadDividedByVolume, ParameterType.HVACHeatingLoadDividedByVolume } },
-                { DisplayUnitType.DUT_WATTS_PER_CUBIC_METER, new List<ParameterType>{ ParameterType.HVACCoolingLoadDividedByVolume, ParameterType.HVACHeatingLoadDividedByVolume } },
-                { DisplayUnitType.DUT_BRITISH_THERMAL_UNITS_PER_HOUR_CUBIC_FOOT, new List<ParameterType>{ ParameterType.HVACCoolingLoadDividedByVolume, ParameterType.HVACHeatingLoadDividedByVolume } },
-                { DisplayUnitType.DUT_SQUARE_FEET_PER_TON_OF_REFRIGERATION, new List<ParameterType>{ ParameterType.HVACAreaDividedByCoolingLoad } },
-                { DisplayUnitType.DUT_SQUARE_METERS_PER_KILOWATTS, new List<ParameterType>{ ParameterType.HVACAreaDividedByCoolingLoad, ParameterType.HVACAreaDividedByHeatingLoad } },
-                { DisplayUnitType.DUT_PER_MILLE, new List<ParameterType>{ ParameterType.HVACSlope, ParameterType.PipingSlope } },
-                { DisplayUnitType.DUT_RISE_OVER_120_INCHES, new List<ParameterType>{ ParameterType.PipingSlope } },
-                { DisplayUnitType.DUT_RISE_OVER_10_FEET, new List<ParameterType>{ ParameterType.PipingSlope } },
-                { DisplayUnitType.DUT_LUMENS_PER_WATT, new List<ParameterType>{ ParameterType.ElectricalEfficacy } },
-                { DisplayUnitType.DUT_CANDELAS, new List<ParameterType>{ ParameterType.ElectricalLuminousIntensity } },
-                { DisplayUnitType.DUT_FOOTLAMBERTS, new List<ParameterType>{ ParameterType.ElectricalLuminance } },
-                { DisplayUnitType.DUT_CANDELAS_PER_SQUARE_METER, new List<ParameterType>{ ParameterType.ElectricalLuminance } },
-                { DisplayUnitType.DUT_SQUARE_FEET_PER_THOUSAND_BRITISH_THERMAL_UNITS_PER_HOUR, new List<ParameterType>{ ParameterType.HVACAreaDividedByHeatingLoad } },
-                { DisplayUnitType.DUT_SQUARE_METER_KELVIN_PER_WATT, new List<ParameterType>{ ParameterType.HVACThermalResistance } },
-                { DisplayUnitType.DUT_HOUR_SQUARE_FOOT_FAHRENHEIT_PER_BRITISH_THERMAL_UNIT, new List<ParameterType>{ ParameterType.HVACThermalResistance } },
-                { DisplayUnitType.DUT_BRITISH_THERMAL_UNIT_PER_FAHRENHEIT, new List<ParameterType>{ ParameterType.HVACThermalMass } },
-                { DisplayUnitType.DUT_JOULES_PER_KELVIN, new List<ParameterType>{ ParameterType.HVACThermalMass } },
-                { DisplayUnitType.DUT_KILOJOULES_PER_KELVIN, new List<ParameterType>{ ParameterType.HVACThermalMass } },
-                { DisplayUnitType.DUT_METERS_PER_SECOND_SQUARED, new List<ParameterType>{ ParameterType.Acceleration } },
-                { DisplayUnitType.DUT_KILOMETERS_PER_SECOND_SQUARED, new List<ParameterType>{ ParameterType.Acceleration } },
-                { DisplayUnitType.DUT_INCHES_PER_SECOND_SQUARED, new List<ParameterType>{ ParameterType.Acceleration } },
-                { DisplayUnitType.DUT_FEET_PER_SECOND_SQUARED, new List<ParameterType>{ ParameterType.Acceleration } },
-                { DisplayUnitType.DUT_MILES_PER_SECOND_SQUARED, new List<ParameterType>{ ParameterType.Acceleration } },
-                { DisplayUnitType.DUT_KILOJOULES, new List<ParameterType>{ ParameterType.Energy } },
-                { DisplayUnitType.DUT_KILOGRAMS_MASS, new List<ParameterType>{ ParameterType.Mass, ParameterType.Mass } },
-                { DisplayUnitType.DUT_TONNES_MASS, new List<ParameterType>{ ParameterType.Mass, ParameterType.Mass } },
-                { DisplayUnitType.DUT_POUNDS_MASS, new List<ParameterType>{ ParameterType.Mass, ParameterType.Mass } },
-                { DisplayUnitType.DUT_USTONNES_MASS, new List<ParameterType>{ ParameterType.Mass } },
-                { DisplayUnitType.DUT_KILOGRAMS_MASS_PER_METER, new List<ParameterType>{ ParameterType.MassPerUnitLength, ParameterType.MassPerUnitLength } },
-                { DisplayUnitType.DUT_POUNDS_MASS_PER_FOOT, new List<ParameterType>{ ParameterType.MassPerUnitLength, ParameterType.MassPerUnitLength } },
-                { DisplayUnitType.DUT_FEET_TO_THE_FOURTH_POWER, new List<ParameterType>{ ParameterType.MomentOfInertia } },
-                { DisplayUnitType.DUT_INCHES_TO_THE_FOURTH_POWER, new List<ParameterType>{ ParameterType.MomentOfInertia } },
-                { DisplayUnitType.DUT_MILLIMETERS_TO_THE_FOURTH_POWER, new List<ParameterType>{ ParameterType.MomentOfInertia } },
-                { DisplayUnitType.DUT_CENTIMETERS_TO_THE_FOURTH_POWER, new List<ParameterType>{ ParameterType.MomentOfInertia } },
-                { DisplayUnitType.DUT_METERS_TO_THE_FOURTH_POWER, new List<ParameterType>{ ParameterType.MomentOfInertia } },
-                { DisplayUnitType.DUT_MILISECONDS, new List<ParameterType>{ ParameterType.Period } },
-                { DisplayUnitType.DUT_SECONDS, new List<ParameterType>{ ParameterType.Period } },
-                { DisplayUnitType.DUT_MINUTES, new List<ParameterType>{ ParameterType.Period } },
-                { DisplayUnitType.DUT_HOURS, new List<ParameterType>{ ParameterType.Period } },
-                { DisplayUnitType.DUT_RADIANS_PER_SECOND, new List<ParameterType>{ ParameterType.Pulsation } },
-                { DisplayUnitType.DUT_KILOMETERS_PER_HOUR, new List<ParameterType>{ ParameterType.StructuralVelocity } },
-                { DisplayUnitType.DUT_MILES_PER_HOUR, new List<ParameterType>{ ParameterType.StructuralVelocity } },
-                { DisplayUnitType.DUT_FEET_TO_THE_SIXTH_POWER, new List<ParameterType>{ ParameterType.WarpingConstant } },
-                { DisplayUnitType.DUT_INCHES_TO_THE_SIXTH_POWER, new List<ParameterType>{ ParameterType.WarpingConstant } },
-                { DisplayUnitType.DUT_MILLIMETERS_TO_THE_SIXTH_POWER, new List<ParameterType>{ ParameterType.WarpingConstant } },
-                { DisplayUnitType.DUT_CENTIMETERS_TO_THE_SIXTH_POWER, new List<ParameterType>{ ParameterType.WarpingConstant } },
-                { DisplayUnitType.DUT_METERS_TO_THE_SIXTH_POWER, new List<ParameterType>{ ParameterType.WarpingConstant } },
-                { DisplayUnitType.DUT_USTONNES_FORCE, new List<ParameterType>{ ParameterType.Weight } },
-                { DisplayUnitType.DUT_WATTS_PER_METER_KELVIN, new List<ParameterType>{ ParameterType.HVACThermalConductivity } },
-                { DisplayUnitType.DUT_BRITISH_THERMAL_UNITS_PER_HOUR_FOOT_FAHRENHEIT, new List<ParameterType>{ ParameterType.HVACThermalConductivity } },
-                { DisplayUnitType.DUT_JOULES_PER_GRAM_CELSIUS, new List<ParameterType>{ ParameterType.HVACSpecificHeat } },
-                { DisplayUnitType.DUT_JOULES_PER_KILOGRAM_CELSIUS, new List<ParameterType>{ ParameterType.HVACSpecificHeat } },
-                { DisplayUnitType.DUT_BRITISH_THERMAL_UNITS_PER_POUND_FAHRENHEIT, new List<ParameterType>{ ParameterType.HVACSpecificHeat } },
-                { DisplayUnitType.DUT_JOULES_PER_GRAM, new List<ParameterType>{ ParameterType.HVACSpecificHeatOfVaporization } },
-                { DisplayUnitType.DUT_BRITISH_THERMAL_UNITS_PER_POUND, new List<ParameterType>{ ParameterType.HVACSpecificHeatOfVaporization } },
-                { DisplayUnitType.DUT_NANOGRAMS_PER_PASCAL_SECOND_SQUARE_METER, new List<ParameterType>{ ParameterType.HVACPermeability } },
-                { DisplayUnitType.DUT_GRAINS_PER_HOUR_SQUARE_FOOT_INCH_MERCURY, new List<ParameterType>{ ParameterType.HVACPermeability } },
-                { DisplayUnitType.DUT_OHM_METERS, new List<ParameterType>{ ParameterType.ElectricalResistivity } },
-                { DisplayUnitType.DUT_POUNDS_MASS_PER_SQUARE_FOOT, new List<ParameterType>{ ParameterType.MassPerUnitArea } },
-                { DisplayUnitType.DUT_KILOGRAMS_MASS_PER_SQUARE_METER, new List<ParameterType>{ ParameterType.MassPerUnitArea } },
-            };
-
-            #endregion
-        }
-
+        DUT_BRITISH_THERMAL_UNITS_PER_HOUR_SQUARE_FOOT_FAHRENHEIT = 155, // 0x0000009B
+        /// <summary>cubic foot per minute square foot</summary>
+        DUT_CUBIC_FEET_PER_MINUTE_SQUARE_FOOT = 156, // 0x0000009C
+        /// <summary>liter per second square meter</summary>
+        DUT_LITERS_PER_SECOND_SQUARE_METER = 157, // 0x0000009D
+        DUT_RATIO_10 = 158, // 0x0000009E
+        DUT_RATIO_12 = 159, // 0x0000009F
+        DUT_SLOPE_DEGREES = 160, // 0x000000A0
+        DUT_RISE_OVER_INCHES = 161, // 0x000000A1
+        DUT_RISE_OVER_FOOT = 162, // 0x000000A2
+        DUT_RISE_OVER_MMS = 163, // 0x000000A3
+        /// <summary>watt per cubic foot (W/m³)</summary>
+        DUT_WATTS_PER_CUBIC_FOOT = 164, // 0x000000A4
+        /// <summary>watt per cubic meter (W/m³)</summary>
+        DUT_WATTS_PER_CUBIC_METER = 165, // 0x000000A5
+        /// <summary>British thermal unit[IT] per hour square foot (Btu[IT]/(h · ft²)</summary>
+        DUT_BRITISH_THERMAL_UNITS_PER_HOUR_SQUARE_FOOT = 166, // 0x000000A6
+        /// <summary>British thermal unit[IT] per hour cubic foot (Btu[IT]/(h · ft³)</summary>
+        DUT_BRITISH_THERMAL_UNITS_PER_HOUR_CUBIC_FOOT = 167, // 0x000000A7
+        /// <summary>Ton of refrigeration (12 000 Btu[IT]/h)</summary>
+        DUT_TON_OF_REFRIGERATION = 168, // 0x000000A8
+        /// <summary>cubic foot per minute cubic foot</summary>
+        DUT_CUBIC_FEET_PER_MINUTE_CUBIC_FOOT = 169, // 0x000000A9
+        /// <summary>liter per second cubic meter</summary>
+        DUT_LITERS_PER_SECOND_CUBIC_METER = 170, // 0x000000AA
+        /// <summary>cubic foot per minute ton of refrigeration</summary>
+        DUT_CUBIC_FEET_PER_MINUTE_TON_OF_REFRIGERATION = 171, // 0x000000AB
+        /// <summary>liter per second kilowatt</summary>
+        DUT_LITERS_PER_SECOND_KILOWATTS = 172, // 0x000000AC
+        /// <summary>square foot per ton of refrigeration</summary>
+        DUT_SQUARE_FEET_PER_TON_OF_REFRIGERATION = 173, // 0x000000AD
+        /// <summary>square meter per kilowatt</summary>
+        DUT_SQUARE_METERS_PER_KILOWATTS = 174, // 0x000000AE
+        DUT_CURRENCY = 175, // 0x000000AF
+        DUT_LUMENS_PER_WATT = 176, // 0x000000B0
+        /// <summary>square foot per thousand British thermal unit[IT] per hour</summary>
+        DUT_SQUARE_FEET_PER_THOUSAND_BRITISH_THERMAL_UNITS_PER_HOUR = 177, // 0x000000B1
+        DUT_KILONEWTONS_PER_SQUARE_CENTIMETER = 178, // 0x000000B2
+        DUT_NEWTONS_PER_SQUARE_MILLIMETER = 179, // 0x000000B3
+        DUT_KILONEWTONS_PER_SQUARE_MILLIMETER = 180, // 0x000000B4
+        DUT_RISE_OVER_120_INCHES = 181, // 0x000000B5
+        DUT_1_RATIO = 182, // 0x000000B6
+        DUT_RISE_OVER_10_FEET = 183, // 0x000000B7
+        DUT_HOUR_SQUARE_FOOT_FAHRENHEIT_PER_BRITISH_THERMAL_UNIT = 184, // 0x000000B8
+        DUT_SQUARE_METER_KELVIN_PER_WATT = 185, // 0x000000B9
+        DUT_BRITISH_THERMAL_UNIT_PER_FAHRENHEIT = 186, // 0x000000BA
+        DUT_JOULES_PER_KELVIN = 187, // 0x000000BB
+        DUT_KILOJOULES_PER_KELVIN = 188, // 0x000000BC
+        /// <summary>kilograms (kg)</summary>
+        DUT_KILOGRAMS_MASS = 189, // 0x000000BD
+        /// <summary>tonnes (t)</summary>
+        DUT_TONNES_MASS = 190, // 0x000000BE
+        /// <summary>pounds (lb)</summary>
+        DUT_POUNDS_MASS = 191, // 0x000000BF
+        /// <summary>meters per second squared (m/s²)</summary>
+        DUT_METERS_PER_SECOND_SQUARED = 192, // 0x000000C0
+        /// <summary>kilometers per second squared (km/s²)</summary>
+        DUT_KILOMETERS_PER_SECOND_SQUARED = 193, // 0x000000C1
+        /// <summary>inches per second squared (in/s²)</summary>
+        DUT_INCHES_PER_SECOND_SQUARED = 194, // 0x000000C2
+        /// <summary>feet per second squared (ft/s²)</summary>
+        DUT_FEET_PER_SECOND_SQUARED = 195, // 0x000000C3
+        /// <summary>miles per second squared (mi/s²)</summary>
+        DUT_MILES_PER_SECOND_SQUARED = 196, // 0x000000C4
+        /// <summary>feet to the fourth power	(ft^4)</summary>
+        DUT_FEET_TO_THE_FOURTH_POWER = 197, // 0x000000C5
+        /// <summary>inches to the fourth power	(in^4)</summary>
+        DUT_INCHES_TO_THE_FOURTH_POWER = 198, // 0x000000C6
+        /// <summary>millimeters to the fourth power	(mm^4)</summary>
+        DUT_MILLIMETERS_TO_THE_FOURTH_POWER = 199, // 0x000000C7
+        /// <summary>centimeters to the fourth power	(cm^4)</summary>
+        DUT_CENTIMETERS_TO_THE_FOURTH_POWER = 200, // 0x000000C8
+        /// <summary>Meters to the fourth power	(m^4)</summary>
+        DUT_METERS_TO_THE_FOURTH_POWER = 201, // 0x000000C9
+        /// <summary>feet to the sixth power	(ft^6)</summary>
+        DUT_FEET_TO_THE_SIXTH_POWER = 202, // 0x000000CA
+        /// <summary>inches to the sixth power	(in^6)</summary>
+        DUT_INCHES_TO_THE_SIXTH_POWER = 203, // 0x000000CB
+        /// <summary>millimeters to the sixth power	(mm^6)</summary>
+        DUT_MILLIMETERS_TO_THE_SIXTH_POWER = 204, // 0x000000CC
+        /// <summary>centimeters to the sixth power	(cm^6)</summary>
+        DUT_CENTIMETERS_TO_THE_SIXTH_POWER = 205, // 0x000000CD
+        /// <summary>meters to the sixth power	(m^6)</summary>
+        DUT_METERS_TO_THE_SIXTH_POWER = 206, // 0x000000CE
+        /// <summary>square feet per foot	(ft²/ft)</summary>
+        DUT_SQUARE_FEET_PER_FOOT = 207, // 0x000000CF
+        /// <summary>square inches per foot	(in²/ft)</summary>
+        DUT_SQUARE_INCHES_PER_FOOT = 208, // 0x000000D0
+        /// <summary>square millimeters per meter	(mm²/m)</summary>
+        DUT_SQUARE_MILLIMETERS_PER_METER = 209, // 0x000000D1
+        /// <summary>square centimeters per meter	(cm²/m)</summary>
+        DUT_SQUARE_CENTIMETERS_PER_METER = 210, // 0x000000D2
+        /// <summary>square meters per meter	(m²/m)</summary>
+        DUT_SQUARE_METERS_PER_METER = 211, // 0x000000D3
+        /// <summary>kilograms per meter (kg/m)</summary>
+        DUT_KILOGRAMS_MASS_PER_METER = 212, // 0x000000D4
+        /// <summary>pounds per foot (lb/ft)</summary>
+        DUT_POUNDS_MASS_PER_FOOT = 213, // 0x000000D5
+        /// <summary>radians</summary>
+        DUT_RADIANS = 214, // 0x000000D6
+        /// <summary>grads</summary>
+        DUT_GRADS = 215, // 0x000000D7
+        /// <summary>radians per second</summary>
+        DUT_RADIANS_PER_SECOND = 216, // 0x000000D8
+        /// <summary>millisecond</summary>
+        DUT_MILISECONDS = 217, // 0x000000D9
+        /// <summary>second</summary>
+        DUT_SECONDS = 218, // 0x000000DA
+        /// <summary>minutes</summary>
+        DUT_MINUTES = 219, // 0x000000DB
+        /// <summary>hours</summary>
+        DUT_HOURS = 220, // 0x000000DC
+        /// <summary>kilometers per hour</summary>
+        DUT_KILOMETERS_PER_HOUR = 221, // 0x000000DD
+        /// <summary>miles per hour</summary>
+        DUT_MILES_PER_HOUR = 222, // 0x000000DE
+        /// <summary>kilojoules</summary>
+        DUT_KILOJOULES = 223, // 0x000000DF
+        /// <summary>kilograms per square meter (kg/m²)</summary>
+        DUT_KILOGRAMS_MASS_PER_SQUARE_METER = 224, // 0x000000E0
+        /// <summary>pounds per square foot (lb/ft²)</summary>
+        DUT_POUNDS_MASS_PER_SQUARE_FOOT = 225, // 0x000000E1
+        /// <summary>Watts per meter kelvin (W/(m·K))</summary>
+        DUT_WATTS_PER_METER_KELVIN = 226, // 0x000000E2
+        /// <summary>Joules per gram Celsius (J/(g·°C))</summary>
+        DUT_JOULES_PER_GRAM_CELSIUS = 227, // 0x000000E3
+        /// <summary>Joules per gram (J/g)</summary>
+        DUT_JOULES_PER_GRAM = 228, // 0x000000E4
+        /// <summary>Nanograms per pascal second square meter (ng/(Pa·s·m²))</summary>
+        DUT_NANOGRAMS_PER_PASCAL_SECOND_SQUARE_METER = 229, // 0x000000E5
+        /// <summary>Ohm meters</summary>
+        DUT_OHM_METERS = 230, // 0x000000E6
+        /// <summary>BTU per hour foot Fahrenheit (BTU/(h·ft·°F))</summary>
+        DUT_BRITISH_THERMAL_UNITS_PER_HOUR_FOOT_FAHRENHEIT = 231, // 0x000000E7
+        /// <summary>BTU per pound Fahrenheit (BTU/(lb·°F))</summary>
+        DUT_BRITISH_THERMAL_UNITS_PER_POUND_FAHRENHEIT = 232, // 0x000000E8
+        /// <summary>BTU per pound (BTU/lb)</summary>
+        DUT_BRITISH_THERMAL_UNITS_PER_POUND = 233, // 0x000000E9
+        /// <summary>Grains per hour square foot inch mercury (gr/(h·ft²·inHg))</summary>
+        DUT_GRAINS_PER_HOUR_SQUARE_FOOT_INCH_MERCURY = 234, // 0x000000EA
+        /// <summary>Per mille or per thousand(‰)</summary>
+        DUT_PER_MILLE = 235, // 0x000000EB
+        /// <summary>Decimeters</summary>
+        DUT_DECIMETERS = 236, // 0x000000EC
+        /// <summary>Joules per kilogram Celsius (J/(kg·°C))</summary>
+        DUT_JOULES_PER_KILOGRAM_CELSIUS = 237, // 0x000000ED
+        /// <summary>Micrometers per meter Celsius (um/(m·°C))</summary>
+        DUT_MICROMETERS_PER_METER_CELSIUS = 238, // 0x000000EE
+        /// <summary>Microinches per inch Fahrenheit (uin/(in·°F))</summary>
+        DUT_MICROINCHES_PER_INCH_FAHRENHEIT = 239, // 0x000000EF
+        /// <summary>US tonnes (T, Tons, ST)</summary>
+        DUT_USTONNES_MASS = 240, // 0x000000F0
+        /// <summary>US tonnes (Tonsf, STf)</summary>
+        DUT_USTONNES_FORCE = 241, // 0x000000F1
+        /// <summary>liters per minute (L/min)</summary>
+        DUT_LITERS_PER_MINUTE = 242, // 0x000000F2
+        /// <summary>degree Fahrenheit difference (delta °F)</summary>
+        DUT_FAHRENHEIT_DIFFERENCE = 243, // 0x000000F3
+        /// <summary>degree Celsius difference (delta °C)</summary>
+        DUT_CELSIUS_DIFFERENCE = 244, // 0x000000F4
+        /// <summary>kelvin difference (delta K)</summary>
+        DUT_KELVIN_DIFFERENCE = 245, // 0x000000F5
+        /// <summary>degree Rankine difference (delta °R)</summary>
+        DUT_RANKINE_DIFFERENCE = 246, // 0x000000F6
         /// <summary>
-        /// Tries the get catalog string.
+        ///    stationing meters value (XXX+YYY.ZZZ (base is always 1000 meters, YYY is always 3 digits) 1024.555 = 1+024.555)
         /// </summary>
-        /// <param name="displayUnitType">Display type of the unit.</param>
-        /// <param name="catalogString">The catalog string.</param>
-        /// <returns></returns>
-        public static bool TryGetCatalogString(this DisplayUnitType displayUnitType, out string catalogString)
-        {
-            return _dutToCatalog.TryGetValue(displayUnitType, out catalogString);
-        }
-
+        DUT_STATIONING_METERS = 247, // 0x000000F7
         /// <summary>
-        /// Tries the get <see cref="DisplayUnitType"/> from catalog string.
+        ///    stationing feet value (XXX+YY.ZZZ Decimal Feet (base is always 100 feet, YY is always 2 digits) 1024.555 = 10+24.555)
         /// </summary>
-        /// <param name="catalogString">The catalog string.</param>
-        /// <param name="displayUnitType">Display type of the unit.</param>
-        /// <returns></returns>
-        public static bool TryGetFromCatalogString(this string catalogString, out DisplayUnitType displayUnitType)
-        {
-            var values = _dutToCatalog?.Where(u => u.Value.Equals(catalogString, StringComparison.OrdinalIgnoreCase)).Select(x => x.Key).ToList();
-            var valueExists = values != null && values.Any();
-            displayUnitType = valueExists
-                ? values.FirstOrDefault()
-                : DisplayUnitType.DUT_UNDEFINED;
-            return valueExists;
-        }
-
-        /// <summary>
-        /// Tries the type of the get unit.
-        /// </summary>
-        /// <param name="displayUnitType">Display type of the unit.</param>
-        /// <param name="unitType">Type of the unit.</param>
-        /// <returns></returns>
-        public static bool TryGetUnitType(this DisplayUnitType displayUnitType, out List<UnitType> unitType)
-        {
-            return _dutToUnitType.TryGetValue(displayUnitType, out unitType);
-        }
-
-        /// <summary>
-        /// Tries to convert <see cref="ParameterType"/> of the get display for unit.
-        /// </summary>
-        /// <param name="unitType">Type of the unit.</param>
-        /// <param name="displayUnitTypes">The display unit types.</param>
-        /// <returns></returns>
-        public static bool TryGetDisplayForUnitType(this UnitType unitType, out List<DisplayUnitType> displayUnitTypes)
-        {
-            displayUnitTypes = _dutToUnitType.Where(dut => dut.Value.Contains(unitType)).Select(dut => dut.Key).ToList();
-            return displayUnitTypes.Any();
-        }
-
-        /// <summary>
-        /// Tries to convert <see cref="ParameterType"/> of the get display for parameter.
-        /// </summary>
-        /// <param name="parameterType">Type of the parameter.</param>
-        /// <param name="displayUnitTypes">The display unit types.</param>
-        /// <returns></returns>
-        public static bool TryGetDisplayForParameterType(this ParameterType parameterType, out List<DisplayUnitType> displayUnitTypes)
-        {
-            displayUnitTypes = _dutToParameterType.Where(dut => dut.Value.Contains(parameterType)).Select(dut => dut.Key).ToList();
-            return displayUnitTypes.Any();
-        }
-
-        /// <summary>
-        /// Tries the type of the get unit symbol.
-        /// </summary>
-        /// <param name="displayUnitType">Display type of the unit.</param>
-        /// <param name="unitSymbolType">Type of the unit symbol.</param>
-        /// <returns></returns>
-        public static bool TryGetUnitSymbolType(this DisplayUnitType displayUnitType, out List<UnitSymbolType> unitSymbolType)
-        {
-            return _dutToUnitSymType.TryGetValue(displayUnitType, out unitSymbolType);
-        }
-
-        /// <summary>
-        /// Tries the get from unit symbol.
-        /// </summary>
-        /// <param name="unitSymbol">The unit symbol.</param>
-        /// <param name="displayUnitType">Display type of the unit.</param>
-        /// <returns></returns>
-        public static bool TryGetFromUnitSymbol(this string unitSymbol, out DisplayUnitType displayUnitType)
-        {
-            displayUnitType = DisplayUnitType.DUT_UNDEFINED;
-            return unitSymbol.TryGetFromSymbol(out var unitSymbolType) && unitSymbolType.TryGetFromUnitSymbol(out displayUnitType);
-        }
-
-        /// <summary>
-        /// Tries the get from unit symbol.
-        /// </summary>
-        /// <param name="unitSymbolType">Type of the unit symbol.</param>
-        /// <param name="displayUnitType">Display type of the unit.</param>
-        /// <returns></returns>
-        public static bool TryGetFromUnitSymbol(this UnitSymbolType unitSymbolType, out DisplayUnitType displayUnitType)
-        {
-            var values = _dutToUnitSymType.Where(x => x.Value.Contains(unitSymbolType)).ToArray();
-            displayUnitType = (values.Any())
-                ? values.First().Key
-                : DisplayUnitType.DUT_UNDEFINED;
-            return values.Any();
-        }
+        DUT_STATIONING_FEET = 248, // 0x000000F8
+        /// <summary>cubic feet per hour</summary>
+        DUT_CUBIC_FEET_PER_HOUR = 249, // 0x000000F9
+        /// <summary>liters per hour</summary>
+        DUT_LITERS_PER_HOUR = 250, // 0x000000FA
+        /// <summary>ratio to 1</summary>
+        DUT_RATIO_TO_1 = 251, // 0x000000FB
+        DUT_DECIMAL_US_SURVEY_FEET = 605, // 0x0000025D
     }
 }

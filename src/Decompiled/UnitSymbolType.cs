@@ -1,11 +1,19 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
+#pragma warning disable IDE0079 // Remove unnecessary suppression
+#pragma warning disable CS1591
 
-#pragma warning disable 1591
+// ReSharper disable InconsistentNaming
+
+// Decompiled with JetBrains decompiler
+// Type: Autodesk.Revit.DB.UnitSymbolType
+// Assembly: RevitAPI, Version=21.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: E5118772-F025-44D6-A6E2-B8EDEDB90979
+// Assembly location: C:\Program Files\Autodesk\Revit 2021\RevitAPI.dll
+
+using System;
 
 namespace CodeCave.Revit.Toolkit
 {
+    /// <since>2014</since>
     /// <summary>
     ///    The unit symbol displayed in the formatted string representation of a number to indicate the units of the value.
     /// </summary>
@@ -15,690 +23,326 @@ namespace CodeCave.Revit.Toolkit
     ///    prefixes, for example "$" for dollars.
     /// </remarks>
     /// <since>2014</since>
-    // Decompiled with JetBrains decompiler
-    // Type: Autodesk.Revit.DB.UnitSymbolType
-    // Assembly: RevitAPI, Version=17.0.0.0, Culture=neutral, PublicKeyToken=null
-    // ReSharper disable InconsistentNaming
+    [Obsolete("This enumeration is deprecated in Revit 2021 and may be removed in a future version of Revit. Please use the `ForgeTypeId` class instead. Use constant members of the `SymbolTypeId` class to replace uses of specific values of this enumeration.")]
     public enum UnitSymbolType
     {
+        UST_CUSTOM = -1, // 0xFFFFFFFF
         UST_NONE = 0,
         UST_M = 1,
-        UST_CM = 101,
-        UST_MM = 201,
-        UST_LF = 301,
-        UST_FOOT_SINGLE_QUOTE = 302,
-        UST_FT = 303,
-        UST_INCH_DOUBLE_QUOTE = 601,
-        UST_IN = 602,
-        UST_ACRES = 701,
-        UST_HECTARES = 801,
-        UST_CY = 1001,
-        UST_SF = 1101,
-        UST_FT_SUP_2 = 1102,
-        UST_FT_CARET_2 = 1103,
-        UST_M_SUP_2 = 1201,
-        UST_M_CARET_2 = 1202,
-        UST_CF = 1301,
-        UST_FT_SUP_3 = 1302,
-        UST_FT_CARET_3 = 1303,
-        UST_M_SUP_3 = 1401,
-        UST_M_CARET_3 = 1402,
-        UST_DEGREE_SYMBOL = 1501,
-        UST_PERCENT_SIGN = 1901,
-        UST_IN_SUP_2 = 2001,
-        UST_IN_CARET_2 = 2002,
-        UST_CM_SUP_2 = 2101,
-        UST_CM_CARET_2 = 2102,
-        UST_MM_SUP_2 = 2201,
-        UST_MM_CARET_2 = 2202,
-        UST_IN_SUP_3 = 2301,
-        UST_IN_CARET_3 = 2302,
-        UST_CM_SUP_3 = 2401,
-        UST_CM_CARET_3 = 2402,
-        UST_MM_SUP_3 = 2501,
-        UST_MM_CARET_3 = 2502,
-        UST_L = 2601,
-        UST_GAL = 2701,
-        UST_KG_PER_CU_M = 2801,
-        UST_LB_MASS_PER_CU_FT = 2901,
-        UST_LBM_PER_CU_FT = 2902,
-        UST_LB_MASS_PER_CU_IN = 3001,
-        UST_LBM_PER_CU_IN = 3002,
-        UST_BTU = 3101,
-        UST_CAL = 3201,
-        UST_KCAL = 3301,
-        UST_JOULE = 3401,
-        UST_KWH = 3501,
-        UST_THERM = 3601,
-        UST_IN_WG_PER_100FT = 3701,
-        UST_PASCAL_PER_M = 3801,
-        UST_WATT = 3901,
-        UST_KILOWATT = 4001,
-        UST_BTU_PER_S = 4101,
-        UST_BTU_PER_H = 4201,
-        UST_CAL_PER_S = 4301,
-        UST_KCAL_PER_S = 4401,
-        UST_WATT_PER_SQ_FT = 4501,
-        UST_WATT_PER_SQ_M = 4601,
-        UST_IN_WG = 4701,
-        UST_PASCAL = 4801,
-        UST_KILOPASCAL = 4901,
-        UST_MEGAPASCAL = 5001,
-        UST_PSI = 5101,
-        UST_LB_FORCE_PER_SQ_IN = 5102,
-        UST_PSIG = 5103,
-        UST_PSIA = 5104,
-        UST_LBF_PER_SQ_IN = 5105,
-        UST_IN_HG = 5201,
-        UST_MM_HG = 5301,
-        UST_ATM = 5401,
-        UST_BAR = 5501,
-        UST_DEGREE_F = 5601,
-        UST_DEGREE_C = 5701,
-        UST_KELVIN = 5801,
-        UST_DEGREE_R = 5901,
-        UST_FT_PER_MIN = 6001,
-        UST_FPM = 6002,
-        UST_M_PER_S = 6101,
-        UST_CM_PER_MIN = 6201,
-        UST_CU_FT_PER_MIN = 6301,
-        UST_CFM = 6302,
-        UST_L_PER_S = 6401,
-        UST_LPS = 6402,
-        UST_CU_M_PER_S = 6501,
-        UST_CMS = 6502,
-        UST_CU_M_PER_H = 6601,
-        UST_CMH = 6602,
-        UST_GAL_PER_MIN = 6701,
-        UST_GPM = 6702,
-        UST_USGPM = 6703,
-        UST_GAL_PER_H = 6801,
-        UST_GPH = 6802,
-        UST_USGPH = 6803,
-        UST_AMPERE = 6901,
-        UST_KILOAMPERE = 7001,
-        UST_MILLIAMPERE = 7101,
-        UST_VOLT = 7201,
-        UST_KILOVOLT = 7301,
-        UST_MILLIVOLT = 7401,
-        UST_HZ = 7501,
-        UST_CPS = 7601,
-        UST_LX = 7701,
-        UST_FC = 7801,
-        UST_FTC = 7802,
-        UST_FL = 7901,
-        UST_FL_LOWERCASE = 7902,
-        UST_FTL = 7903,
-        UST_CD_PER_SQ_M = 8001,
-        UST_CD = 8101,
-        UST_LM = 8301,
-        UST_VOLTAMPERE = 8401,
-        UST_KILOVOLTAMPERE = 8501,
-        UST_HP = 8601,
-        UST_N = 8701,
-        UST_DA_N = 8801,
-        UST_K_N = 8901,
-        UST_M_N = 9001,
-        UST_KIP = 9101,
-        UST_KGF = 9201,
-        UST_TF = 9301,
-        UST_LB_FORCE = 9401,
-        UST_LBF = 9402,
-        UST_N_PER_M = 9501,
-        UST_DA_N_PER_M = 9601,
-        UST_K_N_PER_M = 9701,
-        UST_M_N_PER_M = 9801,
-        UST_KIP_PER_FT = 9901,
-        UST_KGF_PER_M = 10001,
-        UST_TF_PER_M = 10101,
-        UST_LB_FORCE_PER_FT = 10201,
-        UST_LBF_PER_FT = 10202,
-        UST_N_PER_M_SUP_2 = 10301,
-        UST_DA_N_PER_M_SUP_2 = 10401,
-        UST_K_N_PER_M_SUP_2 = 10501,
-        UST_M_N_PER_M_SUP_2 = 10601,
-        UST_KSF = 10701,
-        UST_KIP_PER_SQ_FT = 10702,
-        UST_KGF_PER_M_SUP_2 = 10801,
-        UST_TF_PER_M_SUP_2 = 10901,
-        UST_PSF = 11001,
-        UST_LB_FORCE_PER_SQ_FT = 11002,
-        UST_LBF_PER_SQ_FT = 11003,
-        UST_N_DASH_M = 11101,
-        UST_DA_N_DASH_M = 11201,
-        UST_K_N_DASH_M = 11301,
-        UST_M_N_DASH_M = 11401,
-        UST_KIP_DASH_FT = 11501,
-        UST_KGF_DASH_M = 11601,
-        UST_TF_DASH_M = 11701,
-        UST_LB_FORCE_DASH_FT = 11801,
-        UST_LBF_DASH_FT = 11802,
-        UST_M_PER_K_N = 11901,
-        UST_FT_PER_KIP = 12001,
-        UST_M_SUP_2_PER_K_N = 12101,
-        UST_FT_SUP_2_PER_KIP = 12201,
-        UST_M_SUP_3_PER_K_N = 12301,
-        UST_FT_SUP_3_PER_KIP = 12401,
-        UST_INV_K_N = 12501,
-        UST_INV_KIP = 12601,
-        UST_FTH2O_PER_100FT = 12701,
-        UST_FT_OF_WATER_PER_100FT = 12702,
-        UST_FEET_OF_WATER_PER_100FT = 12703,
-        UST_FTH2O = 12801,
-        UST_FT_OF_WATER = 12802,
-        UST_FEET_OF_WATER = 12803,
-        UST_PA_S = 12901,
-        UST_LB_FORCE_PER_FT_S = 13001,
-        UST_LBM_PER_FT_S = 13002,
-        UST_CP = 13101,
-        UST_FT_PER_S = 13201,
-        UST_FPS = 13202,
-        UST_KSI = 13301,
-        UST_KIP_PER_SQ_IN = 13302,
-        UST_KN_PER_M_SUP_3 = 13401,
-        UST_LB_FORCE_PER_CU_FT = 13501,
-        UST_LBF_PER_CU_FT = 13502,
-        UST_KIP_PER_IN_SUP_3 = 13601,
-        UST_INV_DEGREE_F = 13701,
-        UST_INV_DEGREE_C = 13801,
-        UST_N_DASH_M_PER_M = 13901,
-        UST_DA_N_DASH_M_PER_M = 14001,
-        UST_K_N_DASH_M_PER_M = 14101,
-        UST_M_N_DASH_M_PER_M = 14201,
-        UST_KIP_DASH_FT_PER_FT = 14301,
-        UST_KGF_DASH_M_PER_M = 14401,
-        UST_TF_DASH_M_PER_M = 14501,
-        UST_LB_FORCE_DASH_FT_PER_FT = 14601,
-        UST_LBF_DASH_FT_PER_FT = 14602,
-        UST_LB_FORCE_PER_FT_H = 14701,
-        UST_LBM_PER_FT_H = 14702,
-        UST_KIPS_PER_IN = 14801,
-        UST_KIPS_PER_CU_FT = 14901,
-        UST_KIP_FT_PER_DEGREE = 15001,
-        UST_K_N_M_PER_DEGREE = 15101,
-        UST_KIP_FT_PER_DEGREE_PER_FT = 15201,
-        UST_K_N_M_PER_DEGREE_PER_M = 15301,
-        UST_WATT_PER_SQ_M_K = 15401,
-        UST_BTU_PER_H_SQ_FT_DEGREE_F = 15501,
-        UST_CFM_PER_SQ_FT = 15601,
-        UST_CFM_PER_SF = 15602,
-        UST_LPS_PER_SQ_M = 15701,
-        UST_L_PER_S_SQ_M = 15702,
-        UST_COLON_10 = 15801,
-        UST_COLON_12 = 15901,
-        UST_SLOPE_DEGREE_SYMBOL = 16001,
-        UST_WATT_PER_CU_FT = 16401,
-        UST_WATT_PER_CU_M = 16501,
-        UST_BTU_PER_H_SQ_FT = 16601,
-        UST_BTU_PER_H_CU_FT = 16701,
-        UST_TON = 16801,
-        UST_TON_OF_REFRIGERATION = 16802,
-        UST_CFM_PER_CU_FT = 16901,
-        UST_CFM_PER_CF = 16902,
-        UST_L_PER_S_CU_M = 17001,
-        UST_CFM_PER_TON = 17101,
-        UST_L_PER_S_KW = 17201,
-        UST_SQ_FT_PER_TON = 17301,
-        UST_SF_PER_TON = 17302,
-        UST_SQ_M_PER_KW = 17401,
-        UST_DOLLAR = 17501,
-        UST_EURO_SUFFIX = 17502,
-        UST_EURO_PREFIX = 17503,
-        UST_POUND = 17504,
-        UST_YEN = 17505,
-        UST_CHINESE_HONG_KONG_SAR = 17506,
-        UST_WON = 17507,
-        UST_SHEQEL = 17508,
-        UST_DONG = 17509,
-        UST_BAHT = 17510,
-        UST_KRONER = 17511,
-        UST_LM_PER_W = 17601,
-        UST_SF_PER_MBH = 17701,
-        UST_SF_PER_KBTU_PER_H = 17702,
-        UST_SQ_FT_PER_MBH = 17703,
-        UST_SQ_FT_PER_KBTU_PER_H = 17704,
-        UST_K_N_PER_CM_SUP_2 = 17801,
-        UST_N_PER_MM_SUP_2 = 17901,
-        UST_K_N_PER_MM_SUP_2 = 18001,
-        UST_ONE_COLON = 18201,
-        UST_H_SQ_FT_DEGREE_F_PER_BTU = 18401,
-        UST_SQ_M_K_PER_WATT = 18501,
-        UST_BTU_PER_F = 18601,
-        UST_J_PER_KELVIN = 18701,
-        UST_KJ_PER_KELVIN = 18801,
-        UST_KGM = 18901,
-        UST_TM = 19001,
-        UST_LB_MASS = 19101,
-        UST_LBM = 19102,
-        UST_M_PER_SQ_S = 19201,
-        UST_KM_PER_SQ_S = 19301,
-        UST_IN_PER_SQ_S = 19401,
-        UST_FT_PER_SQ_S = 19501,
-        UST_MI_PER_SQ_S = 19601,
-        UST_FT_SUP_4 = 19701,
-        UST_IN_SUP_4 = 19801,
-        UST_MM_SUP_4 = 19901,
-        UST_CM_SUP_4 = 20001,
-        UST_M_SUP_4 = 20101,
-        UST_FT_SUP_6 = 20201,
-        UST_IN_SUP_6 = 20301,
-        UST_MM_SUP_6 = 20401,
-        UST_CM_SUP_6 = 20501,
-        UST_M_SUP_6 = 20601,
-        UST_SQ_FT_PER_FT = 20701,
-        UST_SQ_IN_PER_FT = 20801,
-        UST_SQ_MM_PER_M = 20901,
-        UST_SQ_CM_PER_M = 21001,
-        UST_SQ_M_PER_M = 21101,
-        UST_KGM_PER_M = 21201,
-        UST_LB_MASS_PER_FT = 21301,
-        UST_LBM_PER_FT = 21302,
-        UST_RAD = 21401,
-        UST_GRAD = 21501,
-        UST_RAD_PER_S = 21601,
-        UST_MS = 21701,
-        UST_S = 21801,
-        UST_MIN = 21901,
-        UST_H = 22001,
-        UST_KM_PER_H = 22101,
-        UST_MI_PER_H = 22201,
-        UST_KJ = 22301,
-        UST_KGM_PER_SQ_M = 22401,
-        UST_LBM_PER_SQ_FT = 22501,
-        UST_WATTS_PER_METER_KELVIN = 22601,
-        UST_J_PER_G_CELSIUS = 22701,
-        UST_J_PER_G = 22801,
-        UST_NG_PER_PA_S_SQ_M = 22901,
-        UST_OHM_M = 23001,
-        UST_BTU_PER_H_FT_DEGREE_F = 23101,
-        UST_BTU_PER_LB_DEGREE_F = 23201,
-        UST_BTU_PER_LB = 23301,
-        UST_GR_PER_H_SQ_FT_IN_HG = 23401,
-        UST_PER_MILLE_SIGN = 23501,
-        UST_DM = 23601,
-        UST_J_PER_KG_CELSIUS = 23701,
-        UST_UM_PER_M_C = 23801,
-        UST_UIN_PER_IN_F = 23901,
-        UST_USTONNES_MASS_TONS = 24001,
-        UST_USTONNES_MASS_T = 24002,
-        UST_USTONNES_MASS_ST = 24003,
-        UST_USTONNES_FORCE_TONSF = 24101,
-        UST_USTONNES_FORCE_STF = 24102,
-        UST_USTONNES_FORCE_AS_MASS_TONS = 24103,
-        UST_USTONNES_FORCE_AS_MASS_T = 24104,
-        UST_USTONNES_FORCE_AS_MASS_ST = 24105,
-        UST_L_PER_M = 24201,
-        UST_LPM = 24202,
-        UST_DEGREE_F_DIFFERENCE = 24301,
-        UST_DELTA_DEGREE_F = 24302,
-        UST_DEGREE_C_DIFFERENCE = 24401,
-        UST_DELTA_DEGREE_C = 24402,
-        UST_KELVIN_DIFFERENCE = 24501,
-        UST_DELTA_KELVIN = 24502,
-        UST_DEGREE_R_DIFFERENCE = 24601,
-        UST_DELTA_DEGREE_R = 24602,
-    }
-
-    /// <summary>
-    /// Contains extension methods for <see cref="UnitSymbolType"/>
-    /// </summary>
-    public static class UnitSymbolTypeExtensions
-    {
-        private static readonly Dictionary<UnitSymbolType, string> _unitSymbolTypes;
-
-        /// <summary>
-        /// Initializes the <see cref="UnitSymbolTypeExtensions"/> class.
-        /// </summary>
-        static UnitSymbolTypeExtensions()
-        {
-            _unitSymbolTypes = new Dictionary<UnitSymbolType, string>
-            {
-                { UnitSymbolType.UST_NONE, string.Empty },
-                { UnitSymbolType.UST_M, "m" },
-                { UnitSymbolType.UST_CM, "cm" },
-                { UnitSymbolType.UST_MM, "mm" },
-                { UnitSymbolType.UST_LF, "LF" },
-                { UnitSymbolType.UST_FOOT_SINGLE_QUOTE, "'" },
-                { UnitSymbolType.UST_FT, "ft" },
-                { UnitSymbolType.UST_INCH_DOUBLE_QUOTE, "\"" },
-                { UnitSymbolType.UST_IN, "in" },
-                { UnitSymbolType.UST_ACRES, "acres" },
-                { UnitSymbolType.UST_HECTARES, "hectare" },
-                { UnitSymbolType.UST_CY, "CY" },
-                { UnitSymbolType.UST_SF, "SF" },
-                { UnitSymbolType.UST_FT_SUP_2, "ft²" },
-                { UnitSymbolType.UST_FT_CARET_2, "ft^2" },
-                { UnitSymbolType.UST_M_SUP_2, "m²" },
-                { UnitSymbolType.UST_M_CARET_2, "m^2" },
-                { UnitSymbolType.UST_CF, "CF" },
-                { UnitSymbolType.UST_FT_SUP_3, "ft³" },
-                { UnitSymbolType.UST_FT_CARET_3, "ft^3" },
-                { UnitSymbolType.UST_M_SUP_3, "m³" },
-                { UnitSymbolType.UST_M_CARET_3, "m^3" },
-                { UnitSymbolType.UST_DEGREE_SYMBOL, "°" },
-                { UnitSymbolType.UST_PERCENT_SIGN, "%" },
-                { UnitSymbolType.UST_IN_SUP_2, "in²" },
-                { UnitSymbolType.UST_IN_CARET_2, "in^2" },
-                { UnitSymbolType.UST_CM_SUP_2, "cm²" },
-                { UnitSymbolType.UST_CM_CARET_2, "cm^2" },
-                { UnitSymbolType.UST_MM_SUP_2, "mm²" },
-                { UnitSymbolType.UST_MM_CARET_2, "mm^2" },
-                { UnitSymbolType.UST_IN_SUP_3, "in³" },
-                { UnitSymbolType.UST_IN_CARET_3, "in^3" },
-                { UnitSymbolType.UST_CM_SUP_3, "cm³" },
-                { UnitSymbolType.UST_CM_CARET_3, "cm^3" },
-                { UnitSymbolType.UST_MM_SUP_3, "mm³" },
-                { UnitSymbolType.UST_MM_CARET_3, "mm^3" },
-                { UnitSymbolType.UST_L, "L" },
-                { UnitSymbolType.UST_GAL, "gal" },
-                { UnitSymbolType.UST_KG_PER_CU_M, "kg/m³" },
-                { UnitSymbolType.UST_LB_MASS_PER_CU_FT, "lb/ft³" },
-                { UnitSymbolType.UST_LBM_PER_CU_FT, "lbm/ft³" },
-                { UnitSymbolType.UST_LB_MASS_PER_CU_IN, "lb/in³" },
-                { UnitSymbolType.UST_LBM_PER_CU_IN, "lbm/in³" },
-                { UnitSymbolType.UST_BTU, "Btu" },
-                { UnitSymbolType.UST_CAL, "cal" },
-                { UnitSymbolType.UST_KCAL, "kcal" },
-                { UnitSymbolType.UST_JOULE, "J" },
-                { UnitSymbolType.UST_KWH, "kWh" },
-                { UnitSymbolType.UST_THERM, "therm" },
-                { UnitSymbolType.UST_IN_WG_PER_100FT, "in-wg/100ft" },
-                { UnitSymbolType.UST_PASCAL_PER_M, "Pa/m" },
-                { UnitSymbolType.UST_WATT, "W" },
-                { UnitSymbolType.UST_KILOWATT, "kW" },
-                { UnitSymbolType.UST_BTU_PER_S, "Btu/s" },
-                { UnitSymbolType.UST_BTU_PER_H, "Btu/h" },
-                { UnitSymbolType.UST_CAL_PER_S, "cal/s" },
-                { UnitSymbolType.UST_KCAL_PER_S, "kcal/s" },
-                { UnitSymbolType.UST_WATT_PER_SQ_FT, "W/ft²" },
-                { UnitSymbolType.UST_WATT_PER_SQ_M, "W/m²" },
-                { UnitSymbolType.UST_IN_WG, "in-wg" },
-                { UnitSymbolType.UST_PASCAL, "Pa" },
-                { UnitSymbolType.UST_KILOPASCAL, "kPa" },
-                { UnitSymbolType.UST_MEGAPASCAL, "MPa" },
-                { UnitSymbolType.UST_PSI, "psi" },
-                { UnitSymbolType.UST_LB_FORCE_PER_SQ_IN, "lb/in²" },
-                { UnitSymbolType.UST_PSIG, "psig" },
-                { UnitSymbolType.UST_PSIA, "psia" },
-                { UnitSymbolType.UST_LBF_PER_SQ_IN, "lbf/in²" },
-                { UnitSymbolType.UST_IN_HG, "inHg" },
-                { UnitSymbolType.UST_MM_HG, "mmHg" },
-                { UnitSymbolType.UST_ATM, "atm" },
-                { UnitSymbolType.UST_BAR, "bar" },
-                { UnitSymbolType.UST_DEGREE_F, "°F" },
-                { UnitSymbolType.UST_DEGREE_C, "°C" },
-                { UnitSymbolType.UST_KELVIN, "K" },
-                { UnitSymbolType.UST_DEGREE_R, "°R" },
-                { UnitSymbolType.UST_FT_PER_MIN, "ft/min" },
-                { UnitSymbolType.UST_FPM, "FPM" },
-                { UnitSymbolType.UST_M_PER_S, "m/s" },
-                { UnitSymbolType.UST_CM_PER_MIN, "cm/min" },
-                { UnitSymbolType.UST_CU_FT_PER_MIN, "ft³/min" },
-                { UnitSymbolType.UST_CFM, "CFM" },
-                { UnitSymbolType.UST_L_PER_S, "L/s" },
-                { UnitSymbolType.UST_LPS, "LPS" },
-                { UnitSymbolType.UST_CU_M_PER_S, "m³/s" },
-                { UnitSymbolType.UST_CMS, "CMS" },
-                { UnitSymbolType.UST_CU_M_PER_H, "m³/h" },
-                { UnitSymbolType.UST_CMH, "CMH" },
-                { UnitSymbolType.UST_GAL_PER_MIN, "gal/min" },
-                { UnitSymbolType.UST_GPM, "GPM" },
-                { UnitSymbolType.UST_USGPM, "usgpm" },
-                { UnitSymbolType.UST_GAL_PER_H, "gal/h" },
-                { UnitSymbolType.UST_GPH, "GPH" },
-                { UnitSymbolType.UST_USGPH, "usgph" },
-                { UnitSymbolType.UST_AMPERE, "A" },
-                { UnitSymbolType.UST_KILOAMPERE, "kA" },
-                { UnitSymbolType.UST_MILLIAMPERE, "mA" },
-                { UnitSymbolType.UST_VOLT, "V" },
-                { UnitSymbolType.UST_KILOVOLT, "kV" },
-                { UnitSymbolType.UST_MILLIVOLT, "mV" },
-                { UnitSymbolType.UST_HZ, "Hz" },
-                { UnitSymbolType.UST_CPS, "cps" },
-                { UnitSymbolType.UST_LX, "lx" },
-                { UnitSymbolType.UST_FC, "fc" },
-                { UnitSymbolType.UST_FTC, "Ftc" },
-                { UnitSymbolType.UST_FL, "fL" },
-                { UnitSymbolType.UST_FL_LOWERCASE, "fl" },
-                { UnitSymbolType.UST_FTL, "ftL" },
-                { UnitSymbolType.UST_CD_PER_SQ_M, "cd/m²" },
-                { UnitSymbolType.UST_CD, "cd" },
-                { UnitSymbolType.UST_LM, "lm" },
-                { UnitSymbolType.UST_VOLTAMPERE, "VA" },
-                { UnitSymbolType.UST_KILOVOLTAMPERE, "kVA" },
-                { UnitSymbolType.UST_HP, "hp" },
-                { UnitSymbolType.UST_N, "N" },
-                { UnitSymbolType.UST_DA_N, "daN" },
-                { UnitSymbolType.UST_K_N, "kN" },
-                { UnitSymbolType.UST_M_N, "MN" },
-                { UnitSymbolType.UST_KIP, "kip" },
-                { UnitSymbolType.UST_KGF, "kgf" },
-                { UnitSymbolType.UST_TF, "Tf" },
-                { UnitSymbolType.UST_LB_FORCE, "lb" },
-                { UnitSymbolType.UST_LBF, "lbf" },
-                { UnitSymbolType.UST_N_PER_M, "N/m" },
-                { UnitSymbolType.UST_DA_N_PER_M, "daN/m" },
-                { UnitSymbolType.UST_K_N_PER_M, "kN/m" },
-                { UnitSymbolType.UST_M_N_PER_M, "MN/m" },
-                { UnitSymbolType.UST_KIP_PER_FT, "kip/ft" },
-                { UnitSymbolType.UST_KGF_PER_M, "kgf/m" },
-                { UnitSymbolType.UST_TF_PER_M, "Tf/m" },
-                { UnitSymbolType.UST_LB_FORCE_PER_FT, "lb/ft" },
-                { UnitSymbolType.UST_LBF_PER_FT, "lbf/ft" },
-                { UnitSymbolType.UST_N_PER_M_SUP_2, "N/m²" },
-                { UnitSymbolType.UST_DA_N_PER_M_SUP_2, "daN/m²" },
-                { UnitSymbolType.UST_K_N_PER_M_SUP_2, "kN/m²" },
-                { UnitSymbolType.UST_M_N_PER_M_SUP_2, "MN/m²" },
-                { UnitSymbolType.UST_KSF, "ksf" },
-                { UnitSymbolType.UST_KIP_PER_SQ_FT, "kip/ft²" },
-                { UnitSymbolType.UST_KGF_PER_M_SUP_2, "kgf/m²" },
-                { UnitSymbolType.UST_TF_PER_M_SUP_2, "Tf/m²" },
-                { UnitSymbolType.UST_PSF, "psf" },
-                { UnitSymbolType.UST_LB_FORCE_PER_SQ_FT, "lb/ft²" },
-                { UnitSymbolType.UST_LBF_PER_SQ_FT, "lbf/ft²" },
-                { UnitSymbolType.UST_N_DASH_M, "N-m" },
-                { UnitSymbolType.UST_DA_N_DASH_M, "daN-m" },
-                { UnitSymbolType.UST_K_N_DASH_M, "kN-m" },
-                { UnitSymbolType.UST_M_N_DASH_M, "MN-m" },
-                { UnitSymbolType.UST_KIP_DASH_FT, "kip-ft" },
-                { UnitSymbolType.UST_KGF_DASH_M, "kgf-m" },
-                { UnitSymbolType.UST_TF_DASH_M, "Tf-m" },
-                { UnitSymbolType.UST_LB_FORCE_DASH_FT, "lb-ft" },
-                { UnitSymbolType.UST_LBF_DASH_FT, "lbf-ft" },
-                { UnitSymbolType.UST_M_PER_K_N, "m/kN" },
-                { UnitSymbolType.UST_FT_PER_KIP, "ft/kip" },
-                { UnitSymbolType.UST_M_SUP_2_PER_K_N, "m²/kN" },
-                { UnitSymbolType.UST_FT_SUP_2_PER_KIP, "ft²/kip" },
-                { UnitSymbolType.UST_M_SUP_3_PER_K_N, "m³/kN" },
-                { UnitSymbolType.UST_FT_SUP_3_PER_KIP, "ft³/kip" },
-                { UnitSymbolType.UST_INV_K_N, "1/kN" },
-                { UnitSymbolType.UST_INV_KIP, "1/kip" },
-                { UnitSymbolType.UST_FTH2O_PER_100FT, "ftH2O/100ft" },
-                { UnitSymbolType.UST_FT_OF_WATER_PER_100FT, "FT/100ft" },
-                { UnitSymbolType.UST_FEET_OF_WATER_PER_100FT, "Feet/100ft" },
-                { UnitSymbolType.UST_FTH2O, "ftH2O" },
-                { UnitSymbolType.UST_FT_OF_WATER, "FT" },
-                { UnitSymbolType.UST_FEET_OF_WATER, "Feet" },
-                { UnitSymbolType.UST_PA_S, "Pa-s" },
-                { UnitSymbolType.UST_LB_FORCE_PER_FT_S, "lb/ft-s" },
-                { UnitSymbolType.UST_LBM_PER_FT_S, "lbm/ft-s" },
-                { UnitSymbolType.UST_CP, "cP" },
-                { UnitSymbolType.UST_FT_PER_S, "ft/s" },
-                { UnitSymbolType.UST_FPS, "FPS" },
-                { UnitSymbolType.UST_KSI, "ksi" },
-                { UnitSymbolType.UST_KIP_PER_SQ_IN, "kip/in²" },
-                { UnitSymbolType.UST_KN_PER_M_SUP_3, "kN/m³" },
-                { UnitSymbolType.UST_LB_FORCE_PER_CU_FT, "lb/ft³" },
-                { UnitSymbolType.UST_LBF_PER_CU_FT, "lbf/ft³" },
-                { UnitSymbolType.UST_KIP_PER_IN_SUP_3, "kip/in³" },
-                { UnitSymbolType.UST_INV_DEGREE_F, "1/°F" },
-                { UnitSymbolType.UST_INV_DEGREE_C, "1/°C" },
-                { UnitSymbolType.UST_N_DASH_M_PER_M, "N-m/m" },
-                { UnitSymbolType.UST_DA_N_DASH_M_PER_M, "daN-m/m" },
-                { UnitSymbolType.UST_K_N_DASH_M_PER_M, "kN-m/m" },
-                { UnitSymbolType.UST_M_N_DASH_M_PER_M, "MN-m/m" },
-                { UnitSymbolType.UST_KIP_DASH_FT_PER_FT, "kip-ft/ft" },
-                { UnitSymbolType.UST_KGF_DASH_M_PER_M, "kgf-m/m" },
-                { UnitSymbolType.UST_TF_DASH_M_PER_M, "Tf-m/m" },
-                { UnitSymbolType.UST_LB_FORCE_DASH_FT_PER_FT, "lb-ft/ft" },
-                { UnitSymbolType.UST_LBF_DASH_FT_PER_FT, "lbf-ft/ft" },
-                { UnitSymbolType.UST_LB_FORCE_PER_FT_H, "lb/ft-h" },
-                { UnitSymbolType.UST_LBM_PER_FT_H, "lbm/ft-h" },
-                { UnitSymbolType.UST_KIPS_PER_IN, "kip/in" },
-                { UnitSymbolType.UST_KIPS_PER_CU_FT, "kip/ft³" },
-                { UnitSymbolType.UST_KIP_FT_PER_DEGREE, "kip-ft/°" },
-                { UnitSymbolType.UST_K_N_M_PER_DEGREE, "kN-m/°" },
-                { UnitSymbolType.UST_KIP_FT_PER_DEGREE_PER_FT, "kip-ft/°/ft" },
-                { UnitSymbolType.UST_K_N_M_PER_DEGREE_PER_M, "kN-m/°/m" },
-                { UnitSymbolType.UST_WATT_PER_SQ_M_K, "W/(m²·K)" },
-                { UnitSymbolType.UST_BTU_PER_H_SQ_FT_DEGREE_F, "BTU/(h·ft²·°F)" },
-                { UnitSymbolType.UST_CFM_PER_SQ_FT, "CFM/ft²" },
-                { UnitSymbolType.UST_CFM_PER_SF, "CFM/SF" },
-                { UnitSymbolType.UST_LPS_PER_SQ_M, "LPS/m²" },
-                { UnitSymbolType.UST_L_PER_S_SQ_M, "L/(s·m²)" },
-                { UnitSymbolType.UST_COLON_10, ":10" },
-                { UnitSymbolType.UST_COLON_12, ":12" },
-                { UnitSymbolType.UST_SLOPE_DEGREE_SYMBOL, "°" },
-                { UnitSymbolType.UST_WATT_PER_CU_FT, "W/ft³" },
-                { UnitSymbolType.UST_WATT_PER_CU_M, "W/m³" },
-                { UnitSymbolType.UST_BTU_PER_H_SQ_FT, "Btu/(h·ft²)" },
-                { UnitSymbolType.UST_BTU_PER_H_CU_FT, "Btu/(h·ft³)" },
-                { UnitSymbolType.UST_TON, "ton" },
-                { UnitSymbolType.UST_TON_OF_REFRIGERATION, "ton of refrigeration" },
-                { UnitSymbolType.UST_CFM_PER_CU_FT, "CFM/ft³" },
-                { UnitSymbolType.UST_CFM_PER_CF, "CFM/CF" },
-                { UnitSymbolType.UST_L_PER_S_CU_M, "L/(s·m³)" },
-                { UnitSymbolType.UST_CFM_PER_TON, "CFM/ton" },
-                { UnitSymbolType.UST_L_PER_S_KW, "L/(s·kW)" },
-                { UnitSymbolType.UST_SQ_FT_PER_TON, "ft²/ton" },
-                { UnitSymbolType.UST_SF_PER_TON, "SF/ton" },
-                { UnitSymbolType.UST_SQ_M_PER_KW, "m²/kW" },
-                { UnitSymbolType.UST_DOLLAR, "$" },
-                { UnitSymbolType.UST_EURO_SUFFIX, "€" },
-                { UnitSymbolType.UST_EURO_PREFIX, "€" },
-                { UnitSymbolType.UST_POUND, "£" },
-                { UnitSymbolType.UST_YEN, "¥" },
-                { UnitSymbolType.UST_CHINESE_HONG_KONG_SAR, "HK$" },
-                { UnitSymbolType.UST_WON, "₩" },
-                { UnitSymbolType.UST_SHEQEL, "₪" },
-                { UnitSymbolType.UST_DONG, "₫" },
-                { UnitSymbolType.UST_BAHT, "฿" },
-                { UnitSymbolType.UST_KRONER, "kr" },
-                { UnitSymbolType.UST_LM_PER_W, "lm/W" },
-                { UnitSymbolType.UST_SF_PER_MBH, "SF/MBh" },
-                { UnitSymbolType.UST_SF_PER_KBTU_PER_H, "SF·h/kBtu" },
-                { UnitSymbolType.UST_SQ_FT_PER_MBH, "ft²/MBh" },
-                { UnitSymbolType.UST_SQ_FT_PER_KBTU_PER_H, "ft²·h/kBtu" },
-                { UnitSymbolType.UST_K_N_PER_CM_SUP_2, "kN/cm²" },
-                { UnitSymbolType.UST_N_PER_MM_SUP_2, "N/mm²" },
-                { UnitSymbolType.UST_K_N_PER_MM_SUP_2, "kN/mm²" },
-                { UnitSymbolType.UST_ONE_COLON, "0,0416666666666667" },
-                { UnitSymbolType.UST_H_SQ_FT_DEGREE_F_PER_BTU, "(h·ft²·°F)/BTU" },
-                { UnitSymbolType.UST_SQ_M_K_PER_WATT, "(m²·K)/W" },
-                { UnitSymbolType.UST_BTU_PER_F, "BTU/°F" },
-                { UnitSymbolType.UST_J_PER_KELVIN, "J/K" },
-                { UnitSymbolType.UST_KJ_PER_KELVIN, "kJ/K" },
-                { UnitSymbolType.UST_KGM, "kg" },
-                { UnitSymbolType.UST_TM, "t" },
-                { UnitSymbolType.UST_LB_MASS, "lb" },
-                { UnitSymbolType.UST_LBM, "lbm" },
-                { UnitSymbolType.UST_M_PER_SQ_S, "m/s²" },
-                { UnitSymbolType.UST_KM_PER_SQ_S, "km/s²" },
-                { UnitSymbolType.UST_IN_PER_SQ_S, "in/s²" },
-                { UnitSymbolType.UST_FT_PER_SQ_S, "ft/s²" },
-                { UnitSymbolType.UST_MI_PER_SQ_S, "mi/s²" },
-                { UnitSymbolType.UST_FT_SUP_4, "ft4" },
-                { UnitSymbolType.UST_IN_SUP_4, "in4" },
-                { UnitSymbolType.UST_MM_SUP_4, "mm4" },
-                { UnitSymbolType.UST_CM_SUP_4, "cm4" },
-                { UnitSymbolType.UST_M_SUP_4, "m4" },
-                { UnitSymbolType.UST_FT_SUP_6, "ft6" },
-                { UnitSymbolType.UST_IN_SUP_6, "in6" },
-                { UnitSymbolType.UST_MM_SUP_6, "mm6" },
-                { UnitSymbolType.UST_CM_SUP_6, "cm6" },
-                { UnitSymbolType.UST_M_SUP_6, "m6" },
-                { UnitSymbolType.UST_SQ_FT_PER_FT, "ft²/ft" },
-                { UnitSymbolType.UST_SQ_IN_PER_FT, "in²/ft" },
-                { UnitSymbolType.UST_SQ_MM_PER_M, "mm²/m" },
-                { UnitSymbolType.UST_SQ_CM_PER_M, "cm²/m" },
-                { UnitSymbolType.UST_SQ_M_PER_M, "m²/m" },
-                { UnitSymbolType.UST_KGM_PER_M, "kg/m" },
-                { UnitSymbolType.UST_LB_MASS_PER_FT, "lb/ft" },
-                { UnitSymbolType.UST_LBM_PER_FT, "lbm/ft" },
-                { UnitSymbolType.UST_RAD, "rad" },
-                { UnitSymbolType.UST_GRAD, "grad" },
-                { UnitSymbolType.UST_RAD_PER_S, "rad/s" },
-                { UnitSymbolType.UST_MS, "ms" },
-                { UnitSymbolType.UST_S, "s" },
-                { UnitSymbolType.UST_MIN, "min" },
-                { UnitSymbolType.UST_H, "h" },
-                { UnitSymbolType.UST_KM_PER_H, "km/h" },
-                { UnitSymbolType.UST_MI_PER_H, "mph" },
-                { UnitSymbolType.UST_KJ, "kJ" },
-                { UnitSymbolType.UST_KGM_PER_SQ_M, "kg/m²" },
-                { UnitSymbolType.UST_LBM_PER_SQ_FT, "lb/ft²" },
-                { UnitSymbolType.UST_WATTS_PER_METER_KELVIN, "W/(m·K)" },
-                { UnitSymbolType.UST_J_PER_G_CELSIUS, "J/(g·°C)" },
-                { UnitSymbolType.UST_J_PER_G, "J/g" },
-                { UnitSymbolType.UST_NG_PER_PA_S_SQ_M, "ng/(Pa·s·m²)" },
-                { UnitSymbolType.UST_OHM_M, "ohm·m" },
-                { UnitSymbolType.UST_BTU_PER_H_FT_DEGREE_F, "BTU/(h·ft·°F)" },
-                { UnitSymbolType.UST_BTU_PER_LB_DEGREE_F, "BTU/(lb·°F)" },
-                { UnitSymbolType.UST_BTU_PER_LB, "BTU/lb" },
-                { UnitSymbolType.UST_GR_PER_H_SQ_FT_IN_HG, "gr/(h·ft²·inHg)" },
-                { UnitSymbolType.UST_PER_MILLE_SIGN, "‰" },
-                { UnitSymbolType.UST_DM, "dm" },
-                { UnitSymbolType.UST_J_PER_KG_CELSIUS, "J/(kg·°C)" },
-                { UnitSymbolType.UST_UM_PER_M_C, "µm/(m·°C)" },
-                { UnitSymbolType.UST_UIN_PER_IN_F, "µin/(in·°F)" },
-                { UnitSymbolType.UST_USTONNES_MASS_TONS, "Tons" },
-                { UnitSymbolType.UST_USTONNES_MASS_T, "T" },
-                { UnitSymbolType.UST_USTONNES_MASS_ST, "ST" },
-                { UnitSymbolType.UST_USTONNES_FORCE_TONSF, "Tonsf" },
-                { UnitSymbolType.UST_USTONNES_FORCE_STF, "STf" },
-                { UnitSymbolType.UST_USTONNES_FORCE_AS_MASS_TONS, "Tons" },
-                { UnitSymbolType.UST_USTONNES_FORCE_AS_MASS_T, "T" },
-                { UnitSymbolType.UST_USTONNES_FORCE_AS_MASS_ST, "ST" },
-                { UnitSymbolType.UST_L_PER_M, "L/min" },
-                { UnitSymbolType.UST_LPM, "LPM" },
-                { UnitSymbolType.UST_DEGREE_F_DIFFERENCE, "°F" },
-                { UnitSymbolType.UST_DELTA_DEGREE_F, "delta°F" },
-                { UnitSymbolType.UST_DEGREE_C_DIFFERENCE, "°C" },
-                { UnitSymbolType.UST_DELTA_DEGREE_C, "delta°C" },
-                { UnitSymbolType.UST_KELVIN_DIFFERENCE, "K" },
-                { UnitSymbolType.UST_DELTA_KELVIN, "deltaK" },
-                { UnitSymbolType.UST_DEGREE_R_DIFFERENCE, "°R" },
-                { UnitSymbolType.UST_DELTA_DEGREE_R, "delta°R" },
-            };
-        }
-
-        /// <summary>
-        /// Tries to get the symbol for the given <see cref="UnitSymbolType"/> value.
-        /// </summary>
-        /// <param name="unitSymbol">The unit symbol.</param>
-        /// <param name="unitSymbolString">The unit symbol string representation.</param>
-        /// <returns></returns>
-        public static bool TryGetSymbol(this UnitSymbolType unitSymbol, out string unitSymbolString)
-        {
-            return _unitSymbolTypes.TryGetValue(unitSymbol, out unitSymbolString);
-        }
-
-        /// <summary>
-        /// Tries to get from symbol.
-        /// </summary>
-        /// <param name="unitSymbolString">The unit symbol string.</param>
-        /// <param name="unitSymbol">The unit symbol.</param>
-        /// <returns></returns>
-        public static bool TryGetFromSymbol(this string unitSymbolString, out UnitSymbolType unitSymbol)
-        {
-            var valueExists = _unitSymbolTypes.ContainsValue(unitSymbolString);
-            unitSymbol = (!valueExists)
-                ? UnitSymbolType.UST_NONE
-                : _unitSymbolTypes
-                        .FirstOrDefault(x => x.Value.Equals(unitSymbolString, StringComparison.OrdinalIgnoreCase))
-                        .Key;
-
-            return valueExists;
-        }
+        UST_CM = 101, // 0x00000065
+        UST_MM = 201, // 0x000000C9
+        UST_LF = 301, // 0x0000012D
+        UST_FOOT_SINGLE_QUOTE = 302, // 0x0000012E
+        UST_FT = 303, // 0x0000012F
+        UST_INCH_DOUBLE_QUOTE = 601, // 0x00000259
+        UST_IN = 602, // 0x0000025A
+        UST_ACRES = 701, // 0x000002BD
+        UST_HECTARES = 801, // 0x00000321
+        UST_CY = 1001, // 0x000003E9
+        UST_SF = 1101, // 0x0000044D
+        UST_FT_SUP_2 = 1102, // 0x0000044E
+        UST_FT_CARET_2 = 1103, // 0x0000044F
+        UST_M_SUP_2 = 1201, // 0x000004B1
+        UST_M_CARET_2 = 1202, // 0x000004B2
+        UST_CF = 1301, // 0x00000515
+        UST_FT_SUP_3 = 1302, // 0x00000516
+        UST_FT_CARET_3 = 1303, // 0x00000517
+        UST_M_SUP_3 = 1401, // 0x00000579
+        UST_M_CARET_3 = 1402, // 0x0000057A
+        UST_DEGREE_SYMBOL = 1501, // 0x000005DD
+        UST_PERCENT_SIGN = 1901, // 0x0000076D
+        UST_IN_SUP_2 = 2001, // 0x000007D1
+        UST_IN_CARET_2 = 2002, // 0x000007D2
+        UST_CM_SUP_2 = 2101, // 0x00000835
+        UST_CM_CARET_2 = 2102, // 0x00000836
+        UST_MM_SUP_2 = 2201, // 0x00000899
+        UST_MM_CARET_2 = 2202, // 0x0000089A
+        UST_IN_SUP_3 = 2301, // 0x000008FD
+        UST_IN_CARET_3 = 2302, // 0x000008FE
+        UST_CM_SUP_3 = 2401, // 0x00000961
+        UST_CM_CARET_3 = 2402, // 0x00000962
+        UST_MM_SUP_3 = 2501, // 0x000009C5
+        UST_MM_CARET_3 = 2502, // 0x000009C6
+        UST_L = 2601, // 0x00000A29
+        UST_GAL = 2701, // 0x00000A8D
+        UST_KG_PER_CU_M = 2801, // 0x00000AF1
+        UST_LB_MASS_PER_CU_FT = 2901, // 0x00000B55
+        UST_LBM_PER_CU_FT = 2902, // 0x00000B56
+        UST_LB_MASS_PER_CU_IN = 3001, // 0x00000BB9
+        UST_LBM_PER_CU_IN = 3002, // 0x00000BBA
+        UST_BTU = 3101, // 0x00000C1D
+        UST_CAL = 3201, // 0x00000C81
+        UST_KCAL = 3301, // 0x00000CE5
+        UST_JOULE = 3401, // 0x00000D49
+        UST_KWH = 3501, // 0x00000DAD
+        UST_THERM = 3601, // 0x00000E11
+        UST_IN_WG_PER_100FT = 3701, // 0x00000E75
+        UST_PASCAL_PER_M = 3801, // 0x00000ED9
+        UST_WATT = 3901, // 0x00000F3D
+        UST_KILOWATT = 4001, // 0x00000FA1
+        UST_BTU_PER_S = 4101, // 0x00001005
+        UST_BTU_PER_H = 4201, // 0x00001069
+        UST_CAL_PER_S = 4301, // 0x000010CD
+        UST_KCAL_PER_S = 4401, // 0x00001131
+        UST_WATT_PER_SQ_FT = 4501, // 0x00001195
+        UST_WATT_PER_SQ_M = 4601, // 0x000011F9
+        UST_IN_WG = 4701, // 0x0000125D
+        UST_PASCAL = 4801, // 0x000012C1
+        UST_KILOPASCAL = 4901, // 0x00001325
+        UST_MEGAPASCAL = 5001, // 0x00001389
+        UST_PSI = 5101, // 0x000013ED
+        UST_LB_FORCE_PER_SQ_IN = 5102, // 0x000013EE
+        UST_PSIG = 5103, // 0x000013EF
+        UST_PSIA = 5104, // 0x000013F0
+        UST_LBF_PER_SQ_IN = 5105, // 0x000013F1
+        UST_IN_HG = 5201, // 0x00001451
+        UST_MM_HG = 5301, // 0x000014B5
+        UST_ATM = 5401, // 0x00001519
+        UST_BAR = 5501, // 0x0000157D
+        UST_DEGREE_F = 5601, // 0x000015E1
+        UST_DEGREE_C = 5701, // 0x00001645
+        UST_KELVIN = 5801, // 0x000016A9
+        UST_DEGREE_R = 5901, // 0x0000170D
+        UST_FT_PER_MIN = 6001, // 0x00001771
+        UST_FPM = 6002, // 0x00001772
+        UST_M_PER_S = 6101, // 0x000017D5
+        UST_CM_PER_MIN = 6201, // 0x00001839
+        UST_CU_FT_PER_MIN = 6301, // 0x0000189D
+        UST_CFM = 6302, // 0x0000189E
+        UST_L_PER_S = 6401, // 0x00001901
+        UST_LPS = 6402, // 0x00001902
+        UST_CU_M_PER_S = 6501, // 0x00001965
+        UST_CMS = 6502, // 0x00001966
+        UST_CU_M_PER_H = 6601, // 0x000019C9
+        UST_CMH = 6602, // 0x000019CA
+        UST_GAL_PER_MIN = 6701, // 0x00001A2D
+        UST_GPM = 6702, // 0x00001A2E
+        UST_USGPM = 6703, // 0x00001A2F
+        UST_GAL_PER_H = 6801, // 0x00001A91
+        UST_GPH = 6802, // 0x00001A92
+        UST_USGPH = 6803, // 0x00001A93
+        UST_AMPERE = 6901, // 0x00001AF5
+        UST_KILOAMPERE = 7001, // 0x00001B59
+        UST_MILLIAMPERE = 7101, // 0x00001BBD
+        UST_VOLT = 7201, // 0x00001C21
+        UST_KILOVOLT = 7301, // 0x00001C85
+        UST_MILLIVOLT = 7401, // 0x00001CE9
+        UST_HZ = 7501, // 0x00001D4D
+        UST_CPS = 7601, // 0x00001DB1
+        UST_LX = 7701, // 0x00001E15
+        UST_FC = 7801, // 0x00001E79
+        UST_FTC = 7802, // 0x00001E7A
+        UST_FL = 7901, // 0x00001EDD
+        UST_FL_LOWERCASE = 7902, // 0x00001EDE
+        UST_FTL = 7903, // 0x00001EDF
+        UST_CD_PER_SQ_M = 8001, // 0x00001F41
+        UST_CD = 8101, // 0x00001FA5
+        UST_LM = 8301, // 0x0000206D
+        UST_VOLTAMPERE = 8401, // 0x000020D1
+        UST_KILOVOLTAMPERE = 8501, // 0x00002135
+        UST_HP = 8601, // 0x00002199
+        UST_N = 8701, // 0x000021FD
+        UST_DA_N = 8801, // 0x00002261
+        UST_K_N = 8901, // 0x000022C5
+        UST_M_N = 9001, // 0x00002329
+        UST_KIP = 9101, // 0x0000238D
+        UST_KGF = 9201, // 0x000023F1
+        UST_TF = 9301, // 0x00002455
+        UST_LB_FORCE = 9401, // 0x000024B9
+        UST_LBF = 9402, // 0x000024BA
+        UST_N_PER_M = 9501, // 0x0000251D
+        UST_DA_N_PER_M = 9601, // 0x00002581
+        UST_K_N_PER_M = 9701, // 0x000025E5
+        UST_M_N_PER_M = 9801, // 0x00002649
+        UST_KIP_PER_FT = 9901, // 0x000026AD
+        UST_KGF_PER_M = 10001, // 0x00002711
+        UST_TF_PER_M = 10101, // 0x00002775
+        UST_LB_FORCE_PER_FT = 10201, // 0x000027D9
+        UST_LBF_PER_FT = 10202, // 0x000027DA
+        UST_N_PER_M_SUP_2 = 10301, // 0x0000283D
+        UST_DA_N_PER_M_SUP_2 = 10401, // 0x000028A1
+        UST_K_N_PER_M_SUP_2 = 10501, // 0x00002905
+        UST_M_N_PER_M_SUP_2 = 10601, // 0x00002969
+        UST_KSF = 10701, // 0x000029CD
+        UST_KIP_PER_SQ_FT = 10702, // 0x000029CE
+        UST_KGF_PER_M_SUP_2 = 10801, // 0x00002A31
+        UST_TF_PER_M_SUP_2 = 10901, // 0x00002A95
+        UST_PSF = 11001, // 0x00002AF9
+        UST_LB_FORCE_PER_SQ_FT = 11002, // 0x00002AFA
+        UST_LBF_PER_SQ_FT = 11003, // 0x00002AFB
+        UST_N_DASH_M = 11101, // 0x00002B5D
+        UST_DA_N_DASH_M = 11201, // 0x00002BC1
+        UST_K_N_DASH_M = 11301, // 0x00002C25
+        UST_M_N_DASH_M = 11401, // 0x00002C89
+        UST_KIP_DASH_FT = 11501, // 0x00002CED
+        UST_KGF_DASH_M = 11601, // 0x00002D51
+        UST_TF_DASH_M = 11701, // 0x00002DB5
+        UST_LB_FORCE_DASH_FT = 11801, // 0x00002E19
+        UST_LBF_DASH_FT = 11802, // 0x00002E1A
+        UST_M_PER_K_N = 11901, // 0x00002E7D
+        UST_FT_PER_KIP = 12001, // 0x00002EE1
+        UST_M_SUP_2_PER_K_N = 12101, // 0x00002F45
+        UST_FT_SUP_2_PER_KIP = 12201, // 0x00002FA9
+        UST_M_SUP_3_PER_K_N = 12301, // 0x0000300D
+        UST_FT_SUP_3_PER_KIP = 12401, // 0x00003071
+        UST_INV_K_N = 12501, // 0x000030D5
+        UST_INV_KIP = 12601, // 0x00003139
+        UST_FTH2O_PER_100FT = 12701, // 0x0000319D
+        UST_FT_OF_WATER_PER_100FT = 12702, // 0x0000319E
+        UST_FEET_OF_WATER_PER_100FT = 12703, // 0x0000319F
+        UST_FTH2O = 12801, // 0x00003201
+        UST_FT_OF_WATER = 12802, // 0x00003202
+        UST_FEET_OF_WATER = 12803, // 0x00003203
+        UST_PA_S = 12901, // 0x00003265
+        UST_LB_FORCE_PER_FT_S = 13001, // 0x000032C9
+        UST_LBM_PER_FT_S = 13002, // 0x000032CA
+        UST_CP = 13101, // 0x0000332D
+        UST_FT_PER_S = 13201, // 0x00003391
+        UST_FPS = 13202, // 0x00003392
+        UST_KSI = 13301, // 0x000033F5
+        UST_KIP_PER_SQ_IN = 13302, // 0x000033F6
+        UST_KN_PER_M_SUP_3 = 13401, // 0x00003459
+        UST_LB_FORCE_PER_CU_FT = 13501, // 0x000034BD
+        UST_LBF_PER_CU_FT = 13502, // 0x000034BE
+        UST_KIP_PER_IN_SUP_3 = 13601, // 0x00003521
+        UST_INV_DEGREE_F = 13701, // 0x00003585
+        UST_INV_DEGREE_C = 13801, // 0x000035E9
+        UST_N_DASH_M_PER_M = 13901, // 0x0000364D
+        UST_DA_N_DASH_M_PER_M = 14001, // 0x000036B1
+        UST_K_N_DASH_M_PER_M = 14101, // 0x00003715
+        UST_M_N_DASH_M_PER_M = 14201, // 0x00003779
+        UST_KIP_DASH_FT_PER_FT = 14301, // 0x000037DD
+        UST_KGF_DASH_M_PER_M = 14401, // 0x00003841
+        UST_TF_DASH_M_PER_M = 14501, // 0x000038A5
+        UST_LB_FORCE_DASH_FT_PER_FT = 14601, // 0x00003909
+        UST_LBF_DASH_FT_PER_FT = 14602, // 0x0000390A
+        UST_LB_FORCE_PER_FT_H = 14701, // 0x0000396D
+        UST_LBM_PER_FT_H = 14702, // 0x0000396E
+        UST_KIPS_PER_IN = 14801, // 0x000039D1
+        UST_KIPS_PER_CU_FT = 14901, // 0x00003A35
+        UST_KIP_FT_PER_DEGREE = 15001, // 0x00003A99
+        UST_K_N_M_PER_DEGREE = 15101, // 0x00003AFD
+        UST_KIP_FT_PER_DEGREE_PER_FT = 15201, // 0x00003B61
+        UST_K_N_M_PER_DEGREE_PER_M = 15301, // 0x00003BC5
+        UST_WATT_PER_SQ_M_K = 15401, // 0x00003C29
+        UST_BTU_PER_H_SQ_FT_DEGREE_F = 15501, // 0x00003C8D
+        UST_CFM_PER_SQ_FT = 15601, // 0x00003CF1
+        UST_CFM_PER_SF = 15602, // 0x00003CF2
+        UST_LPS_PER_SQ_M = 15701, // 0x00003D55
+        UST_L_PER_S_SQ_M = 15702, // 0x00003D56
+        UST_COLON_10 = 15801, // 0x00003DB9
+        UST_COLON_12 = 15901, // 0x00003E1D
+        UST_SLOPE_DEGREE_SYMBOL = 16001, // 0x00003E81
+        UST_WATT_PER_CU_FT = 16401, // 0x00004011
+        UST_WATT_PER_CU_M = 16501, // 0x00004075
+        UST_BTU_PER_H_SQ_FT = 16601, // 0x000040D9
+        UST_BTU_PER_H_CU_FT = 16701, // 0x0000413D
+        UST_TON = 16801, // 0x000041A1
+        UST_TON_OF_REFRIGERATION = 16802, // 0x000041A2
+        UST_CFM_PER_CU_FT = 16901, // 0x00004205
+        UST_CFM_PER_CF = 16902, // 0x00004206
+        UST_L_PER_S_CU_M = 17001, // 0x00004269
+        UST_CFM_PER_TON = 17101, // 0x000042CD
+        UST_L_PER_S_KW = 17201, // 0x00004331
+        UST_SQ_FT_PER_TON = 17301, // 0x00004395
+        UST_SF_PER_TON = 17302, // 0x00004396
+        UST_SQ_M_PER_KW = 17401, // 0x000043F9
+        UST_DOLLAR = 17501, // 0x0000445D
+        UST_EURO_SUFFIX = 17502, // 0x0000445E
+        UST_EURO_PREFIX = 17503, // 0x0000445F
+        UST_POUND = 17504, // 0x00004460
+        UST_YEN = 17505, // 0x00004461
+        UST_CHINESE_HONG_KONG_SAR = 17506, // 0x00004462
+        UST_WON = 17507, // 0x00004463
+        UST_SHEQEL = 17508, // 0x00004464
+        UST_DONG = 17509, // 0x00004465
+        UST_BAHT = 17510, // 0x00004466
+        UST_KRONER = 17511, // 0x00004467
+        UST_LM_PER_W = 17601, // 0x000044C1
+        UST_SF_PER_MBH = 17701, // 0x00004525
+        UST_SF_PER_KBTU_PER_H = 17702, // 0x00004526
+        UST_SQ_FT_PER_MBH = 17703, // 0x00004527
+        UST_SQ_FT_PER_KBTU_PER_H = 17704, // 0x00004528
+        UST_K_N_PER_CM_SUP_2 = 17801, // 0x00004589
+        UST_N_PER_MM_SUP_2 = 17901, // 0x000045ED
+        UST_K_N_PER_MM_SUP_2 = 18001, // 0x00004651
+        UST_ONE_COLON = 18201, // 0x00004719
+        UST_H_SQ_FT_DEGREE_F_PER_BTU = 18401, // 0x000047E1
+        UST_SQ_M_K_PER_WATT = 18501, // 0x00004845
+        UST_BTU_PER_F = 18601, // 0x000048A9
+        UST_J_PER_KELVIN = 18701, // 0x0000490D
+        UST_KJ_PER_KELVIN = 18801, // 0x00004971
+        UST_KGM = 18901, // 0x000049D5
+        UST_TM = 19001, // 0x00004A39
+        UST_LB_MASS = 19101, // 0x00004A9D
+        UST_LBM = 19102, // 0x00004A9E
+        UST_M_PER_SQ_S = 19201, // 0x00004B01
+        UST_KM_PER_SQ_S = 19301, // 0x00004B65
+        UST_IN_PER_SQ_S = 19401, // 0x00004BC9
+        UST_FT_PER_SQ_S = 19501, // 0x00004C2D
+        UST_MI_PER_SQ_S = 19601, // 0x00004C91
+        UST_FT_SUP_4 = 19701, // 0x00004CF5
+        UST_IN_SUP_4 = 19801, // 0x00004D59
+        UST_MM_SUP_4 = 19901, // 0x00004DBD
+        UST_CM_SUP_4 = 20001, // 0x00004E21
+        UST_M_SUP_4 = 20101, // 0x00004E85
+        UST_FT_SUP_6 = 20201, // 0x00004EE9
+        UST_IN_SUP_6 = 20301, // 0x00004F4D
+        UST_MM_SUP_6 = 20401, // 0x00004FB1
+        UST_CM_SUP_6 = 20501, // 0x00005015
+        UST_M_SUP_6 = 20601, // 0x00005079
+        UST_SQ_FT_PER_FT = 20701, // 0x000050DD
+        UST_SQ_IN_PER_FT = 20801, // 0x00005141
+        UST_SQ_MM_PER_M = 20901, // 0x000051A5
+        UST_SQ_CM_PER_M = 21001, // 0x00005209
+        UST_SQ_M_PER_M = 21101, // 0x0000526D
+        UST_KGM_PER_M = 21201, // 0x000052D1
+        UST_LB_MASS_PER_FT = 21301, // 0x00005335
+        UST_LBM_PER_FT = 21302, // 0x00005336
+        UST_RAD = 21401, // 0x00005399
+        UST_GRAD = 21501, // 0x000053FD
+        UST_RAD_PER_S = 21601, // 0x00005461
+        UST_MS = 21701, // 0x000054C5
+        UST_S = 21801, // 0x00005529
+        UST_MIN = 21901, // 0x0000558D
+        UST_H = 22001, // 0x000055F1
+        UST_KM_PER_H = 22101, // 0x00005655
+        UST_MI_PER_H = 22201, // 0x000056B9
+        UST_KJ = 22301, // 0x0000571D
+        UST_KGM_PER_SQ_M = 22401, // 0x00005781
+        UST_LBM_PER_SQ_FT = 22501, // 0x000057E5
+        UST_WATTS_PER_METER_KELVIN = 22601, // 0x00005849
+        UST_J_PER_G_CELSIUS = 22701, // 0x000058AD
+        UST_J_PER_G = 22801, // 0x00005911
+        UST_NG_PER_PA_S_SQ_M = 22901, // 0x00005975
+        UST_OHM_M = 23001, // 0x000059D9
+        UST_BTU_PER_H_FT_DEGREE_F = 23101, // 0x00005A3D
+        UST_BTU_PER_LB_DEGREE_F = 23201, // 0x00005AA1
+        UST_BTU_PER_LB = 23301, // 0x00005B05
+        UST_GR_PER_H_SQ_FT_IN_HG = 23401, // 0x00005B69
+        UST_PER_MILLE_SIGN = 23501, // 0x00005BCD
+        UST_DM = 23601, // 0x00005C31
+        UST_J_PER_KG_CELSIUS = 23701, // 0x00005C95
+        UST_UM_PER_M_C = 23801, // 0x00005CF9
+        UST_UIN_PER_IN_F = 23901, // 0x00005D5D
+        UST_USTONNES_MASS_TONS = 24001, // 0x00005DC1
+        UST_USTONNES_MASS_T = 24002, // 0x00005DC2
+        UST_USTONNES_MASS_ST = 24003, // 0x00005DC3
+        UST_USTONNES_FORCE_TONSF = 24101, // 0x00005E25
+        UST_USTONNES_FORCE_STF = 24102, // 0x00005E26
+        UST_USTONNES_FORCE_AS_MASS_TONS = 24103, // 0x00005E27
+        UST_USTONNES_FORCE_AS_MASS_T = 24104, // 0x00005E28
+        UST_USTONNES_FORCE_AS_MASS_ST = 24105, // 0x00005E29
+        UST_L_PER_M = 24201, // 0x00005E89
+        UST_LPM = 24202, // 0x00005E8A
+        UST_DEGREE_F_DIFFERENCE = 24301, // 0x00005EED
+        UST_DELTA_DEGREE_F = 24302, // 0x00005EEE
+        UST_DEGREE_C_DIFFERENCE = 24401, // 0x00005F51
+        UST_DELTA_DEGREE_C = 24402, // 0x00005F52
+        UST_KELVIN_DIFFERENCE = 24501, // 0x00005FB5
+        UST_DELTA_KELVIN = 24502, // 0x00005FB6
+        UST_DEGREE_R_DIFFERENCE = 24601, // 0x00006019
+        UST_DELTA_DEGREE_R = 24602, // 0x0000601A
+        UST_US_SURVEY_FT = 60501, // 0x0000EC55
     }
 }

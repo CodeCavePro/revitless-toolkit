@@ -1,481 +1,306 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
+#pragma warning disable IDE0079 // Remove unnecessary suppression
+#pragma warning disable CS1591
 
-#pragma warning disable 1591
+// ReSharper disable InconsistentNaming
 
+// Decompiled with JetBrains decompiler
+// Type: Autodesk.Revit.DB.ParameterType
+// Assembly: RevitAPI, Version=21.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: E5118772-F025-44D6-A6E2-B8EDEDB90979
+// Assembly location: C:\Program Files\Autodesk\Revit 2021\RevitAPI.dll
 namespace CodeCave.Revit.Toolkit
 {
     /// <summary>
     ///    An enumerated type listing all of the data type interpretation that Autodesk Revit supports.
     /// </summary>
-    // Decompiled with JetBrains decompiler
-    // Type: Autodesk.Revit.DB.ParameterType
-    // Assembly: RevitAPI, Version=17.0.0.0, Culture=neutral, PublicKeyToken=null
-    // ReSharper disable InconsistentNaming
     public enum ParameterType
     {
+        /// <summary>The parameter type is invalid. This value should not be used.</summary>
         Invalid = 0,
+        /// <summary>The parameter data should be interpreted as a string of text.</summary>
         Text = 1,
+        /// <summary>
+        ///    The parameter data should be interpreted as a whole number, positive or negative.
+        /// </summary>
         Integer = 2,
+        /// <summary>
+        ///    The parameter data should be interpreted as a real number, possibly including decimal points.
+        /// </summary>
         Number = 3,
+        /// <summary>The parameter data represents a length.</summary>
         Length = 4,
+        /// <summary>The parameter data represents an area.</summary>
         Area = 5,
+        /// <summary>The parameter data represents a volume.</summary>
         Volume = 6,
+        /// <summary>The parameter data represents an angle.</summary>
         Angle = 7,
+        /// <summary>A text string that represents a web address.</summary>
         URL = 8,
+        /// <summary>The value of this property is considered to be a material.</summary>
         Material = 9,
-        YesNo = 10,
-        Force = 11,
-        LinearForce = 12,
-        AreaForce = 13,
-        Moment = 14,
-        NumberOfPoles = 15,
-        FixtureUnit = 16,
-        FamilyType = 17,
-        LoadClassification = 18,
-        Image = 19,
-        MultilineText = 20,
-        HVACDensity = 107,
-        HVACEnergy = 108,
-        HVACFriction = 109,
-        HVACPower = 110,
-        HVACPowerDensity = 111,
-        HVACPressure = 112,
-        HVACTemperature = 113,
-        HVACVelocity = 114,
-        HVACAirflow = 115,
-        HVACDuctSize = 116,
-        HVACCrossSection = 117,
-        HVACHeatGain = 118,
-        ElectricalCurrent = 119,
-        ElectricalPotential = 120,
-        ElectricalFrequency = 121,
-        ElectricalIlluminance = 122,
-        ElectricalLuminousFlux = 123,
-        ElectricalPower = 124,
-        HVACRoughness = 125,
-        ElectricalApparentPower = 134,
-        ElectricalPowerDensity = 135,
-        PipingDensity = 136,
-        PipingFlow = 137,
-        PipingFriction = 138,
-        PipingPressure = 139,
-        PipingTemperature = 140,
-        PipingVelocity = 141,
-        PipingViscosity = 142,
-        PipeSize = 143,
-        PipingRoughness = 144,
-        Stress = 145,
-        UnitWeight = 146,
-        ThermalExpansion = 147,
-        LinearMoment = 148,
-        ForcePerLength = 150,
-        ForceLengthPerAngle = 151,
-        LinearForcePerLength = 152,
-        LinearForceLengthPerAngle = 153,
-        AreaForcePerLength = 154,
-        PipingVolume = 155,
-        HVACViscosity = 156,
-        HVACCoefficientOfHeatTransfer = 157,
-        HVACAirflowDensity = 158,
-        Slope = 159,
-        HVACCoolingLoad = 160,
-        HVACCoolingLoadDividedByArea = 161,
-        HVACCoolingLoadDividedByVolume = 162,
-        HVACHeatingLoad = 163,
-        HVACHeatingLoadDividedByArea = 164,
-        HVACHeatingLoadDividedByVolume = 165,
-        HVACAirflowDividedByVolume = 166,
-        HVACAirflowDividedByCoolingLoad = 167,
-        HVACAreaDividedByCoolingLoad = 168,
-        WireSize = 169,
-        HVACSlope = 170,
-        PipingSlope = 171,
-        Currency = 172,
-        ElectricalEfficacy = 173,
-        ElectricalWattage = 174,
-        ColorTemperature = 175,
-        ElectricalLuminousIntensity = 177,
-        ElectricalLuminance = 178,
-        HVACAreaDividedByHeatingLoad = 179,
-        HVACFactor = 180,
-        ElectricalTemperature = 181,
-        ElectricalCableTraySize = 182,
-        ElectricalConduitSize = 183,
-        ReinforcementVolume = 184,
-        ReinforcementLength = 185,
-        ElectricalDemandFactor = 186,
-        HVACDuctInsulationThickness = 187,
-        HVACDuctLiningThickness = 188,
-        PipeInsulationThickness = 189,
-        HVACThermalResistance = 190,
-        HVACThermalMass = 191,
-        Acceleration = 192,
-        BarDiameter = 193,
-        CrackWidth = 194,
-        DisplacementDeflection = 195,
-        Energy = 196,
-        StructuralFrequency = 197,
-        Mass = 198,
-        MassPerUnitLength = 199,
-        MomentOfInertia = 200,
-        SurfaceArea = 201,
-        Period = 202,
-        Pulsation = 203,
-        ReinforcementArea = 204,
-        ReinforcementAreaPerUnitLength = 205,
-        ReinforcementCover = 206,
-        ReinforcementSpacing = 207,
-        Rotation = 208,
-        SectionArea = 209,
-        SectionDimension = 210,
-        SectionModulus = 211,
-        SectionProperty = 212,
-        StructuralVelocity = 213,
-        WarpingConstant = 214,
-        Weight = 215,
-        WeightPerUnitLength = 216,
-        HVACThermalConductivity = 217,
-        HVACSpecificHeat = 218,
-        HVACSpecificHeatOfVaporization = 219,
-        HVACPermeability = 220,
-        ElectricalResistivity = 221,
-        MassDensity = 222,
-        MassPerUnitArea = 223,
-        PipeDimension = 224,
-        PipeMass = 225,
-        PipeMassPerUnitLength = 226,
-        HVACTemperatureDifference = 227,
-        PipingTemperatureDifference = 228,
-        ElectricalTemperatureDifference = 229,
+        /// <summary>A boolean value that will be represented as Yes or No.</summary>
+        YesNo = 10, // 0x0000000A
+        /// <summary>The data value will be represented as a force.</summary>
+        Force = 11, // 0x0000000B
+        /// <summary>The data value will be represented as a linear force.</summary>
+        LinearForce = 12, // 0x0000000C
+        /// <summary>The data value will be represented as an area force.</summary>
+        AreaForce = 13, // 0x0000000D
+        /// <summary>The data value will be represented as a moment.</summary>
+        Moment = 14, // 0x0000000E
+        /// <summary>
+        ///    A parameter value that represents the number of poles, as used in electrical disciplines.
+        /// </summary>
+        NumberOfPoles = 15, // 0x0000000F
+        /// <summary>
+        ///    A parameter value that represents the fixture units, as used in piping disciplines.
+        /// </summary>
+        FixtureUnit = 16, // 0x00000010
+        /// <summary>
+        ///    A parameter used to control the type of a family nested within another family.
+        /// </summary>
+        FamilyType = 17, // 0x00000011
+        /// <summary>
+        ///    A parameter value that represents the load classification units, as used in electrical disciplines.
+        /// </summary>
+        LoadClassification = 18, // 0x00000012
+        /// <summary>The value of this parameter is the id of an image.</summary>
+        Image = 19, // 0x00000013
+        /// <summary>The value of this parameter will be represented as multiline text.</summary>
+        MultilineText = 20, // 0x00000014
+        /// <summary>The data value will be represented as a HVACDensity.</summary>
+        HVACDensity = 107, // 0x0000006B
+        /// <summary>The data value will be represented as a HVACEnergy.</summary>
+        HVACEnergy = 108, // 0x0000006C
+        /// <summary>The data value will be represented as a HVACFriction.</summary>
+        HVACFriction = 109, // 0x0000006D
+        /// <summary>The data value will be represented as a HVACPower.</summary>
+        HVACPower = 110, // 0x0000006E
+        /// <summary>The data value will be represented as a HVACPowerDensity.</summary>
+        HVACPowerDensity = 111, // 0x0000006F
+        /// <summary>The data value will be represented as a HVACPressure.</summary>
+        HVACPressure = 112, // 0x00000070
+        /// <summary>The data value will be represented as a HVACTemperature.</summary>
+        HVACTemperature = 113, // 0x00000071
+        /// <summary>The data value will be represented as a HVACVelocity.</summary>
+        HVACVelocity = 114, // 0x00000072
+        /// <summary>The data value will be represented as a HVACAirflow.</summary>
+        HVACAirflow = 115, // 0x00000073
+        /// <summary>The data value will be represented as a HVACDuctSize.</summary>
+        HVACDuctSize = 116, // 0x00000074
+        /// <summary>The data value will be represented as a HVACCrossSection.</summary>
+        HVACCrossSection = 117, // 0x00000075
+        /// <summary>The data value will be represented as a HVACHeatGain.</summary>
+        HVACHeatGain = 118, // 0x00000076
+        /// <summary>The data value will be represented as an ElectricalCurrent.</summary>
+        ElectricalCurrent = 119, // 0x00000077
+        /// <summary>The data value will be represented as an ElectricalPotential.</summary>
+        ElectricalPotential = 120, // 0x00000078
+        /// <summary>The data value will be represented as an ElectricalFrequency.</summary>
+        ElectricalFrequency = 121, // 0x00000079
+        /// <summary>The data value will be represented as an ElectricalIlluminance.</summary>
+        ElectricalIlluminance = 122, // 0x0000007A
+        /// <summary>The data value will be represented as an ElectricalLuminousFlux.</summary>
+        ElectricalLuminousFlux = 123, // 0x0000007B
+        /// <summary>The data value will be represented as an ElectricalPower.</summary>
+        ElectricalPower = 124, // 0x0000007C
+        /// <summary>The data value will be represented as a HVACRoughness.</summary>
+        HVACRoughness = 125, // 0x0000007D
+        /// <summary>The data value will be represented as an ElectricalApparentPower.</summary>
+        ElectricalApparentPower = 134, // 0x00000086
+        /// <summary>The data value will be represented as an ElectricalPowerDensity.</summary>
+        ElectricalPowerDensity = 135, // 0x00000087
+        /// <summary>The data value will be represented as a PipingDensity.</summary>
+        PipingDensity = 136, // 0x00000088
+        /// <summary>The data value will be represented as a PipingFlow.</summary>
+        PipingFlow = 137, // 0x00000089
+        /// <summary>The data value will be represented as a PipingFriction.</summary>
+        PipingFriction = 138, // 0x0000008A
+        /// <summary>The data value will be represented as a PipingPressure.</summary>
+        PipingPressure = 139, // 0x0000008B
+        /// <summary>The data value will be represented as a PipingTemperature.</summary>
+        PipingTemperature = 140, // 0x0000008C
+        /// <summary>The data value will be represented as a PipingVelocity.</summary>
+        PipingVelocity = 141, // 0x0000008D
+        /// <summary>The data value will be represented as a PipingViscosity.</summary>
+        PipingViscosity = 142, // 0x0000008E
+        /// <summary>The data value will be represented as a PipeSize.</summary>
+        PipeSize = 143, // 0x0000008F
+        /// <summary>The data value will be represented as a PipingRoughness.</summary>
+        PipingRoughness = 144, // 0x00000090
+        /// <summary>The data value will be represented as a Stress.</summary>
+        Stress = 145, // 0x00000091
+        /// <summary>The data value will be represented as a UnitWeight.</summary>
+        UnitWeight = 146, // 0x00000092
+        /// <summary>The data value will be represented as a ThermalExpansion.</summary>
+        ThermalExpansion = 147, // 0x00000093
+        /// <summary>The data value will be represented as a LinearMoment.</summary>
+        LinearMoment = 148, // 0x00000094
+        /// <summary>The data value will be represented as a ForcePerLength.</summary>
+        ForcePerLength = 150, // 0x00000096
+        /// <summary>The data value will be represented as a ForceLengthPerAngle.</summary>
+        ForceLengthPerAngle = 151, // 0x00000097
+        /// <summary>The data value will be represented as a LinearForcePerLength.</summary>
+        LinearForcePerLength = 152, // 0x00000098
+        /// <summary>The data value will be represented as a LinearForceLengthPerAngle.</summary>
+        LinearForceLengthPerAngle = 153, // 0x00000099
+        /// <summary>The data value will be represented as an AreaForcePerLength.</summary>
+        AreaForcePerLength = 154, // 0x0000009A
+        /// <summary>The data value will be represented as a PipingVolume.</summary>
+        PipingVolume = 155, // 0x0000009B
+        /// <summary>The data value will be represented as a HVACViscosity.</summary>
+        HVACViscosity = 156, // 0x0000009C
+        /// <summary>The data value will be represented as a HVACCoefficientOfHeatTransfer.</summary>
+        HVACCoefficientOfHeatTransfer = 157, // 0x0000009D
+        /// <summary>The data value will be represented as a HVACAirflowDensity.</summary>
+        HVACAirflowDensity = 158, // 0x0000009E
+        /// <summary>The data value will be represented as a Slope.</summary>
+        Slope = 159, // 0x0000009F
+        /// <summary>The data value will be represented as a HVACCoolingLoad.</summary>
+        HVACCoolingLoad = 160, // 0x000000A0
+        /// <summary>The data value will be represented as a HVACCoolingLoadDividedByArea.</summary>
+        HVACCoolingLoadDividedByArea = 161, // 0x000000A1
+        /// <summary>The data value will be represented as a HVACCoolingLoadDividedByVolume.</summary>
+        HVACCoolingLoadDividedByVolume = 162, // 0x000000A2
+        /// <summary>The data value will be represented as a HVACHeatingLoad.</summary>
+        HVACHeatingLoad = 163, // 0x000000A3
+        /// <summary>The data value will be represented as a HVACHeatingLoadDividedByArea.</summary>
+        HVACHeatingLoadDividedByArea = 164, // 0x000000A4
+        /// <summary>The data value will be represented as a HVACHeatingLoadDividedByVolume.</summary>
+        HVACHeatingLoadDividedByVolume = 165, // 0x000000A5
+        /// <summary>The data value will be represented as a HVACAirflowDividedByVolume.</summary>
+        HVACAirflowDividedByVolume = 166, // 0x000000A6
+        /// <summary>The data value will be represented as a HVACAirflowDividedByCoolingLoad.</summary>
+        HVACAirflowDividedByCoolingLoad = 167, // 0x000000A7
+        /// <summary>The data value will be represented as a HVACAreaDividedByCoolingLoad.</summary>
+        HVACAreaDividedByCoolingLoad = 168, // 0x000000A8
+        /// <summary>The data value will be represented as a WireSize.</summary>
+        WireSize = 169, // 0x000000A9
+        /// <summary>The data value will be represented as a HVACSlope.</summary>
+        HVACSlope = 170, // 0x000000AA
+        /// <summary>The data value will be represented as a PipingSlope.</summary>
+        PipingSlope = 171, // 0x000000AB
+        /// <summary>The data value will be represented as a Currency.</summary>
+        Currency = 172, // 0x000000AC
+        /// <summary>The data value will be represented as an ElectricalEfficacy.</summary>
+        ElectricalEfficacy = 173, // 0x000000AD
+        /// <summary>The data value will be represented as an ElectricalWattage.</summary>
+        ElectricalWattage = 174, // 0x000000AE
+        /// <summary>The data value will be represented as a ColorTemperature.</summary>
+        ColorTemperature = 175, // 0x000000AF
+        /// <summary>The data value will be represented as an ElectricalLuminousIntensity.</summary>
+        ElectricalLuminousIntensity = 177, // 0x000000B1
+        /// <summary>The data value will be represented as an ElectricalLuminance.</summary>
+        ElectricalLuminance = 178, // 0x000000B2
+        /// <summary>The data value will be represented as a HVACAreaDividedByHeatingLoad.</summary>
+        HVACAreaDividedByHeatingLoad = 179, // 0x000000B3
+        /// <summary>The data value will be represented as a HVACFactor.</summary>
+        HVACFactor = 180, // 0x000000B4
+        /// <summary>The data value will be represented as a ElectricalTemperature.</summary>
+        ElectricalTemperature = 181, // 0x000000B5
+        /// <summary>The data value will be represented as a ElectricalCableTraySize.</summary>
+        ElectricalCableTraySize = 182, // 0x000000B6
+        /// <summary>The data value will be represented as a ElectricalConduitSize.</summary>
+        ElectricalConduitSize = 183, // 0x000000B7
+        /// <summary>The data value will be represented as a ReinforcementVolume.</summary>
+        ReinforcementVolume = 184, // 0x000000B8
+        /// <summary>The data value will be represented as a ReinforcementLength.</summary>
+        ReinforcementLength = 185, // 0x000000B9
+        /// <summary>The data value will be represented as a ElectricalDemandFactor.</summary>
+        ElectricalDemandFactor = 186, // 0x000000BA
+        /// <summary>The data value will be represented as a HVACDuctInsulationThickness.</summary>
+        HVACDuctInsulationThickness = 187, // 0x000000BB
+        /// <summary>The data value will be represented as a HVACDuctLiningThickness.</summary>
+        HVACDuctLiningThickness = 188, // 0x000000BC
+        /// <summary>The data value will be represented as a PipeInsulationThickness.</summary>
+        PipeInsulationThickness = 189, // 0x000000BD
+        /// <summary>The data value will be represented as a HVACThermalResistance.</summary>
+        HVACThermalResistance = 190, // 0x000000BE
+        /// <summary>The data value will be represented as a HVACThermalMass.</summary>
+        HVACThermalMass = 191, // 0x000000BF
+        /// <summary>The data value will be represented as an Acceleration.</summary>
+        Acceleration = 192, // 0x000000C0
+        /// <summary>The data value will be represented as a BarDiameter.</summary>
+        BarDiameter = 193, // 0x000000C1
+        /// <summary>The data value will be represented as a CrackWidth.</summary>
+        CrackWidth = 194, // 0x000000C2
+        /// <summary>The data value will be represented as a DisplacementDeflection.</summary>
+        DisplacementDeflection = 195, // 0x000000C3
+        /// <summary>The data value will be represented as an Energy.</summary>
+        Energy = 196, // 0x000000C4
+        /// <summary>The data value will be represented as a StructuralFrequency.</summary>
+        StructuralFrequency = 197, // 0x000000C5
+        /// <summary>The data value will be represented as a Mass.</summary>
+        Mass = 198, // 0x000000C6
+        /// <summary>The data value will be represented as a MassPerUnitLength.</summary>
+        MassPerUnitLength = 199, // 0x000000C7
+        /// <summary>The data value will be represented as a MomentOfInertia.</summary>
+        MomentOfInertia = 200, // 0x000000C8
+        /// <summary>The data value will be represented as a SurfaceArea.</summary>
+        SurfaceArea = 201, // 0x000000C9
+        /// <summary>The data value will be represented as a Period.</summary>
+        Period = 202, // 0x000000CA
+        /// <summary>The data value will be represented as a Pulsation.</summary>
+        Pulsation = 203, // 0x000000CB
+        /// <summary>The data value will be represented as a ReinforcementArea.</summary>
+        ReinforcementArea = 204, // 0x000000CC
+        /// <summary>The data value will be represented as a ReinforcementAreaPerUnitLength.</summary>
+        ReinforcementAreaPerUnitLength = 205, // 0x000000CD
+        /// <summary>The data value will be represented as a ReinforcementCover.</summary>
+        ReinforcementCover = 206, // 0x000000CE
+        /// <summary>The data value will be represented as a ReinforcementSpacing.</summary>
+        ReinforcementSpacing = 207, // 0x000000CF
+        /// <summary>The data value will be represented as a Rotation.</summary>
+        Rotation = 208, // 0x000000D0
+        /// <summary>The data value will be represented as a SectionArea.</summary>
+        SectionArea = 209, // 0x000000D1
+        /// <summary>The data value will be represented as a SectionDimension.</summary>
+        SectionDimension = 210, // 0x000000D2
+        /// <summary>The data value will be represented as a SectionModulus.</summary>
+        SectionModulus = 211, // 0x000000D3
+        /// <summary>The data value will be represented as a SectionProperty.</summary>
+        SectionProperty = 212, // 0x000000D4
+        /// <summary>The data value will be represented as a StructuralVelocity.</summary>
+        StructuralVelocity = 213, // 0x000000D5
+        /// <summary>The data value will be represented as a WarpingConstant.</summary>
+        WarpingConstant = 214, // 0x000000D6
+        /// <summary>The data value will be represented as a Weight.</summary>
+        Weight = 215, // 0x000000D7
+        /// <summary>The data value will be represented as a WeightPerUnitLength.</summary>
+        WeightPerUnitLength = 216, // 0x000000D8
+        /// <summary>The data value will be represented as a HVACThermalConductivity.</summary>
+        HVACThermalConductivity = 217, // 0x000000D9
+        /// <summary>The data value will be represented as a HVACSpecificHeat.</summary>
+        HVACSpecificHeat = 218, // 0x000000DA
+        /// <summary>The data value will be represented as a HVACSpecificHeatOfVaporization.</summary>
+        HVACSpecificHeatOfVaporization = 219, // 0x000000DB
+        /// <summary>The data value will be represented as a HVACPermeability.</summary>
+        HVACPermeability = 220, // 0x000000DC
+        /// <summary>The data value will be represented as a ElectricalResistivity.</summary>
+        ElectricalResistivity = 221, // 0x000000DD
+        /// <summary>The data value will be represented as a MassDensity.</summary>
+        MassDensity = 222, // 0x000000DE
+        /// <summary>The data value will be represented as a MassPerUnitArea.</summary>
+        MassPerUnitArea = 223, // 0x000000DF
+        /// <summary>The value of this parameter will be a Pipe Dimension</summary>
+        PipeDimension = 224, // 0x000000E0
+        /// <summary>The value of this parameter will be the Pipe Mass</summary>
+        PipeMass = 225, // 0x000000E1
+        /// <summary>The value of this parameter will be the Pipe Mass per Unit Length</summary>
+        PipeMassPerUnitLength = 226, // 0x000000E2
+        /// <summary>The data value will be represented as a HVACTemperatureDifference.</summary>
+        HVACTemperatureDifference = 227, // 0x000000E3
+        /// <summary>The data value will be represented as a PipingTemperatureDifference.</summary>
+        PipingTemperatureDifference = 228, // 0x000000E4
+        /// <summary>The data value will be represented as an ElectricalTemperatureDifference.</summary>
+        ElectricalTemperatureDifference = 229, // 0x000000E5
+        /// <summary>The data value will be represented as a TimeInterval</summary>
+        TimeInterval = 230, // 0x000000E6
+        /// <summary>The data value will be represented as a Speed</summary>
+        Speed = 231, // 0x000000E7
+        /// <summary>The data value will be represented as infrastructure stationing</summary>
+        Stationing = 232, // 0x000000E8
     }
 
-    /// <summary>
-    /// UnitType extension class featuring extension methods for ParameterType enumeration
-    /// </summary>
-    public static class ParameterTypeExtensions
-    {
-        private static readonly Dictionary<ParameterType, string> _parameterTypes2Shared;
-        private static readonly Dictionary<ParameterType, UnitType> _parameterTypes2UnitTypes;
-
-        /// <summary>
-        /// Static constructor
-        /// </summary>
-        static ParameterTypeExtensions()
-        {
-            _parameterTypes2Shared = new Dictionary<ParameterType, string>
-            {
-                { ParameterType.Invalid, string.Empty },
-                { ParameterType.Text, "TEXT" },
-                { ParameterType.Integer, "INTEGER" },
-                { ParameterType.Number, "NUMBER" },
-                { ParameterType.Length, "LENGTH" },
-                { ParameterType.Area, "AREA" },
-                { ParameterType.Volume, "VOLUME" },
-                { ParameterType.Angle, "ANGLE" },
-                { ParameterType.URL, "URL" },
-                { ParameterType.Material, "MATERIAL" },
-                { ParameterType.YesNo, "YESNO" },
-                { ParameterType.Force, "FORCE" },
-                { ParameterType.LinearForce, "LINEAR_FORCE" },
-                { ParameterType.AreaForce, "AREA_FORCE" },
-                { ParameterType.Moment, "MOMENT" },
-                { ParameterType.NumberOfPoles, "NOOFPOLES" },
-                { ParameterType.FixtureUnit, "FIXTUREUNIT" },
-                { ParameterType.FamilyType, "FAMILYTYPE" },
-                { ParameterType.LoadClassification, "LOADCLASSIFICATION" },
-                { ParameterType.Image, "IMAGE" },
-                { ParameterType.MultilineText, "MULTILINETEXT" },
-                { ParameterType.HVACDensity, "HVAC_DENSITY" },
-                { ParameterType.HVACEnergy, "HVAC_ENERGY" },
-                { ParameterType.HVACFriction, "HVAC_FRICTION" },
-                { ParameterType.HVACPower, "HVAC_POWER" },
-                { ParameterType.HVACPowerDensity, "HVAC_POWER_DENSITY" },
-                { ParameterType.HVACPressure, "HVAC_PRESSURE" },
-                { ParameterType.HVACTemperature, "HVAC_TEMPERATURE" },
-                { ParameterType.HVACVelocity, "HVAC_VELOCITY" },
-                { ParameterType.HVACAirflow, "HVAC_AIR_FLOW" },
-                { ParameterType.HVACDuctSize, "HVAC_DUCT_SIZE" },
-                { ParameterType.HVACCrossSection, "HVAC_CROSS_SECTION" },
-                { ParameterType.HVACHeatGain, "HVAC_HEAT_GAIN" },
-                { ParameterType.ElectricalCurrent, "ELECTRICAL_CURRENT" },
-                { ParameterType.ElectricalPotential, "ELECTRICAL_POTENTIAL" },
-                { ParameterType.ElectricalFrequency, "ELECTRICAL_FREQUENCY" },
-                { ParameterType.ElectricalIlluminance, "ELECTRICAL_ILLUMINANCE" },
-                { ParameterType.ElectricalLuminousFlux, "ELECTRICAL_LUMINOUS_FLUX" },
-                { ParameterType.ElectricalPower, "ELECTRICAL_POWER" },
-                { ParameterType.HVACRoughness, "HVAC_ROUGHNESS" },
-                { ParameterType.ElectricalApparentPower, "ELECTRICAL_APPARENT_POWER" },
-                { ParameterType.ElectricalPowerDensity, "ELECTRICAL_POWER_DENSITY" },
-                { ParameterType.PipingDensity, "PIPING_DENSITY" },
-                { ParameterType.PipingFlow, "PIPING_FLOW" },
-                { ParameterType.PipingFriction, "PIPING_FRICTION" },
-                { ParameterType.PipingPressure, "PIPING_PRESSURE" },
-                { ParameterType.PipingTemperature, "PIPING_TEMPERATURE" },
-                { ParameterType.PipingVelocity, "PIPING_VELOCITY" },
-                { ParameterType.PipingViscosity, "PIPING_VISCOSITY" },
-                { ParameterType.PipeSize, "PIPE_SIZE" },
-                { ParameterType.PipingRoughness, "PIPING_ROUGHNESS" },
-                { ParameterType.Stress, "STRESS" },
-                { ParameterType.UnitWeight, "UNIT_WEIGHT" },
-                { ParameterType.ThermalExpansion, "THERMAL_EXPANSION_COEFFICIENT" },
-                { ParameterType.LinearMoment, "LINEAR_MOMENT" },
-                { ParameterType.ForcePerLength, "POINT_SPRING_COEFFICIENT" },
-                { ParameterType.ForceLengthPerAngle, "ROTATIONAL_POINT_SPRING_COEFFICIENT" },
-                { ParameterType.LinearForcePerLength, "LINEAR_SPRING_COEFFICIENT" },
-                { ParameterType.LinearForceLengthPerAngle, "ROTATIONAL_LINEAR_SPRING_COEFFICIENT" },
-                { ParameterType.AreaForcePerLength, "AREA_SPRING_COEFFICIENT" },
-                { ParameterType.PipingVolume, "PIPING_VOLUME" },
-                { ParameterType.HVACViscosity, "HVAC_VISCOSITY" },
-                { ParameterType.HVACCoefficientOfHeatTransfer, "HVAC_COEFFICIENT_OF_HEAT_TRANSFER" },
-                { ParameterType.HVACAirflowDensity, "HVAC_AIRFLOW_DENSITY" },
-                { ParameterType.Slope, "SLOPE" },
-                { ParameterType.HVACCoolingLoad, "HVAC_COOLING_LOAD" },
-                { ParameterType.HVACCoolingLoadDividedByArea, "HVAC_COOLING_LOAD_DIVIDED_BY_AREA" },
-                { ParameterType.HVACCoolingLoadDividedByVolume, "HVAC_COOLING_LOAD_DIVIDED_BY_VOLUME" },
-                { ParameterType.HVACHeatingLoad, "HVAC_HEATING_LOAD" },
-                { ParameterType.HVACHeatingLoadDividedByArea, "HVAC_HEATING_LOAD_DIVIDED_BY_AREA" },
-                { ParameterType.HVACHeatingLoadDividedByVolume, "HVAC_HEATING_LOAD_DIVIDED_BY_VOLUME" },
-                { ParameterType.HVACAirflowDividedByVolume, "HVAC_AIRFLOW_DIVIDED_BY_VOLUME" },
-                { ParameterType.HVACAirflowDividedByCoolingLoad, "HVAC_AIRFLOW_DIVIDED_BY_COOLING_LOAD" },
-                { ParameterType.HVACAreaDividedByCoolingLoad, "HVAC_AREA_DIVIDED_BY_COOLING_LOAD" },
-                { ParameterType.WireSize, "WIRE_SIZE" },
-                { ParameterType.HVACSlope, "HVAC_SLOPE" },
-                { ParameterType.PipingSlope, "PIPING_SLOPE" },
-                { ParameterType.Currency, "CURRENCY" },
-                { ParameterType.ElectricalEfficacy, "ELECTRICAL_EFFICACY" },
-                { ParameterType.ElectricalWattage, "ELECTRICAL_WATTAGE" },
-                { ParameterType.ColorTemperature, "COLOR_TEMPERATURE" },
-                { ParameterType.ElectricalLuminousIntensity, "ELECTRICAL_LUMINOUS_INTENSITY" },
-                { ParameterType.ElectricalLuminance, "ELECTRICAL_LUMINANCE" },
-                { ParameterType.HVACAreaDividedByHeatingLoad, "HVAC_AREA_DIVIDED_BY_HEATING_LOAD" },
-                { ParameterType.HVACFactor, "HVAC_FACTOR" },
-                { ParameterType.ElectricalTemperature, "ELECTRICAL_TEMPERATURE" },
-                { ParameterType.ElectricalCableTraySize, "CABLETRAY_SIZE" },
-                { ParameterType.ElectricalConduitSize, "CONDUIT_SIZE" },
-                { ParameterType.ReinforcementVolume, "REINFORCEMENT_VOLUME" },
-                { ParameterType.ReinforcementLength, "REINFORCEMENT_LENGTH" },
-                { ParameterType.ElectricalDemandFactor, "ELECTRICAL_DEMAND_FACTOR" },
-                { ParameterType.HVACDuctInsulationThickness, "HVAC_DUCT_INSULATION_THICKNESS" },
-                { ParameterType.HVACDuctLiningThickness, "HVAC_DUCT_LINING_THICKNESS" },
-                { ParameterType.PipeInsulationThickness, "PIPE_INSUlATION_THICKNESS" },
-                { ParameterType.HVACThermalResistance, "HVAC_THERMAL_RESISTANCE" },
-                { ParameterType.HVACThermalMass, "HVAC_THERMAL_MASS" },
-                { ParameterType.Acceleration, "ACCELERATION" },
-                { ParameterType.BarDiameter, "BAR_DIAMETER" },
-                { ParameterType.CrackWidth, "CRACK_WIDTH" },
-                { ParameterType.DisplacementDeflection, "DISPLACEMENT/DEFLECTION" },
-                { ParameterType.Energy, "ENERGY" },
-                { ParameterType.StructuralFrequency, "STRUCTURAL_FREQUENCY" },
-                { ParameterType.Mass, "MASS" },
-                { ParameterType.MassPerUnitLength, "MASS_PER_UNIT_LENGTH" },
-                { ParameterType.MomentOfInertia, "MOMENT_OF_INERTIA" },
-                { ParameterType.SurfaceArea, "SURFACE_AREA" },
-                { ParameterType.Period, "PERIOD" },
-                { ParameterType.Pulsation, "PULSATION" },
-                { ParameterType.ReinforcementArea, "REINFORCEMENT_AREA" },
-                { ParameterType.ReinforcementAreaPerUnitLength, "REINFORCEMENT_AREA_PER_UNIT_LENGTH" },
-                { ParameterType.ReinforcementCover, "REINFORCEMENT_COVER" },
-                { ParameterType.ReinforcementSpacing, "REINFORCEMENT_SPACING" },
-                { ParameterType.Rotation, "ROTATION" },
-                { ParameterType.SectionArea, "SECTION_AREA" },
-                { ParameterType.SectionDimension, "SECTION_DIMENSION" },
-                { ParameterType.SectionModulus, "SECTION_MODULUS" },
-                { ParameterType.SectionProperty, "SECTION_PROPERTY" },
-                { ParameterType.StructuralVelocity, "VELOCITY" },
-                { ParameterType.WarpingConstant, "WARPING_CONSTANT" },
-                { ParameterType.Weight, "WEIGHT" },
-                { ParameterType.WeightPerUnitLength, "WEIGHT_PER_UNIT_LENGTH" },
-                { ParameterType.HVACThermalConductivity, "HVAC_THERMAL_CONDUCTIVITY" },
-                { ParameterType.HVACSpecificHeat, "HVAC_SPECIFIC_HEAT" },
-                { ParameterType.HVACSpecificHeatOfVaporization, "HVAC_SPECIFIC_HEAT_OF_VAPORIZATION" },
-                { ParameterType.HVACPermeability, "HVAC_PERMEABILITY" },
-                { ParameterType.ElectricalResistivity, "ELECTRICAL_RESISTIVITY" },
-                { ParameterType.MassDensity, "MASS_DENSITY" },
-                { ParameterType.MassPerUnitArea, "MASS_PER_UNIT_AREA" },
-                { ParameterType.PipeDimension, "PIPE_DIMENSION" },
-                { ParameterType.PipeMass, "PIPE_MASS" },
-                { ParameterType.PipeMassPerUnitLength, "PIPE_MASS_PER_UNIT_LENGTH" },
-                { ParameterType.HVACTemperatureDifference, "HVAC_TEMPERATURE_DIFFERENCE" },
-                { ParameterType.PipingTemperatureDifference, "PIPING_TEMPERATURE_DIFFERENCE" },
-                { ParameterType.ElectricalTemperatureDifference, "ELECTRICAL_TEMPERATURE_DIFFERENCE" },
-            };
-
-            _parameterTypes2UnitTypes = new Dictionary<ParameterType, UnitType>
-            {
-                //! TODO Check these matches, not really sure about them
-                { ParameterType.Text, UnitType.UT_Undefined },
-                { ParameterType.MultilineText, UnitType.UT_Undefined },
-                { ParameterType.FixtureUnit, UnitType.UT_Undefined },
-                { ParameterType.FamilyType, UnitType.UT_Undefined },
-                { ParameterType.LoadClassification, UnitType.UT_Undefined },
-                { ParameterType.Image, UnitType.UT_Undefined },
-                { ParameterType.URL, UnitType.UT_Undefined },
-                { ParameterType.Material, UnitType.UT_Undefined },
-                { ParameterType.YesNo, UnitType.UT_Undefined },
-
-                // These matches are OK
-                { ParameterType.NumberOfPoles, UnitType.UT_Number },
-                { ParameterType.Number, UnitType.UT_Number },
-                { ParameterType.Integer, UnitType.UT_Number },
-                { ParameterType.Length, UnitType.UT_Length },
-                { ParameterType.Area, UnitType.UT_Area },
-                { ParameterType.Volume, UnitType.UT_Volume },
-                { ParameterType.Angle, UnitType.UT_Angle },
-                { ParameterType.Force, UnitType.UT_Force },
-                { ParameterType.LinearForce, UnitType.UT_LinearForce },
-                { ParameterType.AreaForce, UnitType.UT_AreaForce },
-                { ParameterType.Moment, UnitType.UT_Moment },
-                { ParameterType.HVACDensity, UnitType.UT_HVAC_Density },
-                { ParameterType.HVACEnergy, UnitType.UT_HVAC_Energy },
-                { ParameterType.HVACFriction, UnitType.UT_HVAC_Friction },
-                { ParameterType.HVACPower, UnitType.UT_HVAC_Power },
-                { ParameterType.HVACPowerDensity, UnitType.UT_HVAC_Power_Density },
-                { ParameterType.HVACPressure, UnitType.UT_HVAC_Pressure },
-                { ParameterType.HVACTemperature, UnitType.UT_HVAC_Temperature },
-                { ParameterType.HVACVelocity, UnitType.UT_HVAC_Velocity },
-                { ParameterType.HVACAirflow, UnitType.UT_HVAC_Airflow },
-                { ParameterType.HVACDuctSize, UnitType.UT_HVAC_DuctSize },
-                { ParameterType.HVACCrossSection, UnitType.UT_HVAC_CrossSection },
-                { ParameterType.HVACHeatGain, UnitType.UT_HVAC_HeatGain },
-                { ParameterType.ElectricalCurrent, UnitType.UT_Electrical_Current },
-                { ParameterType.ElectricalPotential, UnitType.UT_Electrical_Potential },
-                { ParameterType.ElectricalFrequency, UnitType.UT_Electrical_Frequency },
-                { ParameterType.ElectricalIlluminance, UnitType.UT_Electrical_Illuminance },
-                { ParameterType.ElectricalLuminousFlux, UnitType.UT_Electrical_Luminous_Flux },
-                { ParameterType.ElectricalPower, UnitType.UT_Electrical_Power },
-                { ParameterType.HVACRoughness, UnitType.UT_HVAC_Roughness },
-                { ParameterType.ElectricalApparentPower, UnitType.UT_Electrical_Apparent_Power },
-                { ParameterType.ElectricalPowerDensity, UnitType.UT_Electrical_Power_Density },
-                { ParameterType.PipingDensity, UnitType.UT_Piping_Density },
-                { ParameterType.PipingFlow, UnitType.UT_Piping_Flow },
-                { ParameterType.PipingFriction, UnitType.UT_Piping_Friction },
-                { ParameterType.PipingPressure, UnitType.UT_Piping_Pressure },
-                { ParameterType.PipingTemperature, UnitType.UT_Piping_Temperature },
-                { ParameterType.PipingVelocity, UnitType.UT_Piping_Velocity },
-                { ParameterType.PipingViscosity, UnitType.UT_Piping_Viscosity },
-                { ParameterType.PipeSize, UnitType.UT_PipeSize },
-                { ParameterType.PipingRoughness, UnitType.UT_Piping_Roughness },
-                { ParameterType.Stress, UnitType.UT_Stress },
-                { ParameterType.UnitWeight, UnitType.UT_UnitWeight },
-                { ParameterType.ThermalExpansion, UnitType.UT_ThermalExpansion },
-                { ParameterType.LinearMoment, UnitType.UT_LinearMoment },
-                { ParameterType.ForcePerLength, UnitType.UT_ForcePerLength },
-                { ParameterType.ForceLengthPerAngle, UnitType.UT_ForceLengthPerAngle },
-                { ParameterType.LinearForcePerLength, UnitType.UT_LinearForcePerLength },
-                { ParameterType.LinearForceLengthPerAngle, UnitType.UT_LinearForceLengthPerAngle },
-                { ParameterType.AreaForcePerLength, UnitType.UT_AreaForcePerLength },
-                { ParameterType.PipingVolume, UnitType.UT_Piping_Volume },
-                { ParameterType.HVACViscosity, UnitType.UT_HVAC_Viscosity },
-                { ParameterType.HVACCoefficientOfHeatTransfer, UnitType.UT_HVAC_CoefficientOfHeatTransfer },
-                { ParameterType.HVACAirflowDensity, UnitType.UT_HVAC_Airflow_Density },
-                { ParameterType.Slope, UnitType.UT_Slope },
-                { ParameterType.HVACCoolingLoad, UnitType.UT_HVAC_Cooling_Load },
-                { ParameterType.HVACCoolingLoadDividedByArea, UnitType.UT_HVAC_Cooling_Load_Divided_By_Area },
-                { ParameterType.HVACCoolingLoadDividedByVolume, UnitType.UT_HVAC_Cooling_Load_Divided_By_Volume },
-                { ParameterType.HVACHeatingLoad, UnitType.UT_HVAC_Heating_Load },
-                { ParameterType.HVACHeatingLoadDividedByArea, UnitType.UT_HVAC_Heating_Load_Divided_By_Area },
-                { ParameterType.HVACHeatingLoadDividedByVolume, UnitType.UT_HVAC_Heating_Load_Divided_By_Volume },
-                { ParameterType.HVACAirflowDividedByVolume, UnitType.UT_HVAC_Airflow_Divided_By_Volume },
-                { ParameterType.HVACAirflowDividedByCoolingLoad, UnitType.UT_HVAC_Airflow_Divided_By_Cooling_Load },
-                { ParameterType.HVACAreaDividedByCoolingLoad, UnitType.UT_HVAC_Area_Divided_By_Cooling_Load },
-                { ParameterType.WireSize, UnitType.UT_WireSize },
-                { ParameterType.HVACSlope, UnitType.UT_HVAC_Slope },
-                { ParameterType.PipingSlope, UnitType.UT_Piping_Slope },
-                { ParameterType.Currency, UnitType.UT_Currency },
-                { ParameterType.ElectricalEfficacy, UnitType.UT_Electrical_Efficacy },
-                { ParameterType.ElectricalWattage, UnitType.UT_Electrical_Wattage },
-                { ParameterType.ColorTemperature, UnitType.UT_Color_Temperature },
-                { ParameterType.ElectricalLuminousIntensity, UnitType.UT_Electrical_Luminous_Intensity },
-                { ParameterType.ElectricalLuminance, UnitType.UT_Electrical_Luminance },
-                { ParameterType.HVACAreaDividedByHeatingLoad, UnitType.UT_HVAC_Area_Divided_By_Heating_Load },
-                { ParameterType.HVACFactor, UnitType.UT_HVAC_Factor },
-                { ParameterType.ElectricalTemperature, UnitType.UT_Electrical_Temperature },
-                { ParameterType.ElectricalCableTraySize, UnitType.UT_Electrical_CableTraySize },
-                { ParameterType.ElectricalConduitSize, UnitType.UT_Electrical_ConduitSize },
-                { ParameterType.ReinforcementVolume, UnitType.UT_Reinforcement_Volume },
-                { ParameterType.ReinforcementLength, UnitType.UT_Reinforcement_Length },
-                { ParameterType.ElectricalDemandFactor, UnitType.UT_Electrical_Demand_Factor },
-                { ParameterType.HVACDuctInsulationThickness, UnitType.UT_HVAC_DuctInsulationThickness },
-                { ParameterType.HVACDuctLiningThickness, UnitType.UT_HVAC_DuctLiningThickness },
-                { ParameterType.PipeInsulationThickness, UnitType.UT_PipeInsulationThickness },
-                { ParameterType.HVACThermalResistance, UnitType.UT_HVAC_ThermalResistance },
-                { ParameterType.HVACThermalMass, UnitType.UT_HVAC_ThermalMass },
-                { ParameterType.Acceleration, UnitType.UT_Acceleration },
-                { ParameterType.BarDiameter, UnitType.UT_Bar_Diameter },
-                { ParameterType.CrackWidth, UnitType.UT_Crack_Width },
-                { ParameterType.DisplacementDeflection, UnitType.UT_Displacement_Deflection },
-                { ParameterType.Energy, UnitType.UT_Energy },
-                { ParameterType.StructuralFrequency, UnitType.UT_Structural_Frequency },
-                { ParameterType.Mass, UnitType.UT_Mass },
-                { ParameterType.MassPerUnitLength, UnitType.UT_Mass_per_Unit_Length },
-                { ParameterType.MomentOfInertia, UnitType.UT_Moment_of_Inertia },
-                { ParameterType.SurfaceArea, UnitType.UT_Surface_Area },
-                { ParameterType.Period, UnitType.UT_Period },
-                { ParameterType.Pulsation, UnitType.UT_Pulsation },
-                { ParameterType.ReinforcementArea, UnitType.UT_Reinforcement_Area },
-                { ParameterType.ReinforcementAreaPerUnitLength, UnitType.UT_Reinforcement_Area_per_Unit_Length },
-                { ParameterType.ReinforcementCover, UnitType.UT_Reinforcement_Cover },
-                { ParameterType.ReinforcementSpacing, UnitType.UT_Reinforcement_Spacing },
-                { ParameterType.Rotation, UnitType.UT_Rotation },
-                { ParameterType.SectionArea, UnitType.UT_Section_Area },
-                { ParameterType.SectionDimension, UnitType.UT_Section_Dimension },
-                { ParameterType.SectionModulus, UnitType.UT_Section_Modulus },
-                { ParameterType.SectionProperty, UnitType.UT_Section_Property },
-                { ParameterType.StructuralVelocity, UnitType.UT_Structural_Velocity },
-                { ParameterType.WarpingConstant, UnitType.UT_Warping_Constant },
-                { ParameterType.Weight, UnitType.UT_Weight },
-                { ParameterType.WeightPerUnitLength, UnitType.UT_Weight_per_Unit_Length },
-                { ParameterType.HVACThermalConductivity, UnitType.UT_HVAC_ThermalConductivity },
-                { ParameterType.HVACSpecificHeat, UnitType.UT_HVAC_SpecificHeat },
-                { ParameterType.HVACSpecificHeatOfVaporization, UnitType.UT_HVAC_SpecificHeatOfVaporization },
-                { ParameterType.HVACPermeability, UnitType.UT_HVAC_Permeability },
-                { ParameterType.ElectricalResistivity, UnitType.UT_Electrical_Resistivity },
-                { ParameterType.MassDensity, UnitType.UT_MassDensity },
-                { ParameterType.MassPerUnitArea, UnitType.UT_MassPerUnitArea },
-                { ParameterType.PipeDimension, UnitType.UT_Pipe_Dimension },
-                { ParameterType.PipeMass, UnitType.UT_PipeMass },
-                { ParameterType.PipeMassPerUnitLength, UnitType.UT_PipeMassPerUnitLength },
-                { ParameterType.HVACTemperatureDifference, UnitType.UT_HVAC_TemperatureDifference },
-                { ParameterType.PipingTemperatureDifference, UnitType.UT_Piping_TemperatureDifference },
-                { ParameterType.ElectricalTemperatureDifference, UnitType.UT_Electrical_TemperatureDifference },
-            };
-        }
-
-        /// <summary>
-        /// Converts DATATYPE of a shared parameter to <see cref="ParameterType"/>
-        /// </summary>
-        /// <param name="dataType">DATATYPE string to convert</param>
-        /// <returns></returns>
-        public static ParameterType FromSharedDataType(this string dataType)
-        {
-            var values = _parameterTypes2Shared?.Where(u => u.Value.Equals(dataType, StringComparison.OrdinalIgnoreCase)).Select(x => x.Key).ToArray();
-            return (values != null && values.Any())
-                ? values.FirstOrDefault()
-                : ParameterType.Invalid;
-        }
-
-        /// <summary>
-        /// Converts <see cref="ParameterType"/> value to DATATYPE (shared parameter file)
-        /// </summary>
-        /// <param name="parameter">ParameterType value to convert</param>
-        /// <returns></returns>
-        public static string ToSharedDataType(this ParameterType parameter)
-        {
-            _parameterTypes2Shared.TryGetValue(parameter, out string dataType);
-            return dataType;
-        }
-
-        /// <summary>
-        /// Ge value to UnityType
-        /// </summary>
-        /// <param name="parameter"></param>
-        /// <returns></returns>
-        public static UnitType GetUnitType(this ParameterType parameter)
-        {
-            _parameterTypes2UnitTypes.TryGetValue(parameter, out UnitType unitType);
-            return unitType;
-        }
-    }
 }

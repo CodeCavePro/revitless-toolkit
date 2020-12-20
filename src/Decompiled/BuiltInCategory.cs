@@ -1,1614 +1,1095 @@
+#pragma warning disable IDE0079 // Remove unnecessary suppression
+#pragma warning disable CS1591
+
 // ReSharper disable InconsistentNaming
 
-using System.Collections.Generic;
-
+// Decompiled with JetBrains decompiler
+// Type: Autodesk.Revit.DB.BuiltInCategory
+// Assembly: RevitAPI, Version=21.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: E5118772-F025-44D6-A6E2-B8EDEDB90979
+// Assembly location: C:\Program Files\Autodesk\Revit 2021\RevitAPI.dll
 namespace CodeCave.Revit.Toolkit
 {
     /// <summary> A list of all the built in categories within Revit. </summary>
-    // Decompiled with JetBrains decompiler
-    // Type: Autodesk.Revit.DB.BuiltInCategory
-    // Assembly: RevitAPI, Version=17.0.0.0, Culture=neutral, PublicKeyToken=null
-    // MVID: EBF12551-D525-4A0A-8686-7022E5DC12EE
-    // Missing XML comment for publicly visible type or member
-#pragma warning disable CS1591
     public enum BuiltInCategory
     {
-        OST_StackedWalls_Obsolete_IdInWrongRange = -20034100,
-        OST_MassTags_Obsolete_IdInWrongRange = -20034005,
-        OST_MassSurface_Obsolete_IdInWrongRange = -20034004,
-        OST_MassFloor_Obsolete_IdInWrongRange = -20034003,
-        OST_Mass_Obsolete_IdInWrongRange = -20034000,
-        OST_WallRefPlanes_Obsolete_IdInWrongRange = -20000896,
-        OST_StickSymbols_Obsolete_IdInWrongRange = -20000828,
-        OST_RemovedGridSeg_Obsolete_IdInWrongRange = -20000827,
-        OST_PointClouds = -2010001,
-        OST_AssemblyOrigin_Lines = -2009661,
-        OST_AssemblyOrigin_Planes = -2009660,
-        OST_AssemblyOrigin_Points = -2009659,
-        OST_AssemblyOrigin = -2009658,
-        OST_LinksAnalytical = -2009657,
-        OST_FoundationSlabAnalyticalTags = -2009656,
-        OST_WallFoundationAnalyticalTags = -2009655,
-        OST_IsolatedFoundationAnalyticalTags = -2009654,
-        OST_WallAnalyticalTags = -2009653,
-        OST_FloorAnalyticalTags = -2009652,
-        OST_ColumnAnalyticalTags = -2009651,
-        OST_BraceAnalyticalTags = -2009650,
-        OST_BeamAnalyticalTags = -2009649,
-        OST_AnalyticalNodes_Lines = -2009648,
-        OST_AnalyticalNodes_Planes = -2009647,
-        OST_AnalyticalNodes_Points = -2009646,
-        OST_AnalyticalNodes = -2009645,
-        OST_RigidLinksAnalytical = -2009644,
-        OST_FoundationSlabAnalytical = -2009643,
-        OST_WallFoundationAnalytical = -2009642,
-        OST_IsolatedFoundationAnalytical = -2009641,
-        OST_WallAnalytical = -2009640,
-        OST_FloorAnalytical = -2009639,
-        OST_ColumnEndSegment = -2009638,
-        OST_ColumnStartSegment = -2009637,
-        OST_ColumnAnalytical = -2009636,
-        OST_BraceEndSegment = -2009635,
-        OST_BraceStartSegment = -2009634,
-        OST_BraceAnalytical = -2009633,
-        OST_BeamEndSegment = -2009632,
-        OST_BeamStartSegment = -2009631,
-        OST_BeamAnalytical = -2009630,
-        OST_CompassSecondaryMonth = -2009624,
-        OST_CompassPrimaryMonth = -2009623,
-        OST_CompassSectionFilled = -2009622,
-        OST_LightLine = -2009621,
-        OST_MultiSurface = -2009620,
-        OST_SunSurface = -2009619,
-        OST_Analemma = -2009618,
-        OST_SunsetText = -2009617,
-        OST_CompassSection = -2009616,
-        OST_CompassOuter = -2009615,
-        OST_SunriseText = -2009614,
-        OST_CompassInner = -2009613,
-        OST_SunPath2 = -2009612,
-        OST_SunPath1 = -2009611,
-        OST_Sun = -2009610,
-        OST_SunStudy = -2009609,
-        OST_StructuralTrussStickSymbols = -2009608,
-        OST_StructuralTrussHiddenLines = -2009607,
-        OST_TrussChord = -2009606,
-        OST_TrussWeb = -2009605,
-        OST_TrussBottomChordCurve = -2009604,
-        OST_TrussTopChordCurve = -2009603,
-        OST_TrussVertWebCurve = -2009602,
-        OST_TrussDiagWebCurve = -2009601,
-        OST_Truss = -2009600,
-        OST_RailingSystemTransitionHiddenLines_Deprecated = -2009549,
-        OST_RailingSystemTerminationHiddenLines_Deprecated = -2009548,
-        OST_RailingSystemRailHiddenLines_Deprecated = -2009547,
-        OST_RailingSystemTopRailHiddenLines_Deprecated = -2009546,
-        OST_RailingSystemHandRailBracketHiddenLines_Deprecated = -2009545,
-        OST_RailingSystemHandRailHiddenLines_Deprecated = -2009544,
-        OST_RailingSystemPanelBracketHiddenLines_Deprecated = -2009543,
-        OST_RailingSystemPanelHiddenLines_Deprecated = -2009542,
-        OST_RailingSystemBalusterHiddenLines_Deprecated = -2009541,
-        OST_RailingSystemPostHiddenLines_Deprecated = -2009540,
-        OST_RailingSystemSegmentHiddenLines_Deprecated = -2009539,
-        OST_RailingSystemHiddenLines_Deprecated = -2009538,
-        OST_StairStringer2012HiddenLines_Deprecated = -2009537,
-        OST_StairTread2012HiddenLines_Deprecated = -2009536,
-        OST_StairLanding2012HiddenLines_Deprecated = -2009535,
-        OST_StairRun2012HiddenLines_Deprecated = -2009534,
-        OST_Stairs2012HiddenLines_Deprecated = -2009533,
-        OST_MassHiddenLines = -2009532,
-        OST_CurtaSystemHiddenLines = -2009531,
-        OST_OBSOLETE_ElemArrayHiddenLines = -2009530,
-        OST_EntourageHiddenLines = -2009529,
-        OST_PlantingHiddenLines = -2009528,
-        OST_SpecialityEquipmentHiddenLines = -2009527,
-        OST_TopographyHiddenLines = -2009526,
-        OST_StructuralFramingSystemHiddenLines_Obsolete = -2009525,
-        OST_SiteHiddenLines = -2009524,
-        OST_RoadsHiddenLines = -2009523,
-        OST_ParkingHiddenLines = -2009522,
-        OST_PlumbingFixturesHiddenLines = -2009521,
-        OST_MechanicalEquipmentHiddenLines = -2009520,
-        OST_LightingFixturesHiddenLines = -2009519,
-        OST_FurnitureSystemsHiddenLines = -2009518,
-        OST_ElectricalFixturesHiddenLines = -2009517,
-        OST_ElectricalEquipmentHiddenLines = -2009516,
-        OST_CaseworkHiddenLines = -2009515,
-        OST_DetailComponentsHiddenLines = -2009514,
-        OST_ShaftOpeningHiddenLines = -2009513,
-        OST_GenericModelHiddenLines = -2009512,
-        OST_CurtainWallMullionsHiddenLines = -2009511,
-        OST_CurtainWallPanelsHiddenLines = -2009510,
-        OST_RampsHiddenLines = -2009509,
-        OST_StairsRailingHiddenLines = -2009508,
-        OST_StairsHiddenLines = -2009507,
-        OST_ColumnsHiddenLines = -2009506,
-        OST_FurnitureHiddenLines = -2009505,
-        OST_LinesHiddenLines = -2009504,
-        OST_CeilingsHiddenLines = -2009503,
-        OST_RoofsHiddenLines = -2009502,
-        OST_DoorsHiddenLines = -2009501,
-        OST_WindowsHiddenLines = -2009500,
-        OST_CouplerHiddenLines = -2009062,
-        OST_CouplerTags = -2009061,
-        OST_Coupler = -2009060,
-        OST_RebarHiddenLines = -2009050,
-        OST_StructConnectionOthers = -2009042,
-        OST_StructConnectionBolts = -2009041,
-        OST_StructConnectionTags = -2009040,
-        OST_StructConnectionAnchors = -2009039,
-        OST_StructConnectionPlates = -2009038,
-        OST_StructConnectionProfiles = -2009037,
-        OST_StructConnectionReference = -2009036,
-        OST_StructConnectionFailed = -2009035,
-        OST_StructConnectionStale = -2009034,
-        OST_StructConnectionSymbol = -2009033,
-        OST_StructConnectionHiddenLines = -2009032,
-        OST_StructWeldLines = -2009031,
-        OST_StructConnections = -2009030,
-        OST_FabricAreaBoundary = -2009029,
-        OST_FabricReinSpanSymbol = -2009028,
-        OST_FabricReinforcementWire = -2009027,
-        OST_FabricReinforcementBoundary = -2009026,
-        OST_RebarSetToggle = -2009025,
-        OST_FabricAreaTags = -2009023,
-        OST_FabricReinforcementTags = -2009022,
-        OST_AreaReinTags = -2009021,
-        OST_RebarTags = -2009020,
-        OST_FabricAreaSketchSheetsLines = -2009019,
-        OST_FabricAreaSketchEnvelopeLines = -2009018,
-        OST_FabricAreas = -2009017,
-        OST_FabricReinforcement = -2009016,
-        OST_RebarCover = -2009015,
-        OST_CoverType = -2009014,
-        OST_RebarShape = -2009013,
-        OST_PathReinBoundary = -2009012,
-        OST_PathReinTags = -2009011,
-        OST_PathReinSpanSymbol = -2009010,
-        OST_PathRein = -2009009,
-        OST_Cage = -2009008,
-        OST_AreaReinXVisibility = -2009007,
-        OST_AreaReinBoundary = -2009006,
-        OST_AreaReinSpanSymbol = -2009005,
-        OST_AreaReinSketchOverride = -2009004,
-        OST_AreaRein = -2009003,
-        OST_RebarLines = -2009002,
-        OST_RebarSketchLines = -2009001,
-        OST_Rebar = -2009000,
-        OST_FabricationPipeworkInsulation = -2008221,
-        OST_FabricationDuctworkLining = -2008220,
-        OST_FabricationContainmentDrop = -2008219,
-        OST_FabricationContainmentRise = -2008218,
-        OST_FabricationPipeworkDrop = -2008217,
-        OST_FabricationPipeworkRise = -2008216,
-        OST_FabricationContainmentSymbology = -2008215,
-        OST_FabricationContainmentCenterLine = -2008214,
-        OST_FabricationContainmentTags = -2008213,
-        OST_FabricationContainment = -2008212,
-        OST_FabricationPipeworkSymbology = -2008211,
-        OST_FabricationPipeworkCenterLine = -2008210,
-        OST_FabricationPipeworkTags = -2008209,
-        OST_FabricationPipework = -2008208,
-        OST_FabricationDuctworkSymbology = -2008207,
-        OST_FabricationDuctworkDrop = -2008206,
-        OST_FabricationDuctworkRise = -2008205,
-        OST_FabricationHangerTags = -2008204,
-        OST_FabricationHangers = -2008203,
-        OST_OBSOLETE_FabricationPartsTmpGraphicDropDrag = -2008202,
-        OST_FabricationPartsTmpGraphicDrag = -2008201,
-        OST_OBSOLETE_FabricationPartsTmpGraphicDrop = -2008200,
-        OST_FabricationPartsTmpGraphicEnd = -2008199,
-        OST_FabricationDuctworkInsulation = -2008198,
-        OST_LayoutNodes = -2008197,
-        OST_FabricationDuctworkCenterLine = -2008196,
-        OST_FabricationServiceElements = -2008195,
-        OST_FabricationDuctworkTags = -2008194,
-        OST_FabricationDuctwork = -2008193,
-        OST_LayoutPathBase_Pipings = -2008192,
-        OST_NumberingSchemas = -2008191,
-        OST_DivisionRules = -2008190,
-        OST_gbXML_Shade = -2008187,
-        OST_AnalyticSurfaces = -2008186,
-        OST_AnalyticSpaces = -2008185,
-        OST_gbXML_OpeningAir = -2008184,
-        OST_gbXML_NonSlidingDoor = -2008183,
-        OST_gbXML_SlidingDoor = -2008182,
-        OST_gbXML_OperableSkylight = -2008181,
-        OST_gbXML_FixedSkylight = -2008180,
-        OST_gbXML_OperableWindow = -2008179,
-        OST_gbXML_FixedWindow = -2008178,
-        OST_gbXML_UndergroundCeiling = -2008177,
-        OST_gbXML_UndergroundSlab = -2008176,
-        OST_gbXML_UndergroundWall = -2008175,
-        OST_gbXML_SurfaceAir = -2008174,
-        OST_gbXML_Ceiling = -2008173,
-        OST_gbXML_InteriorFloor = -2008172,
-        OST_gbXML_InteriorWall = -2008171,
-        OST_gbXML_SlabOnGrade = -2008170,
-        OST_gbXML_RaisedFloor = -2008169,
-        OST_gbXML_Roof = -2008168,
-        OST_gbXML_ExteriorWall = -2008167,
-        OST_DivisionProfile = -2008165,
-        OST_SplitterProfile = -2008164,
-        OST_PipeSegments = -2008163,
-        OST_GraphicalWarning_OpenConnector = -2008162,
-        OST_PlaceHolderPipes = -2008161,
-        OST_PlaceHolderDucts = -2008160,
-        OST_PipingSystem_Reference_Visibility = -2008159,
-        OST_PipingSystem_Reference = -2008158,
-        OST_DuctSystem_Reference_Visibility = -2008157,
-        OST_DuctSystem_Reference = -2008156,
-        OST_PipeInsulationsTags = -2008155,
-        OST_DuctLiningsTags = -2008154,
-        OST_DuctInsulationsTags = -2008153,
-        OST_ElectricalInternalCircuits = -2008152,
-        OST_PanelScheduleGraphics = -2008151,
-        OST_CableTrayRun = -2008150,
-        OST_ConduitRun = -2008149,
-        OST_ParamElemElectricalLoadClassification = -2008148,
-        OST_DataPanelScheduleTemplates = -2008147,
-        OST_SwitchboardScheduleTemplates = -2008146,
-        OST_BranchPanelScheduleTemplates = -2008145,
-        OST_ConduitStandards = -2008144,
-        OST_ElectricalLoadClassifications = -2008143,
-        OST_ElectricalDemandFactorDefinitions = -2008142,
-        OST_ConduitFittingCenterLine = -2008141,
-        OST_CableTrayFittingCenterLine = -2008140,
-        OST_ConduitCenterLine = -2008139,
-        OST_ConduitDrop = -2008138,
-        OST_ConduitRiseDrop = -2008137,
-        OST_CableTrayCenterLine = -2008136,
-        OST_CableTrayDrop = -2008135,
-        OST_CableTrayRiseDrop = -2008134,
-        OST_ConduitTags = -2008133,
-        OST_Conduit = -2008132,
-        OST_CableTrayTags = -2008131,
-        OST_CableTray = -2008130,
-        OST_ConduitFittingTags = -2008129,
-        OST_ConduitFitting = -2008128,
-        OST_CableTrayFittingTags = -2008127,
-        OST_CableTrayFitting = -2008126,
-        OST_RoutingPreferences = -2008125,
-        OST_DuctLinings = -2008124,
-        OST_DuctInsulations = -2008123,
-        OST_PipeInsulations = -2008122,
-        OST_HVAC_Load_Schedules = -2008121,
-        OST_HVAC_Load_Building_Types = -2008120,
-        OST_HVAC_Load_Space_Types = -2008119,
-        OST_HVAC_Zones_Reference_Visibility = -2008118,
-        OST_HVAC_Zones_InteriorFill_Visibility = -2008117,
-        OST_HVAC_Zones_ColorFill = -2008116,
-        OST_ZoneTags = -2008115,
-        OST_LayoutPath_Bases = -2008114,
-        OST_WireTemperatureRatings = -2008113,
-        OST_WireInsulations = -2008112,
-        OST_WireMaterials = -2008111,
-        OST_HVAC_Zones_Reference = -2008110,
-        OST_HVAC_Zones_InteriorFill = -2008109,
-        OST_HVAC_Zones_Boundary = -2008108,
-        OST_HVAC_Zones = -2008107,
-        OST_Fluids = -2008106,
-        OST_PipeSchedules = -2008105,
-        OST_PipeMaterials = -2008104,
-        OST_PipeConnections = -2008103,
-        OST_EAConstructions = -2008102,
-        OST_SwitchSystem = -2008101,
-        OST_SprinklerTags = -2008100,
-        OST_Sprinklers = -2008099,
-        OST_RouteCurveBranch = -2008098,
-        OST_RouteCurveMain = -2008097,
-        OST_RouteCurve = -2008096,
-        OST_GbXML_Opening = -2008095,
-        OST_GbXML_SType_Underground = -2008094,
-        OST_GbXML_SType_Shade = -2008093,
-        OST_GbXML_SType_Exterior = -2008092,
-        OST_GbXML_SType_Interior = -2008091,
-        OST_GbXMLFaces = -2008090,
-        OST_WireHomeRunArrows = -2008089,
-        OST_LightingDeviceTags = -2008088,
-        OST_LightingDevices = -2008087,
-        OST_FireAlarmDeviceTags = -2008086,
-        OST_FireAlarmDevices = -2008085,
-        OST_DataDeviceTags = -2008084,
-        OST_DataDevices = -2008083,
-        OST_CommunicationDeviceTags = -2008082,
-        OST_CommunicationDevices = -2008081,
-        OST_SecurityDeviceTags = -2008080,
-        OST_SecurityDevices = -2008079,
-        OST_NurseCallDeviceTags = -2008078,
-        OST_NurseCallDevices = -2008077,
-        OST_TelephoneDeviceTags = -2008076,
-        OST_TelephoneDevices = -2008075,
-        OST_WireTickMarks = -2008074,
-        OST_PipeFittingInsulation = -2008073,
-        OST_PipeFittingCenterLine = -2008072,
-        OST_FlexPipeCurvesInsulation = -2008071,
-        OST_PipeCurvesInsulation = -2008070,
-        OST_PipeCurvesDrop = -2008069,
-        OST_DuctFittingLining = -2008068,
-        OST_DuctFittingInsulation = -2008067,
-        OST_DuctFittingCenterLine = -2008066,
-        OST_FlexDuctCurvesInsulation = -2008065,
-        OST_DuctCurvesLining = -2008064,
-        OST_DuctCurvesInsulation = -2008063,
-        OST_DuctCurvesDrop = -2008062,
-        OST_DuctFittingTags = -2008061,
-        OST_PipeFittingTags = -2008060,
-        OST_PipeColorFills = -2008059,
-        OST_PipeColorFillLegends = -2008058,
-        OST_WireTags = -2008057,
-        OST_PipeAccessoryTags = -2008056,
-        OST_PipeAccessory = -2008055,
-        OST_PipeCurvesRiseDrop = -2008054,
-        OST_FlexPipeCurvesPattern = -2008053,
-        OST_FlexPipeCurvesContour = -2008052,
-        OST_FlexPipeCurvesCenterLine = -2008051,
-        OST_FlexPipeCurves = -2008050,
-        OST_PipeFitting = -2008049,
-        OST_FlexPipeTags = -2008048,
-        OST_PipeTags = -2008047,
-        OST_PipeCurvesContour = -2008046,
-        OST_PipeCurvesCenterLine = -2008045,
-        OST_PipeCurves = -2008044,
-        OST_PipingSystem = -2008043,
-        OST_ElectricalDemandFactor = -2008042,
-        OST_ElecDistributionSys = -2008041,
-        OST_ElectricalVoltage = -2008040,
-        OST_Wire = -2008039,
-        OST_ElectricalCircuitTags = -2008038,
-        OST_ElectricalCircuit = -2008037,
-        OST_DuctCurvesRiseDrop = -2008036,
-        OST_FlexDuctCurvesPattern = -2008023,
-        OST_FlexDuctCurvesContour = -2008022,
-        OST_FlexDuctCurvesCenterLine = -2008021,
-        OST_FlexDuctCurves = -2008020,
-        OST_DuctAccessoryTags = -2008017,
-        OST_DuctAccessory = -2008016,
-        OST_DuctSystem = -2008015,
-        OST_DuctTerminalTags = -2008014,
-        OST_DuctTerminal = -2008013,
-        OST_DuctFitting = -2008010,
-        OST_DuctColorFills = -2008005,
-        OST_FlexDuctTags = -2008004,
-        OST_DuctTags = -2008003,
-        OST_DuctCurvesContour = -2008002,
-        OST_DuctCurvesCenterLine = -2008001,
-        OST_DuctCurves = -2008000,
-        OST_DuctColorFillLegends = -2007004,
-        OST_ConnectorElemZAxis = -2007003,
-        OST_ConnectorElemYAxis = -2007002,
-        OST_ConnectorElemXAxis = -2007001,
-        OST_ConnectorElem = -2007000,
-        OST_DesignOptions = -2006114,
-        OST_DesignOptionSets = -2006112,
-        OST_StructuralBracePlanReps = -2006110,
-        OST_StructConnectionSymbols = -2006100,
-        OST_StructuralAnnotations = -2006090,
-        OST_RevisionCloudTags = -2006080,
-        OST_Revisions = -2006070,
-        OST_RevisionClouds = -2006060,
-        OST_EditCutProfile = -2006050,
-        OST_ElevationMarks = -2006045,
-        OST_GridHeads = -2006040,
-        OST_LevelHeads = -2006020,
-        OST_DecalType = -2006002,
-        OST_DecalElement = -2006001,
-        OST_VolumeOfInterest = -2006000,
-        OST_BoundaryConditions = -2005301,
-        OST_InternalAreaLoadTags = -2005255,
-        OST_InternalLineLoadTags = -2005254,
-        OST_InternalPointLoadTags = -2005253,
-        OST_AreaLoadTags = -2005252,
-        OST_LineLoadTags = -2005251,
-        OST_PointLoadTags = -2005250,
-        OST_LoadCasesSeismic = -2005218,
-        OST_LoadCasesTemperature = -2005217,
-        OST_LoadCasesAccidental = -2005216,
-        OST_LoadCasesRoofLive = -2005215,
-        OST_LoadCasesSnow = -2005214,
-        OST_LoadCasesWind = -2005213,
-        OST_LoadCasesLive = -2005212,
-        OST_LoadCasesDead = -2005211,
-        OST_LoadCases = -2005210,
-        OST_InternalAreaLoads = -2005207,
-        OST_InternalLineLoads = -2005206,
-        OST_InternalPointLoads = -2005205,
-        OST_InternalLoads = -2005204,
-        OST_AreaLoads = -2005203,
-        OST_LineLoads = -2005202,
-        OST_PointLoads = -2005201,
-        OST_Loads = -2005200,
-        OST_BeamSystemTags = -2005130,
-        OST_FootingSpanDirectionSymbol = -2005111,
-        OST_SpanDirectionSymbol = -2005110,
-        OST_SpotSlopesSymbols = -2005102,
-        OST_SpotCoordinateSymbols = -2005101,
-        OST_SpotElevSymbols = -2005100,
-        OST_StructuralConnectionHandlerTags_Deprecated = -2005031,
-        OST_TrussTags = -2005030,
-        OST_KeynoteTags = -2005029,
-        OST_DetailComponentTags = -2005028,
-        OST_MaterialTags = -2005027,
-        OST_FloorTags = -2005026,
-        OST_CurtaSystemTags = -2005025,
-        OST_HostFinTags = -2005024,
-        OST_StairsTags = -2005023,
-        OST_MultiCategoryTags = -2005022,
-        OST_PlantingTags = -2005021,
-        OST_AreaTags = -2005020,
-        OST_StructuralFoundationTags = -2005019,
-        OST_StructuralColumnTags = -2005018,
-        OST_ParkingTags = -2005017,
-        OST_SiteTags = -2005016,
-        OST_StructuralFramingTags = -2005015,
-        OST_SpecialityEquipmentTags = -2005014,
-        OST_GenericModelTags = -2005013,
-        OST_CurtainWallPanelTags = -2005012,
-        OST_WallTags = -2005011,
-        OST_PlumbingFixtureTags = -2005010,
-        OST_MechanicalEquipmentTags = -2005009,
-        OST_LightingFixtureTags = -2005008,
-        OST_FurnitureSystemTags = -2005007,
-        OST_FurnitureTags = -2005006,
-        OST_ElectricalFixtureTags = -2005004,
-        OST_ElectricalEquipmentTags = -2005003,
-        OST_CeilingTags = -2005002,
-        OST_CaseworkTags = -2005001,
-        OST_Tags = -2005000,
-        OST_MEPSpaceColorFill = -2003605,
-        OST_MEPSpaceReference = -2003604,
-        OST_MEPSpaceInteriorFill = -2003603,
-        OST_MEPSpaceReferenceVisibility = -2003602,
-        OST_MEPSpaceInteriorFillVisibility = -2003601,
-        OST_MEPSpaces = -2003600,
-        OST_StackedWalls = -2003500,
-        OST_MassGlazingAll = -2003423,
-        OST_MassFloorsAll = -2003422,
-        OST_MassWallsAll = -2003421,
-        OST_MassExteriorWallUnderground = -2003420,
-        OST_MassSlab = -2003419,
-        OST_MassShade = -2003418,
-        OST_MassOpening = -2003417,
-        OST_MassSkylights = -2003416,
-        OST_MassGlazing = -2003415,
-        OST_MassRoof = -2003414,
-        OST_MassExteriorWall = -2003413,
-        OST_MassInteriorWall = -2003412,
-        OST_MassZone = -2003411,
-        OST_MassAreaFaceTags = -2003410,
-        OST_HostTemplate = -2003409,
-        OST_MassFaceSplitter = -2003408,
-        OST_MassCutter = -2003407,
-        OST_ZoningEnvelope = -2003406,
-        OST_MassTags = -2003405,
-        OST_MassForm = -2003404,
-        OST_MassFloor = -2003403,
-        OST_Mass = -2003400,
-        OST_DividedSurface_DiscardedDivisionLines = -2003333,
-        OST_DividedSurfaceBelt = -2003332,
-        OST_TilePatterns = -2003331,
-        OST_AlwaysExcludedInAllViews = -2003330,
-        OST_DividedSurface_TransparentFace = -2003329,
-        OST_DividedSurface_PreDividedSurface = -2003328,
-        OST_DividedSurface_PatternFill = -2003327,
-        OST_DividedSurface_PatternLines = -2003326,
-        OST_DividedSurface_Gridlines = -2003325,
-        OST_DividedSurface_Nodes = -2003324,
-        OST_DividedSurface = -2003323,
-        OST_RepeatingDetailLines = -2003321,
-        OST_RampsDownArrow = -2003308,
-        OST_RampsUpArrow = -2003307,
-        OST_RampsDownText = -2003306,
-        OST_RampsUpText = -2003305,
-        OST_RampsStringerAboveCut = -2003304,
-        OST_RampsStringer = -2003303,
-        OST_RampsAboveCut = -2003302,
-        OST_RampsIncomplete = -2003301,
-        OST_TrussDummy = -2003300,
-        OST_ZoneSchemes = -2003225,
-        OST_AreaSchemes = -2003201,
-        OST_Areas = -2003200,
-        OST_ProjectInformation = -2003101,
-        OST_Sheets = -2003100,
-        OST_ProfileFamilies = -2003000,
-        OST_DetailComponents = -2002000,
-        OST_RoofSoffit = -2001393,
-        OST_EdgeSlab = -2001392,
-        OST_Gutter = -2001391,
-        OST_Fascia = -2001390,
-        OST_Entourage = -2001370,
-        OST_Planting = -2001360,
-        OST_Blocks = -2001359,
-        OST_StructuralStiffenerHiddenLines = -2001358,
-        OST_StructuralColumnLocationLine = -2001357,
-        OST_StructuralFramingLocationLine = -2001356,
-        OST_StructuralStiffenerTags = -2001355,
-        OST_StructuralStiffener = -2001354,
-        OST_FootingAnalyticalGeometry = -2001353,
-        OST_RvtLinks = -2001352,
-        OST_Automatic = -2001351,
-        OST_SpecialityEquipment = -2001350,
-        OST_ColumnAnalyticalRigidLinks = -2001344,
-        OST_SecondaryTopographyContours = -2001343,
-        OST_TopographyContours = -2001342,
-        OST_TopographySurface = -2001341,
-        OST_Topography = -2001340,
-        OST_StructuralTruss = -2001336,
-        OST_StructuralColumnStickSymbols = -2001335,
-        OST_HiddenStructuralColumnLines = -2001334,
-        OST_AnalyticalRigidLinks = -2001333,
-        OST_ColumnAnalyticalGeometry = -2001332,
-        OST_FramingAnalyticalGeometry = -2001331,
-        OST_StructuralColumns = -2001330,
-        OST_HiddenStructuralFramingLines = -2001329,
-        OST_KickerBracing = -2001328,
-        OST_StructuralFramingSystem = -2001327,
-        OST_VerticalBracing = -2001326,
-        OST_HorizontalBracing = -2001325,
-        OST_Purlin = -2001324,
-        OST_Joist = -2001323,
-        OST_Girder = -2001322,
-        OST_StructuralFramingOther = -2001321,
-        OST_StructuralFraming = -2001320,
-        OST_HiddenStructuralFoundationLines = -2001302,
-        OST_StructuralFoundation = -2001300,
-        OST_BasePointAxisZ = -2001275,
-        OST_BasePointAxisY = -2001274,
-        OST_BasePointAxisX = -2001273,
-        OST_SharedBasePoint = -2001272,
-        OST_ProjectBasePoint = -2001271,
-        OST_SiteRegion = -2001270,
-        OST_SitePropertyLineSegmentTags = -2001269,
-        OST_SitePropertyLineSegment = -2001268,
-        OST_SitePropertyTags = -2001267,
-        OST_SitePointBoundary = -2001266,
-        OST_SiteProperty = -2001265,
-        OST_BuildingPad = -2001263,
-        OST_SitePoint = -2001262,
-        OST_SiteSurface = -2001261,
-        OST_Site = -2001260,
-        OST_Sewer = -2001240,
-        OST_Roads = -2001220,
-        OST_Property = -2001200,
-        OST_Parking = -2001180,
-        OST_PlumbingFixtures = -2001160,
-        OST_MechanicalEquipment = -2001140,
-        OST_LightingFixtureSource = -2001121,
-        OST_LightingFixtures = -2001120,
-        OST_FurnitureSystems = -2001100,
-        OST_ElectricalFixtures = -2001060,
-        OST_ElectricalEquipment = -2001040,
-        OST_Casework = -2001000,
-        OST_ArcWallRectOpening = -2000999,
-        OST_DormerOpeningIncomplete = -2000998,
-        OST_SWallRectOpening = -2000997,
-        OST_ShaftOpening = -2000996,
-        OST_StructuralFramingOpening = -2000995,
-        OST_ColumnOpening = -2000994,
-        OST_MultistoryStairs = -2000980,
-        OST_HiddenStructuralConnectionLines_Deprecated = -2000979,
-        OST_StructuralConnectionHandler_Deprecated = -2000978,
-        OST_CoordinateSystem = -2000977,
-        OST_FndSlabLocalCoordSys = -2000976,
-        OST_FloorLocalCoordSys = -2000975,
-        OST_WallLocalCoordSys = -2000974,
-        OST_BraceLocalCoordSys = -2000973,
-        OST_ColumnLocalCoordSys = -2000972,
-        OST_BeamLocalCoordSys = -2000971,
-        OST_MultiReferenceAnnotations = -2000970,
-        OST_DSR_LeaderTickMarkStyleId = -2000969,
-        OST_DSR_InteriorTickMarkStyleId = -2000968,
-        OST_DSR_ArrowHeadStyleId = -2000967,
-        OST_DSR_CenterlineTickMarkStyleId = -2000966,
-        OST_DSR_CenterlinePatternCatId = -2000965,
-        OST_DSR_DimStyleHeavyEndCategoryId = -2000964,
-        OST_DSR_DimStyleHeavyEndCatId = -2000963,
-        OST_DSR_DimStyleTickCategoryId = -2000962,
-        OST_DSR_LineAndTextAttrFontId = -2000961,
-        OST_DSR_LineAndTextAttrCategoryId = -2000960,
-        OST_NodeAnalyticalTags = -2000956,
-        OST_LinkAnalyticalTags = -2000955,
-        OST_RailingRailPathExtensionLines = -2000954,
-        OST_RailingRailPathLines = -2000953,
-        OST_StairsSupports = -2000952,
-        OST_RailingHandRailAboveCut = -2000951,
-        OST_RailingTopRailAboveCut = -2000950,
-        OST_RailingTermination = -2000949,
-        OST_RailingSupport = -2000948,
-        OST_RailingHandRail = -2000947,
-        OST_RailingTopRail = -2000946,
-        OST_StairsSketchPathLines = -2000945,
-        OST_StairsTriserNumbers = -2000944,
-        OST_StairsTriserTags = -2000943,
-        OST_StairsSupportTags = -2000942,
-        OST_StairsLandingTags = -2000941,
-        OST_StairsRunTags = -2000940,
-        OST_StairsPathsAboveCut = -2000939,
-        OST_StairsPaths = -2000938,
-        OST_StairsRiserLinesAboveCut = -2000937,
-        OST_StairsRiserLines = -2000936,
-        OST_StairsOutlinesAboveCut = -2000935,
-        OST_StairsOutlines = -2000934,
-        OST_StairsNosingLinesAboveCut = -2000933,
-        OST_StairsNosingLines = -2000932,
-        OST_StairsCutMarksAboveCut = -2000931,
-        OST_StairsCutMarks = -2000930,
-        OST_ComponentRepeaterSlot = -2000928,
-        OST_ComponentRepeater = -2000927,
-        OST_DividedPath = -2000926,
-        OST_IOSRoomCalculationPoint = -2000925,
-        OST_PropertySet = -2000924,
-        OST_AppearanceAsset = -2000923,
-        OST_StairStringer2012_Deprecated = -2000922,
-        OST_StairsTrisers = -2000921,
-        OST_StairsLandings = -2000920,
-        OST_StairsRuns = -2000919,
-        OST_Stair2012_Deprecated = -2000918,
-        OST_RailingSystemTags = -2000917,
-        OST_RailingSystemTransition = -2000916,
-        OST_RailingSystemTermination = -2000915,
-        OST_RailingSystemRail = -2000914,
-        OST_RailingSystemTopRail = -2000913,
-        OST_RailingSystemHandRailBracket = -2000912,
-        OST_RailingSystemHandRail = -2000911,
-        OST_RailingSystemHardware = -2000910,
-        OST_RailingSystemPanel = -2000909,
-        OST_RailingSystemBaluster = -2000908,
-        OST_RailingSystemPost = -2000907,
-        OST_RailingSystemSegment = -2000906,
-        OST_RailingSystem = -2000905,
-        OST_AdaptivePoints_HiddenLines = -2000904,
-        OST_AdaptivePoints_Lines = -2000903,
-        OST_AdaptivePoints_Planes = -2000902,
-        OST_AdaptivePoints_Points = -2000901,
-        OST_AdaptivePoints = -2000900,
-        OST_CeilingOpening = -2000899,
-        OST_FloorOpening = -2000898,
-        OST_RoofOpening = -2000897,
-        OST_WallRefPlanes = -2000896,
-        OST_StructLocationLineControl = -2000880,
-        OST_DimLockControlLeader = -2000832,
-        OST_MEPSpaceSeparationLines = -2000831,
-        OST_AreaPolylines = -2000830,
-        OST_RoomPolylines = -2000829,
-        OST_InstanceDrivenLineStyle = -2000828,
-        OST_RemovedGridSeg = -2000827,
-        OST_IOSOpening = -2000810,
-        OST_IOSTilePatternGrid = -2000800,
-        OST_ControlLocal = -2000774,
-        OST_ControlAxisZ = -2000773,
-        OST_ControlAxisY = -2000772,
-        OST_ControlAxisX = -2000721,
-        OST_XRayConstrainedProfileEdge = -2000720,
-        OST_XRayImplicitPathCurve = -2000719,
-        OST_XRayPathPoint = -2000718,
-        OST_XRayPathCurve = -2000717,
-        OST_XRaySideEdge = -2000716,
-        OST_XRayProfileEdge = -2000715,
-        OST_ReferencePoints_HiddenLines = -2000714,
-        OST_ReferencePoints_Lines = -2000713,
-        OST_ReferencePoints_Planes = -2000712,
-        OST_ReferencePoints_Points = -2000711,
-        OST_ReferencePoints = -2000710,
-        OST_Materials = -2000700,
-        OST_CeilingsCutPattern = -2000617,
-        OST_CeilingsDefault = -2000616,
-        OST_CeilingsFinish2 = -2000615,
-        OST_CeilingsFinish1 = -2000614,
-        OST_CeilingsSubstrate = -2000613,
-        OST_CeilingsInsulation = -2000612,
-        OST_CeilingsStructure = -2000611,
-        OST_CeilingsMembrane = -2000610,
-        OST_FloorsInteriorEdges = -2000609,
-        OST_FloorsCutPattern = -2000608,
-        OST_HiddenFloorLines = -2000607,
-        OST_FloorsDefault = -2000606,
-        OST_FloorsFinish2 = -2000605,
-        OST_FloorsFinish1 = -2000604,
-        OST_FloorsSubstrate = -2000603,
-        OST_FloorsInsulation = -2000602,
-        OST_FloorsStructure = -2000601,
-        OST_FloorsMembrane = -2000600,
-        OST_RoofsInteriorEdges = -2000598,
-        OST_RoofsCutPattern = -2000597,
-        OST_RoofsDefault = -2000596,
-        OST_RoofsFinish2 = -2000595,
-        OST_RoofsFinish1 = -2000594,
-        OST_RoofsSubstrate = -2000593,
-        OST_RoofsInsulation = -2000592,
-        OST_RoofsStructure = -2000591,
-        OST_RoofsMembrane = -2000590,
-        OST_WallsCutPattern = -2000588,
-        OST_HiddenWallLines = -2000587,
-        OST_WallsDefault = -2000586,
-        OST_WallsFinish2 = -2000585,
-        OST_WallsFinish1 = -2000584,
-        OST_WallsSubstrate = -2000583,
-        OST_WallsInsulation = -2000582,
-        OST_WallsStructure = -2000581,
-        OST_WallsMembrane = -2000580,
-        OST_PreviewLegendComponents = -2000576,
-        OST_LegendComponents = -2000575,
-        OST_ScheduleGraphics = -2000570,
-        OST_RasterImages = -2000560,
-        OST_ColorFillSchema = -2000552,
-        OST_RoomColorFill = -2000551,
-        OST_ColorFillLegends = -2000550,
-        OST_AnnotationCropSpecial = -2000549,
-        OST_CropBoundarySpecial = -2000548,
-        OST_AnnotationCrop = -2000547,
-        OST_FloorsAnalyticalGeometry = -2000546,
-        OST_WallsAnalyticalGeometry = -2000545,
-        OST_CalloutLeaderLine = -2000544,
-        OST_CeilingsSurfacePattern = -2000543,
-        OST_RoofsSurfacePattern = -2000542,
-        OST_FloorsSurfacePattern = -2000541,
-        OST_WallsSurfacePattern = -2000540,
-        OST_CalloutBoundary = -2000539,
-        OST_CalloutHeads = -2000538,
-        OST_Callouts = -2000537,
-        OST_CropBoundary = -2000536,
-        OST_Elev = -2000535,
-        OST_AxisZ = -2000533,
-        OST_AxisY = -2000532,
-        OST_AxisX = -2000531,
-        OST_CLines = -2000530,
-        OST_Lights = -2000520,
-        OST_ViewportLabel = -2000515,
-        OST_Viewports = -2000510,
-        OST_Camera_Lines = -2000501,
-        OST_Cameras = -2000500,
-        OST_MEPSpaceTags = -2000485,
-        OST_RoomTags = -2000480,
-        OST_DoorTags = -2000460,
-        OST_WindowTags = -2000450,
-        OST_SectionHeadWideLines = -2000404,
-        OST_SectionHeadMediumLines = -2000403,
-        OST_SectionHeadThinLines = -2000401,
-        OST_SectionHeads = -2000400,
-        OST_ContourLabels = -2000350,
-        OST_CurtaSystemFaceManager = -2000341,
-        OST_CurtaSystem = -2000340,
-        OST_AreaReport_Arc_Minus = -2000328,
-        OST_AreaReport_Arc_Plus = -2000327,
-        OST_AreaReport_Boundary = -2000326,
-        OST_AreaReport_Triangle = -2000325,
-        OST_CurtainGridsCurtaSystem = -2000323,
-        OST_CurtainGridsSystem = -2000322,
-        OST_CurtainGridsWall = -2000321,
-        OST_CurtainGridsRoof = -2000320,
-        OST_HostFinHF = -2000315,
-        OST_HostFinWall = -2000314,
-        OST_HostFinCeiling = -2000313,
-        OST_HostFinRoof = -2000312,
-        OST_HostFinFloor = -2000311,
-        OST_HostFin = -2000310,
-        OST_AnalysisDisplayStyle = -2000304,
-        OST_AnalysisResults = -2000303,
-        OST_RenderRegions = -2000302,
-        OST_SectionBox = -2000301,
-        OST_TextNotes = -2000300,
-        OST_Divisions = -2000291,
-        OST_Catalogs = -2000290,
-        OST_DirectionEdgeLines = -2000289,
-        OST_CenterLines = -2000288,
-        OST_LinesBeyond = -2000287,
-        OST_HiddenLines = -2000286,
-        OST_DemolishedLines = -2000285,
-        OST_OverheadLines = -2000284,
-        OST_TitleBlockWideLines = -2000283,
-        OST_TitleBlockMediumLines = -2000282,
-        OST_TitleBlockThinLines = -2000281,
-        OST_TitleBlocks = -2000280,
-        OST_Views = -2000279,
-        OST_Viewers = -2000278,
-        OST_PartHiddenLines = -2000271,
-        OST_PartTags = -2000270,
-        OST_Parts = -2000269,
-        OST_AssemblyTags = -2000268,
-        OST_Assemblies = -2000267,
-        OST_RoofTags = -2000266,
-        OST_SpotSlopes = -2000265,
-        OST_SpotCoordinates = -2000264,
-        OST_SpotElevations = -2000263,
-        OST_Constraints = -2000262,
-        OST_WeakDims = -2000261,
-        OST_Dimensions = -2000260,
-        OST_Levels = -2000240,
-        OST_DisplacementPath = -2000223,
-        OST_DisplacementElements = -2000222,
-        OST_GridChains = -2000221,
-        OST_Grids = -2000220,
-        OST_BrokenSectionLine = -2000202,
-        OST_SectionLine = -2000201,
-        OST_Sections = -2000200,
-        OST_ReferenceViewer = -2000198,
-        OST_ReferenceViewerSymbol = -2000197,
-        OST_ImportObjectStyles = -2000196,
-        OST_ModelText = -2000195,
-        OST_MaskingRegion = -2000194,
-        OST_Matchline = -2000193,
-        OST_FaceSplitter = -2000192,
-        OST_PlanRegion = -2000191,
-        OST_FilledRegion = -2000190,
-        OST_MassingProjectionOutlines = -2000187,
-        OST_MassingCutOutlines = -2000186,
-        OST_Massing = -2000185,
-        OST_Reveals = -2000182,
-        OST_Cornices = -2000181,
-        OST_Ramps = -2000180,
-        OST_RailingBalusterRailCut = -2000177,
-        OST_RailingBalusterRail = -2000176,
-        OST_Railings = -2000175,
-        OST_CurtainGrids = -2000173,
-        OST_CurtainWallMullionsCut = -2000172,
-        OST_CurtainWallMullions = -2000171,
-        OST_CurtainWallPanels = -2000170,
-        OST_AreaReference = -2000169,
-        OST_AreaInteriorFill = -2000168,
-        OST_RoomReference = -2000167,
-        OST_RoomInteriorFill = -2000166,
-        OST_AreaColorFill = -2000165,
-        OST_AreaReferenceVisibility = -2000164,
-        OST_AreaInteriorFillVisibility = -2000163,
-        OST_RoomReferenceVisibility = -2000162,
-        OST_RoomInteriorFillVisibility = -2000161,
-        OST_Rooms = -2000160,
-        OST_GenericModel = -2000151,
-        OST_GenericAnnotation = -2000150,
-        OST_Fixtures = -2000140,
-        OST_StairsRailingTags = -2000133,
-        OST_StairsRailingAboveCut = -2000132,
-        OST_StairsDownArrows = -2000131,
-        OST_StairsUpArrows = -2000130,
-        OST_StairsDownText = -2000129,
-        OST_StairsRailingRail = -2000128,
-        OST_StairsRailingBaluster = -2000127,
-        OST_StairsRailing = -2000126,
-        OST_StairsUpText = -2000125,
-        OST_StairsSupportsAboveCut = -2000124,
-        OST_StairsStringerCarriage = -2000123,
-        OST_StairsAboveCut_ToBeDeprecated = -2000122,
-        OST_StairsIncomplete_Deprecated = -2000121,
-        OST_Stairs = -2000120,
-        OST_IOSNavWheelPivotBall = -2000117,
-        OST_IOSRoomComputationHeight = -2000116,
-        OST_IOSRoomUpperLowerLines = -2000115,
-        OST_IOSDragBoxInverted = -2000114,
-        OST_IOSDragBox = -2000113,
-        OST_Phases = -2000112,
-        OST_IOS_GeoSite = -2000111,
-        OST_IOS_GeoLocations = -2000110,
-        OST_IOSFabricReinSpanSymbolCtrl = -2000109,
-        OST_GuideGrid = -2000107,
-        OST_EPS_Future = -2000106,
-        OST_EPS_Temporary = -2000105,
-        OST_EPS_New = -2000104,
-        OST_EPS_Demolished = -2000103,
-        OST_EPS_Existing = -2000102,
-        OST_IOSMeasureLineScreenSize = -2000101,
-        OST_Columns = -2000100,
-        OST_IOSRebarSystemSpanSymbolCtrl = -2000099,
-        OST_IOSRoomTagToRoomLines = -2000098,
-        OST_IOSAttachedDetailGroups = -2000097,
-        OST_IOSDetailGroups = -2000096,
-        OST_IOSModelGroups = -2000095,
-        OST_IOSSuspendedSketch = -2000094,
-        OST_IOSWallCoreBoundary = -2000093,
-        OST_IOSMeasureLine = -2000092,
-        OST_IOSArrays = -2000091,
-        OST_Curtain_Systems = -2000090,
-        OST_IOSBBoxScreenSize = -2000089,
-        OST_IOSSlabShapeEditorPointInterior = -2000088,
-        OST_IOSSlabShapeEditorPointBoundary = -2000087,
-        OST_IOSSlabShapeEditorBoundary = -2000086,
-        OST_IOSSlabShapeEditorAutoCrease = -2000085,
-        OST_IOSSlabShapeEditorExplitCrease = -2000084,
-        OST_ReferenceLines = -2000083,
-        OST_IOSNotSilhouette = -2000082,
-        OST_FillPatterns = -2000081,
-        OST_Furniture = -2000080,
-        OST_AreaSchemeLines = -2000079,
-        OST_GenericLines = -2000078,
-        OST_InsulationLines = -2000077,
-        OST_CloudLines = -2000076,
-        OST_IOSRoomPerimeterLines = -2000075,
-        OST_IOSCuttingGeometry = -2000074,
-        OST_IOSCrashGraphics = -2000073,
-        OST_IOSGroups = -2000072,
-        OST_IOSGhost = -2000071,
-        OST_StairsSketchLandingCenterLines = -2000070,
-        OST_StairsSketchRunLines = -2000069,
-        OST_StairsSketchRiserLines = -2000068,
-        OST_StairsSketchBoundaryLines = -2000067,
-        OST_RoomSeparationLines = -2000066,
-        OST_AxisOfRotation = -2000065,
-        OST_InvisibleLines = -2000064,
-        OST_IOSThinPixel_DashDot = -2000063,
-        OST_IOSThinPixel_Dash = -2000062,
-        OST_IOSThinPixel_Dot = -2000061,
-        OST_Extrusions = -2000060,
-        OST_IOS = -2000059,
-        OST_CutOutlines = -2000058,
-        OST_IOSThinPixel = -2000057,
-        OST_IOSFlipControl = -2000056,
-        OST_IOSSketchGrid = -2000055,
-        OST_IOSSuspendedSketch_obsolete = -2000054,
-        OST_IOSFreeSnapLine = -2000053,
-        OST_IOSDatumPlane = -2000052,
-        OST_Lines = -2000051,
-        OST_IOSConstructionLine = -2000050,
-        OST_IOSAlignmentGraphics = -2000049,
-        OST_IOSAligningLine = -2000048,
-        OST_IOSBackedUpElements = -2000047,
-        OST_IOSRegeneratedElements = -2000046,
-        OST_SketchLines = -2000045,
-        OST_CurvesWideLines = -2000044,
-        OST_CurvesMediumLines = -2000043,
-        OST_CurvesThinLines = -2000042,
-        OST_Curves = -2000041,
-        OST_CeilingsProjection = -2000040,
-        OST_CeilingsCut = -2000039,
-        OST_Ceilings = -2000038,
-        OST_RoofsProjection = -2000037,
-        OST_RoofsCut = -2000036,
-        OST_Roofs = -2000035,
-        OST_FloorsProjection = -2000034,
-        OST_FloorsCut = -2000033,
-        OST_Floors = -2000032,
-        OST_DoorsGlassProjection = -2000031,
-        OST_DoorsGlassCut = -2000030,
-        OST_DoorsFrameMullionProjection = -2000029,
-        OST_DoorsFrameMullionCut = -2000028,
-        OST_DoorsOpeningProjection = -2000027,
-        OST_DoorsOpeningCut = -2000026,
-        OST_DoorsPanelProjection = -2000025,
-        OST_DoorsPanelCut = -2000024,
-        OST_Doors = -2000023,
-        OST_WindowsOpeningProjection = -2000022,
-        OST_WindowsOpeningCut = -2000021,
-        OST_WindowsSillHeadProjection = -2000020,
-        OST_WindowsSillHeadCut = -2000019,
-        OST_WindowsFrameMullionProjection = -2000018,
-        OST_WindowsFrameMullionCut = -2000017,
-        OST_WindowsGlassProjection = -2000016,
-        OST_WindowsGlassCut = -2000015,
-        OST_Windows = -2000014,
-        OST_WallsProjectionOutlines = -2000013,
-        OST_WallsCutOutlines = -2000012,
-        OST_Walls = -2000011,
-        OST_IOSRegenerationFailure = -2000010,
-        OST_ScheduleViewParamGroup = -2000008,
-        OST_MatchSiteComponent = -2000007,
-        OST_MatchProfile = -2000006,
-        OST_MatchDetail = -2000005,
-        OST_MatchAnnotation = -2000004,
-        OST_MatchModel = -2000003,
-        OST_MatchAll = -2000002,
-        INVALID = -1,
-    }
-#pragma warning restore CS1591
-
-    /// <summary>
-    /// Extensions for Revit API BuiltInCategory enum
-    /// </summary>
-    public static class BuiltInCategoryExtensions
-    {
-        private static readonly Dictionary<BuiltInCategory, string> _knownCategories;
-
-        static BuiltInCategoryExtensions()
-        {
-            _knownCategories = new Dictionary<BuiltInCategory, string>
-            {
-                { BuiltInCategory.OST_LinksAnalytical, "Analytical Links" },
-                { BuiltInCategory.OST_FoundationSlabAnalyticalTags, "Analytical Slab Foundation Tags" },
-                { BuiltInCategory.OST_WallFoundationAnalyticalTags, "Analytical Wall Foundation Tags" },
-                { BuiltInCategory.OST_IsolatedFoundationAnalyticalTags, "Analytical Isolated Foundation Tags" },
-                { BuiltInCategory.OST_WallAnalyticalTags, "Analytical Wall Tags" },
-                { BuiltInCategory.OST_FloorAnalyticalTags, "Analytical Floor Tags" },
-                { BuiltInCategory.OST_ColumnAnalyticalTags, "Analytical Column Tags" },
-                { BuiltInCategory.OST_BraceAnalyticalTags, "Analytical Brace Tags" },
-                { BuiltInCategory.OST_BeamAnalyticalTags, "Analytical Beam Tags" },
-                { BuiltInCategory.OST_AnalyticalNodes, "Analytical Nodes" },
-                { BuiltInCategory.OST_FoundationSlabAnalytical, "Analytical Foundation Slabs" },
-                { BuiltInCategory.OST_WallFoundationAnalytical, "Analytical Wall Foundations" },
-                { BuiltInCategory.OST_IsolatedFoundationAnalytical, "Analytical Isolated Foundations" },
-                { BuiltInCategory.OST_WallAnalytical, "Analytical Walls" },
-                { BuiltInCategory.OST_FloorAnalytical, "Analytical Floors" },
-                { BuiltInCategory.OST_ColumnEndSegment, "Top Segment" },
-                { BuiltInCategory.OST_ColumnStartSegment, "Base Segment" },
-                { BuiltInCategory.OST_ColumnAnalytical, "Analytical Columns" },
-                { BuiltInCategory.OST_BraceEndSegment, "End Segment" },
-                { BuiltInCategory.OST_BraceStartSegment, "Start Segment" },
-                { BuiltInCategory.OST_BraceAnalytical, "Analytical Braces" },
-                { BuiltInCategory.OST_BeamEndSegment, "End Segment" },
-                { BuiltInCategory.OST_BeamStartSegment, "Start Segment" },
-                { BuiltInCategory.OST_BeamAnalytical, "Analytical Beams" },
-                { BuiltInCategory.OST_StructuralTrussStickSymbols, "Stick Symbols" },
-                { BuiltInCategory.OST_MassHiddenLines, "Hidden Lines" },
-                { BuiltInCategory.OST_CurtaSystemHiddenLines, "Hidden Lines" },
-                { BuiltInCategory.OST_EntourageHiddenLines, "Hidden Lines" },
-                { BuiltInCategory.OST_PlantingHiddenLines, "Hidden Lines" },
-                { BuiltInCategory.OST_SpecialityEquipmentHiddenLines, "Hidden Lines" },
-                { BuiltInCategory.OST_TopographyHiddenLines, "Hidden Lines" },
-                { BuiltInCategory.OST_SiteHiddenLines, "Hidden Lines" },
-                { BuiltInCategory.OST_RoadsHiddenLines, "Hidden Lines" },
-                { BuiltInCategory.OST_ParkingHiddenLines, "Hidden Lines" },
-                { BuiltInCategory.OST_PlumbingFixturesHiddenLines, "Hidden Lines" },
-                { BuiltInCategory.OST_MechanicalEquipmentHiddenLines, "Hidden Lines" },
-                { BuiltInCategory.OST_LightingFixturesHiddenLines, "Hidden Lines" },
-                { BuiltInCategory.OST_FurnitureSystemsHiddenLines, "Hidden Lines" },
-                { BuiltInCategory.OST_ElectricalFixturesHiddenLines, "Hidden Lines" },
-                { BuiltInCategory.OST_ElectricalEquipmentHiddenLines, "Hidden Lines" },
-                { BuiltInCategory.OST_CaseworkHiddenLines, "Hidden Lines" },
-                { BuiltInCategory.OST_DetailComponentsHiddenLines, "Hidden Lines" },
-                { BuiltInCategory.OST_ShaftOpeningHiddenLines, "Hidden Lines" },
-                { BuiltInCategory.OST_GenericModelHiddenLines, "Hidden Lines" },
-                { BuiltInCategory.OST_CurtainWallMullionsHiddenLines, "Hidden Lines" },
-                { BuiltInCategory.OST_CurtainWallPanelsHiddenLines, "Hidden Lines" },
-                { BuiltInCategory.OST_RampsHiddenLines, "Hidden Lines" },
-                { BuiltInCategory.OST_StairsRailingHiddenLines, "Hidden Lines" },
-                { BuiltInCategory.OST_StairsHiddenLines, "Hidden Lines" },
-                { BuiltInCategory.OST_ColumnsHiddenLines, "Hidden Lines" },
-                { BuiltInCategory.OST_FurnitureHiddenLines, "Hidden Lines" },
-                { BuiltInCategory.OST_LinesHiddenLines, "Hidden Lines" },
-                { BuiltInCategory.OST_CeilingsHiddenLines, "Hidden Lines" },
-                { BuiltInCategory.OST_RoofsHiddenLines, "Hidden Lines" },
-                { BuiltInCategory.OST_DoorsHiddenLines, "Hidden Lines" },
-                { BuiltInCategory.OST_WindowsHiddenLines, "Hidden Lines" },
-                { BuiltInCategory.OST_CouplerHiddenLines, "Hidden Lines" },
-                { BuiltInCategory.OST_CouplerTags, "Structural Rebar Coupler Tags" },
-                { BuiltInCategory.OST_Coupler, "Structural Rebar Couplers" },
-                { BuiltInCategory.OST_RebarHiddenLines, "Hidden Lines" },
-                { BuiltInCategory.OST_StructConnectionOthers, "Others" },
-                { BuiltInCategory.OST_StructConnectionBolts, "Bolts" },
-                { BuiltInCategory.OST_StructConnectionTags, "Structural Connection Tags" },
-                { BuiltInCategory.OST_StructConnectionAnchors, "Anchors" },
-                { BuiltInCategory.OST_StructConnectionPlates, "Plates" },
-                { BuiltInCategory.OST_StructConnectionProfiles, "Profiles" },
-                { BuiltInCategory.OST_StructConnectionReference, "Reference" },
-                { BuiltInCategory.OST_StructConnectionSymbol, "Symbol" },
-                { BuiltInCategory.OST_StructConnectionHiddenLines, "Hidden Lines" },
-                { BuiltInCategory.OST_StructConnections, "Structural Connections" },
-                { BuiltInCategory.OST_FabricAreaBoundary, "Boundary" },
-                { BuiltInCategory.OST_FabricReinSpanSymbol, "Structural Fabric Reinforcement Symbols" },
-                { BuiltInCategory.OST_FabricReinforcementWire, "Fabric Wire" },
-                { BuiltInCategory.OST_FabricReinforcementBoundary, "Boundary" },
-                { BuiltInCategory.OST_RebarSetToggle, "Rebar Set Toggle" },
-                { BuiltInCategory.OST_FabricReinforcementTags, "Structural Fabric Reinforcement Tags" },
-                { BuiltInCategory.OST_AreaReinTags, "Structural Area Reinforcement Tags" },
-                { BuiltInCategory.OST_RebarTags, "Structural Rebar Tags" },
-                { BuiltInCategory.OST_FabricAreaSketchSheetsLines, "<Fabric Sheets>" },
-                { BuiltInCategory.OST_FabricAreaSketchEnvelopeLines, "<Fabric Envelope>" },
-                { BuiltInCategory.OST_FabricAreas, "Structural Fabric Areas" },
-                { BuiltInCategory.OST_FabricReinforcement, "Structural Fabric Reinforcement" },
-                { BuiltInCategory.OST_RebarCover, "Rebar Cover References" },
-                { BuiltInCategory.OST_RebarShape, "Rebar Shape" },
-                { BuiltInCategory.OST_PathReinBoundary, "Boundary" },
-                { BuiltInCategory.OST_PathReinTags, "Structural Path Reinforcement Tags" },
-                { BuiltInCategory.OST_PathReinSpanSymbol, "Structural Path Reinforcement Symbols" },
-                { BuiltInCategory.OST_PathRein, "Structural Path Reinforcement" },
-                { BuiltInCategory.OST_AreaReinBoundary, "Boundary" },
-                { BuiltInCategory.OST_AreaReinSpanSymbol, "Structural Area Reinforcement Symbols" },
-                { BuiltInCategory.OST_AreaRein, "Structural Area Reinforcement" },
-                { BuiltInCategory.OST_Rebar, "Structural Rebar" },
-                { BuiltInCategory.OST_FabricationPipeworkInsulation, "Insulation" },
-                { BuiltInCategory.OST_FabricationDuctworkLining, "Lining" },
-                { BuiltInCategory.OST_FabricationContainmentDrop, "Drop" },
-                { BuiltInCategory.OST_FabricationContainmentRise, "Rise" },
-                { BuiltInCategory.OST_FabricationPipeworkDrop, "Drop" },
-                { BuiltInCategory.OST_FabricationPipeworkRise, "Rise" },
-                { BuiltInCategory.OST_FabricationContainmentSymbology, "Symbology" },
-                { BuiltInCategory.OST_FabricationContainmentCenterLine, "Center Line" },
-                { BuiltInCategory.OST_FabricationContainmentTags, "MEP Fabrication Containment Tags" },
-                { BuiltInCategory.OST_FabricationContainment, "MEP Fabrication Containment" },
-                { BuiltInCategory.OST_FabricationPipeworkSymbology, "Symbology" },
-                { BuiltInCategory.OST_FabricationPipeworkCenterLine, "Center Line" },
-                { BuiltInCategory.OST_FabricationPipeworkTags, "MEP Fabrication Pipework Tags" },
-                { BuiltInCategory.OST_FabricationPipework, "MEP Fabrication Pipework" },
-                { BuiltInCategory.OST_FabricationDuctworkSymbology, "Symbology" },
-                { BuiltInCategory.OST_FabricationDuctworkDrop, "Drop" },
-                { BuiltInCategory.OST_FabricationDuctworkRise, "Rise" },
-                { BuiltInCategory.OST_FabricationHangerTags, "MEP Fabrication Hanger Tags" },
-                { BuiltInCategory.OST_FabricationHangers, "MEP Fabrication Hangers" },
-                { BuiltInCategory.OST_FabricationDuctworkInsulation, "Insulation" },
-                { BuiltInCategory.OST_FabricationDuctworkCenterLine, "Center Line" },
-                { BuiltInCategory.OST_FabricationDuctworkTags, "MEP Fabrication Ductwork Tags" },
-                { BuiltInCategory.OST_FabricationDuctwork, "MEP Fabrication Ductwork" },
-                { BuiltInCategory.OST_gbXML_Shade, "Shades" },
-                { BuiltInCategory.OST_AnalyticSurfaces, "Analytical Surfaces" },
-                { BuiltInCategory.OST_AnalyticSpaces, "Analytical Spaces" },
-                { BuiltInCategory.OST_gbXML_OpeningAir, "Air Openings" },
-                { BuiltInCategory.OST_gbXML_NonSlidingDoor, "Non-sliding Doors" },
-                { BuiltInCategory.OST_gbXML_SlidingDoor, "Sliding Doors" },
-                { BuiltInCategory.OST_gbXML_OperableSkylight, "Operable Skylights" },
-                { BuiltInCategory.OST_gbXML_FixedSkylight, "Fixed Skylights" },
-                { BuiltInCategory.OST_gbXML_OperableWindow, "Operable Windows" },
-                { BuiltInCategory.OST_gbXML_FixedWindow, "Fixed Windows" },
-                { BuiltInCategory.OST_gbXML_UndergroundCeiling, "Underground Ceilings" },
-                { BuiltInCategory.OST_gbXML_UndergroundSlab, "Underground Slabs" },
-                { BuiltInCategory.OST_gbXML_UndergroundWall, "Underground Walls" },
-                { BuiltInCategory.OST_gbXML_SurfaceAir, "Air Surfaces" },
-                { BuiltInCategory.OST_gbXML_Ceiling, "Ceilings" },
-                { BuiltInCategory.OST_gbXML_InteriorFloor, "Interior Floors" },
-                { BuiltInCategory.OST_gbXML_InteriorWall, "Interior Walls" },
-                { BuiltInCategory.OST_gbXML_SlabOnGrade, "Slabs on Grade" },
-                { BuiltInCategory.OST_gbXML_RaisedFloor, "Raised Floors" },
-                { BuiltInCategory.OST_gbXML_Roof, "Roofs" },
-                { BuiltInCategory.OST_gbXML_ExteriorWall, "Exterior Walls" },
-                { BuiltInCategory.OST_PipeSegments, "Pipe Segments" },
-                { BuiltInCategory.OST_PlaceHolderPipes, "Pipe Placeholders" },
-                { BuiltInCategory.OST_PlaceHolderDucts, "Duct Placeholders" },
-                { BuiltInCategory.OST_PipingSystem_Reference_Visibility, "Reference Lines" },
-                { BuiltInCategory.OST_DuctSystem_Reference_Visibility, "Reference Lines" },
-                { BuiltInCategory.OST_PipeInsulationsTags, "Pipe Insulation Tags" },
-                { BuiltInCategory.OST_DuctLiningsTags, "Duct Lining Tags" },
-                { BuiltInCategory.OST_DuctInsulationsTags, "Duct Insulation Tags" },
-                { BuiltInCategory.OST_ElectricalInternalCircuits, "Electrical Spare/Space Circuits" },
-                { BuiltInCategory.OST_PanelScheduleGraphics, "Panel Schedule Graphics" },
-                { BuiltInCategory.OST_CableTrayRun, "Cable Tray Runs" },
-                { BuiltInCategory.OST_ConduitRun, "Conduit Runs" },
-                { BuiltInCategory.OST_ConduitFittingCenterLine, "Center line" },
-                { BuiltInCategory.OST_CableTrayFittingCenterLine, "Center line" },
-                { BuiltInCategory.OST_ConduitCenterLine, "Center line" },
-                { BuiltInCategory.OST_ConduitDrop, "Drop" },
-                { BuiltInCategory.OST_ConduitRiseDrop, "Rise" },
-                { BuiltInCategory.OST_CableTrayCenterLine, "Center line" },
-                { BuiltInCategory.OST_CableTrayDrop, "Drop" },
-                { BuiltInCategory.OST_CableTrayRiseDrop, "Rise" },
-                { BuiltInCategory.OST_ConduitTags, "Conduit Tags" },
-                { BuiltInCategory.OST_Conduit, "Conduits" },
-                { BuiltInCategory.OST_CableTrayTags, "Cable Tray Tags" },
-                { BuiltInCategory.OST_CableTray, "Cable Trays" },
-                { BuiltInCategory.OST_ConduitFittingTags, "Conduit Fitting Tags" },
-                { BuiltInCategory.OST_ConduitFitting, "Conduit Fittings" },
-                { BuiltInCategory.OST_CableTrayFittingTags, "Cable Tray Fitting Tags" },
-                { BuiltInCategory.OST_CableTrayFitting, "Cable Tray Fittings" },
-                { BuiltInCategory.OST_RoutingPreferences, "Routing Preferences" },
-                { BuiltInCategory.OST_DuctLinings, "Duct Linings" },
-                { BuiltInCategory.OST_DuctInsulations, "Duct Insulations" },
-                { BuiltInCategory.OST_PipeInsulations, "Pipe Insulations" },
-                { BuiltInCategory.OST_HVAC_Zones_Reference_Visibility, "Reference Lines" },
-                { BuiltInCategory.OST_HVAC_Zones_InteriorFill_Visibility, "Interior Fill" },
-                { BuiltInCategory.OST_HVAC_Zones_ColorFill, "Color Fill" },
-                { BuiltInCategory.OST_ZoneTags, "Zone Tags" },
-                { BuiltInCategory.OST_HVAC_Zones_Boundary, "Boundary" },
-                { BuiltInCategory.OST_HVAC_Zones, "HVAC Zones" },
-                { BuiltInCategory.OST_SwitchSystem, "Switch System" },
-                { BuiltInCategory.OST_SprinklerTags, "Sprinkler Tags" },
-                { BuiltInCategory.OST_Sprinklers, "Sprinklers" },
-                { BuiltInCategory.OST_GbXML_Opening, "Opening" },
-                { BuiltInCategory.OST_GbXML_SType_Underground, "Underground" },
-                { BuiltInCategory.OST_GbXML_SType_Shade, "Shades" },
-                { BuiltInCategory.OST_GbXML_SType_Exterior, "Exterior" },
-                { BuiltInCategory.OST_GbXML_SType_Interior, "Interior" },
-                { BuiltInCategory.OST_GbXMLFaces, "Analytical Surfaces" },
-                { BuiltInCategory.OST_WireHomeRunArrows, "Home Run Arrows" },
-                { BuiltInCategory.OST_LightingDeviceTags, "Lighting Device Tags" },
-                { BuiltInCategory.OST_LightingDevices, "Lighting Devices" },
-                { BuiltInCategory.OST_FireAlarmDeviceTags, "Fire Alarm Device Tags" },
-                { BuiltInCategory.OST_FireAlarmDevices, "Fire Alarm Devices" },
-                { BuiltInCategory.OST_DataDeviceTags, "Data Device Tags" },
-                { BuiltInCategory.OST_DataDevices, "Data Devices" },
-                { BuiltInCategory.OST_CommunicationDeviceTags, "Communication Device Tags" },
-                { BuiltInCategory.OST_CommunicationDevices, "Communication Devices" },
-                { BuiltInCategory.OST_SecurityDeviceTags, "Security Device Tags" },
-                { BuiltInCategory.OST_SecurityDevices, "Security Devices" },
-                { BuiltInCategory.OST_NurseCallDeviceTags, "Nurse Call Device Tags" },
-                { BuiltInCategory.OST_NurseCallDevices, "Nurse Call Devices" },
-                { BuiltInCategory.OST_TelephoneDeviceTags, "Telephone Device Tags" },
-                { BuiltInCategory.OST_TelephoneDevices, "Telephone Devices" },
-                { BuiltInCategory.OST_WireTickMarks, "Wire Tick Marks" },
-                { BuiltInCategory.OST_PipeFittingCenterLine, "Center line" },
-                { BuiltInCategory.OST_PipeCurvesDrop, "Drop" },
-                { BuiltInCategory.OST_DuctFittingCenterLine, "Center line" },
-                { BuiltInCategory.OST_DuctCurvesDrop, "Drop" },
-                { BuiltInCategory.OST_DuctFittingTags, "Duct Fitting Tags" },
-                { BuiltInCategory.OST_PipeFittingTags, "Pipe Fitting Tags" },
-                { BuiltInCategory.OST_PipeColorFills, "Pipe Color Fill" },
-                { BuiltInCategory.OST_PipeColorFillLegends, "Pipe Color Fill Legends" },
-                { BuiltInCategory.OST_WireTags, "Wire Tags" },
-                { BuiltInCategory.OST_PipeAccessoryTags, "Pipe Accessory Tags" },
-                { BuiltInCategory.OST_PipeAccessory, "Pipe Accessories" },
-                { BuiltInCategory.OST_PipeCurvesRiseDrop, "Rise" },
-                { BuiltInCategory.OST_FlexPipeCurvesPattern, "Pattern" },
-                { BuiltInCategory.OST_FlexPipeCurvesCenterLine, "Center Line" },
-                { BuiltInCategory.OST_FlexPipeCurves, "Flex Pipes" },
-                { BuiltInCategory.OST_PipeFitting, "Pipe Fittings" },
-                { BuiltInCategory.OST_FlexPipeTags, "Flex Pipe Tags" },
-                { BuiltInCategory.OST_PipeTags, "Pipe Tags" },
-                { BuiltInCategory.OST_PipeCurvesCenterLine, "Center Line" },
-                { BuiltInCategory.OST_PipeCurves, "Pipes" },
-                { BuiltInCategory.OST_PipingSystem, "Piping Systems" },
-                { BuiltInCategory.OST_Wire, "Wires" },
-                { BuiltInCategory.OST_ElectricalCircuit, "Electrical Circuits" },
-                { BuiltInCategory.OST_DuctCurvesRiseDrop, "Rise" },
-                { BuiltInCategory.OST_FlexDuctCurvesPattern, "Pattern" },
-                { BuiltInCategory.OST_FlexDuctCurvesCenterLine, "Center line" },
-                { BuiltInCategory.OST_FlexDuctCurves, "Flex Ducts" },
-                { BuiltInCategory.OST_DuctAccessoryTags, "Duct Accessory Tags" },
-                { BuiltInCategory.OST_DuctAccessory, "Duct Accessories" },
-                { BuiltInCategory.OST_DuctSystem, "Duct Systems" },
-                { BuiltInCategory.OST_DuctTerminalTags, "Air Terminal Tags" },
-                { BuiltInCategory.OST_DuctTerminal, "Air Terminals" },
-                { BuiltInCategory.OST_DuctFitting, "Duct Fittings" },
-                { BuiltInCategory.OST_DuctColorFills, "Duct Color Fill" },
-                { BuiltInCategory.OST_FlexDuctTags, "Flex Duct Tags" },
-                { BuiltInCategory.OST_DuctTags, "Duct Tags" },
-                { BuiltInCategory.OST_DuctCurvesCenterLine, "Center line" },
-                { BuiltInCategory.OST_DuctCurves, "Ducts" },
-                { BuiltInCategory.OST_DuctColorFillLegends, "Duct Color Fill Legends" },
-                { BuiltInCategory.OST_StructuralBracePlanReps, "Brace in Plan View Symbols" },
-                { BuiltInCategory.OST_StructConnectionSymbols, "Connection Symbols" },
-                { BuiltInCategory.OST_StructuralAnnotations, "Structural Annotations" },
-                { BuiltInCategory.OST_RevisionCloudTags, "Revision Cloud Tags" },
-                { BuiltInCategory.OST_RevisionClouds, "Revision Clouds" },
-                { BuiltInCategory.OST_ElevationMarks, "Elevation Marks" },
-                { BuiltInCategory.OST_GridHeads, "Grid Heads" },
-                { BuiltInCategory.OST_LevelHeads, "Level Heads" },
-                { BuiltInCategory.OST_VolumeOfInterest, "Scope Boxes" },
-                { BuiltInCategory.OST_BoundaryConditions, "Boundary Conditions" },
-                { BuiltInCategory.OST_InternalAreaLoadTags, "Internal Area Load Tags" },
-                { BuiltInCategory.OST_InternalLineLoadTags, "Internal Line Load Tags" },
-                { BuiltInCategory.OST_InternalPointLoadTags, "Internal Point Load Tags" },
-                { BuiltInCategory.OST_AreaLoadTags, "Area Load Tags" },
-                { BuiltInCategory.OST_LineLoadTags, "Line Load Tags" },
-                { BuiltInCategory.OST_PointLoadTags, "Point Load Tags" },
-                { BuiltInCategory.OST_LoadCasesSeismic, "Seismic Loads" },
-                { BuiltInCategory.OST_LoadCasesTemperature, "Temperature Loads" },
-                { BuiltInCategory.OST_LoadCasesAccidental, "Accidental Loads" },
-                { BuiltInCategory.OST_LoadCasesRoofLive, "Roof Live Loads" },
-                { BuiltInCategory.OST_LoadCasesSnow, "Snow Loads" },
-                { BuiltInCategory.OST_LoadCasesWind, "Wind Loads" },
-                { BuiltInCategory.OST_LoadCasesLive, "Live Loads" },
-                { BuiltInCategory.OST_LoadCasesDead, "Dead Loads" },
-                { BuiltInCategory.OST_LoadCases, "Structural Load Cases" },
-                { BuiltInCategory.OST_InternalAreaLoads, "Internal Area Loads" },
-                { BuiltInCategory.OST_InternalLineLoads, "Internal Line Loads" },
-                { BuiltInCategory.OST_InternalPointLoads, "Internal Point Loads" },
-                { BuiltInCategory.OST_InternalLoads, "Structural Internal Loads" },
-                { BuiltInCategory.OST_AreaLoads, "Area Loads" },
-                { BuiltInCategory.OST_LineLoads, "Line Loads" },
-                { BuiltInCategory.OST_PointLoads, "Point Loads" },
-                { BuiltInCategory.OST_Loads, "Structural Loads" },
-                { BuiltInCategory.OST_BeamSystemTags, "Structural Beam System Tags" },
-                { BuiltInCategory.OST_FootingSpanDirectionSymbol, "Foundation Span Direction Symbol" },
-                { BuiltInCategory.OST_SpanDirectionSymbol, "Span Direction Symbol" },
-                { BuiltInCategory.OST_SpotElevSymbols, "Spot Elevation Symbols" },
-                { BuiltInCategory.OST_TrussTags, "Structural Truss Tags" },
-                { BuiltInCategory.OST_KeynoteTags, "Keynote Tags" },
-                { BuiltInCategory.OST_DetailComponentTags, "Detail Item Tags" },
-                { BuiltInCategory.OST_MaterialTags, "Material Tags" },
-                { BuiltInCategory.OST_FloorTags, "Floor Tags" },
-                { BuiltInCategory.OST_CurtaSystemTags, "Curtain System Tags" },
-                { BuiltInCategory.OST_StairsTags, "Stair Tags" },
-                { BuiltInCategory.OST_MultiCategoryTags, "Multi-Category Tags" },
-                { BuiltInCategory.OST_PlantingTags, "Planting Tags" },
-                { BuiltInCategory.OST_AreaTags, "Area Tags" },
-                { BuiltInCategory.OST_StructuralFoundationTags, "Structural Foundation Tags" },
-                { BuiltInCategory.OST_StructuralColumnTags, "Structural Column Tags" },
-                { BuiltInCategory.OST_ParkingTags, "Parking Tags" },
-                { BuiltInCategory.OST_SiteTags, "Site Tags" },
-                { BuiltInCategory.OST_StructuralFramingTags, "Structural Framing Tags" },
-                { BuiltInCategory.OST_SpecialityEquipmentTags, "Specialty Equipment Tags" },
-                { BuiltInCategory.OST_GenericModelTags, "Generic Model Tags" },
-                { BuiltInCategory.OST_CurtainWallPanelTags, "Curtain Panel Tags" },
-                { BuiltInCategory.OST_WallTags, "Wall Tags" },
-                { BuiltInCategory.OST_PlumbingFixtureTags, "Plumbing Fixture Tags" },
-                { BuiltInCategory.OST_MechanicalEquipmentTags, "Mechanical Equipment Tags" },
-                { BuiltInCategory.OST_LightingFixtureTags, "Lighting Fixture Tags" },
-                { BuiltInCategory.OST_FurnitureSystemTags, "Furniture System Tags" },
-                { BuiltInCategory.OST_FurnitureTags, "Furniture Tags" },
-                { BuiltInCategory.OST_ElectricalFixtureTags, "Electrical Fixture Tags" },
-                { BuiltInCategory.OST_ElectricalEquipmentTags, "Electrical Equipment Tags" },
-                { BuiltInCategory.OST_CeilingTags, "Ceiling Tags" },
-                { BuiltInCategory.OST_CaseworkTags, "Casework Tags" },
-                { BuiltInCategory.OST_MEPSpaceColorFill, "Color Fill" },
-                { BuiltInCategory.OST_MEPSpaceReferenceVisibility, "Reference" },
-                { BuiltInCategory.OST_MEPSpaceInteriorFillVisibility, "Interior" },
-                { BuiltInCategory.OST_MEPSpaces, "Spaces" },
-                { BuiltInCategory.OST_MassShade, "Mass Shade" },
-                { BuiltInCategory.OST_MassOpening, "Mass Opening" },
-                { BuiltInCategory.OST_MassSkylights, "Mass Skylight" },
-                { BuiltInCategory.OST_MassGlazing, "Mass Glazing" },
-                { BuiltInCategory.OST_MassRoof, "Mass Roof" },
-                { BuiltInCategory.OST_MassExteriorWall, "Mass Exterior Wall" },
-                { BuiltInCategory.OST_MassInteriorWall, "Mass Interior Wall" },
-                { BuiltInCategory.OST_MassZone, "Mass Zone" },
-                { BuiltInCategory.OST_MassAreaFaceTags, "Mass Floor Tags" },
-                { BuiltInCategory.OST_HostTemplate, "Host Template" }, // TODO check if this category is valid
-                { BuiltInCategory.OST_MassFaceSplitter, "Mass Face Splitter" }, // TODO check if this category is valid
-                { BuiltInCategory.OST_MassCutter, "Mass Cutter" }, // TODO check if this category is valid
-                { BuiltInCategory.OST_ZoningEnvelope, "Zoning Envelope" }, // TODO check if this category is valid
-                { BuiltInCategory.OST_MassTags, "Mass Tags" },
-                { BuiltInCategory.OST_MassForm, "Form" },
-                { BuiltInCategory.OST_MassFloor, "Mass Floor" },
-                { BuiltInCategory.OST_Mass, "Mass" },
-                { BuiltInCategory.OST_DividedSurface_PatternFill, "Pattern Fill" },
-                { BuiltInCategory.OST_DividedSurface_PatternLines, "Pattern Lines" },
-                { BuiltInCategory.OST_DividedSurface_Gridlines, "Gridlines" },
-                { BuiltInCategory.OST_DividedSurface_Nodes, "Nodes" },
-                { BuiltInCategory.OST_RampsDownArrow, "Down Arrow" },
-                { BuiltInCategory.OST_RampsUpArrow, "Up Arrow" },
-                { BuiltInCategory.OST_RampsDownText, "DOWN text" },
-                { BuiltInCategory.OST_RampsUpText, "UP text" },
-                { BuiltInCategory.OST_RampsStringerAboveCut, "Stringers Beyond Cut Line" },
-                { BuiltInCategory.OST_RampsStringer, "Stringers" },
-                { BuiltInCategory.OST_RampsAboveCut, "Ramps Beyond Cut Line" },
-                { BuiltInCategory.OST_Areas, "Areas" },
-                { BuiltInCategory.OST_ProjectInformation, "Project Information" },
-                { BuiltInCategory.OST_Sheets, "Sheets" },
-                { BuiltInCategory.OST_DetailComponents, "Detail Items" },
-                { BuiltInCategory.OST_RoofSoffit, "Roof Soffits" },
-                { BuiltInCategory.OST_EdgeSlab, "Slab Edges" },
-                { BuiltInCategory.OST_Gutter, "Gutters" },
-                { BuiltInCategory.OST_Fascia, "Fascias" },
-                { BuiltInCategory.OST_Entourage, "Entourage" },
-                { BuiltInCategory.OST_Planting, "Planting" },
-                { BuiltInCategory.OST_StructuralStiffenerHiddenLines, "Hidden Lines" },
-                { BuiltInCategory.OST_StructuralColumnLocationLine, "Location Lines" },
-                { BuiltInCategory.OST_StructuralFramingLocationLine, "Location Lines" },
-                { BuiltInCategory.OST_StructuralStiffenerTags, "Structural Stiffener Tags" },
-                { BuiltInCategory.OST_StructuralStiffener, "Structural Stiffeners" },
-                { BuiltInCategory.OST_SpecialityEquipment, "Specialty Equipment" },
-                { BuiltInCategory.OST_ColumnAnalyticalRigidLinks, "Rigid Links" },
-                { BuiltInCategory.OST_SecondaryTopographyContours, "Secondary Contours" },
-                { BuiltInCategory.OST_TopographyContours, "Primary Contours" },
-                { BuiltInCategory.OST_TopographySurface, "Triangulation Edges" },
-                { BuiltInCategory.OST_Topography, "Topography" },
-                { BuiltInCategory.OST_StructuralTruss, "Structural Trusses" },
-                { BuiltInCategory.OST_StructuralColumnStickSymbols, "Stick Symbols" },
-                { BuiltInCategory.OST_HiddenStructuralColumnLines, "Hidden Lines" },
-                { BuiltInCategory.OST_AnalyticalRigidLinks, "Rigid Links" },
-                { BuiltInCategory.OST_StructuralColumns, "Structural Columns" },
-                { BuiltInCategory.OST_HiddenStructuralFramingLines, "Hidden Lines" },
-                { BuiltInCategory.OST_StructuralFramingSystem, "Structural Beam Systems" },
-                { BuiltInCategory.OST_StructuralFraming, "Structural Framing" },
-                { BuiltInCategory.OST_HiddenStructuralFoundationLines, "Hidden Lines" },
-                { BuiltInCategory.OST_StructuralFoundation, "Structural Foundations" },
-                { BuiltInCategory.OST_SharedBasePoint, "Survey Point" },
-                { BuiltInCategory.OST_ProjectBasePoint, "Project Base Point" },
-                { BuiltInCategory.OST_SitePropertyLineSegmentTags, "Property Line Segment Tags" },
-                { BuiltInCategory.OST_SitePropertyLineSegment, "Property Line Segments" },
-                { BuiltInCategory.OST_SitePropertyTags, "Property Tags" },
-                { BuiltInCategory.OST_SitePointBoundary, "Boundary Point" },
-                { BuiltInCategory.OST_SiteProperty, "Property Lines" },
-                { BuiltInCategory.OST_BuildingPad, "Pads" },
-                { BuiltInCategory.OST_SitePoint, "Interior Point" },
-                { BuiltInCategory.OST_Site, "Site" },
-                { BuiltInCategory.OST_Roads, "Roads" },
-                { BuiltInCategory.OST_Parking, "Parking" },
-                { BuiltInCategory.OST_PlumbingFixtures, "Plumbing Fixtures" },
-                { BuiltInCategory.OST_MechanicalEquipment, "Mechanical Equipment" },
-                { BuiltInCategory.OST_LightingFixtureSource, "Light Source" },
-                { BuiltInCategory.OST_LightingFixtures, "Lighting Fixtures" },
-                { BuiltInCategory.OST_FurnitureSystems, "Furniture Systems" },
-                { BuiltInCategory.OST_ElectricalFixtures, "Electrical Fixtures" },
-                { BuiltInCategory.OST_ElectricalEquipment, "Electrical Equipment" },
-                { BuiltInCategory.OST_Casework, "Casework" },
-                { BuiltInCategory.OST_ShaftOpening, "Shaft Openings" },
-                { BuiltInCategory.OST_FndSlabLocalCoordSys, "Local Coordinate System" },
-                { BuiltInCategory.OST_FloorLocalCoordSys, "Local Coordinate System" },
-                { BuiltInCategory.OST_WallLocalCoordSys, "Local Coordinate System" },
-                { BuiltInCategory.OST_BraceLocalCoordSys, "Local Coordinate System" },
-                { BuiltInCategory.OST_ColumnLocalCoordSys, "Local Coordinate System" },
-                { BuiltInCategory.OST_BeamLocalCoordSys, "Local Coordinate System" },
-                { BuiltInCategory.OST_MultiReferenceAnnotations, "Multi-Rebar Annotations" },
-                { BuiltInCategory.OST_NodeAnalyticalTags, "Analytical Node Tags" },
-                { BuiltInCategory.OST_LinkAnalyticalTags, "Analytical Link Tags" },
-                { BuiltInCategory.OST_StairsSupports, "Supports" },
-                { BuiltInCategory.OST_RailingHandRailAboveCut, "<Above> Handrails" },
-                { BuiltInCategory.OST_RailingTopRailAboveCut, "<Above> Top Rails" },
-                { BuiltInCategory.OST_RailingTermination, "Terminations" },
-                { BuiltInCategory.OST_RailingSupport, "Supports" },
-                { BuiltInCategory.OST_RailingHandRail, "Handrails" },
-                { BuiltInCategory.OST_RailingTopRail, "Top Rails" },
-                { BuiltInCategory.OST_StairsTriserNumbers, "Stair Tread/Riser Numbers" },
-                { BuiltInCategory.OST_StairsSupportTags, "Stair Support Tags" },
-                { BuiltInCategory.OST_StairsLandingTags, "Stair Landing Tags" },
-                { BuiltInCategory.OST_StairsRunTags, "Stair Run Tags" },
-                { BuiltInCategory.OST_StairsPathsAboveCut, "<Above> Up Arrows" },
-                { BuiltInCategory.OST_StairsPaths, "Stair Paths" },
-                { BuiltInCategory.OST_StairsRiserLinesAboveCut, "<Above> Riser Lines" },
-                { BuiltInCategory.OST_StairsRiserLines, "Riser Lines" },
-                { BuiltInCategory.OST_StairsOutlinesAboveCut, "<Above> Outlines" },
-                { BuiltInCategory.OST_StairsOutlines, "Outlines" },
-                { BuiltInCategory.OST_StairsNosingLinesAboveCut, "<Above> Nosing Lines" },
-                { BuiltInCategory.OST_StairsNosingLines, "Nosing Lines" },
-                { BuiltInCategory.OST_StairsCutMarksAboveCut, "<Above> Cut Marks" },
-                { BuiltInCategory.OST_StairsCutMarks, "Cut Marks" },
-                { BuiltInCategory.OST_StairsTrisers, "Treads/Risers" },
-                { BuiltInCategory.OST_StairsLandings, "Landings" },
-                { BuiltInCategory.OST_StairsRuns, "Runs" },
-                { BuiltInCategory.OST_AdaptivePoints_Lines, "Lines" },
-                { BuiltInCategory.OST_AdaptivePoints_Planes, "Planes" },
-                { BuiltInCategory.OST_AdaptivePoints_Points, "Points" },
-                { BuiltInCategory.OST_AdaptivePoints, "Adaptive Points" },
-                { BuiltInCategory.OST_MEPSpaceSeparationLines, "<Space Separation>" },
-                { BuiltInCategory.OST_InstanceDrivenLineStyle, "Instance Driven Line Style" }, // TODO check if this category is valid
-                { BuiltInCategory.OST_ReferencePoints_Lines, "Lines" },
-                { BuiltInCategory.OST_ReferencePoints_Planes, "Planes" },
-                { BuiltInCategory.OST_ReferencePoints_Points, "Points" },
-                { BuiltInCategory.OST_ReferencePoints, "Reference Points" },
-                { BuiltInCategory.OST_Materials, "Materials" },
-                { BuiltInCategory.OST_CeilingsCutPattern, "Cut Pattern" },
-                { BuiltInCategory.OST_CeilingsDefault, "Common Edges" },
-                { BuiltInCategory.OST_CeilingsFinish2, "Finish 2 [5]" },
-                { BuiltInCategory.OST_CeilingsFinish1, "Finish 1 [4]" },
-                { BuiltInCategory.OST_CeilingsSubstrate, "Substrate [2]" },
-                { BuiltInCategory.OST_CeilingsInsulation, "Thermal/Air Layer [3]" },
-                { BuiltInCategory.OST_CeilingsStructure, "Structure [1]" },
-                { BuiltInCategory.OST_CeilingsMembrane, "Membrane Layer" },
-                { BuiltInCategory.OST_FloorsInteriorEdges, "Interior Edges" },
-                { BuiltInCategory.OST_FloorsCutPattern, "Cut Pattern" },
-                { BuiltInCategory.OST_HiddenFloorLines, "Hidden Lines" },
-                { BuiltInCategory.OST_FloorsDefault, "Common Edges" },
-                { BuiltInCategory.OST_FloorsFinish2, "Finish 2 [5]" },
-                { BuiltInCategory.OST_FloorsFinish1, "Finish 1 [4]" },
-                { BuiltInCategory.OST_FloorsSubstrate, "Substrate [2]" },
-                { BuiltInCategory.OST_FloorsInsulation, "Thermal/Air Layer [3]" },
-                { BuiltInCategory.OST_FloorsStructure, "Structure [1]" },
-                { BuiltInCategory.OST_FloorsMembrane, "Membrane Layer" },
-                { BuiltInCategory.OST_RoofsInteriorEdges, "Interior Edges" },
-                { BuiltInCategory.OST_RoofsCutPattern, "Cut Pattern" },
-                { BuiltInCategory.OST_RoofsDefault, "Common Edges" },
-                { BuiltInCategory.OST_RoofsFinish2, "Finish 2 [5]" },
-                { BuiltInCategory.OST_RoofsFinish1, "Finish 1 [4]" },
-                { BuiltInCategory.OST_RoofsSubstrate, "Substrate [2]" },
-                { BuiltInCategory.OST_RoofsInsulation, "Thermal/Air Layer [3]" },
-                { BuiltInCategory.OST_RoofsStructure, "Structure [1]" },
-                { BuiltInCategory.OST_RoofsMembrane, "Membrane Layer" },
-                { BuiltInCategory.OST_WallsCutPattern, "Cut Pattern" },
-                { BuiltInCategory.OST_HiddenWallLines, "Hidden Lines" },
-                { BuiltInCategory.OST_WallsDefault, "Common Edges" },
-                { BuiltInCategory.OST_WallsFinish2, "Finish 2 [5]" },
-                { BuiltInCategory.OST_WallsFinish1, "Finish 1 [4]" },
-                { BuiltInCategory.OST_WallsSubstrate, "Substrate [2]" },
-                { BuiltInCategory.OST_WallsInsulation, "Thermal/Air Layer [3]" },
-                { BuiltInCategory.OST_WallsStructure, "Structure [1]" },
-                { BuiltInCategory.OST_WallsMembrane, "Membrane Layer" },
-                { BuiltInCategory.OST_ScheduleGraphics, "Schedule Graphics" },
-                { BuiltInCategory.OST_RasterImages, "Raster Images" },
-                { BuiltInCategory.OST_RoomColorFill, "Color Fill" },
-                { BuiltInCategory.OST_ColorFillLegends, "Color Fill Legends" },
-                { BuiltInCategory.OST_AnnotationCropSpecial, "Annotation Crop Boundary" },
-                { BuiltInCategory.OST_CropBoundarySpecial, "Crop Boundaries" },
-                { BuiltInCategory.OST_AnnotationCrop, "Annotation Crop Boundary" },
-                { BuiltInCategory.OST_CalloutLeaderLine, "Callout Leader Line" },
-                { BuiltInCategory.OST_CeilingsSurfacePattern, "Surface Pattern" },
-                { BuiltInCategory.OST_RoofsSurfacePattern, "Surface Pattern" },
-                { BuiltInCategory.OST_FloorsSurfacePattern, "Surface Pattern" },
-                { BuiltInCategory.OST_WallsSurfacePattern, "Surface Pattern" },
-                { BuiltInCategory.OST_CalloutBoundary, "Callout Boundary" },
-                { BuiltInCategory.OST_CalloutHeads, "Callout Heads" },
-                { BuiltInCategory.OST_Callouts, "Callouts" },
-                { BuiltInCategory.OST_CropBoundary, "Crop Boundaries" },
-                { BuiltInCategory.OST_Elev, "Elevations" },
-                { BuiltInCategory.OST_CLines, "Reference Planes" },
-                { BuiltInCategory.OST_ViewportLabel, "View Titles" },
-                { BuiltInCategory.OST_Viewports, "Viewports" },
-                { BuiltInCategory.OST_Camera_Lines, "Cameras" },
-                { BuiltInCategory.OST_MEPSpaceTags, "Space Tags" },
-                { BuiltInCategory.OST_RoomTags, "Room Tags" },
-                { BuiltInCategory.OST_DoorTags, "Door Tags" },
-                { BuiltInCategory.OST_WindowTags, "Window Tags" },
-                { BuiltInCategory.OST_SectionHeadWideLines, "Wide Lines" },
-                { BuiltInCategory.OST_SectionHeadMediumLines, "Medium Lines" },
-                { BuiltInCategory.OST_SectionHeadThinLines, "Thin Lines" },
-                { BuiltInCategory.OST_SectionHeads, "Section Marks" },
-                { BuiltInCategory.OST_ContourLabels, "Contour Labels" },
-                { BuiltInCategory.OST_CurtaSystem, "Curtain Systems" },
-                { BuiltInCategory.OST_CurtainGridsCurtaSystem, "Curtain System Grids" },
-                { BuiltInCategory.OST_CurtainGridsSystem, "Curtain Grids System" }, // TODO check if this category is valid
-                { BuiltInCategory.OST_CurtainGridsWall, "Curtain Wall Grids" },
-                { BuiltInCategory.OST_CurtainGridsRoof, "Curtain Roof Grids" },
-                { BuiltInCategory.OST_AnalysisDisplayStyle, "Analysis Display Style" },
-                { BuiltInCategory.OST_AnalysisResults, "Analysis Results" },
-                { BuiltInCategory.OST_RenderRegions, "Render Regions" },
-                { BuiltInCategory.OST_SectionBox, "Section Boxes" },
-                { BuiltInCategory.OST_TextNotes, "Text Notes" },
-                { BuiltInCategory.OST_CenterLines, "<Centerline>" },
-                { BuiltInCategory.OST_LinesBeyond, "<Beyond>" },
-                { BuiltInCategory.OST_HiddenLines, "<Hidden>" },
-                { BuiltInCategory.OST_DemolishedLines, "<Demolished>" },
-                { BuiltInCategory.OST_OverheadLines, "<Overhead>" },
-                { BuiltInCategory.OST_TitleBlockWideLines, "Wide Lines" },
-                { BuiltInCategory.OST_TitleBlockMediumLines, "Medium Lines" },
-                { BuiltInCategory.OST_TitleBlockThinLines, "Thin Lines" },
-                { BuiltInCategory.OST_TitleBlocks, "Title Blocks" },
-                { BuiltInCategory.OST_Views, "Views" },
-                { BuiltInCategory.OST_PartHiddenLines, "Hidden Lines" },
-                { BuiltInCategory.OST_PartTags, "Part Tags" },
-                { BuiltInCategory.OST_Parts, "Parts" },
-                { BuiltInCategory.OST_AssemblyTags, "Assembly Tags" },
-                { BuiltInCategory.OST_Assemblies, "Assemblies" },
-                { BuiltInCategory.OST_RoofTags, "Roof Tags" },
-                { BuiltInCategory.OST_SpotSlopes, "Spot Slopes" },
-                { BuiltInCategory.OST_SpotCoordinates, "Spot Coordinates" },
-                { BuiltInCategory.OST_SpotElevations, "Spot Elevations" },
-                { BuiltInCategory.OST_WeakDims, "Automatic Sketch Dimensions" },
-                { BuiltInCategory.OST_Dimensions, "Dimensions" },
-                { BuiltInCategory.OST_Levels, "Levels" },
-                { BuiltInCategory.OST_DisplacementPath, "Displacement Path" },
-                { BuiltInCategory.OST_GridChains, "Multi-segmented Grid" },
-                { BuiltInCategory.OST_Grids, "Grids" },
-                { BuiltInCategory.OST_BrokenSectionLine, "Broken Section Line" },
-                { BuiltInCategory.OST_SectionLine, "Section Line" },
-                { BuiltInCategory.OST_Sections, "Sections" },
-                { BuiltInCategory.OST_ReferenceViewer, "View Reference" },
-                { BuiltInCategory.OST_ReferenceViewerSymbol, "View Reference" },
-                { BuiltInCategory.OST_ImportObjectStyles, "Imports in Families" },
-                { BuiltInCategory.OST_MaskingRegion, "Masking Region" },
-                { BuiltInCategory.OST_Matchline, "Matchline" },
-                { BuiltInCategory.OST_PlanRegion, "Plan Region" },
-                { BuiltInCategory.OST_FilledRegion, "Filled region" },
-                { BuiltInCategory.OST_Cornices, "Wall Sweeps" },
-                { BuiltInCategory.OST_Ramps, "Ramps" },
-                { BuiltInCategory.OST_CurtainGrids, "Curtain Grids" },
-                { BuiltInCategory.OST_CurtainWallMullions, "Curtain Wall Mullions" },
-                { BuiltInCategory.OST_CurtainWallPanels, "Curtain Panels" },
-                { BuiltInCategory.OST_AreaColorFill, "Color Fill" },
-                { BuiltInCategory.OST_AreaReferenceVisibility, "Reference" },
-                { BuiltInCategory.OST_AreaInteriorFillVisibility, "Interior Fill" },
-                { BuiltInCategory.OST_RoomReferenceVisibility, "Reference" },
-                { BuiltInCategory.OST_RoomInteriorFillVisibility, "Interior Fill" },
-                { BuiltInCategory.OST_Rooms, "Rooms" },
-                { BuiltInCategory.OST_GenericModel, "Generic Models" },
-                { BuiltInCategory.OST_GenericAnnotation, "Generic Annotations" },
-                { BuiltInCategory.OST_StairsRailingTags, "Railing Tags" },
-                { BuiltInCategory.OST_StairsRailingAboveCut, "<Above> Railings Cut Line" },
-                { BuiltInCategory.OST_StairsDownArrows, "Down Arrows" },
-                { BuiltInCategory.OST_StairsUpArrows, "Up Arrows" },
-                { BuiltInCategory.OST_StairsDownText, "DOWN Text" },
-                { BuiltInCategory.OST_StairsRailingRail, "Rails" },
-                { BuiltInCategory.OST_StairsRailingBaluster, "Balusters" },
-                { BuiltInCategory.OST_StairsRailing, "Railings" },
-                { BuiltInCategory.OST_StairsUpText, "UP Text" },
-                { BuiltInCategory.OST_StairsSupportsAboveCut, "<Above> Supports" },
-                { BuiltInCategory.OST_StairsStringerCarriage, "Supports" },
-                { BuiltInCategory.OST_Stairs, "Stairs" },
-                { BuiltInCategory.OST_GuideGrid, "Guide Grid" },
-                { BuiltInCategory.OST_Columns, "Columns" },
-                { BuiltInCategory.OST_ReferenceLines, "Reference Lines" },
-                { BuiltInCategory.OST_IOSNotSilhouette, "IOS Not Silhouette" }, // TODO check if this category is valid
-                { BuiltInCategory.OST_Furniture, "Furniture" },
-                { BuiltInCategory.OST_AreaSchemeLines, "<Area Boundary>" },
-                { BuiltInCategory.OST_GenericLines, "Lines" },
-                { BuiltInCategory.OST_InsulationLines, "Insulation Batting Lines" },
-                { BuiltInCategory.OST_RoomSeparationLines, "<Room Separation>" },
-                { BuiltInCategory.OST_AxisOfRotation, "Axis of Rotation" },
-                { BuiltInCategory.OST_InvisibleLines, "Invisible Lines" }, // TODO check if this category is valid
-                { BuiltInCategory.OST_Lines, "Lines" },
-                { BuiltInCategory.OST_SketchLines, "<Sketch>" },
-                { BuiltInCategory.OST_CurvesWideLines, "Wide Lines" },
-                { BuiltInCategory.OST_CurvesMediumLines, "Medium Lines" },
-                { BuiltInCategory.OST_CurvesThinLines, "Thin Lines" },
-                { BuiltInCategory.OST_Ceilings, "Ceilings" },
-                { BuiltInCategory.OST_Roofs, "Roofs" },
-                { BuiltInCategory.OST_Floors, "Floors" },
-                { BuiltInCategory.OST_DoorsGlassProjection, "Glass" },
-                { BuiltInCategory.OST_DoorsFrameMullionProjection, "Frame/Mullion" },
-                { BuiltInCategory.OST_DoorsOpeningProjection, "Opening" },
-                { BuiltInCategory.OST_DoorsPanelProjection, "Panel" },
-                { BuiltInCategory.OST_Doors, "Doors" },
-                { BuiltInCategory.OST_WindowsOpeningProjection, "Opening" },
-                { BuiltInCategory.OST_WindowsSillHeadProjection, "Sill/Head" },
-                { BuiltInCategory.OST_WindowsFrameMullionProjection, "Frame/Mullion" },
-                { BuiltInCategory.OST_WindowsGlassProjection, "Glass" },
-                { BuiltInCategory.OST_Windows, "Windows" },
-                { BuiltInCategory.OST_Walls, "Walls" },
-            };
-        }
-
-        /// <summary>
-        /// Tries to get the name of a built-in category.
-        /// </summary>
-        /// <param name="category">The category.</param>
-        /// <param name="categoryName">Name of the category.</param>
-        /// <returns></returns>
-        public static bool TryGetCategoryName(this BuiltInCategory category, out string categoryName)
-        {
-            return _knownCategories.TryGetValue(category, out categoryName);
-        }
+        OST_StackedWalls_Obsolete_IdInWrongRange = -20034100, // 0xFECE4DCC
+        OST_MassTags_Obsolete_IdInWrongRange = -20034005, // 0xFECE4E2B
+        OST_MassSurface_Obsolete_IdInWrongRange = -20034004, // 0xFECE4E2C
+        OST_MassFloor_Obsolete_IdInWrongRange = -20034003, // 0xFECE4E2D
+        OST_Mass_Obsolete_IdInWrongRange = -20034000, // 0xFECE4E30
+        OST_WallRefPlanes_Obsolete_IdInWrongRange = -20000896, // 0xFECECF80
+        OST_StickSymbols_Obsolete_IdInWrongRange = -20000828, // 0xFECECFC4
+        OST_RemovedGridSeg_Obsolete_IdInWrongRange = -20000827, // 0xFECECFC5
+        OST_PointClouds = -2010001, // 0xFFE1546F
+        OST_AssemblyOrigin_Lines = -2009661, // 0xFFE155C3
+        OST_AssemblyOrigin_Planes = -2009660, // 0xFFE155C4
+        OST_AssemblyOrigin_Points = -2009659, // 0xFFE155C5
+        OST_AssemblyOrigin = -2009658, // 0xFFE155C6
+        OST_LinksAnalytical = -2009657, // 0xFFE155C7
+        OST_FoundationSlabAnalyticalTags = -2009656, // 0xFFE155C8
+        OST_WallFoundationAnalyticalTags = -2009655, // 0xFFE155C9
+        OST_IsolatedFoundationAnalyticalTags = -2009654, // 0xFFE155CA
+        OST_WallAnalyticalTags = -2009653, // 0xFFE155CB
+        OST_FloorAnalyticalTags = -2009652, // 0xFFE155CC
+        OST_ColumnAnalyticalTags = -2009651, // 0xFFE155CD
+        OST_BraceAnalyticalTags = -2009650, // 0xFFE155CE
+        OST_BeamAnalyticalTags = -2009649, // 0xFFE155CF
+        OST_AnalyticalNodes_Lines = -2009648, // 0xFFE155D0
+        OST_AnalyticalNodes_Planes = -2009647, // 0xFFE155D1
+        OST_AnalyticalNodes_Points = -2009646, // 0xFFE155D2
+        OST_AnalyticalNodes = -2009645, // 0xFFE155D3
+        OST_RigidLinksAnalytical = -2009644, // 0xFFE155D4
+        OST_FoundationSlabAnalytical = -2009643, // 0xFFE155D5
+        OST_WallFoundationAnalytical = -2009642, // 0xFFE155D6
+        OST_IsolatedFoundationAnalytical = -2009641, // 0xFFE155D7
+        OST_WallAnalytical = -2009640, // 0xFFE155D8
+        OST_FloorAnalytical = -2009639, // 0xFFE155D9
+        OST_ColumnEndSegment = -2009638, // 0xFFE155DA
+        OST_ColumnStartSegment = -2009637, // 0xFFE155DB
+        OST_ColumnAnalytical = -2009636, // 0xFFE155DC
+        OST_BraceEndSegment = -2009635, // 0xFFE155DD
+        OST_BraceStartSegment = -2009634, // 0xFFE155DE
+        OST_BraceAnalytical = -2009633, // 0xFFE155DF
+        OST_BeamEndSegment = -2009632, // 0xFFE155E0
+        OST_BeamStartSegment = -2009631, // 0xFFE155E1
+        OST_BeamAnalytical = -2009630, // 0xFFE155E2
+        OST_CompassSecondaryMonth = -2009624, // 0xFFE155E8
+        OST_CompassPrimaryMonth = -2009623, // 0xFFE155E9
+        OST_CompassSectionFilled = -2009622, // 0xFFE155EA
+        OST_LightLine = -2009621, // 0xFFE155EB
+        OST_MultiSurface = -2009620, // 0xFFE155EC
+        OST_SunSurface = -2009619, // 0xFFE155ED
+        OST_Analemma = -2009618, // 0xFFE155EE
+        OST_SunsetText = -2009617, // 0xFFE155EF
+        OST_CompassSection = -2009616, // 0xFFE155F0
+        OST_CompassOuter = -2009615, // 0xFFE155F1
+        OST_SunriseText = -2009614, // 0xFFE155F2
+        OST_CompassInner = -2009613, // 0xFFE155F3
+        OST_SunPath2 = -2009612, // 0xFFE155F4
+        OST_SunPath1 = -2009611, // 0xFFE155F5
+        OST_Sun = -2009610, // 0xFFE155F6
+        OST_SunStudy = -2009609, // 0xFFE155F7
+        OST_StructuralTrussStickSymbols = -2009608, // 0xFFE155F8
+        OST_StructuralTrussHiddenLines = -2009607, // 0xFFE155F9
+        OST_TrussChord = -2009606, // 0xFFE155FA
+        OST_TrussWeb = -2009605, // 0xFFE155FB
+        OST_TrussBottomChordCurve = -2009604, // 0xFFE155FC
+        OST_TrussTopChordCurve = -2009603, // 0xFFE155FD
+        OST_TrussVertWebCurve = -2009602, // 0xFFE155FE
+        OST_TrussDiagWebCurve = -2009601, // 0xFFE155FF
+        OST_Truss = -2009600, // 0xFFE15600
+        OST_RailingSystemTransitionHiddenLines_Deprecated = -2009549, // 0xFFE15633
+        OST_RailingSystemTerminationHiddenLines_Deprecated = -2009548, // 0xFFE15634
+        OST_RailingSystemRailHiddenLines_Deprecated = -2009547, // 0xFFE15635
+        OST_RailingSystemTopRailHiddenLines_Deprecated = -2009546, // 0xFFE15636
+        OST_RailingSystemHandRailBracketHiddenLines_Deprecated = -2009545, // 0xFFE15637
+        OST_RailingSystemHandRailHiddenLines_Deprecated = -2009544, // 0xFFE15638
+        OST_RailingSystemPanelBracketHiddenLines_Deprecated = -2009543, // 0xFFE15639
+        OST_RailingSystemPanelHiddenLines_Deprecated = -2009542, // 0xFFE1563A
+        OST_RailingSystemBalusterHiddenLines_Deprecated = -2009541, // 0xFFE1563B
+        OST_RailingSystemPostHiddenLines_Deprecated = -2009540, // 0xFFE1563C
+        OST_RailingSystemSegmentHiddenLines_Deprecated = -2009539, // 0xFFE1563D
+        OST_RailingSystemHiddenLines_Deprecated = -2009538, // 0xFFE1563E
+        OST_StairStringer2012HiddenLines_Deprecated = -2009537, // 0xFFE1563F
+        OST_StairTread2012HiddenLines_Deprecated = -2009536, // 0xFFE15640
+        OST_StairLanding2012HiddenLines_Deprecated = -2009535, // 0xFFE15641
+        OST_StairRun2012HiddenLines_Deprecated = -2009534, // 0xFFE15642
+        OST_Stairs2012HiddenLines_Deprecated = -2009533, // 0xFFE15643
+        OST_MassHiddenLines = -2009532, // 0xFFE15644
+        OST_CurtaSystemHiddenLines = -2009531, // 0xFFE15645
+        OST_OBSOLETE_ElemArrayHiddenLines = -2009530, // 0xFFE15646
+        OST_EntourageHiddenLines = -2009529, // 0xFFE15647
+        OST_PlantingHiddenLines = -2009528, // 0xFFE15648
+        OST_SpecialityEquipmentHiddenLines = -2009527, // 0xFFE15649
+        OST_TopographyHiddenLines = -2009526, // 0xFFE1564A
+        OST_StructuralFramingSystemHiddenLines_Obsolete = -2009525, // 0xFFE1564B
+        OST_SiteHiddenLines = -2009524, // 0xFFE1564C
+        OST_RoadsHiddenLines = -2009523, // 0xFFE1564D
+        OST_ParkingHiddenLines = -2009522, // 0xFFE1564E
+        OST_PlumbingFixturesHiddenLines = -2009521, // 0xFFE1564F
+        OST_MechanicalEquipmentHiddenLines = -2009520, // 0xFFE15650
+        OST_LightingFixturesHiddenLines = -2009519, // 0xFFE15651
+        OST_FurnitureSystemsHiddenLines = -2009518, // 0xFFE15652
+        OST_ElectricalFixturesHiddenLines = -2009517, // 0xFFE15653
+        OST_ElectricalEquipmentHiddenLines = -2009516, // 0xFFE15654
+        OST_CaseworkHiddenLines = -2009515, // 0xFFE15655
+        OST_DetailComponentsHiddenLines = -2009514, // 0xFFE15656
+        OST_ShaftOpeningHiddenLines = -2009513, // 0xFFE15657
+        OST_GenericModelHiddenLines = -2009512, // 0xFFE15658
+        OST_CurtainWallMullionsHiddenLines = -2009511, // 0xFFE15659
+        OST_CurtainWallPanelsHiddenLines = -2009510, // 0xFFE1565A
+        OST_RampsHiddenLines = -2009509, // 0xFFE1565B
+        OST_StairsRailingHiddenLines = -2009508, // 0xFFE1565C
+        OST_StairsHiddenLines = -2009507, // 0xFFE1565D
+        OST_ColumnsHiddenLines = -2009506, // 0xFFE1565E
+        OST_FurnitureHiddenLines = -2009505, // 0xFFE1565F
+        OST_LinesHiddenLines = -2009504, // 0xFFE15660
+        OST_CeilingsHiddenLines = -2009503, // 0xFFE15661
+        OST_RoofsHiddenLines = -2009502, // 0xFFE15662
+        OST_DoorsHiddenLines = -2009501, // 0xFFE15663
+        OST_WindowsHiddenLines = -2009500, // 0xFFE15664
+        OST_StructConnectionProfilesTags = -2009064, // 0xFFE15818
+        OST_StructConnectionHoleTags = -2009063, // 0xFFE15819
+        OST_CouplerHiddenLines = -2009062, // 0xFFE1581A
+        OST_CouplerTags = -2009061, // 0xFFE1581B
+        OST_Coupler = -2009060, // 0xFFE1581C
+        OST_StructConnectionWeldTags = -2009059, // 0xFFE1581D
+        OST_StructConnectionShearStudTags = -2009058, // 0xFFE1581E
+        OST_StructConnectionAnchorTags = -2009057, // 0xFFE1581F
+        OST_StructConnectionBoltTags = -2009056, // 0xFFE15820
+        OST_StructConnectionPlateTags = -2009055, // 0xFFE15821
+        OST_RebarHiddenLines = -2009050, // 0xFFE15826
+        OST_StructSubConnections = -2009049, // 0xFFE15827
+        OST_SteelElementStale = -2009048, // 0xFFE15828
+        OST_StructConnectionModifiers = -2009047, // 0xFFE15829
+        OST_StructConnectionWelds = -2009046, // 0xFFE1582A
+        OST_StructConnectionHoles = -2009045, // 0xFFE1582B
+        OST_StructConnectionShearStuds = -2009044, // 0xFFE1582C
+        OST_StructConnectionNobleWarning = -2009043, // 0xFFE1582D
+        OST_StructConnectionOthers = -2009042, // 0xFFE1582E
+        OST_StructConnectionBolts = -2009041, // 0xFFE1582F
+        OST_StructConnectionTags = -2009040, // 0xFFE15830
+        OST_StructConnectionAnchors = -2009039, // 0xFFE15831
+        OST_StructConnectionPlates = -2009038, // 0xFFE15832
+        OST_StructConnectionProfiles = -2009037, // 0xFFE15833
+        OST_StructConnectionReference = -2009036, // 0xFFE15834
+        OST_StructConnectionFailed = -2009035, // 0xFFE15835
+        OST_StructConnectionStale = -2009034, // 0xFFE15836
+        OST_StructConnectionSymbol = -2009033, // 0xFFE15837
+        OST_StructConnectionHiddenLines = -2009032, // 0xFFE15838
+        OST_StructWeldLines = -2009031, // 0xFFE15839
+        OST_StructConnections = -2009030, // 0xFFE1583A
+        OST_FabricAreaBoundary = -2009029, // 0xFFE1583B
+        OST_FabricReinSpanSymbol = -2009028, // 0xFFE1583C
+        OST_FabricReinforcementWire = -2009027, // 0xFFE1583D
+        OST_FabricReinforcementBoundary = -2009026, // 0xFFE1583E
+        OST_RebarSetToggle = -2009025, // 0xFFE1583F
+        OST_FabricAreaTags = -2009023, // 0xFFE15841
+        OST_FabricReinforcementTags = -2009022, // 0xFFE15842
+        OST_AreaReinTags = -2009021, // 0xFFE15843
+        OST_RebarTags = -2009020, // 0xFFE15844
+        OST_FabricAreaSketchSheetsLines = -2009019, // 0xFFE15845
+        OST_FabricAreaSketchEnvelopeLines = -2009018, // 0xFFE15846
+        OST_FabricAreas = -2009017, // 0xFFE15847
+        OST_FabricReinforcement = -2009016, // 0xFFE15848
+        OST_RebarCover = -2009015, // 0xFFE15849
+        OST_CoverType = -2009014, // 0xFFE1584A
+        OST_RebarShape = -2009013, // 0xFFE1584B
+        OST_PathReinBoundary = -2009012, // 0xFFE1584C
+        OST_PathReinTags = -2009011, // 0xFFE1584D
+        OST_PathReinSpanSymbol = -2009010, // 0xFFE1584E
+        OST_PathRein = -2009009, // 0xFFE1584F
+        OST_Cage = -2009008, // 0xFFE15850
+        OST_AreaReinXVisibility = -2009007, // 0xFFE15851
+        OST_AreaReinBoundary = -2009006, // 0xFFE15852
+        OST_AreaReinSpanSymbol = -2009005, // 0xFFE15853
+        OST_AreaReinSketchOverride = -2009004, // 0xFFE15854
+        OST_AreaRein = -2009003, // 0xFFE15855
+        OST_RebarLines = -2009002, // 0xFFE15856
+        OST_RebarSketchLines = -2009001, // 0xFFE15857
+        OST_Rebar = -2009000, // 0xFFE15858
+        OST_FabricationPipeworkInsulation = -2008221, // 0xFFE15B63
+        OST_FabricationDuctworkLining = -2008220, // 0xFFE15B64
+        OST_FabricationContainmentDrop = -2008219, // 0xFFE15B65
+        OST_FabricationContainmentRise = -2008218, // 0xFFE15B66
+        OST_FabricationPipeworkDrop = -2008217, // 0xFFE15B67
+        OST_FabricationPipeworkRise = -2008216, // 0xFFE15B68
+        OST_FabricationContainmentSymbology = -2008215, // 0xFFE15B69
+        OST_FabricationContainmentCenterLine = -2008214, // 0xFFE15B6A
+        OST_FabricationContainmentTags = -2008213, // 0xFFE15B6B
+        OST_FabricationContainment = -2008212, // 0xFFE15B6C
+        OST_FabricationPipeworkSymbology = -2008211, // 0xFFE15B6D
+        OST_FabricationPipeworkCenterLine = -2008210, // 0xFFE15B6E
+        OST_FabricationPipeworkTags = -2008209, // 0xFFE15B6F
+        OST_FabricationPipework = -2008208, // 0xFFE15B70
+        OST_FabricationDuctworkSymbology = -2008207, // 0xFFE15B71
+        OST_FabricationDuctworkDrop = -2008206, // 0xFFE15B72
+        OST_FabricationDuctworkRise = -2008205, // 0xFFE15B73
+        OST_FabricationHangerTags = -2008204, // 0xFFE15B74
+        OST_FabricationHangers = -2008203, // 0xFFE15B75
+        OST_OBSOLETE_FabricationPartsTmpGraphicDropDrag = -2008202, // 0xFFE15B76
+        OST_FabricationPartsTmpGraphicDrag = -2008201, // 0xFFE15B77
+        OST_OBSOLETE_FabricationPartsTmpGraphicDrop = -2008200, // 0xFFE15B78
+        OST_FabricationPartsTmpGraphicEnd = -2008199, // 0xFFE15B79
+        OST_FabricationDuctworkInsulation = -2008198, // 0xFFE15B7A
+        OST_LayoutNodes = -2008197, // 0xFFE15B7B
+        OST_FabricationDuctworkCenterLine = -2008196, // 0xFFE15B7C
+        OST_FabricationServiceElements = -2008195, // 0xFFE15B7D
+        OST_FabricationDuctworkTags = -2008194, // 0xFFE15B7E
+        OST_FabricationDuctwork = -2008193, // 0xFFE15B7F
+        OST_LayoutPathBase_Pipings = -2008192, // 0xFFE15B80
+        OST_NumberingSchemas = -2008191, // 0xFFE15B81
+        OST_DivisionRules = -2008190, // 0xFFE15B82
+        OST_gbXML_Shade = -2008187, // 0xFFE15B85
+        OST_AnalyticSurfaces = -2008186, // 0xFFE15B86
+        OST_AnalyticSpaces = -2008185, // 0xFFE15B87
+        OST_gbXML_OpeningAir = -2008184, // 0xFFE15B88
+        OST_gbXML_NonSlidingDoor = -2008183, // 0xFFE15B89
+        OST_gbXML_SlidingDoor = -2008182, // 0xFFE15B8A
+        OST_gbXML_OperableSkylight = -2008181, // 0xFFE15B8B
+        OST_gbXML_FixedSkylight = -2008180, // 0xFFE15B8C
+        OST_gbXML_OperableWindow = -2008179, // 0xFFE15B8D
+        OST_gbXML_FixedWindow = -2008178, // 0xFFE15B8E
+        OST_gbXML_UndergroundCeiling = -2008177, // 0xFFE15B8F
+        OST_gbXML_UndergroundSlab = -2008176, // 0xFFE15B90
+        OST_gbXML_UndergroundWall = -2008175, // 0xFFE15B91
+        OST_gbXML_SurfaceAir = -2008174, // 0xFFE15B92
+        OST_gbXML_Ceiling = -2008173, // 0xFFE15B93
+        OST_gbXML_InteriorFloor = -2008172, // 0xFFE15B94
+        OST_gbXML_InteriorWall = -2008171, // 0xFFE15B95
+        OST_gbXML_SlabOnGrade = -2008170, // 0xFFE15B96
+        OST_gbXML_RaisedFloor = -2008169, // 0xFFE15B97
+        OST_gbXML_Roof = -2008168, // 0xFFE15B98
+        OST_gbXML_ExteriorWall = -2008167, // 0xFFE15B99
+        OST_DivisionProfile = -2008165, // 0xFFE15B9B
+        OST_SplitterProfile = -2008164, // 0xFFE15B9C
+        OST_PipeSegments = -2008163, // 0xFFE15B9D
+        OST_GraphicalWarning_OpenConnector = -2008162, // 0xFFE15B9E
+        OST_PlaceHolderPipes = -2008161, // 0xFFE15B9F
+        OST_PlaceHolderDucts = -2008160, // 0xFFE15BA0
+        OST_PipingSystem_Reference_Visibility = -2008159, // 0xFFE15BA1
+        OST_PipingSystem_Reference = -2008158, // 0xFFE15BA2
+        OST_DuctSystem_Reference_Visibility = -2008157, // 0xFFE15BA3
+        OST_DuctSystem_Reference = -2008156, // 0xFFE15BA4
+        OST_PipeInsulationsTags = -2008155, // 0xFFE15BA5
+        OST_DuctLiningsTags = -2008154, // 0xFFE15BA6
+        OST_DuctInsulationsTags = -2008153, // 0xFFE15BA7
+        OST_ElectricalInternalCircuits = -2008152, // 0xFFE15BA8
+        OST_PanelScheduleGraphics = -2008151, // 0xFFE15BA9
+        OST_CableTrayRun = -2008150, // 0xFFE15BAA
+        OST_ConduitRun = -2008149, // 0xFFE15BAB
+        OST_ParamElemElectricalLoadClassification = -2008148, // 0xFFE15BAC
+        OST_DataPanelScheduleTemplates = -2008147, // 0xFFE15BAD
+        OST_SwitchboardScheduleTemplates = -2008146, // 0xFFE15BAE
+        OST_BranchPanelScheduleTemplates = -2008145, // 0xFFE15BAF
+        OST_ConduitStandards = -2008144, // 0xFFE15BB0
+        OST_ElectricalLoadClassifications = -2008143, // 0xFFE15BB1
+        OST_ElectricalDemandFactorDefinitions = -2008142, // 0xFFE15BB2
+        OST_ConduitFittingCenterLine = -2008141, // 0xFFE15BB3
+        OST_CableTrayFittingCenterLine = -2008140, // 0xFFE15BB4
+        OST_ConduitCenterLine = -2008139, // 0xFFE15BB5
+        OST_ConduitDrop = -2008138, // 0xFFE15BB6
+        OST_ConduitRiseDrop = -2008137, // 0xFFE15BB7
+        OST_CableTrayCenterLine = -2008136, // 0xFFE15BB8
+        OST_CableTrayDrop = -2008135, // 0xFFE15BB9
+        OST_CableTrayRiseDrop = -2008134, // 0xFFE15BBA
+        OST_ConduitTags = -2008133, // 0xFFE15BBB
+        OST_Conduit = -2008132, // 0xFFE15BBC
+        OST_CableTrayTags = -2008131, // 0xFFE15BBD
+        OST_CableTray = -2008130, // 0xFFE15BBE
+        OST_ConduitFittingTags = -2008129, // 0xFFE15BBF
+        OST_ConduitFitting = -2008128, // 0xFFE15BC0
+        OST_CableTrayFittingTags = -2008127, // 0xFFE15BC1
+        OST_CableTrayFitting = -2008126, // 0xFFE15BC2
+        OST_RoutingPreferences = -2008125, // 0xFFE15BC3
+        OST_DuctLinings = -2008124, // 0xFFE15BC4
+        OST_DuctInsulations = -2008123, // 0xFFE15BC5
+        OST_PipeInsulations = -2008122, // 0xFFE15BC6
+        OST_HVAC_Load_Schedules = -2008121, // 0xFFE15BC7
+        OST_HVAC_Load_Building_Types = -2008120, // 0xFFE15BC8
+        OST_HVAC_Load_Space_Types = -2008119, // 0xFFE15BC9
+        OST_HVAC_Zones_Reference_Visibility = -2008118, // 0xFFE15BCA
+        OST_HVAC_Zones_InteriorFill_Visibility = -2008117, // 0xFFE15BCB
+        OST_HVAC_Zones_ColorFill = -2008116, // 0xFFE15BCC
+        OST_ZoneTags = -2008115, // 0xFFE15BCD
+        OST_LayoutPath_Bases = -2008114, // 0xFFE15BCE
+        OST_WireTemperatureRatings = -2008113, // 0xFFE15BCF
+        OST_WireInsulations = -2008112, // 0xFFE15BD0
+        OST_WireMaterials = -2008111, // 0xFFE15BD1
+        OST_HVAC_Zones_Reference = -2008110, // 0xFFE15BD2
+        OST_HVAC_Zones_InteriorFill = -2008109, // 0xFFE15BD3
+        OST_HVAC_Zones_Boundary = -2008108, // 0xFFE15BD4
+        OST_HVAC_Zones = -2008107, // 0xFFE15BD5
+        OST_Fluids = -2008106, // 0xFFE15BD6
+        OST_PipeSchedules = -2008105, // 0xFFE15BD7
+        OST_PipeMaterials = -2008104, // 0xFFE15BD8
+        OST_PipeConnections = -2008103, // 0xFFE15BD9
+        OST_EAConstructions = -2008102, // 0xFFE15BDA
+        OST_SwitchSystem = -2008101, // 0xFFE15BDB
+        OST_SprinklerTags = -2008100, // 0xFFE15BDC
+        OST_Sprinklers = -2008099, // 0xFFE15BDD
+        OST_RouteCurveBranch = -2008098, // 0xFFE15BDE
+        OST_RouteCurveMain = -2008097, // 0xFFE15BDF
+        OST_RouteCurve = -2008096, // 0xFFE15BE0
+        OST_GbXML_Opening = -2008095, // 0xFFE15BE1
+        OST_GbXML_SType_Underground = -2008094, // 0xFFE15BE2
+        OST_GbXML_SType_Shade = -2008093, // 0xFFE15BE3
+        OST_GbXML_SType_Exterior = -2008092, // 0xFFE15BE4
+        OST_GbXML_SType_Interior = -2008091, // 0xFFE15BE5
+        OST_GbXMLFaces = -2008090, // 0xFFE15BE6
+        OST_WireHomeRunArrows = -2008089, // 0xFFE15BE7
+        OST_LightingDeviceTags = -2008088, // 0xFFE15BE8
+        OST_LightingDevices = -2008087, // 0xFFE15BE9
+        OST_FireAlarmDeviceTags = -2008086, // 0xFFE15BEA
+        OST_FireAlarmDevices = -2008085, // 0xFFE15BEB
+        OST_DataDeviceTags = -2008084, // 0xFFE15BEC
+        OST_DataDevices = -2008083, // 0xFFE15BED
+        OST_CommunicationDeviceTags = -2008082, // 0xFFE15BEE
+        OST_CommunicationDevices = -2008081, // 0xFFE15BEF
+        OST_SecurityDeviceTags = -2008080, // 0xFFE15BF0
+        OST_SecurityDevices = -2008079, // 0xFFE15BF1
+        OST_NurseCallDeviceTags = -2008078, // 0xFFE15BF2
+        OST_NurseCallDevices = -2008077, // 0xFFE15BF3
+        OST_TelephoneDeviceTags = -2008076, // 0xFFE15BF4
+        OST_TelephoneDevices = -2008075, // 0xFFE15BF5
+        OST_WireTickMarks = -2008074, // 0xFFE15BF6
+        OST_PipeFittingInsulation = -2008073, // 0xFFE15BF7
+        OST_PipeFittingCenterLine = -2008072, // 0xFFE15BF8
+        OST_FlexPipeCurvesInsulation = -2008071, // 0xFFE15BF9
+        OST_PipeCurvesInsulation = -2008070, // 0xFFE15BFA
+        OST_PipeCurvesDrop = -2008069, // 0xFFE15BFB
+        OST_DuctFittingLining = -2008068, // 0xFFE15BFC
+        OST_DuctFittingInsulation = -2008067, // 0xFFE15BFD
+        OST_DuctFittingCenterLine = -2008066, // 0xFFE15BFE
+        OST_FlexDuctCurvesInsulation = -2008065, // 0xFFE15BFF
+        OST_DuctCurvesLining = -2008064, // 0xFFE15C00
+        OST_DuctCurvesInsulation = -2008063, // 0xFFE15C01
+        OST_DuctCurvesDrop = -2008062, // 0xFFE15C02
+        OST_DuctFittingTags = -2008061, // 0xFFE15C03
+        OST_PipeFittingTags = -2008060, // 0xFFE15C04
+        OST_PipeColorFills = -2008059, // 0xFFE15C05
+        OST_PipeColorFillLegends = -2008058, // 0xFFE15C06
+        OST_WireTags = -2008057, // 0xFFE15C07
+        OST_PipeAccessoryTags = -2008056, // 0xFFE15C08
+        OST_PipeAccessory = -2008055, // 0xFFE15C09
+        OST_PipeCurvesRiseDrop = -2008054, // 0xFFE15C0A
+        OST_FlexPipeCurvesPattern = -2008053, // 0xFFE15C0B
+        OST_FlexPipeCurvesContour = -2008052, // 0xFFE15C0C
+        OST_FlexPipeCurvesCenterLine = -2008051, // 0xFFE15C0D
+        OST_FlexPipeCurves = -2008050, // 0xFFE15C0E
+        OST_PipeFitting = -2008049, // 0xFFE15C0F
+        OST_FlexPipeTags = -2008048, // 0xFFE15C10
+        OST_PipeTags = -2008047, // 0xFFE15C11
+        OST_PipeCurvesContour = -2008046, // 0xFFE15C12
+        OST_PipeCurvesCenterLine = -2008045, // 0xFFE15C13
+        OST_PipeCurves = -2008044, // 0xFFE15C14
+        OST_PipingSystem = -2008043, // 0xFFE15C15
+        OST_ElectricalDemandFactor = -2008042, // 0xFFE15C16
+        OST_ElecDistributionSys = -2008041, // 0xFFE15C17
+        OST_ElectricalVoltage = -2008040, // 0xFFE15C18
+        OST_Wire = -2008039, // 0xFFE15C19
+        OST_ElectricalCircuitTags = -2008038, // 0xFFE15C1A
+        OST_ElectricalCircuit = -2008037, // 0xFFE15C1B
+        OST_DuctCurvesRiseDrop = -2008036, // 0xFFE15C1C
+        OST_FlexDuctCurvesPattern = -2008023, // 0xFFE15C29
+        OST_FlexDuctCurvesContour = -2008022, // 0xFFE15C2A
+        OST_FlexDuctCurvesCenterLine = -2008021, // 0xFFE15C2B
+        OST_FlexDuctCurves = -2008020, // 0xFFE15C2C
+        OST_DuctAccessoryTags = -2008017, // 0xFFE15C2F
+        OST_DuctAccessory = -2008016, // 0xFFE15C30
+        OST_DuctSystem = -2008015, // 0xFFE15C31
+        OST_DuctTerminalTags = -2008014, // 0xFFE15C32
+        OST_DuctTerminal = -2008013, // 0xFFE15C33
+        OST_DuctFitting = -2008010, // 0xFFE15C36
+        OST_DuctColorFills = -2008005, // 0xFFE15C3B
+        OST_FlexDuctTags = -2008004, // 0xFFE15C3C
+        OST_DuctTags = -2008003, // 0xFFE15C3D
+        OST_DuctCurvesContour = -2008002, // 0xFFE15C3E
+        OST_DuctCurvesCenterLine = -2008001, // 0xFFE15C3F
+        OST_DuctCurves = -2008000, // 0xFFE15C40
+        OST_DuctColorFillLegends = -2007004, // 0xFFE16024
+        OST_ConnectorElemZAxis = -2007003, // 0xFFE16025
+        OST_ConnectorElemYAxis = -2007002, // 0xFFE16026
+        OST_ConnectorElemXAxis = -2007001, // 0xFFE16027
+        OST_ConnectorElem = -2007000, // 0xFFE16028
+        OST_StructuralTendonTags = -2006276, // 0xFFE162FC
+        OST_StructuralTendonHiddenLines = -2006275, // 0xFFE162FD
+        OST_StructuralTendons = -2006274, // 0xFFE162FE
+        OST_ExpansionJointTags = -2006273, // 0xFFE162FF
+        OST_ExpansionJointHiddenLines = -2006272, // 0xFFE16300
+        OST_ExpansionJoints = -2006271, // 0xFFE16301
+        OST_VibrationIsolatorTags = -2006266, // 0xFFE16306
+        OST_VibrationIsolators = -2006265, // 0xFFE16307
+        OST_VibrationDamperTags = -2006264, // 0xFFE16308
+        OST_VibrationDampers = -2006263, // 0xFFE16309
+        OST_VibrationManagementHiddenLines = -2006262, // 0xFFE1630A
+        OST_VibrationManagement = -2006261, // 0xFFE1630B
+        OST_BridgeFramingTrusses = -2006248, // 0xFFE16318
+        OST_BridgeFramingDiaphragms = -2006246, // 0xFFE1631A
+        OST_BridgeFramingCrossBracing = -2006245, // 0xFFE1631B
+        OST_BridgeFramingTags = -2006243, // 0xFFE1631D
+        OST_BridgeFramingHiddenLines = -2006242, // 0xFFE1631E
+        OST_BridgeFraming = -2006241, // 0xFFE1631F
+        OST_PierWallTags = -2006230, // 0xFFE1632A
+        OST_PierWalls = -2006229, // 0xFFE1632B
+        OST_PierPileTags = -2006226, // 0xFFE1632E
+        OST_PierPiles = -2006225, // 0xFFE1632F
+        OST_PierColumnTags = -2006222, // 0xFFE16332
+        OST_PierColumns = -2006221, // 0xFFE16333
+        OST_PierCapTags = -2006220, // 0xFFE16334
+        OST_PierCaps = -2006219, // 0xFFE16335
+        OST_ApproachSlabTags = -2006211, // 0xFFE1633D
+        OST_AbutmentWallTags = -2006210, // 0xFFE1633E
+        OST_AbutmentPileTags = -2006209, // 0xFFE1633F
+        OST_AbutmentFoundationTags = -2006208, // 0xFFE16340
+        OST_ApproachSlabs = -2006205, // 0xFFE16343
+        OST_AbutmentWalls = -2006204, // 0xFFE16344
+        OST_AbutmentPiles = -2006203, // 0xFFE16345
+        OST_AbutmentFoundations = -2006202, // 0xFFE16346
+        OST_BridgeBearingTags = -2006178, // 0xFFE1635E
+        OST_BridgeGirderTags2021_Deprecated = -2006177, // 0xFFE1635F
+        OST_BridgeFoundationTags = -2006176, // 0xFFE16360
+        OST_BridgeDeckTags = -2006175, // 0xFFE16361
+        OST_BridgeArchTags2021_Deprecated = -2006174, // 0xFFE16362
+        OST_BridgeCableTags = -2006173, // 0xFFE16363
+        OST_BridgeTowerTags = -2006172, // 0xFFE16364
+        OST_BridgePierTags = -2006171, // 0xFFE16365
+        OST_BridgeAbutmentTags = -2006170, // 0xFFE16366
+        OST_BridgeBearingHiddenLines = -2006158, // 0xFFE16372
+        OST_BridgeGirderHiddenLines2021_Deprecated = -2006157, // 0xFFE16373
+        OST_BridgeFoundationHiddenLines2021_Deprecated = -2006156, // 0xFFE16374
+        OST_BridgeDeckHiddenLines = -2006155, // 0xFFE16375
+        OST_BridgeArchHiddenLines2021_Deprecated = -2006154, // 0xFFE16376
+        OST_BridgeCableHiddenLines2021_Deprecated = -2006153, // 0xFFE16377
+        OST_BridgeTowerHiddenLines2021_Deprecated = -2006152, // 0xFFE16378
+        OST_BridgePierHiddenLines = -2006151, // 0xFFE16379
+        OST_BridgeAbutmentHiddenLines = -2006150, // 0xFFE1637A
+        OST_BridgeBearings = -2006138, // 0xFFE16386
+        OST_BridgeGirders = -2006137, // 0xFFE16387
+        OST_BridgeFoundations = -2006136, // 0xFFE16388
+        OST_BridgeDecks = -2006135, // 0xFFE16389
+        OST_BridgeArches = -2006134, // 0xFFE1638A
+        OST_BridgeCables = -2006133, // 0xFFE1638B
+        OST_BridgeTowers = -2006132, // 0xFFE1638C
+        OST_BridgePiers = -2006131, // 0xFFE1638D
+        OST_BridgeAbutments = -2006130, // 0xFFE1638E
+        OST_DesignOptions = -2006114, // 0xFFE1639E
+        OST_DesignOptionSets = -2006112, // 0xFFE163A0
+        OST_StructuralBracePlanReps = -2006110, // 0xFFE163A2
+        OST_StructConnectionSymbols = -2006100, // 0xFFE163AC
+        OST_StructuralAnnotations = -2006090, // 0xFFE163B6
+        OST_RevisionCloudTags = -2006080, // 0xFFE163C0
+        OST_Revisions = -2006070, // 0xFFE163CA
+        OST_RevisionClouds = -2006060, // 0xFFE163D4
+        OST_EditCutProfile = -2006050, // 0xFFE163DE
+        OST_ElevationMarks = -2006045, // 0xFFE163E3
+        OST_GridHeads = -2006040, // 0xFFE163E8
+        OST_LevelHeads = -2006020, // 0xFFE163FC
+        OST_DecalType = -2006002, // 0xFFE1640E
+        OST_DecalElement = -2006001, // 0xFFE1640F
+        OST_VolumeOfInterest = -2006000, // 0xFFE16410
+        OST_BoundaryConditions = -2005301, // 0xFFE166CB
+        OST_InternalAreaLoadTags = -2005255, // 0xFFE166F9
+        OST_InternalLineLoadTags = -2005254, // 0xFFE166FA
+        OST_InternalPointLoadTags = -2005253, // 0xFFE166FB
+        OST_AreaLoadTags = -2005252, // 0xFFE166FC
+        OST_LineLoadTags = -2005251, // 0xFFE166FD
+        OST_PointLoadTags = -2005250, // 0xFFE166FE
+        OST_LoadCasesSeismic = -2005218, // 0xFFE1671E
+        OST_LoadCasesTemperature = -2005217, // 0xFFE1671F
+        OST_LoadCasesAccidental = -2005216, // 0xFFE16720
+        OST_LoadCasesRoofLive = -2005215, // 0xFFE16721
+        OST_LoadCasesSnow = -2005214, // 0xFFE16722
+        OST_LoadCasesWind = -2005213, // 0xFFE16723
+        OST_LoadCasesLive = -2005212, // 0xFFE16724
+        OST_LoadCasesDead = -2005211, // 0xFFE16725
+        OST_LoadCases = -2005210, // 0xFFE16726
+        OST_InternalAreaLoads = -2005207, // 0xFFE16729
+        OST_InternalLineLoads = -2005206, // 0xFFE1672A
+        OST_InternalPointLoads = -2005205, // 0xFFE1672B
+        OST_InternalLoads = -2005204, // 0xFFE1672C
+        OST_AreaLoads = -2005203, // 0xFFE1672D
+        OST_LineLoads = -2005202, // 0xFFE1672E
+        OST_PointLoads = -2005201, // 0xFFE1672F
+        OST_Loads = -2005200, // 0xFFE16730
+        OST_BeamSystemTags = -2005130, // 0xFFE16776
+        OST_FootingSpanDirectionSymbol = -2005111, // 0xFFE16789
+        OST_SpanDirectionSymbol = -2005110, // 0xFFE1678A
+        OST_SpotSlopesSymbols = -2005102, // 0xFFE16792
+        OST_SpotCoordinateSymbols = -2005101, // 0xFFE16793
+        OST_SpotElevSymbols = -2005100, // 0xFFE16794
+        OST_StructuralConnectionHandlerTags_Deprecated = -2005031, // 0xFFE167D9
+        OST_TrussTags = -2005030, // 0xFFE167DA
+        OST_KeynoteTags = -2005029, // 0xFFE167DB
+        OST_DetailComponentTags = -2005028, // 0xFFE167DC
+        OST_MaterialTags = -2005027, // 0xFFE167DD
+        OST_FloorTags = -2005026, // 0xFFE167DE
+        OST_CurtaSystemTags = -2005025, // 0xFFE167DF
+        OST_HostFinTags = -2005024, // 0xFFE167E0
+        OST_StairsTags = -2005023, // 0xFFE167E1
+        OST_MultiCategoryTags = -2005022, // 0xFFE167E2
+        OST_PlantingTags = -2005021, // 0xFFE167E3
+        OST_AreaTags = -2005020, // 0xFFE167E4
+        OST_StructuralFoundationTags = -2005019, // 0xFFE167E5
+        OST_StructuralColumnTags = -2005018, // 0xFFE167E6
+        OST_ParkingTags = -2005017, // 0xFFE167E7
+        OST_SiteTags = -2005016, // 0xFFE167E8
+        OST_StructuralFramingTags = -2005015, // 0xFFE167E9
+        OST_SpecialityEquipmentTags = -2005014, // 0xFFE167EA
+        OST_GenericModelTags = -2005013, // 0xFFE167EB
+        OST_CurtainWallPanelTags = -2005012, // 0xFFE167EC
+        OST_WallTags = -2005011, // 0xFFE167ED
+        OST_PlumbingFixtureTags = -2005010, // 0xFFE167EE
+        OST_MechanicalEquipmentTags = -2005009, // 0xFFE167EF
+        OST_LightingFixtureTags = -2005008, // 0xFFE167F0
+        OST_FurnitureSystemTags = -2005007, // 0xFFE167F1
+        OST_FurnitureTags = -2005006, // 0xFFE167F2
+        OST_ElectricalFixtureTags = -2005004, // 0xFFE167F4
+        OST_ElectricalEquipmentTags = -2005003, // 0xFFE167F5
+        OST_CeilingTags = -2005002, // 0xFFE167F6
+        OST_CaseworkTags = -2005001, // 0xFFE167F7
+        OST_Tags = -2005000, // 0xFFE167F8
+        OST_MEPSpaceColorFill = -2003605, // 0xFFE16D6B
+        OST_MEPSpaceReference = -2003604, // 0xFFE16D6C
+        OST_MEPSpaceInteriorFill = -2003603, // 0xFFE16D6D
+        OST_MEPSpaceReferenceVisibility = -2003602, // 0xFFE16D6E
+        OST_MEPSpaceInteriorFillVisibility = -2003601, // 0xFFE16D6F
+        OST_MEPSpaces = -2003600, // 0xFFE16D70
+        OST_StackedWalls = -2003500, // 0xFFE16DD4
+        OST_MassGlazingAll = -2003423, // 0xFFE16E21
+        OST_MassFloorsAll = -2003422, // 0xFFE16E22
+        OST_MassWallsAll = -2003421, // 0xFFE16E23
+        OST_MassExteriorWallUnderground = -2003420, // 0xFFE16E24
+        OST_MassSlab = -2003419, // 0xFFE16E25
+        OST_MassShade = -2003418, // 0xFFE16E26
+        OST_MassOpening = -2003417, // 0xFFE16E27
+        OST_MassSkylights = -2003416, // 0xFFE16E28
+        OST_MassGlazing = -2003415, // 0xFFE16E29
+        OST_MassRoof = -2003414, // 0xFFE16E2A
+        OST_MassExteriorWall = -2003413, // 0xFFE16E2B
+        OST_MassInteriorWall = -2003412, // 0xFFE16E2C
+        OST_MassZone = -2003411, // 0xFFE16E2D
+        OST_MassAreaFaceTags = -2003410, // 0xFFE16E2E
+        OST_HostTemplate = -2003409, // 0xFFE16E2F
+        OST_MassFaceSplitter = -2003408, // 0xFFE16E30
+        OST_MassCutter = -2003407, // 0xFFE16E31
+        OST_ZoningEnvelope = -2003406, // 0xFFE16E32
+        OST_MassTags = -2003405, // 0xFFE16E33
+        OST_MassForm = -2003404, // 0xFFE16E34
+        OST_MassFloor = -2003403, // 0xFFE16E35
+        OST_Mass = -2003400, // 0xFFE16E38
+        OST_DividedSurface_DiscardedDivisionLines = -2003333, // 0xFFE16E7B
+        OST_DividedSurfaceBelt = -2003332, // 0xFFE16E7C
+        OST_TilePatterns = -2003331, // 0xFFE16E7D
+        OST_AlwaysExcludedInAllViews = -2003330, // 0xFFE16E7E
+        OST_DividedSurface_TransparentFace = -2003329, // 0xFFE16E7F
+        OST_DividedSurface_PreDividedSurface = -2003328, // 0xFFE16E80
+        OST_DividedSurface_PatternFill = -2003327, // 0xFFE16E81
+        OST_DividedSurface_PatternLines = -2003326, // 0xFFE16E82
+        OST_DividedSurface_Gridlines = -2003325, // 0xFFE16E83
+        OST_DividedSurface_Nodes = -2003324, // 0xFFE16E84
+        OST_DividedSurface = -2003323, // 0xFFE16E85
+        OST_RepeatingDetailLines = -2003321, // 0xFFE16E87
+        OST_RampsDownArrow = -2003308, // 0xFFE16E94
+        OST_RampsUpArrow = -2003307, // 0xFFE16E95
+        OST_RampsDownText = -2003306, // 0xFFE16E96
+        OST_RampsUpText = -2003305, // 0xFFE16E97
+        OST_RampsStringerAboveCut = -2003304, // 0xFFE16E98
+        OST_RampsStringer = -2003303, // 0xFFE16E99
+        OST_RampsAboveCut = -2003302, // 0xFFE16E9A
+        OST_RampsIncomplete = -2003301, // 0xFFE16E9B
+        OST_TrussDummy = -2003300, // 0xFFE16E9C
+        OST_ZoneSchemes = -2003225, // 0xFFE16EE7
+        OST_AreaSchemes = -2003201, // 0xFFE16EFF
+        OST_Areas = -2003200, // 0xFFE16F00
+        OST_ProjectInformation = -2003101, // 0xFFE16F63
+        OST_Sheets = -2003100, // 0xFFE16F64
+        OST_ProfileFamilies = -2003000, // 0xFFE16FC8
+        OST_DetailComponents = -2002000, // 0xFFE173B0
+        OST_RoofSoffit = -2001393, // 0xFFE1760F
+        OST_EdgeSlab = -2001392, // 0xFFE17610
+        OST_Gutter = -2001391, // 0xFFE17611
+        OST_Fascia = -2001390, // 0xFFE17612
+        OST_Entourage = -2001370, // 0xFFE17626
+        OST_Planting = -2001360, // 0xFFE17630
+        OST_Blocks = -2001359, // 0xFFE17631
+        OST_StructuralStiffenerHiddenLines = -2001358, // 0xFFE17632
+        OST_StructuralColumnLocationLine = -2001357, // 0xFFE17633
+        OST_StructuralFramingLocationLine = -2001356, // 0xFFE17634
+        OST_StructuralStiffenerTags = -2001355, // 0xFFE17635
+        OST_StructuralStiffener = -2001354, // 0xFFE17636
+        OST_FootingAnalyticalGeometry = -2001353, // 0xFFE17637
+        OST_RvtLinks = -2001352, // 0xFFE17638
+        OST_Automatic = -2001351, // 0xFFE17639
+        OST_SpecialityEquipment = -2001350, // 0xFFE1763A
+        OST_ColumnAnalyticalRigidLinks = -2001344, // 0xFFE17640
+        OST_SecondaryTopographyContours = -2001343, // 0xFFE17641
+        OST_TopographyContours = -2001342, // 0xFFE17642
+        OST_TopographySurface = -2001341, // 0xFFE17643
+        OST_Topography = -2001340, // 0xFFE17644
+        OST_TopographyLink = -2001339, // 0xFFE17645
+        OST_StructuralTruss = -2001336, // 0xFFE17648
+        OST_StructuralColumnStickSymbols = -2001335, // 0xFFE17649
+        OST_HiddenStructuralColumnLines = -2001334, // 0xFFE1764A
+        OST_AnalyticalRigidLinks = -2001333, // 0xFFE1764B
+        OST_ColumnAnalyticalGeometry = -2001332, // 0xFFE1764C
+        OST_FramingAnalyticalGeometry = -2001331, // 0xFFE1764D
+        OST_StructuralColumns = -2001330, // 0xFFE1764E
+        OST_HiddenStructuralFramingLines = -2001329, // 0xFFE1764F
+        OST_KickerBracing = -2001328, // 0xFFE17650
+        OST_StructuralFramingSystem = -2001327, // 0xFFE17651
+        OST_VerticalBracing = -2001326, // 0xFFE17652
+        OST_HorizontalBracing = -2001325, // 0xFFE17653
+        OST_Purlin = -2001324, // 0xFFE17654
+        OST_Joist = -2001323, // 0xFFE17655
+        OST_Girder = -2001322, // 0xFFE17656
+        OST_StructuralFramingOther = -2001321, // 0xFFE17657
+        OST_StructuralFraming = -2001320, // 0xFFE17658
+        OST_HiddenStructuralFoundationLines = -2001302, // 0xFFE1766A
+        OST_StructuralFoundation = -2001300, // 0xFFE1766C
+        OST_LinkBasePoint = -2001276, // 0xFFE17684
+        OST_BasePointAxisZ = -2001275, // 0xFFE17685
+        OST_BasePointAxisY = -2001274, // 0xFFE17686
+        OST_BasePointAxisX = -2001273, // 0xFFE17687
+        OST_SharedBasePoint = -2001272, // 0xFFE17688
+        OST_ProjectBasePoint = -2001271, // 0xFFE17689
+        OST_SiteRegion = -2001270, // 0xFFE1768A
+        OST_SitePropertyLineSegmentTags = -2001269, // 0xFFE1768B
+        OST_SitePropertyLineSegment = -2001268, // 0xFFE1768C
+        OST_SitePropertyTags = -2001267, // 0xFFE1768D
+        OST_SitePointBoundary = -2001266, // 0xFFE1768E
+        OST_SiteProperty = -2001265, // 0xFFE1768F
+        OST_BuildingPad = -2001263, // 0xFFE17691
+        OST_SitePoint = -2001262, // 0xFFE17692
+        OST_SiteSurface = -2001261, // 0xFFE17693
+        OST_Site = -2001260, // 0xFFE17694
+        OST_Sewer = -2001240, // 0xFFE176A8
+        OST_Roads = -2001220, // 0xFFE176BC
+        OST_Property = -2001200, // 0xFFE176D0
+        OST_Parking = -2001180, // 0xFFE176E4
+        OST_PlumbingFixtures = -2001160, // 0xFFE176F8
+        OST_MechanicalEquipment = -2001140, // 0xFFE1770C
+        OST_LightingFixtureSource = -2001121, // 0xFFE1771F
+        OST_LightingFixtures = -2001120, // 0xFFE17720
+        OST_FurnitureSystems = -2001100, // 0xFFE17734
+        OST_ElectricalFixtures = -2001060, // 0xFFE1775C
+        OST_ElectricalEquipment = -2001040, // 0xFFE17770
+        OST_AlignmentStationLabels = -2001017, // 0xFFE17787
+        OST_AlignmentStationLabelSets = -2001016, // 0xFFE17788
+        OST_AlignmentsTags = -2001015, // 0xFFE17789
+        OST_MinorStations_Deprecated = -2001014, // 0xFFE1778A
+        OST_MajorStations_Deprecated = -2001013, // 0xFFE1778B
+        OST_Alignments = -2001012, // 0xFFE1778C
+        OST_ElectricalCircuitNaming = -2001011, // 0xFFE1778D
+        OST_ZoneEquipment = -2001010, // 0xFFE1778E
+        OST_MEPAnalyticalWaterLoop = -2001009, // 0xFFE1778F
+        OST_MEPAnalyticalAirLoop = -2001008, // 0xFFE17790
+        OST_MEPSystemZoneTags = -2001007, // 0xFFE17791
+        OST_MEPSystemZoneReferenceLinesVisibility = -2001006, // 0xFFE17792
+        OST_MEPSystemZoneInteriorFillVisibility = -2001005, // 0xFFE17793
+        OST_MEPSystemZoneReferenceLines = -2001004, // 0xFFE17794
+        OST_MEPSystemZoneInteriorFill = -2001003, // 0xFFE17795
+        OST_MEPSystemZoneBoundary = -2001002, // 0xFFE17796
+        OST_MEPSystemZone = -2001001, // 0xFFE17797
+        OST_Casework = -2001000, // 0xFFE17798
+        OST_ArcWallRectOpening = -2000999, // 0xFFE17799
+        OST_DormerOpeningIncomplete = -2000998, // 0xFFE1779A
+        OST_SWallRectOpening = -2000997, // 0xFFE1779B
+        OST_ShaftOpening = -2000996, // 0xFFE1779C
+        OST_StructuralFramingOpening = -2000995, // 0xFFE1779D
+        OST_ColumnOpening = -2000994, // 0xFFE1779E
+        OST_RiseDropSymbols = -2000989, // 0xFFE177A3
+        OST_PipeHydronicSeparationSymbols = -2000988, // 0xFFE177A4
+        OST_MechanicalEquipmentSetBoundaryLines = -2000987, // 0xFFE177A5
+        OST_MechanicalEquipmentSetTags = -2000986, // 0xFFE177A6
+        OST_MechanicalEquipmentSet = -2000985, // 0xFFE177A7
+        OST_AnalyticalPipeConnectionLineSymbol = -2000984, // 0xFFE177A8
+        OST_AnalyticalPipeConnections = -2000983, // 0xFFE177A9
+        OST_Coordination_Model = -2000982, // 0xFFE177AA
+        OST_MultistoryStairs = -2000980, // 0xFFE177AC
+        OST_HiddenStructuralConnectionLines_Deprecated = -2000979, // 0xFFE177AD
+        OST_StructuralConnectionHandler_Deprecated = -2000978, // 0xFFE177AE
+        OST_CoordinateSystem = -2000977, // 0xFFE177AF
+        OST_FndSlabLocalCoordSys = -2000976, // 0xFFE177B0
+        OST_FloorLocalCoordSys = -2000975, // 0xFFE177B1
+        OST_WallLocalCoordSys = -2000974, // 0xFFE177B2
+        OST_BraceLocalCoordSys = -2000973, // 0xFFE177B3
+        OST_ColumnLocalCoordSys = -2000972, // 0xFFE177B4
+        OST_BeamLocalCoordSys = -2000971, // 0xFFE177B5
+        OST_MultiReferenceAnnotations = -2000970, // 0xFFE177B6
+        OST_DSR_LeaderTickMarkStyleId = -2000969, // 0xFFE177B7
+        OST_DSR_InteriorTickMarkStyleId = -2000968, // 0xFFE177B8
+        OST_DSR_ArrowHeadStyleId = -2000967, // 0xFFE177B9
+        OST_DSR_CenterlineTickMarkStyleId = -2000966, // 0xFFE177BA
+        OST_DSR_CenterlinePatternCatId = -2000965, // 0xFFE177BB
+        OST_DSR_DimStyleHeavyEndCategoryId = -2000964, // 0xFFE177BC
+        OST_DSR_DimStyleHeavyEndCatId = -2000963, // 0xFFE177BD
+        OST_DSR_DimStyleTickCategoryId = -2000962, // 0xFFE177BE
+        OST_DSR_LineAndTextAttrFontId = -2000961, // 0xFFE177BF
+        OST_DSR_LineAndTextAttrCategoryId = -2000960, // 0xFFE177C0
+        OST_NodeAnalyticalTags = -2000956, // 0xFFE177C4
+        OST_LinkAnalyticalTags = -2000955, // 0xFFE177C5
+        OST_RailingRailPathExtensionLines = -2000954, // 0xFFE177C6
+        OST_RailingRailPathLines = -2000953, // 0xFFE177C7
+        OST_StairsSupports = -2000952, // 0xFFE177C8
+        OST_RailingHandRailAboveCut = -2000951, // 0xFFE177C9
+        OST_RailingTopRailAboveCut = -2000950, // 0xFFE177CA
+        OST_RailingTermination = -2000949, // 0xFFE177CB
+        OST_RailingSupport = -2000948, // 0xFFE177CC
+        OST_RailingHandRail = -2000947, // 0xFFE177CD
+        OST_RailingTopRail = -2000946, // 0xFFE177CE
+        OST_StairsSketchPathLines = -2000945, // 0xFFE177CF
+        OST_StairsTriserNumbers = -2000944, // 0xFFE177D0
+        OST_StairsTriserTags = -2000943, // 0xFFE177D1
+        OST_StairsSupportTags = -2000942, // 0xFFE177D2
+        OST_StairsLandingTags = -2000941, // 0xFFE177D3
+        OST_StairsRunTags = -2000940, // 0xFFE177D4
+        OST_StairsPathsAboveCut = -2000939, // 0xFFE177D5
+        OST_StairsPaths = -2000938, // 0xFFE177D6
+        OST_StairsRiserLinesAboveCut = -2000937, // 0xFFE177D7
+        OST_StairsRiserLines = -2000936, // 0xFFE177D8
+        OST_StairsOutlinesAboveCut = -2000935, // 0xFFE177D9
+        OST_StairsOutlines = -2000934, // 0xFFE177DA
+        OST_StairsNosingLinesAboveCut = -2000933, // 0xFFE177DB
+        OST_StairsNosingLines = -2000932, // 0xFFE177DC
+        OST_StairsCutMarksAboveCut = -2000931, // 0xFFE177DD
+        OST_StairsCutMarks = -2000930, // 0xFFE177DE
+        OST_ComponentRepeaterSlot = -2000928, // 0xFFE177E0
+        OST_ComponentRepeater = -2000927, // 0xFFE177E1
+        OST_DividedPath = -2000926, // 0xFFE177E2
+        OST_IOSRoomCalculationPoint = -2000925, // 0xFFE177E3
+        OST_PropertySet = -2000924, // 0xFFE177E4
+        OST_AppearanceAsset = -2000923, // 0xFFE177E5
+        OST_StairStringer2012_Deprecated = -2000922, // 0xFFE177E6
+        OST_StairsTrisers = -2000921, // 0xFFE177E7
+        OST_StairsLandings = -2000920, // 0xFFE177E8
+        OST_StairsRuns = -2000919, // 0xFFE177E9
+        OST_Stair2012_Deprecated = -2000918, // 0xFFE177EA
+        OST_RailingSystemTags = -2000917, // 0xFFE177EB
+        OST_RailingSystemTransition = -2000916, // 0xFFE177EC
+        OST_RailingSystemTermination = -2000915, // 0xFFE177ED
+        OST_RailingSystemRail = -2000914, // 0xFFE177EE
+        OST_RailingSystemTopRail = -2000913, // 0xFFE177EF
+        OST_RailingSystemHandRailBracket = -2000912, // 0xFFE177F0
+        OST_RailingSystemHandRail = -2000911, // 0xFFE177F1
+        OST_RailingSystemHardware = -2000910, // 0xFFE177F2
+        OST_RailingSystemPanel = -2000909, // 0xFFE177F3
+        OST_RailingSystemBaluster = -2000908, // 0xFFE177F4
+        OST_RailingSystemPost = -2000907, // 0xFFE177F5
+        OST_RailingSystemSegment = -2000906, // 0xFFE177F6
+        OST_RailingSystem = -2000905, // 0xFFE177F7
+        OST_AdaptivePoints_HiddenLines = -2000904, // 0xFFE177F8
+        OST_AdaptivePoints_Lines = -2000903, // 0xFFE177F9
+        OST_AdaptivePoints_Planes = -2000902, // 0xFFE177FA
+        OST_AdaptivePoints_Points = -2000901, // 0xFFE177FB
+        OST_AdaptivePoints = -2000900, // 0xFFE177FC
+        OST_CeilingOpening = -2000899, // 0xFFE177FD
+        OST_FloorOpening = -2000898, // 0xFFE177FE
+        OST_RoofOpening = -2000897, // 0xFFE177FF
+        OST_WallRefPlanes = -2000896, // 0xFFE17800
+        OST_StructLocationLineControl = -2000880, // 0xFFE17810
+        OST_PathOfTravelTags = -2000834, // 0xFFE1783E
+        OST_PathOfTravelLines = -2000833, // 0xFFE1783F
+        OST_DimLockControlLeader = -2000832, // 0xFFE17840
+        OST_MEPSpaceSeparationLines = -2000831, // 0xFFE17841
+        OST_AreaPolylines = -2000830, // 0xFFE17842
+        OST_RoomPolylines = -2000829, // 0xFFE17843
+        OST_InstanceDrivenLineStyle = -2000828, // 0xFFE17844
+        OST_RemovedGridSeg = -2000827, // 0xFFE17845
+        OST_IOSOpening = -2000810, // 0xFFE17856
+        OST_IOSTilePatternGrid = -2000800, // 0xFFE17860
+        OST_ControlLocal = -2000774, // 0xFFE1787A
+        OST_ControlAxisZ = -2000773, // 0xFFE1787B
+        OST_ControlAxisY = -2000772, // 0xFFE1787C
+        OST_ControlAxisX = -2000721, // 0xFFE178AF
+        OST_XRayConstrainedProfileEdge = -2000720, // 0xFFE178B0
+        OST_XRayImplicitPathCurve = -2000719, // 0xFFE178B1
+        OST_XRayPathPoint = -2000718, // 0xFFE178B2
+        OST_XRayPathCurve = -2000717, // 0xFFE178B3
+        OST_XRaySideEdge = -2000716, // 0xFFE178B4
+        OST_XRayProfileEdge = -2000715, // 0xFFE178B5
+        OST_ReferencePoints_HiddenLines = -2000714, // 0xFFE178B6
+        OST_ReferencePoints_Lines = -2000713, // 0xFFE178B7
+        OST_ReferencePoints_Planes = -2000712, // 0xFFE178B8
+        OST_ReferencePoints_Points = -2000711, // 0xFFE178B9
+        OST_ReferencePoints = -2000710, // 0xFFE178BA
+        OST_Materials = -2000700, // 0xFFE178C4
+        OST_CeilingsCutPattern = -2000617, // 0xFFE17917
+        OST_CeilingsDefault = -2000616, // 0xFFE17918
+        OST_CeilingsFinish2 = -2000615, // 0xFFE17919
+        OST_CeilingsFinish1 = -2000614, // 0xFFE1791A
+        OST_CeilingsSubstrate = -2000613, // 0xFFE1791B
+        OST_CeilingsInsulation = -2000612, // 0xFFE1791C
+        OST_CeilingsStructure = -2000611, // 0xFFE1791D
+        OST_CeilingsMembrane = -2000610, // 0xFFE1791E
+        OST_FloorsInteriorEdges = -2000609, // 0xFFE1791F
+        OST_FloorsCutPattern = -2000608, // 0xFFE17920
+        OST_HiddenFloorLines = -2000607, // 0xFFE17921
+        OST_FloorsDefault = -2000606, // 0xFFE17922
+        OST_FloorsFinish2 = -2000605, // 0xFFE17923
+        OST_FloorsFinish1 = -2000604, // 0xFFE17924
+        OST_FloorsSubstrate = -2000603, // 0xFFE17925
+        OST_FloorsInsulation = -2000602, // 0xFFE17926
+        OST_FloorsStructure = -2000601, // 0xFFE17927
+        OST_FloorsMembrane = -2000600, // 0xFFE17928
+        OST_RoofsInteriorEdges = -2000598, // 0xFFE1792A
+        OST_RoofsCutPattern = -2000597, // 0xFFE1792B
+        OST_RoofsDefault = -2000596, // 0xFFE1792C
+        OST_RoofsFinish2 = -2000595, // 0xFFE1792D
+        OST_RoofsFinish1 = -2000594, // 0xFFE1792E
+        OST_RoofsSubstrate = -2000593, // 0xFFE1792F
+        OST_RoofsInsulation = -2000592, // 0xFFE17930
+        OST_RoofsStructure = -2000591, // 0xFFE17931
+        OST_RoofsMembrane = -2000590, // 0xFFE17932
+        OST_WallsCutPattern = -2000588, // 0xFFE17934
+        OST_HiddenWallLines = -2000587, // 0xFFE17935
+        OST_WallsDefault = -2000586, // 0xFFE17936
+        OST_WallsFinish2 = -2000585, // 0xFFE17937
+        OST_WallsFinish1 = -2000584, // 0xFFE17938
+        OST_WallsSubstrate = -2000583, // 0xFFE17939
+        OST_WallsInsulation = -2000582, // 0xFFE1793A
+        OST_WallsStructure = -2000581, // 0xFFE1793B
+        OST_WallsMembrane = -2000580, // 0xFFE1793C
+        OST_PreviewLegendComponents = -2000576, // 0xFFE17940
+        OST_LegendComponents = -2000575, // 0xFFE17941
+        OST_Schedules = -2000573, // 0xFFE17943
+        OST_ScheduleGraphics = -2000570, // 0xFFE17946
+        OST_RasterImages = -2000560, // 0xFFE17950
+        OST_ColorFillSchema = -2000552, // 0xFFE17958
+        OST_RoomColorFill = -2000551, // 0xFFE17959
+        OST_ColorFillLegends = -2000550, // 0xFFE1795A
+        OST_AnnotationCropSpecial = -2000549, // 0xFFE1795B
+        OST_CropBoundarySpecial = -2000548, // 0xFFE1795C
+        OST_AnnotationCrop = -2000547, // 0xFFE1795D
+        OST_FloorsAnalyticalGeometry = -2000546, // 0xFFE1795E
+        OST_WallsAnalyticalGeometry = -2000545, // 0xFFE1795F
+        OST_CalloutLeaderLine = -2000544, // 0xFFE17960
+        OST_CeilingsSurfacePattern = -2000543, // 0xFFE17961
+        OST_RoofsSurfacePattern = -2000542, // 0xFFE17962
+        OST_FloorsSurfacePattern = -2000541, // 0xFFE17963
+        OST_WallsSurfacePattern = -2000540, // 0xFFE17964
+        OST_CalloutBoundary = -2000539, // 0xFFE17965
+        OST_CalloutHeads = -2000538, // 0xFFE17966
+        OST_Callouts = -2000537, // 0xFFE17967
+        OST_CropBoundary = -2000536, // 0xFFE17968
+        OST_Elev = -2000535, // 0xFFE17969
+        OST_AxisZ = -2000533, // 0xFFE1796B
+        OST_AxisY = -2000532, // 0xFFE1796C
+        OST_AxisX = -2000531, // 0xFFE1796D
+        OST_CLines = -2000530, // 0xFFE1796E
+        OST_Lights = -2000520, // 0xFFE17978
+        OST_ViewportLabel = -2000515, // 0xFFE1797D
+        OST_Viewports = -2000510, // 0xFFE17982
+        OST_Camera_Lines = -2000501, // 0xFFE1798B
+        OST_Cameras = -2000500, // 0xFFE1798C
+        OST_MEPSpaceTags = -2000485, // 0xFFE1799B
+        OST_RoomTags = -2000480, // 0xFFE179A0
+        OST_DoorTags = -2000460, // 0xFFE179B4
+        OST_WindowTags = -2000450, // 0xFFE179BE
+        OST_SectionHeadWideLines = -2000404, // 0xFFE179EC
+        OST_SectionHeadMediumLines = -2000403, // 0xFFE179ED
+        OST_SectionHeadThinLines = -2000401, // 0xFFE179EF
+        OST_SectionHeads = -2000400, // 0xFFE179F0
+        OST_ContourLabels = -2000350, // 0xFFE17A22
+        OST_CurtaSystemFaceManager = -2000341, // 0xFFE17A2B
+        OST_CurtaSystem = -2000340, // 0xFFE17A2C
+        OST_AreaReport_Arc_Minus = -2000328, // 0xFFE17A38
+        OST_AreaReport_Arc_Plus = -2000327, // 0xFFE17A39
+        OST_AreaReport_Boundary = -2000326, // 0xFFE17A3A
+        OST_AreaReport_Triangle = -2000325, // 0xFFE17A3B
+        OST_CurtainGridsCurtaSystem = -2000323, // 0xFFE17A3D
+        OST_CurtainGridsSystem = -2000322, // 0xFFE17A3E
+        OST_CurtainGridsWall = -2000321, // 0xFFE17A3F
+        OST_CurtainGridsRoof = -2000320, // 0xFFE17A40
+        OST_HostFinHF = -2000315, // 0xFFE17A45
+        OST_HostFinWall = -2000314, // 0xFFE17A46
+        OST_HostFinCeiling = -2000313, // 0xFFE17A47
+        OST_HostFinRoof = -2000312, // 0xFFE17A48
+        OST_HostFinFloor = -2000311, // 0xFFE17A49
+        OST_HostFin = -2000310, // 0xFFE17A4A
+        OST_AnalysisDisplayStyle = -2000304, // 0xFFE17A50
+        OST_AnalysisResults = -2000303, // 0xFFE17A51
+        OST_RenderRegions = -2000302, // 0xFFE17A52
+        OST_SectionBox = -2000301, // 0xFFE17A53
+        OST_TextNotes = -2000300, // 0xFFE17A54
+        OST_Divisions = -2000291, // 0xFFE17A5D
+        OST_Catalogs = -2000290, // 0xFFE17A5E
+        OST_DirectionEdgeLines = -2000289, // 0xFFE17A5F
+        OST_CenterLines = -2000288, // 0xFFE17A60
+        OST_LinesBeyond = -2000287, // 0xFFE17A61
+        OST_HiddenLines = -2000286, // 0xFFE17A62
+        OST_DemolishedLines = -2000285, // 0xFFE17A63
+        OST_OverheadLines = -2000284, // 0xFFE17A64
+        OST_TitleBlockWideLines = -2000283, // 0xFFE17A65
+        OST_TitleBlockMediumLines = -2000282, // 0xFFE17A66
+        OST_TitleBlockThinLines = -2000281, // 0xFFE17A67
+        OST_TitleBlocks = -2000280, // 0xFFE17A68
+        OST_Views = -2000279, // 0xFFE17A69
+        OST_Viewers = -2000278, // 0xFFE17A6A
+        OST_PartHiddenLines = -2000271, // 0xFFE17A71
+        OST_PartTags = -2000270, // 0xFFE17A72
+        OST_Parts = -2000269, // 0xFFE17A73
+        OST_AssemblyTags = -2000268, // 0xFFE17A74
+        OST_Assemblies = -2000267, // 0xFFE17A75
+        OST_RoofTags = -2000266, // 0xFFE17A76
+        OST_SpotSlopes = -2000265, // 0xFFE17A77
+        OST_SpotCoordinates = -2000264, // 0xFFE17A78
+        OST_SpotElevations = -2000263, // 0xFFE17A79
+        OST_Constraints = -2000262, // 0xFFE17A7A
+        OST_WeakDims = -2000261, // 0xFFE17A7B
+        OST_Dimensions = -2000260, // 0xFFE17A7C
+        OST_Levels = -2000240, // 0xFFE17A90
+        OST_DisplacementPath = -2000223, // 0xFFE17AA1
+        OST_DisplacementElements = -2000222, // 0xFFE17AA2
+        OST_GridChains = -2000221, // 0xFFE17AA3
+        OST_Grids = -2000220, // 0xFFE17AA4
+        OST_BrokenSectionLine = -2000202, // 0xFFE17AB6
+        OST_SectionLine = -2000201, // 0xFFE17AB7
+        OST_Sections = -2000200, // 0xFFE17AB8
+        OST_ReferenceViewer = -2000198, // 0xFFE17ABA
+        OST_ReferenceViewerSymbol = -2000197, // 0xFFE17ABB
+        OST_ImportObjectStyles = -2000196, // 0xFFE17ABC
+        OST_ModelText = -2000195, // 0xFFE17ABD
+        OST_MaskingRegion = -2000194, // 0xFFE17ABE
+        OST_Matchline = -2000193, // 0xFFE17ABF
+        OST_FaceSplitter = -2000192, // 0xFFE17AC0
+        OST_PlanRegion = -2000191, // 0xFFE17AC1
+        OST_FilledRegion = -2000190, // 0xFFE17AC2
+        OST_MassingProjectionOutlines = -2000187, // 0xFFE17AC5
+        OST_MassingCutOutlines = -2000186, // 0xFFE17AC6
+        OST_Massing = -2000185, // 0xFFE17AC7
+        OST_Reveals = -2000182, // 0xFFE17ACA
+        OST_Cornices = -2000181, // 0xFFE17ACB
+        OST_Ramps = -2000180, // 0xFFE17ACC
+        OST_RailingBalusterRailCut = -2000177, // 0xFFE17ACF
+        OST_RailingBalusterRail = -2000176, // 0xFFE17AD0
+        OST_Railings = -2000175, // 0xFFE17AD1
+        OST_CurtainGrids = -2000173, // 0xFFE17AD3
+        OST_CurtainWallMullionsCut = -2000172, // 0xFFE17AD4
+        OST_CurtainWallMullions = -2000171, // 0xFFE17AD5
+        OST_CurtainWallPanels = -2000170, // 0xFFE17AD6
+        OST_AreaReference = -2000169, // 0xFFE17AD7
+        OST_AreaInteriorFill = -2000168, // 0xFFE17AD8
+        OST_RoomReference = -2000167, // 0xFFE17AD9
+        OST_RoomInteriorFill = -2000166, // 0xFFE17ADA
+        OST_AreaColorFill = -2000165, // 0xFFE17ADB
+        OST_AreaReferenceVisibility = -2000164, // 0xFFE17ADC
+        OST_AreaInteriorFillVisibility = -2000163, // 0xFFE17ADD
+        OST_RoomReferenceVisibility = -2000162, // 0xFFE17ADE
+        OST_RoomInteriorFillVisibility = -2000161, // 0xFFE17ADF
+        OST_Rooms = -2000160, // 0xFFE17AE0
+        OST_GenericModel = -2000151, // 0xFFE17AE9
+        OST_GenericAnnotation = -2000150, // 0xFFE17AEA
+        OST_Fixtures = -2000140, // 0xFFE17AF4
+        OST_StairsRailingTags = -2000133, // 0xFFE17AFB
+        OST_StairsRailingAboveCut = -2000132, // 0xFFE17AFC
+        OST_StairsDownArrows = -2000131, // 0xFFE17AFD
+        OST_StairsUpArrows = -2000130, // 0xFFE17AFE
+        OST_StairsDownText = -2000129, // 0xFFE17AFF
+        OST_StairsRailingRail = -2000128, // 0xFFE17B00
+        OST_StairsRailingBaluster = -2000127, // 0xFFE17B01
+        OST_StairsRailing = -2000126, // 0xFFE17B02
+        OST_StairsUpText = -2000125, // 0xFFE17B03
+        OST_StairsSupportsAboveCut = -2000124, // 0xFFE17B04
+        OST_StairsStringerCarriage = -2000123, // 0xFFE17B05
+        OST_StairsAboveCut_ToBeDeprecated = -2000122, // 0xFFE17B06
+        OST_StairsIncomplete_Deprecated = -2000121, // 0xFFE17B07
+        OST_Stairs = -2000120, // 0xFFE17B08
+        OST_IOSNavWheelPivotBall = -2000117, // 0xFFE17B0B
+        OST_IOSRoomComputationHeight = -2000116, // 0xFFE17B0C
+        OST_IOSRoomUpperLowerLines = -2000115, // 0xFFE17B0D
+        OST_IOSDragBoxInverted = -2000114, // 0xFFE17B0E
+        OST_IOSDragBox = -2000113, // 0xFFE17B0F
+        OST_Phases = -2000112, // 0xFFE17B10
+        OST_IOS_GeoSite = -2000111, // 0xFFE17B11
+        OST_IOS_GeoLocations = -2000110, // 0xFFE17B12
+        OST_IOSFabricReinSpanSymbolCtrl = -2000109, // 0xFFE17B13
+        OST_GuideGrid = -2000107, // 0xFFE17B15
+        OST_EPS_Future = -2000106, // 0xFFE17B16
+        OST_EPS_Temporary = -2000105, // 0xFFE17B17
+        OST_EPS_New = -2000104, // 0xFFE17B18
+        OST_EPS_Demolished = -2000103, // 0xFFE17B19
+        OST_EPS_Existing = -2000102, // 0xFFE17B1A
+        OST_IOSMeasureLineScreenSize = -2000101, // 0xFFE17B1B
+        OST_Columns = -2000100, // 0xFFE17B1C
+        OST_IOSRebarSystemSpanSymbolCtrl = -2000099, // 0xFFE17B1D
+        OST_IOSRoomTagToRoomLines = -2000098, // 0xFFE17B1E
+        OST_IOSAttachedDetailGroups = -2000097, // 0xFFE17B1F
+        OST_IOSDetailGroups = -2000096, // 0xFFE17B20
+        OST_IOSModelGroups = -2000095, // 0xFFE17B21
+        OST_IOSSuspendedSketch = -2000094, // 0xFFE17B22
+        OST_IOSWallCoreBoundary = -2000093, // 0xFFE17B23
+        OST_IOSMeasureLine = -2000092, // 0xFFE17B24
+        OST_IOSArrays = -2000091, // 0xFFE17B25
+        OST_Curtain_Systems = -2000090, // 0xFFE17B26
+        OST_IOSBBoxScreenSize = -2000089, // 0xFFE17B27
+        OST_IOSSlabShapeEditorPointInterior = -2000088, // 0xFFE17B28
+        OST_IOSSlabShapeEditorPointBoundary = -2000087, // 0xFFE17B29
+        OST_IOSSlabShapeEditorBoundary = -2000086, // 0xFFE17B2A
+        OST_IOSSlabShapeEditorAutoCrease = -2000085, // 0xFFE17B2B
+        OST_IOSSlabShapeEditorExplitCrease = -2000084, // 0xFFE17B2C
+        OST_ReferenceLines = -2000083, // 0xFFE17B2D
+        OST_IOSNotSilhouette = -2000082, // 0xFFE17B2E
+        OST_FillPatterns = -2000081, // 0xFFE17B2F
+        OST_Furniture = -2000080, // 0xFFE17B30
+        OST_AreaSchemeLines = -2000079, // 0xFFE17B31
+        OST_GenericLines = -2000078, // 0xFFE17B32
+        OST_InsulationLines = -2000077, // 0xFFE17B33
+        OST_CloudLines = -2000076, // 0xFFE17B34
+        OST_IOSRoomPerimeterLines = -2000075, // 0xFFE17B35
+        OST_IOSCuttingGeometry = -2000074, // 0xFFE17B36
+        OST_IOSCrashGraphics = -2000073, // 0xFFE17B37
+        OST_IOSGroups = -2000072, // 0xFFE17B38
+        OST_IOSGhost = -2000071, // 0xFFE17B39
+        OST_StairsSketchLandingCenterLines = -2000070, // 0xFFE17B3A
+        OST_StairsSketchRunLines = -2000069, // 0xFFE17B3B
+        OST_StairsSketchRiserLines = -2000068, // 0xFFE17B3C
+        OST_StairsSketchBoundaryLines = -2000067, // 0xFFE17B3D
+        OST_RoomSeparationLines = -2000066, // 0xFFE17B3E
+        OST_AxisOfRotation = -2000065, // 0xFFE17B3F
+        OST_InvisibleLines = -2000064, // 0xFFE17B40
+        OST_IOSThinPixel_DashDot = -2000063, // 0xFFE17B41
+        OST_IOSThinPixel_Dash = -2000062, // 0xFFE17B42
+        OST_IOSThinPixel_Dot = -2000061, // 0xFFE17B43
+        OST_Extrusions = -2000060, // 0xFFE17B44
+        OST_IOS = -2000059, // 0xFFE17B45
+        OST_CutOutlines = -2000058, // 0xFFE17B46
+        OST_IOSThinPixel = -2000057, // 0xFFE17B47
+        OST_IOSFlipControl = -2000056, // 0xFFE17B48
+        OST_IOSSketchGrid = -2000055, // 0xFFE17B49
+        OST_IOSSuspendedSketch_obsolete = -2000054, // 0xFFE17B4A
+        OST_IOSFreeSnapLine = -2000053, // 0xFFE17B4B
+        OST_IOSDatumPlane = -2000052, // 0xFFE17B4C
+        OST_Lines = -2000051, // 0xFFE17B4D
+        OST_IOSConstructionLine = -2000050, // 0xFFE17B4E
+        OST_IOSAlignmentGraphics = -2000049, // 0xFFE17B4F
+        OST_IOSAligningLine = -2000048, // 0xFFE17B50
+        OST_IOSBackedUpElements = -2000047, // 0xFFE17B51
+        OST_IOSRegeneratedElements = -2000046, // 0xFFE17B52
+        OST_SketchLines = -2000045, // 0xFFE17B53
+        OST_CurvesWideLines = -2000044, // 0xFFE17B54
+        OST_CurvesMediumLines = -2000043, // 0xFFE17B55
+        OST_CurvesThinLines = -2000042, // 0xFFE17B56
+        OST_Curves = -2000041, // 0xFFE17B57
+        OST_CeilingsProjection = -2000040, // 0xFFE17B58
+        OST_CeilingsCut = -2000039, // 0xFFE17B59
+        OST_Ceilings = -2000038, // 0xFFE17B5A
+        OST_RoofsProjection = -2000037, // 0xFFE17B5B
+        OST_RoofsCut = -2000036, // 0xFFE17B5C
+        OST_Roofs = -2000035, // 0xFFE17B5D
+        OST_FloorsProjection = -2000034, // 0xFFE17B5E
+        OST_FloorsCut = -2000033, // 0xFFE17B5F
+        OST_Floors = -2000032, // 0xFFE17B60
+        OST_DoorsGlassProjection = -2000031, // 0xFFE17B61
+        OST_DoorsGlassCut = -2000030, // 0xFFE17B62
+        OST_DoorsFrameMullionProjection = -2000029, // 0xFFE17B63
+        OST_DoorsFrameMullionCut = -2000028, // 0xFFE17B64
+        OST_DoorsOpeningProjection = -2000027, // 0xFFE17B65
+        OST_DoorsOpeningCut = -2000026, // 0xFFE17B66
+        OST_DoorsPanelProjection = -2000025, // 0xFFE17B67
+        OST_DoorsPanelCut = -2000024, // 0xFFE17B68
+        OST_Doors = -2000023, // 0xFFE17B69
+        OST_WindowsOpeningProjection = -2000022, // 0xFFE17B6A
+        OST_WindowsOpeningCut = -2000021, // 0xFFE17B6B
+        OST_WindowsSillHeadProjection = -2000020, // 0xFFE17B6C
+        OST_WindowsSillHeadCut = -2000019, // 0xFFE17B6D
+        OST_WindowsFrameMullionProjection = -2000018, // 0xFFE17B6E
+        OST_WindowsFrameMullionCut = -2000017, // 0xFFE17B6F
+        OST_WindowsGlassProjection = -2000016, // 0xFFE17B70
+        OST_WindowsGlassCut = -2000015, // 0xFFE17B71
+        OST_Windows = -2000014, // 0xFFE17B72
+        OST_WallsProjectionOutlines = -2000013, // 0xFFE17B73
+        OST_WallsCutOutlines = -2000012, // 0xFFE17B74
+        OST_Walls = -2000011, // 0xFFE17B75
+        OST_IOSRegenerationFailure = -2000010, // 0xFFE17B76
+        OST_ScheduleViewParamGroup = -2000008, // 0xFFE17B78
+        OST_MatchSiteComponent = -2000007, // 0xFFE17B79
+        OST_MatchProfile = -2000006, // 0xFFE17B7A
+        OST_MatchDetail = -2000005, // 0xFFE17B7B
+        OST_MatchAnnotation = -2000004, // 0xFFE17B7C
+        OST_MatchModel = -2000003, // 0xFFE17B7D
+        OST_MatchAll = -2000002, // 0xFFE17B7E
+        INVALID = -1, // 0xFFFFFFFF
     }
 }

@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
@@ -6,7 +6,7 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<Version>2021.0.1</Version>
+		<Version>2021.0.1-rc1</Version>
 		<AssemblyVersion>2021.0.1</AssemblyVersion>
 		<FileVersion>2021.0.1</FileVersion>
 	</PropertyGroup>

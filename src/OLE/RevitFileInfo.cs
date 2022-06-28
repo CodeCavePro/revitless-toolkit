@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
@@ -146,9 +146,10 @@ namespace CodeCave.Revit.Toolkit.OLE
                 rfi.ParseRevit(properties);
                 rfi.ParseUsername(properties);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 // TODO log the error
+                Console.WriteLine($"Failed to get {nameof(RevitFileInfo)} from the following file '{filePath}': {ex}");
             }
 
             // Read family types from part atom

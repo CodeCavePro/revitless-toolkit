@@ -1,0 +1,114 @@
+pool:
+  vmImage: 'windows-latest'
+
+trigger:
+  branches:
+    include:
+    - '*'
+  tags:
+    include:
+    - '*'
+
+pr:
+  branches:
+    include:
+    - '*'
+
+steps:
+- task: UseDotNet@2
+  displayName: 'Install .NET Core 6.0.x SDK'
+  inputs:
+    packageType: sdk
+    version: '6.0.x'
+
+
+#- task: BuildVersioning@0
+#  displayName: 'Patching assembly versions (unstable build)'
+#  condition: not(startsWith(variables['Build.SourceBranch'], 'refs/tags/'))
+#  inputs:
+#    sourcePath: 'src'
+#    versionSource: 'gitversion'
+#    doInstallGitVersion: true
+#    GitVersionInstallerSource: 'custom'
+#    GitVersionInstallerUrl: 'https://packages.chocolatey.org/GitVersion.Portable.5.0.1.nupkg'
+#    paramAssemblyVersion: '3'
+#    paramAssemblyFileVersion: '3'
+#    paramAssemblyInformationalVersion: '5'
+#    paramOverwriteFourthDigitWithBuildCounter: false
+#    paramVersionCode: '2'
+#    doAssemblyInfoAppendSuffix: true
+#    doConvertAssemblyInfoToLowerCase: true
+#    paramAssemblyInfoSuffixType: '2'
+#    buildNumberVersionFormat: '3'
+#    buildNumberAction: 'replace'
+#    doReplaceAssemblyInfo: false
+#    doReplaceNuspec: false
+#    doReplaceNpm: false
+#    doReplaceDotNetCore: true
+#    filePatternDotNetCore: '**\*.csproj'
+#    paramDotNetCoreVersionType: '3'
+#    doReplaceAndroid: false
+#    doReplaceiOS: false
+#    doReplaceCustom: false
+#    doShowWarningsForUnmatchedRegex: true
+#    excludeFilePattern: |
+#      !**/bin/**
+#      !**/obj/**
+
+#- task: BuildVersioning@0
+#  condition: startsWith(variables['Build.SourceBranch'], 'refs/tags/')
+#  displayName: 'Patching assembly versions (stable build)'
+#  inputs:
+#    sourcePath: 'src'
+#    versionSource: 'gitversion'
+#    doInstallGitVersion: true
+#    GitVersionInstallerSource: 'custom'
+#    GitVersionInstallerUrl: 'https://packages.chocolatey.org/GitVersion.Portable.5.0.1.nupkg'
+#    doUseLatestGitVersionInstallerVersion: false
+#    versionFormat: 'fourParts'
+#    paramAssemblyVersion: '4'
+#    paramAssemblyFileVersion: '4'
+#    paramAssemblyInformationalVersion: '4'
+#    paramVersionCode: '2'
+#    buildNumberVersionFormat: '3'
+#    buildNumberAction: 'replace'
+#    doReplaceAssemblyInfo: false
+#    doReplaceDotNetCore: true
+#    filePatternDotNetCore: '**\*.csproj'
+#    paramDotNetCoreVersionType: '3'
+#    doShowWarningsForUnmatchedRegex: true
+#    excludeFilePattern: |
+#      !**/bin/**
+#      !**/obj/**
+
+- task: DotNetCoreCLI@2
+  displayName: 'Build the solution'
+  inputs:
+    command: 'build'
+    projects: '*.sln'
+    arguments: '--configuration Debug'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Testing the solution'
+  inputs:
+    command: 'test'
+    projects: '*.sln'
+    arguments: '--configuration Debug'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Creating NuGet package (with debug symbols)'
+  condition: and(succeeded(), not(eq(variables['Build.Reason'], 'PullRequest')))
+  inputs:
+    command: 'pack'
+    packagesToPack: '**/*.csproj'
+    includesymbols: true
+    versioningScheme: 'off'
+
+- task: NuGetCommand@2
+  displayName: 'Pushing NuGet package'
+  condition: and(succeeded(), not(eq(variables['Build.Reason'], 'PullRequest')))
+  inputs:
+    command: 'push'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
+    nuGetFeedType: 'external'
+    publishFeedCredentials: 'NuGet'

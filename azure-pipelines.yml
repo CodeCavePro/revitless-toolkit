@@ -81,6 +81,10 @@ steps:
 #      !**/bin/**
 #      !**/obj/**
 
+- task: NuGetToolInstaller@1
+  inputs:
+    versionSpec: '6.4.0'
+
 - task: DotNetCoreCLI@2
   displayName: 'Build the solution'
   inputs:

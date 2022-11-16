@@ -6,8 +6,6 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-    <IncludeSymbols>true</IncludeSymbols>    
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
 		<Version>2021.0.1-rc5</Version>
 		<AssemblyVersion>2021.0.1</AssemblyVersion>
 		<FileVersion>2021.0.1</FileVersion>

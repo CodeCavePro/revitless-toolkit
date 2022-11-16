@@ -1,51 +1,51 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-	<PropertyGroup>
-		<TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
-		<AppendTargetFrameworkToOutputPath Condition="'$(TargetFrameworks)' != ''">true</AppendTargetFrameworkToOutputPath>
-	</PropertyGroup>
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
+    <AppendTargetFrameworkToOutputPath Condition="'$(TargetFrameworks)' != ''">true</AppendTargetFrameworkToOutputPath>
+  </PropertyGroup>
 
-	<PropertyGroup>
+  <PropertyGroup>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-		<Version>2021.0.1-rc5</Version>
-		<AssemblyVersion>2021.0.1</AssemblyVersion>
-		<FileVersion>2021.0.1</FileVersion>
-	</PropertyGroup>
+    <Version>2021.0.1-rc5</Version>
+    <AssemblyVersion>2021.0.1</AssemblyVersion>
+    <FileVersion>2021.0.1</FileVersion>
+  </PropertyGroup>
 
-	<PropertyGroup>
-		<Authors>Zhmayev Yaroslav aka Salaros</Authors>
-		<Description>A toolkit for processing .rfa, .rvt etc without Revit</Description>
-		<PackageTags>Revit, Metadata, Thumbnail, Parameters, PartAtom, OLE</PackageTags>
-		<RepositoryUrl>https://github.com/CodeCavePro/revit-toolkit</RepositoryUrl>
-		<RepositoryType>git</RepositoryType>
-	</PropertyGroup>
+  <PropertyGroup>
+    <Authors>Zhmayev Yaroslav aka Salaros</Authors>
+    <Description>A toolkit for processing .rfa, .rvt etc without Revit</Description>
+    <PackageTags>Revit, Metadata, Thumbnail, Parameters, PartAtom, OLE</PackageTags>
+    <RepositoryUrl>https://github.com/CodeCavePro/revit-toolkit</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+  </PropertyGroup>
 
-	<PropertyGroup>
-		<IsPackable>true</IsPackable>
-		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<NeutralLanguage>en</NeutralLanguage>
-		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-		<Product>$(AssemblyName)</Product>
-		<PackageProjectUrl>$(RepositoryUrl)</PackageProjectUrl>
-	</PropertyGroup>
+  <PropertyGroup>
+    <IsPackable>true</IsPackable>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <NeutralLanguage>en</NeutralLanguage>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <Product>$(AssemblyName)</Product>
+    <PackageProjectUrl>$(RepositoryUrl)</PackageProjectUrl>
+  </PropertyGroup>
 
-	<ItemGroup>
-		<PackageReference Include="CodeCave.Extensions" Version="1.1.*" />
-		<PackageReference Include="CsvHelper" Version="18.0.*" />
-		<PackageReference Include="OpenMcdf" Version="2.2.*" />
-		<PackageReference Include="System.ComponentModel.Annotations" Version="$(NetCorePackageVersion)" />
-		<PackageReference Include="System.Drawing.Common" Version="$(NetCorePackageVersion)" Condition="'$(TargetFramework)' == 'netstandard2.0' Or '$(TargetFramework)' == 'netcoreapp2.1'" />
-		<PackageReference Include="System.Text.Encoding.CodePages" Version="$(NetCorePackageVersion)" Condition="'$(TargetFramework)' != 'net45'" />
-	</ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="CodeCave.Extensions" Version="1.1.*" />
+    <PackageReference Include="CsvHelper" Version="18.0.*" />
+    <PackageReference Include="OpenMcdf" Version="2.2.*" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="$(NetCorePackageVersion)" />
+    <PackageReference Include="System.Drawing.Common" Version="$(NetCorePackageVersion)" Condition="'$(TargetFramework)' == 'netstandard2.0' Or '$(TargetFramework)' == 'netcoreapp2.1'" />
+    <PackageReference Include="System.Text.Encoding.CodePages" Version="$(NetCorePackageVersion)" Condition="'$(TargetFramework)' != 'net45'" />
+  </ItemGroup>
 
-	<ItemGroup>
-		<None Remove="OmniClass\OmniClassTaxonomy_FoodService.txt" />
-		<None Remove="OmniClass\OmniClassTaxonomy_Vanilla.txt" />
-		<None Remove="**\*.DotSettings" />
-		<EmbeddedResource Include="OmniClass\OmniClassTaxonomy_FoodService.txt" />
-		<EmbeddedResource Include="OmniClass\OmniClassTaxonomy_Vanilla.txt" />
-	</ItemGroup>
+  <ItemGroup>
+    <None Remove="OmniClass\OmniClassTaxonomy_FoodService.txt" />
+    <None Remove="OmniClass\OmniClassTaxonomy_Vanilla.txt" />
+    <None Remove="**\*.DotSettings" />
+    <EmbeddedResource Include="OmniClass\OmniClassTaxonomy_FoodService.txt" />
+    <EmbeddedResource Include="OmniClass\OmniClassTaxonomy_Vanilla.txt" />
+  </ItemGroup>
 
 </Project>

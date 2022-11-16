@@ -58,6 +58,7 @@ steps:
   inputs:
     command: 'pack'
     packagesToPack: '**/*.csproj'
+    arguments: '--no-build'
     includesymbols: true
     versioningScheme: 'off'
 

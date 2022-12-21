@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
@@ -8,9 +8,9 @@
   <PropertyGroup>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    <Version>2021.0.1-rc5</Version>
-    <AssemblyVersion>2021.0.1</AssemblyVersion>
-    <FileVersion>2021.0.1</FileVersion>
+    <Version>2017.2.21-master.build-24.Sha.380af62</Version>
+    <AssemblyVersion>2017.2.21.0024</AssemblyVersion>
+    <FileVersion>2017.2.21.0024</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup>

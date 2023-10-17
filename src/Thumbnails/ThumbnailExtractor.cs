@@ -6,25 +6,22 @@ using System.Linq;
 
 namespace CodeCave.Revit.Toolkit.Thumbnails
 {
-    /// <inheritdoc />
     /// <summary>
     /// Extracts thumbnails from 3D models without relying on proprietary APIs.
     /// </summary>
-    /// <seealso cref="T:CodeCave.CAD.Toolkit.Primitives.IThumbnailExtractor" />
-    public abstract class ThumbnailExtractor : IThumbnailExtractor
+    public abstract class ThumbnailExtractor
     {
-        private static readonly Guid[] validThumbImageFormats;
+        private const string FileNameWildcard = "*.";
 
-        /// <summary>
-        /// Initializes static members of the <see cref="ThumbnailExtractor"/> class.
-        /// Initializes the <see cref="ThumbnailExtractor"/> class.
-        /// </summary>
-        static ThumbnailExtractor()
+        private static readonly char[] ImageFormatSeparators = new[] { ';' };
+
+        private static readonly Guid[] ValidThumbImageFormats = new[]
         {
-            validThumbImageFormats = new[] { ImageFormat.Png.Guid, ImageFormat.Jpeg.Guid, ImageFormat.Bmp.Guid };
-        }
+            ImageFormat.Png.Guid,
+            ImageFormat.Jpeg.Guid,
+            ImageFormat.Bmp.Guid,
+        };
 
-        /// <inheritdoc />
         /// <summary>
         /// Extracts thumbnail to an image file.
         /// </summary>
@@ -42,7 +39,7 @@ namespace CodeCave.Revit.Toolkit.Thumbnails
             if (string.IsNullOrEmpty(outFile) || outFile.Any(c => Path.GetInvalidPathChars().Contains(c)))
                 throw new ArgumentException("Output file path is invalid", nameof(outFile));
 
-            var imageBytes = ExtractImageBytes(srcFile);
+            var imageBytes = ExtractThumbnailBytes(srcFile);
 
             try
             {
@@ -51,8 +48,7 @@ namespace CodeCave.Revit.Toolkit.Thumbnails
                     using var imageTmp = Image.FromStream(ms);
                     var outFileReal = imageTmp.RawFormat switch
                     {
-                        var validFormat when validThumbImageFormats.Contains(validFormat.Guid) => Path.ChangeExtension(outFile, $".{ImageFormatToExtension(validFormat)}"),
-
+                        var validFormat when ValidThumbImageFormats.Contains(validFormat.Guid) => Path.ChangeExtension(outFile, $".{ImageFormatToExtension(validFormat)}"),
                         _ => throw new InvalidOperationException($"Thumbnail has an invalid format - {imageTmp.RawFormat}"),
                     };
 
@@ -70,76 +66,66 @@ namespace CodeCave.Revit.Toolkit.Thumbnails
             }
         }
 
-        /// <inheritdoc />
         /// <summary>
-        /// Extracts thumbnail to an image object.
+        /// Extracts thumbnail image to an array of bytes.
         /// </summary>
-        /// <param name="pathToFile">The path to file.</param>
-        /// <returns></returns>
-        public virtual byte[] ExtractImageBytes(string pathToFile)
+        /// <param name="stream">File stream.</param>
+        /// <returns>
+        /// Array of bytes containing thumbnail data.
+        /// </returns>
+        public abstract byte[] ExtractThumbnailBytes(Stream stream);
+
+        /// <summary>
+        /// Extracts thumbnail image to an array of bytes.
+        /// </summary>
+        /// <param name="bytes">Array of bytes to extract thumbnail from.</param>
+        /// <returns>
+        /// Array of bytes containing thumbnail data.
+        /// </returns>
+        public byte[] ExtractThumbnailBytes(byte[] bytes)
         {
-            using var imageStream = ExtractStream(pathToFile);
-            return ImageStreamToBytes(imageStream);
+            try
+            {
+                using var fileStream = new MemoryStream(bytes);
+                return ExtractThumbnailBytes(fileStream);
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException("Failed to extract the thumbnail from an array of bytes.", ex);
+            }
         }
 
         /// <summary>
-        /// Extracts thumbnail to an image object.
+        /// Extracts thumbnail to a stream.
         /// </summary>
-        /// <param name="memoryStream">The memory stream.</param>
-        /// <returns></returns>
-        public virtual byte[] ExtractImageBytes(MemoryStream memoryStream)
+        /// <param name="filePath">The path to file.</param>
+        /// <returns>
+        /// Array of bytes containing thumbnail data.
+        /// </returns>
+        public byte[] ExtractThumbnailBytes(string filePath)
         {
-            using var imageStream = ExtractStream(memoryStream);
-            return ImageStreamToBytes(imageStream);
+            try
+            {
+                var fileBytes = File.ReadAllBytes(filePath);
+                return ExtractThumbnailBytes(fileBytes);
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException($"Failed to extract the thumbnail from the following file: '{filePath}'", ex);
+            }
         }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Extracts thumbnail to a stream.
-        /// </summary>
-        /// <param name="pathToFile">The path to file.</param>
-        /// <returns>
-        /// Memory stream containing thumbnail data.
-        /// </returns>
-        public abstract MemoryStream ExtractStream(string pathToFile);
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Extracts thumbnail to a stream.
-        /// </summary>
-        /// <param name="memoryStream">The memory stream.</param>
-        /// <returns>
-        /// Memory stream containing thumbnail data.
-        /// </returns>
-        public abstract MemoryStream ExtractStream(MemoryStream memoryStream);
-
-        #region Helpers
 
         /// <summary>
         /// Converts an image format to file extension.
         /// </summary>
         /// <param name="format">Image format.</param>
         /// <returns>File extension.</returns>
-        private static string ImageFormatToExtension(ImageFormat format)
-        {
-            return ImageCodecInfo.GetImageEncoders().FirstOrDefault(x => x.FormatID == format.Guid)
-                ?.FilenameExtension.Replace("*.", "")?.ToLowerInvariant()?.Split(';')?.FirstOrDefault();
-        }
-
-        /// <summary>
-        /// Converts a memory stream containing image to bytes.
-        /// </summary>
-        /// <param name="imageStream">The image stream.</param>
-        /// <returns></returns>
-        private byte[] ImageStreamToBytes(MemoryStream imageStream)
-        {
-            var imageBytes = imageStream?.ToArray();
-            if ((imageBytes?.Length ?? 0) <= 0)
-                throw new InvalidDataException("Thumbnail as array of bytes cannot be empty");
-
-            return imageBytes;
-        }
-
-        #endregion Helpers
+        private static string ImageFormatToExtension(ImageFormat format) =>
+            ImageCodecInfo.GetImageEncoders()
+                .FirstOrDefault(x => x.FormatID == format.Guid)?.FilenameExtension
+                ?.Replace(FileNameWildcard, string.Empty)
+                ?.ToLowerInvariant()
+                ?.Split(ImageFormatSeparators, StringSplitOptions.RemoveEmptyEntries)
+                ?.FirstOrDefault();
     }
 }

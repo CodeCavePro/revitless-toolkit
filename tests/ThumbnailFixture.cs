@@ -26,18 +26,20 @@ namespace CodeCave.Revit.Toolkit.Tests
         /// <param name="dwgRelativePath">The DWG relative path.</param>
         [Theory]
         [InlineData("Thumbnails/Valid/A1ANG-3.dwg")]
+        [InlineData("Thumbnails/Valid/7-PS-66_R3.dwg")]
+        [InlineData("Thumbnails/Valid/U0000850_7-PS-66.DWG")]
         public void DwgThumbnailIsGenerated(string dwgRelativePath)
         {
-            // setup
+            // Setup
             dwgRelativePath = dwgRelativePath?.Replace('/', Path.DirectorySeparatorChar);
             var dwgFilePath = Directory.GetFiles(PathToValidFiles, "*.dwg").FirstOrDefault(f => f.EndsWith(dwgRelativePath));
             var dwgThumbnailPath = Path.ChangeExtension(Path.Combine(Environment.CurrentDirectory, Path.GetFileName(dwgFilePath)), "png");
 
-            // act
-            var dwgThumbnailer = new DwgTumbnailExtractor();
+            // Act
+            var dwgThumbnailer = new DwgThumbnailExtractor();
             var fileExtracted = dwgThumbnailer.TryExtractFile(dwgFilePath, dwgThumbnailPath);
 
-            // assert
+            // Assert
             Assert.True(fileExtracted);
             Assert.True(File.Exists(dwgThumbnailPath));
         }
@@ -48,16 +50,16 @@ namespace CodeCave.Revit.Toolkit.Tests
         [InlineData("Thumbnails/Valid/qf_hatco_hdw-2bn_cat.rfa")]
         public void RfaThumbnailIsGenerated(string rfaRelativePath)
         {
-            // setup
+            // Setup
             rfaRelativePath = rfaRelativePath?.Replace('/', Path.DirectorySeparatorChar);
             var rfaFilePath = Directory.GetFiles(PathToValidFiles, "*.rfa").FirstOrDefault(f => f.EndsWith(rfaRelativePath));
             var rfaThumbnailPath = Path.ChangeExtension(Path.Combine(Environment.CurrentDirectory, Path.GetFileName(rfaFilePath)), "png");
 
-            // act
+            // Act
             var rfaThumbnailer = new RevitTumbnailExtractor();
             var fileExtracted = rfaThumbnailer.TryExtractFile(rfaFilePath, rfaThumbnailPath);
 
-            // assert
+            // Assert
             Assert.True(fileExtracted);
             Assert.True(File.Exists(rfaThumbnailPath));
         }

@@ -28,17 +28,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Update="Resources\SharedParameterFiles\Valid\*.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Resources\SharedParameterFiles\Invalid\*.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-
-    <None Update="Resources\TypeCatalogFile\Valid\*.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Resources\TypeCatalogFile\Invalid\*.txt">
+    <None Update="Resources\**\*.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
@@ -48,16 +38,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Resources\Thumbnails\Valid\A1ANG-3.dwg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Resources\Thumbnails\Valid\A1ANG-3.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Resources\Thumbnails\Valid\qf_hatco_hdw-2bn_cat.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Resources\Thumbnails\Valid\qf_hatco_hdw-2bn_cat.rfa">
+    <None Update="Resources\Thumbnails\**\*.*">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

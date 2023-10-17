@@ -1,4 +1,3 @@
-﻿using System;
 using System.IO;
 using CodeCave.Revit.Toolkit.OLE;
 
@@ -12,170 +11,143 @@ namespace CodeCave.Revit.Toolkit.Thumbnails
     /// <seealso cref="ThumbnailExtractor" />
     public partial class RevitTumbnailExtractor : ThumbnailExtractor
     {
-        #region Methods
 
-        /// <summary>
-        /// Extracts the stream.
-        /// </summary>
-        /// <param name="pathToFile">The path to file.</param>
-        /// <returns></returns>
-        /// <exception cref="InvalidDataException"></exception>
-        private MemoryStream ExtractStream(byte[] thumbnailBytes)
+
+        public override byte[] ExtractThumbnailBytes(Stream stream)
         {
-            try
+            byte[] thumbnailBytes;
+            if (stream is MemoryStream memoryStream)
             {
-                // Validate preview data or go out
-                if ((thumbnailBytes == null) || (thumbnailBytes.Length <= 0))
-                {
-                    return null;
-                }
-
-                // read past the Revit meta-data to the start of the PNG image
-                var startingOffset = GetPngOffset(thumbnailBytes);
-                if (startingOffset == 0)
-                {
-                    return null;
-                }
-
-                var previewUpperBound = thumbnailBytes.GetUpperBound(0);
-                var pngDataBuffer = new byte[previewUpperBound - startingOffset + 1];
-
-                using (var ms = new MemoryStream(thumbnailBytes))
-                {
-                    ms.Position = startingOffset;
-                    ms.Read(pngDataBuffer, 0, pngDataBuffer.Length);
-
-                    // read the PNG image data into a byte array
-                    var outms = new MemoryStream(pngDataBuffer);
-                    return outms;
-                }
+                thumbnailBytes = memoryStream.ToArray();
+                memoryStream.Dispose();
             }
-            catch (Exception ex)
+            else
             {
-                throw new InvalidDataException($"Failed to extract the thumbnail of the Revit file", ex);
+                using var streamCopy = new MemoryStream();
+                stream.CopyTo(streamCopy);
+                thumbnailBytes = streamCopy.ToArray();
             }
+
+            // Validate preview data or go out
+            if ((thumbnailBytes == null) || (thumbnailBytes.Length <= 0))
+            {
+                return null;
+            }
+
+            // read past the Revit meta-data to the start of the PNG image
+            var startingOffset = GetPngOffset(thumbnailBytes);
+            if (startingOffset == 0)
+            {
+                return null;
+            }
+
+            var previewUpperBound = thumbnailBytes.GetUpperBound(0);
+            var pngDataBuffer = new byte[previewUpperBound - startingOffset + 1];
+
+            using var ms = new MemoryStream(thumbnailBytes)
+            {
+                Position = startingOffset,
+            };
+            ms.Read(pngDataBuffer, 0, pngDataBuffer.Length);
+
+            return pngDataBuffer;
         }
-
-        public override MemoryStream ExtractStream(string pathToFile)
-        {
-            try
-            {
-                var thumbnailBytes = OleDataReader.GetRawBytes(pathToFile, RevitFileMap.OleStreams.IMAGE_STREAM);
-                return ExtractStream(thumbnailBytes);
-            }
-            catch (Exception ex)
-            {
-                throw new InvalidDataException($"Failed to extract the thumbnail of the following Revit file \"{pathToFile}\"", ex);
-            }
-        }
-
-        public override MemoryStream ExtractStream(MemoryStream memoryStream)
-        {
-            try
-            {
-                var thumbnailBytes = OleDataReader.GetRawBytes(memoryStream, RevitFileMap.OleStreams.IMAGE_STREAM);
-                return ExtractStream(thumbnailBytes);
-            }
-            catch (Exception ex)
-            {
-                throw new InvalidDataException($"Failed to extract the thumbnail of the Revit file", ex);
-            }
-        }
-
-        #endregion Methods
-
-        #region Helpers
 
         /// <summary>
         /// Gets the PNG data offset in array of bytes.
         /// </summary>
         /// <param name="thumbnailBytes">Thumbnail bytes.</param>
-        /// <returns></returns>
+        /// <returns>Get the index of the first byte representing PNG thumbnail.</returns>
         private static int GetPngOffset(byte[] thumbnailBytes)
         {
             var markerFound = false;
             var startingOffset = 0;
             var previousValue = 0;
 
-            using (var memoryStream = new MemoryStream(thumbnailBytes))
+            using var memoryStream = new MemoryStream(thumbnailBytes);
+            for (var i = 0; i < thumbnailBytes.Length; i++)
             {
-                for (var i = 0; i < thumbnailBytes.Length; i++)
+                var pointer = memoryStream.ReadByte();
+
+                // possible start of PNG file data
+                if (pointer == RevitFileMap.PngImageMarker.MARKER_137) // 0x89
                 {
-                    var pointer = memoryStream.ReadByte();
-                    // possible start of PNG file data
-                    if (pointer == RevitFileMap.PngImageMarker.MARKER_137) // 0x89
-                    {
-                        markerFound = true;
-                        startingOffset = i;
-                        previousValue = pointer;
-                        continue;
-                    }
+                    markerFound = true;
+                    startingOffset = i;
+                    previousValue = pointer;
+                    continue;
+                }
 
-                    switch (pointer)
-                    {
-                        case RevitFileMap.PngImageMarker.MARKER_10: // 0x0A
-                            if (markerFound && (previousValue == RevitFileMap.PngImageMarker.MARKER_26))
-                            {
-                                return startingOffset;
-                            }
-                            if (markerFound && (previousValue == RevitFileMap.PngImageMarker.MARKER_13))
-                            {
-                                previousValue = pointer;
-                                continue;
-                            }
-                            markerFound = false;
-                            break;
+                switch (pointer)
+                {
+                    case RevitFileMap.PngImageMarker.MARKER_10: // 0x0A
+                        if (markerFound && (previousValue == RevitFileMap.PngImageMarker.MARKER_26))
+                        {
+                            return startingOffset;
+                        }
 
-                        case RevitFileMap.PngImageMarker.MARKER_13: // 0x0D
-                            if (markerFound && (previousValue == RevitFileMap.PngImageMarker.MARKER_71))
-                            {
-                                previousValue = pointer;
-                                continue;
-                            }
-                            markerFound = false;
-                            break;
+                        if (markerFound && (previousValue == RevitFileMap.PngImageMarker.MARKER_13))
+                        {
+                            previousValue = pointer;
+                            continue;
+                        }
 
-                        case RevitFileMap.PngImageMarker.MARKER_26: // 0x1A
-                            if (markerFound && (previousValue == RevitFileMap.PngImageMarker.MARKER_10))
-                            {
-                                previousValue = pointer;
-                                continue;
-                            }
-                            markerFound = false;
-                            break;
+                        markerFound = false;
+                        break;
 
-                        case RevitFileMap.PngImageMarker.MARKER_71: // 0x47
-                            if (markerFound && (previousValue == RevitFileMap.PngImageMarker.MARKER_78))
-                            {
-                                previousValue = pointer;
-                                continue;
-                            }
-                            markerFound = false;
-                            break;
+                    case RevitFileMap.PngImageMarker.MARKER_13: // 0x0D
+                        if (markerFound && (previousValue == RevitFileMap.PngImageMarker.MARKER_71))
+                        {
+                            previousValue = pointer;
+                            continue;
+                        }
 
-                        case RevitFileMap.PngImageMarker.MARKER_78: // 0x4E
-                            if (markerFound && (previousValue == RevitFileMap.PngImageMarker.MARKER_80))
-                            {
-                                previousValue = pointer;
-                                continue;
-                            }
-                            markerFound = false;
-                            break;
+                        markerFound = false;
+                        break;
 
-                        case RevitFileMap.PngImageMarker.MARKER_80: // 0x50
-                            if (markerFound && (previousValue == RevitFileMap.PngImageMarker.MARKER_137))
-                            {
-                                previousValue = pointer;
-                                continue;
-                            }
-                            markerFound = false;
-                            break;
-                    }
+                    case RevitFileMap.PngImageMarker.MARKER_26: // 0x1A
+                        if (markerFound && (previousValue == RevitFileMap.PngImageMarker.MARKER_10))
+                        {
+                            previousValue = pointer;
+                            continue;
+                        }
+
+                        markerFound = false;
+                        break;
+
+                    case RevitFileMap.PngImageMarker.MARKER_71: // 0x47
+                        if (markerFound && (previousValue == RevitFileMap.PngImageMarker.MARKER_78))
+                        {
+                            previousValue = pointer;
+                            continue;
+                        }
+
+                        markerFound = false;
+                        break;
+
+                    case RevitFileMap.PngImageMarker.MARKER_78: // 0x4E
+                        if (markerFound && (previousValue == RevitFileMap.PngImageMarker.MARKER_80))
+                        {
+                            previousValue = pointer;
+                            continue;
+                        }
+
+                        markerFound = false;
+                        break;
+
+                    case RevitFileMap.PngImageMarker.MARKER_80: // 0x50
+                        if (markerFound && (previousValue == RevitFileMap.PngImageMarker.MARKER_137))
+                        {
+                            previousValue = pointer;
+                            continue;
+                        }
+
+                        markerFound = false;
+                        break;
                 }
             }
+
             return 0;
         }
-
-        #endregion Helpers
     }
 }

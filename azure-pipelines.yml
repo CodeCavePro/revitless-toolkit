@@ -16,7 +16,7 @@ pr:
 
 steps:
 - task: UseDotNet@2
-  displayName: 'Install .NET Core 6.0.x SDK'
+  displayName: 'Install .NET 6.0.x SDK'
   inputs:
     packageType: sdk
     version: '6.0.x'
@@ -27,7 +27,7 @@ steps:
   inputs:
     command: 'custom'
     custom: 'tool'
-    arguments: 'update -g gitversion.tool --version 5.11.*'
+    arguments: 'update -g gitversion.tool --version 5.12.*'
 
 - task: PowerShell@2
   displayName: 'Update build number and project version from GitVersion metadata'
@@ -36,7 +36,7 @@ steps:
 
 - task: NuGetToolInstaller@1
   inputs:
-    versionSpec: '6.4.0'
+    versionSpec: '6.7.0'
 
 - task: DotNetCoreCLI@2
   displayName: 'Build the solution'

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Xml;
 using System.Xml.Schema;
@@ -29,9 +29,10 @@ namespace CodeCave.Revit.Toolkit.OLE
                 var unitSymbol = reader.GetAttribute("units").TryGetFromSymbol(out var unitSymbolType)
                     ? unitSymbolType
                     : UnitSymbolType.UST_NONE;
+
                 var units = unitSymbol.TryGetFromUnitSymbol(out var displayUnitType)
-                        ? displayUnitType
-                        : DisplayUnitType.DUT_CUSTOM;
+                    ? displayUnitType
+                    : DisplayUnitType.DUT_CUSTOM;
 
                 var partAtomParam = new PartAtomParameter(reader.Name, paramType, group, units)
                 {

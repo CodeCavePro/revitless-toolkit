@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
@@ -86,9 +86,11 @@ namespace CodeCave.Revit.Toolkit.Parameters.Catalog
                             var units = headerParts.ElementAt(1).TryGetUnitTypeFromCatalogString(out var unitType)
                                 ? unitType
                                 : UnitType.UT_Undefined;
+
                             var type = units.TryGetParameterType(out var paramType)
                                 ? paramType
                                 : ParameterType.Invalid;
+
                             var displayUnits = headerParts.ElementAt(2).TryGetFromCatalogString(out var displayUnitType)
                                 ? displayUnitType
                                 : DisplayUnitType.DUT_UNDEFINED;

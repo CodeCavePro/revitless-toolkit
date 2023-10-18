@@ -122,8 +122,6 @@ namespace CodeCave.Revit.Toolkit.OLE
         /// Gets a <see cref="RevitFileInfo" /> instance from the given file path.
         /// </summary>
         /// <param name="filePath">The file path.</param>
-        /// <param name="readProperties">if set to <c>true</c> [read properties].</param>
-        /// <param name="readTypes">if set to <c>true</c> [read types].</param>
         /// <returns></returns>
         /// <exception cref="T:System.ArgumentException">filePath is invalid.</exception>
         public static RevitFileInfo GetFromFile(string filePath)
@@ -174,7 +172,6 @@ namespace CodeCave.Revit.Toolkit.OLE
         /// <summary>
         /// Gets the properties.
         /// </summary>
-        /// <param name="filePath">The file path.</param>
         /// <returns></returns>
         internal static Dictionary<string, string> GetProperties(byte[] basicInfo)
         {

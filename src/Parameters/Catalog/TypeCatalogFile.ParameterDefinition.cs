@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics;
 using System.Linq;
 
@@ -37,8 +37,8 @@ namespace CodeCave.Revit.Toolkit.Parameters.Catalog
             (
                 string name,
                 ParameterType type,
-                DisplayUnitType displayUnits)
-            {
+                DisplayUnitType displayUnits
+            ){
                 Name = !string.IsNullOrWhiteSpace(name) ? name : throw new ArgumentException(nameof(name));
                 ParameterType = (ParameterType.Invalid != type) ? type : throw new ArgumentException(nameof(type));
                 DisplayUnitType = (DisplayUnitType.DUT_UNDEFINED != displayUnits) ? displayUnits : throw new ArgumentException(nameof(displayUnits));

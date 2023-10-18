@@ -1,4 +1,4 @@
-﻿using CodeCave.Revit.Toolkit.Parameters;
+using CodeCave.Revit.Toolkit.Parameters;
 using System;
 using System.Diagnostics;
 using System.Linq;

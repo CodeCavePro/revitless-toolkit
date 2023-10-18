@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
+    <LangVersion>latest</LangVersion>
+    <WarningLevel>7</WarningLevel>
     <AppendTargetFrameworkToOutputPath Condition="'$(TargetFrameworks)' != ''">true</AppendTargetFrameworkToOutputPath>
   </PropertyGroup>
 
@@ -29,6 +31,7 @@
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <Product>$(AssemblyName)</Product>
     <PackageProjectUrl>$(RepositoryUrl)</PackageProjectUrl>
+    <AutoGenerateBindingRedirects>False</AutoGenerateBindingRedirects>
   </PropertyGroup>
 
   <ItemGroup>
@@ -36,7 +39,7 @@
     <PackageReference Include="CsvHelper" Version="18.0.*" />
     <PackageReference Include="OpenMcdf" Version="2.3.*" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="$(NetCorePackageVersion)" />
-    <PackageReference Include="System.Drawing.Common" Version="7.0.*" Condition="'$(TargetFramework)' == 'netstandard2.0' Or '$(TargetFramework)' == 'netcoreapp2.1'" />
+    <PackageReference Include="System.Drawing.Common" Version="5.0.*" Condition="'$(TargetFramework)' == 'netstandard2.0' Or '$(TargetFramework)' == 'netcoreapp2.1'" />
     <PackageReference Include="System.Text.Encoding.CodePages" Version="6.0.*" Condition="'$(TargetFramework)' != 'net45'" />
   </ItemGroup>
 

@@ -253,10 +253,8 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             public new void Add(ParameterDefinition parameter)
             {
                 if (parameter == null) throw new ArgumentNullException(nameof(parameter));
-                if (parameter.Group == null) throw new ArgumentNullException(
-                    nameof(parameter), $"Parameter you have provided has no {nameof(ParameterDefinition.Group)} assigned");
-                if (parameter.Guid == null) throw new ArgumentNullException(
-                    nameof(parameter), $"Parameter you have provided has no {nameof(ParameterDefinition.Guid)} assigned");
+                if (parameter.Group == null) throw new ArgumentNullException(nameof(parameter), $"Parameter you have provided has no {nameof(ParameterDefinition.Group)} assigned");
+                if (parameter.Guid == null) throw new ArgumentNullException(nameof(parameter), $"Parameter you have provided has no {nameof(ParameterDefinition.Guid)} assigned");
 
                 if (this.Any(p => Equals(parameter.Guid, p.Guid))) throw new ArgumentException(
                     nameof(parameter),

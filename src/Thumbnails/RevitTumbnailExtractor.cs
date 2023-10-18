@@ -11,8 +11,7 @@ namespace CodeCave.Revit.Toolkit.Thumbnails
     /// <seealso cref="ThumbnailExtractor" />
     public partial class RevitTumbnailExtractor : ThumbnailExtractor
     {
-
-
+        /// <inheritdoc/>
         public override byte[] ExtractThumbnailBytes(Stream stream)
         {
             byte[] thumbnailBytes;

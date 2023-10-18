@@ -84,13 +84,11 @@ namespace CodeCave.Revit.Toolkit.Thumbnails
                         {
                             return startingOffset;
                         }
-
                         if (markerFound && (previousValue == RevitFileMap.PngImageMarker.MARKER_13))
                         {
                             previousValue = pointer;
                             continue;
                         }
-
                         markerFound = false;
                         break;
 
@@ -100,7 +98,6 @@ namespace CodeCave.Revit.Toolkit.Thumbnails
                             previousValue = pointer;
                             continue;
                         }
-
                         markerFound = false;
                         break;
 
@@ -110,7 +107,6 @@ namespace CodeCave.Revit.Toolkit.Thumbnails
                             previousValue = pointer;
                             continue;
                         }
-
                         markerFound = false;
                         break;
 
@@ -120,7 +116,6 @@ namespace CodeCave.Revit.Toolkit.Thumbnails
                             previousValue = pointer;
                             continue;
                         }
-
                         markerFound = false;
                         break;
 
@@ -130,7 +125,6 @@ namespace CodeCave.Revit.Toolkit.Thumbnails
                             previousValue = pointer;
                             continue;
                         }
-
                         markerFound = false;
                         break;
 
@@ -140,7 +134,6 @@ namespace CodeCave.Revit.Toolkit.Thumbnails
                             previousValue = pointer;
                             continue;
                         }
-
                         markerFound = false;
                         break;
                 }

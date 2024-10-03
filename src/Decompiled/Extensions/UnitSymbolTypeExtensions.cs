@@ -1,4 +1,4 @@
-﻿#pragma warning disable CS0618 // Type or member is obsolete
+#pragma warning disable CS0618 // Type or member is obsolete
 
 using System;
 using System.Collections.Generic;
@@ -142,7 +142,6 @@ namespace CodeCave.Revit.Toolkit
                 { UnitSymbolType.UST_KIP, "kip" },
                 { UnitSymbolType.UST_KGF, "kgf" },
                 { UnitSymbolType.UST_TF, "Tf" },
-                { UnitSymbolType.UST_LB_FORCE, "lb" },
                 { UnitSymbolType.UST_LBF, "lbf" },
                 { UnitSymbolType.UST_N_PER_M, "N/m" },
                 { UnitSymbolType.UST_DA_N_PER_M, "daN/m" },

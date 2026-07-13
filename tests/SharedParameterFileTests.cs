@@ -133,8 +133,9 @@ namespace CodeCave.Revit.Toolkit.Tests
                     var sharedParamFile = new SharedParameterFile(sharedParamFilePath);
                     var sharedParamFileText = File.ReadAllText(sharedParamFilePath, sharedParamFile.Encoding);
                     var paramLineMatches = paramLineRegex.Matches(sharedParamFileText);
-                    var paramNames = paramLineMatches.Select(m => m.Groups["name"]?.Value.Trim()).ToArray();
-                    var paramGuids = paramLineMatches.Select(m => m.Groups["guid"].Value).Select(g => new Guid(g))
+                    // .Cast<Match>() is required on .NET Framework, where MatchCollection is only IEnumerable
+                    var paramNames = paramLineMatches.Cast<Match>().Select(m => m.Groups["name"]?.Value.Trim()).ToArray();
+                    var paramGuids = paramLineMatches.Cast<Match>().Select(m => m.Groups["guid"].Value).Select(g => new Guid(g))
                         .ToArray();
                     Assert.All(
                         sharedParamFile.Parameters,
@@ -163,8 +164,10 @@ namespace CodeCave.Revit.Toolkit.Tests
                     var sharedParamFile = new SharedParameterFile(sharedParamFilePath);
                     var sharedParamFileText = File.ReadAllText(sharedParamFilePath, sharedParamFile.Encoding);
                     var groupLineMatches = groupLineRegex.Matches(sharedParamFileText);
-                    var groupIds = groupLineMatches.Select(m => m.Groups["id"].Value).Select(int.Parse).ToArray();
+                    // .Cast<Match>() is required on .NET Framework, where MatchCollection is only IEnumerable
+                    var groupIds = groupLineMatches.Cast<Match>().Select(m => m.Groups["id"].Value).Select(int.Parse).ToArray();
                     var groupNames = groupLineMatches
+                        .Cast<Match>()
                         .Select(m => m.Groups["name"].Value)
                         .Select(name => name.TrimEnd('\t', '\r'))
                         .ToArray();

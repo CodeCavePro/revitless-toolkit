@@ -1,11 +1,7 @@
 <Project>
 
   <PropertyGroup>
-    <NetStandardVersion>netstandard2.1</NetStandardVersion>
-    <NetCoreAppVersion>net5.0</NetCoreAppVersion>
-    <NetCorePackageVersion>5.0.0</NetCorePackageVersion>
-    <EFCorePackageVersion>5.0.0</EFCorePackageVersion>
-    <LangVersion>8.0</LangVersion>
+    <LangVersion>latest</LangVersion>
     <Configurations>Debug;Release</Configurations>
     <ResolveNuGetPackages>true</ResolveNuGetPackages>
   </PropertyGroup>

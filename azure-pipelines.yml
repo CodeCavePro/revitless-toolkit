@@ -16,10 +16,10 @@ pr:
 
 steps:
 - task: UseDotNet@2
-  displayName: 'Install .NET 6.0.x SDK'
+  displayName: 'Install .NET 8.0.x SDK'
   inputs:
     packageType: sdk
-    version: '6.0.x'
+    version: '8.0.x'
 
 
 - task: DotNetCoreCLI@2

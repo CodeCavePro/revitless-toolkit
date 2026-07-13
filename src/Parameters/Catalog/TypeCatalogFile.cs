@@ -68,7 +68,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Catalog
                     string[] header = { };
                     if (!header.Any() && csvReader.Read() && csvReader.ReadHeader())
                     {
-                        header = csvReader.Context.HeaderRecord;
+                        header = csvReader.HeaderRecord;
                     }
 
                     parameterDefinitions = header
@@ -106,7 +106,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Catalog
 
                     while (csvReader.Read())
                     {
-                        var record = csvReader.Context.Record;
+                        var record = csvReader.Parser.Record;
                         var typeName = record.First();
                         var parameters = new List<IParameterWithValue>(record.Skip(1).Select((value, index) => new Parameter<object>(
                             parameterDefinitions[index] as ParameterDefinition,

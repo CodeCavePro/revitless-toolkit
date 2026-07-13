@@ -15,9 +15,7 @@ namespace CodeCave.Revit.Toolkit.OLE
 
         static RevitFileInfo()
         {
-#if !NET45
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
-#endif
         }
 
         #region Properties

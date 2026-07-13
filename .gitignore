@@ -250,3 +250,6 @@ tools/*
 
 # Exclude test coverage results
 tests/*coverage.xml
+
+# local dev files
+sandbox-build.cmd

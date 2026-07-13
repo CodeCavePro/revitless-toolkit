@@ -2,6 +2,7 @@
 #pragma warning disable S3963 // "static" fields should be initialized inline
 
 using System;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using CodeCave.Revit.Toolkit.Thumbnails;
@@ -42,7 +43,35 @@ namespace CodeCave.Revit.Toolkit.Tests
 
             // Assert
             Assert.NotEmpty(thumbDwgBytes);
-            Assert.Equal(thumbPngBytes, thumbDwgBytes);
+
+            // The DWG thumbnail is re-encoded to PNG by the extractor, and PNG encoders produce
+            // slightly different (but equally valid) byte streams across .NET Framework / .NET 8,
+            // so compare decoded pixels instead of raw bytes
+            AssertImagePixelsEqual(thumbPngBytes, thumbDwgBytes);
+        }
+
+        /// <summary>Asserts that two PNG byte arrays decode to images with identical dimensions and pixels.</summary>
+        /// <param name="expectedImageBytes">The expected image bytes.</param>
+        /// <param name="actualImageBytes">The actual image bytes.</param>
+        private static void AssertImagePixelsEqual(byte[] expectedImageBytes, byte[] actualImageBytes)
+        {
+            using var expectedStream = new MemoryStream(expectedImageBytes);
+            using var actualStream = new MemoryStream(actualImageBytes);
+            using var expected = new Bitmap(expectedStream);
+            using var actual = new Bitmap(actualStream);
+
+            Assert.Equal(expected.Size, actual.Size);
+
+            for (var y = 0; y < expected.Height; y++)
+            {
+                for (var x = 0; x < expected.Width; x++)
+                {
+                    if (expected.GetPixel(x, y) != actual.GetPixel(x, y))
+                    {
+                        Assert.True(false, $"Decoded thumbnail differs from the reference image at pixel ({x}, {y})");
+                    }
+                }
+            }
         }
 
         /// <summary>The thumbnails are generated for RFAs.</summary>

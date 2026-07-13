@@ -387,7 +387,7 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             {
                 using (var csvWriter = new CsvWriter(textWriter, CsvConfiguration))
                 {
-                    csvWriter.Configuration.RegisterClassMap<TCsvMap>();
+                    csvWriter.Context.RegisterClassMap<TCsvMap>();
                     csvWriter.WriteRecords(sectionEntries);
                 }
             }

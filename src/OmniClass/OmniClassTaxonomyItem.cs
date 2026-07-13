@@ -151,7 +151,7 @@ namespace CodeCave.Revit.Toolkit
                         var omniItem = csv.GetRecord<OmniClassTaxonomyItem>();
                         if (omniItem == null)
                         {
-                            throw new InvalidDataException($"Failed to parse the following row of OmniClassTaxonomy file: {csv.Context.Row}");
+                            throw new InvalidDataException($"Failed to parse the following row of OmniClassTaxonomy file: {csv.Parser.Row}");
                         }
                         omniClassItems.Add(omniItem);
                     }

@@ -1,10 +1,20 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
+    <!--
+      Revit version to TFM mapping:
+        2019              → net47
+        2020              → net471
+        2021, 2022, 2023, 2024 → net48
+        2025, 2026, 2027  → net8.0-windows
+      netstandard2.0 is kept for non-Revit consumers (CLI tools, servers, Linux etc.)
+    -->
+    <TargetFrameworks>netstandard2.0;net47;net471;net48;net8.0-windows</TargetFrameworks>
     <LangVersion>latest</LangVersion>
     <WarningLevel>7</WarningLevel>
     <AppendTargetFrameworkToOutputPath Condition="'$(TargetFrameworks)' != ''">true</AppendTargetFrameworkToOutputPath>
+    <!-- Allow building the net8.0-windows target on non-Windows build agents -->
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -34,13 +44,38 @@
     <AutoGenerateBindingRedirects>False</AutoGenerateBindingRedirects>
   </PropertyGroup>
 
+  <!-- Dependencies shared by all target frameworks.
+       CsvHelper is pinned to an exact version on purpose: every TFM compiles against
+       CsvHelper's matching net47/net48/net8.0/netstandard2.0 assembly, which prevents
+       TypeLoadException-style mismatches (e.g. 'DisposeAsync' missing in WritingContext)
+       caused by mixing netstandard and net4x flavors of the same version. -->
   <ItemGroup>
     <PackageReference Include="CodeCave.Extensions" Version="1.1.*" />
-    <PackageReference Include="CsvHelper" Version="18.0.*" />
+    <PackageReference Include="CsvHelper" Version="[33.1.0]" />
     <PackageReference Include="OpenMcdf" Version="2.3.*" />
-    <PackageReference Include="System.ComponentModel.Annotations" Version="$(NetCorePackageVersion)" />
-    <PackageReference Include="System.Drawing.Common" Version="5.0.*" Condition="'$(TargetFramework)' == 'netstandard2.0' Or '$(TargetFramework)' == 'netcoreapp2.1'" />
-    <PackageReference Include="System.Text.Encoding.CodePages" Version="6.0.*" Condition="'$(TargetFramework)' != 'net45'" />
+    <PackageReference Include="System.Text.Encoding.CodePages" Version="8.0.*" />
+  </ItemGroup>
+
+  <!-- .NET Framework (Revit 2019-2024) specific references -->
+  <ItemGroup Condition="$(TargetFramework.StartsWith('net4'))">
+    <Reference Include="System.Drawing" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+  </ItemGroup>
+
+  <!-- netstandard2.0 specific references -->
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+    <PackageReference Include="System.Drawing.Common" Version="8.0.*" />
+  </ItemGroup>
+
+  <!-- net8.0-windows (Revit 2025+) specific references; DataAnnotations are in-box on net8 -->
+  <ItemGroup Condition="'$(TargetFramework)' == 'net8.0-windows'">
+    <PackageReference Include="System.Drawing.Common" Version="8.0.*" />
+  </ItemGroup>
+
+  <!-- Allows compiling net4x targets on non-Windows machines / CI agents -->
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="All" />
   </ItemGroup>
 
   <ItemGroup>

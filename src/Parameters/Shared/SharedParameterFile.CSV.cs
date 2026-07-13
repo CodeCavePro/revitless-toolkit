@@ -41,13 +41,15 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
                 IgnoreBlankLines = true,
                 Delimiter = "\t",
                 DetectColumnCountChanges = false,
-                IncludePrivateMembers = true
+                IncludePrivateMembers = true,
+                TrimOptions = TrimOptions.Trim,
+                BadDataFound = BadDataFound,
+                HeaderValidated = HeaderValidated,
+                MissingFieldFound = MissingFieldFound,
             };
 
-#if !NET45
             // Allow the usage of ANSI encoding other than the default one
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
-#endif
         }
 
         /// <summary>
@@ -97,62 +99,24 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
             {
                 using var stringReader = new StringReader(section.Value);
                 using var csvReader = new CsvReader(stringReader, CsvConfiguration);
-                csvReader.Configuration.TrimOptions = TrimOptions.Trim;
-                csvReader.Configuration.BadDataFound = BadDataFound;
-
-                // TODO implement
-                // csvReader.Configuration.AllowComments = true;
-                // csvReader.Configuration.Comment = '#';
-
-                var originalHeaderValidated = csvReader.Configuration.HeaderValidated;
-                csvReader.Configuration.HeaderValidated = (invalidHeaders, context) =>
-                {
-                    // Everything is OK, just go out
-                    if (!(invalidHeaders?.Any() ?? false))
-                        return;
-
-                    // Allow DESCRIPTION header to be missing (it's actually missing in older shared parameter files)
-                    if (invalidHeaders.Any(h => h.Names.Contains(nameof(ParameterDefinition.Description), StringComparison.OrdinalIgnoreCase)))
-                        return;
-
-                    // Allow USERMODIFIABLE header to be missing (it's actually missing in older shared parameter files)
-                    if (invalidHeaders.Any(h => h.Names.Contains(nameof(ParameterDefinition.UserModifiable), StringComparison.OrdinalIgnoreCase)))
-                        return;
-
-                    originalHeaderValidated(invalidHeaders, context);
-                };
-
-                var originalMissingFieldFound = csvReader.Configuration.MissingFieldFound;
-                csvReader.Configuration.MissingFieldFound = (headerNames, index, context) =>
-                {
-                    // Allow DESCRIPTION header to be missing (it's actually missing in older shared parameter files)
-                    if (nameof(ParameterDefinition.Description).Equals(headerNames?.FirstOrDefault(), StringComparison.OrdinalIgnoreCase))
-                        return;
-
-                    // Allow USERMODIFIABLE header to be missing (it's actually missing in older shared parameter files)
-                    if (nameof(ParameterDefinition.UserModifiable).Equals(headerNames?.FirstOrDefault(), StringComparison.OrdinalIgnoreCase))
-                        return;
-
-                    originalMissingFieldFound(headerNames, index, context);
-                };
 
                 switch (section.Key)
                 {
                     // Parse *META section
                     case Sections.META:
-                        csvReader.Configuration.RegisterClassMap<MetaClassMap>();
+                        csvReader.Context.RegisterClassMap<MetaClassMap>();
                         Metadata = csvReader.GetRecords<MetaData>().FirstOrDefault();
                         break;
 
                     // Parse *GROUP section
                     case Sections.GROUPS:
-                        csvReader.Configuration.RegisterClassMap<GroupClassMap>();
+                        csvReader.Context.RegisterClassMap<GroupClassMap>();
                         _groups = csvReader.GetRecords<Group>().ToList();
                         break;
 
                     // Parse *PARAM section
                     case Sections.PARAMS:
-                        csvReader.Configuration.RegisterClassMap<ParameterClassMap>();
+                        csvReader.Context.RegisterClassMap<ParameterClassMap>();
                         Parameters = new ParameterCollection(this, csvReader.GetRecords<ParameterDefinition>().ToList());
                         break;
 
@@ -245,16 +209,58 @@ namespace CodeCave.Revit.Toolkit.Parameters.Shared
         /// <summary>
         /// Handles cases when invalid data raises <see cref="BadDataException"/>.
         /// </summary>
-        /// <param name="readingContext">CSV parsing context.</param>
+        /// <param name="args">Information about the bad data found.</param>
         /// <exception cref="BadDataException"></exception>
-        private static void BadDataFound(ReadingContext readingContext)
+        private static void BadDataFound(BadDataFoundArgs args)
         {
-            if (readingContext.Field.Contains('\"')) // Allow double quotes in parameter names
+            if (args.Field.Contains('\"')) // Allow double quotes in parameter names
             {
                 return;
             }
 
-            throw new BadDataException(readingContext, $"File contains bad / invalid data: {readingContext.Field}");
+            throw new BadDataException(args.Field, args.RawRecord, args.Context, $"File contains bad / invalid data: {args.Field}");
+        }
+
+        /// <summary>
+        /// Validates the header, tolerating the absence of DESCRIPTION and USERMODIFIABLE columns,
+        /// which are missing in older shared parameter files.
+        /// </summary>
+        /// <param name="args">Information about the invalid headers.</param>
+        private static void HeaderValidated(HeaderValidatedArgs args)
+        {
+            // Everything is OK, just go out
+            if (!(args.InvalidHeaders?.Any() ?? false))
+                return;
+
+            // Allow DESCRIPTION header to be missing (it's actually missing in older shared parameter files)
+            if (args.InvalidHeaders.Any(h => h.Names.Any(n => nameof(ParameterDefinition.Description).Equals(n, StringComparison.OrdinalIgnoreCase))))
+                return;
+
+            // Allow USERMODIFIABLE header to be missing (it's actually missing in older shared parameter files)
+            if (args.InvalidHeaders.Any(h => h.Names.Any(n => nameof(ParameterDefinition.UserModifiable).Equals(n, StringComparison.OrdinalIgnoreCase))))
+                return;
+
+            ConfigurationFunctions.HeaderValidated(args);
+        }
+
+        /// <summary>
+        /// Handles missing fields, tolerating the absence of DESCRIPTION and USERMODIFIABLE columns,
+        /// which are missing in older shared parameter files.
+        /// </summary>
+        /// <param name="args">Information about the missing field.</param>
+        private static void MissingFieldFound(MissingFieldFoundArgs args)
+        {
+            var firstHeader = args.HeaderNames?.FirstOrDefault();
+
+            // Allow DESCRIPTION header to be missing (it's actually missing in older shared parameter files)
+            if (nameof(ParameterDefinition.Description).Equals(firstHeader, StringComparison.OrdinalIgnoreCase))
+                return;
+
+            // Allow USERMODIFIABLE header to be missing (it's actually missing in older shared parameter files)
+            if (nameof(ParameterDefinition.UserModifiable).Equals(firstHeader, StringComparison.OrdinalIgnoreCase))
+                return;
+
+            ConfigurationFunctions.MissingFieldFound(args);
         }
 
         #endregion Helpers

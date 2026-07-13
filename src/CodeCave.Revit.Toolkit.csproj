@@ -52,7 +52,7 @@
        caused by mixing netstandard and net4x flavors of the same version. -->
   <ItemGroup>
     <PackageReference Include="CodeCave.Extensions" Version="1.1.*" />
-    <PackageReference Include="OpenMcdf" Version="2.4.*" />
+    <PackageReference Include="OpenMcdf" Version="3.1.*" />
     <PackageReference Include="CsvHelper" Version="33.1.*" />
     <PackageReference Include="System.Text.Encoding.CodePages" Version="8.0.*" />
   </ItemGroup>

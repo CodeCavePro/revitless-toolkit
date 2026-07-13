@@ -7,7 +7,8 @@
     <TargetFrameworks Condition="'$(OS)' == 'Windows_NT'">net48;net8.0-windows</TargetFrameworks>
     <IsPackable>false</IsPackable>
     <!-- Directory.Build.props disables this before TargetFrameworks is defined; re-enable so each TFM gets its own output folder -->
-    <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
+    <AppendTargetFrameworkToOutputPath Condition="'$(TargetFrameworks)' != ''">true</AppendTargetFrameworkToOutputPath>
+    <BuildInParallel Condition="'$(TargetFrameworks)' != ''">false</BuildInParallel>
   </PropertyGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net48'">

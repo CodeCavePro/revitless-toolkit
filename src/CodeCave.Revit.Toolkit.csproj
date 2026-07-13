@@ -13,6 +13,7 @@
     <LangVersion>latest</LangVersion>
     <WarningLevel>7</WarningLevel>
     <AppendTargetFrameworkToOutputPath Condition="'$(TargetFrameworks)' != ''">true</AppendTargetFrameworkToOutputPath>
+    <BuildInParallel Condition="'$(TargetFrameworks)' != ''">false</BuildInParallel> 
     <!-- Allow building the net8.0-windows target on non-Windows build agents -->
     <EnableWindowsTargeting>true</EnableWindowsTargeting>
   </PropertyGroup>
@@ -51,8 +52,8 @@
        caused by mixing netstandard and net4x flavors of the same version. -->
   <ItemGroup>
     <PackageReference Include="CodeCave.Extensions" Version="1.1.*" />
-    <PackageReference Include="CsvHelper" Version="[33.1.0]" />
-    <PackageReference Include="OpenMcdf" Version="2.3.*" />
+    <PackageReference Include="OpenMcdf" Version="2.4.*" />
+    <PackageReference Include="CsvHelper" Version="33.1.*" />
     <PackageReference Include="System.Text.Encoding.CodePages" Version="8.0.*" />
   </ItemGroup>
 
